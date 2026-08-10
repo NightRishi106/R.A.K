@@ -70,14 +70,16 @@ export default function HeroSection() {
       </div>
 
       {/* Central Hero Block */}
-      <div className="z-10 max-w-4xl my-auto px-4 flex flex-col items-center relative py-20 w-full">
+      <div className="z-10 max-w-4xl my-auto px-4 flex flex-col items-center relative w-full">
         
-        {/* Top Sanskrit Quote */}
+        {/* Full Screen Viewport Container for the 3 selected items */}
+        <div className="min-h-[100svh] flex flex-col items-center justify-center w-full pt-20 pb-12">
+          {/* Top Sanskrit Quote */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.1 }}
-          className="mb-8 md:mb-12 flex flex-col items-center justify-center text-center max-w-lg z-10"
+          className="mb-4 md:mb-8 flex flex-col items-center justify-center text-center max-w-lg z-10"
         >
           <p className="font-serif text-sm md:text-base lg:text-lg text-gold-faded/90 leading-relaxed font-semibold">
             "शिवः शक्त्या युक्तो यदि भवति शक्तः प्रभवितुं<br/>
@@ -89,13 +91,13 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Title Group with Wheel */}
-        <div className="relative flex flex-col items-center justify-center w-full min-h-[32rem] md:min-h-[40rem] lg:min-h-[48rem]">
+        <div className="relative flex flex-col items-center justify-center w-full py-8 md:py-16 lg:py-24">
           {/* Ancient Logo Symbol (Moved behind text) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2 }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[32rem] h-[32rem] md:w-[40rem] md:h-[40rem] lg:w-[48rem] lg:h-[48rem] flex items-center justify-center text-gold-faded pointer-events-none z-[-1]"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[22rem] h-[22rem] md:w-[32rem] md:h-[32rem] lg:w-[40rem] lg:h-[40rem] flex items-center justify-center text-gold-faded pointer-events-none z-[-1]"
           >
             {/* Ornate Circular Border */}
             <svg className="absolute inset-0 m-auto w-1/2 h-1/2 animate-[spin_120s_linear_infinite] opacity-50" viewBox="0 0 200 200">
@@ -174,7 +176,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="mt-8 md:mt-12 flex flex-col items-center justify-center text-center max-w-lg z-10"
+          className="mt-6 md:mt-10 flex flex-col items-center justify-center text-center max-w-lg z-10"
         >
           <p className="font-serif text-sm md:text-base lg:text-lg text-gold-faded/90 leading-relaxed font-semibold">
             यदेवेह तदमुत्र यदमुत्र तदन्विह।<br/>
@@ -184,8 +186,11 @@ export default function HeroSection() {
             कठोपनिषद्
           </p>
         </motion.div>
+        </div>
 
-        {/* Description */}
+        {/* Scrollable Bottom Content */}
+        <div className="flex flex-col items-center justify-center w-full pb-24 mt-8">
+          {/* Description */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -210,6 +215,7 @@ export default function HeroSection() {
             Explore Case Files
           </a>
         </motion.div>
+        </div>
       </div>
     </section>
   );
