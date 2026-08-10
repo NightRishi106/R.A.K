@@ -6,20 +6,17 @@ import { Shield, BookOpen, Compass, Eye, Volume2 } from 'lucide-react';
 export default function HeroSection() {
 
   return (
-    <section className="relative min-h-[95vh] flex flex-col justify-between items-center text-center px-4 py-12 overflow-hidden paper-grain bg-gradient-to-b from-[#0a0807] via-[#0d0a09] to-[#080605] border-b border-bronze-dark/40">
+    <section className="relative min-h-[95vh] flex flex-col justify-between items-center text-center px-4 py-12 overflow-hidden paper-grain bg-gradient-to-b from-[#110e0d] via-[#1a1512] to-[#120e0c] border-b border-bronze-dark/40">
       {/* Cinematic Varanasi Sunset Background */}
       <img
         src="/benaras.jpg"
         alt="Varanasi Sunset Ganges"
-        className="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none z-0"
+        className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none z-0"
         referrerPolicy="no-referrer"
       />
 
-      {/* Darkening Overlay */}
-      <div className="absolute inset-0 bg-black/40 pointer-events-none z-0" />
-
       {/* Cinematic Vignette */}
-      <div className="absolute inset-0 bg-radial-gradient from-transparent via-black/20 to-black/95 pointer-events-none z-1" />
+      <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-black/90 pointer-events-none z-1" />
 
       {/* Sanskrit Text Overlay - Faint Gold & Semi-transparent */}
       <div className="absolute top-10 left-10 w-64 text-[10px] font-serif leading-relaxed text-gold-faded/5 tracking-widest pointer-events-none select-none text-left z-0 hidden lg:block">
