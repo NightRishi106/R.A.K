@@ -70,10 +70,26 @@ export default function HeroSection() {
       </div>
 
       {/* Central Hero Block */}
-      <div className="z-10 max-w-4xl my-auto px-4 flex flex-col items-center relative py-20">
+      <div className="z-10 max-w-4xl my-auto px-4 flex flex-col items-center relative py-20 w-full">
         
+        {/* Top Sanskrit Quote */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.1 }}
+          className="mb-8 md:mb-12 flex flex-col items-center justify-center text-center max-w-lg z-10"
+        >
+          <p className="font-serif text-sm md:text-base lg:text-lg text-gold-faded/90 leading-relaxed font-semibold">
+            "शिवः शक्त्या युक्तो यदि भवति शक्तः प्रभवितुं<br/>
+            न चेदेवं देवो न खलु कुशलः स्पन्दितुमपि।"
+          </p>
+          <p className="mt-2 font-sans text-xs md:text-sm text-ancient-beige/70 uppercase tracking-widest">
+            आदि शंकराचार्य द्वारा रचित सौन्दर्य लहरी
+          </p>
+        </motion.div>
+
         {/* Title Group with Wheel */}
-        <div className="relative flex flex-col items-center justify-center w-full">
+        <div className="relative flex flex-col items-center justify-center w-full min-h-[32rem] md:min-h-[40rem] lg:min-h-[48rem]">
           {/* Ancient Logo Symbol (Moved behind text) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -124,28 +140,12 @@ export default function HeroSection() {
             </svg>
           </motion.div>
 
-          {/* Top Sanskrit Quote */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.1 }}
-            className="mb-6 flex flex-col items-center justify-center text-center max-w-lg z-10"
-          >
-            <p className="font-serif text-sm md:text-base lg:text-lg text-gold-faded/90 leading-relaxed font-semibold">
-              "शिवः शक्त्या युक्तो यदि भवति शक्तः प्रभवितुं<br/>
-              न चेदेवं देवो न खलु कुशलः स्पन्दितुमपि।"
-            </p>
-            <p className="mt-2 font-sans text-xs md:text-sm text-ancient-beige/70 uppercase tracking-widest">
-              आदि शंकराचार्य द्वारा रचित सौन्दर्य लहरी
-            </p>
-          </motion.div>
-
           {/* Title */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-serif tracking-[0.08em] text-gold-warm font-bold leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-serif tracking-[0.08em] text-gold-warm font-bold leading-tight z-10"
           >
             RAM ASHOK KUMAR
           </motion.h1>
@@ -155,35 +155,35 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="mt-4 text-xs md:text-sm lg:text-base font-sans font-medium tracking-[0.4em] text-ancient-beige/85 uppercase"
+            className="mt-4 text-xs md:text-sm lg:text-base font-sans font-medium tracking-[0.4em] text-ancient-beige/85 uppercase z-10"
           >
             WHERE TANTRA MEETS SCIENCE
           </motion.h2>
-
-          {/* Bottom Sanskrit Quote */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="mt-6 flex flex-col items-center justify-center text-center max-w-lg z-10"
-          >
-            <p className="font-serif text-sm md:text-base lg:text-lg text-gold-faded/90 leading-relaxed font-semibold">
-              यदेवेह तदमुत्र यदमुत्र तदन्विह।<br/>
-              मृत्योः स मृत्युमाप्नोति य इह नानेव पश्यति ॥
-            </p>
-            <p className="mt-2 font-sans text-xs md:text-sm text-ancient-beige/70 uppercase tracking-widest text-right w-full pr-12">
-              कठोपनिषद्
-            </p>
-          </motion.div>
 
           {/* Custom Ornate Underline */}
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 1.5, delay: 0.6 }}
-            className="w-48 h-[1px] bg-gradient-to-r from-transparent via-gold-faded/60 to-transparent mt-6 mb-2"
+            className="w-48 h-[1px] bg-gradient-to-r from-transparent via-gold-faded/60 to-transparent mt-6 mb-2 z-10"
           />
         </div>
+
+        {/* Bottom Sanskrit Quote */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="mt-8 md:mt-12 flex flex-col items-center justify-center text-center max-w-lg z-10"
+        >
+          <p className="font-serif text-sm md:text-base lg:text-lg text-gold-faded/90 leading-relaxed font-semibold">
+            यदेवेह तदमुत्र यदमुत्र तदन्विह।<br/>
+            मृत्योः स मृत्युमाप्नोति य इह नानेव पश्यति ॥
+          </p>
+          <p className="mt-2 font-sans text-xs md:text-sm text-ancient-beige/70 uppercase tracking-widest text-right w-full pr-12">
+            कठोपनिषद्
+          </p>
+        </motion.div>
 
         {/* Description */}
         <motion.p
