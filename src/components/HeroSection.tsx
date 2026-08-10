@@ -131,11 +131,11 @@ export default function HeroSection() {
             transition={{ duration: 1, delay: 0.1 }}
             className="mb-6 flex flex-col items-center justify-center text-center max-w-lg z-10"
           >
-            <p className="font-serif text-[11px] md:text-xs lg:text-sm text-gold-faded/80 leading-relaxed font-semibold">
+            <p className="font-serif text-sm md:text-base lg:text-lg text-gold-faded/90 leading-relaxed font-semibold">
               "शिवः शक्त्या युक्तो यदि भवति शक्तः प्रभवितुं<br/>
               न चेदेवं देवो न खलु कुशलः स्पन्दितुमपि।"
             </p>
-            <p className="mt-2 font-sans text-[9px] md:text-[10px] text-ancient-beige/60 uppercase tracking-widest">
+            <p className="mt-2 font-sans text-xs md:text-sm text-ancient-beige/70 uppercase tracking-widest">
               आदि शंकराचार्य द्वारा रचित सौन्दर्य लहरी
             </p>
           </motion.div>
@@ -167,11 +167,11 @@ export default function HeroSection() {
             transition={{ duration: 1, delay: 0.5 }}
             className="mt-6 flex flex-col items-center justify-center text-center max-w-lg z-10"
           >
-            <p className="font-serif text-[11px] md:text-xs lg:text-sm text-gold-faded/80 leading-relaxed font-semibold">
+            <p className="font-serif text-sm md:text-base lg:text-lg text-gold-faded/90 leading-relaxed font-semibold">
               यदेवेह तदमुत्र यदमुत्र तदन्विह।<br/>
               मृत्योः स मृत्युमाप्नोति य इह नानेव पश्यति ॥
             </p>
-            <p className="mt-2 font-sans text-[9px] md:text-[10px] text-ancient-beige/60 uppercase tracking-widest text-right w-full pr-12">
+            <p className="mt-2 font-sans text-xs md:text-sm text-ancient-beige/70 uppercase tracking-widest text-right w-full pr-12">
               कठोपनिषद्
             </p>
           </motion.div>
