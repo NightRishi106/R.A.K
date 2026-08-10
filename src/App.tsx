@@ -13,7 +13,6 @@ import EquipmentSection from './components/EquipmentSection';
 import TimelineSection from './components/TimelineSection';
 import ContactSection from './components/ContactSection';
 import VisualDivider from './components/VisualDivider';
-import TransparentYantra from './components/TransparentYantra';
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -25,7 +24,6 @@ export default function App() {
       <header className="fixed top-0 left-0 w-full z-50 bg-[#110e0d]/30 backdrop-blur-sm border-b border-bronze-dark/40 shadow-lg px-4 md:px-8 py-4 flex items-center justify-between">
         {/* Left side: branding */}
         <div className="flex items-center gap-2.5">
-          <TransparentYantra src="/yantra.jpg" className="w-[26px] h-[26px] opacity-90 rounded-full" alt="Yantra Logo" />
           <div className="flex flex-col text-left">
             <span className="font-serif text-[12.5px] font-bold tracking-[0.25em] text-gold-warm leading-none uppercase">
               RAM ASHOK KUMAR
@@ -214,6 +212,9 @@ export default function App() {
 
           <p className="font-sans text-xs text-ancient-beige/60 mt-14 leading-none">
             © 2026 Ram Ashok Kumar. All rights reserved. Under geological and archaeological treaty archives.
+          </p>
+          <p className="font-sans text-xs text-ancient-beige/60 mt-4 leading-none">
+            Made by <a href="https://www.instagram.com/archon.10/" target="_blank" rel="noopener noreferrer" className="text-gold-faded hover:text-gold-warm transition-colors underline decoration-gold-faded/30 underline-offset-2">archon</a>
           </p>
         </div>
       </footer>

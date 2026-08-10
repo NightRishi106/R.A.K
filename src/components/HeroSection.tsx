@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Shield, BookOpen, Compass, Eye, Volume2 } from 'lucide-react';
-import TransparentYantra from './TransparentYantra';
+
 
 export default function HeroSection() {
 
@@ -122,7 +122,22 @@ export default function HeroSection() {
                 })}
               </g>
             </svg>
-            <TransparentYantra src="/yantra.jpg" className="w-48 h-48 md:w-64 md:h-64 lg:w-[19rem] lg:h-[19rem] drop-shadow-2xl opacity-90" alt="Shri Vidya Devi Yantra" />
+          </motion.div>
+
+          {/* Top Sanskrit Quote */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.1 }}
+            className="mb-6 flex flex-col items-center justify-center text-center max-w-lg z-10"
+          >
+            <p className="font-serif text-[11px] md:text-xs lg:text-sm text-gold-faded/80 leading-relaxed font-semibold">
+              "शिवः शक्त्या युक्तो यदि भवति शक्तः प्रभवितुं<br/>
+              न चेदेवं देवो न खलु कुशलः स्पन्दितुमपि।"
+            </p>
+            <p className="mt-2 font-sans text-[9px] md:text-[10px] text-ancient-beige/60 uppercase tracking-widest">
+              आदि शंकराचार्य द्वारा रचित सौन्दर्य लहरी
+            </p>
           </motion.div>
 
           {/* Title */}
@@ -144,6 +159,22 @@ export default function HeroSection() {
           >
             WHERE TANTRA MEETS SCIENCE
           </motion.h2>
+
+          {/* Bottom Sanskrit Quote */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="mt-6 flex flex-col items-center justify-center text-center max-w-lg z-10"
+          >
+            <p className="font-serif text-[11px] md:text-xs lg:text-sm text-gold-faded/80 leading-relaxed font-semibold">
+              यदेवेह तदमुत्र यदमुत्र तदन्विह।<br/>
+              मृत्योः स मृत्युमाप्नोति य इह नानेव पश्यति ॥
+            </p>
+            <p className="mt-2 font-sans text-[9px] md:text-[10px] text-ancient-beige/60 uppercase tracking-widest text-right w-full pr-12">
+              कठोपनिषद्
+            </p>
+          </motion.div>
 
           {/* Custom Ornate Underline */}
           <motion.div
