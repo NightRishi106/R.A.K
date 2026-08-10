@@ -15,11 +15,11 @@ export default function AboutSection() {
         }} 
       />
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <div className="w-full max-w-[95vw] 2xl:max-w-[1600px] mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
           {/* Left Column: Portrait & Plaque (4 cols on lg) */}
-          <div className="lg:col-span-5 flex flex-col items-center">
+          <div className="lg:col-span-4 flex flex-col items-center">
             
             {/* Antique Framed Photo of Ram Ashok Kumar */}
             <div className="relative p-4 bg-ancient-dark/60 backdrop-blur-sm border border-bronze-light/30 rounded-lg shadow-[0_15px_40px_rgba(0,0,0,0.8)] max-w-sm w-full">
@@ -69,8 +69,8 @@ export default function AboutSection() {
 
           </div>
 
-          {/* Right Column: Biography & Details (7 cols on lg) */}
-          <div className="lg:col-span-7 flex flex-col justify-center bg-ancient-dark/60 backdrop-blur-sm border border-bronze-light/30 rounded-lg p-8 shadow-[0_15px_40px_rgba(0,0,0,0.8)]">
+          {/* Right Column: Biography & Details (8 cols on lg) */}
+          <div className="lg:col-span-8 flex flex-col justify-center bg-ancient-dark/60 backdrop-blur-sm border border-bronze-light/30 rounded-lg p-6 lg:p-10 shadow-[0_15px_40px_rgba(0,0,0,0.8)]">
             
             {/* Header */}
             <div className="flex items-center gap-3 mb-3">

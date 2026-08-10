@@ -191,22 +191,14 @@ export default function App() {
           </p>
 
           {/* Quick Info Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 w-full max-w-4xl mt-10 pt-10 border-t border-bronze-dark/40 text-left font-mono text-[10px] md:text-xs text-ancient-beige/70 uppercase tracking-wider">
+          <div className="flex flex-row justify-center items-center gap-16 md:gap-24 w-full max-w-4xl mt-10 pt-10 border-t border-bronze-dark/40 text-center font-mono text-[10px] md:text-xs text-ancient-beige/70 uppercase tracking-wider">
             <div>
               <span className="block text-gold-faded/90 font-semibold mb-2">Directorate</span>
-              <span>Ram Ashok Kumar, M.Sc.</span>
+              <span>Ram Ashok Kumar</span>
             </div>
             <div>
               <span className="block text-gold-faded/90 font-semibold mb-2">Affiliation</span>
-              <span>CAGS Geophysics, Est. 1999</span>
-            </div>
-            <div>
-              <span className="block text-gold-faded/90 font-semibold mb-2">Core Station</span>
-              <span>Varanasi Laboratory</span>
-            </div>
-            <div>
-              <span className="block text-gold-faded/90 font-semibold mb-2">Registry Code</span>
-              <span>IN-ANM-25-LOGS</span>
+              <span>Society of Psychical Research</span>
             </div>
           </div>
 
