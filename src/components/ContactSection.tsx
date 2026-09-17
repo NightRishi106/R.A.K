@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Send, FileText, CheckCircle, Mail, User, ShieldAlert, Archive, Trash2 } from 'lucide-react';
 import { ResearchInquiry } from '../types';
+import InvestigationFormModal from './InvestigationFormModal';
 
 export default function ContactSection() {
   const [name, setName] = useState('');
@@ -12,6 +13,8 @@ export default function ContactSection() {
   const [isSealed, setIsSealed] = useState(false);
   const [sentLetters, setSentLetters] = useState<ResearchInquiry[]>([]);
   const [selectedSentLetter, setSelectedSentLetter] = useState<ResearchInquiry | null>(null);
+  
+  const [isFormModalOpen, setIsFormModalOpen] = useState(false);
 
   // Load sent letters from localStorage on mount
   useEffect(() => {
@@ -374,8 +377,24 @@ export default function ContactSection() {
           </div>
 
         </div>
+        
+        {/* Call to Action Button */}
+        <div className="mt-16 flex justify-center">
+          <button
+            onClick={() => setIsFormModalOpen(true)}
+            className="px-8 py-4 bg-gold-warm text-[#110e0d] hover:bg-gold-faded font-serif text-sm font-bold tracking-widest uppercase rounded shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-300 flex items-center gap-3 border border-gold-faded/50"
+          >
+            <ShieldAlert className="w-5 h-5" />
+            FORM FOR INVESTIGATION
+          </button>
+        </div>
 
       </div>
+
+      <InvestigationFormModal 
+        isOpen={isFormModalOpen} 
+        onClose={() => setIsFormModalOpen(false)} 
+      />
     </section>
   );
 }
