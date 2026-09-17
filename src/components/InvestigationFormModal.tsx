@@ -413,7 +413,7 @@ export default function InvestigationFormModal({ isOpen, onClose }: Investigatio
               </div>
 
               {/* Submit Action */}
-              <div className="pt-8 flex flex-col md:flex-row justify-center gap-4 sticky bottom-0 bg-[#FAF5E9] pb-4 border-t border-amber-900/10 mt-8">
+              <div className="print-hide pt-8 flex flex-col md:flex-row justify-center gap-4 sticky bottom-0 bg-[#FAF5E9] pb-4 border-t border-amber-900/10 mt-8">
                 <button
                   type="submit"
                   className="px-8 py-4 bg-amber-950 text-[#FAF5E9] hover:bg-amber-900 rounded font-serif text-sm font-bold tracking-widest uppercase transition-all shadow-lg flex items-center gap-3 w-full md:w-auto justify-center"
