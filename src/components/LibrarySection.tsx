@@ -71,7 +71,7 @@ export default function LibrarySection() {
                 </div>
 
                 {/* Vertical Book Spines on the Shelf */}
-                <div className="flex items-end justify-center gap-4 h-72 border-b-[14px] border-[#34241a] px-4 relative mt-auto pb-0">
+                <div className="flex items-end justify-center gap-2 md:gap-3 h-72 border-b-[14px] border-[#34241a] px-2 md:px-4 relative mt-auto pb-0 overflow-x-auto overflow-y-hidden no-scrollbar">
                   {/* Shelf Shadow */}
                   <div className="absolute bottom-0 inset-x-0 h-4 bg-gradient-to-t from-black/80 to-transparent" />
                   
@@ -82,12 +82,14 @@ export default function LibrarySection() {
                     const spineColors = [
                       'from-[#5c3e29] to-[#2e1d12] text-amber-100 border-[#c5a880]/30', // Ancient Manuscript
                       'from-[#3c4136] to-[#1e211b] text-emerald-100 border-[#8fa080]/30', // Field Ledger
-                      'from-[#4a2e2b] to-[#241514] text-rose-100 border-[#c29895]/30' // Research Journal
+                      'from-[#4a2e2b] to-[#241514] text-rose-100 border-[#c29895]/30', // Research Journal
+                      'from-[#2a2a2a] to-[#111111] text-gray-200 border-[#888888]/30', // Black leather
+                      'from-[#2d3a4a] to-[#141b25] text-blue-100 border-[#768ba5]/30'  // Blue leather
                     ];
                     
-                    const widthClasses = ['w-12', 'w-10', 'w-11'];
-                    const heightClasses = ['h-64', 'h-56', 'h-60'];
-                    const tiltClasses = ['-rotate-1', 'rotate-1', '-rotate-2'];
+                    const widthClasses = ['w-10', 'w-9', 'w-11', 'w-8'];
+                    const heightClasses = ['h-64', 'h-56', 'h-60', 'h-52', 'h-58'];
+                    const rotations = [-1, 1, -2, 0, 2, -1, 3];
 
                     return (
                       <motion.div
@@ -95,13 +97,13 @@ export default function LibrarySection() {
                         onClick={() => setSelectedBookId(book.id)}
                         animate={{
                           y: isSelected ? -24 : 0,
-                          rotate: isSelected ? 0 : idx === 0 ? -1 : idx === 1 ? 1 : -2,
+                          rotate: isSelected ? 0 : rotations[idx % rotations.length],
                           boxShadow: isSelected
                             ? '5px 15px 25px rgba(0,0,0,0.9), 0 0 15px rgba(212,175,55,0.2)'
                             : '2px 4px 10px rgba(0,0,0,0.5)',
                         }}
                         transition={{ duration: 0.3 }}
-                        className={`cursor-pointer rounded-t border-t border-l border-r flex flex-col justify-between p-3 select-none transition-all relative ${
+                        className={`cursor-pointer shrink-0 rounded-t border-t border-l border-r flex flex-col justify-between p-2 md:p-3 select-none transition-all relative ${
                           spineColors[idx % spineColors.length]
                         } ${widthClasses[idx % widthClasses.length]} ${heightClasses[idx % heightClasses.length]} bg-gradient-to-r`}
                       >

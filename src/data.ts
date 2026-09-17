@@ -218,6 +218,50 @@ export const libraryItems: LibraryItem[] = [
     translatedExcerpt: '"The long tunnels act as physical organs. Wind blowing from the coast 80km away is compressed, creating a standing infrasound wave of 4.8 Hz. This frequency is proven to cause eyeball resonance, leading to reports of gray apparitions..."',
     condition: 'Excellent, bound archive copy with architectural blue-prints.',
     languages: ['English']
+  },
+  {
+    id: 'lib-tantra-4',
+    title: 'Tantric Physics: The Yantra as a Circuit',
+    category: 'Theory Archive',
+    origin: 'Varanasi Central Registry',
+    estimatedAge: '2012',
+    summary: 'An exploration of ancient Yantras as geometric models for wave-guides, examining how specific metal plates redirect telluric currents.',
+    translatedExcerpt: '"The bindu (center) is not merely a focal point for the mind, but a grounding pole. When etched in copper and aligned with the geomagnetic north, the Sri Yantra deflects localized electromagnetic static by 12%."',
+    condition: 'Hardcover, cloth bound, heavily annotated in the margins.',
+    languages: ['English', 'Hindi']
+  },
+  {
+    id: 'lib-diary-5',
+    title: 'The Himalayan Expedition Log',
+    category: 'Field Ledger',
+    origin: 'Ram Ashok Kumar Personal Collection',
+    estimatedAge: '2005-2006',
+    summary: 'Records from high-altitude surveys of secluded monasteries, measuring the atmospheric pressure drops correlating with group chanting.',
+    translatedExcerpt: '"At 4000 meters, the resonant frequency of 40 monks chanting OM caused the ambient barometric pressure in the sanctum to pulse rhythmically, creating a localized high-pressure bubble that repelled the incoming snowstorm for 45 minutes."',
+    condition: 'Weather-beaten leather, binding loose, severe wind-chill damage to cover.',
+    languages: ['English', 'Tibetan']
+  },
+  {
+    id: 'lib-aghori-6',
+    title: 'Practices of the Aghori: A Scientific Observation',
+    category: 'Research Journal',
+    origin: 'CAGS Archives',
+    estimatedAge: '2015',
+    summary: 'Clinical observations of the Aghori sect at Manikarnika Ghat, analyzing their core body temperatures and immune responses amidst extreme conditions.',
+    translatedExcerpt: '"Subject A maintained a core temperature of 36.8°C while meditating on frozen ash in 4°C ambient air. Infrared scans show vascular constriction in the extremities to an impossible degree, shunting all thermal energy to the heart and brain."',
+    condition: 'Pristine digital print bound in softcover.',
+    languages: ['English']
+  },
+  {
+    id: 'lib-manuscript-7',
+    title: 'Bhojpatra: The Ghost Transmissions',
+    category: 'Ancient Manuscript',
+    origin: 'Recovered from a ruined Haveli, Rajasthan',
+    estimatedAge: 'Circa 17th Century',
+    summary: 'A set of birch-bark (bhojpatra) leaves detailing rituals that correspond startlingly well with modern static-radio phenomena and EVP (Electronic Voice Phenomenon).',
+    translatedExcerpt: '"To hear the voices of the wind-walkers, place the hollowed brass vessel near the rushing water, and fill it with iron shavings. Their whispers will rattle the iron, and you shall hear them as metal scraping stone."',
+    condition: 'Highly fragile, encased in UV-protective acrylic glass.',
+    languages: ['Marwari', 'Sanskrit']
   }
 ];
 
