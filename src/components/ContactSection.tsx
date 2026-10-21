@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Send, FileText, CheckCircle, Mail, User, ShieldAlert, Archive, Trash2 } from 'lucide-react';
+import { Send, FileText, CheckCircle, Mail, User, Archive, Trash2 } from 'lucide-react';
 import { ResearchInquiry } from '../types';
-import InvestigationFormModal from './InvestigationFormModal';
 
 export default function ContactSection() {
   const [name, setName] = useState('');
@@ -13,8 +12,6 @@ export default function ContactSection() {
   const [isSealed, setIsSealed] = useState(false);
   const [sentLetters, setSentLetters] = useState<ResearchInquiry[]>([]);
   const [selectedSentLetter, setSelectedSentLetter] = useState<ResearchInquiry | null>(null);
-  
-  const [isFormModalOpen, setIsFormModalOpen] = useState(false);
 
   // Load sent letters from localStorage on mount
   useEffect(() => {
@@ -28,11 +25,37 @@ export default function ContactSection() {
     }
   }, []);
 
-  const handleSendLetter = (e: React.FormEvent) => {
+  const [dispatchStatus, setDispatchStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+
+  const handleSendLetter = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email || !message) return;
 
     setIsSealed(true);
+    setDispatchStatus('sending');
+
+    try {
+      await fetch('https://formsubmit.co/ajax/ramashokkumar@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          _subject: `[CAGS Correspondence] ${subject}`,
+          subject: subject,
+          message: message,
+          _template: 'table',
+          _captcha: 'false'
+        })
+      });
+      setDispatchStatus('sent');
+    } catch (err) {
+      console.error('Error dispatching email:', err);
+      setDispatchStatus('error');
+    }
 
     setTimeout(() => {
       // Create new inquiry
@@ -55,17 +78,12 @@ export default function ContactSection() {
       setSentLetters(updated);
       localStorage.setItem('cags_correspondence', JSON.stringify(updated));
 
-      // Trigger email client
-      const mailtoLink = `mailto:ramashokkumar@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-        `From: ${name} (${email})\n\n${message}`
-      )}`;
-      window.location.href = mailtoLink;
-
       // Reset form fields
       setName('');
       setEmail('');
       setMessage('');
       setIsSealed(false);
+      setTimeout(() => setDispatchStatus('idle'), 4000);
     }, 1500); // 1.5 seconds to watch the seal stamp animation
   };
 
@@ -231,8 +249,17 @@ export default function ContactSection() {
                   disabled={isSealed}
                   className="relative px-6 py-3 bg-[#3a2e24] text-[#FAF5E9] hover:bg-[#2c221a] rounded font-serif text-xs font-semibold tracking-[0.2em] uppercase transition-all duration-300 shadow flex items-center gap-2 cursor-pointer"
                 >
-                  <Send className="w-3.5 h-3.5 text-gold-warm" />
-                  {isSealed ? 'Stamping Seal...' : 'Seal & Send Letter'}
+                  {dispatchStatus === 'sent' && !isSealed ? (
+                    <>
+                      <CheckCircle className="w-3.5 h-3.5 text-gold-warm" />
+                      Letter Dispatched
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-3.5 h-3.5 text-gold-warm" />
+                      {isSealed ? 'Stamping & Dispatching...' : 'Seal & Send Letter'}
+                    </>
+                  )}
                 </button>
               </div>
 
@@ -377,24 +404,8 @@ export default function ContactSection() {
           </div>
 
         </div>
-        
-        {/* Call to Action Button */}
-        <div className="mt-16 flex justify-center">
-          <button
-            onClick={() => setIsFormModalOpen(true)}
-            className="px-8 py-4 bg-gold-warm text-[#110e0d] hover:bg-gold-faded font-serif text-sm font-bold tracking-widest uppercase rounded shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-300 flex items-center gap-3 border border-gold-faded/50"
-          >
-            <ShieldAlert className="w-5 h-5" />
-            FORM FOR INVESTIGATION
-          </button>
-        </div>
 
       </div>
-
-      <InvestigationFormModal 
-        isOpen={isFormModalOpen} 
-        onClose={() => setIsFormModalOpen(false)} 
-      />
     </section>
   );
 }

@@ -210,11 +210,11 @@ export const libraryItems: LibraryItem[] = [
   },
   {
     id: 'lib-tantratattvam',
-    title: 'श्री तन्त्र-तत्त्वम् (Shri Tantra-Tattvam)',
+    title: 'श्री तारा-तन्त्रम् (Shri Tara-Tantram)',
     category: 'Tantra & Mahavidya',
     origin: 'Yogeshwaranand & Sumit Girdharwal',
     estimatedAge: 'Contemporary Print',
-    summary: 'An exploration of the fundamental principles of Tantra, focusing on the Dwitiya Mahavidya (The Second Wisdom Goddess) and esoteric practices.',
+    summary: 'An exploration of the fundamental principles of Tantra, focusing on the Dwitiya Mahavidya (Goddess Tara, The Second Wisdom Goddess) and esoteric sadhana practices.',
     translatedExcerpt: '"The bindu (center) is not merely a focal point for the mind, but a grounding pole where the cosmic energy manifests in the physical vessel."',
     condition: 'Hardcover, deep green binding.',
     languages: ['Sanskrit', 'Hindi']

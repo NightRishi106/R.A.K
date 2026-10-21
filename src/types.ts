@@ -42,7 +42,7 @@ export interface MythReality {
 export interface LibraryItem {
   id: string;
   title: string;
-  category: 'Ancient Manuscript' | 'Research Journal' | 'Field Ledger' | 'Archaeological Survey';
+  category: string;
   origin: string;
   estimatedAge: string;
   summary: string;

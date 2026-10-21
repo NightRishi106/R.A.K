@@ -71,32 +71,65 @@ export default function LibrarySection() {
                 </div>
 
                 {/* Vertical Book Spines on the Shelf */}
-                <div className="flex items-end justify-center h-72 border-b-[14px] border-[#34241a] px-2 md:px-4 relative mt-auto pb-0 overflow-hidden no-scrollbar">
+                <div className="flex items-end justify-center h-80 border-b-[14px] border-[#34241a] px-2 md:px-4 relative mt-auto pb-0 overflow-hidden no-scrollbar">
                   {/* Shelf Shadow */}
                   <div className="absolute bottom-0 inset-x-0 h-8 bg-gradient-to-t from-black/80 to-transparent z-10 pointer-events-none" />
                   
-                  {/* Uploaded Books Image */}
-                  <div className="relative w-full h-full flex items-end justify-center">
-                    {/* We use an image pointing to /books.png. We use object-fit and clip-path to crop out the white borders. */}
+                  {/* Uploaded Books Image & Pixel-Aligned Interactive Spine Hitboxes */}
+                  <div className="relative h-[104%] w-auto inline-flex items-end justify-center select-none">
                     <img 
                       src="/Books.png" 
                       alt="Ancient Books" 
-                      className="h-[110%] w-auto object-cover object-bottom"
+                      className="h-full w-auto object-contain block pointer-events-none"
                       style={{
-                        clipPath: 'inset(4% 8% 2% 8%)' // Crops the top, right, bottom, left white space
+                        clipPath: 'inset(1.8% 7.1% 2.8% 7.1%)'
                       }}
                     />
                     
-                    {/* Interactive overlay for 6 books */}
-                    <div className="absolute inset-0 flex" style={{ clipPath: 'inset(4% 8% 2% 8%)' }}>
-                      {libraryItems.map((book, idx) => (
-                        <div 
-                          key={book.id}
-                          onClick={() => setSelectedBookId(book.id)}
-                          className="flex-1 h-full cursor-pointer hover:bg-black/20 transition-colors"
-                          title={book.title}
-                        />
-                      ))}
+                    {/* Interactive overlay aligned exactly to the 6 cropped book spines */}
+                    <div 
+                      className="absolute flex z-20"
+                      style={{
+                        top: '1.8%',
+                        bottom: '2.8%',
+                        left: '7.1%',
+                        right: '7.1%'
+                      }}
+                    >
+                      {libraryItems.map((book, idx) => {
+                        const spineWidths = ['15.5%', '14%', '14%', '16.5%', '21%', '19%'];
+                        const isSelected = selectedBookId === book.id;
+                        return (
+                          <button
+                            key={book.id}
+                            type="button"
+                            onClick={() => {
+                              setSelectedBookId(book.id);
+                              const cardEl = document.getElementById('library-book-card');
+                              if (cardEl && window.innerWidth < 1024) {
+                                cardEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                              }
+                            }}
+                            style={{ width: spineWidths[idx] || '16.66%' }}
+                            className={`h-full relative cursor-pointer transition-all duration-200 group focus:outline-none ${
+                              isSelected
+                                ? 'bg-gold-warm/15 ring-2 ring-inset ring-gold-warm shadow-[inset_0_0_15px_rgba(212,175,55,0.35)]'
+                                : 'hover:bg-gold-warm/10 hover:ring-1 hover:ring-inset hover:ring-gold-warm/60'
+                            }`}
+                            title={book.title}
+                            aria-label={`Open ${book.title}`}
+                          >
+                            {/* Top active indicator tab */}
+                            <span
+                              className={`absolute top-1.5 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full transition-all duration-200 ${
+                                isSelected
+                                  ? 'bg-gold-warm scale-100 shadow-[0_0_8px_rgba(212,175,55,0.9)]'
+                                  : 'bg-gold-warm/0 group-hover:bg-gold-warm/70 scale-75'
+                              }`}
+                            />
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
@@ -113,7 +146,7 @@ export default function LibrarySection() {
           </div>
 
           {/* Studying Desk Column (8 cols on lg) */}
-          <div className="lg:col-span-8">
+          <div id="library-book-card" className="lg:col-span-8">
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedBook.id}
