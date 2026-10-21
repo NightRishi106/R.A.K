@@ -35,7 +35,7 @@ export default function ContactSection() {
     setDispatchStatus('sending');
 
     try {
-      await fetch('https://formsubmit.co/ajax/ramashokkumar@gmail.com', {
+      await fetch('https://formsubmit.co/ajax/eklavyas10@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
