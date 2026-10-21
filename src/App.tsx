@@ -18,7 +18,7 @@ export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#0f0d0c] text-ancient-beige font-sans selection:bg-gold-warm selection:text-ancient-dark overflow-x-hidden vintage-scrollbar">
+    <div className="min-h-screen w-full bg-[#1a1512] text-ancient-beige font-sans selection:bg-gold-warm selection:text-ancient-dark overflow-x-hidden vintage-scrollbar">
       
       {/* Sticky Antique Navigation Ledger */}
       <header className="fixed top-0 left-0 w-full z-50 bg-[#110e0d]/30 backdrop-blur-sm border-b border-bronze-dark/40 shadow-lg px-4 md:px-8 py-4 flex items-center justify-between">
@@ -109,7 +109,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* Main content sections with thematic transitions */}
-      <main className="relative">
+      <main className="relative w-full min-h-screen bg-[#1a1512]">
         
         {/* Section 0: Hero & Entry */}
         <HeroSection />
