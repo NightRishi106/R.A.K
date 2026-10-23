@@ -5,7 +5,7 @@ export default function HeroSection() {
   return (
     <>
       {/* Cinematic Full Screen Hero Section */}
-      <section className="relative w-full min-h-screen pt-20 md:pt-24 pb-8 md:pb-12 px-0 md:px-4 flex flex-col justify-center items-center paper-grain bg-[#1a1512]">
+      <section className="relative w-full min-h-screen pt-20 md:pt-24 pb-8 md:pb-12 px-0 md:px-4 flex flex-col justify-center items-center paper-grain bg-[#1a1512] bg-[url('/assets/aistudio/golden_bg_6f21ddff.png'),linear-gradient(rgba(15,10,7,0.5),rgba(15,10,7,0.5)),url('/assets/aistudio/ram_background_copy_4fbc3e6e.png')] bg-cover bg-center bg-no-repeat">
         <div className="relative w-full h-auto aspect-[16/9] max-w-6xl mx-auto rounded-none md:rounded-xl border-y md:border-x border-bronze-dark/30 md:shadow-2xl flex flex-col justify-center items-center text-center overflow-hidden bg-[#110e0d]">
           {/* Cinematic Background Video */}
           <video
