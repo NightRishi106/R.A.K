@@ -157,7 +157,13 @@ export default function EquipmentSection() {
               return (
                 <button
                   key={eq.id}
-                  onClick={() => setSelectedEqId(eq.id)}
+                  onClick={() => {
+                    setSelectedEqId(eq.id);
+                    const cardEl = document.getElementById('equipment-dashboard-card');
+                    if (cardEl && window.innerWidth < 1024) {
+                      cardEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                  }}
                   className={`w-full p-4 rounded text-left border transition-all duration-300 flex items-center gap-4 cursor-pointer relative overflow-hidden group ${
                     isSelected
                       ? 'bg-gradient-to-r from-[#2c1d14] to-[#1a120c] border-gold-warm text-gold-warm shadow-[0_5px_15px_rgba(212,175,55,0.1)]'
@@ -183,7 +189,7 @@ export default function EquipmentSection() {
           </div>
 
           {/* Center Main testing dashboard panel (8 cols on lg) */}
-          <div className="lg:col-span-8">
+          <div id="equipment-dashboard-card" className="lg:col-span-8">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeEquipment.id}

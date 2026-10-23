@@ -5,15 +5,15 @@ export default function HeroSection() {
   return (
     <>
       {/* Cinematic Full Screen Hero Section */}
-      <section className="relative w-full min-h-screen pt-20 md:pt-24 pb-8 md:pb-12 px-0 md:px-4 flex flex-col justify-center items-center overflow-hidden paper-grain bg-[#1a1512] bg-[linear-gradient(rgba(15,10,7,0.5),rgba(15,10,7,0.5)),url('/assets/aistudio/golden_bg_6f21ddff.png'),linear-gradient(rgba(15,10,7,0.5),rgba(15,10,7,0.5)),url('/assets/aistudio/ram_background_copy_4fbc3e6e.png')] bg-cover bg-center bg-no-repeat">
+      <section className="relative w-full min-h-[100svh] md:min-h-0 lg:min-h-screen pt-16 sm:pt-20 md:pt-24 pb-4 sm:pb-8 md:pb-12 px-2 sm:px-4 flex flex-col justify-start md:justify-center items-center overflow-hidden paper-grain bg-[#1a1512] bg-[linear-gradient(rgba(15,10,7,0.5),rgba(15,10,7,0.5)),url('/assets/aistudio/golden_bg_6f21ddff.png'),linear-gradient(rgba(15,10,7,0.5),rgba(15,10,7,0.5)),url('/assets/aistudio/ram_background_copy_4fbc3e6e.png')] bg-cover bg-center bg-no-repeat">
         {/* Portrait Image placed between center and right side of section (reduced by 15%) */}
         <img
           src="/assets/aistudio/image_179e2dc4.png"
           alt="Ram Ashok Kumar"
-          className="absolute left-[75%] bottom-0 -translate-x-1/2 translate-y-[27%] h-[68%] w-auto object-contain object-bottom pointer-events-none z-20"
+          className="absolute left-1/2 md:left-[75%] bottom-0 -translate-x-1/2 translate-y-[24%] md:translate-y-[27%] h-[66%] md:h-[68%] w-auto max-w-none object-contain object-bottom pointer-events-none z-20"
         />
 
-        <div className="relative w-full h-auto aspect-[16/9] max-w-6xl mx-auto rounded-none md:rounded-xl border-y md:border-x border-bronze-dark/30 md:shadow-2xl flex flex-col justify-center items-center text-center overflow-hidden bg-[#110e0d]">
+        <div className="relative w-full h-auto aspect-[16/9] max-w-6xl mx-auto rounded-lg md:rounded-xl border border-bronze-dark/30 shadow-2xl flex flex-col justify-center items-center text-center overflow-hidden bg-[#110e0d]">
           {/* Cinematic Background Video */}
           <video
             src="/WEB.mp4"
@@ -52,20 +52,20 @@ export default function HeroSection() {
           </div>
 
           {/* Central Hero Block */}
-          <div className="z-10 w-full h-full max-w-4xl px-4 flex flex-col items-center justify-center relative">
+          <div className="z-10 w-full h-full max-w-4xl px-2 sm:px-4 flex flex-col items-center justify-center relative">
             
             {/* Top Sanskrit Quote */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.1 }}
-              className="hidden md:flex absolute top-[15%] md:top-[20%] flex-col items-center justify-center text-center max-w-lg z-10"
+              className="flex absolute top-[8%] sm:top-[12%] md:top-[18%] flex-col items-center justify-center text-center max-w-[85%] sm:max-w-md md:max-w-lg z-10"
             >
-              <p className="font-serif text-sm md:text-base lg:text-lg text-gold-faded/90 leading-relaxed font-semibold">
+              <p className="font-serif text-[7.5px] sm:text-xs md:text-base lg:text-lg text-gold-faded/90 leading-snug sm:leading-relaxed font-semibold">
                 "शिवः शक्त्या युक्तो यदि भवति शक्तः प्रभवितुं<br/>
                 न चेदेवं देवो न खलु कुशलः स्पन्दितुमपि।"
               </p>
-              <p className="mt-2 font-sans text-xs md:text-sm text-ancient-beige/70 uppercase tracking-widest">
+              <p className="mt-0.5 sm:mt-1.5 md:mt-2 font-sans text-[6px] sm:text-[10px] md:text-sm text-ancient-beige/70 uppercase tracking-widest">
                 आदि शंकराचार्य द्वारा रचित सौन्दर्य लहरी
               </p>
             </motion.div>
@@ -77,7 +77,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2 }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[14rem] h-[14rem] sm:w-[22rem] sm:h-[22rem] md:w-[32rem] md:h-[32rem] lg:w-[40rem] lg:h-[40rem] flex items-center justify-center text-gold-faded pointer-events-none z-[-1]"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[11rem] h-[11rem] sm:w-[20rem] sm:h-[20rem] md:w-[32rem] md:h-[32rem] lg:w-[40rem] lg:h-[40rem] flex items-center justify-center text-gold-faded pointer-events-none z-[-1]"
               >
                 {/* Ornate Circular Border */}
                 <svg className="absolute inset-0 m-auto w-1/2 h-1/2 animate-[spin_120s_linear_infinite] opacity-50" viewBox="0 0 200 200">
@@ -127,7 +127,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
-                className="text-[1.2rem] sm:text-[1.8rem] md:text-[3rem] lg:text-[3.6rem] font-serif tracking-[0.08em] text-gold-warm font-bold leading-tight z-10"
+                className="text-[1.1rem] sm:text-[1.8rem] md:text-[3rem] lg:text-[3.6rem] font-serif tracking-[0.08em] text-gold-warm font-bold leading-tight z-10"
               >
                 RAM ASHOK KUMAR
               </motion.h1>
@@ -137,7 +137,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.4 }}
-                className="mt-2 sm:mt-4 text-[9px] sm:text-xs md:text-sm lg:text-base font-sans font-medium tracking-[0.4em] text-ancient-beige/85 uppercase z-10"
+                className="mt-1 sm:mt-3 md:mt-4 text-[7px] sm:text-xs md:text-sm lg:text-base font-sans font-medium tracking-[0.3em] sm:tracking-[0.4em] text-ancient-beige/85 uppercase z-10"
               >
                 WHERE TANTRA MEETS SCIENCE
               </motion.h2>
@@ -147,7 +147,7 @@ export default function HeroSection() {
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 1.5, delay: 0.6 }}
-                className="w-48 h-[1px] bg-gradient-to-r from-transparent via-gold-faded/60 to-transparent mt-6 mb-2 z-10 mx-auto"
+                className="w-24 sm:w-36 md:w-48 h-[1px] bg-gradient-to-r from-transparent via-gold-faded/60 to-transparent mt-2 sm:mt-4 md:mt-6 mb-1 sm:mb-2 z-10 mx-auto"
               />
             </div>
 
@@ -156,13 +156,13 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
-              className="hidden md:flex absolute bottom-[15%] md:bottom-[20%] flex-col items-center justify-center text-center max-w-lg z-10"
+              className="flex absolute bottom-[8%] sm:bottom-[12%] md:bottom-[18%] flex-col items-center justify-center text-center max-w-[85%] sm:max-w-md md:max-w-lg z-10"
             >
-              <p className="font-serif text-sm md:text-base lg:text-lg text-gold-faded/90 leading-relaxed font-semibold">
+              <p className="font-serif text-[7.5px] sm:text-xs md:text-base lg:text-lg text-gold-faded/90 leading-snug sm:leading-relaxed font-semibold">
                 यदेवेह तदमुत्र यदमुत्र तदन्विह।<br/>
                 मृत्योः स मृत्युमाप्नोति य इह नानेव पश्यति ॥
               </p>
-              <p className="mt-2 font-sans text-xs md:text-sm text-ancient-beige/70 uppercase tracking-widest text-right w-full pr-12">
+              <p className="mt-0.5 sm:mt-1.5 md:mt-2 font-sans text-[6px] sm:text-[10px] md:text-sm text-ancient-beige/70 uppercase tracking-widest text-right w-full pr-4 sm:pr-8 md:pr-12">
                 कठोपनिषद्
               </p>
             </motion.div>

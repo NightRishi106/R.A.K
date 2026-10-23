@@ -56,7 +56,9 @@ export default function TimelineSection() {
                   </div>
 
                   {/* Left Side (or opposite side spacing) */}
-                  <div className="w-full md:w-1/2 pl-12 md:pl-0 md:px-8 text-left md:text-right flex flex-col justify-center">
+                  <div className={`w-full md:w-1/2 pl-12 md:pl-0 md:px-8 text-left md:text-right flex flex-col justify-center ${
+                    isEven ? '' : 'order-2 md:order-none mt-3 md:mt-0'
+                  }`}>
                     {isEven ? (
                       <div>
                         {/* Year Marker */}
@@ -70,8 +72,8 @@ export default function TimelineSection() {
                       </div>
                     ) : (
                       /* Entry Label Block */
-                      <div className="p-4 bg-[#ede2d4] border border-[#a38c5f]/30 rounded flex flex-col items-center md:items-end text-center md:text-right shadow-inner justify-center h-[80px]">
-                        <span className="font-mono text-[14px] text-[#544338] tracking-widest uppercase block font-bold">
+                      <div className="p-4 bg-[#ede2d4] border border-[#a38c5f]/30 rounded flex flex-col items-center md:items-end text-center md:text-right shadow-inner justify-center min-h-[70px] md:h-[80px]">
+                        <span className="font-mono text-xs sm:text-[14px] text-[#544338] tracking-widest uppercase block font-bold">
                           {milestone.sketchLabel}
                         </span>
                       </div>
@@ -79,11 +81,13 @@ export default function TimelineSection() {
                   </div>
 
                   {/* Right Side (or opposite side spacing) */}
-                  <div className="w-full md:w-1/2 pl-12 md:px-8 mt-4 md:mt-0 text-left flex flex-col justify-center">
+                  <div className={`w-full md:w-1/2 pl-12 md:px-8 text-left flex flex-col justify-center ${
+                    isEven ? 'mt-4 md:mt-0' : 'order-1 md:order-none'
+                  }`}>
                     {isEven ? (
                       /* Entry Label Block */
-                      <div className="p-4 bg-[#ede2d4] border border-[#a38c5f]/30 rounded flex flex-col items-center md:items-start text-center md:text-left shadow-inner mb-4 md:mb-0 justify-center h-[80px]">
-                        <span className="font-mono text-[14px] text-[#544338] tracking-widest uppercase block font-bold">
+                      <div className="p-4 bg-[#ede2d4] border border-[#a38c5f]/30 rounded flex flex-col items-center md:items-start text-center md:text-left shadow-inner mb-4 md:mb-0 justify-center min-h-[70px] md:h-[80px]">
+                        <span className="font-mono text-xs sm:text-[14px] text-[#544338] tracking-widest uppercase block font-bold">
                           {milestone.sketchLabel}
                         </span>
                       </div>

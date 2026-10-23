@@ -17,11 +17,17 @@ export default function InvestigationsSection() {
       setOpenDrawerId(id);
       const caseItem = investigations.find(item => item.id === id);
       setSelectedCaseDetail(caseItem || null);
+      setTimeout(() => {
+        const folderEl = document.getElementById('investigation-folder-card');
+        if (folderEl && window.innerWidth < 1024) {
+          folderEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }, 100);
     }
   };
 
   return (
-    <section id="archives" className="relative py-24 px-4 md:px-8 lg:px-16 overflow-hidden border-b border-bronze-dark/40">
+    <section id="archives" className="relative py-16 md:py-24 px-4 md:px-8 lg:px-16 overflow-hidden border-b border-bronze-dark/40">
       {/* Background Texture from User */}
       <div 
         className="absolute inset-0 z-0" 
@@ -37,7 +43,7 @@ export default function InvestigationsSection() {
       <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Title */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
           <div className="flex items-center justify-center gap-3 mb-2">
             <span className="font-mono text-[10px] tracking-[0.3em] text-[#3a2e24] font-bold uppercase">Classified Dossiers</span>
           </div>
@@ -55,7 +61,7 @@ export default function InvestigationsSection() {
           {/* Left Side: The Antique Wood Cabinet (5 cols on lg) */}
           <div className="lg:col-span-5 flex flex-col">
             
-            <div className="relative p-6 bg-[#281d16] rounded-lg border-2 border-[#120e0c] shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-hidden">
+            <div className="relative p-4 sm:p-6 bg-[#281d16] rounded-lg border-2 border-[#120e0c] shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-hidden">
               {/* Wood Grain Veneer Background Effect */}
               <div className="absolute inset-0 bg-radial-gradient from-transparent to-[#1a120d]/80 pointer-events-none" />
               <div className="absolute inset-0 opacity-15 mix-blend-overlay bg-repeat paper-grain" />
@@ -87,7 +93,7 @@ export default function InvestigationsSection() {
                         }}
                         transition={{ duration: 0.3 }}
                         onClick={() => handleDrawerClick(item.id)}
-                        className={`h-20 w-full rounded relative border border-[#1a120d] cursor-pointer flex items-center justify-between px-6 select-none transition-colors ${
+                        className={`min-h-20 py-2 w-full rounded relative border border-[#1a120d] cursor-pointer flex items-center justify-between px-4 sm:px-6 select-none transition-colors ${
                           isOpen
                             ? 'bg-[#1e1410]'
                             : 'bg-gradient-to-b from-[#3a2b22] to-[#261b15] hover:from-[#433227]'
@@ -101,11 +107,11 @@ export default function InvestigationsSection() {
                         <div className="absolute right-2.5 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-bronze-dark/80 border border-gold-faded/20" />
 
                         {/* Centered Antique Brass Plaque Plate */}
-                        <div className="mx-auto flex flex-col items-center">
+                        <div className="mx-auto flex flex-col items-center w-full px-6 sm:px-8">
                           
-                          <div className="px-6 py-2.5 bg-[#d4af37]/5 border border-gold-faded/30 rounded shadow-inner text-center min-w-64 max-w-sm relative">
+                          <div className="px-3 sm:px-6 py-2 sm:py-2.5 bg-[#d4af37]/5 border border-gold-faded/30 rounded shadow-inner text-center w-full max-w-[220px] sm:min-w-64 sm:max-w-sm relative">
                             {/* Paper card tucked inside plate */}
-                            <span className="text-[11px] font-sans text-ancient-beige/90 font-semibold tracking-wider block leading-tight">
+                            <span className="text-[10.5px] sm:text-[11px] font-sans text-ancient-beige/90 font-semibold tracking-wider block leading-tight">
                               {item.title}
                             </span>
                             <span className="text-[8px] font-sans text-ancient-beige/50 tracking-wider uppercase block mt-1 leading-none">
@@ -124,7 +130,7 @@ export default function InvestigationsSection() {
                         </div>
 
                         {/* Right side status */}
-                        <div className="absolute right-6 top-1/2 -translate-y-1/2 flex items-center gap-1.5">
+                        <div className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 flex items-center gap-1">
                           <span className={`w-1.5 h-1.5 rounded-full ${isOpen ? 'bg-gold-warm animate-pulse' : 'bg-gold-faded/30'}`} />
                           <ChevronRight className={`w-3.5 h-3.5 text-gold-faded/60 transition-transform ${
                             isOpen ? 'rotate-90' : ''
@@ -144,7 +150,7 @@ export default function InvestigationsSection() {
           </div>
 
           {/* Right Side: The Manila Document Folder (7 cols on lg) */}
-          <div className="lg:col-span-7">
+          <div id="investigation-folder-card" className="lg:col-span-7 mt-6 lg:mt-0">
             <AnimatePresence mode="wait">
               {selectedCaseDetail ? (
                 <motion.div

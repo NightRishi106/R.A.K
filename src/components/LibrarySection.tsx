@@ -71,16 +71,16 @@ export default function LibrarySection() {
                 </div>
 
                 {/* Vertical Book Spines on the Shelf */}
-                <div className="flex items-end justify-center h-80 border-b-[14px] border-[#34241a] px-2 md:px-4 relative mt-auto pb-0 overflow-hidden no-scrollbar">
+                <div className="flex items-end justify-center h-64 sm:h-80 border-b-[14px] border-[#34241a] px-2 md:px-4 relative mt-auto pb-0 overflow-hidden no-scrollbar">
                   {/* Shelf Shadow */}
                   <div className="absolute bottom-0 inset-x-0 h-8 bg-gradient-to-t from-black/80 to-transparent z-10 pointer-events-none" />
                   
                   {/* Uploaded Books Image & Pixel-Aligned Interactive Spine Hitboxes */}
-                  <div className="relative h-[104%] w-auto inline-flex items-end justify-center select-none">
+                  <div className="relative h-[104%] max-w-full w-auto inline-flex items-end justify-center select-none">
                     <img 
                       src="/Books.png" 
                       alt="Ancient Books" 
-                      className="h-full w-auto object-contain block pointer-events-none"
+                      className="max-h-full w-auto max-w-full object-contain block pointer-events-none"
                       style={{
                         clipPath: 'inset(1.8% 7.1% 2.8% 7.1%)'
                       }}
@@ -175,7 +175,7 @@ export default function LibrarySection() {
 
                 <div>
                   {/* Category, Origin & Condition Header */}
-                  <div className="flex flex-wrap items-center gap-2 border-b border-[#3a2e24]/15 pb-4 mb-4">
+                  <div className="flex flex-wrap items-center gap-2 border-b border-[#3a2e24]/15 pb-4 mb-4 pr-24 sm:pr-28">
                     <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#3a2e24]/10 rounded font-mono text-[9px] uppercase tracking-wider text-[#2c221a] font-semibold">
                       <Scroll className="w-3 h-3" />
                       {selectedBook.category}

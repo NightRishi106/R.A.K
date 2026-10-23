@@ -128,7 +128,7 @@ export default function PhilosophySection() {
           {/* Left Side: Circular Interactive Diagram (5 cols on lg) */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center">
             
-            <div className="relative w-80 h-80 flex items-center justify-center">
+            <div className="relative w-80 h-80 scale-90 sm:scale-100 flex items-center justify-center">
               
               {/* Outer Circular Ring */}
               <div className="absolute inset-0 rounded-full border border-bronze-light/20 border-dashed" />
@@ -194,7 +194,13 @@ export default function PhilosophySection() {
                 return (
                   <button
                     key={node.id}
-                    onClick={() => setSelectedNodeId(node.id)}
+                    onClick={() => {
+                      setSelectedNodeId(node.id);
+                      const cardEl = document.getElementById('philosophy-manuscript-card');
+                      if (cardEl && window.innerWidth < 1024) {
+                        cardEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                      }
+                    }}
                     style={{ left: `${x}px`, top: `${y}px` }}
                     className={`absolute w-12 h-12 rounded-full flex flex-col items-center justify-center border transition-all duration-300 z-30 cursor-pointer ${
                       isSelected
@@ -212,11 +218,17 @@ export default function PhilosophySection() {
 
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-2 justify-center max-w-sm">
+            <div className="mt-6 sm:mt-8 flex flex-wrap gap-2 justify-center max-w-sm">
               {nodes.map(node => (
                 <button
                   key={node.id}
-                  onClick={() => setSelectedNodeId(node.id)}
+                  onClick={() => {
+                    setSelectedNodeId(node.id);
+                    const cardEl = document.getElementById('philosophy-manuscript-card');
+                    if (cardEl && window.innerWidth < 1024) {
+                      cardEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                  }}
                   className={`px-3 py-1.5 rounded text-[10px] font-mono uppercase tracking-widest border transition-all duration-300 ${
                     node.id === selectedNodeId
                       ? 'bg-gold-warm/10 border-gold-warm text-gold-warm'
@@ -231,7 +243,7 @@ export default function PhilosophySection() {
           </div>
 
           {/* Right Side: Ancient Manuscript Sheet (7 cols on lg) */}
-          <div className="lg:col-span-7">
+          <div id="philosophy-manuscript-card" className="lg:col-span-7">
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedNode.id}
@@ -246,10 +258,10 @@ export default function PhilosophySection() {
                 <div className="absolute right-4 bottom-4 w-12 h-12 rounded-full border border-dashed border-[#bfa15f]/15 pointer-events-none" />
 
                 {/* Manuscript Header */}
-                <div className="flex justify-between items-center border-b border-[#3a2e24]/20 pb-4 mb-4">
+                <div className="flex flex-wrap justify-between items-center gap-2 border-b border-[#3a2e24]/20 pb-4 mb-4">
                   <div>
                     <span className="text-[10px] font-mono uppercase tracking-widest text-[#544338]">METHODOLOGY CODEX IX</span>
-                    <h3 className="text-2xl font-serif text-[#2a1f18] mt-1">{selectedNode.name}</h3>
+                    <h3 className="text-xl sm:text-2xl font-serif text-[#2a1f18] mt-1">{selectedNode.name}</h3>
                   </div>
                   <div className="text-right">
                     <span className="text-[11px] font-mono tracking-widest font-bold bg-[#3a2e24]/10 px-2.5 py-1 rounded text-[#2a1f18] uppercase">
@@ -260,7 +272,7 @@ export default function PhilosophySection() {
 
                 {/* Sanskrit Inscribed Panel */}
                 <div className="p-4 bg-[#ede2d4] border-l-4 border-gold-faded rounded-r mb-6 shadow-inner italic">
-                  <p className="text-lg text-[#2a1f18] tracking-wide text-center font-serif leading-relaxed mb-2">
+                  <p className="text-base sm:text-lg text-[#2a1f18] tracking-wide text-center font-serif leading-relaxed mb-2">
                     {selectedNode.sanskritVerse}
                   </p>
                   <p className="text-[12px] text-[#544338] text-center font-sans tracking-wide">
@@ -294,7 +306,7 @@ export default function PhilosophySection() {
                 </div>
 
                 {/* Decorative Footer */}
-                <div className="mt-8 flex justify-between items-center text-[10px] font-mono text-[#544338]/60 uppercase tracking-widest pt-4 border-t border-[#3a2e24]/10">
+                <div className="mt-8 flex flex-wrap justify-between items-center gap-2 text-[9px] sm:text-[10px] font-mono text-[#544338]/60 uppercase tracking-widest pt-4 border-t border-[#3a2e24]/10">
                   <span>Center for Anomalous Geological Studies</span>
                   <span>Codex No: {selectedNode.id.replace('node-', 'CAGS-0')}</span>
                 </div>

@@ -37,10 +37,10 @@ export default function ContactSection() {
             href="https://mail.google.com/mail/?view=cm&fs=1&to=ramashokkumar@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="group px-8 py-5 bg-[#211915]/90 hover:bg-[#2c211b] border-2 border-gold-faded/30 hover:border-gold-warm rounded-lg shadow-[0_20px_45px_rgba(0,0,0,0.85)] transition-all duration-300 flex items-center gap-3.5 cursor-pointer"
+            className="group px-4 sm:px-8 py-4 sm:py-5 max-w-full bg-[#211915]/90 hover:bg-[#2c211b] border-2 border-gold-faded/30 hover:border-gold-warm rounded-lg shadow-[0_20px_45px_rgba(0,0,0,0.85)] transition-all duration-300 flex items-center gap-2.5 sm:gap-3.5 cursor-pointer"
           >
-            <Mail className="w-5 h-5 text-gold-warm group-hover:scale-110 transition-transform" />
-            <span className="font-serif text-base md:text-lg text-gold-warm tracking-wider">
+            <Mail className="w-5 h-5 shrink-0 text-gold-warm group-hover:scale-110 transition-transform" />
+            <span className="font-serif text-xs sm:text-base md:text-lg text-gold-warm tracking-wider break-all sm:break-normal">
               mail: <span className="underline underline-offset-4 decoration-gold-faded/50 group-hover:decoration-gold-warm">ramashokkumar@gmail.com</span>
             </span>
           </a>

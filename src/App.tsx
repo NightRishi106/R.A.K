@@ -191,7 +191,7 @@ export default function App() {
           </p>
 
           {/* Quick Info Grid */}
-          <div className="flex flex-row justify-center items-center gap-16 md:gap-24 w-full max-w-4xl mt-10 pt-10 border-t border-bronze-dark/40 text-center font-mono text-[10px] md:text-xs text-ancient-beige/70 uppercase tracking-wider">
+          <div className="flex flex-row justify-center items-center gap-8 sm:gap-16 md:gap-24 w-full max-w-4xl mt-10 pt-10 border-t border-bronze-dark/40 text-center font-mono text-[10px] md:text-xs text-ancient-beige/70 uppercase tracking-wider">
             <div>
               <span className="block text-gold-faded/90 font-semibold mb-2">Directorate</span>
               <span>Ram Ashok Kumar</span>
