@@ -5,8 +5,8 @@ export default function HeroSection() {
   return (
     <>
       {/* Cinematic Full Screen Hero Section */}
-      <section className="relative w-full min-h-screen pt-20 md:pt-24 pb-8 md:pb-12 px-0 md:px-4 flex flex-col justify-center items-center paper-grain bg-[#1a1512] bg-[url('/assets/aistudio/golden_bg_6f21ddff.png'),linear-gradient(rgba(15,10,7,0.5),rgba(15,10,7,0.5)),url('/assets/aistudio/ram_background_copy_4fbc3e6e.png')] bg-cover bg-center bg-no-repeat">
-        <div className="relative w-full h-auto aspect-[16/9] max-w-6xl mx-auto rounded-none md:rounded-xl border-y md:border-x border-bronze-dark/30 md:shadow-2xl flex flex-col justify-center items-center text-center overflow-hidden bg-[#110e0d]">
+      <section className="relative w-full min-h-screen pt-20 md:pt-24 pb-8 md:pb-12 px-0 md:px-4 flex flex-col justify-center items-center paper-grain bg-[#1a1512] bg-[linear-gradient(rgba(15,10,7,0.5),rgba(15,10,7,0.5)),url('/assets/aistudio/golden_bg_6f21ddff.png'),linear-gradient(rgba(15,10,7,0.5),rgba(15,10,7,0.5)),url('/assets/aistudio/ram_background_copy_4fbc3e6e.png')] bg-cover bg-center bg-no-repeat">
+        <div className="relative z-20 w-full h-auto aspect-[16/9] max-w-6xl mx-auto rounded-none md:rounded-xl border-y md:border-x border-bronze-dark/30 md:shadow-2xl flex flex-col justify-center items-center text-center overflow-hidden bg-[#110e0d]">
           {/* Cinematic Background Video */}
           <video
             src="/WEB.mp4"
@@ -14,11 +14,8 @@ export default function HeroSection() {
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-50 pointer-events-none z-0"
+            className="absolute inset-0 w-full h-full object-cover opacity-100 contrast-125 brightness-110 saturate-110 pointer-events-none z-0"
           />
-
-          {/* Cinematic Vignette */}
-          <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-black/90 pointer-events-none z-1" />
 
           {/* Floating Dust Particles */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden z-1">
@@ -43,6 +40,13 @@ export default function HeroSection() {
               );
             })}
           </div>
+
+          {/* Portrait Image placed between center and right side of frame (reduced by 20%) */}
+          <img
+            src="/assets/aistudio/image_179e2dc4.png"
+            alt="Ram Ashok Kumar"
+            className="absolute left-[75%] bottom-0 -translate-x-1/2 translate-y-[27%] h-[80%] w-auto object-contain object-bottom pointer-events-none z-5"
+          />
 
           {/* Central Hero Block */}
           <div className="z-10 w-full h-full max-w-4xl px-4 flex flex-col items-center justify-center relative">
@@ -120,7 +124,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
-                className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-serif tracking-[0.08em] text-gold-warm font-bold leading-tight z-10"
+                className="text-[1.2rem] sm:text-[1.8rem] md:text-[3rem] lg:text-[3.6rem] font-serif tracking-[0.08em] text-gold-warm font-bold leading-tight z-10"
               >
                 RAM ASHOK KUMAR
               </motion.h1>
