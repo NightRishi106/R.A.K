@@ -61,11 +61,11 @@ export default function HeroSection() {
               transition={{ duration: 1, delay: 0.1 }}
               className="flex absolute top-[8%] sm:top-[12%] md:top-[18%] flex-col items-center justify-center text-center max-w-[85%] sm:max-w-md md:max-w-lg z-10"
             >
-              <p className="font-serif text-[7.5px] sm:text-xs md:text-base lg:text-lg text-gold-faded/95 leading-snug sm:leading-relaxed font-semibold [text-shadow:0.8px_0.8px_0px_#110e0d,1.5px_1.5px_0px_rgba(212,175,55,0.6)] sm:[text-shadow:1px_1px_0px_#110e0d,2px_2px_0px_rgba(212,175,55,0.6)] md:[text-shadow:1.5px_1.5px_0px_#110e0d,3px_3px_0px_rgba(212,175,55,0.6)]">
+              <p className="font-serif text-[7.5px] sm:text-xs md:text-base lg:text-lg text-gold-faded/95 leading-snug sm:leading-relaxed font-semibold drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_0_5px_rgba(0,0,0,0.85),0_0_10px_rgba(0,0,0,0.75),0_0_18px_rgba(0,0,0,0.65)]">
                 "शिवः शक्त्या युक्तो यदि भवति शक्तः प्रभवितुं<br/>
                 न चेदेवं देवो न खलु कुशलः स्पन्दितुमपि।"
               </p>
-              <p className="mt-0.5 sm:mt-1.5 md:mt-2 font-sans text-[6px] sm:text-[10px] md:text-sm text-ancient-beige/80 uppercase tracking-widest [text-shadow:0.6px_0.6px_0px_#110e0d,1.2px_1.2px_0px_rgba(230,219,205,0.5)] sm:[text-shadow:1px_1px_0px_#110e0d,2px_2px_0px_rgba(230,219,205,0.5)] md:[text-shadow:1.2px_1.2px_0px_#110e0d,2.5px_2.5px_0px_rgba(230,219,205,0.5)]">
+              <p className="mt-0.5 sm:mt-1.5 md:mt-2 font-sans text-[6px] sm:text-[10px] md:text-sm text-ancient-beige/80 uppercase tracking-widest drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)] [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_0_4px_rgba(0,0,0,0.85),0_0_8px_rgba(0,0,0,0.75),0_0_14px_rgba(0,0,0,0.65)]">
                 आदि शंकराचार्य द्वारा रचित सौन्दर्य लहरी
               </p>
             </motion.div>
@@ -127,7 +127,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
-                className="text-[1.1rem] sm:text-[1.8rem] md:text-[3rem] lg:text-[3.6rem] font-serif tracking-[0.08em] text-gold-warm font-bold leading-tight z-10 [text-shadow:1px_1px_0px_#110e0d,2px_2px_0px_rgba(212,175,55,0.65)] sm:[text-shadow:1.5px_1.5px_0px_#110e0d,3px_3px_0px_rgba(212,175,55,0.65)] md:[text-shadow:2px_2px_0px_#110e0d,4px_4px_0px_rgba(212,175,55,0.65)]"
+                className="text-[1.1rem] sm:text-[1.8rem] md:text-[3rem] lg:text-[3.6rem] font-serif tracking-[0.08em] text-gold-warm font-bold leading-tight z-10 drop-shadow-[0_3px_8px_rgba(0,0,0,0.85)] [text-shadow:0_2px_4px_rgba(0,0,0,0.95),0_0_8px_rgba(0,0,0,0.85),0_0_16px_rgba(0,0,0,0.75),0_0_28px_rgba(0,0,0,0.65)]"
               >
                 RAM ASHOK KUMAR
               </motion.h1>
@@ -137,7 +137,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.4 }}
-                className="mt-1 sm:mt-3 md:mt-4 text-[7px] sm:text-xs md:text-sm lg:text-base font-sans font-medium tracking-[0.3em] sm:tracking-[0.4em] text-ancient-beige/85 uppercase z-10 [text-shadow:0.8px_0.8px_0px_#110e0d,1.5px_1.5px_0px_rgba(230,219,205,0.55)] sm:[text-shadow:1px_1px_0px_#110e0d,2px_2px_0px_rgba(230,219,205,0.55)] md:[text-shadow:1.5px_1.5px_0px_#110e0d,3px_3px_0px_rgba(230,219,205,0.55)]"
+                className="mt-1 sm:mt-3 md:mt-4 text-[7px] sm:text-xs md:text-sm lg:text-base font-sans font-medium tracking-[0.3em] sm:tracking-[0.4em] text-ancient-beige/85 uppercase z-10 drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)] [text-shadow:0_1px_3px_rgba(0,0,0,0.95),0_0_6px_rgba(0,0,0,0.85),0_0_12px_rgba(0,0,0,0.75),0_0_20px_rgba(0,0,0,0.65)]"
               >
                 WHERE TANTRA MEETS SCIENCE
               </motion.h2>
@@ -158,11 +158,11 @@ export default function HeroSection() {
               transition={{ duration: 1, delay: 0.5 }}
               className="flex absolute bottom-[8%] sm:bottom-[12%] md:bottom-[18%] flex-col items-center justify-center text-center max-w-[85%] sm:max-w-md md:max-w-lg z-10"
             >
-              <p className="font-serif text-[7.5px] sm:text-xs md:text-base lg:text-lg text-gold-faded/95 leading-snug sm:leading-relaxed font-semibold [text-shadow:0.8px_0.8px_0px_#110e0d,1.5px_1.5px_0px_rgba(212,175,55,0.6)] sm:[text-shadow:1px_1px_0px_#110e0d,2px_2px_0px_rgba(212,175,55,0.6)] md:[text-shadow:1.5px_1.5px_0px_#110e0d,3px_3px_0px_rgba(212,175,55,0.6)]">
+              <p className="font-serif text-[7.5px] sm:text-xs md:text-base lg:text-lg text-gold-faded/95 leading-snug sm:leading-relaxed font-semibold drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_0_5px_rgba(0,0,0,0.85),0_0_10px_rgba(0,0,0,0.75),0_0_18px_rgba(0,0,0,0.65)]">
                 यदेवेह तदमुत्र यदमुत्र तदन्विह।<br/>
                 मृत्योः स मृत्युमाप्नोति य इह नानेव पश्यति ॥
               </p>
-              <p className="mt-0.5 sm:mt-1.5 md:mt-2 font-sans text-[6px] sm:text-[10px] md:text-sm text-ancient-beige/80 uppercase tracking-widest text-right w-full pr-4 sm:pr-8 md:pr-12 [text-shadow:0.6px_0.6px_0px_#110e0d,1.2px_1.2px_0px_rgba(230,219,205,0.5)] sm:[text-shadow:1px_1px_0px_#110e0d,2px_2px_0px_rgba(230,219,205,0.5)] md:[text-shadow:1.2px_1.2px_0px_#110e0d,2.5px_2.5px_0px_rgba(230,219,205,0.5)]">
+              <p className="mt-0.5 sm:mt-1.5 md:mt-2 font-sans text-[6px] sm:text-[10px] md:text-sm text-ancient-beige/80 uppercase tracking-widest text-right w-full pr-4 sm:pr-8 md:pr-12 drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)] [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_0_4px_rgba(0,0,0,0.85),0_0_8px_rgba(0,0,0,0.75),0_0_14px_rgba(0,0,0,0.65)]">
                 कठोपनिषद्
               </p>
             </motion.div>

@@ -177,7 +177,7 @@ export default function App() {
           </div>
 
           <p className="font-serif text-lg md:text-xl font-semibold text-gold-warm tracking-widest uppercase">
-            CENTER FOR ANOMALOUS GEOLOGICAL STUDIES
+            CENTER FOR ANOMALOUS STUDIES
           </p>
           <p className="font-mono text-xs tracking-[0.3em] text-ancient-beige/70 uppercase mt-2">
             Official Research Register & Repository — Varanasi, India
