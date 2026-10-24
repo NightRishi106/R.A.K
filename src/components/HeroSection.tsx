@@ -52,32 +52,32 @@ export default function HeroSection() {
           </div>
 
           {/* Central Hero Block */}
-          <div className="z-10 w-full h-full max-w-4xl px-2 sm:px-4 flex flex-col items-center justify-center relative">
+          <div className="z-10 w-full h-full max-w-4xl px-2 sm:px-4 flex flex-col items-center justify-center relative bg-[radial-gradient(ellipse_at_center,rgba(8,6,4,0.5)_0%,rgba(8,6,4,0.28)_48%,transparent_75%)]">
             
             {/* Top Sanskrit Quote */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.1 }}
-              className="flex absolute top-[8%] sm:top-[12%] md:top-[18%] flex-col items-center justify-center text-center max-w-[85%] sm:max-w-md md:max-w-lg z-10"
+              className="flex absolute top-[8%] sm:top-[12%] md:top-[18%] flex-col items-center justify-center text-center max-w-[85%] sm:max-w-md md:max-w-lg px-4 py-1.5 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.48)_0%,rgba(0,0,0,0.22)_58%,transparent_85%)] z-10"
             >
-              <p className="font-serif text-[7.5px] sm:text-xs md:text-base lg:text-lg text-gold-faded/90 leading-snug sm:leading-relaxed font-semibold">
+              <p className="font-serif text-[7.5px] sm:text-xs md:text-base lg:text-lg text-[#f0d78c] leading-snug sm:leading-relaxed font-semibold [text-shadow:0_3px_5px_rgba(0,0,0,0.75),0_6px_16px_rgba(0,0,0,0.58),0_0_14px_rgba(212,175,55,0.38)]">
                 "शिवः शक्त्या युक्तो यदि भवति शक्तः प्रभवितुं<br/>
                 न चेदेवं देवो न खलु कुशलः स्पन्दितुमपि।"
               </p>
-              <p className="mt-0.5 sm:mt-1.5 md:mt-2 font-sans text-[6px] sm:text-[10px] md:text-sm text-ancient-beige/70 uppercase tracking-widest">
+              <p className="mt-0.5 sm:mt-1.5 md:mt-2 font-sans text-[6px] sm:text-[10px] md:text-sm text-[#dec9ac] uppercase tracking-widest [text-shadow:0_2px_4px_rgba(0,0,0,0.75),0_5px_12px_rgba(0,0,0,0.55),0_0_10px_rgba(184,115,51,0.35)]">
                 आदि शंकराचार्य द्वारा रचित सौन्दर्य लहरी
               </p>
             </motion.div>
 
             {/* Title Group with Wheel */}
-            <div className="relative flex flex-col items-center justify-center w-full z-10">
+            <div className="relative flex flex-col items-center justify-center w-full py-2 sm:py-4 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.52)_0%,rgba(0,0,0,0.25)_50%,transparent_75%)] z-10">
               {/* Ancient Logo Symbol (Moved behind text) */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2 }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[11rem] h-[11rem] sm:w-[20rem] sm:h-[20rem] md:w-[32rem] md:h-[32rem] lg:w-[40rem] lg:h-[40rem] flex items-center justify-center text-gold-faded pointer-events-none z-[-1]"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[11rem] h-[11rem] sm:w-[20rem] sm:h-[20rem] md:w-[32rem] md:h-[32rem] lg:w-[40rem] lg:h-[40rem] flex items-center justify-center text-gold-faded pointer-events-none drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)] z-[-1]"
               >
                 {/* Ornate Circular Border */}
                 <svg className="absolute inset-0 m-auto w-1/2 h-1/2 animate-[spin_120s_linear_infinite] opacity-50" viewBox="0 0 200 200">
@@ -127,7 +127,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
-                className="text-[1.1rem] sm:text-[1.8rem] md:text-[3rem] lg:text-[3.6rem] font-serif tracking-[0.08em] text-gold-warm font-bold leading-tight z-10"
+                className="text-[1.1rem] sm:text-[1.8rem] md:text-[3rem] lg:text-[3.6rem] font-serif tracking-[0.08em] bg-gradient-to-b from-[#fff6d6] via-[#e6c253] to-[#b58422] bg-clip-text text-transparent font-bold leading-tight z-10 drop-shadow-[0_4px_5px_rgba(0,0,0,0.75)] drop-shadow-[0_8px_18px_rgba(0,0,0,0.58)] drop-shadow-[0_0_20px_rgba(212,175,55,0.4)]"
               >
                 RAM ASHOK KUMAR
               </motion.h1>
@@ -137,7 +137,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.4 }}
-                className="mt-1 sm:mt-3 md:mt-4 text-[7px] sm:text-xs md:text-sm lg:text-base font-sans font-medium tracking-[0.3em] sm:tracking-[0.4em] text-ancient-beige/85 uppercase z-10"
+                className="mt-1 sm:mt-3 md:mt-4 text-[7px] sm:text-xs md:text-sm lg:text-base font-sans font-medium tracking-[0.3em] sm:tracking-[0.4em] text-[#f5e7c6] uppercase z-10 [text-shadow:0_3px_5px_rgba(0,0,0,0.78),0_6px_16px_rgba(0,0,0,0.58),0_0_14px_rgba(212,175,55,0.38)]"
               >
                 WHERE TANTRA MEETS SCIENCE
               </motion.h2>
@@ -156,13 +156,13 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
-              className="flex absolute bottom-[8%] sm:bottom-[12%] md:bottom-[18%] flex-col items-center justify-center text-center max-w-[85%] sm:max-w-md md:max-w-lg z-10"
+              className="flex absolute bottom-[8%] sm:bottom-[12%] md:bottom-[18%] flex-col items-center justify-center text-center max-w-[85%] sm:max-w-md md:max-w-lg px-4 py-1.5 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.48)_0%,rgba(0,0,0,0.22)_58%,transparent_85%)] z-10"
             >
-              <p className="font-serif text-[7.5px] sm:text-xs md:text-base lg:text-lg text-gold-faded/90 leading-snug sm:leading-relaxed font-semibold">
+              <p className="font-serif text-[7.5px] sm:text-xs md:text-base lg:text-lg text-[#f0d78c] leading-snug sm:leading-relaxed font-semibold [text-shadow:0_3px_5px_rgba(0,0,0,0.75),0_6px_16px_rgba(0,0,0,0.58),0_0_14px_rgba(212,175,55,0.38)]">
                 यदेवेह तदमुत्र यदमुत्र तदन्विह।<br/>
                 मृत्योः स मृत्युमाप्नोति य इह नानेव पश्यति ॥
               </p>
-              <p className="mt-0.5 sm:mt-1.5 md:mt-2 font-sans text-[6px] sm:text-[10px] md:text-sm text-ancient-beige/70 uppercase tracking-widest text-right w-full pr-4 sm:pr-8 md:pr-12">
+              <p className="mt-0.5 sm:mt-1.5 md:mt-2 font-sans text-[6px] sm:text-[10px] md:text-sm text-[#dec9ac] uppercase tracking-widest text-right w-full pr-4 sm:pr-8 md:pr-12 [text-shadow:0_2px_4px_rgba(0,0,0,0.75),0_5px_12px_rgba(0,0,0,0.55),0_0_10px_rgba(184,115,51,0.35)]">
                 कठोपनिषद्
               </p>
             </motion.div>
