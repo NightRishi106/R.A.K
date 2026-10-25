@@ -1,0 +1,843 @@
+# MASTER WEBSITE DESIGN PROMPT — BHAIRAV RESEARCH PHILOSOPHY
+## Project: The Science of Myth — Bhairav Investigation Codex
+
+### 1. PRIMARY OBJECTIVE
+
+Design and implement a complete, highly detailed, cinematic, interactive **Research Philosophy** section dedicated to Bhairav, drawing inspiration from the supplied Research Philosophy reference screenshot.
+
+The section must preserve the reference's distinctive composition:
+- A full-width, dark, textured, ancient-looking background.
+- A centered gold heading and a short philosophical statement.
+- An interactive circular research diagram on the left.
+- A large ivory research codex document on the right.
+- A collection of compact, interactive research-topic selectors beneath the diagram.
+- Rich typography, fine borders, subtle animations, archival details, and a scholarly atmosphere.
+
+However, do not simply copy the reference's content. Reinterpret its visual language specifically for an in-depth investigation of Bhairav in Indian religious traditions, iconography, sacred geography, mythology, ritual traditions, historical sources, symbolism, and contemporary cultural interpretations.
+
+The final result must look like a bespoke research institution's digital archive—not a generic AI-generated website, ordinary portfolio section, dashboard template, or devotional landing page.
+
+The section should communicate one central idea:
+
+**Investigate the tradition. Examine the evidence. Understand the symbolism. Respect the unknown.**
+
+Treat Bhairav as the subject of a multidisciplinary research investigation, not merely as a horror character or an aesthetic motif.
+
+---
+
+### 2. DESIGN REFERENCE AND VISUAL DIRECTION
+
+Use the supplied reference screenshot as the primary composition and art-direction reference.
+
+Preserve the following design characteristics:
+
+**Background**
+- Full-width, deep umber and burnt-brown textured surface.
+- Subtle weathered stone, old archival paper, aged temple surfaces, and mineral-like variations.
+- Very dark edges and a softly illuminated central region.
+- Fine-grain texture with restrained atmospheric depth.
+- Extremely subtle, low-contrast geometric and mandala-inspired markings.
+- A sophisticated, warm, earthy palette rather than a neon cyberpunk aesthetic.
+
+**Color palette**
+- Background: near-black espresso, deep umber, burnt sienna, dark antique brown.
+- Primary accent: antique gold and muted brass.
+- Secondary accent: oxidized bronze and dark copper.
+- Research document: warm ivory, aged parchment, pale sandstone.
+- Primary text on parchment: dark charcoal and warm black.
+- Secondary text: muted taupe, brown-grey, and faded ink.
+- Selected and active elements: luminous but restrained antique gold.
+
+Suggested colors:
+- #17100C
+- #28180F
+- #382116
+- #5A3922
+- #B68A32
+- #D3AD55
+- #F0E5D1
+- #E6D7BD
+- #30241D
+- #877665
+
+Use gold sparingly. The result should feel expensive, restrained, mysterious, scholarly, and visually coherent.
+
+Do not use excessive bright red, purple neon, electric blue, glowing cyberpunk grids, or generic futuristic HUD elements.
+
+---
+
+### 3. SECTION HEADER
+
+Create a carefully centered header at the top of the section.
+
+Small uppercase eyebrow:
+THE SCIENCE OF MYTH
+
+Main heading:
+RESEARCH PHILOSOPHY
+
+Use a sophisticated serif typeface with a historical editorial character. The main heading should be antique gold, moderately large, and precisely spaced.
+
+Suggested font directions:
+- Cormorant Garamond
+- Cinzel
+- Libre Baskerville
+- A suitable equivalent already available in the project
+
+Use a small monospaced font for labels, case numbers, research categories, and metadata.
+
+Place a short italic quotation directly below the heading:
+
+“We do not approach Bhairav through fear alone. We investigate the traditions, symbols, histories, and evidence through which Bhairav is understood.”
+
+The quotation should use a restrained serif italic font in warm grey or faded ivory.
+
+Maintain generous vertical breathing room between the heading and the main two-column research interface.
+
+Do not make the heading excessively large. It should feel like the title of a curated scholarly archive.
+
+---
+
+### 4. MAIN DESKTOP COMPOSITION
+
+Build a balanced two-column layout centered within a maximum-width content container.
+
+Suggested maximum width: 1200–1400 px.
+
+Suggested proportions:
+- Left research visualization: approximately 36–42%.
+- Right codex document: approximately 58–64%.
+
+Suggested gap: 48–72 px on large desktop screens.
+
+The main content should be vertically aligned so that the interactive diagram and research document feel like two parts of one investigation system.
+
+The left column is the **Research Mapping Interface**.
+
+The right column is the **Active Investigation Codex**.
+
+Both columns must have a meaningful functional relationship: selecting a research topic on the left updates the content on the right.
+
+Do not create a diagram that merely looks interactive but does nothing.
+
+---
+
+### 5. LEFT COLUMN — BHAIRAV RESEARCH MAPPING INTERFACE
+
+Create an intricate, circular research diagram inspired by the reference image.
+
+It should resemble a hybrid of:
+- An archaeological classification diagram.
+- A sacred-geography research map.
+- A manuscript-inspired cosmological chart.
+- A modern systems-thinking visualization.
+
+The diagram should be centered within its own generous area.
+
+Suggested desktop diameter: 280–330 px.
+
+The circle should contain several concentric rings, fine radial lines, subtle geometric details, and a central research node.
+
+#### Central node
+
+Label:
+BHAIRAV
+
+Secondary label:
+RESEARCH CORE
+
+The central node should be a dark circular disc with a thin antique-gold border. It should have a subtle illuminated edge and carefully balanced typography.
+
+The central node must remain visually dominant without becoming oversized.
+
+#### Five surrounding research nodes
+
+Create five connected nodes around the central node.
+
+Node 1:
+ICONOGRAPHY
+
+Node 2:
+SCRIPTURAL SOURCES
+
+Node 3:
+SACRED GEOGRAPHY
+
+Node 4:
+RITUAL & TRADITION
+
+Node 5:
+SYMBOLISM
+
+Each node should contain:
+- A restrained line icon.
+- A short uppercase label.
+- A circular dark background.
+- A thin outline.
+- A connector line leading toward the central node.
+
+Use subtle gold for the active node and muted bronze or dark taupe for inactive nodes.
+
+The active node should be clearly distinguishable.
+
+When the user selects a node:
+1. Highlight the selected node.
+2. Animate its connecting line.
+3. Update the active research-topic selector.
+4. Update the research codex on the right.
+5. Update the diagram's contextual caption.
+6. Preserve the selected state until another topic is selected.
+
+The animation should be elegant and deliberate, not flashy.
+
+Use a restrained radial pulse or a brief gold illumination to signal selection.
+
+#### Additional diagram details
+
+Add a few extremely subtle elements:
+- Small geometric reference markers.
+- Fine concentric rings.
+- Tiny research index marks.
+- Sparse Sanskrit-inspired ornamental motifs used as decoration rather than pseudo-script.
+- Small metadata labels around the outer ring.
+- A faint radial construction grid.
+
+All text must remain legible. Decorative symbols must not interfere with interactive nodes.
+
+Do not invent a traditional yantra and falsely label it as historically authentic. If an original geometric visualization is created, present it as a contemporary research graphic inspired by archival and sacred-geometric visual languages.
+
+#### Interaction requirements
+
+Use real interactive controls for the nodes.
+
+The nodes must work with:
+- Mouse clicks.
+- Keyboard navigation.
+- Touchscreens.
+- Clear focus states.
+- Accessible labels.
+
+If the implementation uses SVG, ensure the actual controls are keyboard-accessible HTML elements or properly accessible SVG controls.
+
+---
+
+### 6. RESEARCH TOPIC SELECTORS
+
+Directly beneath the circular diagram, create five compact topic selectors arranged in a visually balanced group.
+
+The labels are:
+
+1. ICONOGRAPHY
+2. SCRIPTURAL SOURCES
+3. SACRED GEOGRAPHY
+4. RITUAL & TRADITION
+5. SYMBOLISM
+
+Use a small uppercase monospaced font.
+
+Style:
+- Dark translucent brown background.
+- Thin bronze border.
+- Slight letter spacing.
+- Compact padding.
+- Restrained corner radius.
+- Antique-gold text on hover.
+- Gold border and stronger contrast for the active selector.
+
+The active selector should look similar to the gold-outlined active button in the supplied reference.
+
+On hover, use a subtle border-color transition and a slight change in background luminance.
+
+On selection, update the diagram and codex together.
+
+The selectors must wrap cleanly on medium screens and become a tidy two-column or single-column group on mobile.
+
+Do not make them oversized pill buttons. They should resemble compact archival category controls.
+
+---
+
+### 7. RIGHT COLUMN — THE ACTIVE RESEARCH CODEX
+
+Create a large parchment-colored research document panel inspired by the ivory panel in the supplied screenshot.
+
+The document should occupy the visual focus of the right column.
+
+Suggested desktop width: 600–680 px, depending on the overall container.
+
+Suggested internal padding: 30–36 px.
+
+Use a warm ivory background with a very subtle paper grain, extremely light border, small radius, and a restrained shadow separating it from the dark background.
+
+The document must look like a carefully preserved research record.
+
+Avoid excessive grunge, torn edges, stains, artificial burn marks, and distressed textures that reduce readability.
+
+#### Codex header
+
+At the top-left, display:
+
+METHODOLOGY CODEX / BH-001
+
+Underneath, use a large serif title corresponding to the selected research topic.
+
+Example initial title:
+THE ICONOGRAPHY OF BHAIRAV
+
+At the top-right, include a compact category badge:
+
+SHAIVA TRADITIONS
+
+The badge should have a pale stone background and dark brown uppercase text.
+
+Add a fine horizontal rule underneath.
+
+#### Featured quotation or source passage
+
+Create a lightly tinted inset panel with a narrow antique-gold vertical rule on the left.
+
+For the initial topic, use a short interpretive statement:
+
+“Form, gesture, attributes, and setting provide a visual vocabulary through which traditions communicate ideas about divinity, protection, time, and the boundaries of sacred space.”
+
+Label this passage:
+INTERPRETIVE FRAME
+
+Do not present a newly written interpretive sentence as a historical quotation or Sanskrit scripture.
+
+If a genuine Sanskrit quotation is added in the future, verify its wording, source, edition, and translation before presenting it as a primary text.
+
+#### Investigation principle
+
+Heading:
+INVESTIGATION PRINCIPLE
+
+Example body copy:
+
+“Examine Bhairav's representations across relevant regional and historical contexts. Document recurring visual attributes, including posture, ornaments, associated animals, implements, attendant figures, and the architectural settings in which images appear. Compare these observations with reliable textual sources and scholarly interpretations, while distinguishing historical evidence from later explanations and contemporary speculation.”
+
+Keep paragraph line lengths comfortable. Use a readable serif font and a generous line height.
+
+The body copy must not be excessively small.
+
+#### Evidence and methodology metadata
+
+Under the main paragraph, create a two-column metadata area.
+
+Left label:
+RESEARCH METHOD
+
+Example value:
+Comparative iconography · Historical contextualization
+
+Right label:
+SOURCE REGISTER
+
+Example value:
+Primary texts · Museum catalogues · Peer-reviewed scholarship
+
+Each label should use a small uppercase monospaced font. The values should use a readable serif or restrained sans-serif font.
+
+Add another fine horizontal rule underneath.
+
+#### Document footer
+
+At the bottom-left:
+BHAIRAV RESEARCH ARCHIVE
+
+At the bottom-right:
+CODEX NO: BH-001
+
+Use faded uppercase monospaced text.
+
+The footer should resemble a research record identifier, not a decorative logo.
+
+---
+
+### 8. FIVE COMPLETE INVESTIGATION CODEX ENTRIES
+
+All five topics must have their own complete content. Do not simply change the title while keeping the same paragraph.
+
+Use the following initial research records.
+
+#### CODEX BH-001 — ICONOGRAPHY
+
+Category:
+SHAIVA TRADITIONS
+
+Title:
+THE ICONOGRAPHY OF BHAIRAV
+
+Interpretive frame:
+
+“Form, gesture, attributes, and setting provide a visual vocabulary through which traditions communicate ideas about divinity, protection, time, and the boundaries of sacred space.”
+
+Investigation principle:
+
+“Examine Bhairav's representations across relevant regional and historical contexts. Document recurring visual attributes, including posture, ornaments, associated animals, implements, attendant figures, and architectural settings. Compare these observations with reliable textual sources and scholarly interpretations. Record variations between images rather than assuming every depiction represents one uniform tradition.”
+
+Research method:
+Comparative iconography · Historical contextualization
+
+Source register:
+Museum catalogues · Art-historical scholarship · Primary texts
+
+Case-study prompt:
+Compare documented representations of Bhairav across selected regional traditions and investigate how their iconographic features differ.
+
+Important distinction:
+Do not assume that every image of a fierce Shaiva deity depicts the same form of Bhairav. Confirm identification through provenance, inscriptions, catalogue descriptions, and relevant scholarship.
+
+#### CODEX BH-002 — SCRIPTURAL SOURCES
+
+Category:
+TEXTUAL STUDIES
+
+Title:
+THE TEXTUAL TRADITIONS OF BHAIRAV
+
+Interpretive frame:
+
+“Religious concepts acquire meaning through texts, commentaries, lineages, translations, and the historical circumstances in which they are transmitted.”
+
+Investigation principle:
+
+“Identify primary sources that explicitly discuss Bhairav or relevant Bhairava traditions. Record the exact passage, textual context, language, edition, translation, and scholarly interpretation. Distinguish what a source directly states from what a later commentator infers. Account for differences between Shaiva, Tantric, regional, and devotional contexts instead of collapsing them into one timeless account.”
+
+Research method:
+Primary-source analysis · Comparative textual study
+
+Source register:
+Critical editions · Scholarly translations · Academic publications
+
+Case-study prompt:
+Investigate how the concept and representation of Bhairav appear in a specific, verifiable textual tradition, documenting differences between the original passage and later interpretation.
+
+Important distinction:
+Do not invent chapter numbers, Sanskrit quotations, manuscript dates, or citations. If a source has not been verified, mark it as requiring verification.
+
+#### CODEX BH-003 — SACRED GEOGRAPHY
+
+Category:
+PLACE & HERITAGE STUDIES
+
+Title:
+THE SACRED GEOGRAPHY OF BHAIRAV
+
+Interpretive frame:
+
+“Sacred places are shaped by landscapes, built environments, historical memory, pilgrimage, local narratives, and living communities.”
+
+Investigation principle:
+
+“Investigate temples, shrines, pilgrimage routes, regional traditions, and documented associations with Bhairav. Establish each site's location, local name, historical record, architectural context, and available inscriptions or institutional documentation. Compare local accounts with published research while treating oral traditions as valuable cultural evidence in their own right. Distinguish documented historical developments from traditional narratives and modern claims.”
+
+Research method:
+Historical geography · Site documentation · Ethnographic contextualization
+
+Source register:
+Archaeological surveys · Heritage records · Published field studies
+
+Case-study prompt:
+Select a documented Bhairav-associated site and examine how its architecture, location, regional history, and living traditions contribute to its religious significance.
+
+Important distinction:
+Do not fabricate temple histories, claim undocumented antiquity, or treat all regional traditions as interchangeable.
+
+#### CODEX BH-004 — RITUAL & TRADITION
+
+Category:
+LIVING RELIGIOUS PRACTICE
+
+Title:
+THE RITUAL LIFE OF BHAIRAV TRADITIONS
+
+Interpretive frame:
+
+“Religious practices are understood most accurately through their historical context, community meanings, lived experience, and documented forms of transmission.”
+
+Investigation principle:
+
+“Study documented ritual practices and devotional traditions associated with Bhairav through appropriate historical, textual, and ethnographic sources. Distinguish prescriptive descriptions in religious texts from actual practices documented within particular communities. Account for regional differences, practitioner perspectives, changes over time, and the limits of available evidence. Approach restricted or sensitive practices with respect and avoid sensationalizing them.”
+
+Research method:
+Ethnographic research · Ritual studies · Historical comparison
+
+Source register:
+Peer-reviewed ethnographies · Published interviews · Religious studies scholarship
+
+Case-study prompt:
+Examine one documented Bhairav-associated devotional or ritual tradition and compare its textual descriptions with reliable accounts of how the tradition is understood and practiced.
+
+Important distinction:
+Do not fabricate interviews, invent practitioner testimony, or present one community's practices as representative of all Bhairav traditions. Do not encourage trespassing or the disturbance of sacred sites.
+
+#### CODEX BH-005 — SYMBOLISM
+
+Category:
+COMPARATIVE INTERPRETATION
+
+Title:
+THE SYMBOLIC LANGUAGE OF BHAIRAV
+
+Interpretive frame:
+
+“Symbols invite interpretation, but their meanings must be studied within the traditions, contexts, and histories that give them significance.”
+
+Investigation principle:
+
+“Examine recurring motifs associated with Bhairav, such as fierce expression, associated animals, implements, guardianship, cremation-ground imagery, time, and liminality, where supported by relevant sources. Compare interpretations across specific traditions and historical settings. Separate established textual explanations, documented community understandings, scholarly interpretations, and original hypotheses. Avoid assigning universal meanings to symbols merely because they resemble one another across cultures.”
+
+Research method:
+Symbolic analysis · Comparative religious studies
+
+Source register:
+Primary texts · Iconographic studies · Peer-reviewed interpretation
+
+Case-study prompt:
+Choose one well-documented Bhairav-associated symbol and trace its interpretations across selected sources, noting where meanings converge, diverge, or remain uncertain.
+
+Important distinction:
+An interpretation is not automatically a historical fact. State the source and confidence level behind significant claims.
+
+---
+
+### 9. INTERACTIVE CODEX BEHAVIOR
+
+Implement the interface as one coordinated research system.
+
+When the user clicks ICONOGRAPHY:
+- Highlight the iconography node.
+- Highlight the ICONOGRAPHY selector.
+- Update the codex to BH-001.
+- Display its corresponding category, interpretive frame, investigation principle, research method, source register, and case-study prompt.
+- Update the footer identifier.
+
+Repeat this behavior for all five topics.
+
+Use a short, elegant transition between records. The parchment panel can fade slightly or transition through a subtle opacity change, but it must not flash, jump in size unnecessarily, or produce a disruptive loading animation.
+
+If feasible, animate the connecting line between the central Bhairav node and the selected research node.
+
+Maintain consistent panel dimensions where practical, while allowing content to expand naturally when necessary.
+
+On initial load, select ICONOGRAPHY.
+
+The selected state must be controlled by a single shared state variable so the diagram, selector group, and codex never fall out of sync.
+
+Do not reload the page when changing topics.
+
+---
+
+### 10. OPTIONAL RESEARCH CONFIDENCE SYSTEM
+
+Include a small evidence-status label where appropriate.
+
+Use these labels only when they accurately describe the underlying research:
+
+- PRIMARY SOURCE VERIFIED
+- SCHOLARLY INTERPRETATION
+- CULTURAL TRADITION
+- WORKING HYPOTHESIS
+- SOURCE VERIFICATION REQUIRED
+
+The labels should use muted, understated colors and must not dominate the document.
+
+Never mark a claim as verified merely because it appears in this design brief.
+
+The confidence system should distinguish the type of evidence, not pretend that complex religious-historical questions can always be reduced to a numerical score.
+
+If actual sources have not yet been researched, clearly identify the content as a proposed investigation framework.
+
+---
+
+### 11. OPTIONAL SOURCE-DETAIL INTERACTION
+
+Where real sources are available, allow the user to open a source-detail panel containing:
+- Full title.
+- Author or institutional author.
+- Publication date, where known.
+- Publisher or institution.
+- Relevant page, chapter, catalogue entry, or stable URL.
+- Source type.
+- Brief explanation of how it supports the investigation.
+
+Use only verified bibliographic information.
+
+Provide working external links where appropriate.
+
+If the source has not been verified, do not generate a fake link or a fabricated citation.
+
+The case-study prompt should be visually distinct from a verified source citation. Do not make a speculative case-study label look like proof of a scientific claim.
+
+---
+
+### 12. ANIMATION AND MICRO-INTERACTIONS
+
+Keep all motion subtle and purposeful.
+
+Recommended effects:
+- Slow, barely perceptible movement in the background texture.
+- Gentle gold illumination around the active node.
+- A brief connecting-line animation when switching research topics.
+- A short fade transition on the codex content.
+- Fine border-color transitions on selectors.
+- A restrained reveal animation when the section enters the viewport.
+- Very subtle hover feedback on source links.
+
+Avoid:
+- Excessive parallax.
+- Rapid flashing.
+- Constantly rotating diagrams.
+- Aggressive glitch effects.
+- Particle effects that obscure text.
+- Scroll hijacking.
+- Unnecessary loading screens.
+- Audio that starts automatically.
+
+Honor the user's reduced-motion preference.
+
+The page should remain attractive and fully usable when all animations are disabled.
+
+---
+
+### 13. RESPONSIVE DESIGN
+
+The section must work across desktop, laptop, tablet, and mobile.
+
+#### Desktop
+
+- Keep the two-column composition.
+- Maintain the diagram on the left and codex on the right.
+- Give the parchment panel sufficient width for comfortable reading.
+- Preserve the restrained, editorial appearance.
+
+#### Tablet
+
+- Reduce the gap between columns.
+- Scale down the diagram proportionally.
+- Reduce internal padding slightly.
+- Prevent selectors from overflowing.
+
+#### Mobile
+
+Reorganize the interface into a single-column layout:
+
+1. Section eyebrow.
+2. Research Philosophy heading.
+3. Philosophical statement.
+4. Compact circular diagram.
+5. Research-topic selectors.
+6. Active codex document.
+
+The diagram should be centered and scaled to fit the screen without horizontal scrolling.
+
+Suggested mobile diagram diameter: 240–280 px, adjusted to the available viewport width.
+
+The codex should use comfortable mobile padding, approximately 20–24 px.
+
+Long research paragraphs must wrap naturally.
+
+Allow selectors to wrap or stack without clipping.
+
+Use responsive typography and avoid fixed heights that cut off the content.
+
+Never shrink the codex text until it becomes unreadable merely to preserve the desktop proportions.
+
+Ensure the site remains usable on narrow screens around 320 px wide.
+
+---
+
+### 14. TYPOGRAPHY SYSTEM
+
+Use three complementary typographic roles.
+
+**Display typography**
+- Elegant serif.
+- Antique gold.
+- Reserved letter spacing.
+- Used for the main heading and major codex title.
+
+**Reading typography**
+- Highly legible serif or refined editorial font.
+- Dark ink on parchment.
+- Comfortable line height.
+- Used for quotations and investigation principles.
+
+**Technical typography**
+- Small monospaced font.
+- Uppercase labels.
+- Wide tracking used sparingly.
+- Used for codex numbers, metadata, category selectors, and source classifications.
+
+Possible combinations:
+- Cinzel + Cormorant Garamond + IBM Plex Mono.
+- Libre Baskerville + Cormorant Garamond + DM Mono.
+
+Use fonts already available in the project where possible. Avoid introducing unnecessary font downloads if the website has an established type system.
+
+The result should resemble a carefully typeset research folio.
+
+---
+
+### 15. TEXTURE AND VISUAL ASSETS
+
+Use subtle, high-quality background textures and original visual elements.
+
+Suitable elements include:
+- Aged stone and mineral textures.
+- Parchment grain.
+- Fine archival rules.
+- Custom circular SVG geometry.
+- Small research classification marks.
+- Subtle temple-architecture-inspired linework.
+- Carefully sourced or created Bhairav iconographic references, where relevant.
+
+If using an image of Bhairav, choose a historically or contextually appropriate depiction and identify its provenance when known.
+
+Do not use an arbitrary AI-generated deity portrait as if it were an authentic historical artefact.
+
+Do not place a giant deity illustration behind the text. The research interface should remain the visual focus.
+
+The background should be primarily CSS-based where feasible, using gradients and subtle texture assets to avoid unnecessary image payloads.
+
+---
+
+### 16. TECHNICAL IMPLEMENTATION REQUIREMENTS
+
+First inspect the existing website and its technology stack.
+
+Do not replace the entire website or redesign unrelated sections.
+
+Implement the Research Philosophy section within the existing page structure, preserving:
+- Existing navigation.
+- Established colors and typography where relevant.
+- Global spacing conventions.
+- Existing routes and anchors.
+- Responsive behavior.
+- The current framework and build setup.
+
+Use the project's existing component system where possible.
+
+If the project uses React, create reusable components such as:
+
+- ResearchPhilosophySection
+- ResearchNetworkDiagram
+- ResearchTopicSelectors
+- ResearchCodexPanel
+- ResearchSourceDetails
+
+Represent the five codex entries as structured data rather than duplicating large blocks of conditional markup.
+
+Maintain one shared selected-topic state.
+
+Use semantic HTML, accessible button controls, descriptive link text, and appropriate heading hierarchy.
+
+If SVG is used for the diagram, use scalable geometry and avoid rasterizing the entire interactive interface.
+
+Keep the diagram, selector controls, and codex connected through a single, predictable state model.
+
+Do not introduce a large dependency solely to implement a small circular diagram or simple fade transitions.
+
+Use the current project's styling system, whether that is CSS modules, regular CSS, Tailwind, or another existing solution.
+
+If the existing website is static HTML, implement the same interaction using lightweight JavaScript rather than forcing a framework migration.
+
+Do not fabricate API integrations or claim that the section contains a live scientific database.
+
+---
+
+### 17. PERFORMANCE AND ACCESSIBILITY
+
+Requirements:
+- Fast initial rendering.
+- Minimal layout shift.
+- Responsive and optimized texture assets.
+- Lazy loading for nonessential imagery.
+- No unnecessary animation libraries.
+- Sufficient text contrast.
+- Keyboard-accessible selectors.
+- Visible keyboard focus.
+- Properly labeled interactive nodes.
+- Reduced-motion support.
+- No horizontal overflow.
+- Accessible source links.
+- Clear active-state indication beyond color alone.
+
+Do not make important research content available only through hover.
+
+All five entries must remain accessible on touch devices.
+
+---
+
+### 18. RESEARCH INTEGRITY
+
+The interface must distinguish historical evidence, religious tradition, symbolic interpretation, and hypotheses.
+
+Bhairav is a significant figure in diverse Hindu religious traditions. Handle the subject respectfully and avoid flattening regional differences into a single invented narrative.
+
+Do not:
+- Fabricate Sanskrit quotations.
+- Invent scriptural references.
+- Invent archaeological findings.
+- Present unsupported acoustic, geological, supernatural, or psychological claims as established science.
+- Invent temple dates or historical provenance.
+- Confuse an artistic visualization with an authentic traditional diagram.
+- Treat contemporary speculation as historical consensus.
+
+If a factual assertion cannot be verified, revise it into an explicit research question or mark it as requiring verification.
+
+The goal is to make the site visually mysterious while keeping the research methodology transparent.
+
+---
+
+### 19. FINAL VISUAL QUALITY STANDARD
+
+The finished section should feel like a premium, custom-built digital research archive.
+
+A visitor should immediately perceive:
+- The atmosphere of an ancient research institution.
+- The discipline of a modern investigation system.
+- The cultural depth of Bhairav traditions.
+- The sophistication of the interactive diagram.
+- The authority of the parchment codex.
+- The care invested in typography, spacing, texture, and evidence classification.
+
+The interface should be visually striking without becoming theatrical or cluttered.
+
+Prioritize precise alignment, controlled negative space, restrained color, readable text, meaningful interactions, and a consistent visual hierarchy.
+
+The result must be recognizably inspired by the supplied reference composition while having its own distinct Bhairav research identity.
+
+---
+
+### 20. IMPLEMENTATION CHECKLIST
+
+Before considering the work complete, verify that:
+
+1. The Research Philosophy section matches the intended dark-brown and antique-gold art direction.
+2. The centered heading and quotation are present.
+3. The circular Bhairav research diagram is interactive.
+4. All five research nodes are connected to the central node.
+5. All five selectors update the diagram and codex.
+6. Each topic has distinct, complete content.
+7. The parchment panel includes the title, category, interpretive frame, investigation principle, metadata, and codex identifier.
+8. Source-verification status is not fabricated.
+9. The layout adapts cleanly to mobile.
+10. All controls are keyboard-accessible.
+11. Reduced-motion preferences are respected.
+12. No existing website sections have been unintentionally changed.
+13. No dead buttons, fake source links, or placeholder interactions remain.
+14. The page has no horizontal overflow.
+15. The final result feels polished at both desktop and mobile sizes.
+
+### FINAL INSTRUCTION
+
+Build the actual working section, not just a visual mockup.
+
+Inspect the existing project first, implement the component in the correct location, test every topic selector, check responsive behavior, and refine spacing and typography against the supplied reference.
+
+Preserve the reference's core composition: dark research environment, centered gold heading, circular interactive diagram on the left, compact selectors below it, and a large ivory research document on the right.
+
+The final aesthetic should communicate:
+
+**ANCIENT SUBJECT. DISCIPLINED INQUIRY. MODERN RESEARCH INTERFACE.**

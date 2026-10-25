@@ -1,0 +1,1915 @@
+import React, { useState, useEffect, useMemo } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
+import {
+  ChevronLeft,
+  ChevronRight,
+  Play,
+  Pause,
+  RotateCcw,
+  Maximize2,
+  Minimize2,
+  Sparkles,
+  Compass,
+  Layers,
+  BookOpen,
+  Eye
+} from 'lucide-react';
+import {
+  SHRI_MERU_SEQUENCES,
+  NINE_AVARANAS,
+  TRIANGLE_FORMULA_STEPS,
+  BHUPURA_MATRIKA_PROFILES,
+  type ShriMeruSequenceId
+} from '../data/shriMeruData';
+
+interface ShriMeruExperienceProps {
+  initialMatrikaIndex?: number;
+  onPrevChapter?: () => void;
+  onNextChapter?: () => void;
+  onOpenMatrix?: () => void;
+  onOpenCyberneticMatrika?: (matrikaIdx: number) => void;
+}
+
+/** Format seconds (0..102) as MM:SS */
+function formatTimestamp(sec: number): string {
+  const clamped = Math.max(0, Math.min(102, Math.floor(sec)));
+  const m = Math.floor(clamped / 60);
+  const s = clamped % 60;
+  return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+}
+
+/** Generate radially arranged lotus petal SVG paths around (500, 500) */
+function buildLotusPetals(count: number, innerR: number, outerR: number, halfAngleSpreadDeg: number) {
+  const petals: { d: string; tipX: number; tipY: number; angleDeg: number }[] = [];
+  const cx = 500;
+  const cy = 500;
+  for (let i = 0; i < count; i++) {
+    const centerDeg = (i * 360) / count - 90;
+    const leftDeg = centerDeg - halfAngleSpreadDeg;
+    const rightDeg = centerDeg + halfAngleSpreadDeg;
+    const midShoulderR = innerR + (outerR - innerR) * 0.62;
+
+    const toRad = (d: number) => (d * Math.PI) / 180;
+    const x1 = cx + Math.cos(toRad(leftDeg)) * innerR;
+    const y1 = cy + Math.sin(toRad(leftDeg)) * innerR;
+    const x2 = cx + Math.cos(toRad(rightDeg)) * innerR;
+    const y2 = cy + Math.sin(toRad(rightDeg)) * innerR;
+
+    const cx1 = cx + Math.cos(toRad(centerDeg - halfAngleSpreadDeg * 0.92)) * midShoulderR;
+    const cy1 = cy + Math.sin(toRad(centerDeg - halfAngleSpreadDeg * 0.92)) * midShoulderR;
+    const cx2 = cx + Math.cos(toRad(centerDeg + halfAngleSpreadDeg * 0.92)) * midShoulderR;
+    const cy2 = cy + Math.sin(toRad(centerDeg + halfAngleSpreadDeg * 0.92)) * midShoulderR;
+
+    const tipX = cx + Math.cos(toRad(centerDeg)) * outerR;
+    const tipY = cy + Math.sin(toRad(centerDeg)) * outerR;
+
+    const d = `M ${x1.toFixed(1)} ${y1.toFixed(1)} Q ${cx1.toFixed(1)} ${cy1.toFixed(1)} ${tipX.toFixed(1)} ${tipY.toFixed(1)} Q ${cx2.toFixed(1)} ${cy2.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)} Z`;
+    petals.push({ d, tipX, tipY, angleDeg: centerDeg });
+  }
+  return petals;
+}
+
+/** Generate radial ring of triangles around (500, 500) for Caturdaśāra (14), Bahirdaśāra (10), Antardaśāra (10), Aṣṭakoṇa (8) */
+function buildTriangleRing(count: number, innerR: number, outerR: number, phaseOffsetDeg = 0) {
+  const cx = 500;
+  const cy = 500;
+  const stepDeg = 360 / count;
+  const halfBaseDeg = stepDeg * 0.46;
+  const toRad = (d: number) => (d * Math.PI) / 180;
+  const polygons: string[] = [];
+
+  for (let i = 0; i < count; i++) {
+    const tipDeg = i * stepDeg - 90 + phaseOffsetDeg;
+    const b1Deg = tipDeg - halfBaseDeg;
+    const b2Deg = tipDeg + halfBaseDeg;
+
+    const tx = cx + Math.cos(toRad(tipDeg)) * outerR;
+    const ty = cy + Math.sin(toRad(tipDeg)) * outerR;
+    const x1 = cx + Math.cos(toRad(b1Deg)) * innerR;
+    const y1 = cy + Math.sin(toRad(b1Deg)) * innerR;
+    const x2 = cx + Math.cos(toRad(b2Deg)) * innerR;
+    const y2 = cy + Math.sin(toRad(b2Deg)) * innerR;
+
+    polygons.push(`${x1.toFixed(1)},${y1.toFixed(1)} ${tx.toFixed(1)},${ty.toFixed(1)} ${x2.toFixed(1)},${y2.toFixed(1)}`);
+  }
+  return polygons;
+}
+
+/**
+ * Outer three-walled Bhupura path with four cardinal T-shaped architectural gates
+ * Centered at (500, 500).
+ */
+function buildBhupuraPath(halfSize: number, neckHalfWidth: number, neckLen: number, gateHalfWidth: number, gateDepth: number) {
+  const cx = 500;
+  const cy = 500;
+  const L = cx - halfSize;
+  const R = cx + halfSize;
+  const T = cy - halfSize;
+  const B = cy + halfSize;
+
+  // Clockwise starting from top-left corner (L, T)
+  return [
+    `M ${L} ${T}`,
+    // Top edge + Top (West) T-gate
+    `L ${cx - neckHalfWidth} ${T}`,
+    `L ${cx - neckHalfWidth} ${T - neckLen}`,
+    `L ${cx - gateHalfWidth} ${T - neckLen}`,
+    `L ${cx - gateHalfWidth} ${T - neckLen - gateDepth}`,
+    `L ${cx + gateHalfWidth} ${T - neckLen - gateDepth}`,
+    `L ${cx + gateHalfWidth} ${T - neckLen}`,
+    `L ${cx + neckHalfWidth} ${T - neckLen}`,
+    `L ${cx + neckHalfWidth} ${T}`,
+    `L ${R} ${T}`,
+    // Right edge + Right (North) T-gate
+    `L ${R} ${cy - neckHalfWidth}`,
+    `L ${R + neckLen} ${cy - neckHalfWidth}`,
+    `L ${R + neckLen} ${cy - gateHalfWidth}`,
+    `L ${R + neckLen + gateDepth} ${cy - gateHalfWidth}`,
+    `L ${R + neckLen + gateDepth} ${cy + gateHalfWidth}`,
+    `L ${R + neckLen} ${cy + gateHalfWidth}`,
+    `L ${R + neckLen} ${cy + neckHalfWidth}`,
+    `L ${R} ${cy + neckHalfWidth}`,
+    `L ${R} ${B}`,
+    // Bottom edge + Bottom (East) T-gate
+    `L ${cx + neckHalfWidth} ${B}`,
+    `L ${cx + neckHalfWidth} ${B + neckLen}`,
+    `L ${cx + gateHalfWidth} ${B + neckLen}`,
+    `L ${cx + gateHalfWidth} ${B + neckLen + gateDepth}`,
+    `L ${cx - gateHalfWidth} ${B + neckLen + gateDepth}`,
+    `L ${cx - gateHalfWidth} ${B + neckLen}`,
+    `L ${cx - neckHalfWidth} ${B + neckLen}`,
+    `L ${cx - neckHalfWidth} ${B}`,
+    `L ${L} ${B}`,
+    // Left edge + Left (South) T-gate
+    `L ${L} ${cy + neckHalfWidth}`,
+    `L ${L - neckLen} ${cy + neckHalfWidth}`,
+    `L ${L - neckLen} ${cy + gateHalfWidth}`,
+    `L ${L - neckLen - gateDepth} ${cy + gateHalfWidth}`,
+    `L ${L - neckLen - gateDepth} ${cy - gateHalfWidth}`,
+    `L ${L - neckLen} ${cy - gateHalfWidth}`,
+    `L ${L - neckLen} ${cy - neckHalfWidth}`,
+    `L ${L} ${cy - neckHalfWidth}`,
+    'Z'
+  ].join(' ');
+}
+
+export default function ShriMeruExperience({
+  initialMatrikaIndex,
+  onPrevChapter,
+  onNextChapter,
+  onOpenMatrix,
+  onOpenCyberneticMatrika
+}: ShriMeruExperienceProps) {
+  const shouldReduceMotion = useReducedMotion();
+
+  // Active Sequence ('opening' | 'enclosures' | 'triangles' | 'bhupura' | 'matrikas' | 'closing')
+  const [activeSequence, setActiveSequence] = useState<ShriMeruSequenceId>('opening');
+  // Sequence A sub-step: 0 = Shri Meru Chakra (00:00-00:03), 1 = One Yantra Three Levels (00:03-00:09)
+  const [openingStep, setOpeningStep] = useState<0 | 1>(1);
+  // Sequence B active enclosure index (0..8 for Avaranas 1..9)
+  const [activeAvaranaIdx, setActiveAvaranaIdx] = useState<number>(0);
+  // Sequence C active formula step (0..5 for 14..44)
+  const [activeTriangleStepIdx, setActiveTriangleStepIdx] = useState<number>(5);
+  // Sequence D sub-step: 0 = Three walls four gates 28 Prakata Yoginis, 1 = Outer wall 10 Siddhis
+  const [bhupuraStep, setBhupuraStep] = useState<0 | 1>(0);
+  // Sequence E active Matrika index (0..7 for 1/8..8/8)
+  const [activeMatrikaIdx, setActiveMatrikaIdx] = useState<number>(initialMatrikaIndex ?? 0);
+  // Sequence F sub-step: 0 = Panchamrita Abhisheka Worship Layout (00:90-00:95), 1 = Ekagrata Anushthana Closing (00:96-01:41)
+  const [closingStep, setClosingStep] = useState<0 | 1>(0);
+  // Selected resonant Matrika in Closing screen (1..8)
+  const [resonatedMatrikaIdx, setResonatedMatrikaIdx] = useState<number | null>(null);
+
+  // Camera framing mode: 'auto' uses close-up camera pans in Seq D & Seq E; 'full' shows complete Yantra
+  const [cameraMode, setCameraMode] = useState<'auto' | 'full'>('auto');
+
+  // Optional 102-second synchronized video timeline player
+  const [isPlayingTimeline, setIsPlayingTimeline] = useState<boolean>(false);
+  const [timelineSec, setTimelineSec] = useState<number>(0);
+
+  // Sync external initialMatrikaIndex when passed from 64 Matrix
+  useEffect(() => {
+    if (typeof initialMatrikaIndex === 'number' && initialMatrikaIndex >= 0 && initialMatrikaIndex < 8) {
+      setActiveMatrikaIdx(initialMatrikaIndex);
+      setActiveSequence('matrikas');
+    }
+  }, [initialMatrikaIndex]);
+
+  // Synchronize states from timelineSec when autoplay is running or scrubbed
+  const applyTimelineSecond = (sec: number) => {
+    setTimelineSec(sec);
+    if (sec <= 9) {
+      setActiveSequence('opening');
+      setOpeningStep(sec < 3 ? 0 : 1);
+    } else if (sec <= 33) {
+      setActiveSequence('enclosures');
+      const matchedIdx = NINE_AVARANAS.findIndex(a => sec >= a.startSec && sec <= a.endSec);
+      if (matchedIdx !== -1) {
+        setActiveAvaranaIdx(matchedIdx);
+      } else if (sec < 13) {
+        setActiveAvaranaIdx(0);
+      } else {
+        setActiveAvaranaIdx(8);
+      }
+    } else if (sec <= 43) {
+      setActiveSequence('triangles');
+      const stepOffset = Math.min(5, Math.max(0, Math.floor(((sec - 34) / 9) * 6)));
+      setActiveTriangleStepIdx(stepOffset);
+    } else if (sec <= 49) {
+      setActiveSequence('bhupura');
+      setBhupuraStep(sec < 47 ? 0 : 1);
+    } else if (sec <= 89) {
+      setActiveSequence('matrikas');
+      const matchedMatrika = BHUPURA_MATRIKA_PROFILES.findIndex(
+        m => sec >= m.startSec && sec <= m.endSec
+      );
+      if (matchedMatrika !== -1) {
+        setActiveMatrikaIdx(matchedMatrika);
+      } else if (sec < 54) {
+        setActiveMatrikaIdx(0);
+      }
+    } else {
+      setActiveSequence('closing');
+      setClosingStep(sec < 96 ? 0 : 1);
+    }
+  };
+
+  useEffect(() => {
+    if (!isPlayingTimeline) return;
+    const interval = window.setInterval(() => {
+      setTimelineSec(prev => {
+        if (prev >= 102) {
+          setIsPlayingTimeline(false);
+          return 102;
+        }
+        const next = prev + 1;
+        applyTimelineSecond(next);
+        return next;
+      });
+    }, 1000);
+    return () => window.clearInterval(interval);
+  }, [isPlayingTimeline]);
+
+  // Precompute SVG geometry layers
+  const bhupuraOuterPath = useMemo(() => buildBhupuraPath(365, 44, 34, 78, 28), []);
+  const bhupuraMidPath = useMemo(() => buildBhupuraPath(350, 34, 34, 68, 16), []);
+  const bhupuraInnerPath = useMemo(() => buildBhupuraPath(335, 24, 34, 58, 6), []);
+
+  const lotus16Petals = useMemo(() => buildLotusPetals(16, 250, 312, 10.5), []);
+  const lotus8Petals = useMemo(() => buildLotusPetals(8, 198, 246, 20.5), []);
+
+  const ring14Triangles = useMemo(() => buildTriangleRing(14, 152, 192, 0), []);
+  const ring10OuterTriangles = useMemo(() => buildTriangleRing(10, 114, 150, 18), []);
+  const ring10InnerTriangles = useMemo(() => buildTriangleRing(10, 80, 112, 0), []);
+  const ring8Triangles = useMemo(() => buildTriangleRing(8, 50, 78, 22.5), []);
+
+  // Determine which geometric rings are highlighted in the current sequence
+  const activeRings = useMemo(() => {
+    if (activeSequence === 'opening') {
+      return {
+        bhupura: true,
+        lotus16: true,
+        lotus8: true,
+        tri14: true,
+        tri10outer: true,
+        tri10inner: true,
+        tri8: true,
+        tri1: true,
+        bindu: true
+      };
+    }
+    if (activeSequence === 'enclosures') {
+      const currentRingKey = NINE_AVARANAS[activeAvaranaIdx].ringKey;
+      return {
+        bhupura: currentRingKey === 'bhupura',
+        lotus16: currentRingKey === 'lotus16',
+        lotus8: currentRingKey === 'lotus8',
+        tri14: currentRingKey === 'tri14',
+        tri10outer: currentRingKey === 'tri10outer',
+        tri10inner: currentRingKey === 'tri10inner',
+        tri8: currentRingKey === 'tri8',
+        tri1: currentRingKey === 'tri1',
+        bindu: currentRingKey === 'bindu'
+      };
+    }
+    if (activeSequence === 'triangles') {
+      const step = TRIANGLE_FORMULA_STEPS[activeTriangleStepIdx];
+      return {
+        bhupura: false,
+        lotus16: false,
+        lotus8: false,
+        tri14: step.activeRingKeys.includes('tri14'),
+        tri10outer: step.activeRingKeys.includes('tri10outer'),
+        tri10inner: step.activeRingKeys.includes('tri10inner'),
+        tri8: step.activeRingKeys.includes('tri8'),
+        tri1: step.activeRingKeys.includes('tri1'),
+        bindu: step.activeRingKeys.includes('bindu')
+      };
+    }
+    if (activeSequence === 'bhupura' || activeSequence === 'matrikas') {
+      return {
+        bhupura: true,
+        lotus16: false,
+        lotus8: false,
+        tri14: false,
+        tri10outer: false,
+        tri10inner: false,
+        tri8: false,
+        tri1: false,
+        bindu: true
+      };
+    }
+    // 'closing'
+    return {
+      bhupura: true,
+      lotus16: true,
+      lotus8: true,
+      tri14: true,
+      tri10outer: true,
+      tri10inner: true,
+      tri8: true,
+      tri1: true,
+      bindu: true
+    };
+  }, [activeSequence, activeAvaranaIdx, activeTriangleStepIdx]);
+
+  // Compute camera transform for the SVG Yantra
+  const cameraTransform = useMemo(() => {
+    if (cameraMode === 'full' || shouldReduceMotion) {
+      return { scale: 1, x: 0, y: 0 };
+    }
+    if (activeSequence === 'bhupura') {
+      // Push-in on the lower Bhupura gate (00:44–00:49)
+      return { scale: 1.78, x: 0, y: -225 };
+    }
+    if (activeSequence === 'matrikas') {
+      const matrika = BHUPURA_MATRIKA_PROFILES[activeMatrikaIdx];
+      return {
+        scale: matrika.cameraTransform.scale,
+        x: matrika.cameraTransform.translateX,
+        y: matrika.cameraTransform.translateY
+      };
+    }
+    return { scale: 1, x: 0, y: 0 };
+  }, [activeSequence, activeMatrikaIdx, cameraMode, shouldReduceMotion]);
+
+  const currentAvarana = NINE_AVARANAS[activeAvaranaIdx];
+  const currentTriangleStep = TRIANGLE_FORMULA_STEPS[activeTriangleStepIdx];
+  const currentMatrika = BHUPURA_MATRIKA_PROFILES[activeMatrikaIdx];
+
+  // Unified Previous / Next step handler across the 6 sequences
+  const handleStepPrev = () => {
+    setIsPlayingTimeline(false);
+    if (activeSequence === 'opening') {
+      if (openingStep === 1) {
+        setOpeningStep(0);
+        setTimelineSec(1);
+      } else if (onPrevChapter) {
+        onPrevChapter();
+      }
+      return;
+    }
+    if (activeSequence === 'enclosures') {
+      if (activeAvaranaIdx > 0) {
+        const nextIdx = activeAvaranaIdx - 1;
+        setActiveAvaranaIdx(nextIdx);
+        setTimelineSec(NINE_AVARANAS[nextIdx].startSec);
+      } else {
+        setActiveSequence('opening');
+        setOpeningStep(1);
+        setTimelineSec(5);
+      }
+      return;
+    }
+    if (activeSequence === 'triangles') {
+      if (activeTriangleStepIdx > 0) {
+        setActiveTriangleStepIdx(prev => prev - 1);
+      } else {
+        setActiveSequence('enclosures');
+        setActiveAvaranaIdx(8);
+        setTimelineSec(31);
+      }
+      return;
+    }
+    if (activeSequence === 'bhupura') {
+      if (bhupuraStep === 1) {
+        setBhupuraStep(0);
+        setTimelineSec(45);
+      } else {
+        setActiveSequence('triangles');
+        setActiveTriangleStepIdx(5);
+        setTimelineSec(41);
+      }
+      return;
+    }
+    if (activeSequence === 'matrikas') {
+      if (activeMatrikaIdx > 0) {
+        const nextIdx = activeMatrikaIdx - 1;
+        setActiveMatrikaIdx(nextIdx);
+        setTimelineSec(BHUPURA_MATRIKA_PROFILES[nextIdx].startSec);
+      } else {
+        setActiveSequence('bhupura');
+        setBhupuraStep(1);
+        setTimelineSec(48);
+      }
+      return;
+    }
+    if (activeSequence === 'closing') {
+      if (closingStep === 1) {
+        setClosingStep(0);
+        setTimelineSec(92);
+      } else {
+        setActiveSequence('matrikas');
+        setActiveMatrikaIdx(7);
+        setTimelineSec(86);
+      }
+    }
+  };
+
+  const handleStepNext = () => {
+    setIsPlayingTimeline(false);
+    if (activeSequence === 'opening') {
+      if (openingStep === 0) {
+        setOpeningStep(1);
+        setTimelineSec(5);
+      } else {
+        setActiveSequence('enclosures');
+        setActiveAvaranaIdx(0);
+        setTimelineSec(13);
+      }
+      return;
+    }
+    if (activeSequence === 'enclosures') {
+      if (activeAvaranaIdx < 8) {
+        const nextIdx = activeAvaranaIdx + 1;
+        setActiveAvaranaIdx(nextIdx);
+        setTimelineSec(NINE_AVARANAS[nextIdx].startSec);
+      } else {
+        setActiveSequence('triangles');
+        setActiveTriangleStepIdx(0);
+        setTimelineSec(35);
+      }
+      return;
+    }
+    if (activeSequence === 'triangles') {
+      if (activeTriangleStepIdx < 5) {
+        setActiveTriangleStepIdx(prev => prev + 1);
+      } else {
+        setActiveSequence('bhupura');
+        setBhupuraStep(0);
+        setTimelineSec(45);
+      }
+      return;
+    }
+    if (activeSequence === 'bhupura') {
+      if (bhupuraStep === 0) {
+        setBhupuraStep(1);
+        setTimelineSec(48);
+      } else {
+        setActiveSequence('matrikas');
+        setActiveMatrikaIdx(0);
+        setTimelineSec(54);
+      }
+      return;
+    }
+    if (activeSequence === 'matrikas') {
+      if (activeMatrikaIdx < 7) {
+        const nextIdx = activeMatrikaIdx + 1;
+        setActiveMatrikaIdx(nextIdx);
+        setTimelineSec(BHUPURA_MATRIKA_PROFILES[nextIdx].startSec);
+      } else {
+        setActiveSequence('closing');
+        setClosingStep(0);
+        setTimelineSec(92);
+      }
+      return;
+    }
+    if (activeSequence === 'closing') {
+      if (closingStep === 0) {
+        setClosingStep(1);
+        setTimelineSec(97);
+      } else if (onNextChapter) {
+        onNextChapter();
+      }
+    }
+  };
+
+  return (
+    <div
+      className="relative w-full rounded-xl overflow-hidden border border-[#C99B48]/35 text-[#F0EAE0] shadow-[0_24px_64px_rgba(0,0,0,0.92)]"
+      style={{
+        background:
+          'radial-gradient(circle at 50% 44%, rgba(122, 52, 14, 0.34) 0%, rgba(45, 20, 8, 0.22) 38%, rgba(8, 5, 3, 0.96) 78%), #080503'
+      }}
+    >
+      {/* Subtle Ambient Gold Dust Particles */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-60" aria-hidden="true">
+        {[
+          { left: '12%', top: '18%', size: 2 },
+          { left: '24%', top: '74%', size: 2.5 },
+          { left: '38%', top: '14%', size: 1.5 },
+          { left: '66%', top: '22%', size: 2 },
+          { left: '82%', top: '34%', size: 2.5 },
+          { left: '76%', top: '78%', size: 1.5 },
+          { left: '18%', top: '48%', size: 2 },
+          { left: '88%', top: '62%', size: 2 },
+          { left: '52%', top: '12%', size: 1.5 },
+          { left: '46%', top: '86%', size: 2 }
+        ].map((p, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-[#F0C66C]/45"
+            style={{
+              left: p.left,
+              top: p.top,
+              width: `${p.size}px`,
+              height: `${p.size}px`,
+              boxShadow: '0 0 8px rgba(240,198,108,0.5)'
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="relative z-10 p-4 sm:p-6 md:p-8">
+        {/* Top Header Bar: Title, Sequence Tabs & 102-Second Film Timeline Controller */}
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pb-4 border-b border-[#C99B48]/25">
+          <div>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="font-mono text-[10px] tracking-[0.26em] uppercase text-[#C99B48]">
+                A PATH WITHIN · श्री मेरु चक्र एवं अष्ट मातृका
+              </span>
+              <span className="px-2 py-0.5 rounded text-[9px] font-mono uppercase tracking-[0.16em] bg-[#321708]/80 text-[#F0C66C] border border-[#C99B48]/35">
+                ONE YANTRA · 9 ENCLOSURES · 8 MATRIKAS
+              </span>
+            </div>
+            <h3 className="mt-1 text-xl sm:text-2xl md:text-3xl font-serif font-semibold tracking-wide text-[#F0C66C]">
+              श्री मेरु चक्र · Śrī Meru Chakra & The Eight Mothers of the Bhūpura
+            </h3>
+            <p className="text-xs sm:text-sm font-serif italic text-[#D0C3AD] mt-0.5">
+              One continuous geometric journey from the three-walled Bhūpura gates through the 9 Āvaraṇas and 44 triangles to the central Bindu.
+            </p>
+          </div>
+
+          {/* 102-Second Synchronized Video Journey Scrubber */}
+          <div className="flex flex-wrap items-center gap-2.5 bg-[#1A0D06]/90 border border-[#C99B48]/35 rounded-lg px-3 py-2 shrink-0">
+            <button
+              type="button"
+              onClick={() => {
+                if (timelineSec >= 102) {
+                  applyTimelineSecond(0);
+                }
+                setIsPlayingTimeline(prev => !prev);
+              }}
+              aria-label={isPlayingTimeline ? 'Pause synchronized journey' : 'Play 102s synchronized journey'}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#6A2B0B]/80 hover:bg-[#E8792D]/30 border border-[#F0C66C]/50 text-[#F0C66C] text-[11px] font-mono uppercase tracking-wider transition-colors cursor-pointer"
+            >
+              {isPlayingTimeline ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
+              {isPlayingTimeline ? 'Pause' : 'Play Journey'}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                setIsPlayingTimeline(false);
+                applyTimelineSecond(0);
+              }}
+              aria-label="Reset journey to 00:00"
+              className="p-1.5 rounded bg-[#080503]/70 border border-[#866334]/50 text-[#D0C3AD] hover:text-[#F0C66C] hover:border-[#F0C66C]/50 transition-colors cursor-pointer"
+              title="Reset to 00:00"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+            </button>
+
+            <div className="flex items-center gap-2">
+              <input
+                type="range"
+                min={0}
+                max={102}
+                value={timelineSec}
+                onChange={e => {
+                  setIsPlayingTimeline(false);
+                  applyTimelineSecond(Number(e.target.value));
+                }}
+                aria-label="Timeline scrubber (00:00 to 01:42)"
+                className="w-24 sm:w-32 accent-[#E8792D] cursor-pointer h-1.5 bg-[#321708] rounded-lg"
+              />
+              <span className="font-mono text-[10px] text-[#F5DEAB] tabular-nums">
+                {formatTimestamp(timelineSec)} / 01:42
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Six Sequence Navigation Tabs */}
+        <div
+          className="mt-3.5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-1.5"
+          role="tablist"
+          aria-label="Shri Meru Chakra 6 Sequences"
+        >
+          {SHRI_MERU_SEQUENCES.map(seq => {
+            const isSelected = activeSequence === seq.id;
+            return (
+              <button
+                key={seq.id}
+                type="button"
+                role="tab"
+                aria-selected={isSelected}
+                onClick={() => {
+                  setIsPlayingTimeline(false);
+                  setActiveSequence(seq.id);
+                  setTimelineSec(seq.startSec);
+                }}
+                className={`px-2.5 py-2 rounded border text-left transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F0C66C] ${
+                  isSelected
+                    ? 'bg-[#321708]/95 border-[#F0C66C] shadow-[0_0_16px_rgba(240,198,108,0.22)]'
+                    : 'bg-[#1A0D06]/70 border-[#866334]/40 hover:border-[#C99B48]/70 hover:bg-[#321708]/50'
+                }`}
+              >
+                <div className="flex items-center justify-between gap-1">
+                  <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#E8792D] font-semibold">
+                    {seq.indexLabel}
+                  </span>
+                  <span className="font-mono text-[8.5px] text-[#D0C3AD]/70 tabular-nums">
+                    {seq.timeRange}
+                  </span>
+                </div>
+                <div className="mt-0.5 font-serif text-xs sm:text-[13px] font-semibold text-[#F0C66C] truncate">
+                  {seq.hindiTitle}
+                </div>
+                <div className="font-mono text-[9px] text-[#D0C3AD] truncate">
+                  {seq.englishTitle}
+                </div>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Main Two-Column Sacred Architecture Stage: Left/Center Yantra Canvas + Right Synchronized Text & Controls */}
+        <div className="mt-5 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          {/* Left / Center Column (6 cols on lg): The Single Reusable Animated SVG Shri Meru Chakra */}
+          <div className="lg:col-span-6 flex flex-col items-center">
+            <div className="relative w-full max-w-[520px] aspect-square rounded-xl border border-[#C99B48]/35 bg-[#080503]/90 overflow-hidden shadow-[inset_0_0_60px_rgba(106,43,11,0.38)] flex items-center justify-center">
+              {/* Top-left Status Badge inside Yantra Viewport */}
+              <div className="absolute top-3 left-3 z-20 pointer-events-none flex items-center gap-2 px-2.5 py-1 rounded bg-[#080503]/85 border border-[#C99B48]/40">
+                <span className="w-2 h-2 rounded-full bg-[#E8792D] animate-pulse" />
+                <span className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-[#F5DEAB]">
+                  {activeSequence === 'opening' && 'श्री मेरु चक्र · MAHAMERU'}
+                  {activeSequence === 'enclosures' && `${currentAvarana.indexLabel} · ${currentAvarana.transliteration}`}
+                  {activeSequence === 'triangles' && `४४ त्रिकोण · ${currentTriangleStep.formulaDisplay}`}
+                  {activeSequence === 'bhupura' && 'भूपुर · BHŪPURA GATE CLOSE-UP'}
+                  {activeSequence === 'matrikas' && `${currentMatrika.indexHeader} · ${currentMatrika.hindiName}`}
+                  {activeSequence === 'closing' && (closingStep === 0 ? 'पञ्चामृत अभिषेक · 8 GATES' : 'एकाग्रता अनुष्ठान · A PATH WITHIN')}
+                </span>
+              </div>
+
+              {/* Top-right Camera Framing Toggle */}
+              {(activeSequence === 'bhupura' || activeSequence === 'matrikas') && (
+                <button
+                  type="button"
+                  onClick={() => setCameraMode(prev => (prev === 'auto' ? 'full' : 'auto'))}
+                  className="absolute top-3 right-3 z-20 inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#1A0D06]/90 border border-[#C99B48]/50 text-[9.5px] font-mono uppercase tracking-wider text-[#F0C66C] hover:border-[#F0C66C] transition-colors cursor-pointer"
+                >
+                  {cameraMode === 'auto' ? (
+                    <>
+                      <Minimize2 className="w-3 h-3" />
+                      Full Yantra
+                    </>
+                  ) : (
+                    <>
+                      <Maximize2 className="w-3 h-3" />
+                      Gate Close-Up
+                    </>
+                  )}
+                </button>
+              )}
+
+              {/* Animated Camera Group Wrapping the Single Sacred SVG Yantra */}
+              <motion.div
+                className="w-full h-full flex items-center justify-center"
+                animate={{
+                  scale: cameraTransform.scale,
+                  x: cameraTransform.x,
+                  y: cameraTransform.y
+                }}
+                transition={{
+                  duration: shouldReduceMotion ? 0 : 0.75,
+                  ease: [0.22, 1, 0.36, 1]
+                }}
+              >
+                <svg
+                  viewBox="0 0 1000 1000"
+                  className="w-full h-full select-none"
+                  role="img"
+                  aria-label="Interactive Shri Meru Chakra Yantra with Nine Enclosures, 44 Triangles, and Eight Bhupura Matrika Gates"
+                >
+                  <defs>
+                    <radialGradient id="meruCoreGlow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#E8792D" stopOpacity="0.45" />
+                      <stop offset="45%" stopColor="#6A2B0B" stopOpacity="0.28" />
+                      <stop offset="100%" stopColor="#080503" stopOpacity="0" />
+                    </radialGradient>
+                    <filter id="goldGlow" x="-25%" y="-25%" width="150%" height="150%">
+                      <feGaussianBlur stdDeviation="4" result="blur" />
+                      <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+
+                  {/* Warm Radial Backlight Inside SVG */}
+                  <circle cx="500" cy="500" r="440" fill="url(#meruCoreGlow)" />
+
+                  {/* Faint Cardinal & Diagonal Construction Axes */}
+                  <g stroke="#866334" strokeWidth="0.7" strokeDasharray="3 6" opacity="0.35">
+                    <line x1="500" y1="60" x2="500" y2="940" />
+                    <line x1="60" y1="500" x2="940" y2="500" />
+                    <line x1="160" y1="160" x2="840" y2="840" />
+                    <line x1="840" y1="160" x2="160" y2="840" />
+                  </g>
+
+                  {/* ============================================================
+                      AVARANA 1: BHUPURA (Three Concentric Square Walls + 4 Gates)
+                     ============================================================ */}
+                  <g
+                    onClick={() => {
+                      if (activeSequence === 'enclosures') setActiveAvaranaIdx(0);
+                    }}
+                    className="cursor-pointer transition-opacity duration-500"
+                    opacity={activeRings.bhupura ? 1 : 0.32}
+                  >
+                    {/* Outer Wall (10 Siddhis) */}
+                    <path
+                      d={bhupuraOuterPath}
+                      fill="#1A0D06"
+                      fillOpacity="0.55"
+                      stroke={activeRings.bhupura ? '#F0C66C' : '#866334'}
+                      strokeWidth={activeRings.bhupura ? '3.2' : '1.8'}
+                      filter={activeRings.bhupura ? 'url(#goldGlow)' : undefined}
+                    />
+                    {/* Middle Wall (8 Matrikas) */}
+                    <path
+                      d={bhupuraMidPath}
+                      fill="none"
+                      stroke={
+                        activeSequence === 'matrikas' || activeSequence === 'bhupura'
+                          ? '#E8792D'
+                          : activeRings.bhupura
+                            ? '#C99B48'
+                            : '#866334'
+                      }
+                      strokeWidth={activeSequence === 'matrikas' ? '2.8' : '2'}
+                    />
+                    {/* Inner Wall (10 Mudra Shaktis) */}
+                    <path
+                      d={bhupuraInnerPath}
+                      fill="#080503"
+                      fillOpacity="0.45"
+                      stroke={activeRings.bhupura ? '#C99B48' : '#866334'}
+                      strokeWidth="1.8"
+                    />
+                  </g>
+
+                  {/* ============================================================
+                      TRIVALAYA: Three Concentric Rings Inside Bhupura
+                     ============================================================ */}
+                  <g opacity={activeRings.bhupura || activeRings.lotus16 ? 0.85 : 0.35}>
+                    <circle cx="500" cy="500" r="326" fill="none" stroke="#C99B48" strokeWidth="1.6" />
+                    <circle cx="500" cy="500" r="319" fill="none" stroke="#866334" strokeWidth="1.1" />
+                    <circle cx="500" cy="500" r="313" fill="#1A0D06" fillOpacity="0.6" stroke="#C99B48" strokeWidth="1.5" />
+                  </g>
+
+                  {/* ============================================================
+                      AVARANA 2: 16-PETAL LOTUS (Sarva Āśā Paripūraka Chakra)
+                     ============================================================ */}
+                  <g
+                    onClick={() => {
+                      if (activeSequence === 'enclosures') setActiveAvaranaIdx(1);
+                    }}
+                    className="cursor-pointer transition-opacity duration-500"
+                    opacity={activeRings.lotus16 ? 1 : 0.28}
+                  >
+                    {lotus16Petals.map((petal, idx) => (
+                      <path
+                        key={`p16-${idx}`}
+                        d={petal.d}
+                        fill={activeRings.lotus16 ? '#6A2B0B' : '#321708'}
+                        fillOpacity={activeRings.lotus16 ? '0.82' : '0.45'}
+                        stroke={activeRings.lotus16 ? '#F0C66C' : '#C99B48'}
+                        strokeWidth={activeRings.lotus16 ? '2.2' : '1.3'}
+                      />
+                    ))}
+                    <circle
+                      cx="500"
+                      cy="500"
+                      r="250"
+                      fill="none"
+                      stroke={activeRings.lotus16 ? '#F0C66C' : '#C99B48'}
+                      strokeWidth="1.8"
+                    />
+                  </g>
+
+                  {/* ============================================================
+                      AVARANA 3: 8-PETAL LOTUS (Sarva Saṅkṣobhaṇa Chakra)
+                     ============================================================ */}
+                  <g
+                    onClick={() => {
+                      if (activeSequence === 'enclosures') setActiveAvaranaIdx(2);
+                    }}
+                    className="cursor-pointer transition-opacity duration-500"
+                    opacity={activeRings.lotus8 ? 1 : 0.28}
+                  >
+                    {lotus8Petals.map((petal, idx) => (
+                      <path
+                        key={`p8-${idx}`}
+                        d={petal.d}
+                        fill={activeRings.lotus8 ? '#6A2B0B' : '#321708'}
+                        fillOpacity={activeRings.lotus8 ? '0.88' : '0.5'}
+                        stroke={activeRings.lotus8 ? '#F0C66C' : '#C99B48'}
+                        strokeWidth={activeRings.lotus8 ? '2.4' : '1.4'}
+                      />
+                    ))}
+                    <circle
+                      cx="500"
+                      cy="500"
+                      r="196"
+                      fill="#120905"
+                      stroke={activeRings.lotus8 ? '#F0C66C' : '#C99B48'}
+                      strokeWidth="2"
+                    />
+                  </g>
+
+                  {/* ============================================================
+                      NINE PRIMARY INTERLOCKING SHIVA/SHAKTI TRIANGLES (Subtle Structural Lattice)
+                     ============================================================ */}
+                  <g
+                    stroke="#C99B48"
+                    strokeWidth="1.1"
+                    fill="none"
+                    opacity={
+                      activeSequence === 'opening' || activeSequence === 'triangles' || activeSequence === 'closing'
+                        ? 0.45
+                        : 0.2
+                    }
+                  >
+                    {/* 4 Upward Shiva Triangles */}
+                    <polygon points="500,308 666,618 334,618" />
+                    <polygon points="500,342 642,592 358,592" />
+                    <polygon points="500,382 612,562 388,562" />
+                    <polygon points="500,424 576,534 424,534" />
+                    {/* 5 Downward Shakti Triangles */}
+                    <polygon points="500,692 334,382 666,382" />
+                    <polygon points="500,656 358,408 642,408" />
+                    <polygon points="500,618 386,436 614,436" />
+                    <polygon points="500,578 416,462 584,462" />
+                    <polygon points="500,544 452,476 548,476" />
+                  </g>
+
+                  {/* ============================================================
+                      AVARANA 4: 14 TRIANGLES (Sarva Saubhāgya Dāyaka · Caturdaśāra)
+                     ============================================================ */}
+                  <g
+                    onClick={() => {
+                      if (activeSequence === 'enclosures') setActiveAvaranaIdx(3);
+                      if (activeSequence === 'triangles') setActiveTriangleStepIdx(0);
+                    }}
+                    className="cursor-pointer transition-opacity duration-500"
+                    opacity={activeRings.tri14 ? 1 : 0.24}
+                  >
+                    {ring14Triangles.map((pts, idx) => (
+                      <polygon
+                        key={`tri14-${idx}`}
+                        points={pts}
+                        fill={activeRings.tri14 ? '#6A2B0B' : '#321708'}
+                        fillOpacity={activeRings.tri14 ? '0.88' : '0.45'}
+                        stroke={activeRings.tri14 ? '#F0C66C' : '#C99B48'}
+                        strokeWidth={activeRings.tri14 ? '2.2' : '1.2'}
+                      />
+                    ))}
+                    <circle cx="500" cy="500" r="152" fill="none" stroke="#C99B48" strokeWidth="1.2" />
+                  </g>
+
+                  {/* ============================================================
+                      AVARANA 5: 10 OUTER TRIANGLES (Sarvārtha Sādhaka · Bahirdaśāra)
+                     ============================================================ */}
+                  <g
+                    onClick={() => {
+                      if (activeSequence === 'enclosures') setActiveAvaranaIdx(4);
+                      if (activeSequence === 'triangles') setActiveTriangleStepIdx(1);
+                    }}
+                    className="cursor-pointer transition-opacity duration-500"
+                    opacity={activeRings.tri10outer ? 1 : 0.24}
+                  >
+                    {ring10OuterTriangles.map((pts, idx) => (
+                      <polygon
+                        key={`tri10o-${idx}`}
+                        points={pts}
+                        fill={activeRings.tri10outer ? '#7B310D' : '#321708'}
+                        fillOpacity={activeRings.tri10outer ? '0.9' : '0.45'}
+                        stroke={activeRings.tri10outer ? '#F0C66C' : '#C99B48'}
+                        strokeWidth={activeRings.tri10outer ? '2.2' : '1.2'}
+                      />
+                    ))}
+                    <circle cx="500" cy="500" r="114" fill="none" stroke="#C99B48" strokeWidth="1.2" />
+                  </g>
+
+                  {/* ============================================================
+                      AVARANA 6: 10 INNER TRIANGLES (Sarva Rakṣākara · Antardaśāra)
+                     ============================================================ */}
+                  <g
+                    onClick={() => {
+                      if (activeSequence === 'enclosures') setActiveAvaranaIdx(5);
+                      if (activeSequence === 'triangles') setActiveTriangleStepIdx(2);
+                    }}
+                    className="cursor-pointer transition-opacity duration-500"
+                    opacity={activeRings.tri10inner ? 1 : 0.24}
+                  >
+                    {ring10InnerTriangles.map((pts, idx) => (
+                      <polygon
+                        key={`tri10i-${idx}`}
+                        points={pts}
+                        fill={activeRings.tri10inner ? '#8C380F' : '#321708'}
+                        fillOpacity={activeRings.tri10inner ? '0.92' : '0.45'}
+                        stroke={activeRings.tri10inner ? '#F0C66C' : '#C99B48'}
+                        strokeWidth={activeRings.tri10inner ? '2.2' : '1.2'}
+                      />
+                    ))}
+                    <circle cx="500" cy="500" r="80" fill="none" stroke="#C99B48" strokeWidth="1.2" />
+                  </g>
+
+                  {/* ============================================================
+                      AVARANA 7: 8 TRIANGLES (Sarva Rogahara · Aṣṭakoṇa)
+                     ============================================================ */}
+                  <g
+                    onClick={() => {
+                      if (activeSequence === 'enclosures') setActiveAvaranaIdx(6);
+                      if (activeSequence === 'triangles') setActiveTriangleStepIdx(3);
+                    }}
+                    className="cursor-pointer transition-opacity duration-500"
+                    opacity={activeRings.tri8 ? 1 : 0.24}
+                  >
+                    {ring8Triangles.map((pts, idx) => (
+                      <polygon
+                        key={`tri8-${idx}`}
+                        points={pts}
+                        fill={activeRings.tri8 ? '#9E3E10' : '#321708'}
+                        fillOpacity={activeRings.tri8 ? '0.92' : '0.45'}
+                        stroke={activeRings.tri8 ? '#F0C66C' : '#C99B48'}
+                        strokeWidth={activeRings.tri8 ? '2.2' : '1.2'}
+                      />
+                    ))}
+                    <circle cx="500" cy="500" r="50" fill="#140904" stroke="#C99B48" strokeWidth="1.2" />
+                  </g>
+
+                  {/* ============================================================
+                      AVARANA 8: 1 CENTRAL TRIANGLE (Sarva Siddhiprada · Trikoṇa)
+                     ============================================================ */}
+                  <g
+                    onClick={() => {
+                      if (activeSequence === 'enclosures') setActiveAvaranaIdx(7);
+                      if (activeSequence === 'triangles') setActiveTriangleStepIdx(4);
+                    }}
+                    className="cursor-pointer transition-opacity duration-500"
+                    opacity={activeRings.tri1 ? 1 : 0.28}
+                  >
+                    <polygon
+                      points="500,542 462,476 538,476"
+                      fill={activeRings.tri1 ? '#B84A14' : '#321708'}
+                      fillOpacity={activeRings.tri1 ? '0.95' : '0.55'}
+                      stroke={activeRings.tri1 ? '#F0C66C' : '#C99B48'}
+                      strokeWidth={activeRings.tri1 ? '2.8' : '1.6'}
+                      filter={activeRings.tri1 ? 'url(#goldGlow)' : undefined}
+                    />
+                  </g>
+
+                  {/* ============================================================
+                      AVARANA 9: BINDU (Sarvānandamaya Chakra)
+                     ============================================================ */}
+                  <g
+                    onClick={() => {
+                      if (activeSequence === 'enclosures') setActiveAvaranaIdx(8);
+                      if (activeSequence === 'triangles') setActiveTriangleStepIdx(5);
+                    }}
+                    className="cursor-pointer"
+                  >
+                    <circle
+                      cx="500"
+                      cy="500"
+                      r={activeRings.bindu ? '16' : '10'}
+                      fill="#E8792D"
+                      fillOpacity={activeRings.bindu ? '0.35' : '0.15'}
+                    />
+                    <circle
+                      cx="500"
+                      cy="500"
+                      r={activeRings.bindu ? '7.5' : '5'}
+                      fill="#E8792D"
+                      stroke="#F0C66C"
+                      strokeWidth="2"
+                      filter="url(#goldGlow)"
+                    />
+                  </g>
+
+                  {/* ============================================================
+                      BHUPURA CLOSE-UP CALLOUT LABELS (Sequence D: 00:44–00:49)
+                     ============================================================ */}
+                  {activeSequence === 'bhupura' && (
+                    <g>
+                      {/* Highlight pulse on the lower Bhupura gate */}
+                      <rect
+                        x="412"
+                        y="818"
+                        width="176"
+                        height="118"
+                        rx="6"
+                        fill="none"
+                        stroke="#E8792D"
+                        strokeWidth="2.5"
+                        strokeDasharray="6 4"
+                      />
+                      <circle
+                        cx="500"
+                        cy="848"
+                        r="11"
+                        fill="#E8792D"
+                        stroke="#F0C66C"
+                        strokeWidth="2.5"
+                        filter="url(#goldGlow)"
+                      />
+                    </g>
+                  )}
+
+                  {/* ============================================================
+                      EIGHT MATRIKA DIRECTIONAL MARKERS ON THE BHUPURA (Sequences E & F)
+                     ============================================================ */}
+                  {BHUPURA_MATRIKA_PROFILES.map((matrika, idx) => {
+                    const isFocusedMatrika =
+                      (activeSequence === 'matrikas' && activeMatrikaIdx === idx) ||
+                      (activeSequence === 'closing' && resonatedMatrikaIdx === idx);
+                    const showMarker =
+                      activeSequence === 'matrikas' || activeSequence === 'closing';
+
+                    if (!showMarker) return null;
+
+                    // Compute label offset so all 8 labels around the Bhupura in Sequence F are crisp and legible
+                    let labelDx = 0;
+                    let labelDy = 0;
+                    let anchor: 'middle' | 'start' | 'end' = 'middle';
+                    if (matrika.labelPlacement === 'bottom') {
+                      labelDy = 46;
+                      anchor = 'middle';
+                    } else if (matrika.labelPlacement === 'top') {
+                      labelDy = -36;
+                      anchor = 'middle';
+                    } else if (matrika.labelPlacement === 'left') {
+                      labelDx = -38;
+                      labelDy = 5;
+                      anchor = 'end';
+                    } else if (matrika.labelPlacement === 'right') {
+                      labelDx = 38;
+                      labelDy = 5;
+                      anchor = 'start';
+                    } else if (matrika.labelPlacement === 'bottom-left') {
+                      labelDx = -24;
+                      labelDy = 36;
+                      anchor = 'end';
+                    } else if (matrika.labelPlacement === 'top-left') {
+                      labelDx = -24;
+                      labelDy = -24;
+                      anchor = 'end';
+                    } else if (matrika.labelPlacement === 'top-right') {
+                      labelDx = 24;
+                      labelDy = -24;
+                      anchor = 'start';
+                    } else if (matrika.labelPlacement === 'bottom-right') {
+                      labelDx = 24;
+                      labelDy = 36;
+                      anchor = 'start';
+                    }
+
+                    return (
+                      <g
+                        key={matrika.number}
+                        role="button"
+                        tabIndex={0}
+                        aria-label={`${matrika.indexHeader} — ${matrika.hindiName} (${matrika.transliteration})`}
+                        onClick={() => {
+                          setIsPlayingTimeline(false);
+                          if (activeSequence === 'closing') {
+                            setResonatedMatrikaIdx(idx);
+                          } else {
+                            setActiveMatrikaIdx(idx);
+                            setActiveSequence('matrikas');
+                          }
+                        }}
+                        onKeyDown={e => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            setActiveMatrikaIdx(idx);
+                            setActiveSequence('matrikas');
+                          }
+                        }}
+                        className="cursor-pointer"
+                        opacity={
+                          activeSequence === 'closing'
+                            ? resonatedMatrikaIdx === null || isFocusedMatrika
+                              ? 1
+                              : 0.55
+                            : isFocusedMatrika
+                              ? 1
+                              : 0.42
+                        }
+                      >
+                        {/* Outer Halo Ring */}
+                        {isFocusedMatrika && (
+                          <circle
+                            cx={matrika.markerX}
+                            cy={matrika.markerY}
+                            r="30"
+                            fill="#E8792D"
+                            fillOpacity="0.24"
+                            stroke="#F0C66C"
+                            strokeWidth="2"
+                          />
+                        )}
+
+                        {/* Circular Numbered Marker on Bhupura */}
+                        <circle
+                          cx={matrika.markerX}
+                          cy={matrika.markerY}
+                          r={isFocusedMatrika ? '19' : '15'}
+                          fill={isFocusedMatrika ? '#E8792D' : '#1A0D06'}
+                          stroke={isFocusedMatrika ? '#F0C66C' : '#C99B48'}
+                          strokeWidth={isFocusedMatrika ? '2.8' : '1.8'}
+                          filter={isFocusedMatrika ? 'url(#goldGlow)' : undefined}
+                        />
+
+                        <text
+                          x={matrika.markerX}
+                          y={matrika.markerY + 5}
+                          textAnchor="middle"
+                          fill={isFocusedMatrika ? '#080503' : '#F0C66C'}
+                          fontSize={isFocusedMatrika ? '15' : '13'}
+                          fontFamily="monospace"
+                          fontWeight="bold"
+                        >
+                          {matrika.number}
+                        </text>
+
+                        {/* Direction & Name Label beside Marker */}
+                        <text
+                          x={matrika.markerX + labelDx}
+                          y={matrika.markerY + labelDy}
+                          textAnchor={anchor}
+                          fill={isFocusedMatrika ? '#F0C66C' : '#F5DEAB'}
+                          fontSize="15"
+                          fontFamily="serif"
+                          fontWeight="bold"
+                        >
+                          {matrika.number} {matrika.hindiDirection} · {matrika.hindiName}
+                        </text>
+                      </g>
+                    );
+                  })}
+                </svg>
+              </motion.div>
+
+              {/* Bottom Caption Overlay Inside Yantra Frame */}
+              <div className="absolute bottom-2.5 inset-x-3 z-20 flex items-center justify-between px-3 py-1.5 rounded bg-[#080503]/85 border border-[#C99B48]/30 text-[10px] font-mono text-[#D0C3AD]">
+                <span>
+                  {activeSequence === 'enclosures'
+                    ? `CLICK ANY RING OR BUTTON · ${currentAvarana.indexLabel}`
+                    : activeSequence === 'matrikas'
+                      ? `GATE ${currentMatrika.indexFraction} · ${currentMatrika.englishDirection.toUpperCase()}`
+                      : 'SACRED GEOMETRY · ŚRĪ MERU CHAKRA'}
+                </span>
+                <span className="text-[#F0C66C]">
+                  {activeSequence === 'triangles'
+                    ? `${currentTriangleStep.cumulativeTotal} / 44 UNITS`
+                    : '9 ĀVARAṆAS · 8 MĀTR̥KĀS'}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column (6 cols on lg): Synchronized Sequence Narrative, Bilingual Typography & Interactive Sub-Controls */}
+          <div className="lg:col-span-6 flex flex-col justify-between">
+            <AnimatePresence mode="wait">
+              {/* ============================================================
+                  SEQUENCE A (00:00–00:09): OPENING & THREE LEVELS
+                 ============================================================ */}
+              {activeSequence === 'opening' && (
+                <motion.div
+                  key="seq-opening"
+                  initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -10 }}
+                  transition={{ duration: 0.28 }}
+                  className="p-5 sm:p-6 rounded-xl bg-[#1A0D06]/90 border border-[#C99B48]/45 shadow-[0_16px_40px_rgba(0,0,0,0.65)]"
+                >
+                  <div className="flex items-center justify-between gap-2 pb-3 border-b border-[#C99B48]/25">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#E8792D]">
+                      SEQUENCE 01 · 00:00–00:09 · OPENING
+                    </span>
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        type="button"
+                        onClick={() => setOpeningStep(0)}
+                        className={`px-2 py-0.5 rounded text-[9.5px] font-mono cursor-pointer ${
+                          openingStep === 0
+                            ? 'bg-[#E8792D]/25 border border-[#F0C66C] text-[#F0C66C]'
+                            : 'bg-[#080503]/60 border border-[#866334]/40 text-[#D0C3AD]'
+                        }`}
+                      >
+                        00:00 · श्री मेरु चक्र
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setOpeningStep(1)}
+                        className={`px-2 py-0.5 rounded text-[9.5px] font-mono cursor-pointer ${
+                          openingStep === 1
+                            ? 'bg-[#E8792D]/25 border border-[#F0C66C] text-[#F0C66C]'
+                            : 'bg-[#080503]/60 border border-[#866334]/40 text-[#D0C3AD]'
+                        }`}
+                      >
+                        00:03 · तीन स्तर
+                      </button>
+                    </div>
+                  </div>
+
+                  {openingStep === 0 ? (
+                    <div className="py-5 text-center sm:text-left">
+                      <h4 className="text-3xl sm:text-4xl font-serif font-bold text-[#F0C66C] tracking-wide">
+                        श्री मेरु चक्र
+                      </h4>
+                      <p className="mt-1.5 text-lg sm:text-xl font-serif italic text-[#D0C3AD]">
+                        Śrī Meru Chakra — Mahameru
+                      </p>
+                      <p className="mt-4 text-sm sm:text-[15px] font-serif text-[#F0EAE0]/90 leading-relaxed">
+                        The supreme geometric mandala of the Śrīvidyā tradition—constructed from an outer three-walled square sanctuary (<span className="text-[#F5DEAB] italic">Bhūpura</span>), concentric sixteen-petal and eight-petal lotus rings, and nine interlocking triangles generating forty-three peripheral and central triangles around the dimensionless <span className="text-[#F5DEAB] italic">Bindu</span>.
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="py-4">
+                      <h4 className="text-2xl sm:text-3xl font-serif font-bold text-[#F0C66C] tracking-wide">
+                        एक यन्त्र · तीन स्तर
+                      </h4>
+                      <p className="mt-1 text-base sm:text-lg font-serif italic text-[#D0C3AD]">
+                        One yantra — a symbol at three levels
+                      </p>
+
+                      {/* Three Levels Cards (including अणु · Atoms at 00:05–00:06) */}
+                      <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div className="p-3.5 rounded-lg bg-[#080503]/80 border border-[#F0C66C]/50">
+                          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#E8792D]">
+                            LEVEL 01 · MICRO
+                          </span>
+                          <div className="mt-1 font-serif text-lg font-bold text-[#F0C66C]">
+                            अणु · Atoms
+                          </div>
+                          <p className="mt-1 text-xs font-serif text-[#D0C3AD] leading-relaxed">
+                            Vibrational symmetry, nodal harmonic fields, and central nucleus-to-orbit ratios.
+                          </p>
+                        </div>
+
+                        <div className="p-3.5 rounded-lg bg-[#080503]/80 border border-[#C99B48]/40">
+                          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#E8792D]">
+                            LEVEL 02 · SOMATIC
+                          </span>
+                          <div className="mt-1 font-serif text-lg font-bold text-[#F5DEAB]">
+                            शरीर · Body
+                          </div>
+                          <p className="mt-1 text-xs font-serif text-[#D0C3AD] leading-relaxed">
+                            Each geometric ring of the yantra mirrors an inner subtle center (chakra) and mental threshold.
+                          </p>
+                        </div>
+
+                        <div className="p-3.5 rounded-lg bg-[#080503]/80 border border-[#C99B48]/40">
+                          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#E8792D]">
+                            LEVEL 03 · COSMIC
+                          </span>
+                          <div className="mt-1 font-serif text-lg font-bold text-[#F5DEAB]">
+                            चेतना · Cosmos
+                          </div>
+                          <p className="mt-1 text-xs font-serif text-[#D0C3AD] leading-relaxed">
+                            From multiplicity at the outer perimeter to unified awareness at the central Bindu.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="mt-4 pt-3 border-t border-[#C99B48]/20 flex items-center justify-between">
+                    <span className="font-mono text-[10px] text-[#D0C3AD]/80">
+                      NEXT: नव आवरण · Nine Enclosures (Outside to Inside)
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setActiveSequence('enclosures');
+                        setActiveAvaranaIdx(0);
+                        setTimelineSec(13);
+                      }}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#E8792D]/20 border border-[#F0C66C]/60 text-xs font-mono text-[#F0C66C] hover:bg-[#E8792D]/35 transition-colors cursor-pointer"
+                    >
+                      Enter Nine Enclosures
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* ============================================================
+                  SEQUENCE B (00:10–00:33): NINE ENCLOSURES (नव आवरण)
+                 ============================================================ */}
+              {activeSequence === 'enclosures' && (
+                <motion.div
+                  key="seq-enclosures"
+                  initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -10 }}
+                  transition={{ duration: 0.28 }}
+                  className="p-5 sm:p-6 rounded-xl bg-[#1A0D06]/90 border border-[#C99B48]/45 shadow-[0_16px_40px_rgba(0,0,0,0.65)]"
+                >
+                  <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-[#C99B48]/25">
+                    <div>
+                      <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#E8792D]">
+                        नव आवरण · NINE ENCLOSURES — OUTSIDE TO INSIDE
+                      </span>
+                    </div>
+                    <span className="px-2.5 py-0.5 rounded bg-[#321708] border border-[#F0C66C]/45 font-mono text-xs text-[#F0C66C]">
+                      {currentAvarana.indexLabel} ({currentAvarana.timeCue})
+                    </span>
+                  </div>
+
+                  {/* Active Enclosure Primary Typography (Matches 00:13–00:33) */}
+                  <div className="mt-4 p-4 rounded-lg bg-[#080503]/85 border border-[#F0C66C]/40">
+                    <div className="font-mono text-xs tracking-[0.2em] text-[#E8792D] uppercase">
+                      {currentAvarana.indexLabel}
+                    </div>
+                    <h4 className="mt-1 text-2xl sm:text-3xl font-serif font-bold text-[#F0C66C]">
+                      {currentAvarana.hindiName}
+                    </h4>
+                    <p className="mt-1 text-base sm:text-lg font-serif italic text-[#F5DEAB]">
+                      {currentAvarana.subtitleLine}
+                    </p>
+                    <p className="mt-2.5 text-xs sm:text-sm font-serif text-[#D0C3AD] leading-relaxed">
+                      {currentAvarana.architecturalNote}
+                    </p>
+                    <div className="mt-2.5 pt-2 border-t border-[#866334]/30 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-[#F5DEAB]/85">
+                      <span>PRESIDING GROUP: {currentAvarana.yoginiGroup}</span>
+                      <span>GEOMETRY: {currentAvarana.geometrySummary}</span>
+                    </div>
+                  </div>
+
+                  {/* Interactive 9-Enclosure Selector Grid (1/9 to 9/9) */}
+                  <div className="mt-4">
+                    <span className="block font-mono text-[9.5px] uppercase tracking-[0.18em] text-[#D0C3AD] mb-2">
+                      SELECT ENCLOSURE (OUTSIDE → BINDU):
+                    </span>
+                    <div className="grid grid-cols-3 sm:grid-cols-3 gap-1.5">
+                      {NINE_AVARANAS.map((av, idx) => {
+                        const isSelected = activeAvaranaIdx === idx;
+                        return (
+                          <button
+                            key={av.number}
+                            type="button"
+                            onClick={() => {
+                              setIsPlayingTimeline(false);
+                              setActiveAvaranaIdx(idx);
+                              setTimelineSec(av.startSec);
+                            }}
+                            className={`px-2.5 py-2 rounded border text-left transition-all cursor-pointer ${
+                              isSelected
+                                ? 'bg-[#6A2B0B]/85 border-[#F0C66C] text-[#F0C66C] shadow-[0_0_12px_rgba(240,198,108,0.25)]'
+                                : 'bg-[#080503]/70 border-[#866334]/40 text-[#D0C3AD] hover:border-[#C99B48]'
+                            }`}
+                          >
+                            <div className="font-mono text-[9px] text-[#E8792D] font-semibold">
+                              आवरण {av.number}/9
+                            </div>
+                            <div className="font-serif text-xs font-semibold text-[#F0EAE0] truncate">
+                              {av.hindiName.replace(' चक्र', '')}
+                            </div>
+                            <div className="font-mono text-[8.5px] text-[#D0C3AD]/80 truncate">
+                              {av.geometrySummary}
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* ============================================================
+                  SEQUENCE C (00:34–00:43): FORTY-FOUR TRIANGLES (४४ त्रिकोण)
+                 ============================================================ */}
+              {activeSequence === 'triangles' && (
+                <motion.div
+                  key="seq-triangles"
+                  initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -10 }}
+                  transition={{ duration: 0.28 }}
+                  className="p-5 sm:p-6 rounded-xl bg-[#1A0D06]/90 border border-[#C99B48]/45 shadow-[0_16px_40px_rgba(0,0,0,0.65)]"
+                >
+                  <div className="flex items-center justify-between gap-2 pb-3 border-b border-[#C99B48]/25">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#E8792D]">
+                      SEQUENCE 03 · 00:34–00:43 · TRIANGLE ACCUMULATION
+                    </span>
+                    <span className="font-mono text-xs text-[#F0C66C]">
+                      TOTAL: {currentTriangleStep.cumulativeTotal} / 44
+                    </span>
+                  </div>
+
+                  <div className="mt-4 text-center sm:text-left">
+                    <h4 className="text-2xl sm:text-3xl font-serif font-bold text-[#F0C66C]">
+                      ४४ त्रिकोण · 44 Triangles
+                    </h4>
+
+                    {/* Animated Additive Formula Box (00:34–00:38) */}
+                    <div className="mt-3 p-4 rounded-lg bg-[#080503]/90 border border-[#F0C66C]/50 text-center">
+                      <div className="font-mono text-lg sm:text-2xl font-bold tracking-wider text-[#F5DEAB]">
+                        {currentTriangleStep.formulaDisplay}
+                      </div>
+                      <div className="mt-1 font-serif text-sm text-[#F0C66C]">
+                        {currentTriangleStep.hindiLabel}
+                      </div>
+                      <div className="font-mono text-[11px] text-[#D0C3AD]">
+                        {currentTriangleStep.englishLabel}
+                      </div>
+                    </div>
+
+                    {/* Interactive Additive Formula Step Buttons */}
+                    <div className="mt-3.5 grid grid-cols-3 sm:grid-cols-6 gap-1.5">
+                      {TRIANGLE_FORMULA_STEPS.map((st, idx) => (
+                        <button
+                          key={st.stepIndex}
+                          type="button"
+                          onClick={() => {
+                            setIsPlayingTimeline(false);
+                            setActiveTriangleStepIdx(idx);
+                          }}
+                          className={`py-2 px-1.5 rounded border font-mono text-[10px] text-center transition-all cursor-pointer ${
+                            activeTriangleStepIdx === idx
+                              ? 'bg-[#6A2B0B] border-[#F0C66C] text-[#F0C66C] font-bold'
+                              : 'bg-[#080503]/70 border-[#866334]/40 text-[#D0C3AD] hover:border-[#C99B48]'
+                          }`}
+                        >
+                          {idx === 0 ? '14' : idx === 5 ? '= 44' : `+${st.addedCount}`}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Body Reflection Statement (00:39–00:43) */}
+                    <div className="mt-4 p-4 rounded-lg bg-[#321708]/60 border-l-2 border-[#E8792D]">
+                      <p className="text-base sm:text-lg font-serif font-semibold text-[#F0EAE0]">
+                        हर वलय शरीर के एक चक्र का दर्पण है
+                      </p>
+                      <p className="mt-0.5 text-sm font-serif italic text-[#D0C3AD]">
+                        Each ring of the yantra mirrors a chakra in the body
+                      </p>
+                    </div>
+
+                    {/* Editorial / Textual Verification Note (Part 6) */}
+                    <p className="mt-3 text-[11px] font-serif text-[#D0C3AD]/80 leading-relaxed">
+                      <strong className="text-[#F5DEAB] font-mono uppercase text-[9.5px] tracking-wider">
+                        Archival Note:{' '}
+                      </strong>
+                      Classical Śrīvidyā treatises enumerate 43 triangles formed by the 9 primary intersecting Śiva–Śakti triangles (`14 + 10 + 10 + 8 + 1 = 43`) plus the central Bindu (`+ 1 = 44` focal units), presented visually in the film as `14 + 10 + 10 + 8 + 1 + 1 = 44`.
+                    </p>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* ============================================================
+                  SEQUENCE D (00:44–00:49): BHUPURA CLOSE-UP (भूपुर · Bhūpura)
+                 ============================================================ */}
+              {activeSequence === 'bhupura' && (
+                <motion.div
+                  key="seq-bhupura"
+                  initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -10 }}
+                  transition={{ duration: 0.28 }}
+                  className="p-5 sm:p-6 rounded-xl bg-[#1A0D06]/90 border border-[#C99B48]/45 shadow-[0_16px_40px_rgba(0,0,0,0.65)]"
+                >
+                  <div className="flex items-center justify-between gap-2 pb-3 border-b border-[#C99B48]/25">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#E8792D]">
+                      SEQUENCE 04 · 00:44–00:49 · ARCHITECTURAL THRESHOLD
+                    </span>
+                    <div className="flex gap-1.5">
+                      <button
+                        type="button"
+                        onClick={() => setBhupuraStep(0)}
+                        className={`px-2 py-0.5 rounded text-[9.5px] font-mono cursor-pointer ${
+                          bhupuraStep === 0
+                            ? 'bg-[#E8792D]/25 border border-[#F0C66C] text-[#F0C66C]'
+                            : 'bg-[#080503]/60 border border-[#866334]/40 text-[#D0C3AD]'
+                        }`}
+                      >
+                        00:44 · भूपुर
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setBhupuraStep(1)}
+                        className={`px-2 py-0.5 rounded text-[9.5px] font-mono cursor-pointer ${
+                          bhupuraStep === 1
+                            ? 'bg-[#E8792D]/25 border border-[#F0C66C] text-[#F0C66C]'
+                            : 'bg-[#080503]/60 border border-[#866334]/40 text-[#D0C3AD]'
+                        }`}
+                      >
+                        00:47 · बाहरी दीवार
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="mt-4">
+                    <h4 className="text-2xl sm:text-3xl font-serif font-bold text-[#F0C66C]">
+                      भूपुर · Bhūpura
+                    </h4>
+                    <p className="mt-1 text-base sm:text-lg font-serif italic text-[#F5DEAB]">
+                      Three walls · four gates · 28 Prakaṭa Yoginīs
+                    </p>
+
+                    <div className="mt-4 space-y-2.5">
+                      <div
+                        onClick={() => setBhupuraStep(1)}
+                        className={`p-3.5 rounded-lg border transition-all cursor-pointer ${
+                          bhupuraStep === 1
+                            ? 'bg-[#321708]/90 border-[#F0C66C]'
+                            : 'bg-[#080503]/80 border-[#C99B48]/40'
+                        }`}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="font-serif text-base font-bold text-[#F0C66C]">
+                            1. बाहरी दीवार · Outer Wall
+                          </span>
+                          <span className="font-mono text-xs text-[#E8792D]">10 सिद्धि · Siddhis</span>
+                        </div>
+                        <p className="mt-1 text-xs font-serif text-[#D0C3AD]">
+                          Aṇimā, Laghimā, Mahimā, ईशित्व, वशित्व, प्राकाम्य, भुक्ति, इच्छा, प्राप्ति, सर्वकाम — the ten attainment powers stationed along the outer perimeter.
+                        </p>
+                      </div>
+
+                      <div className="p-3.5 rounded-lg bg-[#321708]/95 border border-[#E8792D]">
+                        <div className="flex items-center justify-between">
+                          <span className="font-serif text-base font-bold text-[#F0C66C]">
+                            2. मध्य दीवार · Middle Wall (The 8 Gates)
+                          </span>
+                          <span className="font-mono text-xs text-[#F0C66C]">8 अष्ट मातृका · Ashta Matrikas</span>
+                        </div>
+                        <p className="mt-1 text-xs font-serif text-[#F0EAE0]">
+                          Brāhmī, Māheśvarī, Kaumārī, Vaiṣṇavī, Vārāhī, Māhendrī, Cāmuṇḍā, and Mahālakṣmī — guardians of the yantra&apos;s gates and the eight knots of the mind.
+                        </p>
+                      </div>
+
+                      <div className="p-3.5 rounded-lg bg-[#080503]/80 border border-[#C99B48]/40">
+                        <div className="flex items-center justify-between">
+                          <span className="font-serif text-base font-bold text-[#F5DEAB]">
+                            3. भीतरी दीवार · Inner Wall
+                          </span>
+                          <span className="font-mono text-xs text-[#D0C3AD]">10 मुद्रा शक्ति · Mudrā Śaktis</span>
+                        </div>
+                        <p className="mt-1 text-xs font-serif text-[#D0C3AD]">
+                          Together the three walls house <strong className="text-[#F5DEAB]">10 + 8 + 10 = 28 Prakaṭa Yoginīs</strong> of the first enclosure (Trailokya Mohana Chakra).
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* ============================================================
+                  SEQUENCE E (00:50–00:89): EIGHT MATRIKA PROFILES (अष्ट मातृका)
+                 ============================================================ */}
+              {activeSequence === 'matrikas' && (
+                <motion.div
+                  key={`seq-matrika-${currentMatrika.number}`}
+                  initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -10 }}
+                  transition={{ duration: 0.25 }}
+                  className="p-5 sm:p-6 rounded-xl bg-[#1A0D06]/90 border border-[#C99B48]/45 shadow-[0_16px_40px_rgba(0,0,0,0.65)]"
+                >
+                  {/* Section Intro Header */}
+                  <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-[#C99B48]/25">
+                    <div>
+                      <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#E8792D]">
+                        अष्ट मातृका · THE EIGHT MOTHERS OF THE BHUPURA
+                      </span>
+                      <p className="text-[11px] font-serif text-[#D0C3AD]">
+                        यन्त्र के द्वारपाल · और मन की आठ ग्रन्थियाँ — Guardians of the yantra&apos;s gates & eight knots of the mind
+                      </p>
+                    </div>
+                    <span className="px-2.5 py-1 rounded bg-[#6A2B0B] border border-[#F0C66C]/60 font-mono text-xs font-bold text-[#F0C66C]">
+                      {currentMatrika.indexHeader}
+                    </span>
+                  </div>
+
+                  {/* Active Matrika Profile Card (Exact Video Typography & Hierarchy) */}
+                  <div className="mt-4 p-4 sm:p-5 rounded-lg bg-[#080503]/90 border border-[#F0C66C]/45">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.18em] text-[#E8792D]">
+                        {currentMatrika.indexHeader}
+                      </span>
+                      <span className="font-mono text-[10px] text-[#D0C3AD]/75">
+                        {currentMatrika.timeRange}
+                      </span>
+                    </div>
+
+                    {/* Large Gold Devanagari Name */}
+                    <h4 className="mt-1.5 text-3xl sm:text-4xl font-serif font-bold text-[#F0C66C] tracking-wide">
+                      {currentMatrika.hindiName}
+                    </h4>
+
+                    {/* Italic Descriptor Line */}
+                    <p className="mt-1 text-sm sm:text-base font-serif italic text-[#D0C3AD]">
+                      {currentMatrika.descriptorLine}
+                    </p>
+
+                    {/* Hindi & English Interpretive Statement */}
+                    <div className="mt-3.5 pt-3 border-t border-[#866334]/30">
+                      <p className="text-base sm:text-lg font-serif font-medium text-[#F0EAE0]">
+                        {currentMatrika.hindiStatement}
+                      </p>
+                      <p className="mt-0.5 text-xs sm:text-sm font-serif italic text-[#D0C3AD]">
+                        {currentMatrika.englishStatement}
+                      </p>
+                    </div>
+
+                    {/* Nivarana (Obstacle Removed) */}
+                    <div className="mt-3.5 p-3 rounded bg-[#321708]/75 border-l-2 border-[#E8792D]">
+                      <p className="text-sm sm:text-[15px] font-serif font-semibold text-[#F5DEAB]">
+                        {currentMatrika.nivaranaHindi}
+                      </p>
+                      <p className="mt-0.5 text-xs font-mono text-[#D0C3AD]">
+                        {currentMatrika.nivaranaEnglish}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Direct 1/8 to 8/8 Bhupura Matrika Selector Buttons */}
+                  <div className="mt-4">
+                    <div className="grid grid-cols-4 sm:grid-cols-4 gap-1.5">
+                      {BHUPURA_MATRIKA_PROFILES.map((m, idx) => {
+                        const isSelected = activeMatrikaIdx === idx;
+                        return (
+                          <button
+                            key={m.number}
+                            type="button"
+                            onClick={() => {
+                              setIsPlayingTimeline(false);
+                              setActiveMatrikaIdx(idx);
+                              setTimelineSec(m.startSec);
+                            }}
+                            className={`px-2 py-1.5 rounded border text-left transition-all cursor-pointer ${
+                              isSelected
+                                ? 'bg-[#6A2B0B] border-[#F0C66C] text-[#F0C66C] shadow-[0_0_10px_rgba(240,198,108,0.25)]'
+                                : 'bg-[#080503]/70 border-[#866334]/40 text-[#D0C3AD] hover:border-[#C99B48]'
+                            }`}
+                          >
+                            <div className="font-mono text-[8.5px] text-[#E8792D] font-bold">
+                              {m.indexFraction} · {m.hindiDirection}
+                            </div>
+                            <div className="font-serif text-xs font-semibold text-[#F0EAE0] truncate">
+                              {m.hindiName}
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Cross-reference links to 3-Bit Cybernetic Profile & 64 Matrix */}
+                  {(onOpenCyberneticMatrika || onOpenMatrix) && (
+                    <div className="mt-3.5 pt-3 border-t border-[#C99B48]/20 flex flex-wrap items-center justify-between gap-2">
+                      {onOpenCyberneticMatrika && (
+                        <button
+                          type="button"
+                          onClick={() => onOpenCyberneticMatrika(currentMatrika.matrixRowIndex)}
+                          className="inline-flex items-center gap-1.5 text-[11px] font-mono text-[#F5DEAB] hover:text-[#F0C66C] underline decoration-dotted cursor-pointer"
+                        >
+                          <Eye className="w-3.5 h-3.5 text-[#E8792D]" />
+                          Inspect {currentMatrika.transliteration} in 3-Bit Symbolic Profile View
+                        </button>
+                      )}
+                      {onOpenMatrix && (
+                        <button
+                          type="button"
+                          onClick={onOpenMatrix}
+                          className="inline-flex items-center gap-1 text-[11px] font-mono text-[#D0C3AD] hover:text-[#F0C66C] cursor-pointer"
+                        >
+                          <Layers className="w-3.5 h-3.5 text-[#C99B48]" />
+                          64 Matrix
+                        </button>
+                      )}
+                    </div>
+                  )}
+                </motion.div>
+              )}
+
+              {/* ============================================================
+                  SEQUENCE F (00:90–01:41): WORSHIP LAYOUT & CLOSING
+                 ============================================================ */}
+              {activeSequence === 'closing' && (
+                <motion.div
+                  key="seq-closing"
+                  initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -10 }}
+                  transition={{ duration: 0.28 }}
+                  className="p-5 sm:p-6 rounded-xl bg-[#1A0D06]/90 border border-[#C99B48]/45 shadow-[0_16px_40px_rgba(0,0,0,0.65)]"
+                >
+                  <div className="flex items-center justify-between gap-2 pb-3 border-b border-[#C99B48]/25">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#E8792D]">
+                      SEQUENCE 06 · 01:30–01:41 · RITUAL INTEGRITY & CLOSING
+                    </span>
+                    <div className="flex gap-1.5">
+                      <button
+                        type="button"
+                        onClick={() => setClosingStep(0)}
+                        className={`px-2 py-0.5 rounded text-[9.5px] font-mono cursor-pointer ${
+                          closingStep === 0
+                            ? 'bg-[#E8792D]/25 border border-[#F0C66C] text-[#F0C66C]'
+                            : 'bg-[#080503]/60 border border-[#866334]/40 text-[#D0C3AD]'
+                        }`}
+                      >
+                        पञ्चामृत अभिषेक
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setClosingStep(1)}
+                        className={`px-2 py-0.5 rounded text-[9.5px] font-mono cursor-pointer ${
+                          closingStep === 1
+                            ? 'bg-[#E8792D]/25 border border-[#F0C66C] text-[#F0C66C]'
+                            : 'bg-[#080503]/60 border border-[#866334]/40 text-[#D0C3AD]'
+                        }`}
+                      >
+                        एकाग्रता अनुष्ठान
+                      </button>
+                    </div>
+                  </div>
+
+                  {closingStep === 0 ? (
+                    <div className="mt-4">
+                      <h4 className="text-2xl sm:text-3xl font-serif font-bold text-[#F0C66C]">
+                        पञ्चामृत अभिषेक
+                      </h4>
+                      <p className="mt-1 text-base sm:text-lg font-serif italic text-[#D0C3AD]">
+                        Worshipped with Panchamrita — before entering the inner rings
+                      </p>
+
+                      <div className="mt-3.5 p-4 rounded-lg bg-[#080503]/85 border border-[#F0C66C]/40">
+                        <p className="text-base sm:text-lg font-serif text-[#F0EAE0]">
+                          आठ मातृकाओं की वन्दना के बिना श्री यन्त्र की यात्रा अधूरी है
+                        </p>
+                        <p className="mt-1 text-xs sm:text-sm font-serif italic text-[#D0C3AD]">
+                          Without honoring the eight Matrikas, the journey into the Shri Yantra is incomplete
+                        </p>
+                      </div>
+
+                      <div className="mt-3.5">
+                        <span className="block font-mono text-[9.5px] uppercase tracking-[0.18em] text-[#F5DEAB] mb-2">
+                          ALL 8 BHŪPURA GATES (CLICK ANY MARKER TO INSPECT):
+                        </span>
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+                          {BHUPURA_MATRIKA_PROFILES.map((m, idx) => (
+                            <button
+                              key={m.number}
+                              type="button"
+                              onClick={() => {
+                                setActiveMatrikaIdx(idx);
+                                setActiveSequence('matrikas');
+                              }}
+                              className="p-2 rounded bg-[#080503]/75 border border-[#C99B48]/40 hover:border-[#F0C66C] text-left transition-colors cursor-pointer"
+                            >
+                              <div className="font-mono text-[9px] text-[#E8792D]">
+                                {m.number} · {m.hindiDirection} ({m.englishDirection})
+                              </div>
+                              <div className="font-serif text-xs font-bold text-[#F0C66C]">
+                                {m.hindiName}
+                              </div>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="mt-4">
+                      <div className="text-center p-4 rounded-lg bg-[#080503]/90 border border-[#F0C66C]/45">
+                        <h4 className="text-2xl sm:text-3xl font-serif font-bold text-[#F0C66C]">
+                          एकाग्रता अनुष्ठान
+                        </h4>
+                        <p className="mt-0.5 text-base font-serif italic text-[#D0C3AD]">
+                          A Ritual of Focus
+                        </p>
+
+                        <div className="my-3 h-px w-24 mx-auto bg-[#C99B48]/45" />
+
+                        <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#D0C3AD]">
+                          आगामी पुस्तक से · From the forthcoming book
+                        </p>
+                        <p className="mt-1 text-xl sm:text-2xl font-serif font-bold text-[#F5DEAB]">
+                          A Path Within
+                        </p>
+                      </div>
+
+                      {/* Interactive Resonance Prompt (00:96–01:41) */}
+                      <div className="mt-4 p-4 rounded-lg bg-[#321708]/65 border border-[#C99B48]/40">
+                        <div className="text-center">
+                          <p className="text-base sm:text-lg font-serif font-semibold text-[#F0EAE0]">
+                            कौन सी मातृका ने आपको छुआ?
+                          </p>
+                          <p className="text-xs sm:text-sm font-serif italic text-[#D0C3AD]">
+                            Which Matrika resonated with you?
+                          </p>
+                          <p className="mt-1 font-mono text-[10px] text-[#F5DEAB]">
+                            1–8 में से चुनें · और भीतर की यात्रा शुरू करें
+                          </p>
+                        </div>
+
+                        <div className="mt-3 grid grid-cols-4 sm:grid-cols-8 gap-1.5">
+                          {BHUPURA_MATRIKA_PROFILES.map((m, idx) => {
+                            const isChosen = resonatedMatrikaIdx === idx;
+                            return (
+                              <button
+                                key={m.number}
+                                type="button"
+                                onClick={() => setResonatedMatrikaIdx(idx)}
+                                className={`py-2 px-1 rounded border text-center transition-all cursor-pointer ${
+                                  isChosen
+                                    ? 'bg-[#E8792D] border-[#F0C66C] text-[#080503] font-bold shadow-[0_0_12px_rgba(232,121,45,0.45)]'
+                                    : 'bg-[#080503]/80 border-[#C99B48]/40 text-[#F0C66C] hover:border-[#F0C66C]'
+                                }`}
+                              >
+                                <div className="font-mono text-xs font-bold">{m.number}</div>
+                                <div
+                                  className={`font-serif text-[10px] truncate ${
+                                    isChosen ? 'text-[#080503]' : 'text-[#D0C3AD]'
+                                  }`}
+                                >
+                                  {m.hindiName}
+                                </div>
+                              </button>
+                            );
+                          })}
+                        </div>
+
+                        {resonatedMatrikaIdx !== null && (
+                          <div className="mt-3 p-3 rounded bg-[#080503]/90 border border-[#F0C66C]/50 text-center">
+                            <div className="font-serif text-base font-bold text-[#F0C66C]">
+                              {BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].indexHeader} ·{' '}
+                              {BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].hindiName} (
+                              {BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].transliteration})
+                            </div>
+                            <p className="mt-1 text-xs font-serif text-[#F0EAE0]">
+                              “{BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].hindiStatement} —{' '}
+                              {BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].englishStatement}”
+                            </p>
+                            <p className="mt-1 text-[11px] font-mono text-[#E8792D]">
+                              {BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].nivaranaHindi} (
+                              {BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].nivaranaEnglish})
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Bottom Step Navigation Bar */}
+            <div className="mt-4 pt-3 border-t border-[#C99B48]/25 flex flex-wrap items-center justify-between gap-3">
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handleStepPrev}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#1A0D06] border border-[#C99B48]/50 text-xs font-mono text-[#F0EAE0] hover:border-[#F0C66C] hover:text-[#F0C66C] transition-colors cursor-pointer"
+                >
+                  <ChevronLeft className="w-3.5 h-3.5" />
+                  Prev Step
+                </button>
+                <button
+                  type="button"
+                  onClick={handleStepNext}
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-[#6A2B0B]/85 border border-[#F0C66C]/70 text-xs font-mono text-[#F0C66C] hover:bg-[#E8792D]/35 transition-colors cursor-pointer"
+                >
+                  Next Step
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+
+              <div className="text-right">
+                <span className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-[#D0C3AD]/80">
+                  आगामी पुस्तक · A PATH WITHIN · RAKESH SHARMA
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,642 @@
+# COMPLETE VIDEO FORENSIC BREAKDOWN AND WEBSITE RECONSTRUCTION PROMPT
+## Project: A Path Within — Shri Meru Chakra, Nine Enclosures and Ashta Matrika
+### Reference video: 3.mp4 · Duration: 1:42 · Portrait format: 720 × 1280 · 30 FPS
+
+## MISSION
+
+Analyze and reconstruct the entire visual experience of the reference video as an interactive website chapter. Use the timestamps below as the implementation timeline.
+
+The goal is not simply to copy the video's appearance. Recreate its visual language, diagrams, transitions, text hierarchy, geometric animation, spatial composition, profile navigation, and information architecture as a responsive, interactive experience.
+
+The video should be treated as a visual reference, not as a source of scientifically verified claims.
+
+Use the existing website and preserve its established research archive, dark aesthetic, and navigation system.
+
+---
+
+# PART 1 — GLOBAL VISUAL SPECIFICATION
+
+## A. Canvas and composition
+
+Reference dimensions: 720 × 1280 pixels.
+
+Aspect ratio: 9:16 portrait.
+
+Design a mobile-first composition with a centered vertical axis. At desktop widths, keep the original portrait experience within a controlled-width content area instead of stretching it into a wide landscape dashboard.
+
+The composition uses:
+- A nearly black lower background.
+- A warm brown and dark amber central atmosphere.
+- Antique-gold linework.
+- A large geometric yantra.
+- Small, elegant Devanagari headings.
+- English explanatory subtitles.
+- Generous negative space.
+- Thin ornamental borders.
+- Small glowing orange-gold markers.
+- Gradual transitions between the different layers of the yantra.
+
+The visual style is traditional, architectural, ceremonial, and editorial. Avoid futuristic neon interfaces, generic dashboards, oversized interface buttons, and unnecessary decorative elements.
+
+## B. Color palette
+
+Use these approximate colors as starting points:
+
+- Background black: `#080503`
+- Deep brown: `#1A0D06`
+- Warm brown: `#321708`
+- Burnt amber: `#6A2B0B`
+- Antique gold: `#C99B48`
+- Bright gold: `#F0C66C`
+- Pale gold: `#F5DEAB`
+- Copper orange: `#E8792D`
+- Muted gold linework: `#866334`
+- Secondary text: `#D0C3AD`
+- Soft white: `#F0EAE0`
+
+Use a dark vignette around the composition. Keep the brightest glow close to the active geometric element.
+
+## C. Typography
+
+Use a refined Devanagari typeface for the main Hindi headings and a complementary serif for the English subtitles.
+
+The video uses a combination of:
+- Traditional-looking Hindi headings.
+- Italic English subtitles.
+- Smaller explanatory sentences.
+- Gold or muted orange index labels.
+- Thin technical labels near diagrams.
+
+Preserve the hierarchy:
+
+1. Main Hindi title.
+2. English subtitle.
+3. Small section index.
+4. Explanatory statement.
+5. Secondary details.
+
+Use appropriate Devanagari fonts, such as Noto Serif Devanagari, or compatible fonts already used by the website.
+
+Ensure that Hindi conjuncts and diacritics render correctly. Do not approximate Hindi lettering with images when live text can be used.
+
+---
+
+# PART 2 — SECOND-BY-SECOND TIMELINE
+
+The following timeline maps the full 102-second video at one-second intervals. Seconds within a sustained shot are described individually to preserve the temporal sequence while identifying what is changing visually.
+
+## Sequence A — Opening yantra and introduction
+### 00:00–00:09
+
+**00:00** — The video opens on a dark, warm-brown background. The central yantra is already visible or entering visibility. A thin antique-gold square surrounds concentric circles, lotus-like petals, and intersecting triangles.
+
+**00:01** — The title becomes legible: `श्री मेरु चक्र`. Below it appears `Śrī Meru Chakra — Mahameru`. The yantra occupies most of the central canvas.
+
+**00:02** — The opening composition settles. Preserve the gold outer square, its four architectural gates, concentric rings, lotus petals, nested triangles, and central red-orange point.
+
+**00:03** — Hold the complete diagram. Introduce subtle illumination across the central geometric structure rather than changing the overall composition.
+
+**00:04** — Maintain the same composition, with the central triangular structure remaining the principal focal point.
+
+**00:05** — The heading changes to `एक यन्त्र · तीन स्तर`, with the English subtitle `One yantra — a symbol at three levels`. A lower-left label begins to identify the first level as `अणु / Atoms`.
+
+**00:06** — Keep the yantra centered and stable while the explanatory text remains visible. The outer square and central geometry remain aligned.
+
+**00:07** — Sustain the three-level concept. Use restrained lighting to keep the linework readable against the brown-black background.
+
+**00:08** — Continue the same visual state, allowing the viewer to absorb the diagram and the explanatory text.
+
+**00:09** — Transition into a more detailed explanation of the yantra's enclosures. The geometric illustration remains the anchor.
+
+## Sequence B — Nine enclosures
+### 00:10–00:33
+
+**00:10** — Show the heading `नव आवरण`. The English subtitle reads `The nine enclosures — from the outer square to the Bindu`. The first enclosure appears as the active layer.
+
+**00:11** — Highlight the outer square and four gates with a brighter gold glow. The label reads `आवरण 1 / 9`, followed by `त्रैलोक्यमोहन चक्र` and `Trailokya Mohana · Bhūpura`.
+
+**00:12** — The second enclosure becomes active. The lotus-petal ring brightens. Display `आवरण 2 / 9`, `सर्वाशापरिपूरक चक्र`, `Sarva Āśā Paripūraka · 16 petals`, and the description about the senses and the fulfilment of worldly desires.
+
+**00:13** — Hold the second enclosure with its petal ring emphasized. Maintain the outer square and central triangle structure as subdued context.
+
+**00:14** — Continue the second enclosure's highlighted state. Use a subtle pulse along the petal outlines.
+
+**00:15** — Transition toward the next layer. The active illumination should move inward, following the geometry.
+
+**00:16** — Reveal the third enclosure. Emphasize the next ring of the yantra without changing the diagram's overall position.
+
+**00:17** — Maintain the third enclosure's active state, with the other layers dimmed.
+
+**00:18** — The fourth enclosure becomes active. Show `आवरण 4 / 9`, `सर्वसौभाग्यदायक चक्र`, `Sarva Saubhāgya Dāyaka · 14 triangles`, and `Auspiciousness and good fortune`.
+
+**00:19** — Hold the fourth enclosure, emphasizing the 14-triangle layer.
+
+**00:20** — Continue the same geometric composition. Keep the title and description legible below the diagram.
+
+**00:21** — Sustain the highlighted triangle layer. Do not rotate the entire yantra unnecessarily.
+
+**00:22** — Move the illumination toward the next enclosure. The transition should feel like a journey inward.
+
+**00:23** — Emphasize a deeper triangular layer. Keep the surrounding rings visible but subdued.
+
+**00:24** — Hold the selected inner geometry and allow the text to remain readable.
+
+**00:25** — Begin the next layer transition, with the golden highlight changing position.
+
+**00:26** — Display the fifth enclosure's active geometry. Maintain the same title hierarchy and centered alignment.
+
+**00:27** — Continue the fifth enclosure's state. Keep the nested triangles geometrically precise.
+
+**00:28** — Transition to the sixth enclosure, shifting emphasis to the next inner region.
+
+**00:29** — Hold the active geometry and maintain the antique-gold visual treatment.
+
+**00:30** — Continue the enclosure sequence, preserving the central Bindu and the surrounding triangle structure.
+
+**00:31** — Prepare the next inner-layer transition. The highlight should move inward rather than appearing randomly.
+
+**00:32** — Sustain the diagram with its current layer emphasized and the surrounding rings dimmed.
+
+**00:33** — End the full-diagram enclosure sequence. The composition prepares to transition into a closer explanation of the triangle count.
+
+## Sequence C — Forty-four triangles
+### 00:34–00:43
+
+**00:34** — Display `४४ त्रिकोण · 44 Triangles`. The subtitle reads `Each ring of the yantra mirrors a chakra in the body`. The outer triangles become brighter.
+
+**00:35** — Begin a counting sequence. A numerical counter appears below the yantra, beginning with `14`.
+
+**00:36** — Hold the highlighted triangle layer and keep the counter visible.
+
+**00:37** — Continue the counting sequence. Preserve the diagram's precise geometry.
+
+**00:38** — The count display progresses, with additional numerical terms becoming visible.
+
+**00:39** — The lower counter expands to show more of the additive sequence.
+
+**00:40** — Display the additive components more clearly, including the visible sequence of triangle counts.
+
+**00:41** — The sequence resolves toward the total. Maintain the highlighted triangles and the large central composition.
+
+**00:42** — Transition away from the full diagram into a closer view of the yantra's lower outer boundary.
+
+**00:43** — Show a close-up of the lower triangular geometry and the architectural gate of the outer square. The camera framing now makes the outer boundary itself the subject.
+
+## Sequence D — Bhupura and the eight Matrikas
+### 00:44–00:49
+
+**00:44** — Display `भूपुर · Bhūpura`. The subtitle reads `Three walls · four gates · 28 Prakaṭa Yoginīs`. The lower gate is enlarged and highlighted in warm orange-gold.
+
+**00:45** — Hold the gate close-up. Preserve the layered lines and the small architectural details.
+
+**00:46** — Introduce the explanatory label beneath the gate: `बाहरी दीवार · Outer wall` and `10 सिद्धि · Siddhis`, as visible in the reference.
+
+**00:47** — Maintain the close-up, with the gate's central ornamental section highlighted.
+
+**00:48** — Transition toward the outer-square boundary. The frame begins to move so the gate can serve as a navigation marker.
+
+**00:49** — Prepare the transition into the eight Matrika profiles. Keep the Bhupura title visible near the top.
+
+## Sequence E — Eight Matrika profiles
+### 00:50–00:89
+
+This is the most important interactive sequence for the website.
+
+The video uses a large, partially cropped yantra as a background element and a luminous architectural border that moves around the canvas. A small orange marker identifies the current position along the outer square. Each profile is associated with a numbered position.
+
+Keep the heading `अष्ट मातृका` at the top, with the English subtitle `The Eight Mothers of the Bhupura`.
+
+The profile text appears lower in the composition. The yantra is enlarged and offset, with its outer boundary serving as a visual frame.
+
+**00:50 — Matrika 1: Brahmi**
+
+- Position: `1 / 8`
+- Direction: `पूर्व · East`
+- Hindi name: `ब्राह्मी`
+- English description: `Brāhmī — Śakti of Brahma · Sarasvatī`
+- Interpretive statement: `Creativity, music, knowledge and learning`
+- `निवारण · काम (lust)`
+
+A glowing marker appears on the lower horizontal boundary. The architectural frame is warm gold with an orange active edge.
+
+**00:51** — The marker brightens and the profile text becomes more prominent. Keep the Bhupura background partially visible.
+
+**00:52** — Hold the Brahmi profile. The active marker remains anchored to the outer boundary.
+
+**00:53** — Continue the first profile with a subtle glow. Do not move the entire composition unnecessarily.
+
+**00:54** — Begin moving the highlighted frame toward the next gate or corner.
+
+**00:55 — Matrika 2: Maheshwari**
+
+- Position: `2 / 8`
+- Direction: `दक्षिण · South`
+- Hindi name: `माहेश्वरी`
+- English description: `Māheśvarī — Śakti of Śiva · Mahat Tattva`
+- Interpretive statement: `Greatness in business and enterprise; the competitive edge`
+- `निवारण · क्रोध (anger)`
+
+The active marker moves to the left-side boundary. The geometric square shifts laterally, and the gate becomes the primary visual focus.
+
+**00:56** — Hold Maheshwari's profile while the left-side marker glows.
+
+**00:57** — Continue the profile with the yantra offset to one side.
+
+**00:58** — Begin the transition toward the upper or lower corner of the frame.
+
+**00:59** — Hold the transition state, keeping the title and subtitle stable at the top.
+
+**00:60 — Matrika 3: Kaumari**
+
+- Position: `3 / 8`
+- Direction: `पश्चिम · West`
+- Hindi name: `कौमारी`
+- English description: `Kaumārī — Śakti of Kumāra (Skanda) · Kuṇḍalinī`
+- Interpretive statement: `Balances the six chakras; blesses couples seeking progeny`
+- `निवारण · लोभ (greed)`
+
+The highlighted marker moves to the upper boundary. The large yantra is shifted lower in the composition.
+
+**00:61** — Maintain the Kaumari profile and the upper-boundary marker.
+
+**00:62** — Continue the same profile. Preserve the warm gold linework.
+
+**00:63** — Hold the active state while the diagram remains partially cropped.
+
+**00:64** — Transition toward the next side of the square.
+
+**00:65 — Matrika 4: Vaishnavi**
+
+- Position: `4 / 8`
+- Direction: `उत्तर · North`
+- Hindi name: `वैष्णवी`
+- English description: `Vaiṣṇavī — Śakti of Viṣṇu · Māyā`
+- Interpretive statement: `Harmony in relationships — spouse, friends, every bond`
+- `निवारण · मोह (delusion)`
+
+The marker appears on the right-side boundary. The outer square extends vertically through the composition.
+
+**00:66** — Hold the Vaishnavi profile and right-side marker.
+
+**00:67** — Continue the profile with the yantra positioned on the opposite side of the screen.
+
+**00:68** — Maintain the active boundary glow and text hierarchy.
+
+**00:69** — Prepare the next transition by shifting the highlighted frame toward the lower corner.
+
+**00:70 — Matrika 5: Varahi**
+
+- Position: `5 / 8`
+- Direction: `आग्नेय · Southeast`
+- Hindi name: `वाराही`
+- English description: `Vārāhī — Commander of Lalita's armies · Ājñā`
+- Interpretive statement: `Conquers the inner enemies; controls disease, relieves the ill`
+- `निवारण · मद (pride)`
+
+The marker moves to a corner of the square. The large yantra shifts diagonally, emphasizing the corner and the horizontal boundary.
+
+**00:71** — Hold the Varahi profile with the corner marker illuminated.
+
+**00:72** — Continue the same composition. Keep the title fixed and the frame's movement subtle.
+
+**00:73** — Hold the profile and the highlighted corner.
+
+**00:74** — Begin transitioning the frame to the next corner.
+
+**00:75 — Matrika 6: Mahendri**
+
+- Position: `6 / 8`
+- Direction: `नैऋत्य · Southwest`
+- Hindi name: `माहेन्द्री`
+- English description: `Māhendrī — Śakti of Indra · the Vajra`
+- Interpretive statement: `Rain, crops and dairy; protection from floods and calamity`
+- `निवारण · मात्सर्य (envy)`
+
+The highlighted marker moves to the next corner. The geometric frame turns into a prominent vertical and horizontal line combination.
+
+**00:76** — Hold the Mahendri profile.
+
+**00:77** — Continue the profile with the orange-gold boundary illuminated.
+
+**00:78** — Maintain the active corner and stable text layout.
+
+**00:79** — Transition toward the next side of the outer square.
+
+**00:80 — Matrika 7: Chamunda**
+
+- Position: `7 / 8`
+- Direction: `वायव्य · Northwest`
+- Hindi name: `चामुण्डा`
+- English description: `Cāmuṇḍā — War Goddess · a form of Caṇḍī`
+- Interpretive statement: `Controls and destroys every evil done to you`
+- `निवारण · पाप (negative actions)`
+
+The active marker moves to the upper-right or corresponding boundary corner in the composition. The large yantra shifts laterally to emphasize the marker.
+
+**00:81** — Hold the Chamunda profile.
+
+**00:82** — Continue the profile. Maintain the same heading and subtitle.
+
+**00:83** — Hold the active boundary marker.
+
+**00:84** — Begin transitioning to the final Matrika position.
+
+**00:85 — Matrika 8: Mahalakshmi**
+
+- Position: `8 / 8`
+- Direction: `ईशान · Northeast`
+- Hindi name: `महालक्ष्मी`
+- English description: `Mahālakṣmī — Wealth of Śrī Nārāyaṇa · Cosmic Awareness`
+- Interpretive statement: `Removes poverty of every kind; grants spiritual wealth`
+- `निवारण · ऐश्वर्य (attachment to wealth)`
+
+The marker moves to the final corner. The geometric frame completes its journey around the square.
+
+**00:86** — Hold Mahalakshmi's profile and the final marker position.
+
+**00:87** — Continue the last profile with the same warm gold visual language.
+
+**00:88** — Hold the final Matrika card, preparing the transition into the ritual summary.
+
+**00:89** — Fade the profile presentation into a wider view of the complete yantra.
+
+## Sequence F — Worship layout and closing
+### 00:90–01:41
+
+**00:90** — Reintroduce the complete Shri Meru Chakra. The full geometric structure is again visible, with the outer square and central triangles aligned.
+
+**00:91** — Transition to the heading `पञ्चामृत अभिषेक`. The English subtitle reads `A simple worship of the Eight Matrikas`.
+
+**00:92** — Display the full yantra with eight numbered markers positioned around its outer boundary. The numbers identify the eight Matrika positions. A short instruction appears below the diagram.
+
+**00:93** — Hold the worship-layout composition. Keep the eight numbered positions visible.
+
+**00:94** — Continue the same layout with restrained illumination around the marker points.
+
+**00:95** — Transition toward the closing card. The yantra remains central but begins to become less dominant.
+
+**00:96** — Display the closing heading: `एकाग्रता अनुष्ठान` or the exact title rendered in the original video. Keep the yantra centered above or behind the text.
+
+**00:97** — The attribution `A Path Within` appears prominently. A smaller subtitle identifies the project or author.
+
+**00:98** — Hold the closing card and its centered hierarchy.
+
+**00:99** — Begin the final engagement prompt. The screen asks which Matrika resonated with the viewer and invites a response by number.
+
+**01:40** — Maintain the final composition and branding.
+
+**01:41** — End the video on the closing card.
+
+---
+
+# PART 3 — THE YANTRA: RECONSTRUCT THE COMPLETE VISUAL SYSTEM
+
+## 1. Outer square and gates
+
+The outer square is a major recurring element throughout the video.
+
+It contains:
+- Multiple nested rectangular outlines.
+- Four architectural gates.
+- Symmetrical protrusions at the cardinal directions.
+- Fine gold linework.
+- A warm orange highlight on the currently active boundary.
+- A glowing circular marker identifying the active position.
+
+Create the square as a scalable vector graphic.
+
+The geometry must remain accurate at every screen size.
+
+Do not use a static screenshot as the complete yantra if the website needs to highlight individual layers or animate the outer boundary.
+
+## 2. Concentric circles
+
+Inside the outer square, create multiple circular outlines.
+
+They should:
+- Share the same central axis.
+- Maintain consistent spacing.
+- Use muted gold strokes.
+- Remain visible beneath the highlighted elements.
+- Provide a sense of depth and ceremonial symmetry.
+
+## 3. Lotus petals
+
+Create the visible rings of lotus-like petals.
+
+Each petal should be a clean vector path, with:
+- Fine antique-gold outlines.
+- Muted amber fill.
+- A subtle highlight when its ring becomes active.
+
+The petal shapes must remain consistent across the entire animation.
+
+## 4. Interlocking triangles
+
+Reconstruct the central triangular geometry as a collection of individual vector paths.
+
+Requirements:
+- Maintain the original symmetry.
+- Keep triangle edges crisp.
+- Use restrained reddish-brown fills.
+- Use fine gold outlines.
+- Highlight selected triangle layers.
+- Keep the central Bindu clearly identifiable.
+
+Do not generate the geometry from arbitrary random triangles.
+
+## 5. Central Bindu
+
+The center should contain a small red-orange point.
+
+It should:
+- Remain aligned with the central axis.
+- Be clearly visible without overpowering the diagram.
+- Have a subtle glow.
+- Remain stationary during enclosure transitions unless the source video clearly moves it.
+
+---
+
+# PART 4 — ANIMATION RECONSTRUCTION
+
+## A. Camera movement
+
+Use a combination of:
+- Slow push-ins.
+- Controlled vertical movement.
+- Side-to-side framing shifts.
+- Close-ups of the outer gates.
+- Smooth transitions between geometric layers.
+- Gentle returns to the complete yantra.
+
+Do not rotate the entire yantra randomly.
+
+The reference uses movement to reveal different portions of a fixed geometric structure. Recreate that feeling.
+
+## B. Layer illumination
+
+When a new enclosure becomes active:
+1. Reduce the brightness of the previous active layer.
+2. Increase the brightness of the new layer.
+3. Introduce a subtle gold glow.
+4. Keep the remaining geometry visible.
+5. Update the heading and explanatory text.
+6. Hold the new state long enough for reading.
+
+Use consistent animation timing.
+
+## C. Moving architectural frame
+
+For the eight Matrika profiles, animate the active outer boundary.
+
+The marker should travel through the eight profile positions in sequence.
+
+As the marker moves:
+- The relevant boundary line glows.
+- The surrounding square shifts or is reframed.
+- The yantra remains partially visible.
+- The active profile changes.
+- The text updates.
+- The marker settles at its new location.
+
+This is a core interaction and must not be replaced by simple crossfades between unrelated cards.
+
+## D. Timing
+
+Use the timeline above as the target pacing.
+
+However, in the interactive website, do not force the visitor to wait for the entire sequence. Provide:
+- Manual previous and next navigation.
+- Direct profile selection.
+- A pause control if an automatic presentation mode is added.
+- Reduced-motion support.
+
+If an autoplay presentation is implemented, make it optional.
+
+---
+
+# PART 5 — INTERACTIVE WEBSITE BEHAVIOR
+
+## 1. Enclosure selector
+
+Allow visitors to select the nine enclosures.
+
+Selecting an enclosure should:
+- Highlight its corresponding geometry.
+- Update the enclosure number.
+- Update the Hindi title.
+- Update the English title.
+- Update the explanatory statement.
+- Keep the overall yantra aligned.
+
+## 2. Matrika selector
+
+Create eight selectable Matrika positions along the Bhupura.
+
+Each position should correspond to one Matrika profile.
+
+Clicking a marker or selecting a profile from the navigation should:
+- Move the active marker.
+- Highlight the corresponding boundary.
+- Update the profile index.
+- Update the Hindi name.
+- Update the English description.
+- Update the interpretive statement.
+- Preserve the same yantra geometry.
+
+## 3. Chapter navigation
+
+Connect the section to the existing research website.
+
+Use previous and next controls to move between the relevant chapters.
+
+Preserve the site's established navigation conventions.
+
+## 4. Summary view
+
+Provide a final view containing the complete yantra and all eight Matrika positions.
+
+Each marker should be clickable and open its corresponding profile.
+
+---
+
+# PART 6 — SOURCE AND CONTENT INTEGRITY
+
+The reference video includes religious interpretations, traditional terms, symbolic geometry, and statements about the body, desires, spiritual practice, and the effects associated with individual Matrikas.
+
+Preserve the intended content as reference material, but do not automatically present every statement as universally accepted doctrine or scientifically established fact.
+
+Verify:
+- The names and ordering of the enclosures.
+- The traditional significance of the 44-triangle structure.
+- The association of the eight Matrikas with the four gates or directional positions.
+- The exact wording of mantras.
+- The ritual instructions.
+- The interpretation of the 28 Prakata Yoginis and the listed Siddhis.
+- The author's attribution and publication details.
+
+Where the source is uncertain, retain the information as project-supplied content and mark it for verification.
+
+Do not fabricate scriptural citations.
+
+Do not invent missing Sanskrit verses.
+
+Do not present ritual instructions as medical advice.
+
+---
+
+# PART 7 — RESPONSIVE AND TECHNICAL REQUIREMENTS
+
+Build the experience using the existing website's technology stack.
+
+Use SVG for:
+- The outer square.
+- The four gates.
+- The concentric circles.
+- The lotus petals.
+- The triangle geometry.
+- The Bindu.
+- The active marker.
+- The glowing boundary.
+
+Use CSS transitions or the site's existing animation library for movement.
+
+Keep the geometry responsive through a consistent SVG viewBox.
+
+The interface must:
+- Work on mobile.
+- Remain readable on desktop.
+- Preserve the aspect ratio of the yantra.
+- Avoid horizontal overflow.
+- Respect reduced-motion settings.
+- Keep interactive markers keyboard-accessible.
+- Avoid unnecessary continuous animation calculations.
+- Reuse the same geometry across all enclosure and Matrika states.
+
+Do not rebuild the entire website.
+
+Integrate this chapter into the existing site and preserve unrelated content.
+
+---
+
+# FINAL IMPLEMENTATION DIRECTIVE
+
+Reconstruct the 102-second video as an interactive research experience.
+
+The opening must introduce Shri Meru Chakra / Mahameru.
+
+The next section must explain the nine enclosures.
+
+The following section must explain the 44-triangle structure.
+
+The camera must then move into the Bhupura, where the outer square and its gates become the primary navigation device.
+
+The eight Matrika profiles must appear in sequence, with the active marker traveling around the outer boundary.
+
+The ending must reveal the complete yantra, eight Matrika positions, the worship-layout reference, and the closing attribution.
+
+Use the supplied timeline to reproduce the pacing, but make the website interactive rather than forcing visitors to watch a fixed-length animation.
+
+The defining design principle is:
+
+**ONE YANTRA · NINE ENCLOSURES · EIGHT MATRIKAS · ONE CONTINUOUS GEOMETRIC JOURNEY.**

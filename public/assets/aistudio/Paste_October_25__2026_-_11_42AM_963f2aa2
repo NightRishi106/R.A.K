@@ -1,0 +1,1428 @@
+# MASTER PROMPT — ASHTA MATRIKA + 64 MATRIX + CINEMATIC MOTION SYSTEM
+## Project: A Path Within — The Eight Matrikas, Eight Bhairavas and the 64-Combination Research Model
+
+## 1. PRIMARY OBJECTIVE
+
+Extend my existing website's interactive research experience into the next two connected chapters:
+
+**CHAPTER A — THE 64 MATRIX**
+
+An interactive 8 × 8 matrix that connects the eight Bhairavas with the eight Matrikas, displaying 64 individual intersections.
+
+**CHAPTER B — THE EIGHT MATRIKAS**
+
+An eight-profile interactive experience inspired by the supplied screenshots and video. Each Matrika receives a unique profile, animated visualization, title, descriptive statement, metadata, and research references.
+
+The navigation sequence must be:
+
+1. Existing Ashta Bhairava experience.
+2. 64 Matrix.
+3. Eight Matrikas.
+4. Eight individual Matrika profiles, navigable within the Matrika chapter.
+
+Use horizontal slide-style navigation to move between these chapters. The user should feel that they are moving through one connected, cinematic research presentation rather than visiting unrelated pages.
+
+Use the supplied images and video as visual references. Preserve the existing website's dark, cinematic research identity and its established visual language.
+
+Do not redesign unrelated parts of the website.
+
+**Do not display “भाग 2” anywhere.** Use the appropriate section titles directly.
+
+---
+
+# 2. CORE CREATIVE DIRECTION
+
+The visual identity should combine:
+
+- Midnight-blue cosmic backgrounds.
+- Scattered stars and subtle spatial depth.
+- A deep blue-to-near-black gradient.
+- Warm brown and burnt-orange atmospheric accents where appropriate.
+- Fine cyan, gold, violet, red, green, and amber highlights.
+- Animated scientific-style diagrams.
+- Waveforms and evolving graphs.
+- Geometric matrices and connected nodes.
+- Sanskrit and Devanagari typography.
+- Compact technical labels and metadata.
+- Clear research-card layouts.
+
+The result should resemble an interactive digital research film with the visual sophistication of a scientific visualization laboratory and the cultural subject matter of an Indian religious archive.
+
+Use the reference video's motion language to inspire the movement of graphs, particles, diagrams, and transitions. Do not merely place a static video thumbnail in the section.
+
+The visualizations should be rendered as actual moving graphics wherever feasible, using SVG, CSS, Canvas, or the website's existing animation system.
+
+The experience must remain responsive and readable on mobile devices.
+
+---
+
+# 3. CHAPTER NAVIGATION SYSTEM
+
+Implement a shared horizontal navigation system that connects the existing Ashta Bhairava experience, the 64 Matrix, and the Eight Matrikas.
+
+### Required sequence
+
+**Existing Ashta Bhairava section → 64 Matrix → Eight Matrikas**
+
+Within the Eight Matrikas chapter, allow visitors to move between eight individual Matrika profiles.
+
+The eight Matrika profiles must also have their own local navigation.
+
+### Navigation controls
+
+Provide:
+- Previous arrow.
+- Next arrow.
+- Chapter progress indicator.
+- Optional clickable chapter markers.
+- Keyboard navigation.
+- Touch-friendly swipe navigation.
+
+The arrows must be actual functional controls.
+
+When the visitor reaches the end of the existing Bhairava chapter and clicks Next, open the 64 Matrix.
+
+When the visitor is on the 64 Matrix and clicks Next, open the Eight Matrikas chapter.
+
+When the visitor is on the Eight Matrikas chapter, its profile navigation must move through the eight Matrikas in sequence.
+
+Previous navigation must follow the same sequence in reverse.
+
+Use one shared navigation model rather than creating disconnected arrow systems.
+
+The navigation must not unnecessarily reload the page or force a route change.
+
+Preserve the current URL structure unless the existing website requires another approach.
+
+### Transition behavior
+
+When changing chapters:
+- Slide the current chapter out horizontally.
+- Slide the next chapter into view.
+- Fade the outgoing content slightly.
+- Keep the transition smooth and controlled.
+- Avoid excessive zooming, spinning, flashing, or motion blur.
+- Preserve the active chapter and profile state where appropriate.
+
+Respect the user's reduced-motion preference.
+
+On mobile, support swipe gestures without interfering with vertical scrolling.
+
+---
+
+# 4. CHAPTER A — THE 64 MATRIX
+
+## 4.1 Main heading
+
+Display:
+
+**64 MATRIX**
+
+Supporting heading:
+
+**8 BHAIRAVAS × 8 MATRIKAS = 64 INTERSECTIONS**
+
+Optional subtitle:
+
+`An interactive map of the eight-by-eight research model`
+
+Use a centered heading with restrained antique gold or warm yellow accents.
+
+Keep the midnight-blue starfield in the background.
+
+The title must communicate the structure of the matrix without implying that the number of combinations establishes a scientifically verified religious or metaphysical fact.
+
+## 4.2 Matrix structure
+
+Create an interactive grid with exactly eight rows and eight columns.
+
+This produces 64 cells.
+
+Use the eight Bhairavas as row labels:
+
+1. Asitanga Bhairava
+2. Ruru Bhairava
+3. Chanda Bhairava
+4. Krodha Bhairava
+5. Unmatta Bhairava
+6. Kapala Bhairava
+7. Bhishana Bhairava
+8. Samhara Bhairava
+
+Use the eight Matrikas as column labels:
+
+1. Brahmani
+2. Maheshwari
+3. Kaumari
+4. Vaishnavi
+5. Varahi
+6. Indrani
+7. Chamunda
+8. Mahalakshmi
+
+Each row must use the associated Bhairava's accent color.
+
+Each column must use the corresponding Matrika's identity color or a coordinated variation of the palette.
+
+The grid must contain exactly 64 individual intersections.
+
+Do not omit cells.
+
+Do not create a 7 × 8, 8 × 7, or 9 × 8 matrix.
+
+## 4.3 Matrix visual design
+
+Use a compact, geometrically aligned grid of square or slightly rounded rectangular cells.
+
+Every cell should have:
+- A consistent size.
+- A subtle border.
+- A clear default state.
+- A hover state.
+- A keyboard focus state.
+- A selected state.
+- A color relationship to its row and column.
+
+The visual design should closely follow the supplied matrix reference: eight horizontal bands, eight cells per band, colored row labels, and a dark cosmic background.
+
+For mobile screens, use a responsive grid or a horizontally scrollable matrix with clearly visible row and column labels. Do not shrink the matrix until the cells become unusable.
+
+The desktop version should prioritize a full view of all 64 intersections.
+
+## 4.4 Matrix interaction
+
+Each of the 64 cells must be interactive.
+
+When a cell is selected:
+- Highlight the active cell.
+- Highlight its Bhairava row.
+- Highlight its Matrika column.
+- Display the selected Bhairava's name.
+- Display the selected Matrika's name.
+- Display a unique intersection identifier.
+- Show the associated research interpretation if one exists.
+- Provide a short explanation of the relationship being explored.
+- Provide an evidence-status label.
+
+Suggested identifier format:
+
+`BM-01-01`
+
+Use a consistent identifier for every intersection.
+
+For example:
+
+`BM-01-01` = Asitanga Bhairava × Brahmani.
+
+The identifier must update automatically based on the selected row and column.
+
+Do not invent a unique theological doctrine for every cell. Where a specific association has not been verified, present the cell as an exploratory intersection in the research model.
+
+Possible content structure:
+
+**INTERSECTION**
+
+Asitanga Bhairava × Brahmani
+
+**RESEARCH QUESTION**
+
+How might this intersection be interpreted within the selected textual or iconographic tradition?
+
+**EVIDENCE STATUS**
+
+Research framework — source verification required.
+
+If verified sources exist, replace the provisional content with sourced material.
+
+## 4.5 Matrix summary
+
+Below the matrix, display a compact summary:
+
+`8 BHAIRAVAS · 8 MATRIKAS · 64 INTERSECTIONS`
+
+Add a subtle explanatory note:
+
+`The matrix is an interpretive framework for organizing comparative research. Individual associations require source-based verification.`
+
+Use restrained typography and adequate spacing.
+
+## 4.6 Matrix motion graphics
+
+The matrix should be animated.
+
+Implement the following motion effects:
+
+- Cells appear in a controlled sequence when the chapter first opens.
+- A subtle glow travels along a selected row.
+- A second highlight marks the selected column.
+- The active cell brightens gently.
+- Fine connecting lines appear between the selected row, column, and intersection.
+- The selected cell expands or reveals a small detail panel.
+- The selected state remains visible until another cell is chosen.
+
+The animation should help users understand the relationship between the row and column, not distract from the data.
+
+Do not animate all 64 cells continuously.
+
+Use CSS transitions and lightweight SVG where possible.
+
+---
+
+# 5. CHAPTER B — THE EIGHT MATRIKAS
+
+## 5.1 Main heading
+
+Display:
+
+**अष्ट मातृका**
+
+English heading:
+
+**THE EIGHT MATRIKAS**
+
+Subtitle:
+
+`Eight archetypal profiles · Eight visual systems`
+
+Do not display the prohibited “भाग 2” phrase.
+
+The chapter must contain exactly eight individual Matrika profiles.
+
+The final Matrika summary must be visually consistent with the matrix and profile navigation.
+
+## 5.2 Profile structure
+
+Every Matrika profile must include:
+
+1. Row identifier.
+2. Binary-style profile code.
+3. Symbolic or conceptual formula where appropriate.
+4. Small three-node progression indicator.
+5. A distinctive animated scientific-style visualization.
+6. Hindi name.
+7. English name.
+8. Conceptual title.
+9. One-sentence description.
+10. Four metadata cards.
+11. Source or reference line where verified.
+12. Attribution footer.
+
+Use the same general composition for all eight profiles, but give every Matrika a unique visualization.
+
+The profile layout should resemble the supplied screenshots: technical identifier at the top, animation in the middle, prominent Hindi title, English subtitle, explanatory text, and compact metadata cards near the bottom.
+
+Use one reusable profile component driven by structured data.
+
+---
+
+# 6. MATRIKA PROFILE 00 — BRAHMANI
+
+## Identity
+
+Hindi name:
+
+**ब्राह्मणी**
+
+English name:
+
+**Brahmani**
+
+Row identifier:
+
+`ROW 0`
+
+Binary-style code:
+
+`000`
+
+Conceptual title:
+
+**The Genesis Compiler**
+
+Accent color:
+
+Cyan.
+
+## Conceptual formula
+
+The screenshot shows:
+
+`M₀ = ∅ at (Creation)`
+
+Preserve the intended visual concept of creation from an initial or empty state, but treat the formula as a symbolic design expression unless a rigorous mathematical definition is supplied.
+
+Do not claim it is a recognized scientific equation.
+
+## Visualization
+
+Create a luminous spiral or galaxy-like particle system.
+
+The animation should contain:
+- A bright central point.
+- Multiple thin orbital rings.
+- Small cyan particles moving along curved paths.
+- A gradually brightening central region.
+- Subtle spiral motion.
+- A restrained sense of expansion from a central origin.
+
+The graphic should suggest an origin point and the emergence of organized structure.
+
+The animation must be vector-based or otherwise lightweight.
+
+Avoid excessive particles that reduce performance.
+
+## Main title
+
+ब्राह्मणी
+
+## English title
+
+The Genesis Compiler
+
+## Description
+
+`The WRITE command — creates new data from the void.`
+
+Treat this as a creative metaphor, not a literal description of a biological or physical process.
+
+## Metadata
+
+TATTVA:
+
+`JALA · जल`
+
+GLAND:
+
+`Hypothalamus`
+
+HORMONE:
+
+`GnRH`
+
+KSHETRA:
+
+`Pushkar`
+
+## Motion behavior
+
+- The central point brightens gradually.
+- Spiral rings move slowly.
+- Particles travel along the rings.
+- The visual expands subtly and then settles.
+- The animation must remain readable and restrained.
+
+---
+
+# 7. MATRIKA PROFILE 01 — MAHESHWARI
+
+## Identity
+
+Hindi name:
+
+**माहेश्वरी**
+
+English name:
+
+**Maheshwari**
+
+Row identifier:
+
+`ROW 1`
+
+Binary-style code:
+
+`001`
+
+Conceptual title:
+
+**The Standing Wave**
+
+Accent color:
+
+Violet.
+
+## Conceptual formula
+
+The screenshot contains:
+
+`M₁ = hω(ā + ½)`
+
+Preserve this only as a symbolic graphic label unless its variables and derivation are defined.
+
+Do not represent the formula as a verified physical equation without supporting mathematics.
+
+## Visualization
+
+Create a standing-wave diagram.
+
+The graphic should contain:
+- Two fixed endpoints.
+- A central wave curve.
+- A subtle opposing or secondary wave.
+- Small nodes along the curve.
+- A faint dashed outline suggesting the standing-wave envelope.
+- Violet illumination around the active wave.
+
+The animation should show the wave oscillating while its nodes remain in fixed positions.
+
+## Main title
+
+माहेश्वरी
+
+## English title
+
+The Standing Wave
+
+## Description
+
+`Traps the creation pulse into stable, resonant orbits.`
+
+This is a symbolic description for the visual model.
+
+## Metadata
+
+TATTVA:
+
+`ĀKĀSA · आकाश`
+
+GLAND:
+
+`Pineal`
+
+HORMONE:
+
+`Melatonin / DMT`
+
+KSHETRA:
+
+`Chidambaram`
+
+## Motion behavior
+
+- The central wave oscillates smoothly.
+- Nodes remain fixed.
+- The envelope subtly changes in response to the wave.
+- The violet accent brightens briefly at selected points.
+- The motion continues at a controlled pace.
+
+Do not claim that the animation demonstrates a verified biological or metaphysical relationship between the pineal gland and the depicted religious concept.
+
+---
+
+# 8. MATRIKA PROFILE 02 — KAUMARI
+
+## Identity
+
+Hindi name:
+
+**कौमारी**
+
+English name:
+
+**Kaumari**
+
+Row identifier:
+
+`ROW 2`
+
+Binary-style code:
+
+`010`
+
+Conceptual title:
+
+**The Ignition Thrust**
+
+Accent color:
+
+Vermilion orange.
+
+## Conceptual formula
+
+The screenshot shows:
+
+`M₂ = ṗ = −iħ ∂/∂x`
+
+Preserve this as a design reference only if the project owner explicitly wants the original formula.
+
+Otherwise, use:
+
+`M₂ — IGNITION / INITIATION`
+
+The original expression must not be presented as a valid equation for the described biological or religious system without a correct derivation.
+
+## Visualization
+
+Create a vertical ignition or energy-thrust visualization.
+
+The graphic should contain:
+- A narrow luminous orange beam.
+- A bright triangular thrust shape.
+- Small particles rising from a horizontal baseline.
+- A short spike waveform near the baseline.
+- A glowing point at the origin of the thrust.
+- A dark background with a warm orange radial glow.
+
+The visual should evoke initiation, acceleration, and a sudden release of energy.
+
+## Main title
+
+कौमारी
+
+## English title
+
+The Ignition Thrust
+
+## Description
+
+`Pure directed force — the rocket, the neuron, the first kick.`
+
+This is a creative analogy, not a scientific assertion that the depicted deity produces neuronal or physical energy.
+
+## Metadata
+
+TATTVA:
+
+`AGNI · अग्नि`
+
+GLAND:
+
+`Adrenal Medulla`
+
+HORMONE:
+
+`Norepinephrine`
+
+KSHETRA:
+
+`Palani`
+
+## Motion behavior
+
+- The ignition beam brightens from its base.
+- Particles rise and disperse.
+- The short waveform spikes briefly.
+- The visual returns to its initial state.
+- The sequence repeats at a restrained pace.
+
+Avoid explosive flashes or strobe-like effects.
+
+---
+
+# 9. MATRIKA PROFILE 03 — VAISHNAVI
+
+## Identity
+
+Hindi name:
+
+**वैष्णवी**
+
+English name:
+
+**Vaishnavi**
+
+Row identifier:
+
+`ROW 3`
+
+Binary-style code:
+
+`011`
+
+Conceptual title:
+
+**The Homeostat**
+
+Accent color:
+
+Rose pink.
+
+## Conceptual formula
+
+Use:
+
+`M₃ — PID CONTROLLER`
+
+This label represents a conceptual feedback-control visualization.
+
+Do not imply that the biological body is literally equivalent to a single PID controller.
+
+## Visualization
+
+Create an animated control-system graph.
+
+The graph should contain:
+- A rectangular plotting area.
+- A horizontal target or setpoint line.
+- A response curve that begins above the target.
+- A controlled overshoot.
+- A gradual reduction in oscillation.
+- A final approach toward the target.
+- Small labels for the setpoint and response.
+
+Use rose-pink and muted violet lines.
+
+The graph should visually demonstrate negative feedback and convergence.
+
+## Main title
+
+वैष्णवी
+
+## English title
+
+The Homeostat
+
+## Description
+
+`Negative feedback — keeps the whole system in balance.`
+
+## Metadata
+
+TATTVA:
+
+`VĀYU · वायु`
+
+GLAND:
+
+`Thyroid`
+
+HORMONE:
+
+`Serotonin`
+
+KSHETRA:
+
+`Tirupati`
+
+## Motion behavior
+
+- The response curve begins away from the setpoint.
+- It oscillates around the target.
+- Each oscillation gradually becomes smaller.
+- The line approaches equilibrium.
+- A subtle glow marks the target when convergence occurs.
+
+The graph is an illustrative control-system metaphor. It must not imply that serotonin is a thyroid hormone or that the thyroid regulates serotonin through the exact depicted PID process. If this metadata is retained, identify it as the project's symbolic mapping, not a medical claim.
+
+---
+
+# 10. MATRIKA PROFILE 04 — VARAHI
+
+## Identity
+
+Hindi name:
+
+**वाराही**
+
+English name:
+
+**Varahi**
+
+Row identifier:
+
+`ROW 4`
+
+Binary-style code:
+
+`100`
+
+Conceptual title:
+
+**The Tectonic Uplift**
+
+Accent color:
+
+Amber-orange.
+
+## Conceptual formula
+
+The screenshot contains:
+
+`M₄ :: ∇²φ = 4πGp`
+
+Preserve it only as a symbolic label unless the variables and physical model are properly defined.
+
+Otherwise, use:
+
+`M₄ — STRUCTURAL UPLIFT`
+
+## Visualization
+
+Create a three-dimensional surface mesh.
+
+The mesh should contain:
+- A dark grid plane.
+- A raised, hill-like surface.
+- Amber and gold mesh lines.
+- A warm central glow.
+- Fine grid intersections.
+- A subtle perspective effect.
+- A small label beneath the surface suggesting sea-to-land transformation.
+
+Use a real lightweight 3D rendering approach or an SVG/CSS approximation if the existing project cannot support a 3D library efficiently.
+
+Do not introduce a heavy dependency without a clear performance justification.
+
+## Main title
+
+वाराही
+
+## English title
+
+The Tectonic Uplift
+
+## Description
+
+`Gravity's operator — she raised this land out of the sea.`
+
+Treat the line as a poetic metaphor, not a claim about a documented geological event.
+
+## Metadata
+
+TATTVA:
+
+`PṚTHVĪ · पृथ्वी`
+
+GLAND:
+
+`Adrenal Cortex`
+
+HORMONE:
+
+`Cortisol`
+
+KSHETRA:
+
+`Kamakhya`
+
+## Motion behavior
+
+- The mesh begins as a flatter surface.
+- A central elevation rises gradually.
+- The grid deforms smoothly.
+- A soft highlight travels across the elevated region.
+- The surface settles into a stable shape.
+
+The visualization must not imply that cortisol causes tectonic uplift or that the religious association is a scientific geological explanation.
+
+---
+
+# 11. MATRIKA PROFILE 05 — INDRANI
+
+## Identity
+
+Hindi name:
+
+**इन्द्राणी**
+
+English name:
+
+**Indrani**
+
+Row identifier:
+
+`ROW 5`
+
+Binary-style code:
+
+`101`
+
+Conceptual title:
+
+**The Lightning Bus**
+
+Accent color:
+
+Electric blue.
+
+## Conceptual formula
+
+Use:
+
+`M₅ — ELECTRICAL SIGNAL / TRANSMISSION`
+
+The supplied screenshot contains a more complex mathematical expression. Do not reproduce an unreadable or undefined equation as if it were a scientifically valid model.
+
+If the original expression is retained, display it as a decorative symbolic annotation and verify the mathematics before publication.
+
+## Visualization
+
+Create an animated electrical-signal diagram.
+
+The graphic should contain:
+- A top horizontal line labeled SKY or IONOSPHERE.
+- A bottom horizontal line labeled GROUND or EARTH.
+- Two smooth oscillating blue waveforms between the lines.
+- A visible phase difference between the waveforms.
+- Small electrical pulse highlights.
+- Fine technical labels.
+- A prominent frequency label beneath the graph.
+
+Use a dark blue background with restrained electric-blue highlights.
+
+## Main title
+
+इन्द्राणी
+
+## English title
+
+The Lightning Bus
+
+## Description
+
+`Maxwell's discharge — bridges sky and ground at 7.83 Hz.`
+
+The number 7.83 Hz is a reference value commonly associated with the fundamental Schumann resonance. Verify the exact scientific context before publishing explanatory claims.
+
+Do not imply that the animation establishes a causal relationship between Indrani, the human pancreas, glutamate, or atmospheric electromagnetic activity.
+
+## Metadata
+
+TATTVA:
+
+`VIDYUT · विद्युत`
+
+GLAND:
+
+`Pancreas`
+
+HORMONE:
+
+`Glutamate`
+
+KSHETRA:
+
+`Tiruchendur`
+
+## Motion behavior
+
+- The two waveforms move continuously.
+- The phase relationship changes subtly.
+- Small highlights travel along the curves.
+- A brief electric pulse travels between the two horizontal reference lines.
+- The frequency label remains stable.
+
+The waveform is a visual representation, not a live atmospheric measurement.
+
+---
+
+# 12. MATRIKA PROFILE 06 — CHAMUNDA
+
+## Identity
+
+Hindi name:
+
+**चामुण्डा**
+
+English name:
+
+**Chamunda**
+
+Row identifier:
+
+`ROW 6`
+
+Binary-style code:
+
+`110`
+
+Conceptual title:
+
+**The Garbage Collector**
+
+Accent color:
+
+Lime green.
+
+## Conceptual formula
+
+Use:
+
+`M₆ — RECYCLING / ANNIHILATION`
+
+The supplied screenshot uses a symbolic annihilation label. Retain it only as an artistic conceptual annotation.
+
+## Visualization
+
+Create an animated grid of small square particles.
+
+The graphic should contain:
+- A field of green squares.
+- Some squares disappearing gradually.
+- Others moving toward a central or lower collection zone.
+- A small number of squares reappearing in a reorganized arrangement.
+- A horizontal progress bar beneath the grid.
+- A compact label showing the illustrative recycling percentage.
+
+Use lime green with dark olive and muted yellow accents.
+
+The graphic should resemble a memory-management or garbage-collection visualization.
+
+## Main title
+
+चामुण्डा
+
+## English title
+
+The Garbage Collector
+
+## Description
+
+`Apoptosis and decay — recycles dead code. Creation without her is cancer.`
+
+This is a metaphor in the supplied creative concept. It must not be presented as medical evidence or as a literal description of apoptosis, cancer, or the religious figure.
+
+If needed, use a more careful alternative:
+
+`Symbolic dissolution — removing what no longer serves the system.`
+
+## Metadata
+
+TATTVA:
+
+`DECOMP EARTH`
+
+GLAND:
+
+`Thymus`
+
+HORMONE:
+
+`GABA`
+
+KSHETRA:
+
+`Chamundi Hill`
+
+## Motion behavior
+
+- Squares appear and disappear in controlled sequences.
+- Some particles travel toward the collection region.
+- A progress bar fills gradually.
+- The grid reorganizes after each cycle.
+- The percentage updates according to the actual visual simulation.
+
+The progress percentage must reflect the graphic's simulated state, not an invented biological statistic.
+
+Do not claim that GABA is a hormone produced by the thymus. If these metadata are retained, present them as symbolic project mappings rather than established endocrinology.
+
+---
+
+# 13. MATRIKA PROFILE 07 — MAHALAKSHMI
+
+## Identity
+
+Hindi name:
+
+**महालक्ष्मी**
+
+English name:
+
+**Mahalakshmi**
+
+Row identifier:
+
+`ROW 7`
+
+Binary-style code:
+
+`111`
+
+Conceptual title:
+
+**The Solid-State Render**
+
+Accent color:
+
+Golden yellow.
+
+## Conceptual formula
+
+Use:
+
+`M₇ — PROJECTION / STABILIZATION`
+
+If the original symbolic expression from the reference is retained, identify it as an artistic label rather than a defined scientific equation.
+
+## Visualization
+
+Create a golden geometric rendering.
+
+The graphic should contain:
+- A bright golden central disc.
+- A subtle six-pointed geometric structure inspired by the reference image.
+- Concentric rings of small oval particles.
+- Fine radial geometry.
+- A warm amber glow.
+- A gradual transition from diffuse particles to a stable central form.
+
+The geometry must be an original design inspired by the screenshot. Do not label it as an authentic historical yantra unless its source and traditional form are verified.
+
+## Main title
+
+महालक्ष्मी
+
+## English title
+
+The Solid-State Render
+
+## Description
+
+`Collapses all upstream chaos into stable, golden matter.`
+
+Treat this as poetic language for the visualization.
+
+## Metadata
+
+TATTVA:
+
+`SUVARNA · सुवर्ण`
+
+GLAND:
+
+`Gonads`
+
+HORMONE:
+
+`Oxytocin`
+
+KSHETRA:
+
+`Padmanabhaswamy`
+
+## Motion behavior
+
+- The central disc brightens.
+- Fine geometric lines appear gradually.
+- Outer particles move toward stable circular positions.
+- The geometric structure becomes more defined.
+- The animation resolves into a stable golden composition.
+
+Do not imply that oxytocin is exclusively produced by the gonads or that the visualization represents a validated biological process.
+
+---
+
+# 14. EIGHT MATRIKA SUMMARY SCREEN
+
+## 14.1 Summary heading
+
+Create a final summary screen showing all eight Matrikas.
+
+Heading:
+
+**मातृका · SUMMARY**
+
+Main statement:
+
+**Your body runs on 8 Mātr̥kās. Here's the code.**
+
+The phrase is a creative project statement. It must not be interpreted as a literal scientific claim that eight goddesses regulate the body through the listed biological systems.
+
+## 14.2 Summary rows
+
+Display eight horizontal rows.
+
+Each row should contain:
+- A three-digit code.
+- A Hindi name.
+- An English conceptual title.
+- A small waveform or representative miniature graph.
+- A distinct accent color.
+- A row number.
+- A clickable interaction that opens the corresponding profile.
+
+Use the following mappings:
+
+**Row 000 — Brahmani**
+- English: The Genesis Compiler
+- Accent: Cyan
+- Visual: Spiral or galaxy.
+
+**Row 001 — Maheshwari**
+- English: The Standing Wave
+- Accent: Violet
+- Visual: Standing-wave curve.
+
+**Row 010 — Kaumari**
+- English: The Ignition Thrust
+- Accent: Orange.
+- Visual: Ignition spike.
+
+**Row 011 — Vaishnavi**
+- English: The Homeostat
+- Accent: Rose pink.
+- Visual: Converging feedback curve.
+
+**Row 100 — Varahi**
+- English: The Tectonic Uplift
+- Accent: Amber.
+- Visual: Raised mesh surface.
+
+**Row 101 — Indrani**
+- English: The Lightning Bus
+- Accent: Electric blue.
+- Visual: Oscillating signal.
+
+**Row 110 — Chamunda**
+- English: The Garbage Collector
+- Accent: Lime green.
+- Visual: Reorganizing square particles.
+
+**Row 111 — Mahalakshmi**
+- English: The Solid-State Render
+- Accent: Golden yellow.
+- Visual: Stable geometric structure.
+
+The summary should feel like a compact index of eight connected research profiles.
+
+## 14.3 Summary footer
+
+Display:
+
+`8 Matrikas · 8 Bhairavas = 64 Yoginis`
+
+This is the project's intended conceptual framework. If the website presents it as a traditional religious relationship, support it with appropriate textual sources and explain the particular tradition. Otherwise, identify it as the project's interpretive model.
+
+Below it, display the project attribution:
+
+`आगामी पुस्तक · A Path Within · Rakesh Sharma`
+
+Keep the typography muted and consistent with the individual profile footers.
+
+---
+
+# 15. MOTION GRAPHICS SYSTEM
+
+## 15.1 Core requirement
+
+The graphs must move.
+
+Do not create static illustrations that merely resemble graphs.
+
+The reference video is an example of the intended visual motion. Use it to guide the pace, composition, movement, and transitions of the scientific-style visualizations.
+
+Build the graphs as animated components within the website.
+
+The animations should respond to the selected profile and stop or settle appropriately when another profile is selected.
+
+## 15.2 Required animated graphics
+
+Implement these eight distinct visualization types:
+
+1. Brahmani — orbital spiral and particle field.
+2. Maheshwari — standing wave with fixed nodes.
+3. Kaumari — ignition beam and rising particles.
+4. Vaishnavi — feedback-control graph.
+5. Varahi — deforming 3D mesh.
+6. Indrani — dual electrical waveforms.
+7. Chamunda — square-particle collection and reorganization.
+8. Mahalakshmi — geometric convergence and stabilization.
+
+Each animation must be visually distinct.
+
+Do not reuse the same waveform animation for every Matrika.
+
+## 15.3 Motion principles
+
+- Smooth motion.
+- Restrained acceleration.
+- Clear visual hierarchy.
+- Controlled glow.
+- No strobing.
+- No random movement that obscures meaning.
+- No unnecessary camera movement.
+- No aggressive zooming.
+- No excessive blur.
+- No constant high-intensity animation.
+
+The visualizations should look deliberate, technical, and cinematic.
+
+## 15.4 Synchronization
+
+When a profile changes:
+- The old visualization fades or slides away.
+- The new visualization enters.
+- The accent color updates.
+- The profile title changes.
+- The metadata updates.
+- The summary state remains synchronized.
+
+Avoid displaying one profile's graph alongside another profile's title.
+
+## 15.5 Reduced motion
+
+When reduced motion is enabled:
+- Disable continuous particle movement.
+- Replace animated curves with static representative diagrams.
+- Remove large transformations.
+- Preserve the profile navigation and all content.
+- Avoid abrupt changes.
+
+---
+
+# 16. SOURCE INTEGRITY AND SCIENTIFIC DISCLAIMERS
+
+The eight profiles intentionally use scientific and biological metaphors.
+
+Keep the metaphors visually compelling, but do not present them as proven relationships without supporting evidence.
+
+In particular:
+
+- Do not claim that the Matrikas directly control specific endocrine glands.
+- Do not invent biological relationships between the listed hormones and glands.
+- Do not treat symbolic formulas as valid equations without defined variables and derivations.
+- Do not imply that the visualizations are real-time medical, neurological, geological, or atmospheric measurements.
+- Do not invent scriptural references, quotations, temple records, or manuscript details.
+- Do not label a symbolic matrix as a scientifically validated model.
+
+Where relevant, use a small unobtrusive evidence label:
+
+`SYMBOLIC MODEL`
+
+`INTERPRETIVE FRAMEWORK`
+
+`SOURCE VERIFICATION REQUIRED`
+
+`ILLUSTRATIVE VISUALIZATION`
+
+These labels must not dominate the design.
+
+They should preserve the credibility of the research interface while leaving its cinematic presentation intact.
+
+---
+
+# 17. TECHNICAL IMPLEMENTATION
+
+Before changing anything, inspect the existing website.
+
+Preserve:
+- The current technology stack.
+- Existing routing.
+- The Bhairava profiles.
+- Existing visual styles.
+- Existing navigation controls.
+- Unrelated website sections.
+
+Use reusable components.
+
+If the website uses React, implement components such as:
+
+- `ResearchChapterNavigation`
+- `Matrix64`
+- `MatrixIntersectionPanel`
+- `MatrikaExperience`
+- `MatrikaProfile`
+- `MatrikaSummary`
+- `MatrikaVisualization`
+- `GenesisSpiral`
+- `StandingWaveGraph`
+- `IgnitionGraph`
+- `HomeostatGraph`
+- `TectonicMesh`
+- `LightningWaveGraph`
+- `GarbageCollectorGrid`
+- `SolidStateRender`
+
+If the website uses another framework, follow the existing architecture instead.
+
+Store the eight Matrika profiles in one structured data array.
+
+Use the same data source for:
+- The eight individual profiles.
+- The summary screen.
+- The profile navigation.
+- The matrix column labels.
+- The selected-profile state.
+
+The 64 Matrix must use the existing eight Bhairava records and the new eight Matrika records. Do not duplicate or independently hardcode their names in separate components.
+
+Use SVG, CSS, or Canvas for visualizations when appropriate.
+
+Use a 3D library only if the existing project can support it without unnecessary performance cost.
+
+Do not introduce unnecessary dependencies.
+
+Do not fabricate an external API or live database.
+
+---
+
+# 18. RESPONSIVE DESIGN
+
+### Desktop
+
+- Center the presentation within a controlled maximum width.
+- Keep the starfield background visible.
+- Use clear headings and spacious visualization areas.
+- Ensure the 64 Matrix can display all eight rows and columns.
+- Keep the profile cards aligned and balanced.
+
+### Tablet
+
+- Reduce spacing proportionally.
+- Preserve diagram proportions.
+- Maintain readable metadata.
+- Avoid clipped graphs.
+
+### Mobile
+
+- Prioritize the reference's vertical composition.
+- Keep the title, profile code, graph, Hindi name, English title, and metadata readable.
+- Make the compass or visualization fit the available width.
+- Use two-column metadata cards when possible.
+- Allow the 64 Matrix to scroll horizontally if a complete grid cannot fit.
+- Keep row and column labels visible or otherwise accessible.
+- Ensure the navigation controls remain easy to use.
+- Never reduce text to an unreadable size merely to preserve desktop proportions.
+
+The experience must work on narrow mobile screens without horizontal overflow outside the intentionally scrollable matrix.
+
+---
+
+# 19. FINAL ACCEPTANCE CHECKLIST
+
+Before considering the implementation complete, verify:
+
+1. The existing Ashta Bhairava section remains intact.
+2. Next from the Bhairava section opens the 64 Matrix.
+3. Next from the 64 Matrix opens the Eight Matrikas.
+4. Previous navigation returns to the correct preceding chapter.
+5. The matrix contains exactly 64 intersections.
+6. The matrix has eight Bhairava rows and eight Matrika columns.
+7. Every matrix cell is interactive.
+8. The eight Matrika profiles appear in the correct order.
+9. Every profile has its own title, description, metadata, and visualization.
+10. The eight summary rows link to their corresponding profiles.
+11. All visualizations have actual motion when motion is enabled.
+12. Graphs and titles remain synchronized during navigation.
+13. The supplied video's motion language has influenced the animation design.
+14. The starfield and dark cosmic palette remain consistent.
+15. The profile metadata uses the supplied reference values.
+16. Symbolic and biological claims are not falsely presented as verified science.
+17. The matrix and summary use the same shared data.
+18. Mobile navigation works.
+19. Reduced-motion preferences are respected.
+20. No unrelated website sections have been changed.
+21. The phrase “भाग 2” does not appear anywhere.
+22. No fake citations or source links have been introduced.
+
+---
+
+# FINAL DIRECTIVE
+
+Build the actual interactive experience inside my existing website.
+
+Use the supplied screenshots and video as visual references.
+
+The experience must progress from the existing Ashta Bhairava presentation into the 64 Matrix and then into the Eight Matrikas.
+
+Create eight distinct animated Matrika profiles, a fully interactive 64-cell matrix, a clickable summary, and horizontal chapter navigation.
+
+Preserve the dark cosmic atmosphere, bright but restrained accent colors, Devanagari titles, technical labels, compact metadata cards, and cinematic motion graphics.
+
+Every graph must be a functioning animated visualization, not a static placeholder.
+
+Keep the research content structured, the navigation predictable, and the visual design cohesive.
+
+**FINAL EXPERIENCE: EIGHT BHAIRAVAS → 64 MATRIX → EIGHT MATRIKAS → EIGHT ANIMATED PROFILES → INTERACTIVE SUMMARY.**
+
+One continuous, cinematic, research-driven experience. No “भाग 2” label. No disconnected pages. No static graph placeholders.
