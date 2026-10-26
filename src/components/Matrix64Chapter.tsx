@@ -93,7 +93,7 @@ export default function Matrix64Chapter({
           <div className="flex items-center gap-3">
             <span className="h-[1px] w-6 sm:w-12 bg-[#FFBF38]/40" />
             <h3 className="text-xl sm:text-2xl md:text-[28px] font-serif font-bold tracking-[0.08em] text-[#FFBF38]">
-              64 MATRIX
+              64 योगिनी
             </h3>
             <span className="h-[1px] w-6 sm:w-12 bg-[#FFBF38]/40" />
           </div>
