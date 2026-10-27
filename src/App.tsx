@@ -167,7 +167,7 @@ function AppContent() {
       </main>
 
       {/* Grand Scholarly Footer */}
-      <footer className="bg-[#0b0807] border-t border-bronze-dark/50 py-16 px-4 md:px-8 text-center relative overflow-hidden paper-grain">
+      <footer className="bg-[#0b0807] border-t border-bronze-dark/50 pt-14 pb-24 sm:py-16 px-4 md:px-8 text-center relative overflow-hidden paper-grain">
         {/* Subtle decorative background outline */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/85 pointer-events-none" />
 
@@ -178,17 +178,17 @@ function AppContent() {
             <Landmark className="w-5 h-5" strokeWidth={1.5} />
           </div>
 
-          <p className="font-serif text-lg md:text-xl font-semibold text-gold-warm tracking-widest uppercase">
+          <p className="font-serif text-base sm:text-lg md:text-xl font-semibold text-gold-warm tracking-widest uppercase">
             {t('CENTER FOR ANOMALOUS STUDIES', 'असाधारण अध्ययन केंद्र')}
           </p>
-          <p className="font-mono text-xs tracking-[0.3em] text-ancient-beige/70 uppercase mt-2">
+          <p className="font-mono text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.3em] text-ancient-beige/70 uppercase mt-2">
             {t('Official Research Register & Repository — Varanasi, India', 'आधिकारिक शोध रजिस्टर एवं संग्रह — वाराणसी, भारत')}
           </p>
 
-          <div className="h-[1px] w-32 bg-gradient-to-r from-transparent via-gold-faded/50 to-transparent my-8" />
+          <div className="h-[1px] w-32 bg-gradient-to-r from-transparent via-gold-faded/50 to-transparent my-6 sm:my-8" />
 
           {/* Licenses & Notices */}
-          <p className="text-lg md:text-xl font-vintage italic text-ancient-beige/90 max-w-4xl leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl font-vintage italic text-ancient-beige/90 max-w-4xl leading-relaxed px-2">
             {t(
               '"All anomalies listed within these dockets have been recorded via calibrated dual-coil seismometers, barometric infrasound monitors, and spectral bolometers. No metaphysical validation is implied."',
               '"इन दस्तावेजों में सूचीबद्ध सभी विसंगतियाँ अंशांकित दोहरे-कुंडल भूकंपमापी, बैरोमीटरिक इन्फ्रासाउंड मॉनिटर और स्पेक्ट्रल बोलोमीटर के माध्यम से दर्ज की गई हैं। इसमें किसी आध्यात्मिक प्रमाणीकरण का दावा नहीं किया गया है।"'
@@ -196,22 +196,22 @@ function AppContent() {
           </p>
 
           {/* Quick Info Grid */}
-          <div className="flex flex-row justify-center items-center gap-8 sm:gap-16 md:gap-24 w-full max-w-4xl mt-10 pt-10 border-t border-bronze-dark/40 text-center font-mono text-[10px] md:text-xs text-ancient-beige/70 uppercase tracking-wider">
+          <div className="flex flex-col xs:flex-row justify-center items-center gap-6 sm:gap-16 md:gap-24 w-full max-w-4xl mt-8 sm:mt-10 pt-8 sm:pt-10 border-t border-bronze-dark/40 text-center font-mono text-[10px] md:text-xs text-ancient-beige/70 uppercase tracking-wider">
             <div>
-              <span className="block text-gold-faded/90 font-semibold mb-2">
+              <span className="block text-gold-faded/90 font-semibold mb-1.5 sm:mb-2">
                 {t('Directorate', 'निदेशालय')}
               </span>
               <span>{t('Ram Ashok Kumar', 'राम अशोक कुमार')}</span>
             </div>
             <div>
-              <span className="block text-gold-faded/90 font-semibold mb-2">
+              <span className="block text-gold-faded/90 font-semibold mb-1.5 sm:mb-2">
                 {t('Affiliation', 'संबद्धता')}
               </span>
               <span>{t('Society of Psychical Research', 'सोसाइटी ऑफ साइकिकल रिसर्च')}</span>
             </div>
           </div>
 
-          <p className="font-sans text-xs text-ancient-beige/60 mt-14 leading-none">
+          <p className="font-sans text-[11px] sm:text-xs text-ancient-beige/60 mt-10 sm:mt-14 leading-relaxed">
             {t(
               '© 2026 Ram Ashok Kumar. All rights reserved. Under geological and archaeological treaty archives.',
               '© 2026 राम अशोक कुमार। सर्वाधिकार सुरक्षित। भूगर्भीय और पुरातात्विक संधि अभिलेखागार के अधीन।'
@@ -229,7 +229,7 @@ function AppContent() {
         type="button"
         onClick={toggleLang}
         aria-label={lang === 'en' ? 'Switch website language to Hindi' : 'Switch website language to English'}
-        className="fixed bottom-6 right-6 z-[90] flex items-center gap-2.5 px-4 py-3 rounded-lg bg-[#140f0c]/95 hover:bg-[#221913] border-2 border-gold-warm/80 hover:border-gold-warm text-gold-warm shadow-[0_10px_30px_rgba(0,0,0,0.85),0_0_15px_rgba(212,175,55,0.25)] backdrop-blur-md transition-all duration-300 cursor-pointer group active:scale-95"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[90] flex items-center gap-2 sm:gap-2.5 px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-lg bg-[#140f0c]/95 hover:bg-[#221913] border-2 border-gold-warm/80 hover:border-gold-warm text-gold-warm shadow-[0_10px_30px_rgba(0,0,0,0.85),0_0_15px_rgba(212,175,55,0.25)] backdrop-blur-md transition-all duration-300 cursor-pointer group active:scale-95"
       >
         <Languages className="w-4 h-4 text-gold-warm group-hover:rotate-12 transition-transform duration-300" />
         <span className="font-serif text-xs sm:text-sm font-bold tracking-wider">

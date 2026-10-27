@@ -112,13 +112,64 @@ export default function Matrix64Chapter({
           </p>
         </div>
 
+        {/* Mobile Quick Row & Column Selector (Visible on small screens so users can pick any 8x8 pair without horizontal scrolling) */}
+        <div className="md:hidden mt-4 p-3 rounded-lg bg-[#070A16]/85 border border-[#526078]/45 space-y-2.5">
+          <div>
+            <span className="block font-mono text-[9px] uppercase tracking-[0.18em] text-[#FFBF38] mb-1.5">
+              {t('1. Select Bhairava Row (1–8):', '1. भैरव पंक्ति चुनें (1–8):')}
+            </span>
+            <div className="grid grid-cols-4 gap-1.5">
+              {ASHTA_BHAIRAVA_PROFILES.map((b, rIdx) => {
+                const active = rIdx === selectedRow;
+                return (
+                  <button
+                    key={b.id}
+                    type="button"
+                    onClick={() => setSelectedRow(rIdx)}
+                    className={`min-h-[34px] px-1.5 py-1 rounded text-[10px] font-serif truncate border transition cursor-pointer ${
+                      active ? 'bg-[#102344] font-bold text-white' : 'bg-[#030D32]/70 text-[#A6AFBF]'
+                    }`}
+                    style={{ borderColor: active ? b.accentColor : `${b.accentColor}40` }}
+                  >
+                    {b.index}. {t(b.shortTranslit, b.shortHindi)}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div>
+            <span className="block font-mono text-[9px] uppercase tracking-[0.18em] text-[#F7D57A] mb-1.5">
+              {t('2. Select Matrika Column (1–8):', '2. मातृका स्तंभ चुनें (1–8):')}
+            </span>
+            <div className="grid grid-cols-4 gap-1.5">
+              {ASHTA_MATRIKA_PROFILES.map((m, cIdx) => {
+                const active = cIdx === selectedCol;
+                return (
+                  <button
+                    key={m.id}
+                    type="button"
+                    onClick={() => setSelectedCol(cIdx)}
+                    className={`min-h-[34px] px-1.5 py-1 rounded text-[10px] font-serif truncate border transition cursor-pointer ${
+                      active ? 'bg-[#102344] font-bold text-white' : 'bg-[#030D32]/70 text-[#A6AFBF]'
+                    }`}
+                    style={{ borderColor: active ? m.accentColor : `${m.accentColor}40` }}
+                  >
+                    {t(m.englishName, m.hindiName)}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
         {/* Main Content Grid: 8×8 Matrix (Left 7 cols) + MatrixIntersectionPanel (Right 5 cols) */}
-        <div className="mt-5 grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
+        <div className="mt-4 sm:mt-5 grid grid-cols-1 xl:grid-cols-12 gap-5 sm:gap-6 items-start">
           {/* Left Column: The 8 × 8 Interactive Matrix */}
           <div className="xl:col-span-7 w-full overflow-x-auto pb-2">
-            <div className="min-w-[540px] bg-[#070A16]/75 border border-[#526078]/40 rounded-lg p-3 sm:p-4 relative">
+            <div className="min-w-[520px] sm:min-w-[540px] bg-[#070A16]/75 border border-[#526078]/40 rounded-lg p-2.5 sm:p-4 relative">
               {/* Column Headers: The Eight Matrikas (1..8) */}
-              <div className="grid grid-cols-[132px_repeat(8,minmax(0,1fr))] gap-1.5 items-end mb-2">
+              <div className="grid grid-cols-[118px_repeat(8,minmax(0,1fr))] sm:grid-cols-[132px_repeat(8,minmax(0,1fr))] gap-1.5 items-end mb-2">
                 <div className="px-1.5 py-1 text-left">
                   <span className="block font-mono text-[8.5px] uppercase tracking-[0.18em] text-[#A6AFBF]">
                     {t('ROW: BHAIRAVA ↓', 'पंक्ति: भैरव ↓')}

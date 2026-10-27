@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import {
   Radio,
@@ -16,7 +17,8 @@ import {
   Shield,
   Sun,
   Activity,
-  Mountain
+  Mountain,
+  FileText
 } from 'lucide-react';
 import AshtaBhairavaExperience from './AshtaBhairavaExperience';
 import Matrix64Chapter from './Matrix64Chapter';
@@ -24,6 +26,17 @@ import MatrikaExperience from './MatrikaExperience';
 import ShriMeruExperience from './ShriMeruExperience';
 import { ChaturdashaLokaExperience } from './ChaturdashaLokaExperience';
 import { useLanguage } from '../context/LanguageContext';
+import {
+  RESEARCH_CATEGORY_PORTALS,
+  getPortalBySlug,
+  getPortalByChapterIndex,
+  getArticleBySlugs
+} from '../data/researchPortalData';
+import {
+  CircularMandalaNavigation,
+  CategoryLandingPageView,
+  ArticleMonographPageView
+} from './ResearchMandalaPortal';
 
 interface MethodologyNode {
   id: string;
@@ -494,19 +507,200 @@ const KAAL_BHAIRAV_CORE_ENTRY: BhairavCodexEntry = {
   angle: 0
 };
 
+interface ResearchRouteState {
+  mode: 'overview' | 'category' | 'article';
+  categorySlug?: string;
+  articleSlug?: string;
+}
+
+function parseResearchUrl(pathname: string): ResearchRouteState {
+  const clean = pathname.replace(/\/+$/, '');
+  const articleMatch = /^\/research\/([^/]+)\/([^/]+)$/i.exec(clean);
+  if (articleMatch) {
+    return {
+      mode: 'article',
+      categorySlug: decodeURIComponent(articleMatch[1].toLowerCase()),
+      articleSlug: decodeURIComponent(articleMatch[2].toLowerCase())
+    };
+  }
+  const categoryMatch = /^\/research\/([^/]+)$/i.exec(clean);
+  if (categoryMatch) {
+    return {
+      mode: 'category',
+      categorySlug: decodeURIComponent(categoryMatch[1].toLowerCase())
+    };
+  }
+  return { mode: 'overview' };
+}
+
+const EMPIRICAL_NODE_TO_ARTICLE_SLUG: Record<string, string> = {
+  'node-acoustic': 'acoustic-resonance',
+  'node-geomagnetic': 'geomagnetic-friction',
+  'node-thermal': 'thermodynamic-inversion',
+  'node-chemistry': 'environmental-chemistry',
+  'node-structural': 'architectural-waveguides'
+};
+
+const BHAIRAV_ID_TO_ARTICLE_SLUG: Record<string, string> = {
+  'bhairav-kaal': 'kaal-bhairava-sovereign-core',
+  'bhairav-asitanga': 'codex-asitanga',
+  'bhairav-ruru': 'codex-ruru',
+  'bhairav-chanda': 'codex-chanda',
+  'bhairav-krodha': 'codex-krodha',
+  'bhairav-unmatta': 'codex-unmatta',
+  'bhairav-kapala': 'codex-kapala',
+  'bhairav-bhishana': 'codex-bhishana',
+  'bhairav-samhara': 'codex-samhara'
+};
+
 export default function PhilosophySection() {
   const { lang, t } = useLanguage();
   // 0 = Empirical Field Methodology, 1 = Ashta Bhairava, 2 = Bhairav Investigation Codex, 3 = 64 Yogini, 4 = The Eight Matrikas, 5 = Shri Meru Chakra & Ashta Matrika, 6 = The 14 Lokas in Hindu Cosmology
   const TOTAL_CHAPTERS = 7;
-  const [viewState, setViewState] = useState<{ index: number; direction: number }>({
-    index: 0,
-    direction: 1
+
+  const [routeState, setRouteState] = useState<ResearchRouteState>(() =>
+    typeof window !== 'undefined' ? parseResearchUrl(window.location.pathname) : { mode: 'overview' }
+  );
+
+  const [viewState, setViewState] = useState<{ index: number; direction: number }>(() => {
+    if (typeof window !== 'undefined') {
+      const initialRoute = parseResearchUrl(window.location.pathname);
+      if (initialRoute.categorySlug) {
+        const portal = getPortalBySlug(initialRoute.categorySlug);
+        if (portal) {
+          return { index: portal.chapterIndex, direction: 1 };
+        }
+      }
+    }
+    return { index: 0, direction: 1 };
   });
+
   const [selectedEmpiricalId, setSelectedEmpiricalId] = useState('node-acoustic');
   const [selectedBhairavId, setSelectedBhairavId] = useState('bhairav-asitanga');
   const [focusedBhairavaProfileIdx, setFocusedBhairavaProfileIdx] = useState<number>(0);
   const [focusedMatrikaProfileIdx, setFocusedMatrikaProfileIdx] = useState<number>(0);
   const shouldReduceMotion = useReducedMotion();
+  const researchPageScrollRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollResearchIntoView = useCallback(() => {
+    const el = document.getElementById('philosophy');
+    if (el) {
+      el.scrollIntoView({ behavior: shouldReduceMotion ? 'auto' : 'smooth', block: 'start' });
+    }
+  }, [shouldReduceMotion]);
+
+  const scrollDedicatedPageToTop = useCallback(() => {
+    if (researchPageScrollRef.current) {
+      researchPageScrollRef.current.scrollTo({
+        top: 0,
+        behavior: shouldReduceMotion ? 'auto' : 'smooth'
+      });
+    } else if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: shouldReduceMotion ? 'auto' : 'smooth' });
+    }
+  }, [shouldReduceMotion]);
+
+  // Lock background page scroll while the dedicated Research page is open
+  useEffect(() => {
+    if (routeState.mode !== 'overview') {
+      const prevBodyOverflow = document.body.style.overflow;
+      const prevHtmlOverflow = document.documentElement.style.overflow;
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      const timer = setTimeout(() => {
+        scrollDedicatedPageToTop();
+      }, 20);
+      return () => {
+        clearTimeout(timer);
+        document.body.style.overflow = prevBodyOverflow;
+        document.documentElement.style.overflow = prevHtmlOverflow;
+      };
+    }
+  }, [routeState.mode, routeState.categorySlug, routeState.articleSlug, scrollDedicatedPageToTop]);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const parsed = parseResearchUrl(window.location.pathname);
+      setRouteState(parsed);
+      if (parsed.categorySlug) {
+        const portal = getPortalBySlug(parsed.categorySlug);
+        if (portal) {
+          setViewState(prev => ({
+            index: portal.chapterIndex,
+            direction: portal.chapterIndex >= prev.index ? 1 : -1
+          }));
+        }
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const handleOpenCategoryPortal = useCallback(
+    (categorySlug: string) => {
+      const portal = getPortalBySlug(categorySlug);
+      if (portal) {
+        setViewState(prev => ({
+          index: portal.chapterIndex,
+          direction: portal.chapterIndex >= prev.index ? 1 : -1
+        }));
+      }
+      const nextPath = `/research/${categorySlug}`;
+      if (window.location.pathname !== nextPath) {
+        window.history.pushState({ researchRoute: nextPath }, '', nextPath);
+      }
+      setRouteState({ mode: 'category', categorySlug });
+      scrollDedicatedPageToTop();
+    },
+    [scrollDedicatedPageToTop]
+  );
+
+  const handleOpenArticle = useCallback(
+    (categorySlug: string, articleSlug: string) => {
+      const portal = getPortalBySlug(categorySlug);
+      if (portal) {
+        setViewState(prev => ({
+          index: portal.chapterIndex,
+          direction: portal.chapterIndex >= prev.index ? 1 : -1
+        }));
+      }
+      const nextPath = `/research/${categorySlug}/${articleSlug}`;
+      if (window.location.pathname !== nextPath) {
+        window.history.pushState({ researchRoute: nextPath }, '', nextPath);
+      }
+      setRouteState({ mode: 'article', categorySlug, articleSlug });
+      scrollDedicatedPageToTop();
+    },
+    [scrollDedicatedPageToTop]
+  );
+
+  const handleReturnToOverview = useCallback(
+    (targetChapterIndex?: number) => {
+      if (typeof targetChapterIndex === 'number') {
+        setViewState(prev => ({
+          index: targetChapterIndex,
+          direction: targetChapterIndex >= prev.index ? 1 : -1
+        }));
+      }
+      if (window.location.pathname !== '/') {
+        window.history.pushState({ researchRoute: '/' }, '', '/');
+      }
+      setRouteState({ mode: 'overview' });
+      setTimeout(() => {
+        scrollResearchIntoView();
+      }, 40);
+    },
+    [scrollResearchIntoView]
+  );
+
+  // Back arrow handler: goes back to the previous part (Article -> Category Page, Category Page -> Main Page)
+  const handleStepBack = useCallback(() => {
+    if (routeState.mode === 'article' && routeState.categorySlug) {
+      handleOpenCategoryPortal(routeState.categorySlug);
+    } else {
+      handleReturnToOverview();
+    }
+  }, [routeState.mode, routeState.categorySlug, handleOpenCategoryPortal, handleReturnToOverview]);
 
   const isAshtaExhibitView = viewState.index === 1;
   const isBhairavView = viewState.index === 2;
@@ -514,6 +708,8 @@ export default function PhilosophySection() {
   const isMatrikaView = viewState.index === 4;
   const isShriMeruView = viewState.index === 5;
   const isLokaView = viewState.index === 6;
+
+  const activePortal = getPortalByChapterIndex(viewState.index);
 
   const selectedEmpiricalNode =
     EMPIRICAL_NODES.find(n => n.id === selectedEmpiricalId) || EMPIRICAL_NODES[0];
@@ -527,20 +723,59 @@ export default function PhilosophySection() {
       index: targetIndex,
       direction: targetIndex >= prev.index ? 1 : -1
     }));
+    if (routeState.mode !== 'overview') {
+      const targetPortal = getPortalByChapterIndex(targetIndex);
+      const nextPath = `/research/${targetPortal.slug}`;
+      if (window.location.pathname !== nextPath) {
+        window.history.pushState({ researchRoute: nextPath }, '', nextPath);
+      }
+      setRouteState({ mode: 'category', categorySlug: targetPortal.slug });
+      scrollDedicatedPageToTop();
+    }
   };
 
   const handlePrevView = () => {
-    setViewState(prev => ({
-      index: (prev.index - 1 + TOTAL_CHAPTERS) % TOTAL_CHAPTERS,
+    const nextIdx = (viewState.index - 1 + TOTAL_CHAPTERS) % TOTAL_CHAPTERS;
+    setViewState({
+      index: nextIdx,
       direction: -1
-    }));
+    });
+    if (routeState.mode === 'category') {
+      const nextPortal = getPortalByChapterIndex(nextIdx);
+      handleOpenCategoryPortal(nextPortal.slug);
+    }
   };
 
   const handleNextView = () => {
-    setViewState(prev => ({
-      index: (prev.index + 1) % TOTAL_CHAPTERS,
+    const nextIdx = (viewState.index + 1) % TOTAL_CHAPTERS;
+    setViewState({
+      index: nextIdx,
       direction: 1
-    }));
+    });
+    if (routeState.mode === 'category') {
+      const nextPortal = getPortalByChapterIndex(nextIdx);
+      handleOpenCategoryPortal(nextPortal.slug);
+    }
+  };
+
+  const handleLaunchStudioAtNode = (chapterIndex: number, interactiveIndex?: number) => {
+    if (chapterIndex === 0 && typeof interactiveIndex === 'number') {
+      const node = EMPIRICAL_NODES[interactiveIndex];
+      if (node) setSelectedEmpiricalId(node.id);
+    } else if (chapterIndex === 1 && typeof interactiveIndex === 'number') {
+      setFocusedBhairavaProfileIdx(interactiveIndex);
+    } else if (chapterIndex === 2 && typeof interactiveIndex === 'number') {
+      if (interactiveIndex === 0) {
+        setSelectedBhairavId(KAAL_BHAIRAV_CORE_ENTRY.id);
+      } else {
+        const entry = BHAIRAV_CODEX_ENTRIES[interactiveIndex - 1];
+        if (entry) setSelectedBhairavId(entry.id);
+      }
+    } else if ((chapterIndex === 4 || chapterIndex === 5) && typeof interactiveIndex === 'number') {
+      setFocusedMatrikaProfileIdx(interactiveIndex);
+    }
+    const targetPortal = getPortalByChapterIndex(chapterIndex);
+    handleOpenCategoryPortal(targetPortal.slug);
   };
 
   const slideVariants = {
@@ -561,7 +796,7 @@ export default function PhilosophySection() {
   return (
     <section
       id="philosophy"
-      className="relative py-24 px-2 sm:px-6 md:px-10 lg:px-14 overflow-hidden border-b border-bronze-dark/40 bg-[#17100C]"
+      className="relative py-16 sm:py-24 px-3 sm:px-6 md:px-10 lg:px-14 overflow-hidden border-b border-bronze-dark/40 bg-[#17100C]"
     >
       {/* Background Texture */}
       <div
@@ -581,13 +816,13 @@ export default function PhilosophySection() {
 
       <div className="max-w-[1480px] w-full mx-auto relative z-10">
         {/* Section Title */}
-        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-10 px-2">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 md:mb-10 px-1 sm:px-2">
           <div className="flex items-center justify-center gap-3 mb-2">
             <span className="font-mono text-[10px] tracking-[0.3em] text-gold-faded uppercase">
               {t('THE SCIENCE OF MYTH', 'मिथक का विज्ञान')}
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-serif text-gold-warm tracking-wide font-medium">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-gold-warm tracking-wide font-medium">
             {t('RESEARCH PHILOSOPHY', 'शोध दर्शन')}
           </h2>
           <AnimatePresence mode="wait">
@@ -597,7 +832,7 @@ export default function PhilosophySection() {
               animate={{ opacity: 1, y: 0 }}
               exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -4 }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.25 }}
-              className="mt-3 text-base md:text-lg text-ancient-beige/70 font-vintage italic leading-relaxed"
+              className="mt-2.5 sm:mt-3 text-sm sm:text-base md:text-lg text-ancient-beige/70 font-vintage italic leading-relaxed"
             >
               {isAshtaExhibitView
                 ? t(
@@ -637,17 +872,168 @@ export default function PhilosophySection() {
           </AnimatePresence>
         </div>
 
-        {/* Main Wrapper with Left/Right Arrows Beside the Shifting Div */}
-        <div className="relative flex items-center justify-between gap-2 sm:gap-3 md:gap-5">
-          {/* Left Arrow Beside the Div */}
+        {/* Main Page Research Philosophy Content: ONLY the Circular Mandala Portals Section */}
+        <CircularMandalaNavigation
+          activeChapterIndex={viewState.index}
+          activeRouteMode="overview"
+          onSelectChapterPreview={goToChapter}
+          onOpenCategoryPortal={handleOpenCategoryPortal}
+          onOpenArticle={handleOpenArticle}
+        />
+
+        {/* Whole New Standalone Page Dedicated Exclusively to the Research Section (Opened Portals & Articles) */}
+        {/* Rendered via createPortal directly into document.body so it escapes section#philosophy's z-10 stacking context and completely covers the homepage hero man image (z-20) and all other sections */}
+        {routeState.mode !== 'overview' &&
+          typeof document !== 'undefined' &&
+          createPortal(
+            <div
+              ref={researchPageScrollRef}
+              role="region"
+              aria-label={t('Dedicated Research Philosophy Page', 'समर्पित शोध दर्शन पृष्ठ')}
+              className="fixed inset-0 z-[80] isolate overflow-y-auto overflow-x-hidden bg-[#17100C] text-[#F5E8CE]"
+            >
+            {/* Standalone Research Page Background Texture */}
+            <div
+              className="fixed inset-0 z-0 pointer-events-none"
+              style={{
+                backgroundImage: "url('/BACKGROUND%202.jpg')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            />
+            <div className="fixed inset-0 z-0 vignette-ambient pointer-events-none" />
+            <div className="fixed inset-0 z-0 opacity-[0.025] pointer-events-none bg-[linear-gradient(rgba(197,168,128,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(197,168,128,0.1)_1px,transparent_1px)] bg-[size:30px_30px]" />
+
+            {/* Sticky Top Bar with Prominent Back Arrow to Return to the Previous Part */}
+            <header className="sticky top-0 z-50 bg-[#110B07]/95 backdrop-blur-md border-b border-[#D3AD55]/35 px-3 sm:px-6 md:px-10 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
+              <div className="max-w-[1480px] mx-auto flex flex-wrap items-center justify-between gap-3">
+                <div className="flex flex-wrap items-center gap-2.5">
+                  <button
+                    type="button"
+                    onClick={handleStepBack}
+                    aria-label={
+                      routeState.mode === 'article'
+                        ? t('Back to previous category page', 'पिछले श्रेणी पृष्ठ पर वापस जाएँ')
+                        : t('Back to main page Research Philosophy', 'मुख्य पृष्ठ शोध दर्शन पर वापस जाएँ')
+                    }
+                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border-2 border-[#D3AD55] bg-[#26170F] hover:bg-[#382116] text-[#D3AD55] font-mono text-[10.5px] sm:text-xs font-bold uppercase tracking-[0.16em] transition-all cursor-pointer shadow-[0_0_18px_rgba(211,173,85,0.25)] active:scale-95"
+                  >
+                    <ArrowLeft className="w-4 h-4 shrink-0" />
+                    <span>
+                      {routeState.mode === 'article'
+                        ? t(
+                            `Back to ${(getPortalBySlug(routeState.categorySlug || '') || activePortal).shortTitleEn}`,
+                            `${(getPortalBySlug(routeState.categorySlug || '') || activePortal).shortTitleHi} पर वापस जाएँ`
+                          )
+                        : t('Back to Main Page', 'मुख्य पृष्ठ पर वापस जाएँ')}
+                    </span>
+                  </button>
+
+                  {routeState.mode === 'article' && (
+                    <button
+                      type="button"
+                      onClick={() => handleReturnToOverview()}
+                      className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-[#5A3922] bg-[#17100C] hover:border-[#D3AD55]/70 text-[#C8B69E] hover:text-[#F5E8CE] font-mono text-[10px] uppercase tracking-[0.14em] transition-all cursor-pointer"
+                    >
+                      <Compass className="w-3.5 h-3.5 text-[#D3AD55]" />
+                      <span>{t('Main Page Mandala', 'मुख्य पृष्ठ मण्डल')}</span>
+                    </button>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-2.5">
+                  <span className="font-mono text-[9.5px] sm:text-[10px] uppercase tracking-[0.24em] text-[#D3AD55] px-2.5 py-1 rounded border border-[#D3AD55]/35 bg-[#1D120B]">
+                    {t('RESEARCH PHILOSOPHY ARCHIVE', 'शोध दर्शन अभिलेखागार')}
+                  </span>
+                </div>
+              </div>
+            </header>
+
+            {/* Standalone Research Page Main Content Area */}
+            <div className="relative z-10 max-w-[1480px] w-full mx-auto px-3 sm:px-6 md:px-10 lg:px-14 py-8 sm:py-12 pb-24">
+              {/* Dedicated Individual Article Monograph View (when URL is /research/:categorySlug/:articleSlug) */}
+              {routeState.mode === 'article' &&
+                routeState.categorySlug &&
+                routeState.articleSlug && (() => {
+                  const resolved = getArticleBySlugs(
+                    routeState.categorySlug,
+                    routeState.articleSlug
+                  );
+                  if (!resolved) {
+                    return (
+                      <div className="mb-10 pb-8">
+                        <CategoryLandingPageView
+                          portal={getPortalBySlug(routeState.categorySlug) || activePortal}
+                          onBackToOverview={() => handleReturnToOverview()}
+                          onSelectCategoryPortal={handleOpenCategoryPortal}
+                          onOpenArticle={handleOpenArticle}
+                        />
+                      </div>
+                    );
+                  }
+                  return (
+                    <div className="mb-10 pb-8">
+                      <ArticleMonographPageView
+                        portal={resolved.portal}
+                        article={resolved.article}
+                        onBackToCategory={handleOpenCategoryPortal}
+                        onBackToOverview={() => handleReturnToOverview()}
+                        onOpenArticle={handleOpenArticle}
+                        onLaunchStudioAtNode={handleLaunchStudioAtNode}
+                      />
+                    </div>
+                  );
+                })()}
+
+              {/* Dedicated Category Portal Landing Page View (when URL is /research/:categorySlug) */}
+              {routeState.mode === 'category' && routeState.categorySlug && (
+                <div className="mb-10 pb-8">
+                  <CategoryLandingPageView
+                    portal={getPortalBySlug(routeState.categorySlug) || activePortal}
+                    onBackToOverview={() => handleReturnToOverview()}
+                    onSelectCategoryPortal={handleOpenCategoryPortal}
+                    onOpenArticle={handleOpenArticle}
+                  >
+              {/* Mobile & Tablet Chapter Switcher Bar */}
+              <div className="lg:hidden mb-4 flex items-center justify-between gap-2 bg-[#110c09]/90 border border-[#5A3922]/70 rounded-lg p-2">
+                <button
+                  type="button"
+                  onClick={handlePrevView}
+                  aria-label={t('Previous research philosophy view', 'पिछला शोध दर्शन दृश्य')}
+                  className="min-h-[40px] px-3 py-1.5 rounded border border-[#5A3922] bg-[#17100C] text-[#D3AD55] flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider cursor-pointer active:scale-95"
+                >
+                  <ArrowLeft className="w-3.5 h-3.5" />
+                  <span>{t('Prev', 'पिछला')}</span>
+                </button>
+
+                <div className="text-center px-1 min-w-0">
+                  <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-[#D3AD55] font-semibold truncate">
+                    {t(`Chapter ${viewState.index + 1} of ${TOTAL_CHAPTERS}`, `अध्याय ${viewState.index + 1} / ${TOTAL_CHAPTERS}`)}
+                  </span>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={handleNextView}
+                  aria-label={t('Next research philosophy view', 'अगला शोध दर्शन दृश्य')}
+                  className="min-h-[40px] px-3 py-1.5 rounded border border-[#5A3922] bg-[#17100C] text-[#D3AD55] flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider cursor-pointer active:scale-95"
+                >
+                  <span>{t('Next', 'अगला')}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+
+              {/* Main Wrapper with Left/Right Arrows Beside the Shifting Div on Desktop */}
+              <div className="relative flex items-center justify-between gap-0 lg:gap-4">
+          {/* Left Arrow Beside the Div (Desktop lg+) */}
           <button
             type="button"
             onClick={handlePrevView}
             aria-label={t('Previous research philosophy view', 'पिछला शोध दर्शन दृश्य')}
-            className="shrink-0 w-11 h-11 sm:w-12 sm:h-12 min-w-[44px] min-h-[44px] rounded-full border border-[#5A3922] bg-[#17100C]/90 text-[#D3AD55] flex items-center justify-center transition-all duration-300 motion-reduce:transition-none hover:border-[#D3AD55] hover:bg-[#D3AD55]/10 hover:shadow-[0_0_15px_rgba(211,173,85,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D3AD55] focus-visible:ring-offset-2 focus-visible:ring-offset-[#17100C] cursor-pointer z-30 group"
+            className="hidden lg:flex shrink-0 w-12 h-12 min-w-[44px] min-h-[44px] rounded-full border border-[#5A3922] bg-[#17100C]/90 text-[#D3AD55] items-center justify-center transition-all duration-300 motion-reduce:transition-none hover:border-[#D3AD55] hover:bg-[#D3AD55]/10 hover:shadow-[0_0_15px_rgba(211,173,85,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D3AD55] focus-visible:ring-offset-2 focus-visible:ring-offset-[#17100C] cursor-pointer z-30 group"
           >
             <ArrowLeft
-              className="w-4 h-4 sm:w-5 sm:h-5 text-[#D3AD55]/85 group-hover:text-[#D3AD55] group-hover:-translate-x-0.5 transition-all duration-300"
+              className="w-5 h-5 text-[#D3AD55]/85 group-hover:text-[#D3AD55] group-hover:-translate-x-0.5 transition-all duration-300"
               strokeWidth={1.75}
             />
           </button>
@@ -668,8 +1054,8 @@ export default function PhilosophySection() {
                   className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center"
                 >
                   {/* Left Side: Circular Interactive Diagram (4 cols on lg) */}
-                  <div className="lg:col-span-4 flex flex-col items-center justify-center">
-                    <div className="relative w-80 h-80 scale-[0.88] sm:scale-100 flex items-center justify-center">
+                  <div className="lg:col-span-4 flex flex-col items-center justify-center overflow-hidden">
+                    <div className="relative w-80 h-80 scale-[0.82] xs:scale-[0.9] sm:scale-100 flex items-center justify-center">
                       {/* Outer Circular Ring */}
                       <div className="absolute inset-0 rounded-full border border-bronze-light/20 border-dashed" />
                       <div className="absolute inset-4 rounded-full border border-gold-faded/10" />
@@ -872,7 +1258,22 @@ export default function PhilosophySection() {
 
                         <div className="mt-6 flex flex-wrap justify-between items-center gap-2 text-[9px] sm:text-[10px] font-mono text-[#544338]/60 uppercase tracking-widest pt-3.5 border-t border-[#3a2e24]/10">
                           <span>{t('Center for Anomalous Studies', 'असाधारण अध्ययन केंद्र')}</span>
-                          <span>{t('Codex No:', 'संहिता क्र.:')} {selectedEmpiricalNode.id.replace('node-', 'CAGS-0')}</span>
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span>{t('Codex No:', 'संहिता क्र.:')} {selectedEmpiricalNode.id.replace('node-', 'CAGS-0')}</span>
+                            <button
+                              type="button"
+                              onClick={() =>
+                                handleOpenArticle(
+                                  'cags-field-archive',
+                                  EMPIRICAL_NODE_TO_ARTICLE_SLUG[selectedEmpiricalNode.id] || 'acoustic-resonance'
+                                )
+                              }
+                              className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[#2a1f18] text-[#D3AD55] hover:bg-[#3d2d22] font-mono text-[9px] uppercase tracking-wider transition-all cursor-pointer"
+                            >
+                              <FileText className="w-3 h-3" />
+                              <span>{t('Open Full Article Page →', 'संपूर्ण शोध-लेख खोलें →')}</span>
+                            </button>
+                          </div>
                         </div>
                       </motion.div>
                     </AnimatePresence>
@@ -992,8 +1393,8 @@ export default function PhilosophySection() {
                   className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center"
                 >
                   {/* Left Column: Bhairav Research Mapping Interface (4 cols on lg) */}
-                  <div className="lg:col-span-4 flex flex-col items-center justify-center">
-                    <div className="relative w-80 h-80 scale-[0.88] sm:scale-100 flex items-center justify-center">
+                  <div className="lg:col-span-4 flex flex-col items-center justify-center overflow-hidden">
+                    <div className="relative w-80 h-80 scale-[0.82] xs:scale-[0.9] sm:scale-100 flex items-center justify-center">
                       {/* Concentric Rings & Faint Radial Construction Grid */}
                       <svg
                         className="absolute inset-0 w-full h-full pointer-events-none"
@@ -1299,7 +1700,22 @@ export default function PhilosophySection() {
                         {/* Document Footer */}
                         <div className="mt-4 flex flex-wrap justify-between items-center gap-2 text-[9px] sm:text-[10px] font-mono text-[#5A3922]/80 uppercase tracking-[0.2em] pt-3 border-t border-[#30241D]/15">
                           <span>{t('BHAIRAV RESEARCH ARCHIVE', 'भैरव शोध अभिलेखागार')}</span>
-                          <span>{t('CODEX NO:', 'संहिता क्र.:')} {selectedBhairavEntry.codexId}</span>
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span>{t('CODEX NO:', 'संहिता क्र.:')} {selectedBhairavEntry.codexId}</span>
+                            <button
+                              type="button"
+                              onClick={() =>
+                                handleOpenArticle(
+                                  'bhairav-investigation-codex',
+                                  BHAIRAV_ID_TO_ARTICLE_SLUG[selectedBhairavEntry.id] || 'kaal-bhairava-sovereign-core'
+                                )
+                              }
+                              className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[#28180F] text-[#D3AD55] hover:bg-[#382116] font-mono text-[9px] uppercase tracking-wider transition-all cursor-pointer"
+                            >
+                              <FileText className="w-3 h-3" />
+                              <span>{t('Open Full Codex Article →', 'संपूर्ण संहिता लेख खोलें →')}</span>
+                            </button>
+                          </div>
                         </div>
                       </motion.article>
                     </AnimatePresence>
@@ -1309,114 +1725,49 @@ export default function PhilosophySection() {
             </AnimatePresence>
           </div>
 
-          {/* Right Arrow Beside the Div */}
+          {/* Right Arrow Beside the Div (Desktop lg+) */}
           <button
             type="button"
             onClick={handleNextView}
             aria-label={t('Next research philosophy view', 'अगला शोध दर्शन दृश्य')}
-            className="shrink-0 w-11 h-11 sm:w-12 sm:h-12 min-w-[44px] min-h-[44px] rounded-full border border-[#5A3922] bg-[#17100C]/90 text-[#D3AD55] flex items-center justify-center transition-all duration-300 motion-reduce:transition-none hover:border-[#D3AD55] hover:bg-[#D3AD55]/10 hover:shadow-[0_0_15px_rgba(211,173,85,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D3AD55] focus-visible:ring-offset-2 focus-visible:ring-offset-[#17100C] cursor-pointer z-30 group"
+            className="hidden lg:flex shrink-0 w-12 h-12 min-w-[44px] min-h-[44px] rounded-full border border-[#5A3922] bg-[#17100C]/90 text-[#D3AD55] items-center justify-center transition-all duration-300 motion-reduce:transition-none hover:border-[#D3AD55] hover:bg-[#D3AD55]/10 hover:shadow-[0_0_15px_rgba(211,173,85,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D3AD55] focus-visible:ring-offset-2 focus-visible:ring-offset-[#17100C] cursor-pointer z-30 group"
           >
             <ArrowRight
-              className="w-4 h-4 sm:w-5 sm:h-5 text-[#D3AD55]/85 group-hover:text-[#D3AD55] group-hover:translate-x-0.5 transition-all duration-300"
+              className="w-5 h-5 text-[#D3AD55]/85 group-hover:text-[#D3AD55] group-hover:translate-x-0.5 transition-all duration-300"
               strokeWidth={1.75}
             />
           </button>
         </div>
+            </CategoryLandingPageView>
+          </div>
+        )}
 
-        {/* View Indicator Below — Single-Language Display Based on Active Language */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-          <button
-            type="button"
-            onClick={() => goToChapter(0)}
-            aria-label={t('Empirical Field Methodology Archive', 'आनुभविक क्षेत्रीय कार्यप्रणाली अभिलेखागार')}
-            aria-current={viewState.index === 0 ? 'true' : undefined}
-            className={`px-3 py-1 rounded-[2px] font-mono text-[9px] uppercase tracking-[0.2em] border transition-all duration-300 cursor-pointer ${
-              viewState.index === 0
-                ? 'border-[#D3AD55] bg-[#382116]/80 text-[#D3AD55]'
-                : 'border-[#5A3922]/50 bg-[#17100C]/60 text-[#877665] hover:text-[#E6D7BD]'
-            }`}
-          >
-            {t('I · CAGS Field Archive', 'I · क्षेत्रीय शोध अभिलेखागार')}
-          </button>
-          <button
-            type="button"
-            onClick={() => goToChapter(1)}
-            aria-label={t('Ashta Bhairava — The Eight Bhairavas', 'अष्ट भैरव')}
-            aria-current={viewState.index === 1 ? 'true' : undefined}
-            className={`px-3 py-1 rounded-[2px] font-mono text-[9px] uppercase tracking-[0.2em] border transition-all duration-300 cursor-pointer ${
-              viewState.index === 1
-                ? 'border-[#D3AD55] bg-[#382116]/80 text-[#D3AD55]'
-                : 'border-[#5A3922]/50 bg-[#17100C]/60 text-[#877665] hover:text-[#E6D7BD]'
-            }`}
-          >
-            {t('II · Ashta Bhairava', 'II · अष्ट भैरव')}
-          </button>
-          <button
-            type="button"
-            onClick={() => goToChapter(2)}
-            aria-label={t('Bhairav Investigation Codex', 'भैरव अन्वेषण संहिता')}
-            aria-current={viewState.index === 2 ? 'true' : undefined}
-            className={`px-3 py-1 rounded-[2px] font-mono text-[9px] uppercase tracking-[0.2em] border transition-all duration-300 cursor-pointer ${
-              viewState.index === 2
-                ? 'border-[#D3AD55] bg-[#382116]/80 text-[#D3AD55]'
-                : 'border-[#5A3922]/50 bg-[#17100C]/60 text-[#877665] hover:text-[#E6D7BD]'
-            }`}
-          >
-            {t('III · Bhairav Investigation Codex', 'III · भैरव अन्वेषण संहिता')}
-          </button>
-          <button
-            type="button"
-            onClick={() => goToChapter(3)}
-            aria-label={t('64 Yogini — 8 Bhairavas by 8 Matrikas', '64 योगिनी — 8 भैरव × 8 मातृका')}
-            aria-current={viewState.index === 3 ? 'true' : undefined}
-            className={`px-3 py-1 rounded-[2px] font-mono text-[9px] uppercase tracking-[0.2em] border transition-all duration-300 cursor-pointer ${
-              viewState.index === 3
-                ? 'border-[#D3AD55] bg-[#382116]/80 text-[#D3AD55]'
-                : 'border-[#5A3922]/50 bg-[#17100C]/60 text-[#877665] hover:text-[#E6D7BD]'
-            }`}
-          >
-            {t('IV · 64 Yogini (8 × 8)', 'IV · 64 योगिनी (8 × 8)')}
-          </button>
-          <button
-            type="button"
-            onClick={() => goToChapter(4)}
-            aria-label={t('The Eight Matrikas', 'अष्ट मातृका')}
-            aria-current={viewState.index === 4 ? 'true' : undefined}
-            className={`px-3 py-1 rounded-[2px] font-mono text-[9px] uppercase tracking-[0.2em] border transition-all duration-300 cursor-pointer ${
-              viewState.index === 4
-                ? 'border-[#D3AD55] bg-[#382116]/80 text-[#D3AD55]'
-                : 'border-[#5A3922]/50 bg-[#17100C]/60 text-[#877665] hover:text-[#E6D7BD]'
-            }`}
-          >
-            {t('V · Eight Matrikas', 'V · अष्ट मातृका')}
-          </button>
-          <button
-            type="button"
-            onClick={() => goToChapter(5)}
-            aria-label={t('Shri Meru Chakra', 'श्री मेरु चक्र')}
-            aria-current={viewState.index === 5 ? 'true' : undefined}
-            className={`px-3 py-1 rounded-[2px] font-mono text-[9px] uppercase tracking-[0.2em] border transition-all duration-300 cursor-pointer ${
-              viewState.index === 5
-                ? 'border-[#D3AD55] bg-[#382116]/80 text-[#D3AD55]'
-                : 'border-[#5A3922]/50 bg-[#17100C]/60 text-[#877665] hover:text-[#E6D7BD]'
-            }`}
-          >
-            {t('VI · Shri Meru Chakra', 'VI · श्री मेरु चक्र')}
-          </button>
-          <button
-            type="button"
-            onClick={() => goToChapter(6)}
-            aria-label={t('The 14 Lokas in Hindu Cosmology', 'हिन्दू ब्रह्माण्ड विज्ञान में 14 लोक')}
-            aria-current={viewState.index === 6 ? 'true' : undefined}
-            className={`px-3 py-1 rounded-[2px] font-mono text-[9px] uppercase tracking-[0.2em] border transition-all duration-300 cursor-pointer ${
-              viewState.index === 6
-                ? 'border-[#D3AD55] bg-[#382116]/80 text-[#D3AD55]'
-                : 'border-[#5A3922]/50 bg-[#17100C]/60 text-[#877665] hover:text-[#E6D7BD]'
-            }`}
-          >
-            {t('VII · The 14 Lokas', 'VII · चतुर्दश लोक (14 लोक)')}
-          </button>
-        </div>
+              {/* Bottom Back-Navigation Bar inside the Dedicated Research Page */}
+              <div className="mt-8 pt-6 border-t border-[#5A3922]/60 flex flex-wrap items-center justify-between gap-4">
+                <button
+                  type="button"
+                  onClick={handleStepBack}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-[#D3AD55]/75 bg-[#23160E] hover:bg-[#382116] text-[#D3AD55] font-mono text-xs font-semibold uppercase tracking-[0.16em] transition-all cursor-pointer shadow-[0_0_16px_rgba(211,173,85,0.2)]"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  <span>
+                    {routeState.mode === 'article'
+                      ? t(
+                          `Back to ${(getPortalBySlug(routeState.categorySlug || '') || activePortal).shortTitleEn}`,
+                          `${(getPortalBySlug(routeState.categorySlug || '') || activePortal).shortTitleHi} पर वापस जाएँ`
+                        )
+                      : t('Back to Main Page (Research Mandala)', 'मुख्य पृष्ठ (शोध मण्डल) पर वापस जाएँ')}
+                  </span>
+                </button>
+
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#877665]">
+                  {t('CAGS · Dedicated Research Philosophy Portal', 'सीएजीएस · समर्पित शोध दर्शन पोर्टल')}
+                </span>
+              </div>
+            </div>
+          </div>,
+          document.body
+        )}
       </div>
     </section>
   );
