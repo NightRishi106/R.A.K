@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { BookOpen, AlertTriangle, Eye, ArrowRight, ShieldCheck, HelpCircle } from 'lucide-react';
-import { mythRealityList } from '../data';
-import { MythReality } from '../types';
+import { AlertTriangle, ShieldCheck } from 'lucide-react';
+import { getMythRealityList } from '../data';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function MythRealitySection() {
+  const { lang, t } = useLanguage();
+  const items = getMythRealityList(lang);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
-  const [isFlipping, setIsFlipping] = useState<boolean>(false);
+  const [, setIsFlipping] = useState<boolean>(false);
 
-  const activeItem = mythRealityList[selectedIndex] || mythRealityList[0];
+  const activeItem = items[selectedIndex] || items[0];
 
   const handlePageChange = (index: number) => {
     if (index === selectedIndex) return;
@@ -30,7 +32,7 @@ export default function MythRealitySection() {
           backgroundPosition: 'center', 
         }} 
       />
-      {/* Vignette vignette ambient */}
+      {/* Vignette ambient */}
       <div className="absolute inset-0 vignette-ambient pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
@@ -38,13 +40,18 @@ export default function MythRealitySection() {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="flex items-center justify-center gap-3 mb-2">
-            <span className="font-mono text-[10px] tracking-[0.3em] text-[#3a2e24] font-bold uppercase">The Ledger of Truth</span>
+            <span className="font-mono text-[10px] tracking-[0.3em] text-[#3a2e24] font-bold uppercase">
+              {t('The Ledger of Truth', 'सत्य का लेखा-जोखा')}
+            </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-serif text-[#2e241f] tracking-wide font-bold">
-            MYTH VS REALITY
+            {t('MYTH VS REALITY', 'लोककथा बनाम वास्तविकता')}
           </h2>
           <p className="mt-4 text-lg md:text-xl text-[#3a2e24]/90 font-vintage italic leading-relaxed">
-            "We do not dismiss local memories; we study them. Every superstition contains the kernel of an unmapped physical phenomenon."
+            {t(
+              '"We do not dismiss local memories; we study them. Every superstition contains the kernel of an unmapped physical phenomenon."',
+              '"हम स्थानीय स्मृतियों को खारिज नहीं करते; हम उनका अध्ययन करते हैं। प्रत्येक अंधविश्वास के भीतर किसी अज्ञात भौतिक घटना का बीज छिपा होता है।"'
+            )}
           </p>
         </div>
 
@@ -71,12 +78,12 @@ export default function MythRealitySection() {
                   
                   {/* Subtle red ink outline stamp */}
                   <div className="absolute top-8 right-8 border-2 border-red-900/15 text-red-900/15 font-serif text-[8.5px] uppercase tracking-widest font-bold px-2 py-0.5 rounded rotate-12 pointer-events-none select-none">
-                    FOLKLORE RECORD
+                    {t('FOLKLORE RECORD', 'लोकश्रुति अभिलेख')}
                   </div>
 
                   <AnimatePresence mode="wait">
                     <motion.div
-                      key={selectedIndex}
+                      key={`${selectedIndex}-${lang}`}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 10 }}
@@ -86,7 +93,7 @@ export default function MythRealitySection() {
                       {/* Page title */}
                       <div>
                         <span className="font-mono text-[9px] tracking-[0.25em] text-[#544338] uppercase font-bold block mb-1">
-                          CHAPTER {selectedIndex + 1}: Oral History
+                          {t(`CHAPTER ${selectedIndex + 1}: Oral History`, `अध्याय ${selectedIndex + 1}: मौखिक इतिहास`)}
                         </span>
                         <h3 className="font-serif text-2xl text-[#6b251a] font-bold tracking-wide italic">
                           {activeItem.mythTitle}
@@ -97,7 +104,7 @@ export default function MythRealitySection() {
                       <div>
                         <h4 className="font-serif text-xs uppercase tracking-wider text-[#544338]/80 font-bold mb-1.5 flex items-center gap-1.5">
                           <AlertTriangle className="w-3.5 h-3.5 text-[#6b251a]" />
-                          The Legend:
+                          {t('The Legend:', 'प्रचलित किंवदंती:')}
                         </h4>
                         <p className="text-[14px] leading-relaxed text-[#3a2f26] font-normal italic">
                           "{activeItem.mythDetails}"
@@ -107,7 +114,9 @@ export default function MythRealitySection() {
                       {/* Vastu Shastra or Old Reference text footer */}
                       {activeItem.vashisthaRef && (
                         <div className="pt-4 border-t border-[#3a2e24]/10 mt-auto">
-                          <span className="font-mono text-[8px] tracking-wider uppercase text-[#7a6042] font-semibold block">Ancient Text Correspondence:</span>
+                          <span className="font-mono text-[8px] tracking-wider uppercase text-[#7a6042] font-semibold block">
+                            {t('Ancient Text Correspondence:', 'प्राचीन ग्रंथ संदर्भ:')}
+                          </span>
                           <span className="text-[12px] italic text-[#544338] mt-0.5 inline-block font-serif">
                             {activeItem.vashisthaRef}
                           </span>
@@ -123,12 +132,12 @@ export default function MythRealitySection() {
                   
                   {/* Subtle green ink outline stamp */}
                   <div className="absolute top-8 right-8 border-2 border-emerald-900/15 text-emerald-900/15 font-serif text-[8.5px] uppercase tracking-widest font-bold px-2 py-0.5 rounded -rotate-6 pointer-events-none select-none">
-                    EMPIRICAL AUDIT
+                    {t('EMPIRICAL AUDIT', 'आनुभविक परीक्षण')}
                   </div>
 
                   <AnimatePresence mode="wait">
                     <motion.div
-                      key={selectedIndex}
+                      key={`${selectedIndex}-${lang}`}
                       initial={{ opacity: 0, x: 10 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -10 }}
@@ -138,7 +147,7 @@ export default function MythRealitySection() {
                       {/* Page title */}
                       <div>
                         <span className="font-mono text-[9px] tracking-[0.25em] text-emerald-950 uppercase font-bold block mb-1">
-                          PHYSICAL AUDIT RECORD
+                          {t('PHYSICAL AUDIT RECORD', 'भौतिक परीक्षण अभिलेख')}
                         </span>
                         <h3 className="font-serif text-2xl text-emerald-950 font-bold tracking-wide">
                           {activeItem.realityTitle}
@@ -149,7 +158,7 @@ export default function MythRealitySection() {
                       <div>
                         <h4 className="font-serif text-xs uppercase tracking-wider text-[#544338]/80 font-bold mb-1.5 flex items-center gap-1.5">
                           <ShieldCheck className="w-4 h-4 text-emerald-800" />
-                          Geological Mechanism:
+                          {t('Geological Mechanism:', 'भूगर्भीय कार्यप्रणाली:')}
                         </h4>
                         <p className="text-[13px] leading-relaxed text-[#2c221a] font-light">
                           {activeItem.realityDetails}
@@ -158,7 +167,9 @@ export default function MythRealitySection() {
 
                       {/* Detailed Scientific Explanation */}
                       <div className="p-4 bg-[#ede2d4] border-l-2 border-emerald-850 rounded">
-                        <h5 className="font-mono text-[8.5px] tracking-wider text-[#544338] uppercase font-bold mb-1">Empirical Equation / Explanation:</h5>
+                        <h5 className="font-mono text-[8.5px] tracking-wider text-[#544338] uppercase font-bold mb-1">
+                          {t('Empirical Equation / Explanation:', 'आनुभविक समीकरण / व्याख्या:')}
+                        </h5>
                         <p className="text-[12.5px] leading-relaxed text-emerald-900 font-medium font-vintage italic">
                           {activeItem.scientificExplanation}
                         </p>
@@ -174,10 +185,10 @@ export default function MythRealitySection() {
             {/* Notebook Selector Controls (styled as small labels on wooden desk) */}
             <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-gold-faded/10 pt-6">
               <span className="font-mono text-[9px] text-gold-faded/60 uppercase tracking-widest">
-                Flip to another research entry:
+                {t('Flip to another research entry:', 'अन्य शोध प्रविष्टि पर जाएँ:')}
               </span>
               <div className="flex flex-wrap gap-2">
-                {mythRealityList.map((item, idx) => (
+                {items.map((item, idx) => (
                   <button
                     key={item.id}
                     onClick={() => handlePageChange(idx)}

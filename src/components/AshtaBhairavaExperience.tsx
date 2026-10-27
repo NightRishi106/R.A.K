@@ -5,22 +5,24 @@ import {
   ASHTA_BHAIRAVA_PROFILES,
   AshtaBhairavaProfile
 } from '../data/ashtaResearchData';
+import { useLanguage } from '../context/LanguageContext';
 
 export { ASHTA_BHAIRAVA_PROFILES };
 export type { AshtaBhairavaProfile };
 
 const COMPASS_DIRECTIONS: Array<{
   code: 'N' | 'NE' | 'E' | 'SE' | 'S' | 'SW' | 'W' | 'NW';
+  codeHi: string;
   angle: number;
 }> = [
-  { code: 'N', angle: 270 },
-  { code: 'NE', angle: 315 },
-  { code: 'E', angle: 0 },
-  { code: 'SE', angle: 45 },
-  { code: 'S', angle: 90 },
-  { code: 'SW', angle: 135 },
-  { code: 'W', angle: 180 },
-  { code: 'NW', angle: 225 }
+  { code: 'N', codeHi: 'उ', angle: 270 },
+  { code: 'NE', codeHi: 'ई', angle: 315 },
+  { code: 'E', codeHi: 'पू', angle: 0 },
+  { code: 'SE', codeHi: 'आ', angle: 45 },
+  { code: 'S', codeHi: 'द', angle: 90 },
+  { code: 'SW', codeHi: 'नै', angle: 135 },
+  { code: 'W', codeHi: 'प', angle: 180 },
+  { code: 'NW', codeHi: 'वा', angle: 225 }
 ];
 
 // Deterministic starfield coordinates for crisp rendering
@@ -41,7 +43,6 @@ function buildSineWavePath(cycles: number, phaseOffset = 0, amplitude = 11): str
   for (let i = 0; i <= steps; i++) {
     const t = i / steps;
     const x = t * width;
-    // Envelope tapers gently at both ends for a refined astronomical instrument look
     const envelope = Math.sin(t * Math.PI);
     const y =
       midY +
@@ -61,7 +62,7 @@ export default function AshtaBhairavaExperience({
   initialProfileIndex = 0,
   onNextChapter
 }: AshtaBhairavaExperienceProps = {}) {
-  // 0..7 = the 8 individual Bhairava profiles; isSummaryView = true shows the 8-form summary screen with Kaal Bhairav at center
+  const { lang, t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState<number>(initialProfileIndex);
   const [isSummaryView, setIsSummaryView] = useState<boolean>(false);
   const shouldReduceMotion = useReducedMotion();
@@ -145,27 +146,30 @@ export default function AshtaBhairavaExperience({
 
       {/* Content Container */}
       <div className="relative z-10 px-4 sm:px-7 md:px-10 py-6 md:py-7">
-        {/* Top Header: अष्ट भैरव · THE EIGHT BHAIRAVAS */}
+        {/* Top Header: Single-Language Heading */}
         <div className="flex flex-col items-center text-center">
           <div className="flex items-center gap-2.5">
             <span className="h-[1px] w-6 sm:w-10 bg-[#FFBF38]/40" />
             <h3 className="text-xl sm:text-2xl md:text-[26px] font-serif font-bold tracking-wide text-[#FFBF38]">
-              अष्ट भैरव <span className="text-[#F7D57A]/80 font-normal mx-1">·</span> ASHTA BHAIRAVA
+              {t('ASHTA BHAIRAVA', 'अष्ट भैरव')}
             </h3>
             <span className="h-[1px] w-6 sm:w-10 bg-[#FFBF38]/40" />
           </div>
 
           <p className="mt-1 font-mono text-[10px] sm:text-[11px] tracking-[0.28em] text-[#A6AFBF] uppercase">
             {isSummaryView
-              ? 'THE EIGHT BHAIRAVAS · MANDALA SUMMARY'
-              : `THE EIGHT BHAIRAVAS · ${activeProfile.index}/8`}
+              ? t('THE EIGHT BHAIRAVAS · MANDALA SUMMARY', 'अष्ट भैरव · मण्डल सारांश')
+              : t(
+                  `THE EIGHT BHAIRAVAS · ${activeProfile.index}/8`,
+                  `अष्ट भैरव · ${activeProfile.index}/8`
+                )}
           </p>
 
           {/* Eight Circular Progress Indicators + Summary Toggle */}
           <div
             className="mt-2.5 flex flex-wrap items-center justify-center gap-2"
             role="tablist"
-            aria-label="Eight Bhairava profiles and mandala summary"
+            aria-label={t('Eight Bhairava profiles and mandala summary', 'अष्ट भैरव प्रोफ़ाइल और मण्डल सारांश')}
           >
             {ASHTA_BHAIRAVA_PROFILES.map((profile, idx) => {
               const isActive = !isSummaryView && idx === activeIndex;
@@ -175,7 +179,10 @@ export default function AshtaBhairavaExperience({
                   type="button"
                   role="tab"
                   aria-selected={isActive}
-                  aria-label={`${profile.index}/8 ${profile.englishName} (${profile.directionFull})`}
+                  aria-label={t(
+                    `${profile.index}/8 ${profile.englishName} (${profile.directionFull})`,
+                    `${profile.index}/8 ${profile.hindiName} (${profile.directionFullHi})`
+                  )}
                   onClick={() => handleSelectProfile(idx)}
                   className="group p-1.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFBF38] rounded-full"
                 >
@@ -206,7 +213,7 @@ export default function AshtaBhairavaExperience({
                   : 'border-[#526078]/60 bg-[#070A16]/60 text-[#A6AFBF] hover:border-[#F7D57A]/60 hover:text-[#F7D57A]'
               }`}
             >
-              Mandala Summary
+              {t('Mandala Summary', 'मण्डल सारांश')}
             </button>
           </div>
 
@@ -216,8 +223,11 @@ export default function AshtaBhairavaExperience({
             style={{ color: currentAccent }}
           >
             {isSummaryView
-              ? 'Center: Kaal Bhairava (Sovereign of Time) · Eight Directional Guardians of the Cosmic Mandala'
-              : activeProfile.controlsLine}
+              ? t(
+                  'Center: Kaal Bhairava (Sovereign of Time) · Eight Directional Guardians of the Cosmic Mandala',
+                  'केंद्र: काल भैरव (काल के अधिपति) · ब्रह्माण्डीय मण्डल के आठ दिशा-रक्षक'
+                )
+              : t(activeProfile.controlsLine, activeProfile.controlsLineHi)}
           </p>
         </div>
 
@@ -225,7 +235,7 @@ export default function AshtaBhairavaExperience({
         <AnimatePresence mode="wait">
           {!isSummaryView ? (
             <motion.div
-              key={activeProfile.id}
+              key={`${activeProfile.id}-${lang}`}
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
               exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -6 }}
@@ -240,7 +250,10 @@ export default function AshtaBhairavaExperience({
                     viewBox="0 0 280 280"
                     className="w-full h-full overflow-visible animate-[spin_60s_linear_infinite]"
                     role="img"
-                    aria-label={`Directional compass clock highlighting ${activeProfile.directionFull} for ${activeProfile.englishName}`}
+                    aria-label={t(
+                      `Directional compass clock highlighting ${activeProfile.directionFull} for ${activeProfile.englishName}`,
+                      `${activeProfile.hindiName} के लिए ${activeProfile.directionFullHi} दिशा को दर्शाने वाली दिशात्मक घड़ी`
+                    )}
                   >
                     <defs>
                       <radialGradient id="centerGoldGlow" cx="50%" cy="50%" r="50%">
@@ -378,7 +391,7 @@ export default function AshtaBhairavaExperience({
                               strokeWidth={isActiveDir ? '1' : '0'}
                             />
 
-                            {/* Direction Code Label (N, NE, E, SE, S, SW, W, NW) */}
+                            {/* Direction Code Label */}
                             <text
                               x={xLabel}
                               y={yLabel}
@@ -390,14 +403,14 @@ export default function AshtaBhairavaExperience({
                               fontFamily="monospace"
                               opacity={isActiveDir ? '1' : '0.65'}
                             >
-                              {dir.code}
+                              {t(dir.code, dir.codeHi)}
                             </text>
                           </g>
                         );
                       })}
                     </g>
 
-                    {/* Sweeping Clock Hands (Minute & Second Hands) */}
+                    {/* Sweeping Clock Hands */}
                     <g
                       className="origin-[140px_140px] animate-[spin_10s_linear_infinite] pointer-events-none"
                       style={{ transformOrigin: '140px 140px' }}
@@ -448,7 +461,7 @@ export default function AshtaBhairavaExperience({
                     />
                   </svg>
 
-                  {/* Non-overlapping Active Direction Callout Pill */}
+                  {/* Non-overlapping Active Direction Callout Pill (Single-Language) */}
                   <div
                     className="absolute bottom-1 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-[#070A16]/90 border text-center whitespace-nowrap shadow-md"
                     style={{ borderColor: `${activeProfile.accentColor}66` }}
@@ -457,10 +470,10 @@ export default function AshtaBhairavaExperience({
                       className="text-xs font-serif font-bold mr-1.5"
                       style={{ color: activeProfile.accentColor }}
                     >
-                      {activeProfile.hindiName}
+                      {t(activeProfile.englishName, activeProfile.hindiName)}
                     </span>
                     <span className="text-[10px] font-mono text-[#A6AFBF] uppercase tracking-wider">
-                      {activeProfile.shortTranslit} · {activeProfile.directionCode}
+                      {t(activeProfile.directionCode, activeProfile.directionCodeHi)}
                     </span>
                   </div>
                 </div>
@@ -471,7 +484,10 @@ export default function AshtaBhairavaExperience({
                     <svg
                       viewBox="0 0 360 40"
                       className="w-full h-full overflow-visible"
-                      aria-label={`Visual waveform representation for ${activeProfile.waveformLabel}`}
+                      aria-label={t(
+                        `Visual waveform representation for ${activeProfile.waveformLabel}`,
+                        `${activeProfile.waveformLabelHi} का तरंग रूप`
+                      )}
                     >
                       {/* Faint baseline */}
                       <line
@@ -515,19 +531,22 @@ export default function AshtaBhairavaExperience({
                     </svg>
                   </div>
                   <span className="font-mono text-[10.5px] tracking-[0.18em] text-[#F7D57A] uppercase">
-                    {activeProfile.waveformLabel}
+                    {t(activeProfile.waveformLabel, activeProfile.waveformLabelHi)}
                   </span>
                 </div>
               </div>
 
               {/* Right Column (7 cols on lg): Profile Identity, Metadata Cards & Source Note */}
               <div className="lg:col-span-7 flex flex-col justify-between">
-                {/* Hindi Title, English + Direction Subtitle & Description */}
+                {/* Title, Direction Subtitle & Description (Single-Language) */}
                 <div className="text-center lg:text-left">
                   <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-[#070A16]/70 border border-[#526078]/40 mb-2">
                     <Compass className="w-3 h-3" style={{ color: activeProfile.accentColor }} />
                     <span className="font-mono text-[9.5px] uppercase tracking-[0.2em] text-[#A6AFBF]">
-                      PROFILE {activeProfile.index}/8 · DIRECTION: {activeProfile.directionFull.toUpperCase()}
+                      {t(
+                        `PROFILE ${activeProfile.index}/8 · DIRECTION: ${activeProfile.directionFull.toUpperCase()}`,
+                        `प्रोफ़ाइल ${activeProfile.index}/8 · दिशा: ${activeProfile.directionFullHi}`
+                      )}
                     </span>
                   </div>
 
@@ -535,20 +554,23 @@ export default function AshtaBhairavaExperience({
                     className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold tracking-wide leading-tight"
                     style={{ color: activeProfile.accentColor }}
                   >
-                    {activeProfile.hindiName}
+                    {t(activeProfile.englishName, activeProfile.hindiName)}
                   </h4>
 
                   <p className="mt-1 text-base sm:text-lg font-serif font-medium text-[#F3F2F1] tracking-wide">
-                    {activeProfile.englishName} · {activeProfile.directionFull}
+                    {t(
+                      `Direction: ${activeProfile.directionFull}`,
+                      `दिशा: ${activeProfile.directionFullHi}`
+                    )}
                   </p>
 
                   <p className="mt-2 text-sm sm:text-[15px] text-[#F3F2F1]/90 font-serif leading-relaxed max-w-xl mx-auto lg:mx-0">
-                    {activeProfile.description}
+                    {t(activeProfile.description, activeProfile.descriptionHi)}
                   </p>
 
                   {/* Source-Reference Line */}
                   <p className="mt-2 text-[11px] font-mono text-[#A6AFBF]/85 leading-snug">
-                    {activeProfile.sourceReference}
+                    {t(activeProfile.sourceReference, activeProfile.sourceReferenceHi)}
                   </p>
                 </div>
 
@@ -559,10 +581,10 @@ export default function AshtaBhairavaExperience({
                     style={{ borderColor: `${activeProfile.accentColor}4D` }}
                   >
                     <span className="block font-mono text-[9.5px] uppercase tracking-[0.2em] text-[#A6AFBF]">
-                      SHAKTI
+                      {t('SHAKTI', 'शक्ति')}
                     </span>
                     <span className="mt-1 block font-serif text-sm sm:text-base font-semibold text-[#F3F2F1]">
-                      {activeProfile.shakti}
+                      {t(activeProfile.shakti, activeProfile.shaktiHi)}
                     </span>
                   </div>
 
@@ -571,10 +593,10 @@ export default function AshtaBhairavaExperience({
                     style={{ borderColor: `${activeProfile.accentColor}4D` }}
                   >
                     <span className="block font-mono text-[9.5px] uppercase tracking-[0.2em] text-[#A6AFBF]">
-                      VAHANA
+                      {t('VAHANA', 'वाहन')}
                     </span>
                     <span className="mt-1 block font-serif text-sm sm:text-base font-semibold text-[#F3F2F1]">
-                      {activeProfile.vahana}
+                      {t(activeProfile.vahana, activeProfile.vahanaHi)}
                     </span>
                   </div>
 
@@ -583,10 +605,10 @@ export default function AshtaBhairavaExperience({
                     style={{ borderColor: `${activeProfile.accentColor}4D` }}
                   >
                     <span className="block font-mono text-[9.5px] uppercase tracking-[0.2em] text-[#A6AFBF]">
-                      PLANET
+                      {t('PLANET', 'ग्रह')}
                     </span>
                     <span className="mt-1 block font-serif text-sm sm:text-base font-semibold text-[#F3F2F1]">
-                      {activeProfile.planet}
+                      {t(activeProfile.planet, activeProfile.planetHi)}
                     </span>
                   </div>
 
@@ -595,7 +617,7 @@ export default function AshtaBhairavaExperience({
                     style={{ borderColor: `${activeProfile.accentColor}4D` }}
                   >
                     <span className="block font-mono text-[9.5px] uppercase tracking-[0.2em] text-[#A6AFBF]">
-                      TONE (COSMIC OCTAVE)
+                      {t('TONE (COSMIC OCTAVE)', 'स्वर (ब्रह्माण्डीय सप्तक)')}
                     </span>
                     <span
                       className="mt-1 block font-mono text-sm sm:text-base font-semibold"
@@ -612,19 +634,21 @@ export default function AshtaBhairavaExperience({
                     <button
                       type="button"
                       onClick={handlePrevStep}
-                      aria-label="Previous Bhairava profile"
+                      aria-label={t('Previous Bhairava profile', 'पिछला भैरव प्रोफ़ाइल')}
                       className="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-[#070A16]/80 border border-[#526078]/60 text-xs font-mono text-[#F3F2F1] hover:border-[#FFBF38] hover:text-[#FFBF38] transition-colors cursor-pointer"
                     >
                       <ChevronLeft className="w-3.5 h-3.5" />
-                      Prev
+                      {t('Prev', 'पीछे')}
                     </button>
                     <button
                       type="button"
                       onClick={handleNextStep}
-                      aria-label="Next Bhairava profile"
+                      aria-label={t('Next Bhairava profile', 'अगला भैरव प्रोफ़ाइल')}
                       className="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-[#070A16]/80 border border-[#526078]/60 text-xs font-mono text-[#F3F2F1] hover:border-[#FFBF38] hover:text-[#FFBF38] transition-colors cursor-pointer"
                     >
-                      {activeIndex === 7 ? 'Summary Mandala' : 'Next'}
+                      {activeIndex === 7
+                        ? t('Summary Mandala', 'मण्डल सारांश')
+                        : t('Next', 'आगे')}
                       <ChevronRight className="w-3.5 h-3.5" />
                     </button>
                     {onNextChapter && (
@@ -634,13 +658,16 @@ export default function AshtaBhairavaExperience({
                         className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded bg-[#102344]/55 border border-[#FFBF38]/45 text-[11px] font-mono text-[#FFBF38] hover:bg-[#FFBF38]/20 transition-colors cursor-pointer"
                       >
                         <Grid className="w-3 h-3" />
-                        Next Chapter: 64 Matrix
+                        {t('Next Chapter: Bhairav Codex', 'अगला अध्याय: भैरव संहिता')}
                       </button>
                     )}
                   </div>
 
                   <span className="font-mono text-[9.5px] tracking-[0.16em] text-[#A6AFBF]/75 uppercase">
-                    ASHTA BHAIRAVA ARCHIVE · TRADITIONAL & INTERPRETIVE MAPPING
+                    {t(
+                      'ASHTA BHAIRAVA ARCHIVE · TRADITIONAL & INTERPRETIVE MAPPING',
+                      'अष्ट भैरव अभिलेखागार · पारंपरिक एवं व्याख्यात्मक मानचित्रण'
+                    )}
                   </span>
                 </div>
               </div>
@@ -648,7 +675,7 @@ export default function AshtaBhairavaExperience({
           ) : (
             /* EIGHT-FORM SUMMARY SCREEN WITH KAAL BHAIRAV AT THE CENTER */
             <motion.div
-              key="ashta-bhairava-summary"
+              key={`ashta-bhairava-summary-${lang}`}
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
               exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -6 }}
@@ -662,7 +689,10 @@ export default function AshtaBhairavaExperience({
                     viewBox="0 0 300 300"
                     className="w-full h-full overflow-visible animate-[spin_60s_linear_infinite]"
                     role="img"
-                    aria-label="Complete Ashta Bhairava directional mandala clock with Kaal Bhairava at the center"
+                    aria-label={t(
+                      'Complete Ashta Bhairava directional mandala clock with Kaal Bhairava at the center',
+                      'केंद्र में काल भैरव के साथ संपूर्ण अष्ट भैरव दिशात्मक मण्डल घड़ी'
+                    )}
                   >
                     {/* Outer Clock Bezel & 60 Clock Ticks */}
                     <g
@@ -763,7 +793,10 @@ export default function AshtaBhairavaExperience({
                               fontWeight="700"
                               fontFamily="monospace"
                             >
-                              {profile.directionCode} · {profile.shortTranslit}
+                              {t(
+                                `${profile.directionCode} · ${profile.shortTranslit}`,
+                                `${profile.directionCodeHi} · ${profile.shortHindi}`
+                              )}
                             </text>
                           </g>
                         );
@@ -789,23 +822,23 @@ export default function AshtaBhairavaExperience({
                     </g>
                   </svg>
 
-                  {/* Central Kaal Bhairav Sovereign Medallion */}
+                  {/* Central Kaal Bhairav Sovereign Medallion (Single-Language) */}
                   <div className="absolute w-24 h-24 rounded-full bg-[#070A16] border-2 border-[#FFBF38] shadow-[0_0_25px_rgba(255,191,56,0.35)] flex flex-col items-center justify-center text-center px-2">
                     <Sparkles className="w-3.5 h-3.5 text-[#FFBF38] mb-0.5" />
                     <span className="font-serif text-xs font-bold text-[#FFBF38] leading-tight">
-                      काल भैरव
+                      {t('Kaal Bhairava', 'काल भैरव')}
                     </span>
-                    <span className="font-mono text-[8px] text-[#F3F2F1] uppercase tracking-wider mt-0.5">
-                      Kaal Bhairava
-                    </span>
-                    <span className="font-mono text-[6.5px] text-[#A6AFBF] uppercase tracking-widest">
-                      CENTER AXIS
+                    <span className="font-mono text-[6.5px] text-[#A6AFBF] uppercase tracking-widest mt-1">
+                      {t('CENTER AXIS', 'केंद्रीय धुरी')}
                     </span>
                   </div>
                 </div>
 
                 <p className="mt-2 font-mono text-[10px] text-[#F7D57A] tracking-[0.16em] uppercase text-center">
-                  Click any directional node or card to inspect its profile
+                  {t(
+                    'Click any directional node or card to inspect its profile',
+                    'प्रोफ़ाइल देखने के लिए किसी भी दिशात्मक बिंदु या कार्ड पर क्लिक करें'
+                  )}
                 </p>
               </div>
 
@@ -815,18 +848,27 @@ export default function AshtaBhairavaExperience({
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <div>
                       <span className="font-mono text-[9.5px] uppercase tracking-[0.2em] text-[#FFBF38]">
-                        SOVEREIGN CENTER · BEYOND THE EIGHT DIRECTIONS
+                        {t(
+                          'SOVEREIGN CENTER · BEYOND THE EIGHT DIRECTIONS',
+                          'सर्वोच्च केंद्र · आठों दिशाओं से परे'
+                        )}
                       </span>
                       <h4 className="text-lg sm:text-xl font-serif font-bold text-[#F3F2F1] mt-0.5">
-                        काल भैरव · Kaal Bhairava — Supreme Axis of Time
+                        {t(
+                          'Kaal Bhairava — Supreme Axis of Time',
+                          'काल भैरव — काल की सर्वोच्च केंद्रीय धुरी'
+                        )}
                       </h4>
                     </div>
                     <span className="font-mono text-[10px] px-2.5 py-1 rounded bg-[#FFBF38]/15 border border-[#FFBF38]/40 text-[#FFBF38]">
-                      KOTWAL OF KASHI
+                      {t('KOTWAL OF KASHI', 'काशी के कोतवाल')}
                     </span>
                   </div>
                   <p className="mt-1.5 text-xs sm:text-[13px] font-serif text-[#A6AFBF] leading-relaxed">
-                    All eight directional Bhairavas emanate from and guard the perimeter around Kaal Bhairava at the center—governer of time (Kala), dissolution, and liberation.
+                    {t(
+                      'All eight directional Bhairavas emanate from and guard the perimeter around Kaal Bhairava at the center—governor of time (Kala), dissolution, and liberation.',
+                      'आठों दिशात्मक भैरव केंद्र में स्थित काल भैरव से ही प्रकट होते हैं और उनके चारों ओर की परिधि की रक्षा करते हैं—जो काल, लय और मुक्ति के अधिपति हैं।'
+                    )}
                   </p>
                 </div>
 
@@ -845,7 +887,7 @@ export default function AshtaBhairavaExperience({
                           className="font-mono text-[9px] font-bold px-1.5 py-0.5 rounded bg-[#070A16]"
                           style={{ color: profile.accentColor }}
                         >
-                          {profile.directionCode}
+                          {t(profile.directionCode, profile.directionCodeHi)}
                         </span>
                         <span className="font-mono text-[8.5px] text-[#A6AFBF]">
                           {profile.toneHz}
@@ -855,13 +897,16 @@ export default function AshtaBhairavaExperience({
                         className="mt-1.5 font-serif text-sm font-bold truncate"
                         style={{ color: profile.accentColor }}
                       >
-                        {profile.hindiName}
+                        {t(profile.shortTranslit, profile.hindiName)}
                       </p>
                       <p className="font-sans text-[11px] font-medium text-[#F3F2F1] truncate">
-                        {profile.shortTranslit}
+                        {t(profile.directionFull, profile.directionFullHi)}
                       </p>
                       <p className="mt-0.5 font-mono text-[9px] text-[#A6AFBF] truncate">
-                        {profile.shakti} · {profile.vahana}
+                        {t(
+                          `${profile.shakti} · ${profile.vahana}`,
+                          `${profile.shaktiHi} · ${profile.vahanaHi}`
+                        )}
                       </p>
                     </button>
                   ))}
@@ -875,7 +920,7 @@ export default function AshtaBhairavaExperience({
                       onClick={() => handleSelectProfile(0)}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#070A16] border border-[#526078]/60 text-xs font-mono text-[#F3F2F1] hover:border-[#FFBF38] hover:text-[#FFBF38] transition-colors cursor-pointer"
                     >
-                      Explore 1/8: Asitanga Bhairava
+                      {t('Explore 1/8: Asitanga Bhairava', 'देखें 1/8: असितांग भैरव')}
                     </button>
                     {onNextChapter && (
                       <button
@@ -883,13 +928,19 @@ export default function AshtaBhairavaExperience({
                         onClick={onNextChapter}
                         className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#FFBF38]/15 border border-[#FFBF38]/60 text-xs font-mono text-[#FFBF38] hover:bg-[#FFBF38]/25 transition-colors cursor-pointer"
                       >
-                        Next Chapter: Bhairav Investigation Codex
+                        {t(
+                          'Next Chapter: Bhairav Investigation Codex',
+                          'अगला अध्याय: भैरव अन्वेषण संहिता'
+                        )}
                         <ChevronRight className="w-3.5 h-3.5" />
                       </button>
                     )}
                   </div>
                   <span className="font-mono text-[9px] tracking-[0.15em] text-[#A6AFBF]/75 uppercase">
-                    Rudrayamala Tantra · Kashi & Tamil Temple Traditions
+                    {t(
+                      'Rudrayamala Tantra · Kashi & Tamil Temple Traditions',
+                      'रुद्रयामल तंत्र · काशी एवं तमिल मंदिर परंपराएँ'
+                    )}
                   </span>
                 </div>
               </div>

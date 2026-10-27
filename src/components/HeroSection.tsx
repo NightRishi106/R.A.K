@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function HeroSection() {
+  const { t } = useLanguage();
+
   return (
     <>
       {/* Cinematic Full Screen Hero Section */}
@@ -9,7 +12,7 @@ export default function HeroSection() {
         {/* Portrait Image placed between center and right side of section (reduced by 15%) */}
         <img
           src="/assets/aistudio/image_179e2dc4.png"
-          alt="Ram Ashok Kumar"
+          alt={t('Ram Ashok Kumar', 'राम अशोक कुमार')}
           className="absolute left-1/2 md:left-[75%] bottom-0 -translate-x-1/2 translate-y-[24%] md:translate-y-[27%] h-[66%] md:h-[68%] w-auto max-w-none object-contain object-bottom pointer-events-none z-20"
         />
 
@@ -54,7 +57,7 @@ export default function HeroSection() {
           {/* Central Hero Block */}
           <div className="z-10 w-full h-full max-w-4xl px-2 sm:px-4 flex flex-col items-center justify-center relative">
             
-            {/* Top Sanskrit Quote */}
+            {/* Top Sanskrit Quote (Sanskrit verse preserved untouched; Hindi attribution translated) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -66,7 +69,7 @@ export default function HeroSection() {
                 न चेदेवं देवो न खलु कुशलः स्पन्दितुमपि।"
               </p>
               <p className="mt-0.5 sm:mt-1.5 md:mt-2 font-sans text-[6px] sm:text-[10px] md:text-sm text-ancient-beige/80 uppercase tracking-widest drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)] [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_0_4px_rgba(0,0,0,0.85),0_0_8px_rgba(0,0,0,0.75),0_0_14px_rgba(0,0,0,0.65)]">
-                आदि शंकराचार्य द्वारा रचित सौन्दर्य लहरी
+                {t('Soundarya Lahari — Composed by Adi Shankaracharya', 'आदि शंकराचार्य द्वारा रचित सौन्दर्य लहरी')}
               </p>
             </motion.div>
 
@@ -129,7 +132,7 @@ export default function HeroSection() {
                 transition={{ duration: 1, delay: 0.2 }}
                 className="text-[1.1rem] sm:text-[1.8rem] md:text-[3rem] lg:text-[3.6rem] font-serif tracking-[0.08em] text-gold-warm font-bold leading-tight z-10 drop-shadow-[0_3px_8px_rgba(0,0,0,0.85)] [text-shadow:0_2px_4px_rgba(0,0,0,0.95),0_0_8px_rgba(0,0,0,0.85),0_0_16px_rgba(0,0,0,0.75),0_0_28px_rgba(0,0,0,0.65)]"
               >
-                RAM ASHOK KUMAR
+                {t('RAM ASHOK KUMAR', 'राम अशोक कुमार')}
               </motion.h1>
 
               {/* Subtitle */}
@@ -139,7 +142,7 @@ export default function HeroSection() {
                 transition={{ duration: 1, delay: 0.4 }}
                 className="mt-1 sm:mt-3 md:mt-4 text-[7px] sm:text-xs md:text-sm lg:text-base font-sans font-medium tracking-[0.3em] sm:tracking-[0.4em] text-ancient-beige/85 uppercase z-10 drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)] [text-shadow:0_1px_3px_rgba(0,0,0,0.95),0_0_6px_rgba(0,0,0,0.85),0_0_12px_rgba(0,0,0,0.75),0_0_20px_rgba(0,0,0,0.65)]"
               >
-                WHERE TANTRA MEETS SCIENCE
+                {t('WHERE TANTRA MEETS SCIENCE', 'जहाँ तंत्र और विज्ञान का संगम होता है')}
               </motion.h2>
 
               {/* Custom Ornate Underline */}
@@ -151,7 +154,7 @@ export default function HeroSection() {
               />
             </div>
 
-            {/* Bottom Sanskrit Quote */}
+            {/* Bottom Sanskrit Quote (Sanskrit verse preserved untouched) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -163,7 +166,7 @@ export default function HeroSection() {
                 मृत्योः स मृत्युमाप्नोति य इह नानेव पश्यति ॥
               </p>
               <p className="mt-0.5 sm:mt-1.5 md:mt-2 font-sans text-[6px] sm:text-[10px] md:text-sm text-ancient-beige/80 uppercase tracking-widest text-right w-full pr-4 sm:pr-8 md:pr-12 drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)] [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_0_4px_rgba(0,0,0,0.85),0_0_8px_rgba(0,0,0,0.75),0_0_14px_rgba(0,0,0,0.65)]">
-                कठोपनिषद्
+                {t('Katha Upanishad', 'कठोपनिषद्')}
               </p>
             </motion.div>
           </div>
@@ -181,7 +184,10 @@ export default function HeroSection() {
             transition={{ duration: 1.2, delay: 0.2 }}
             className="text-lg md:text-xl lg:text-2xl text-ancient-beige/90 font-vintage italic leading-relaxed max-w-3xl px-4 drop-shadow-md"
           >
-            "To investigate anomalies not as curses or mystical interventions, but as geological fractures, subterranean magnetic friction, and ancient structural acoustics waiting to be mapped."
+            {t(
+              '"To investigate anomalies not as curses or mystical interventions, but as geological fractures, subterranean magnetic friction, and ancient structural acoustics waiting to be mapped."',
+              '"विसंगतियों की जाँच अभिशाप या रहस्यमयी हस्तक्षेप के रूप में नहीं, बल्कि भूगर्भीय दरारों, भूमिगत चुंबकीय घर्षण और प्राचीन संरचनात्मक ध्वनि-विज्ञान के रूप में करना जिनका मानचित्रण किया जाना अभी शेष है।"'
+            )}
           </motion.p>
 
           {/* Call to Scroll Button */}
@@ -197,7 +203,7 @@ export default function HeroSection() {
               className="group relative px-6 py-3 overflow-hidden rounded bg-bronze-dark/40 border border-gold-faded/40 hover:border-gold-warm transition-all duration-300 text-xs tracking-[0.2em] font-sans font-medium text-gold-warm uppercase"
             >
               <span className="absolute inset-0 bg-gold-warm/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-              Explore Case Files
+              {t('Explore Case Files', 'केस फ़ाइलें देखें')}
             </a>
           </motion.div>
         </div>

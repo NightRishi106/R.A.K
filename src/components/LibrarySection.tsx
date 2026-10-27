@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Book, Scroll, Award, Globe, HelpCircle, Eye, RefreshCw } from 'lucide-react';
-import { libraryItems } from '../data';
-import { LibraryItem } from '../types';
+import { Scroll, Eye } from 'lucide-react';
+import { getLibraryItems } from '../data';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function LibrarySection() {
+  const { lang, t } = useLanguage();
+  const items = getLibraryItems(lang);
   const [selectedBookId, setSelectedBookId] = useState<string>('lib-shivasutra');
   const [zoomText, setZoomText] = useState(false);
 
-  const selectedBook = libraryItems.find(item => item.id === selectedBookId) || libraryItems[0];
+  const selectedBook = items.find(item => item.id === selectedBookId) || items[0];
 
   return (
     <section id="library" className="relative py-24 px-4 md:px-8 lg:px-16 overflow-hidden border-b border-bronze-dark/40">
@@ -24,7 +26,7 @@ export default function LibrarySection() {
       {/* Heavy Vignette */}
       <div className="absolute inset-0 vignette-heavy pointer-events-none" />
 
-      {/* Sanskrit manuscript watermark overlay */}
+      {/* Sanskrit manuscript watermark overlay (Sanskrit preserved untouched) */}
       <div className="absolute top-1/2 left-4 -translate-y-1/2 opacity-5 text-gold-faded font-serif leading-loose tracking-widest text-[9px] pointer-events-none select-none writing-mode-vertical hidden xl:block">
         शिल्पशास्त्रमहोदधिः।
         वेदाङ्ग ज्योतिषाध्यायः।
@@ -37,20 +39,25 @@ export default function LibrarySection() {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="flex items-center justify-center gap-3 mb-2">
-            <span className="font-mono text-[10px] tracking-[0.3em] text-gold-faded uppercase">The Archivist’s Desk</span>
+            <span className="font-mono text-[10px] tracking-[0.3em] text-gold-faded uppercase">
+              {t('The Archivist’s Desk', 'पुरालेखपाल की मेज')}
+            </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-serif text-gold-warm tracking-wide font-medium">
-            THE RESEARCH LIBRARY
+            {t('THE RESEARCH LIBRARY', 'शोध पुस्तकालय')}
           </h2>
           <p className="mt-4 text-lg md:text-xl text-ancient-beige/65 font-vintage italic leading-relaxed">
-            "We compile ancient scripts and field surveys side-by-side. Click on a volume in the bookshelf to pull it onto the study desk."
+            {t(
+              '"We compile ancient scripts and field surveys side-by-side. Click on a volume in the bookshelf to pull it onto the study desk."',
+              '"हम प्राचीन पांडुलिपियों और क्षेत्रीय सर्वेक्षणों का साथ-साथ संकलन करते हैं। अध्ययन मेज पर खोलने के लिए बुकशेल्फ़ में किसी ग्रंथ पर क्लिक करें।"'
+            )}
           </p>
         </div>
 
         {/* Library layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
           
-          {/* Bookshelf Column (5 cols on lg) */}
+          {/* Bookshelf Column (4 cols on lg) */}
           <div className="lg:col-span-4 flex flex-col justify-between">
             
             {/* Visual Bookshelf Box */}
@@ -63,10 +70,10 @@ export default function LibrarySection() {
                 {/* Shelf Top Label */}
                 <div className="border-b border-gold-faded/25 pb-3 mb-6 text-center">
                   <span className="font-serif text-[11px] text-gold-warm tracking-[0.2em] font-semibold uppercase block">
-                    Restricted Manuscripts Shelf
+                    {t('Restricted Manuscripts Shelf', 'दुर्लभ पांडुलिपि कक्ष')}
                   </span>
                   <span className="font-mono text-[7px] text-ancient-beige/40 tracking-wider block mt-1 uppercase">
-                    Varanasi Collection — Class III
+                    {t('Varanasi Collection — Class III', 'वाराणसी संग्रह — श्रेणी III')}
                   </span>
                 </div>
 
@@ -79,7 +86,7 @@ export default function LibrarySection() {
                   <div className="relative h-[104%] max-w-full w-auto inline-flex items-end justify-center select-none">
                     <img 
                       src="/Books.png" 
-                      alt="Ancient Books" 
+                      alt={t('Ancient Books', 'प्राचीन ग्रंथ')} 
                       className="max-h-full w-auto max-w-full object-contain block pointer-events-none"
                       style={{
                         clipPath: 'inset(1.8% 7.1% 2.8% 7.1%)'
@@ -96,7 +103,7 @@ export default function LibrarySection() {
                         right: '7.1%'
                       }}
                     >
-                      {libraryItems.map((book, idx) => {
+                      {items.map((book, idx) => {
                         const spineWidths = ['15.5%', '14%', '14%', '16.5%', '21%', '19%'];
                         const isSelected = selectedBookId === book.id;
                         return (
@@ -117,7 +124,7 @@ export default function LibrarySection() {
                                 : 'hover:bg-gold-warm/10 hover:ring-1 hover:ring-inset hover:ring-gold-warm/60'
                             }`}
                             title={book.title}
-                            aria-label={`Open ${book.title}`}
+                            aria-label={`${t('Open', 'खोलें')} ${book.title}`}
                           >
                             {/* Top active indicator tab */}
                             <span
@@ -149,7 +156,7 @@ export default function LibrarySection() {
           <div id="library-book-card" className="lg:col-span-8">
             <AnimatePresence mode="wait">
               <motion.div
-                key={selectedBook.id}
+                key={`${selectedBook.id}-${lang}`}
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
@@ -166,11 +173,13 @@ export default function LibrarySection() {
                         ? 'bg-[#3a2e24] border-gold-faded text-[#f5ebd7] shadow-inner'
                         : 'bg-transparent border-[#3a2e24]/20 text-[#3a2e24] hover:bg-[#3a2e24]/10'
                     }`}
-                    title="Toggle Magnifying Glass Lens"
+                    title={t('Toggle Magnifying Glass Lens', 'आवर्धक लेंस चालू/बंद करें')}
                   >
                     <Eye className="w-4 h-4" />
                   </button>
-                  <span className="font-mono text-[8px] tracking-widest text-[#544338]/60 uppercase">Desk Mode</span>
+                  <span className="font-mono text-[8px] tracking-widest text-[#544338]/60 uppercase">
+                    {t('Desk Mode', 'अध्ययन मोड')}
+                  </span>
                 </div>
 
                 <div>
@@ -181,11 +190,11 @@ export default function LibrarySection() {
                       {selectedBook.category}
                     </span>
                     <span className="font-sans text-[11px] text-[#544338]">
-                      Origin: <strong className="font-semibold">{selectedBook.origin}</strong>
+                      {t('Origin:', 'मूल स्थान:')} <strong className="font-semibold">{selectedBook.origin}</strong>
                     </span>
                     <span className="h-1 w-1 rounded-full bg-[#3a2e24]/40" />
                     <span className="font-mono text-[10px] text-[#544338]/80 uppercase">
-                      AGE: {selectedBook.estimatedAge}
+                      {t('AGE:', 'काल:')} {selectedBook.estimatedAge}
                     </span>
                   </div>
 
@@ -205,7 +214,7 @@ export default function LibrarySection() {
                     <div className="absolute top-4 left-4 w-12 h-8 rounded-full bg-[#836d40]/5 blur-md" />
 
                     <span className="font-mono text-[8.5px] text-[#7a6042] tracking-[0.25em] block mb-2 uppercase font-bold">
-                      TRANSLATED SCROLL EXCERPT:
+                      {t('TRANSLATED SCROLL EXCERPT:', 'अनूदित पांडुलिपि अंश:')}
                     </span>
 
                     {/* Dynamic font sizing if "Magnifying glass" is active */}
@@ -217,7 +226,7 @@ export default function LibrarySection() {
 
                     {zoomText && (
                       <span className="absolute bottom-2 right-4 text-[7px] font-mono tracking-widest text-amber-900/40 uppercase font-bold">
-                        🔍 Viewing through magnifying lens (1.5x)
+                        {t('🔍 Viewing through magnifying lens (1.5x)', '🔍 आवर्धक लेंस के माध्यम से दृश्य (1.5x)')}
                       </span>
                     )}
                   </div>
@@ -226,13 +235,17 @@ export default function LibrarySection() {
                 {/* Footer specs */}
                 <div className="mt-8 pt-4 border-t border-[#3a2e24]/10 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-sans text-[#544338]">
                   <div>
-                    <span className="block font-mono text-[8.5px] tracking-wider uppercase text-[#7a6042] font-semibold">Languages / Scripts:</span>
+                    <span className="block font-mono text-[8.5px] tracking-wider uppercase text-[#7a6042] font-semibold">
+                      {t('Languages / Scripts:', 'भाषाएँ / लिपियाँ:')}
+                    </span>
                     <span className="font-semibold text-[#2c221a] mt-0.5 inline-block">
                       {selectedBook.languages.join(' , ')}
                     </span>
                   </div>
                   <div>
-                    <span className="block font-mono text-[8.5px] tracking-wider uppercase text-[#7a6042] font-semibold">Physical Condition:</span>
+                    <span className="block font-mono text-[8.5px] tracking-wider uppercase text-[#7a6042] font-semibold">
+                      {t('Physical Condition:', 'भौतिक स्थिति:')}
+                    </span>
                     <span className="text-[#2c221a] mt-0.5 inline-block">
                       {selectedBook.condition}
                     </span>

@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { FolderOpen, MapPin, Calendar, Compass, ShieldCheck, Tag, Info, ChevronRight, X } from 'lucide-react';
-import { investigations } from '../data';
-import { Investigation } from '../types';
+import { FolderOpen, MapPin, Calendar, ShieldCheck, Tag, Info, ChevronRight } from 'lucide-react';
+import { getInvestigations } from '../data';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function InvestigationsSection() {
+  const { lang, t } = useLanguage();
+  const items = getInvestigations(lang);
   const [openDrawerId, setOpenDrawerId] = useState<string | null>('inv-hampi');
-  const [selectedCaseDetail, setSelectedCaseDetail] = useState<Investigation | null>(investigations[0]);
+
+  const selectedCaseDetail = openDrawerId
+    ? items.find(item => item.id === openDrawerId) || null
+    : null;
 
   const handleDrawerClick = (id: string) => {
     if (openDrawerId === id) {
-      // Toggle off
       setOpenDrawerId(null);
-      setSelectedCaseDetail(null);
     } else {
       setOpenDrawerId(id);
-      const caseItem = investigations.find(item => item.id === id);
-      setSelectedCaseDetail(caseItem || null);
       setTimeout(() => {
         const folderEl = document.getElementById('investigation-folder-card');
         if (folderEl && window.innerWidth < 1024) {
@@ -45,13 +46,18 @@ export default function InvestigationsSection() {
         {/* Title */}
         <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
           <div className="flex items-center justify-center gap-3 mb-2">
-            <span className="font-mono text-[10px] tracking-[0.3em] text-[#3a2e24] font-bold uppercase">Classified Dossiers</span>
+            <span className="font-mono text-[10px] tracking-[0.3em] text-[#3a2e24] font-bold uppercase">
+              {t('Classified Dossiers', 'वर्गीकृत केस डोजियर')}
+            </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-serif text-[#2e241f] tracking-wide font-bold">
-            FEATURED INVESTIGATIONS
+            {t('FEATURED INVESTIGATIONS', 'प्रमुख क्षेत्रीय अन्वेषण')}
           </h2>
           <p className="mt-4 text-lg md:text-xl text-[#3a2e24]/90 font-vintage italic leading-relaxed">
-            "Every drawer holds a physical trace of an anomaly. Pull a drawer handle to extract the classified field binder."
+            {t(
+              '"Every drawer holds a physical trace of an anomaly. Pull a drawer handle to extract the classified field binder."',
+              '"प्रत्येक दराज में किसी विसंगति का भौतिक निशान सुरक्षित है। वर्गीकृत क्षेत्रीय फ़ाइल निकालने के लिए किसी दराज के हैंडल पर क्लिक करें।"'
+            )}
           </p>
         </div>
 
@@ -69,13 +75,15 @@ export default function InvestigationsSection() {
               {/* Cabinet Crown Moulding Border */}
               <div className="h-4 w-full bg-[#1c120c] border-b border-[#3a2e24] mb-6 rounded-t flex justify-between items-center px-4">
                 <span className="h-1.5 w-1.5 rounded-full bg-gold-warm/40" />
-                <span className="text-[7.5px] font-mono text-gold-faded/50 tracking-widest uppercase">Anomalous Archive Cabinet CAGS-A</span>
+                <span className="text-[7.5px] font-mono text-gold-faded/50 tracking-widest uppercase">
+                  {t('Anomalous Archive Cabinet CAGS-A', 'असाधारण अभिलेख कैबिनेट CAGS-A')}
+                </span>
                 <span className="h-1.5 w-1.5 rounded-full bg-gold-warm/40" />
               </div>
 
               {/* Cabinet Drawers Container */}
               <div className="space-y-4">
-                {investigations.map(item => {
+                {items.map(item => {
                   const isOpen = openDrawerId === item.id;
                   return (
                     <div
@@ -154,7 +162,7 @@ export default function InvestigationsSection() {
             <AnimatePresence mode="wait">
               {selectedCaseDetail ? (
                 <motion.div
-                  key={selectedCaseDetail.id}
+                  key={`${selectedCaseDetail.id}-${lang}`}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
@@ -164,7 +172,7 @@ export default function InvestigationsSection() {
                   {/* Folder Manila Tab */}
                   <div className="absolute -top-[36px] left-0 h-6 px-5 bg-[#c0b187] rounded-t-md text-[10px] font-mono tracking-widest text-[#413926] font-bold uppercase flex items-center shadow-inner">
                     <FolderOpen className="w-3.5 h-3.5 mr-1.5" />
-                    FILE: {selectedCaseDetail.code}
+                    {t('FILE:', 'फ़ाइल:')} {selectedCaseDetail.code}
                   </div>
 
                   {/* Coffee Stain Decal */}
@@ -177,7 +185,7 @@ export default function InvestigationsSection() {
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b-2 border-[#544338]/30 pb-4 mb-6 gap-3">
                       <div>
                         <span className="font-mono text-[9px] tracking-[0.25em] text-amber-900 uppercase font-bold">
-                          Center for Anomalous Geological Studies
+                          {t('Center for Anomalous Geological Studies', 'असाधारण भूगर्भीय अध्ययन केंद्र')}
                         </span>
                         <h3 className="font-serif text-2xl md:text-3xl text-[#2c221a] font-bold mt-1">
                           {selectedCaseDetail.title}
@@ -185,10 +193,10 @@ export default function InvestigationsSection() {
                       </div>
                       <div className="flex flex-col text-right sm:items-end">
                         <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-red-950/10 border border-red-900/25 rounded text-[9.5px] font-mono text-red-900 tracking-wider font-bold uppercase">
-                          {selectedCaseDetail.evidenceBadge} Locked
+                          {selectedCaseDetail.evidenceBadge} {t('Locked', 'सुरक्षित')}
                         </span>
                         <span className="text-[10px] font-mono text-[#544338]/80 mt-1 uppercase">
-                          LOG: {selectedCaseDetail.year} EXP
+                          {t('LOG:', 'लॉग:')} {selectedCaseDetail.year} EXP
                         </span>
                       </div>
                     </div>
@@ -198,14 +206,18 @@ export default function InvestigationsSection() {
                       <div className="flex items-center gap-2.5">
                         <MapPin className="w-4 h-4 text-amber-900" />
                         <div>
-                          <span className="block text-[8px] font-mono uppercase text-[#544338]">Coordinates Matrix</span>
+                          <span className="block text-[8px] font-mono uppercase text-[#544338]">
+                            {t('Coordinates Matrix', 'निर्देशांक मैट्रिक्स')}
+                          </span>
                           <span className="font-mono text-[11px] font-medium text-[#2c221a]">{selectedCaseDetail.coordinates}</span>
                         </div>
                       </div>
                       <div className="flex items-center gap-2.5">
                         <Calendar className="w-4 h-4 text-amber-900" />
                         <div>
-                          <span className="block text-[8px] font-mono uppercase text-[#544338]">Expedition Site</span>
+                          <span className="block text-[8px] font-mono uppercase text-[#544338]">
+                            {t('Expedition Site', 'अभियान स्थल')}
+                          </span>
                           <span className="font-sans text-[11px] font-semibold text-[#2c221a]">{selectedCaseDetail.location}</span>
                         </div>
                       </div>
@@ -214,7 +226,9 @@ export default function InvestigationsSection() {
                     {/* Full Case Narrative */}
                     <div className="space-y-4">
                       <div>
-                        <h4 className="font-serif text-xs uppercase tracking-wider text-[#544338] font-bold">Investigator’s Summary Journal</h4>
+                        <h4 className="font-serif text-xs uppercase tracking-wider text-[#544338] font-bold">
+                          {t('Investigator’s Summary Journal', 'अन्वेषक का सारांश रोजनामचा')}
+                        </h4>
                         <p className="font-vintage text-[14.5px] leading-relaxed text-[#2c221a] italic mt-1.5">
                           "{selectedCaseDetail.fullNarrative}"
                         </p>
@@ -222,7 +236,9 @@ export default function InvestigationsSection() {
 
                       {/* Scientific Findings Checklist */}
                       <div className="pt-4 border-t border-[#544338]/20">
-                        <h4 className="font-serif text-xs uppercase tracking-wider text-[#544338] font-bold mb-2">Conclusive Empirical Findings:</h4>
+                        <h4 className="font-serif text-xs uppercase tracking-wider text-[#544338] font-bold mb-2">
+                          {t('Conclusive Empirical Findings:', 'निर्णायक आनुभविक निष्कर्ष:')}
+                        </h4>
                         <ul className="space-y-2.5">
                           {selectedCaseDetail.findings.map((finding, idx) => (
                             <li key={idx} className="flex items-start gap-2 text-[12.5px] text-[#2c221a] leading-relaxed">
@@ -235,7 +251,9 @@ export default function InvestigationsSection() {
 
                       {/* Equipment Used tag list */}
                       <div className="pt-4 border-t border-[#544338]/20 flex flex-wrap items-center gap-2">
-                        <span className="font-serif text-[10px] uppercase tracking-wider text-[#544338] font-bold mr-1">Towed Equipment:</span>
+                        <span className="font-serif text-[10px] uppercase tracking-wider text-[#544338] font-bold mr-1">
+                          {t('Towed Equipment:', 'प्रयुक्त उपकरण:')}
+                        </span>
                         {selectedCaseDetail.equipmentUsed.map((eq, idx) => (
                           <span
                             key={idx}
@@ -252,7 +270,7 @@ export default function InvestigationsSection() {
                     {/* Red Ink Stamp */}
                     <div className="mt-8 flex justify-end">
                       <div className="border-[3px] border-double border-red-800/60 text-red-800/60 rounded px-4 py-1.5 rotate-[-8deg] font-serif text-[11px] uppercase tracking-[0.25em] font-bold select-none leading-none">
-                        GEOLOGICAL RESOLUTION CONFIRMED
+                        {t('GEOLOGICAL RESOLUTION CONFIRMED', 'भूगर्भीय समाधान की पुष्टि')}
                       </div>
                     </div>
 
@@ -261,8 +279,15 @@ export default function InvestigationsSection() {
               ) : (
                 <div className="h-96 rounded-lg border-2 border-dashed border-bronze-dark/40 flex flex-col items-center justify-center text-center p-8 text-ancient-beige/55">
                   <Info className="w-12 h-12 text-gold-faded/50 mb-3" />
-                  <p className="font-serif text-lg text-gold-warm">Classified Record Empty</p>
-                  <p className="font-sans text-xs text-ancient-beige/40 max-w-xs mt-1">Select one of the file codes on the left filing cabinet to extract the physical field dossier and readings.</p>
+                  <p className="font-serif text-lg text-gold-warm">
+                    {t('Classified Record Empty', 'कोई वर्गीकृत फ़ाइल चयनित नहीं')}
+                  </p>
+                  <p className="font-sans text-xs text-ancient-beige/40 max-w-xs mt-1">
+                    {t(
+                      'Select one of the file codes on the left filing cabinet to extract the physical field dossier and readings.',
+                      'भौतिक क्षेत्रीय डोजियर और रीडिंग देखने के लिए बाईं ओर स्थित कैबिनेट से किसी एक फ़ाइल को चुनें।'
+                    )}
+                  </p>
                 </div>
               )}
             </AnimatePresence>

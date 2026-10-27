@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Compass, Shield, Map, Landmark, Clock, Coffee, BookOpen, Menu, X } from 'lucide-react';
+import { Landmark, Menu, X, Languages } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
 
 // Modular components import
 import HeroSection from './components/HeroSection';
@@ -14,8 +15,9 @@ import TimelineSection from './components/TimelineSection';
 import ContactSection from './components/ContactSection';
 import VisualDivider from './components/VisualDivider';
 
-export default function App() {
+function AppContent() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { lang, toggleLang, t } = useLanguage();
 
   return (
     <div className="min-h-screen w-full bg-[#1a1512] text-ancient-beige font-sans selection:bg-gold-warm selection:text-ancient-dark overflow-x-hidden vintage-scrollbar">
@@ -26,7 +28,7 @@ export default function App() {
         <div className="flex items-center gap-2.5">
           <div className="flex flex-col text-left">
             <span className="font-serif text-[12.5px] font-bold tracking-[0.25em] text-gold-warm leading-none uppercase">
-              RAM ASHOK KUMAR
+              {t('RAM ASHOK KUMAR', 'राम अशोक कुमार')}
             </span>
           </div>
         </div>
@@ -34,28 +36,28 @@ export default function App() {
         {/* Right side: quick links resembling a library index */}
         <nav className="hidden lg:flex items-center gap-6 font-mono text-xs tracking-widest uppercase">
           <a href="#" className="text-ancient-beige/70 hover:text-gold-warm transition-colors duration-300">
-            Home
+            {t('Home', 'मुख्य पृष्ठ')}
           </a>
           <a href="#about" className="text-ancient-beige/70 hover:text-gold-warm transition-colors duration-300">
-            About
+            {t('About', 'परिचय')}
           </a>
           <a href="#philosophy" className="text-ancient-beige/70 hover:text-gold-warm transition-colors duration-300">
-            Research
+            {t('Research', 'शोध दर्शन')}
           </a>
           <a href="#archives" className="text-ancient-beige/70 hover:text-gold-warm transition-colors duration-300">
-            Investigations
+            {t('Investigations', 'अन्वेषण')}
           </a>
           <a href="#library" className="text-ancient-beige/70 hover:text-gold-warm transition-colors duration-300">
-            Library
+            {t('Library', 'पुस्तकालय')}
           </a>
           <a href="#equipment" className="text-ancient-beige/70 hover:text-gold-warm transition-colors duration-300">
-            Instruments
+            {t('Instruments', 'उपकरण')}
           </a>
           <a href="#timeline" className="text-ancient-beige/70 hover:text-gold-warm transition-colors duration-300">
-            Chronology
+            {t('Chronology', 'कालक्रम')}
           </a>
           <a href="#contact" className="text-ancient-beige/70 hover:text-gold-warm transition-colors duration-300">
-            Contacts
+            {t('Contacts', 'संपर्क')}
           </a>
         </nav>
 
@@ -81,28 +83,28 @@ export default function App() {
             className="lg:hidden fixed top-[68px] left-0 w-full z-40 bg-[#110e0d]/95 backdrop-blur-md border-b border-bronze-dark/40 shadow-lg px-6 py-4 flex flex-col gap-4 font-mono text-sm tracking-widest uppercase overflow-hidden"
           >
             <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-ancient-beige/70 hover:text-gold-warm transition-colors duration-300">
-              Home
+              {t('Home', 'मुख्य पृष्ठ')}
             </a>
             <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-ancient-beige/70 hover:text-gold-warm transition-colors duration-300">
-              About
+              {t('About', 'परिचय')}
             </a>
             <a href="#philosophy" onClick={() => setMobileMenuOpen(false)} className="text-ancient-beige/70 hover:text-gold-warm transition-colors duration-300">
-              Research
+              {t('Research', 'शोध दर्शन')}
             </a>
             <a href="#archives" onClick={() => setMobileMenuOpen(false)} className="text-ancient-beige/70 hover:text-gold-warm transition-colors duration-300">
-              Investigations
+              {t('Investigations', 'अन्वेषण')}
             </a>
             <a href="#library" onClick={() => setMobileMenuOpen(false)} className="text-ancient-beige/70 hover:text-gold-warm transition-colors duration-300">
-              Library
+              {t('Library', 'पुस्तकालय')}
             </a>
             <a href="#equipment" onClick={() => setMobileMenuOpen(false)} className="text-ancient-beige/70 hover:text-gold-warm transition-colors duration-300">
-              Instruments
+              {t('Instruments', 'उपकरण')}
             </a>
             <a href="#timeline" onClick={() => setMobileMenuOpen(false)} className="text-ancient-beige/70 hover:text-gold-warm transition-colors duration-300">
-              Chronology
+              {t('Chronology', 'कालक्रम')}
             </a>
             <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-ancient-beige/70 hover:text-gold-warm transition-colors duration-300">
-              Contacts
+              {t('Contacts', 'संपर्क')}
             </a>
           </motion.div>
         )}
@@ -177,41 +179,72 @@ export default function App() {
           </div>
 
           <p className="font-serif text-lg md:text-xl font-semibold text-gold-warm tracking-widest uppercase">
-            CENTER FOR ANOMALOUS STUDIES
+            {t('CENTER FOR ANOMALOUS STUDIES', 'असाधारण अध्ययन केंद्र')}
           </p>
           <p className="font-mono text-xs tracking-[0.3em] text-ancient-beige/70 uppercase mt-2">
-            Official Research Register & Repository — Varanasi, India
+            {t('Official Research Register & Repository — Varanasi, India', 'आधिकारिक शोध रजिस्टर एवं संग्रह — वाराणसी, भारत')}
           </p>
 
           <div className="h-[1px] w-32 bg-gradient-to-r from-transparent via-gold-faded/50 to-transparent my-8" />
 
           {/* Licenses & Notices */}
           <p className="text-lg md:text-xl font-vintage italic text-ancient-beige/90 max-w-4xl leading-relaxed">
-            "All anomalies listed within these dockets have been recorded via calibrated dual-coil seismometers, barometric infrasound monitors, and spectral bolometers. No metaphysical validation is implied."
+            {t(
+              '"All anomalies listed within these dockets have been recorded via calibrated dual-coil seismometers, barometric infrasound monitors, and spectral bolometers. No metaphysical validation is implied."',
+              '"इन दस्तावेजों में सूचीबद्ध सभी विसंगतियाँ अंशांकित दोहरे-कुंडल भूकंपमापी, बैरोमीटरिक इन्फ्रासाउंड मॉनिटर और स्पेक्ट्रल बोलोमीटर के माध्यम से दर्ज की गई हैं। इसमें किसी आध्यात्मिक प्रमाणीकरण का दावा नहीं किया गया है।"'
+            )}
           </p>
 
           {/* Quick Info Grid */}
           <div className="flex flex-row justify-center items-center gap-8 sm:gap-16 md:gap-24 w-full max-w-4xl mt-10 pt-10 border-t border-bronze-dark/40 text-center font-mono text-[10px] md:text-xs text-ancient-beige/70 uppercase tracking-wider">
             <div>
-              <span className="block text-gold-faded/90 font-semibold mb-2">Directorate</span>
-              <span>Ram Ashok Kumar</span>
+              <span className="block text-gold-faded/90 font-semibold mb-2">
+                {t('Directorate', 'निदेशालय')}
+              </span>
+              <span>{t('Ram Ashok Kumar', 'राम अशोक कुमार')}</span>
             </div>
             <div>
-              <span className="block text-gold-faded/90 font-semibold mb-2">Affiliation</span>
-              <span>Society of Psychical Research</span>
+              <span className="block text-gold-faded/90 font-semibold mb-2">
+                {t('Affiliation', 'संबद्धता')}
+              </span>
+              <span>{t('Society of Psychical Research', 'सोसाइटी ऑफ साइकिकल रिसर्च')}</span>
             </div>
           </div>
 
           <p className="font-sans text-xs text-ancient-beige/60 mt-14 leading-none">
-            © 2026 Ram Ashok Kumar. All rights reserved. Under geological and archaeological treaty archives.
+            {t(
+              '© 2026 Ram Ashok Kumar. All rights reserved. Under geological and archaeological treaty archives.',
+              '© 2026 राम अशोक कुमार। सर्वाधिकार सुरक्षित। भूगर्भीय और पुरातात्विक संधि अभिलेखागार के अधीन।'
+            )}
           </p>
           <p className="font-sans text-xs text-ancient-beige/60 mt-4 leading-none">
-            Made by <a href="https://www.instagram.com/archon.10/" target="_blank" rel="noopener noreferrer" className="text-gold-faded hover:text-gold-warm transition-colors underline decoration-gold-faded/30 underline-offset-2">archon</a>
+            {t('Made by ', 'निर्माता: ')}
+            <a href="https://www.instagram.com/archon.10/" target="_blank" rel="noopener noreferrer" className="text-gold-faded hover:text-gold-warm transition-colors underline decoration-gold-faded/30 underline-offset-2">archon</a>
           </p>
         </div>
       </footer>
+
+      {/* Sticky Bottom-Right Language Switcher Button (English <-> Hindi only, Sanskrit untouched) */}
+      <button
+        type="button"
+        onClick={toggleLang}
+        aria-label={lang === 'en' ? 'Switch website language to Hindi' : 'Switch website language to English'}
+        className="fixed bottom-6 right-6 z-[90] flex items-center gap-2.5 px-4 py-3 rounded-lg bg-[#140f0c]/95 hover:bg-[#221913] border-2 border-gold-warm/80 hover:border-gold-warm text-gold-warm shadow-[0_10px_30px_rgba(0,0,0,0.85),0_0_15px_rgba(212,175,55,0.25)] backdrop-blur-md transition-all duration-300 cursor-pointer group active:scale-95"
+      >
+        <Languages className="w-4 h-4 text-gold-warm group-hover:rotate-12 transition-transform duration-300" />
+        <span className="font-serif text-xs sm:text-sm font-bold tracking-wider">
+          {lang === 'en' ? 'हिन्दी' : 'ENGLISH'}
+        </span>
+      </button>
 
     </div>
   );
 }
 
+export default function App() {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
+  );
+}

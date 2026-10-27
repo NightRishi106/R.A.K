@@ -6,6 +6,7 @@ import {
   COSMIC_STARFIELD
 } from '../data/ashtaResearchData';
 import MatrikaVisualization, { MatrikaMiniSparkline } from './MatrikaVisualizations';
+import { useLanguage } from '../context/LanguageContext';
 
 interface MatrikaExperienceProps {
   initialProfileIndex?: number;
@@ -20,6 +21,7 @@ export default function MatrikaExperience({
   onNextChapter,
   onOpenMatrix
 }: MatrikaExperienceProps) {
+  const { lang, t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState<number>(initialProfileIndex);
   const [isSummaryView, setIsSummaryView] = useState<boolean>(false);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
@@ -124,27 +126,30 @@ export default function MatrikaExperience({
       />
 
       <div className="relative z-10 px-4 sm:px-7 md:px-10 py-6 md:py-7">
-        {/* 5.1 Main Heading: अष्ट मातृका · THE EIGHT MATRIKAS */}
+        {/* Main Heading (Single-Language) */}
         <div className="flex flex-col items-center text-center">
           <div className="flex items-center gap-2.5">
             <span className="h-[1px] w-6 sm:w-10 bg-[#FFBF38]/40" />
             <h3 className="text-xl sm:text-2xl md:text-[26px] font-serif font-bold tracking-wide text-[#FFBF38]">
-              अष्ट मातृका <span className="text-[#F7D57A]/80 font-normal mx-1">·</span> THE EIGHT MATRIKAS
+              {t('THE EIGHT MATRIKAS', 'अष्ट मातृका')}
             </h3>
             <span className="h-[1px] w-6 sm:w-10 bg-[#FFBF38]/40" />
           </div>
 
           <p className="mt-1 font-mono text-[10px] sm:text-[11px] tracking-[0.26em] text-[#A6AFBF] uppercase">
             {isSummaryView
-              ? 'मातृका · SUMMARY · EIGHT ARCHETYPAL PROFILES'
-              : `Eight archetypal profiles · Eight visual systems · ${activeProfile.rowLabel} (${activeProfile.binaryCode})`}
+              ? t('MATRIKA SUMMARY · EIGHT ARCHETYPAL PROFILES', 'मातृका सारांश · आठ आद्यप्ररूपी प्रोफ़ाइल')
+              : t(
+                  `Eight archetypal profiles · Eight visual systems · ${activeProfile.rowLabel} (${activeProfile.binaryCode})`,
+                  `आठ आद्यप्ररूपी प्रोफ़ाइल · आठ दृश्य प्रणालियाँ · ${activeProfile.rowLabelHi} (${activeProfile.binaryCode})`
+                )}
           </p>
 
           {/* Eight Profile Selector Dots + Summary Toggle */}
           <div
             className="mt-2.5 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2"
             role="tablist"
-            aria-label="Eight Matrika profiles and summary index"
+            aria-label={t('Eight Matrika profiles and summary index', 'आठ मातृका प्रोफ़ाइल और सारांश सूची')}
           >
             {ASHTA_MATRIKA_PROFILES.map((profile, idx) => {
               const isActive = !isSummaryView && idx === activeIndex;
@@ -154,7 +159,10 @@ export default function MatrikaExperience({
                   type="button"
                   role="tab"
                   aria-selected={isActive}
-                  aria-label={`${profile.rowLabel} (${profile.binaryCode}): ${profile.englishName} — ${profile.conceptualTitle}`}
+                  aria-label={t(
+                    `${profile.rowLabel} (${profile.binaryCode}): ${profile.englishName} — ${profile.conceptualTitle}`,
+                    `${profile.rowLabelHi} (${profile.binaryCode}): ${profile.hindiName} — ${profile.conceptualTitleHi}`
+                  )}
                   onClick={() => handleSelectProfile(idx)}
                   className={`px-2 py-0.5 rounded-full font-mono text-[9px] tracking-wider border transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFBF38] ${
                     isActive
@@ -185,7 +193,7 @@ export default function MatrikaExperience({
                   : 'border-[#526078]/60 bg-[#070A16]/60 text-[#A6AFBF] hover:border-[#F7D57A]/60 hover:text-[#F7D57A]'
               }`}
             >
-              मातृका · SUMMARY
+              {t('MATRIKA SUMMARY', 'मातृका सारांश')}
             </button>
           </div>
         </div>
@@ -194,7 +202,7 @@ export default function MatrikaExperience({
         <AnimatePresence mode="wait">
           {!isSummaryView ? (
             <motion.div
-              key={activeProfile.id}
+              key={`${activeProfile.id}-${lang}`}
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: 14 }}
               animate={{ opacity: 1, x: 0 }}
               exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: -14 }}
@@ -213,17 +221,17 @@ export default function MatrikaExperience({
                         borderColor: `${activeProfile.accentColor}66`
                       }}
                     >
-                      {activeProfile.rowLabel}
+                      {t(activeProfile.rowLabel, activeProfile.rowLabelHi)}
                     </span>
                     <span className="font-mono text-xs font-bold tracking-[0.2em] text-[#F3F2F1]">
-                      CODE {activeProfile.binaryCode}
+                      {t(`CODE ${activeProfile.binaryCode}`, `कोड ${activeProfile.binaryCode}`)}
                     </span>
                   </div>
 
                   {/* Three-Node Binary Bit Progression Indicator */}
                   <div
                     className="flex items-center gap-1.5"
-                    aria-label={`Binary bit state ${activeProfile.binaryCode}`}
+                    aria-label={t(`Binary bit state ${activeProfile.binaryCode}`, `द्विआधारी स्थिति ${activeProfile.binaryCode}`)}
                   >
                     {activeProfile.bits.map((bit, bIdx) => (
                       <span
@@ -250,10 +258,10 @@ export default function MatrikaExperience({
                     className="font-mono text-xs sm:text-[13px] font-semibold tracking-wider"
                     style={{ color: activeProfile.accentColor }}
                   >
-                    {activeProfile.conceptualFormula}
+                    {t(activeProfile.conceptualFormula, activeProfile.conceptualFormulaHi)}
                   </code>
                   <span className="font-mono text-[8.5px] uppercase tracking-[0.16em] px-1.5 py-0.5 rounded bg-[#102344]/60 text-[#A6AFBF]">
-                    SYMBOLIC EXPRESSION
+                    {t('SYMBOLIC EXPRESSION', 'प्रतीकात्मक सूत्र')}
                   </span>
                 </div>
 
@@ -267,37 +275,37 @@ export default function MatrikaExperience({
 
                 {/* Evidence Status Pill at Bottom of Visualization Card */}
                 <div className="w-full pt-2 border-t border-[#526078]/25 flex items-center justify-between text-[8.5px] font-mono text-[#A6AFBF] uppercase tracking-[0.15em]">
-                  <span>{activeProfile.evidenceBadge}</span>
-                  <span>PROFILE {activeProfile.rowIndex + 1}/8</span>
+                  <span>{t(activeProfile.evidenceBadge, activeProfile.evidenceBadgeHi)}</span>
+                  <span>{t(`PROFILE ${activeProfile.rowIndex + 1}/8`, `प्रोफ़ाइल ${activeProfile.rowIndex + 1}/8`)}</span>
                 </div>
               </div>
 
-              {/* Right Column (7 cols on lg): Hindi Name, English Conceptual Title, Description, 4 Metadata Cards & Footer */}
+              {/* Right Column (7 cols on lg): Name, Conceptual Title, Description, 4 Metadata Cards & Footer */}
               <div className="lg:col-span-7 flex flex-col justify-between">
                 <div className="text-center lg:text-left">
                   <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-[#070A16]/75 border border-[#526078]/45 mb-2">
                     <Cpu className="w-3 h-3" style={{ color: activeProfile.accentColor }} />
                     <span className="font-mono text-[9.5px] uppercase tracking-[0.2em] text-[#A6AFBF]">
-                      {activeProfile.rowLabel} · BINARY {activeProfile.binaryCode} · {activeProfile.englishName.toUpperCase()}
+                      {t(
+                        `${activeProfile.rowLabel} · BINARY ${activeProfile.binaryCode} · ${activeProfile.englishName.toUpperCase()}`,
+                        `${activeProfile.rowLabelHi} · बाइनरी ${activeProfile.binaryCode} · ${activeProfile.hindiName}`
+                      )}
                     </span>
                   </div>
 
-                  {/* Hindi Name & English Name */}
+                  {/* Single-Language Primary Name */}
                   <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3 justify-center lg:justify-start">
                     <h4
                       className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold tracking-wide leading-tight"
                       style={{ color: activeProfile.accentColor }}
                     >
-                      {activeProfile.hindiName}
+                      {t(activeProfile.englishName, activeProfile.hindiName)}
                     </h4>
-                    <span className="text-sm sm:text-base font-mono uppercase tracking-[0.18em] text-[#A6AFBF]">
-                      {activeProfile.englishName}
-                    </span>
                   </div>
 
                   {/* Conceptual Title */}
                   <p className="mt-1 text-lg sm:text-xl font-serif font-semibold text-[#F3F2F1] tracking-wide">
-                    {activeProfile.conceptualTitle}
+                    {t(activeProfile.conceptualTitle, activeProfile.conceptualTitleHi)}
                   </p>
 
                   {/* One-Sentence Creative Description */}
@@ -305,17 +313,17 @@ export default function MatrikaExperience({
                     className="mt-2.5 text-sm sm:text-base font-mono font-medium leading-relaxed max-w-xl mx-auto lg:mx-0"
                     style={{ color: activeProfile.accentColor }}
                   >
-                    “{activeProfile.description}”
+                    “{t(activeProfile.description, activeProfile.descriptionHi)}”
                   </p>
 
                   {/* Methodological / Scientific Clarifying Note */}
                   <p className="mt-2 text-xs sm:text-[13px] font-serif text-[#A6AFBF] leading-relaxed max-w-xl mx-auto lg:mx-0">
-                    {activeProfile.clarifyingNote}
+                    {t(activeProfile.clarifyingNote, activeProfile.clarifyingNoteHi)}
                   </p>
 
                   {/* Source / Reference Note */}
                   <p className="mt-1.5 text-[10.5px] font-mono text-[#A6AFBF]/80">
-                    {activeProfile.sourceNote}
+                    {t(activeProfile.sourceNote, activeProfile.sourceNoteHi)}
                   </p>
                 </div>
 
@@ -326,13 +334,13 @@ export default function MatrikaExperience({
                     style={{ borderColor: `${activeProfile.accentColor}4D` }}
                   >
                     <span className="block font-mono text-[9.5px] uppercase tracking-[0.2em] text-[#A6AFBF]">
-                      TATTVA
+                      {t('TATTVA', 'तत्त्व')}
                     </span>
                     <span
                       className="mt-1 block font-serif text-sm sm:text-base font-bold"
                       style={{ color: activeProfile.accentColor }}
                     >
-                      {activeProfile.tattva}
+                      {t(activeProfile.tattva, activeProfile.tattvaHi)}
                     </span>
                   </div>
 
@@ -342,14 +350,14 @@ export default function MatrikaExperience({
                   >
                     <div className="flex items-center justify-between gap-1">
                       <span className="font-mono text-[9.5px] uppercase tracking-[0.2em] text-[#A6AFBF]">
-                        GLAND
+                        {t('GLAND', 'ग्रंथि')}
                       </span>
                       <span className="font-mono text-[7.5px] uppercase tracking-wider text-[#A6AFBF]/65">
-                        SYMBOLIC MAP
+                        {t('SYMBOLIC MAP', 'प्रतीकात्मक मानचित्र')}
                       </span>
                     </div>
                     <span className="mt-1 block font-serif text-sm sm:text-base font-semibold text-[#F3F2F1]">
-                      {activeProfile.gland}
+                      {t(activeProfile.gland, activeProfile.glandHi)}
                     </span>
                   </div>
 
@@ -359,14 +367,14 @@ export default function MatrikaExperience({
                   >
                     <div className="flex items-center justify-between gap-1">
                       <span className="font-mono text-[9.5px] uppercase tracking-[0.2em] text-[#A6AFBF]">
-                        HORMONE
+                        {t('HORMONE', 'हार्मोन')}
                       </span>
                       <span className="font-mono text-[7.5px] uppercase tracking-wider text-[#A6AFBF]/65">
-                        SYMBOLIC MAP
+                        {t('SYMBOLIC MAP', 'प्रतीकात्मक मानचित्र')}
                       </span>
                     </div>
                     <span className="mt-1 block font-serif text-sm sm:text-base font-semibold text-[#F3F2F1]">
-                      {activeProfile.hormone}
+                      {t(activeProfile.hormone, activeProfile.hormoneHi)}
                     </span>
                   </div>
 
@@ -375,10 +383,10 @@ export default function MatrikaExperience({
                     style={{ borderColor: `${activeProfile.accentColor}4D` }}
                   >
                     <span className="block font-mono text-[9.5px] uppercase tracking-[0.2em] text-[#A6AFBF]">
-                      KSHETRA
+                      {t('KSHETRA', 'क्षेत्र')}
                     </span>
                     <span className="mt-1 block font-serif text-sm sm:text-base font-semibold text-[#F3F2F1]">
-                      {activeProfile.kshetra}
+                      {t(activeProfile.kshetra, activeProfile.kshetraHi)}
                     </span>
                   </div>
                 </div>
@@ -389,20 +397,24 @@ export default function MatrikaExperience({
                     <button
                       type="button"
                       onClick={handlePrevStep}
-                      aria-label="Previous Matrika profile"
+                      aria-label={t('Previous Matrika profile', 'पिछला मातृका प्रोफ़ाइल')}
                       className="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-[#070A16]/80 border border-[#526078]/60 text-xs font-mono text-[#F3F2F1] hover:border-[#FFBF38] hover:text-[#FFBF38] transition-colors cursor-pointer"
                     >
                       <ChevronLeft className="w-3.5 h-3.5" />
-                      {activeIndex === 0 && onPrevChapter ? '64 Matrix' : 'Prev'}
+                      {activeIndex === 0 && onPrevChapter
+                        ? t('64 Yogini', '64 योगिनी')
+                        : t('Prev', 'पीछे')}
                     </button>
 
                     <button
                       type="button"
                       onClick={handleNextStep}
-                      aria-label="Next Matrika profile"
+                      aria-label={t('Next Matrika profile', 'अगला मातृका प्रोफ़ाइल')}
                       className="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-[#070A16]/80 border border-[#526078]/60 text-xs font-mono text-[#F3F2F1] hover:border-[#FFBF38] hover:text-[#FFBF38] transition-colors cursor-pointer"
                     >
-                      {activeIndex === 7 ? 'मातृका · Summary' : 'Next'}
+                      {activeIndex === 7
+                        ? t('Matrika Summary', 'मातृका सारांश')
+                        : t('Next', 'आगे')}
                       <ChevronRight className="w-3.5 h-3.5" />
                     </button>
 
@@ -413,7 +425,7 @@ export default function MatrikaExperience({
                         className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded bg-[#102344]/50 border border-[#526078]/50 text-[11px] font-mono text-[#A6AFBF] hover:text-[#FFBF38] hover:border-[#FFBF38]/50 transition-colors cursor-pointer"
                       >
                         <Layers className="w-3 h-3" />
-                        64 Matrix
+                        {t('64 Yogini', '64 योगिनी')}
                       </button>
                     )}
 
@@ -423,44 +435,50 @@ export default function MatrikaExperience({
                         onClick={onNextChapter}
                         className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded bg-[#FFBF38]/15 border border-[#FFBF38]/50 text-[11px] font-mono text-[#FFBF38] hover:bg-[#FFBF38]/25 transition-colors cursor-pointer"
                       >
-                        श्री मेरु चक्र · Shri Meru
+                        {t('Shri Meru Chakra', 'श्री मेरु चक्र')}
                         <ChevronRight className="w-3 h-3" />
                       </button>
                     )}
                   </div>
 
                   <span className="font-mono text-[9.5px] tracking-[0.16em] text-[#A6AFBF]/80 uppercase">
-                    आगामी पुस्तक · A Path Within · Rakesh Sharma
+                    {t('Forthcoming Book · A Path Within · Ram Ashok Kumar', 'आगामी पुस्तक · अ पाथ विदिन · राम अशोक कुमार')}
                   </span>
                 </div>
               </div>
             </motion.div>
           ) : (
-            /* SECTION 14: EIGHT MATRIKA SUMMARY SCREEN */
+            /* EIGHT MATRIKA SUMMARY SCREEN */
             <motion.div
-              key="ashta-matrika-summary"
+              key={`ashta-matrika-summary-${lang}`}
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -8 }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.25, ease: 'easeOut' }}
               className="mt-4"
             >
-              {/* 14.1 Summary Heading */}
+              {/* Summary Heading */}
               <div className="p-4 sm:p-5 rounded-xl bg-[#070A16]/90 border border-[#FFBF38]/45 mb-4 text-center">
                 <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#FFBF38]/15 border border-[#FFBF38]/40 mb-1.5">
                   <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#FFBF38]">
-                    मातृका · SUMMARY · SYMBOLIC RESEARCH INDEX
+                    {t('MATRIKA SUMMARY · SYMBOLIC RESEARCH INDEX', 'मातृका सारांश · प्रतीकात्मक शोध अनुक्रमणिका')}
                   </span>
                 </div>
                 <h4 className="text-lg sm:text-2xl font-serif font-bold text-[#F3F2F1]">
-                  Your body runs on 8 Mātr̥kās. Here's the code.
+                  {t(
+                    "Your body runs on 8 Mātr̥kās. Here's the code.",
+                    'आपका शरीर 8 मातृकाओं से संचालित होता है। यहाँ उसका कोड है।'
+                  )}
                 </h4>
                 <p className="mt-1 text-[11px] sm:text-xs font-mono text-[#A6AFBF]">
-                  Creative cybernetic-endocrine metaphor from A Path Within (symbolic interpretive model; click any row to inspect its animated profile).
+                  {t(
+                    'Creative cybernetic-endocrine metaphor from A Path Within (symbolic interpretive model; click any row to inspect its animated profile).',
+                    'अ पाथ विदिन से सृजनात्मक साइबरनेटिक-अंतःस्रावी रूपक (प्रतीकात्मक व्याख्यात्मक मॉडल; किसी भी पंक्ति पर क्लिक कर उसका गतिशील प्रोफ़ाइल देखें)।'
+                  )}
                 </p>
               </div>
 
-              {/* 14.2 Eight Clickable Horizontal Summary Rows */}
+              {/* Eight Clickable Horizontal Summary Rows */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
                 {ASHTA_MATRIKA_PROFILES.map((profile, idx) => (
                   <button
@@ -483,28 +501,28 @@ export default function MatrikaExperience({
                           {profile.binaryCode}
                         </span>
                         <span className="block font-mono text-[8px] text-[#A6AFBF] uppercase">
-                          {profile.rowLabel}
+                          {t(profile.rowLabel, profile.rowLabelHi)}
                         </span>
                       </div>
 
-                      {/* Hindi Name, Conceptual Title & Metadata */}
+                      {/* Single-Language Name, Conceptual Title & Metadata */}
                       <div className="min-w-0">
                         <div className="flex items-baseline gap-2">
                           <span
                             className="font-serif text-base sm:text-lg font-bold truncate"
                             style={{ color: profile.accentColor }}
                           >
-                            {profile.hindiName}
-                          </span>
-                          <span className="font-mono text-[10px] text-[#A6AFBF] uppercase">
-                            {profile.englishName}
+                            {t(profile.englishName, profile.hindiName)}
                           </span>
                         </div>
                         <p className="font-serif text-xs sm:text-sm font-medium text-[#F3F2F1] truncate">
-                          {profile.conceptualTitle}
+                          {t(profile.conceptualTitle, profile.conceptualTitleHi)}
                         </p>
                         <p className="font-mono text-[9.5px] text-[#A6AFBF] truncate mt-0.5">
-                          {profile.tattva} · {profile.gland} · {profile.kshetra}
+                          {t(
+                            `${profile.tattva} · ${profile.gland} · ${profile.kshetra}`,
+                            `${profile.tattvaHi} · ${profile.glandHi} · ${profile.kshetraHi}`
+                          )}
                         </p>
                       </div>
                     </div>
@@ -524,7 +542,7 @@ export default function MatrikaExperience({
                 ))}
               </div>
 
-              {/* 14.3 Summary Footer */}
+              {/* Summary Footer */}
               <div className="mt-4 pt-3.5 border-t border-[#526078]/35 flex flex-col sm:flex-row items-center justify-between gap-3">
                 <div className="flex flex-wrap items-center gap-2">
                   <button
@@ -532,7 +550,7 @@ export default function MatrikaExperience({
                     onClick={() => handleSelectProfile(0)}
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#FFBF38]/15 border border-[#FFBF38]/60 text-xs font-mono text-[#FFBF38] hover:bg-[#FFBF38]/25 transition-colors cursor-pointer"
                   >
-                    Explore Row 000: Brahmani
+                    {t('Explore Row 000: Brahmani', 'देखें पंक्ति 000: ब्रह्माणी')}
                     <ChevronRight className="w-3.5 h-3.5" />
                   </button>
                   {onOpenMatrix && (
@@ -542,7 +560,7 @@ export default function MatrikaExperience({
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#070A16] border border-[#526078]/60 text-xs font-mono text-[#F3F2F1] hover:border-[#FFBF38] hover:text-[#FFBF38] transition-colors cursor-pointer"
                     >
                       <Layers className="w-3.5 h-3.5" />
-                      Return to 64 Matrix
+                      {t('Return to 64 Yogini', '64 योगिनी पर लौटें')}
                     </button>
                   )}
                   {onNextChapter && (
@@ -551,7 +569,7 @@ export default function MatrikaExperience({
                       onClick={onNextChapter}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#FFBF38]/20 border border-[#FFBF38] text-xs font-mono text-[#FFBF38] hover:bg-[#FFBF38]/30 transition-colors cursor-pointer"
                     >
-                      Next Chapter: श्री मेरु चक्र · Shri Meru
+                      {t('Next Chapter: Shri Meru Chakra', 'अगला अध्याय: श्री मेरु चक्र')}
                       <ChevronRight className="w-3.5 h-3.5" />
                     </button>
                   )}
@@ -559,10 +577,10 @@ export default function MatrikaExperience({
 
                 <div className="text-center sm:text-right">
                   <p className="font-mono text-xs font-bold tracking-[0.18em] text-[#FFBF38] uppercase">
-                    8 Matrikas · 8 Bhairavas = 64 Yoginis
+                    {t('8 Matrikas · 8 Bhairavas = 64 Yoginis', '8 मातृका · 8 भैरव = 64 योगिनी')}
                   </p>
                   <p className="font-mono text-[9.5px] tracking-[0.14em] text-[#A6AFBF]/85 mt-0.5">
-                    आगामी पुस्तक · A Path Within · Rakesh Sharma
+                    {t('Forthcoming Book · A Path Within · Ram Ashok Kumar', 'आगामी पुस्तक · अ पाथ विदिन · राम अशोक कुमार')}
                   </p>
                 </div>
               </div>

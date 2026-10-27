@@ -1,9 +1,12 @@
 import React from 'react';
-import { motion } from 'motion/react';
-import { Compass, Clock, MapPin, Feather } from 'lucide-react';
-import { timelineMilestones } from '../data';
+import { MapPin, Feather } from 'lucide-react';
+import { getTimelineMilestones } from '../data';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function TimelineSection() {
+  const { lang, t } = useLanguage();
+  const milestones = getTimelineMilestones(lang);
+
   return (
     <section id="timeline" className="relative py-24 px-4 md:px-8 lg:px-16 overflow-hidden border-b border-bronze-dark/40">
       {/* Background Texture from User */}
@@ -23,13 +26,18 @@ export default function TimelineSection() {
         {/* Title */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="flex items-center justify-center gap-3 mb-2">
-            <span className="font-mono text-[10px] tracking-[0.3em] text-[#3a2e24] font-bold uppercase">A quarter-century of unquiet work.</span>
+            <span className="font-mono text-[10px] tracking-[0.3em] text-[#3a2e24] font-bold uppercase">
+              {t('A quarter-century of unquiet work.', 'चौथाई सदी की अनवरत साधना और शोध।')}
+            </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-serif text-[#2e241f] tracking-wide font-bold">
-            Chronology
+            {t('Chronology', 'कालक्रम')}
           </h2>
           <p className="mt-4 text-lg md:text-xl text-[#3a2e24]/90 font-vintage italic leading-relaxed">
-            "From the cremation grounds of Banaras to the glow of a hundred thousand screens — the long ledger of how Paranormal Mechanism became what it is."
+            {t(
+              '"From the cremation grounds of Banaras to the glow of a hundred thousand screens — the long ledger of how Paranormal Mechanism became what it is."',
+              '"बनारस के श्मशान घाटों से लेकर लाखों स्क्रीन की आभा तक — यह वह लंबा लेखा-जोखा है कि कैसे पैरानॉर्मल मैकेनिज्म आज अपने इस स्वरूप में पहुँचा।"'
+            )}
           </p>
         </div>
 
@@ -41,7 +49,7 @@ export default function TimelineSection() {
 
           {/* Timeline Milestones list */}
           <div className="space-y-16 relative">
-            {timelineMilestones.map((milestone, idx) => {
+            {milestones.map((milestone, idx) => {
               const isEven = idx % 2 === 0;
               return (
                 <div
@@ -123,7 +131,7 @@ export default function TimelineSection() {
           {/* Ledger Seal Decal Footer */}
           <div className="mt-16 flex items-center justify-center gap-2 text-[14px] font-mono text-[#544338] uppercase tracking-[0.2em] pt-6 border-t border-[#a38c5f]/20 font-bold">
             <Feather className="w-4 h-4 text-amber-900/60" />
-            <span>— the ledger remains open —</span>
+            <span>{t('— the ledger remains open —', '— यह लेखा-जोखा निरंतर जारी है —')}</span>
           </div>
 
         </div>

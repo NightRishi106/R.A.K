@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { MatrikaVisualizationType } from '../data/ashtaResearchData';
+import { useLanguage } from '../context/LanguageContext';
 
 interface VisualizationProps {
   type: MatrikaVisualizationType;
@@ -9,10 +10,10 @@ interface VisualizationProps {
 
 /**
  * 000 — BRAHMANI: The Genesis Compiler
- * Luminous spiral / galaxy-like particle system emerging from a central origin
  */
 export function GenesisSpiral({ accentColor }: { accentColor: string }) {
   const shouldReduceMotion = useReducedMotion();
+  const { t } = useLanguage();
 
   const spiralArms = [0, 120, 240];
   const orbitalParticles = Array.from({ length: 18 }, (_, i) => {
@@ -34,7 +35,7 @@ export function GenesisSpiral({ accentColor }: { accentColor: string }) {
         viewBox="0 0 300 260"
         className="w-full h-full max-w-[320px] overflow-visible"
         role="img"
-        aria-label="Genesis spiral particle visualization for Brahmani"
+        aria-label={t('Genesis spiral particle visualization for Brahmani', 'ब्रह्माणी के लिए उत्पत्ति सर्पिल कण दृश्य')}
       >
         <defs>
           <radialGradient id="brahmaniOriginGlow" cx="50%" cy="50%" r="50%">
@@ -44,7 +45,6 @@ export function GenesisSpiral({ accentColor }: { accentColor: string }) {
           </radialGradient>
         </defs>
 
-        {/* Central radial expansion glow */}
         <motion.circle
           cx="150"
           cy="130"
@@ -63,7 +63,6 @@ export function GenesisSpiral({ accentColor }: { accentColor: string }) {
           style={{ transformOrigin: '150px 130px' }}
         />
 
-        {/* Thin Orbital Rings */}
         {[28, 54, 80, 102].map((radius, idx) => (
           <circle
             key={radius}
@@ -78,20 +77,19 @@ export function GenesisSpiral({ accentColor }: { accentColor: string }) {
           />
         ))}
 
-        {/* Rotating Spiral Arms & Orbital Particles */}
         <g
           className={shouldReduceMotion ? '' : 'origin-[150px_130px] animate-[spin_28s_linear_infinite]'}
           style={{ transformOrigin: '150px 130px' }}
         >
           {spiralArms.map(offsetDeg => {
             const points: string[] = [];
-            for (let t = 0; t <= 40; t++) {
-              const progress = t / 40;
+            for (let tStep = 0; tStep <= 40; tStep++) {
+              const progress = tStep / 40;
               const angle = ((offsetDeg + progress * 260) * Math.PI) / 180;
               const r = 6 + progress * 94;
               const x = 150 + Math.cos(angle) * r;
               const y = 130 + Math.sin(angle) * r;
-              points.push(`${t === 0 ? 'M' : 'L'} ${x.toFixed(1)} ${y.toFixed(1)}`);
+              points.push(`${tStep === 0 ? 'M' : 'L'} ${x.toFixed(1)} ${y.toFixed(1)}`);
             }
             return (
               <path
@@ -127,7 +125,6 @@ export function GenesisSpiral({ accentColor }: { accentColor: string }) {
           ))}
         </g>
 
-        {/* Counter-rotating inner ring */}
         <g
           className={
             shouldReduceMotion ? '' : 'origin-[150px_130px] animate-[spin_16s_linear_infinite_reverse]'
@@ -146,7 +143,6 @@ export function GenesisSpiral({ accentColor }: { accentColor: string }) {
           />
         </g>
 
-        {/* Bright Genesis Origin Point */}
         <circle cx="150" cy="130" r="9" fill={accentColor} opacity="0.3" />
         <circle cx="150" cy="130" r="4.5" fill="#F3F2F1" stroke={accentColor} strokeWidth="1.5" />
 
@@ -160,7 +156,7 @@ export function GenesisSpiral({ accentColor }: { accentColor: string }) {
           letterSpacing="1.6"
           opacity="0.9"
         >
-          ORIGIN STATE: ∅ → ORGANIZED EMERGENCE
+          {t('ORIGIN STATE: ∅ → ORGANIZED EMERGENCE', 'उत्पत्ति अवस्था: ∅ → सुव्यवस्थित उद्भव')}
         </text>
       </svg>
     </div>
@@ -169,10 +165,10 @@ export function GenesisSpiral({ accentColor }: { accentColor: string }) {
 
 /**
  * 001 — MAHESHWARI: The Standing Wave
- * Oscillating harmonic standing wave with fixed nodal points and dashed envelope
  */
 export function StandingWaveGraph({ accentColor }: { accentColor: string }) {
   const shouldReduceMotion = useReducedMotion();
+  const { t } = useLanguage();
   const [phase, setPhase] = useState(0);
 
   useEffect(() => {
@@ -200,10 +196,9 @@ export function StandingWaveGraph({ accentColor }: { accentColor: string }) {
     const pts: string[] = [];
     const steps = 72;
     for (let i = 0; i <= steps; i++) {
-      const t = i / steps;
-      const x = xStart + t * width;
-      // 3 half-wavelengths => nodes at t = 0, 1/3, 2/3, 1
-      const y = midY + Math.sin(t * 3 * Math.PI) * currentAmp;
+      const ratio = i / steps;
+      const x = xStart + ratio * width;
+      const y = midY + Math.sin(ratio * 3 * Math.PI) * currentAmp;
       pts.push(`${i === 0 ? 'M' : 'L'} ${x.toFixed(1)} ${y.toFixed(1)}`);
     }
     return pts.join(' ');
@@ -214,7 +209,7 @@ export function StandingWaveGraph({ accentColor }: { accentColor: string }) {
   const activeWave = buildStandingPath(amp);
   const secondaryWave = buildStandingPath(oppAmp);
 
-  const nodePositions = [0, 1 / 3, 2 / 3, 1].map(t => xStart + t * width);
+  const nodePositions = [0, 1 / 3, 2 / 3, 1].map(r => xStart + r * width);
 
   return (
     <div className="relative w-full h-60 sm:h-64 flex flex-col items-center justify-center">
@@ -222,7 +217,7 @@ export function StandingWaveGraph({ accentColor }: { accentColor: string }) {
         viewBox="0 0 300 250"
         className="w-full h-full max-w-[330px] overflow-visible"
         role="img"
-        aria-label="Standing wave harmonic visualization with fixed nodes for Maheshwari"
+        aria-label={t('Standing wave harmonic visualization with fixed nodes for Maheshwari', 'माहेश्वरी के लिए स्थिर निस्पंद बिंदुओं वाला अप्रगामी तरंग दृश्य')}
       >
         <defs>
           <filter id="violetWaveGlow">
@@ -234,7 +229,6 @@ export function StandingWaveGraph({ accentColor }: { accentColor: string }) {
           </filter>
         </defs>
 
-        {/* Equilibrium Axis */}
         <line
           x1={xStart}
           y1={midY}
@@ -246,7 +240,6 @@ export function StandingWaveGraph({ accentColor }: { accentColor: string }) {
           opacity="0.55"
         />
 
-        {/* Standing Wave Envelope (Dashed Upper & Lower Bounds) */}
         <path
           d={envUpper}
           fill="none"
@@ -264,7 +257,6 @@ export function StandingWaveGraph({ accentColor }: { accentColor: string }) {
           opacity="0.32"
         />
 
-        {/* Opposing Secondary Harmonic Wave */}
         <path
           d={secondaryWave}
           fill="none"
@@ -273,7 +265,6 @@ export function StandingWaveGraph({ accentColor }: { accentColor: string }) {
           opacity="0.42"
         />
 
-        {/* Primary Oscillating Standing Wave */}
         <path
           d={activeWave}
           fill="none"
@@ -282,7 +273,6 @@ export function StandingWaveGraph({ accentColor }: { accentColor: string }) {
           filter="url(#violetWaveGlow)"
         />
 
-        {/* Fixed Nodal Points Along the Axis */}
         {nodePositions.map((nx, idx) => (
           <g key={idx}>
             <circle cx={nx} cy={midY} r="6.5" fill={accentColor} opacity="0.22" />
@@ -302,7 +292,7 @@ export function StandingWaveGraph({ accentColor }: { accentColor: string }) {
               fontSize="7.5"
               fontFamily="monospace"
             >
-              {idx === 0 || idx === 3 ? 'FIXED' : `N${idx}`}
+              {idx === 0 || idx === 3 ? t('FIXED', 'स्थिर') : `N${idx}`}
             </text>
           </g>
         ))}
@@ -316,7 +306,7 @@ export function StandingWaveGraph({ accentColor }: { accentColor: string }) {
           fontFamily="monospace"
           letterSpacing="1.5"
         >
-          RESONANT ORBIT · 4 FIXED NODAL POINTS
+          {t('RESONANT ORBIT · 4 FIXED NODAL POINTS', 'अनुनादी कक्षा · 4 स्थिर निस्पंद बिंदु')}
         </text>
       </svg>
     </div>
@@ -325,10 +315,10 @@ export function StandingWaveGraph({ accentColor }: { accentColor: string }) {
 
 /**
  * 010 — KAUMARI: The Ignition Thrust
- * Vertical luminous orange thrust beam, triangular cone, rising particles, and baseline ignition spike
  */
 export function IgnitionGraph({ accentColor }: { accentColor: string }) {
   const shouldReduceMotion = useReducedMotion();
+  const { t } = useLanguage();
 
   const risingParticles = [
     { id: 1, x: 138, delay: 0, dur: 2.2 },
@@ -340,7 +330,6 @@ export function IgnitionGraph({ accentColor }: { accentColor: string }) {
     { id: 7, x: 168, delay: 1.0, dur: 2.3 }
   ];
 
-  // Baseline spike waveform near y=192
   const baselineSpikePath =
     'M 34 192 L 95 192 L 112 192 L 122 185 L 130 198 L 138 172 L 145 204 L 150 138 L 155 202 L 162 176 L 170 196 L 178 188 L 188 192 L 266 192';
 
@@ -350,7 +339,7 @@ export function IgnitionGraph({ accentColor }: { accentColor: string }) {
         viewBox="0 0 300 250"
         className="w-full h-full max-w-[320px] overflow-visible"
         role="img"
-        aria-label="Vertical ignition thrust visualization for Kaumari"
+        aria-label={t('Vertical ignition thrust visualization for Kaumari', 'कौमारी के लिए ऊर्ध्व प्रज्वलन आवेग दृश्य')}
       >
         <defs>
           <radialGradient id="kaumariThrustGlow" cx="50%" cy="72%" r="55%">
@@ -365,10 +354,8 @@ export function IgnitionGraph({ accentColor }: { accentColor: string }) {
           </linearGradient>
         </defs>
 
-        {/* Warm Orange Radial Glow */}
         <circle cx="150" cy="165" r="95" fill="url(#kaumariThrustGlow)" />
 
-        {/* Triangular Thrust Plume */}
         <motion.polygon
           points="150,192 106,42 194,42"
           fill="url(#kaumariConeGrad)"
@@ -385,7 +372,6 @@ export function IgnitionGraph({ accentColor }: { accentColor: string }) {
           style={{ transformOrigin: '150px 192px' }}
         />
 
-        {/* Narrow Luminous Vertical Ignition Beam */}
         <motion.line
           x1="150"
           y1="192"
@@ -407,7 +393,6 @@ export function IgnitionGraph({ accentColor }: { accentColor: string }) {
           }
         />
 
-        {/* Rising Energy Particles */}
         {risingParticles.map(p => (
           <motion.circle
             key={p.id}
@@ -428,7 +413,6 @@ export function IgnitionGraph({ accentColor }: { accentColor: string }) {
           />
         ))}
 
-        {/* Horizontal Baseline & Short Spike Waveform */}
         <line
           x1="26"
           y1="192"
@@ -454,7 +438,6 @@ export function IgnitionGraph({ accentColor }: { accentColor: string }) {
           }
         />
 
-        {/* Glowing Point at Origin of Thrust */}
         <circle cx="150" cy="192" r="9" fill={accentColor} opacity="0.35" />
         <circle cx="150" cy="192" r="4.5" fill="#F3F2F1" stroke={accentColor} strokeWidth="1.5" />
 
@@ -467,7 +450,7 @@ export function IgnitionGraph({ accentColor }: { accentColor: string }) {
           fontFamily="monospace"
           letterSpacing="1.5"
         >
-          DIRECTED IMPULSE · Δp INITIATION VECTOR
+          {t('DIRECTED IMPULSE · Δp INITIATION VECTOR', 'निर्देशित आवेग · Δp प्रारंभन सदिश')}
         </text>
       </svg>
     </div>
@@ -476,24 +459,23 @@ export function IgnitionGraph({ accentColor }: { accentColor: string }) {
 
 /**
  * 011 — VAISHNAVI: The Homeostat
- * Animated PID negative-feedback control graph converging onto a horizontal setpoint
  */
 export function HomeostatGraph({ accentColor }: { accentColor: string }) {
   const shouldReduceMotion = useReducedMotion();
+  const { t } = useLanguage();
 
   const x0 = 34;
   const x1 = 272;
   const width = x1 - x0;
   const setpointY = 128;
 
-  // Damped second-order underdamped response starting above target
   const pts: string[] = [];
   const steps = 80;
   for (let i = 0; i <= steps; i++) {
-    const t = i / steps;
-    const x = x0 + t * width;
-    const envelope = Math.exp(-3.6 * t);
-    const oscillation = Math.cos(t * 4.2 * Math.PI);
+    const ratio = i / steps;
+    const x = x0 + ratio * width;
+    const envelope = Math.exp(-3.6 * ratio);
+    const oscillation = Math.cos(ratio * 4.2 * Math.PI);
     const y = setpointY - envelope * oscillation * 64;
     pts.push(`${i === 0 ? 'M' : 'L'} ${x.toFixed(1)} ${y.toFixed(1)}`);
   }
@@ -505,9 +487,8 @@ export function HomeostatGraph({ accentColor }: { accentColor: string }) {
         viewBox="0 0 300 250"
         className="w-full h-full max-w-[330px] overflow-visible"
         role="img"
-        aria-label="PID negative-feedback control system convergence graph for Vaishnavi"
+        aria-label={t('PID negative-feedback control system convergence graph for Vaishnavi', 'वैष्णवी के लिए पीआईडी ऋणात्मक-प्रतिपुष्टि संतुलन ग्राफ़')}
       >
-        {/* Rectangular Plotting Area */}
         <rect
           x="34"
           y="42"
@@ -521,7 +502,6 @@ export function HomeostatGraph({ accentColor }: { accentColor: string }) {
           opacity="0.65"
         />
 
-        {/* Faint Grid Lines */}
         {[74, 101, 155, 182].map(gy => (
           <line
             key={gy}
@@ -536,7 +516,6 @@ export function HomeostatGraph({ accentColor }: { accentColor: string }) {
           />
         ))}
 
-        {/* Horizontal Target / Setpoint Line */}
         <line
           x1="34"
           y1={setpointY}
@@ -555,10 +534,9 @@ export function HomeostatGraph({ accentColor }: { accentColor: string }) {
           fontFamily="monospace"
           letterSpacing="1"
         >
-          SETPOINT (TARGET EQUILIBRIUM)
+          {t('SETPOINT (TARGET EQUILIBRIUM)', 'लक्ष्य बिंदु (साम्यावस्था)')}
         </text>
 
-        {/* Damped PID Response Curve */}
         <motion.path
           d={pidPath}
           fill="none"
@@ -579,7 +557,6 @@ export function HomeostatGraph({ accentColor }: { accentColor: string }) {
           }
         />
 
-        {/* Response Label & Convergence Marker */}
         <text
           x="52"
           y="62"
@@ -588,10 +565,9 @@ export function HomeostatGraph({ accentColor }: { accentColor: string }) {
           fontFamily="monospace"
           letterSpacing="1"
         >
-          RESPONSE u(t) · OVERSHOOT → DAMPING
+          {t('RESPONSE u(t) · OVERSHOOT → DAMPING', 'प्रतिक्रिया u(t) · दोलन → अवमंदन')}
         </text>
 
-        {/* Equilibrium Convergence Glow at Right End */}
         <motion.circle
           cx="264"
           cy={setpointY}
@@ -619,7 +595,7 @@ export function HomeostatGraph({ accentColor }: { accentColor: string }) {
           fontFamily="monospace"
           letterSpacing="1.4"
         >
-          NEGATIVE FEEDBACK LOOP · e(t) → 0
+          {t('NEGATIVE FEEDBACK LOOP · e(t) → 0', 'ऋणात्मक प्रतिपुष्टि चक्र · e(t) → 0')}
         </text>
       </svg>
     </div>
@@ -628,10 +604,10 @@ export function HomeostatGraph({ accentColor }: { accentColor: string }) {
 
 /**
  * 100 — VARAHI: The Tectonic Uplift
- * 3D isometric perspective surface mesh with rising central hill elevation
  */
 export function TectonicMesh({ accentColor }: { accentColor: string }) {
   const shouldReduceMotion = useReducedMotion();
+  const { t } = useLanguage();
   const [upliftFactor, setUpliftFactor] = useState(0.85);
 
   useEffect(() => {
@@ -641,7 +617,6 @@ export function TectonicMesh({ accentColor }: { accentColor: string }) {
     const animate = (ts: number) => {
       if (!start) start = ts;
       const elapsed = (ts - start) / 1000;
-      // Smoothly breathes between 0.35 (flatter plane) and 1.0 (uplifted dome/ridge)
       const factor = 0.68 + 0.32 * Math.sin(elapsed * 1.6);
       setUpliftFactor(factor);
       frameId = requestAnimationFrame(animate);
@@ -650,14 +625,13 @@ export function TectonicMesh({ accentColor }: { accentColor: string }) {
     return () => cancelAnimationFrame(frameId);
   }, [shouldReduceMotion]);
 
-  const gridSize = 9; // 9x9 mesh vertices
+  const gridSize = 9;
   const projectPoint = (gx: number, gy: number) => {
-    const nx = (gx / (gridSize - 1)) * 2 - 1; // -1..1
-    const ny = (gy / (gridSize - 1)) * 2 - 1; // -1..1
+    const nx = (gx / (gridSize - 1)) * 2 - 1;
+    const ny = (gy / (gridSize - 1)) * 2 - 1;
     const distSq = nx * nx + ny * ny;
     const elevation = Math.exp(-distSq * 2.4) * 52 * upliftFactor;
 
-    // Isometric projection centered at (150, 142)
     const isoX = 150 + (nx - ny) * 62;
     const isoY = 148 + (nx + ny) * 28 - elevation;
     return { x: isoX, y: isoY, elevation };
@@ -694,7 +668,7 @@ export function TectonicMesh({ accentColor }: { accentColor: string }) {
         viewBox="0 0 300 250"
         className="w-full h-full max-w-[330px] overflow-visible"
         role="img"
-        aria-label="Three-dimensional tectonic surface mesh uplift visualization for Varahi"
+        aria-label={t('Three-dimensional tectonic surface mesh uplift visualization for Varahi', 'वाराही के लिए त्रि-आयामी भू-उत्थान जाल दृश्य')}
       >
         <defs>
           <radialGradient id="varahiCentralGlow" cx="50%" cy="48%" r="48%">
@@ -706,7 +680,6 @@ export function TectonicMesh({ accentColor }: { accentColor: string }) {
 
         <circle cx="150" cy="128" r="88" fill="url(#varahiCentralGlow)" />
 
-        {/* Mesh Rows */}
         {rows.map((d, idx) => (
           <path
             key={`row-${idx}`}
@@ -718,7 +691,6 @@ export function TectonicMesh({ accentColor }: { accentColor: string }) {
           />
         ))}
 
-        {/* Mesh Columns */}
         {cols.map((d, idx) => (
           <path
             key={`col-${idx}`}
@@ -730,7 +702,6 @@ export function TectonicMesh({ accentColor }: { accentColor: string }) {
           />
         ))}
 
-        {/* Highlighted Uplift Grid Intersections */}
         {peakNodes.map((pt, i) => (
           <circle
             key={i}
@@ -751,7 +722,7 @@ export function TectonicMesh({ accentColor }: { accentColor: string }) {
           fontFamily="monospace"
           letterSpacing="1.5"
         >
-          SUBMERGED PLANE → TECTONIC EMERGENCE
+          {t('SUBMERGED PLANE → TECTONIC EMERGENCE', 'जलमग्न तल → भू-उत्थान उद्भव')}
         </text>
       </svg>
     </div>
@@ -760,10 +731,10 @@ export function TectonicMesh({ accentColor }: { accentColor: string }) {
 
 /**
  * 101 — INDRANI: The Lightning Bus
- * SKY / IONOSPHERE & GROUND / EARTH reference lines with dual phase-shifted waveforms and discharge pulses at 7.83 Hz
  */
 export function LightningWaveGraph({ accentColor }: { accentColor: string }) {
   const shouldReduceMotion = useReducedMotion();
+  const { t } = useLanguage();
   const [phase, setPhase] = useState(0);
 
   useEffect(() => {
@@ -791,9 +762,9 @@ export function LightningWaveGraph({ accentColor }: { accentColor: string }) {
     const pts: string[] = [];
     const steps = 76;
     for (let i = 0; i <= steps; i++) {
-      const t = i / steps;
-      const x = x0 + t * width;
-      const y = midY + Math.sin(t * freq * Math.PI * 2 + phase + phaseShift) * amp;
+      const ratio = i / steps;
+      const x = x0 + ratio * width;
+      const y = midY + Math.sin(ratio * freq * Math.PI * 2 + phase + phaseShift) * amp;
       pts.push(`${i === 0 ? 'M' : 'L'} ${x.toFixed(1)} ${y.toFixed(1)}`);
     }
     return pts.join(' ');
@@ -808,9 +779,8 @@ export function LightningWaveGraph({ accentColor }: { accentColor: string }) {
         viewBox="0 0 300 250"
         className="w-full h-full max-w-[330px] overflow-visible"
         role="img"
-        aria-label="Dual electrical signal waveform between Sky Ionosphere and Ground Earth at 7.83 Hz for Indrani"
+        aria-label={t('Dual electrical signal waveform between Sky Ionosphere and Ground Earth at 7.83 Hz for Indrani', 'इन्द्राणी के लिए आकाश-आयनमंडल और पृथ्वी के बीच 7.83 Hz विद्युत तरंग दृश्य')}
       >
-        {/* Top Reference Line: SKY / IONOSPHERE */}
         <line
           x1={x0}
           y1={skyY}
@@ -828,10 +798,9 @@ export function LightningWaveGraph({ accentColor }: { accentColor: string }) {
           fontFamily="monospace"
           letterSpacing="1.4"
         >
-          SKY · IONOSPHERE (+)
+          {t('SKY · IONOSPHERE (+)', 'आकाश · आयनमंडल (+)')}
         </text>
 
-        {/* Bottom Reference Line: GROUND / EARTH */}
         <line
           x1={x0}
           y1={groundY}
@@ -849,10 +818,9 @@ export function LightningWaveGraph({ accentColor }: { accentColor: string }) {
           fontFamily="monospace"
           letterSpacing="1.4"
         >
-          GROUND · EARTH (0V)
+          {t('GROUND · EARTH (0V)', 'भूमि · पृथ्वी (0V)')}
         </text>
 
-        {/* Vertical Electrical Discharge Bridges */}
         {[88, 150, 212].map((lx, idx) => (
           <motion.line
             key={lx}
@@ -876,7 +844,6 @@ export function LightningWaveGraph({ accentColor }: { accentColor: string }) {
           />
         ))}
 
-        {/* Phase-Shifted Secondary Waveform */}
         <path
           d={waveB}
           fill="none"
@@ -886,7 +853,6 @@ export function LightningWaveGraph({ accentColor }: { accentColor: string }) {
           opacity="0.55"
         />
 
-        {/* Primary Electric-Blue Oscillating Waveform */}
         <path
           d={waveA}
           fill="none"
@@ -895,7 +861,6 @@ export function LightningWaveGraph({ accentColor }: { accentColor: string }) {
           style={{ filter: `drop-shadow(0 0 6px ${accentColor}90)` }}
         />
 
-        {/* Prominent Frequency Label Beneath Graph */}
         <rect
           x="68"
           y="208"
@@ -917,7 +882,7 @@ export function LightningWaveGraph({ accentColor }: { accentColor: string }) {
           fontFamily="monospace"
           letterSpacing="1.5"
         >
-          f₀ = 7.83 Hz · CAVITY BUS
+          {t('f₀ = 7.83 Hz · CAVITY BUS', 'f₀ = 7.83 Hz · अनुनाद पथ')}
         </text>
       </svg>
     </div>
@@ -926,10 +891,10 @@ export function LightningWaveGraph({ accentColor }: { accentColor: string }) {
 
 /**
  * 110 — CHAMUNDA: The Garbage Collector
- * Animated grid of green square memory particles dissolving, collecting, and reorganizing with live simulated percentage
  */
 export function GarbageCollectorGrid({ accentColor }: { accentColor: string }) {
   const shouldReduceMotion = useReducedMotion();
+  const { t } = useLanguage();
   const [cycleStep, setCycleStep] = useState(3);
 
   useEffect(() => {
@@ -940,11 +905,9 @@ export function GarbageCollectorGrid({ accentColor }: { accentColor: string }) {
     return () => clearInterval(interval);
   }, [shouldReduceMotion]);
 
-  // 6 cols x 4 rows = 24 memory cells
   const cells = Array.from({ length: 24 }, (_, idx) => {
     const col = idx % 6;
     const row = Math.floor(idx / 6);
-    // Deterministic state based on cycleStep
     const phaseVal = (idx * 7 + cycleStep * 5) % 10;
     const isReclaimed = phaseVal < 3 + (cycleStep % 3);
     const isCollecting = phaseVal === 3 + (cycleStep % 3);
@@ -966,9 +929,8 @@ export function GarbageCollectorGrid({ accentColor }: { accentColor: string }) {
         viewBox="0 0 300 250"
         className="w-full h-full max-w-[320px] overflow-visible"
         role="img"
-        aria-label="Memory reclamation and particle garbage collection visualization for Chamunda"
+        aria-label={t('Memory reclamation and particle garbage collection visualization for Chamunda', 'चामुण्डा के लिए स्मृति पुनर्चक्रण और कण विघटन दृश्य')}
       >
-        {/* Grid Frame */}
         <rect
           x="52"
           y="28"
@@ -981,7 +943,6 @@ export function GarbageCollectorGrid({ accentColor }: { accentColor: string }) {
           strokeWidth="1"
         />
 
-        {/* 6x4 Square Particle Field */}
         {cells.map(cell => {
           const x = 68 + cell.col * 28;
           const y = 40 + cell.row * 28;
@@ -1019,7 +980,6 @@ export function GarbageCollectorGrid({ accentColor }: { accentColor: string }) {
           );
         })}
 
-        {/* Lower Collection Zone Bar */}
         <rect
           x="52"
           y="170"
@@ -1040,10 +1000,9 @@ export function GarbageCollectorGrid({ accentColor }: { accentColor: string }) {
           fontFamily="monospace"
           letterSpacing="1.4"
         >
-          RECLAMATION BUFFER · GC CYCLE {cycleStep + 1}/6
+          {t(`RECLAMATION BUFFER · GC CYCLE ${cycleStep + 1}/6`, `पुनर्चक्रण बफर · चक्र ${cycleStep + 1}/6`)}
         </text>
 
-        {/* Horizontal Progress Bar Beneath Grid */}
         <rect
           x="52"
           y="198"
@@ -1064,7 +1023,6 @@ export function GarbageCollectorGrid({ accentColor }: { accentColor: string }) {
           transition={{ duration: 0.4, ease: 'easeOut' }}
         />
 
-        {/* Simulated Recycling Percentage Label */}
         <text
           x="150"
           y="226"
@@ -1075,7 +1033,10 @@ export function GarbageCollectorGrid({ accentColor }: { accentColor: string }) {
           fontFamily="monospace"
           letterSpacing="1.4"
         >
-          RECLAIMED BLOCKS: {simulatedPercent}% ({reclaimedCount}/24 CELLS)
+          {t(
+            `RECLAIMED BLOCKS: ${simulatedPercent}% (${reclaimedCount}/24 CELLS)`,
+            `पुनर्प्राप्त खंड: ${simulatedPercent}% (${reclaimedCount}/24 कोष्ठक)`
+          )}
         </text>
       </svg>
     </div>
@@ -1084,10 +1045,10 @@ export function GarbageCollectorGrid({ accentColor }: { accentColor: string }) {
 
 /**
  * 111 — MAHALAKSHMI: The Solid-State Render
- * Golden central disc, six-pointed geometric star structure, concentric rings of oval particles converging into stability
  */
 export function SolidStateRender({ accentColor }: { accentColor: string }) {
   const shouldReduceMotion = useReducedMotion();
+  const { t } = useLanguage();
 
   const ovalParticles = Array.from({ length: 12 }, (_, i) => {
     const angle = (i * 30 * Math.PI) / 180;
@@ -1100,7 +1061,6 @@ export function SolidStateRender({ accentColor }: { accentColor: string }) {
     };
   });
 
-  // Six-pointed geometric star vertices around (150, 124) with r=62
   const hexTriangleUp = [0, 120, 240]
     .map(deg => {
       const rad = ((deg - 90) * Math.PI) / 180;
@@ -1121,7 +1081,7 @@ export function SolidStateRender({ accentColor }: { accentColor: string }) {
         viewBox="0 0 300 250"
         className="w-full h-full max-w-[320px] overflow-visible"
         role="img"
-        aria-label="Golden geometric convergence and stabilization visualization for Mahalakshmi"
+        aria-label={t('Golden geometric convergence and stabilization visualization for Mahalakshmi', 'महालक्ष्मी के लिए स्वर्णिम ज्यामितीय अभिसरण और स्थिरीकरण दृश्य')}
       >
         <defs>
           <radialGradient id="mahalakshmiAmberGlow" cx="50%" cy="50%" r="50%">
@@ -1131,10 +1091,8 @@ export function SolidStateRender({ accentColor }: { accentColor: string }) {
           </radialGradient>
         </defs>
 
-        {/* Warm Amber Central Glow */}
         <circle cx="150" cy="124" r="98" fill="url(#mahalakshmiAmberGlow)" />
 
-        {/* Concentric Geometric Rings */}
         {[94, 82, 62, 40].map((r, i) => (
           <circle
             key={r}
@@ -1149,7 +1107,6 @@ export function SolidStateRender({ accentColor }: { accentColor: string }) {
           />
         ))}
 
-        {/* Fine Radial Geometry (12-fold spokes) */}
         {Array.from({ length: 12 }, (_, i) => {
           const rad = (i * 30 * Math.PI) / 180;
           return (
@@ -1166,7 +1123,6 @@ export function SolidStateRender({ accentColor }: { accentColor: string }) {
           );
         })}
 
-        {/* Slowly Rotating Six-Pointed Geometric Structure */}
         <g
           className={
             shouldReduceMotion ? '' : 'origin-[150px_124px] animate-[spin_48s_linear_infinite]'
@@ -1189,7 +1145,6 @@ export function SolidStateRender({ accentColor }: { accentColor: string }) {
           />
         </g>
 
-        {/* Concentric Ring of Oval Particles */}
         <g
           className={
             shouldReduceMotion
@@ -1214,7 +1169,6 @@ export function SolidStateRender({ accentColor }: { accentColor: string }) {
           ))}
         </g>
 
-        {/* Bright Golden Central Disc */}
         <motion.circle
           cx="150"
           cy="124"
@@ -1251,16 +1205,13 @@ export function SolidStateRender({ accentColor }: { accentColor: string }) {
           fontFamily="monospace"
           letterSpacing="1.5"
         >
-          COHERENT LATTICE · SOLID-STATE LOCK
+          {t('COHERENT LATTICE · SOLID-STATE LOCK', 'सुसंगत जालक · पूर्ण स्थिर अवस्था')}
         </text>
       </svg>
     </div>
   );
 }
 
-/**
- * Dispatcher component that renders the matching animated visualization for a Matrika profile
- */
 export default function MatrikaVisualization({ type, accentColor }: VisualizationProps) {
   switch (type) {
     case 'genesis-spiral':
@@ -1284,9 +1235,6 @@ export default function MatrikaVisualization({ type, accentColor }: Visualizatio
   }
 }
 
-/**
- * Representative miniature graph / waveform for each of the 8 rows on the Matrika Summary Screen
- */
 export function MatrikaMiniSparkline({ type, accentColor }: VisualizationProps) {
   return (
     <svg
@@ -1394,30 +1342,37 @@ export function MatrikaMiniSparkline({ type, accentColor }: VisualizationProps) 
             <rect
               key={x}
               x={x}
-              y={idx % 2 === 0 ? 6 : 14}
+              y={idx % 2 === 0 ? 6 : 13}
               width="7"
               height="7"
-              rx="1.2"
+              rx="1.5"
               fill={accentColor}
-              opacity={idx === 2 ? 0.35 : 0.9}
+              opacity={idx % 3 === 0 ? 0.45 : 0.9}
             />
           ))}
         </g>
       )}
       {type === 'solid-state-render' && (
         <g>
-          <circle cx="44" cy="14" r="10" fill="none" stroke={accentColor} strokeWidth="1" />
-          <polygon
-            points="44,5 52,19 36,19"
+          <circle
+            cx="44"
+            cy="14"
+            r="10"
             fill="none"
             stroke={accentColor}
             strokeWidth="1.2"
           />
           <polygon
+            points="44,5 52,19 36,19"
+            fill="none"
+            stroke={accentColor}
+            strokeWidth="1"
+          />
+          <polygon
             points="44,23 52,9 36,9"
             fill="none"
             stroke="#FEF08A"
-            strokeWidth="1.2"
+            strokeWidth="1"
           />
           <circle cx="44" cy="14" r="2.8" fill={accentColor} />
         </g>

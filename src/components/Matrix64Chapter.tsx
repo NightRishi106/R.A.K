@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { ChevronLeft, ChevronRight, Grid, Sparkles, Compass, Cpu } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Grid, Compass, Cpu } from 'lucide-react';
 import {
   ASHTA_BHAIRAVA_PROFILES,
   ASHTA_MATRIKA_PROFILES,
   COSMIC_STARFIELD,
   getMatrixIntersection
 } from '../data/ashtaResearchData';
+import { useLanguage } from '../context/LanguageContext';
 
 interface Matrix64ChapterProps {
   onPrevChapter?: () => void;
@@ -21,6 +22,7 @@ export default function Matrix64Chapter({
   onSelectBhairavaProfile,
   onSelectMatrikaProfile
 }: Matrix64ChapterProps) {
+  const { lang, t } = useLanguage();
   const [selectedRow, setSelectedRow] = useState<number>(0);
   const [selectedCol, setSelectedCol] = useState<number>(0);
   const shouldReduceMotion = useReducedMotion();
@@ -81,29 +83,32 @@ export default function Matrix64Chapter({
       />
 
       <div className="relative z-10 px-4 sm:px-7 md:px-10 py-6 md:py-7">
-        {/* 4.1 Main Heading */}
+        {/* Main Heading (Single-Language) */}
         <div className="flex flex-col items-center text-center">
           <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-[#070A16]/80 border border-[#FFBF38]/35 mb-2">
             <Grid className="w-3 h-3 text-[#FFBF38]" />
             <span className="font-mono text-[9.5px] tracking-[0.22em] text-[#F7D57A] uppercase">
-              INTERPRETIVE FRAMEWORK · COMBINATORIAL ARCHIVE
+              {t('INTERPRETIVE FRAMEWORK · COMBINATORIAL ARCHIVE', 'व्याख्यात्मक ढाँचा · संयोजनात्मक अभिलेखागार')}
             </span>
           </div>
 
           <div className="flex items-center gap-3">
             <span className="h-[1px] w-6 sm:w-12 bg-[#FFBF38]/40" />
             <h3 className="text-xl sm:text-2xl md:text-[28px] font-serif font-bold tracking-[0.08em] text-[#FFBF38]">
-              64 योगिनी
+              {t('64 YOGINI', '64 योगिनी')}
             </h3>
             <span className="h-[1px] w-6 sm:w-12 bg-[#FFBF38]/40" />
           </div>
 
           <p className="mt-1 font-mono text-[10.5px] sm:text-xs tracking-[0.22em] text-[#F3F2F1] font-semibold uppercase">
-            8 BHAIRAVAS × 8 MATRIKAS = 64 INTERSECTIONS
+            {t('8 BHAIRAVAS × 8 MATRIKAS = 64 MATRIKAS', '8 भैरव × 8 मातृका = 64 मातृका')}
           </p>
 
           <p className="mt-1 text-xs sm:text-[13px] font-serif italic text-[#A6AFBF]">
-            An interactive map of the eight-by-eight research model
+            {t(
+              'An interactive map of the eight-by-eight research model',
+              'आठ-गुणा-आठ शोध मॉडल का एक संवादात्मक मानचित्र'
+            )}
           </p>
         </div>
 
@@ -116,10 +121,10 @@ export default function Matrix64Chapter({
               <div className="grid grid-cols-[132px_repeat(8,minmax(0,1fr))] gap-1.5 items-end mb-2">
                 <div className="px-1.5 py-1 text-left">
                   <span className="block font-mono text-[8.5px] uppercase tracking-[0.18em] text-[#A6AFBF]">
-                    ROW: BHAIRAVA ↓
+                    {t('ROW: BHAIRAVA ↓', 'पंक्ति: भैरव ↓')}
                   </span>
                   <span className="block font-mono text-[8.5px] uppercase tracking-[0.18em] text-[#FFBF38]">
-                    COL: MATRIKA →
+                    {t('COL: MATRIKA →', 'स्तंभ: मातृका →')}
                   </span>
                 </div>
 
@@ -130,7 +135,10 @@ export default function Matrix64Chapter({
                       key={matrika.id}
                       type="button"
                       onClick={() => setSelectedCol(colIdx)}
-                      title={`${matrika.englishName} (${matrika.hindiName}) — ${matrika.conceptualTitle}`}
+                      title={t(
+                        `${matrika.englishName} — ${matrika.conceptualTitle}`,
+                        `${matrika.hindiName} — ${matrika.conceptualTitleHi}`
+                      )}
                       className={`flex flex-col items-center justify-end p-1.5 rounded border transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFBF38] ${
                         isColSelected
                           ? 'bg-[#102344]/90 shadow-[0_0_12px_rgba(255,255,255,0.12)]'
@@ -147,10 +155,7 @@ export default function Matrix64Chapter({
                         {matrika.binaryCode}
                       </span>
                       <span className="font-serif text-[10px] font-bold text-[#F3F2F1] truncate max-w-full mt-0.5">
-                        {matrika.hindiName}
-                      </span>
-                      <span className="font-mono text-[7.5px] text-[#A6AFBF] truncate max-w-full">
-                        {matrika.englishName}
+                        {t(matrika.englishName, matrika.hindiName)}
                       </span>
                     </button>
                   );
@@ -161,7 +166,7 @@ export default function Matrix64Chapter({
               <div
                 className="space-y-1.5"
                 role="grid"
-                aria-label="64 Matrix of 8 Bhairavas by 8 Matrikas"
+                aria-label={t('64 Matrix of 8 Bhairavas by 8 Matrikas', '8 भैरव × 8 मातृका का 64 आव्यूह')}
               >
                 {ASHTA_BHAIRAVA_PROFILES.map((bhairava, rowIdx) => {
                   const isRowSelected = rowIdx === selectedRow;
@@ -197,10 +202,10 @@ export default function Matrix64Chapter({
                             className="block font-serif text-[11px] font-bold truncate"
                             style={{ color: bhairava.accentColor }}
                           >
-                            {bhairava.index}. {bhairava.shortTranslit}
+                            {bhairava.index}. {t(bhairava.shortTranslit, bhairava.shortHindi)}
                           </span>
                           <span className="block font-mono text-[8px] text-[#A6AFBF] truncate">
-                            {bhairava.hindiName} · {bhairava.directionCode}
+                            {t(bhairava.directionFull, bhairava.directionFullHi)}
                           </span>
                         </div>
                         <span
@@ -209,7 +214,7 @@ export default function Matrix64Chapter({
                         />
                       </button>
 
-                      {/* 8 Intersection Cells in this Bhairava Row */}
+                      {/* 8 Cells in this Bhairava Row */}
                       {ASHTA_MATRIKA_PROFILES.map((matrika, colIdx) => {
                         const isSelected = rowIdx === selectedRow && colIdx === selectedCol;
                         const isSameRowOrCol = rowIdx === selectedRow || colIdx === selectedCol;
@@ -226,7 +231,10 @@ export default function Matrix64Chapter({
                             type="button"
                             role="gridcell"
                             aria-selected={isSelected}
-                            aria-label={`Intersection ${fullId}: ${bhairava.englishName} and ${matrika.englishName}`}
+                            aria-label={t(
+                              `Matrika ${fullId}: ${bhairava.englishName} and ${matrika.englishName}`,
+                              `मातृका ${fullId}: ${bhairava.hindiName} और ${matrika.hindiName}`
+                            )}
                             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.92 }}
                             animate={{
                               opacity: 1,
@@ -298,24 +306,30 @@ export default function Matrix64Chapter({
               </div>
             </div>
 
-            {/* 4.5 Matrix Summary Note */}
+            {/* Matrix Summary Note */}
             <div className="mt-3 text-center sm:text-left flex flex-col sm:flex-row sm:items-center justify-between gap-2 px-1">
               <span className="font-mono text-[10px] tracking-[0.2em] text-[#FFBF38] uppercase font-semibold">
-                8 BHAIRAVAS · 8 MATRIKAS · 64 INTERSECTIONS
+                {t('8 BHAIRAVAS · 8 MATRIKAS · 64 MATRIKAS', '8 भैरव · 8 मातृका · 64 मातृका')}
               </span>
               <span className="font-mono text-[9.5px] text-[#A6AFBF]/85">
-                Diagonal cells (1×1 … 8×8) mark canonical directional consort pairings.
+                {t(
+                  'Diagonal cells (1×1 … 8×8) mark canonical directional consort pairings.',
+                  'विकर्ण कोष्ठक (1×1 … 8×8) प्रामाणिक दिशात्मक भैरव-मातृका युग्मों को दर्शाते हैं।'
+                )}
               </span>
             </div>
             <p className="mt-1 px-1 text-[11px] font-serif italic text-[#A6AFBF]/80">
-              The matrix is an interpretive framework for organizing comparative research. Individual associations require source-based verification.
+              {t(
+                'The matrix is an interpretive framework for organizing comparative research. Individual associations require source-based verification.',
+                'यह आव्यूह तुलनात्मक शोध को व्यवस्थित करने के लिए एक व्याख्यात्मक ढाँचा है। व्यक्तिगत संबंधों के लिए मूल-स्रोत आधारित सत्यापन आवश्यक है।'
+              )}
             </p>
           </div>
 
           {/* Right Column: MatrixIntersectionPanel (5 cols on xl) */}
           <div className="xl:col-span-5 w-full">
             <motion.div
-              key={activeIntersection.id}
+              key={`${activeIntersection.id}-${lang}`}
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.22 }}
@@ -328,7 +342,7 @@ export default function Matrix64Chapter({
                     {activeIntersection.id}
                   </span>
                   <span className="font-mono text-[9.5px] uppercase tracking-[0.16em] text-[#A6AFBF]">
-                    CELL [{selectedRow + 1}, {selectedCol + 1}]
+                    {t(`CELL [${selectedRow + 1}, ${selectedCol + 1}]`, `कोष्ठक [${selectedRow + 1}, ${selectedCol + 1}]`)}
                   </span>
                 </div>
 
@@ -340,15 +354,15 @@ export default function Matrix64Chapter({
                   }`}
                 >
                   {activeIntersection.isCanonicalConsortPair
-                    ? 'PRIMARY DIRECTIONAL PAIR'
-                    : 'EXPLORATORY INTERSECTION'}
+                    ? t('PRIMARY DIRECTIONAL PAIR', 'प्राथमिक दिशात्मक युग्म')
+                    : t('EXPLORATORY MATRIKA', 'अन्वेषणात्मक मातृका')}
                 </span>
               </div>
 
               {/* Visual Connection Diagram Between Row (Bhairava) & Column (Matrika) */}
               <div className="mt-3.5 p-3 rounded-lg bg-[#030D32]/80 border border-[#526078]/35">
                 <span className="block font-mono text-[9px] uppercase tracking-[0.2em] text-[#A6AFBF] mb-2">
-                  INTERSECTION
+                  {t('MATRIKA', 'मातृका')}
                 </span>
 
                 <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-2 items-center">
@@ -358,20 +372,17 @@ export default function Matrix64Chapter({
                     style={{ borderColor: `${activeBhairava.accentColor}66` }}
                   >
                     <div className="flex items-center justify-between text-[9px] font-mono text-[#A6AFBF]">
-                      <span>ROW {activeBhairava.index}/8</span>
-                      <span>{activeBhairava.directionCode}</span>
+                      <span>{t(`ROW ${activeBhairava.index}/8`, `पंक्ति ${activeBhairava.index}/8`)}</span>
+                      <span>{t(activeBhairava.directionCode, activeBhairava.directionCodeHi)}</span>
                     </div>
                     <p
                       className="font-serif text-base font-bold mt-0.5"
                       style={{ color: activeBhairava.accentColor }}
                     >
-                      {activeBhairava.hindiName}
-                    </p>
-                    <p className="font-sans text-xs text-[#F3F2F1] font-medium">
-                      {activeBhairava.englishName}
+                      {t(activeBhairava.englishName, activeBhairava.hindiName)}
                     </p>
                     <p className="font-mono text-[9px] text-[#A6AFBF] mt-0.5">
-                      {activeBhairava.planet} · {activeBhairava.toneHz}
+                      {t(activeBhairava.planet, activeBhairava.planetHi)} · {activeBhairava.toneHz}
                     </p>
                   </div>
 
@@ -390,20 +401,17 @@ export default function Matrix64Chapter({
                     style={{ borderColor: `${activeMatrika.accentColor}66` }}
                   >
                     <div className="flex items-center justify-between text-[9px] font-mono text-[#A6AFBF]">
-                      <span>{activeMatrika.rowLabel}</span>
-                      <span>CODE {activeMatrika.binaryCode}</span>
+                      <span>{t(activeMatrika.rowLabel, activeMatrika.rowLabelHi)}</span>
+                      <span>{t(`CODE ${activeMatrika.binaryCode}`, `कोड ${activeMatrika.binaryCode}`)}</span>
                     </div>
                     <p
                       className="font-serif text-base font-bold mt-0.5"
                       style={{ color: activeMatrika.accentColor }}
                     >
-                      {activeMatrika.hindiName}
-                    </p>
-                    <p className="font-sans text-xs text-[#F3F2F1] font-medium">
-                      {activeMatrika.englishName}
+                      {t(activeMatrika.englishName, activeMatrika.hindiName)}
                     </p>
                     <p className="font-mono text-[9px] text-[#A6AFBF] mt-0.5">
-                      {activeMatrika.conceptualTitle}
+                      {t(activeMatrika.conceptualTitle, activeMatrika.conceptualTitleHi)}
                     </p>
                   </div>
                 </div>
@@ -413,37 +421,43 @@ export default function Matrix64Chapter({
               <div className="mt-3.5 space-y-3">
                 <div>
                   <span className="block font-mono text-[9px] uppercase tracking-[0.2em] text-[#FFBF38]">
-                    RELATIONSHIP BEING EXPLORED
+                    {t('RELATIONSHIP BEING EXPLORED', 'अन्वेषित संबंध')}
                   </span>
                   <p className="mt-1 text-xs sm:text-[13px] font-serif text-[#F3F2F1]/90 leading-relaxed">
-                    {activeIntersection.relationshipSummary}
+                    {t(activeIntersection.relationshipSummary, activeIntersection.relationshipSummaryHi)}
                   </p>
                 </div>
 
                 <div className="p-3 rounded-lg bg-[#102344]/35 border-l-2 border-[#FFBF38]">
                   <span className="block font-mono text-[9px] uppercase tracking-[0.2em] text-[#F7D57A]">
-                    RESEARCH QUESTION
+                    {t('RESEARCH QUESTION', 'शोध प्रश्न')}
                   </span>
                   <p className="mt-1 text-xs sm:text-[13px] font-serif italic text-[#F3F2F1] leading-relaxed">
-                    {activeIntersection.researchQuestion}
+                    {t(activeIntersection.researchQuestion, activeIntersection.researchQuestionHi)}
                   </p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-2.5 pt-1">
                   <div className="p-2.5 rounded bg-[#030D32]/70 border border-[#526078]/35">
                     <span className="block font-mono text-[8.5px] uppercase tracking-[0.16em] text-[#A6AFBF]">
-                      BHAIRAVA VECTOR
+                      {t('BHAIRAVA VECTOR', 'भैरव सदिश')}
                     </span>
                     <span className="mt-0.5 block font-serif text-xs text-[#F3F2F1]">
-                      {activeBhairava.directionFull} · Vahana: {activeBhairava.vahana}
+                      {t(
+                        `${activeBhairava.directionFull} · Vahana: ${activeBhairava.vahana}`,
+                        `${activeBhairava.directionFullHi} · वाहन: ${activeBhairava.vahanaHi}`
+                      )}
                     </span>
                   </div>
                   <div className="p-2.5 rounded bg-[#030D32]/70 border border-[#526078]/35">
                     <span className="block font-mono text-[8.5px] uppercase tracking-[0.16em] text-[#A6AFBF]">
-                      MATRIKA SYSTEM
+                      {t('MATRIKA SYSTEM', 'मातृका प्रणाली')}
                     </span>
                     <span className="mt-0.5 block font-serif text-xs text-[#F3F2F1]">
-                      {activeMatrika.tattva} · Kshetra: {activeMatrika.kshetra}
+                      {t(
+                        `${activeMatrika.tattva} · Kshetra: ${activeMatrika.kshetra}`,
+                        `${activeMatrika.tattvaHi} · क्षेत्र: ${activeMatrika.kshetraHi}`
+                      )}
                     </span>
                   </div>
                 </div>
@@ -451,10 +465,10 @@ export default function Matrix64Chapter({
                 {/* Evidence Status Box */}
                 <div className="p-2.5 rounded bg-[#070A16] border border-[#526078]/40">
                   <span className="block font-mono text-[8.5px] uppercase tracking-[0.18em] text-[#A6AFBF]">
-                    EVIDENCE STATUS
+                    {t('EVIDENCE STATUS', 'साक्ष्य की स्थिति')}
                   </span>
                   <p className="mt-0.5 font-mono text-[10px] text-[#F7D57A]">
-                    {activeIntersection.evidenceStatus}
+                    {t(activeIntersection.evidenceStatus, activeIntersection.evidenceStatusHi)}
                   </p>
                 </div>
 
@@ -471,7 +485,7 @@ export default function Matrix64Chapter({
                       }}
                     >
                       <Compass className="w-3 h-3" />
-                      Inspect {activeBhairava.shortTranslit}
+                      {t(`Inspect ${activeBhairava.shortTranslit}`, `${activeBhairava.shortHindi} का निरीक्षण करें`)}
                     </button>
                   )}
                   {onSelectMatrikaProfile && (
@@ -485,7 +499,10 @@ export default function Matrix64Chapter({
                       }}
                     >
                       <Cpu className="w-3 h-3" />
-                      Inspect {activeMatrika.englishName} ({activeMatrika.binaryCode})
+                      {t(
+                        `Inspect ${activeMatrika.englishName} (${activeMatrika.binaryCode})`,
+                        `${activeMatrika.hindiName} (${activeMatrika.binaryCode}) का निरीक्षण करें`
+                      )}
                     </button>
                   )}
                 </div>
@@ -504,7 +521,7 @@ export default function Matrix64Chapter({
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#070A16]/85 border border-[#526078]/60 text-xs font-mono text-[#F3F2F1] hover:border-[#FFBF38] hover:text-[#FFBF38] transition-colors cursor-pointer"
               >
                 <ChevronLeft className="w-3.5 h-3.5" />
-                Prev: Bhairav Investigation Codex
+                {t('Prev: Bhairav Investigation Codex', 'पीछे: भैरव अन्वेषण संहिता')}
               </button>
             )}
             {onNextChapter && (
@@ -513,14 +530,14 @@ export default function Matrix64Chapter({
                 onClick={onNextChapter}
                 className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-[#FFBF38]/15 border border-[#FFBF38]/60 text-xs font-mono text-[#FFBF38] hover:bg-[#FFBF38]/25 transition-colors cursor-pointer"
               >
-                Next: The Eight Matrikas
+                {t('Next: The Eight Matrikas', 'आगे: अष्ट मातृका')}
                 <ChevronRight className="w-3.5 h-3.5" />
               </button>
             )}
           </div>
 
           <span className="font-mono text-[9.5px] tracking-[0.16em] text-[#A6AFBF]/80 uppercase">
-            आगामी पुस्तक · A Path Within · Rakesh Sharma
+            {t('Forthcoming Book · A Path Within · Ram Ashok Kumar', 'आगामी पुस्तक · अ पाथ विदिन · राम अशोक कुमार')}
           </span>
         </div>
       </div>

@@ -8,10 +8,7 @@ import {
   RotateCcw,
   Maximize2,
   Minimize2,
-  Sparkles,
-  Compass,
   Layers,
-  BookOpen,
   Eye
 } from 'lucide-react';
 import {
@@ -21,6 +18,7 @@ import {
   BHUPURA_MATRIKA_PROFILES,
   type ShriMeruSequenceId
 } from '../data/shriMeruData';
+import { useLanguage } from '../context/LanguageContext';
 
 interface ShriMeruExperienceProps {
   initialMatrikaIndex?: number;
@@ -69,7 +67,7 @@ function buildLotusPetals(count: number, innerR: number, outerR: number, halfAng
   return petals;
 }
 
-/** Generate radial ring of triangles around (500, 500) for Caturdaśāra (14), Bahirdaśāra (10), Antardaśāra (10), Aṣṭakoṇa (8) */
+/** Generate radial ring of triangles around (500, 500) */
 function buildTriangleRing(count: number, innerR: number, outerR: number, phaseOffsetDeg = 0) {
   const cx = 500;
   const cy = 500;
@@ -107,10 +105,8 @@ function buildBhupuraPath(halfSize: number, neckHalfWidth: number, neckLen: numb
   const T = cy - halfSize;
   const B = cy + halfSize;
 
-  // Clockwise starting from top-left corner (L, T)
   return [
     `M ${L} ${T}`,
-    // Top edge + Top (West) T-gate
     `L ${cx - neckHalfWidth} ${T}`,
     `L ${cx - neckHalfWidth} ${T - neckLen}`,
     `L ${cx - gateHalfWidth} ${T - neckLen}`,
@@ -120,7 +116,6 @@ function buildBhupuraPath(halfSize: number, neckHalfWidth: number, neckLen: numb
     `L ${cx + neckHalfWidth} ${T - neckLen}`,
     `L ${cx + neckHalfWidth} ${T}`,
     `L ${R} ${T}`,
-    // Right edge + Right (North) T-gate
     `L ${R} ${cy - neckHalfWidth}`,
     `L ${R + neckLen} ${cy - neckHalfWidth}`,
     `L ${R + neckLen} ${cy - gateHalfWidth}`,
@@ -130,7 +125,6 @@ function buildBhupuraPath(halfSize: number, neckHalfWidth: number, neckLen: numb
     `L ${R + neckLen} ${cy + neckHalfWidth}`,
     `L ${R} ${cy + neckHalfWidth}`,
     `L ${R} ${B}`,
-    // Bottom edge + Bottom (East) T-gate
     `L ${cx + neckHalfWidth} ${B}`,
     `L ${cx + neckHalfWidth} ${B + neckLen}`,
     `L ${cx + gateHalfWidth} ${B + neckLen}`,
@@ -140,7 +134,6 @@ function buildBhupuraPath(halfSize: number, neckHalfWidth: number, neckLen: numb
     `L ${cx - neckHalfWidth} ${B + neckLen}`,
     `L ${cx - neckHalfWidth} ${B}`,
     `L ${L} ${B}`,
-    // Left edge + Left (South) T-gate
     `L ${L} ${cy + neckHalfWidth}`,
     `L ${L - neckLen} ${cy + neckHalfWidth}`,
     `L ${L - neckLen} ${cy + gateHalfWidth}`,
@@ -160,33 +153,22 @@ export default function ShriMeruExperience({
   onOpenMatrix,
   onOpenCyberneticMatrika
 }: ShriMeruExperienceProps) {
+  const { lang, t } = useLanguage();
   const shouldReduceMotion = useReducedMotion();
 
-  // Active Sequence ('opening' | 'enclosures' | 'triangles' | 'bhupura' | 'matrikas' | 'closing')
   const [activeSequence, setActiveSequence] = useState<ShriMeruSequenceId>('opening');
-  // Sequence A sub-step: 0 = Shri Meru Chakra (00:00-00:03), 1 = One Yantra Three Levels (00:03-00:09)
   const [openingStep, setOpeningStep] = useState<0 | 1>(1);
-  // Sequence B active enclosure index (0..8 for Avaranas 1..9)
   const [activeAvaranaIdx, setActiveAvaranaIdx] = useState<number>(0);
-  // Sequence C active formula step (0..5 for 14..44)
   const [activeTriangleStepIdx, setActiveTriangleStepIdx] = useState<number>(5);
-  // Sequence D sub-step: 0 = Three walls four gates 28 Prakata Yoginis, 1 = Outer wall 10 Siddhis
   const [bhupuraStep, setBhupuraStep] = useState<0 | 1>(0);
-  // Sequence E active Matrika index (0..7 for 1/8..8/8)
   const [activeMatrikaIdx, setActiveMatrikaIdx] = useState<number>(initialMatrikaIndex ?? 0);
-  // Sequence F sub-step: 0 = Panchamrita Abhisheka Worship Layout (00:90-00:95), 1 = Ekagrata Anushthana Closing (00:96-01:41)
   const [closingStep, setClosingStep] = useState<0 | 1>(0);
-  // Selected resonant Matrika in Closing screen (1..8)
   const [resonatedMatrikaIdx, setResonatedMatrikaIdx] = useState<number | null>(null);
 
-  // Camera framing mode: 'auto' uses close-up camera pans in Seq D & Seq E; 'full' shows complete Yantra
   const [cameraMode, setCameraMode] = useState<'auto' | 'full'>('auto');
-
-  // Optional 102-second synchronized video timeline player
   const [isPlayingTimeline, setIsPlayingTimeline] = useState<boolean>(false);
   const [timelineSec, setTimelineSec] = useState<number>(0);
 
-  // Sync external initialMatrikaIndex when passed from 64 Matrix
   useEffect(() => {
     if (typeof initialMatrikaIndex === 'number' && initialMatrikaIndex >= 0 && initialMatrikaIndex < 8) {
       setActiveMatrikaIdx(initialMatrikaIndex);
@@ -194,7 +176,6 @@ export default function ShriMeruExperience({
     }
   }, [initialMatrikaIndex]);
 
-  // Synchronize states from timelineSec when autoplay is running or scrubbed
   const applyTimelineSecond = (sec: number) => {
     setTimelineSec(sec);
     if (sec <= 9) {
@@ -249,7 +230,6 @@ export default function ShriMeruExperience({
     return () => window.clearInterval(interval);
   }, [isPlayingTimeline]);
 
-  // Precompute SVG geometry layers
   const bhupuraOuterPath = useMemo(() => buildBhupuraPath(365, 44, 34, 78, 28), []);
   const bhupuraMidPath = useMemo(() => buildBhupuraPath(350, 34, 34, 68, 16), []);
   const bhupuraInnerPath = useMemo(() => buildBhupuraPath(335, 24, 34, 58, 6), []);
@@ -262,7 +242,6 @@ export default function ShriMeruExperience({
   const ring10InnerTriangles = useMemo(() => buildTriangleRing(10, 80, 112, 0), []);
   const ring8Triangles = useMemo(() => buildTriangleRing(8, 50, 78, 22.5), []);
 
-  // Determine which geometric rings are highlighted in the current sequence
   const activeRings = useMemo(() => {
     if (activeSequence === 'opening') {
       return {
@@ -318,7 +297,6 @@ export default function ShriMeruExperience({
         bindu: true
       };
     }
-    // 'closing'
     return {
       bhupura: true,
       lotus16: true,
@@ -332,13 +310,11 @@ export default function ShriMeruExperience({
     };
   }, [activeSequence, activeAvaranaIdx, activeTriangleStepIdx]);
 
-  // Compute camera transform for the SVG Yantra
   const cameraTransform = useMemo(() => {
     if (cameraMode === 'full' || shouldReduceMotion) {
       return { scale: 1, x: 0, y: 0 };
     }
     if (activeSequence === 'bhupura') {
-      // Push-in on the lower Bhupura gate (00:44–00:49)
       return { scale: 1.78, x: 0, y: -225 };
     }
     if (activeSequence === 'matrikas') {
@@ -356,7 +332,6 @@ export default function ShriMeruExperience({
   const currentTriangleStep = TRIANGLE_FORMULA_STEPS[activeTriangleStepIdx];
   const currentMatrika = BHUPURA_MATRIKA_PROFILES[activeMatrikaIdx];
 
-  // Unified Previous / Next step handler across the 6 sequences
   const handleStepPrev = () => {
     setIsPlayingTimeline(false);
     if (activeSequence === 'opening') {
@@ -535,17 +510,23 @@ export default function ShriMeruExperience({
           <div>
             <div className="flex flex-wrap items-center gap-2">
               <span className="font-mono text-[10px] tracking-[0.26em] uppercase text-[#C99B48]">
-                A PATH WITHIN · श्री मेरु चक्र एवं अष्ट मातृका
+                {t('A PATH WITHIN · SHRI MERU CHAKRA & ASHTA MATRIKA', 'अ पाथ विदिन · श्री मेरु चक्र एवं अष्ट मातृका')}
               </span>
               <span className="px-2 py-0.5 rounded text-[9px] font-mono uppercase tracking-[0.16em] bg-[#321708]/80 text-[#F0C66C] border border-[#C99B48]/35">
-                ONE YANTRA · 9 ENCLOSURES · 8 MATRIKAS
+                {t('ONE YANTRA · 9 ENCLOSURES · 8 MATRIKAS', 'एक यन्त्र · 9 आवरण · 8 मातृकाएँ')}
               </span>
             </div>
             <h3 className="mt-1 text-xl sm:text-2xl md:text-3xl font-serif font-semibold tracking-wide text-[#F0C66C]">
-              श्री मेरु चक्र · Śrī Meru Chakra & The Eight Mothers of the Bhūpura
+              {t(
+                'Śrī Meru Chakra & The Eight Mothers of the Bhūpura',
+                'श्री मेरु चक्र एवं भूपुर की अष्ट मातृकाएँ'
+              )}
             </h3>
             <p className="text-xs sm:text-sm font-serif italic text-[#D0C3AD] mt-0.5">
-              One continuous geometric journey from the three-walled Bhūpura gates through the 9 Āvaraṇas and 44 triangles to the central Bindu.
+              {t(
+                'One continuous geometric journey from the three-walled Bhūpura gates through the 9 Āvaraṇas and 44 triangles to the central Bindu.',
+                'तीन प्राचीरों वाले भूपुर द्वारों से होते हुए 9 आवरणों और 44 त्रिकोणों के माध्यम से केंद्रीय बिन्दु तक की एक सतत ज्यामितीय यात्रा।'
+              )}
             </p>
           </div>
 
@@ -559,11 +540,15 @@ export default function ShriMeruExperience({
                 }
                 setIsPlayingTimeline(prev => !prev);
               }}
-              aria-label={isPlayingTimeline ? 'Pause synchronized journey' : 'Play 102s synchronized journey'}
+              aria-label={
+                isPlayingTimeline
+                  ? t('Pause synchronized journey', 'यात्रा रोकें')
+                  : t('Play 102s synchronized journey', '102 सेकंड की यात्रा चलाएँ')
+              }
               className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#6A2B0B]/80 hover:bg-[#E8792D]/30 border border-[#F0C66C]/50 text-[#F0C66C] text-[11px] font-mono uppercase tracking-wider transition-colors cursor-pointer"
             >
               {isPlayingTimeline ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
-              {isPlayingTimeline ? 'Pause' : 'Play Journey'}
+              {isPlayingTimeline ? t('Pause', 'रोकें') : t('Play Journey', 'यात्रा चलाएँ')}
             </button>
 
             <button
@@ -572,9 +557,9 @@ export default function ShriMeruExperience({
                 setIsPlayingTimeline(false);
                 applyTimelineSecond(0);
               }}
-              aria-label="Reset journey to 00:00"
+              aria-label={t('Reset journey to 00:00', '00:00 पर रीसेट करें')}
               className="p-1.5 rounded bg-[#080503]/70 border border-[#866334]/50 text-[#D0C3AD] hover:text-[#F0C66C] hover:border-[#F0C66C]/50 transition-colors cursor-pointer"
-              title="Reset to 00:00"
+              title={t('Reset to 00:00', '00:00 पर रीसेट करें')}
             >
               <RotateCcw className="w-3.5 h-3.5" />
             </button>
@@ -589,7 +574,7 @@ export default function ShriMeruExperience({
                   setIsPlayingTimeline(false);
                   applyTimelineSecond(Number(e.target.value));
                 }}
-                aria-label="Timeline scrubber (00:00 to 01:42)"
+                aria-label={t('Timeline scrubber (00:00 to 01:42)', 'समय-रेखा नियंत्रक (00:00 से 01:42)')}
                 className="w-24 sm:w-32 accent-[#E8792D] cursor-pointer h-1.5 bg-[#321708] rounded-lg"
               />
               <span className="font-mono text-[10px] text-[#F5DEAB] tabular-nums">
@@ -599,11 +584,11 @@ export default function ShriMeruExperience({
           </div>
         </div>
 
-        {/* Six Sequence Navigation Tabs */}
+        {/* Six Sequence Navigation Tabs (Single-Language) */}
         <div
           className="mt-3.5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-1.5"
           role="tablist"
-          aria-label="Shri Meru Chakra 6 Sequences"
+          aria-label={t('Shri Meru Chakra 6 Sequences', 'श्री मेरु चक्र के 6 अनुक्रम')}
         >
           {SHRI_MERU_SEQUENCES.map(seq => {
             const isSelected = activeSequence === seq.id;
@@ -626,17 +611,14 @@ export default function ShriMeruExperience({
               >
                 <div className="flex items-center justify-between gap-1">
                   <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#E8792D] font-semibold">
-                    {seq.indexLabel}
+                    {t(seq.indexLabel, seq.indexLabelHi)}
                   </span>
                   <span className="font-mono text-[8.5px] text-[#D0C3AD]/70 tabular-nums">
                     {seq.timeRange}
                   </span>
                 </div>
                 <div className="mt-0.5 font-serif text-xs sm:text-[13px] font-semibold text-[#F0C66C] truncate">
-                  {seq.hindiTitle}
-                </div>
-                <div className="font-mono text-[9px] text-[#D0C3AD] truncate">
-                  {seq.englishTitle}
+                  {t(seq.englishTitle, seq.hindiTitle)}
                 </div>
               </button>
             );
@@ -652,12 +634,27 @@ export default function ShriMeruExperience({
               <div className="absolute top-3 left-3 z-20 pointer-events-none flex items-center gap-2 px-2.5 py-1 rounded bg-[#080503]/85 border border-[#C99B48]/40">
                 <span className="w-2 h-2 rounded-full bg-[#E8792D] animate-pulse" />
                 <span className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-[#F5DEAB]">
-                  {activeSequence === 'opening' && 'श्री मेरु चक्र · MAHAMERU'}
-                  {activeSequence === 'enclosures' && `${currentAvarana.indexLabel} · ${currentAvarana.transliteration}`}
-                  {activeSequence === 'triangles' && `४४ त्रिकोण · ${currentTriangleStep.formulaDisplay}`}
-                  {activeSequence === 'bhupura' && 'भूपुर · BHŪPURA GATE CLOSE-UP'}
-                  {activeSequence === 'matrikas' && `${currentMatrika.indexHeader} · ${currentMatrika.hindiName}`}
-                  {activeSequence === 'closing' && (closingStep === 0 ? 'पञ्चामृत अभिषेक · 8 GATES' : 'एकाग्रता अनुष्ठान · A PATH WITHIN')}
+                  {activeSequence === 'opening' && t('ŚRĪ MERU CHAKRA · MAHAMERU', 'श्री मेरु चक्र · महामेरु')}
+                  {activeSequence === 'enclosures' &&
+                    t(
+                      `${currentAvarana.indexLabelEn} · ${currentAvarana.transliteration}`,
+                      `${currentAvarana.indexLabel} · ${currentAvarana.hindiName}`
+                    )}
+                  {activeSequence === 'triangles' &&
+                    t(
+                      `44 TRIANGLES · ${currentTriangleStep.formulaDisplay}`,
+                      `४४ त्रिकोण · ${currentTriangleStep.formulaDisplay}`
+                    )}
+                  {activeSequence === 'bhupura' && t('BHŪPURA GATE CLOSE-UP', 'भूपुर द्वार निकट-दृश्य')}
+                  {activeSequence === 'matrikas' &&
+                    t(
+                      `${currentMatrika.indexHeaderEn} · ${currentMatrika.transliteration}`,
+                      `${currentMatrika.indexHeaderHi} · ${currentMatrika.hindiName}`
+                    )}
+                  {activeSequence === 'closing' &&
+                    (closingStep === 0
+                      ? t('PANCHAMRITA ABHISHEKA · 8 GATES', 'पञ्चामृत अभिषेक · 8 द्वार')
+                      : t('A RITUAL OF FOCUS · A PATH WITHIN', 'एकाग्रता अनुष्ठान · अ पाथ विदिन'))}
                 </span>
               </div>
 
@@ -671,12 +668,12 @@ export default function ShriMeruExperience({
                   {cameraMode === 'auto' ? (
                     <>
                       <Minimize2 className="w-3 h-3" />
-                      Full Yantra
+                      {t('Full Yantra', 'संपूर्ण यन्त्र')}
                     </>
                   ) : (
                     <>
                       <Maximize2 className="w-3 h-3" />
-                      Gate Close-Up
+                      {t('Gate Close-Up', 'द्वार निकट-दृश्य')}
                     </>
                   )}
                 </button>
@@ -699,7 +696,10 @@ export default function ShriMeruExperience({
                   viewBox="0 0 1000 1000"
                   className="w-full h-full select-none"
                   role="img"
-                  aria-label="Interactive Shri Meru Chakra Yantra with Nine Enclosures, 44 Triangles, and Eight Bhupura Matrika Gates"
+                  aria-label={t(
+                    'Interactive Shri Meru Chakra Yantra with Nine Enclosures, 44 Triangles, and Eight Bhupura Matrika Gates',
+                    'नौ आवरणों, 44 त्रिकोणों और आठ भूपुर मातृका द्वारों के साथ संवादात्मक श्री मेरु चक्र यन्त्र'
+                  )}
                 >
                   <defs>
                     <radialGradient id="meruCoreGlow" cx="50%" cy="50%" r="50%">
@@ -716,10 +716,8 @@ export default function ShriMeruExperience({
                     </filter>
                   </defs>
 
-                  {/* Warm Radial Backlight Inside SVG */}
                   <circle cx="500" cy="500" r="440" fill="url(#meruCoreGlow)" />
 
-                  {/* Faint Cardinal & Diagonal Construction Axes */}
                   <g stroke="#866334" strokeWidth="0.7" strokeDasharray="3 6" opacity="0.35">
                     <line x1="500" y1="60" x2="500" y2="940" />
                     <line x1="60" y1="500" x2="940" y2="500" />
@@ -727,9 +725,7 @@ export default function ShriMeruExperience({
                     <line x1="840" y1="160" x2="160" y2="840" />
                   </g>
 
-                  {/* ============================================================
-                      AVARANA 1: BHUPURA (Three Concentric Square Walls + 4 Gates)
-                     ============================================================ */}
+                  {/* AVARANA 1: BHUPURA */}
                   <g
                     onClick={() => {
                       if (activeSequence === 'enclosures') setActiveAvaranaIdx(0);
@@ -737,7 +733,6 @@ export default function ShriMeruExperience({
                     className="cursor-pointer transition-opacity duration-500"
                     opacity={activeRings.bhupura ? 1 : 0.32}
                   >
-                    {/* Outer Wall (10 Siddhis) */}
                     <path
                       d={bhupuraOuterPath}
                       fill="#1A0D06"
@@ -746,7 +741,6 @@ export default function ShriMeruExperience({
                       strokeWidth={activeRings.bhupura ? '3.2' : '1.8'}
                       filter={activeRings.bhupura ? 'url(#goldGlow)' : undefined}
                     />
-                    {/* Middle Wall (8 Matrikas) */}
                     <path
                       d={bhupuraMidPath}
                       fill="none"
@@ -759,7 +753,6 @@ export default function ShriMeruExperience({
                       }
                       strokeWidth={activeSequence === 'matrikas' ? '2.8' : '2'}
                     />
-                    {/* Inner Wall (10 Mudra Shaktis) */}
                     <path
                       d={bhupuraInnerPath}
                       fill="#080503"
@@ -769,18 +762,14 @@ export default function ShriMeruExperience({
                     />
                   </g>
 
-                  {/* ============================================================
-                      TRIVALAYA: Three Concentric Rings Inside Bhupura
-                     ============================================================ */}
+                  {/* TRIVALAYA */}
                   <g opacity={activeRings.bhupura || activeRings.lotus16 ? 0.85 : 0.35}>
                     <circle cx="500" cy="500" r="326" fill="none" stroke="#C99B48" strokeWidth="1.6" />
                     <circle cx="500" cy="500" r="319" fill="none" stroke="#866334" strokeWidth="1.1" />
                     <circle cx="500" cy="500" r="313" fill="#1A0D06" fillOpacity="0.6" stroke="#C99B48" strokeWidth="1.5" />
                   </g>
 
-                  {/* ============================================================
-                      AVARANA 2: 16-PETAL LOTUS (Sarva Āśā Paripūraka Chakra)
-                     ============================================================ */}
+                  {/* AVARANA 2: 16-PETAL LOTUS */}
                   <g
                     onClick={() => {
                       if (activeSequence === 'enclosures') setActiveAvaranaIdx(1);
@@ -808,9 +797,7 @@ export default function ShriMeruExperience({
                     />
                   </g>
 
-                  {/* ============================================================
-                      AVARANA 3: 8-PETAL LOTUS (Sarva Saṅkṣobhaṇa Chakra)
-                     ============================================================ */}
+                  {/* AVARANA 3: 8-PETAL LOTUS */}
                   <g
                     onClick={() => {
                       if (activeSequence === 'enclosures') setActiveAvaranaIdx(2);
@@ -838,9 +825,7 @@ export default function ShriMeruExperience({
                     />
                   </g>
 
-                  {/* ============================================================
-                      NINE PRIMARY INTERLOCKING SHIVA/SHAKTI TRIANGLES (Subtle Structural Lattice)
-                     ============================================================ */}
+                  {/* NINE PRIMARY INTERLOCKING TRIANGLES */}
                   <g
                     stroke="#C99B48"
                     strokeWidth="1.1"
@@ -851,12 +836,10 @@ export default function ShriMeruExperience({
                         : 0.2
                     }
                   >
-                    {/* 4 Upward Shiva Triangles */}
                     <polygon points="500,308 666,618 334,618" />
                     <polygon points="500,342 642,592 358,592" />
                     <polygon points="500,382 612,562 388,562" />
                     <polygon points="500,424 576,534 424,534" />
-                    {/* 5 Downward Shakti Triangles */}
                     <polygon points="500,692 334,382 666,382" />
                     <polygon points="500,656 358,408 642,408" />
                     <polygon points="500,618 386,436 614,436" />
@@ -864,9 +847,7 @@ export default function ShriMeruExperience({
                     <polygon points="500,544 452,476 548,476" />
                   </g>
 
-                  {/* ============================================================
-                      AVARANA 4: 14 TRIANGLES (Sarva Saubhāgya Dāyaka · Caturdaśāra)
-                     ============================================================ */}
+                  {/* AVARANA 4: 14 TRIANGLES */}
                   <g
                     onClick={() => {
                       if (activeSequence === 'enclosures') setActiveAvaranaIdx(3);
@@ -888,9 +869,7 @@ export default function ShriMeruExperience({
                     <circle cx="500" cy="500" r="152" fill="none" stroke="#C99B48" strokeWidth="1.2" />
                   </g>
 
-                  {/* ============================================================
-                      AVARANA 5: 10 OUTER TRIANGLES (Sarvārtha Sādhaka · Bahirdaśāra)
-                     ============================================================ */}
+                  {/* AVARANA 5: 10 OUTER TRIANGLES */}
                   <g
                     onClick={() => {
                       if (activeSequence === 'enclosures') setActiveAvaranaIdx(4);
@@ -912,9 +891,7 @@ export default function ShriMeruExperience({
                     <circle cx="500" cy="500" r="114" fill="none" stroke="#C99B48" strokeWidth="1.2" />
                   </g>
 
-                  {/* ============================================================
-                      AVARANA 6: 10 INNER TRIANGLES (Sarva Rakṣākara · Antardaśāra)
-                     ============================================================ */}
+                  {/* AVARANA 6: 10 INNER TRIANGLES */}
                   <g
                     onClick={() => {
                       if (activeSequence === 'enclosures') setActiveAvaranaIdx(5);
@@ -936,9 +913,7 @@ export default function ShriMeruExperience({
                     <circle cx="500" cy="500" r="80" fill="none" stroke="#C99B48" strokeWidth="1.2" />
                   </g>
 
-                  {/* ============================================================
-                      AVARANA 7: 8 TRIANGLES (Sarva Rogahara · Aṣṭakoṇa)
-                     ============================================================ */}
+                  {/* AVARANA 7: 8 TRIANGLES */}
                   <g
                     onClick={() => {
                       if (activeSequence === 'enclosures') setActiveAvaranaIdx(6);
@@ -960,9 +935,7 @@ export default function ShriMeruExperience({
                     <circle cx="500" cy="500" r="50" fill="#140904" stroke="#C99B48" strokeWidth="1.2" />
                   </g>
 
-                  {/* ============================================================
-                      AVARANA 8: 1 CENTRAL TRIANGLE (Sarva Siddhiprada · Trikoṇa)
-                     ============================================================ */}
+                  {/* AVARANA 8: 1 CENTRAL TRIANGLE */}
                   <g
                     onClick={() => {
                       if (activeSequence === 'enclosures') setActiveAvaranaIdx(7);
@@ -981,9 +954,7 @@ export default function ShriMeruExperience({
                     />
                   </g>
 
-                  {/* ============================================================
-                      AVARANA 9: BINDU (Sarvānandamaya Chakra)
-                     ============================================================ */}
+                  {/* AVARANA 9: BINDU */}
                   <g
                     onClick={() => {
                       if (activeSequence === 'enclosures') setActiveAvaranaIdx(8);
@@ -1009,12 +980,9 @@ export default function ShriMeruExperience({
                     />
                   </g>
 
-                  {/* ============================================================
-                      BHUPURA CLOSE-UP CALLOUT LABELS (Sequence D: 00:44–00:49)
-                     ============================================================ */}
+                  {/* BHUPURA CLOSE-UP CALLOUT LABELS (Sequence D) */}
                   {activeSequence === 'bhupura' && (
                     <g>
-                      {/* Highlight pulse on the lower Bhupura gate */}
                       <rect
                         x="412"
                         y="818"
@@ -1038,9 +1006,7 @@ export default function ShriMeruExperience({
                     </g>
                   )}
 
-                  {/* ============================================================
-                      EIGHT MATRIKA DIRECTIONAL MARKERS ON THE BHUPURA (Sequences E & F)
-                     ============================================================ */}
+                  {/* EIGHT MATRIKA DIRECTIONAL MARKERS ON THE BHUPURA */}
                   {BHUPURA_MATRIKA_PROFILES.map((matrika, idx) => {
                     const isFocusedMatrika =
                       (activeSequence === 'matrikas' && activeMatrikaIdx === idx) ||
@@ -1050,7 +1016,6 @@ export default function ShriMeruExperience({
 
                     if (!showMarker) return null;
 
-                    // Compute label offset so all 8 labels around the Bhupura in Sequence F are crisp and legible
                     let labelDx = 0;
                     let labelDy = 0;
                     let anchor: 'middle' | 'start' | 'end' = 'middle';
@@ -1091,7 +1056,10 @@ export default function ShriMeruExperience({
                         key={matrika.number}
                         role="button"
                         tabIndex={0}
-                        aria-label={`${matrika.indexHeader} — ${matrika.hindiName} (${matrika.transliteration})`}
+                        aria-label={t(
+                          `${matrika.indexHeaderEn} — ${matrika.transliteration}`,
+                          `${matrika.indexHeaderHi} — ${matrika.hindiName}`
+                        )}
                         onClick={() => {
                           setIsPlayingTimeline(false);
                           if (activeSequence === 'closing') {
@@ -1119,7 +1087,6 @@ export default function ShriMeruExperience({
                               : 0.42
                         }
                       >
-                        {/* Outer Halo Ring */}
                         {isFocusedMatrika && (
                           <circle
                             cx={matrika.markerX}
@@ -1132,7 +1099,6 @@ export default function ShriMeruExperience({
                           />
                         )}
 
-                        {/* Circular Numbered Marker on Bhupura */}
                         <circle
                           cx={matrika.markerX}
                           cy={matrika.markerY}
@@ -1155,7 +1121,6 @@ export default function ShriMeruExperience({
                           {matrika.number}
                         </text>
 
-                        {/* Direction & Name Label beside Marker */}
                         <text
                           x={matrika.markerX + labelDx}
                           y={matrika.markerY + labelDy}
@@ -1165,7 +1130,10 @@ export default function ShriMeruExperience({
                           fontFamily="serif"
                           fontWeight="bold"
                         >
-                          {matrika.number} {matrika.hindiDirection} · {matrika.hindiName}
+                          {t(
+                            `${matrika.number} ${matrika.englishDirection} · ${matrika.transliteration}`,
+                            `${matrika.number} ${matrika.hindiDirection} · ${matrika.hindiName}`
+                          )}
                         </text>
                       </g>
                     );
@@ -1177,29 +1145,36 @@ export default function ShriMeruExperience({
               <div className="absolute bottom-2.5 inset-x-3 z-20 flex items-center justify-between px-3 py-1.5 rounded bg-[#080503]/85 border border-[#C99B48]/30 text-[10px] font-mono text-[#D0C3AD]">
                 <span>
                   {activeSequence === 'enclosures'
-                    ? `CLICK ANY RING OR BUTTON · ${currentAvarana.indexLabel}`
+                    ? t(
+                        `CLICK ANY RING OR BUTTON · ${currentAvarana.indexLabelEn}`,
+                        `किसी भी वलय या बटन पर क्लिक करें · ${currentAvarana.indexLabel}`
+                      )
                     : activeSequence === 'matrikas'
-                      ? `GATE ${currentMatrika.indexFraction} · ${currentMatrika.englishDirection.toUpperCase()}`
-                      : 'SACRED GEOMETRY · ŚRĪ MERU CHAKRA'}
+                      ? t(
+                          `GATE ${currentMatrika.indexFraction} · ${currentMatrika.englishDirection.toUpperCase()}`,
+                          `द्वार ${currentMatrika.indexFraction} · ${currentMatrika.hindiDirection}`
+                        )
+                      : t('SACRED GEOMETRY · ŚRĪ MERU CHAKRA', 'पवित्र ज्यामिति · श्री मेरु चक्र')}
                 </span>
                 <span className="text-[#F0C66C]">
                   {activeSequence === 'triangles'
-                    ? `${currentTriangleStep.cumulativeTotal} / 44 UNITS`
-                    : '9 ĀVARAṆAS · 8 MĀTR̥KĀS'}
+                    ? t(
+                        `${currentTriangleStep.cumulativeTotal} / 44 UNITS`,
+                        `${currentTriangleStep.cumulativeTotal} / 44 इकाइयाँ`
+                      )
+                    : t('9 ĀVARAṆAS · 8 MĀTR̥KĀS', '9 आवरण · 8 मातृकाएँ')}
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Right Column (6 cols on lg): Synchronized Sequence Narrative, Bilingual Typography & Interactive Sub-Controls */}
+          {/* Right Column (6 cols on lg): Synchronized Sequence Narrative, Single-Language Typography & Interactive Sub-Controls */}
           <div className="lg:col-span-6 flex flex-col justify-between">
             <AnimatePresence mode="wait">
-              {/* ============================================================
-                  SEQUENCE A (00:00–00:09): OPENING & THREE LEVELS
-                 ============================================================ */}
+              {/* SEQUENCE A: OPENING & THREE LEVELS */}
               {activeSequence === 'opening' && (
                 <motion.div
-                  key="seq-opening"
+                  key={`seq-opening-${lang}`}
                   initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -10 }}
@@ -1208,7 +1183,7 @@ export default function ShriMeruExperience({
                 >
                   <div className="flex items-center justify-between gap-2 pb-3 border-b border-[#C99B48]/25">
                     <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#E8792D]">
-                      SEQUENCE 01 · 00:00–00:09 · OPENING
+                      {t('SEQUENCE 01 · 00:00–00:09 · OPENING', 'अनुक्रम 01 · 00:00–00:09 · प्रस्तावना')}
                     </span>
                     <div className="flex items-center gap-1.5">
                       <button
@@ -1220,7 +1195,7 @@ export default function ShriMeruExperience({
                             : 'bg-[#080503]/60 border border-[#866334]/40 text-[#D0C3AD]'
                         }`}
                       >
-                        00:00 · श्री मेरु चक्र
+                        {t('00:00 · Śrī Meru Chakra', '00:00 · श्री मेरु चक्र')}
                       </button>
                       <button
                         type="button"
@@ -1231,7 +1206,7 @@ export default function ShriMeruExperience({
                             : 'bg-[#080503]/60 border border-[#866334]/40 text-[#D0C3AD]'
                         }`}
                       >
-                        00:03 · तीन स्तर
+                        {t('00:03 · Three Levels', '00:03 · तीन स्तर')}
                       </button>
                     </div>
                   </div>
@@ -1239,59 +1214,65 @@ export default function ShriMeruExperience({
                   {openingStep === 0 ? (
                     <div className="py-5 text-center sm:text-left">
                       <h4 className="text-3xl sm:text-4xl font-serif font-bold text-[#F0C66C] tracking-wide">
-                        श्री मेरु चक्र
+                        {t('Śrī Meru Chakra — Mahameru', 'श्री मेरु चक्र — महामेरु')}
                       </h4>
-                      <p className="mt-1.5 text-lg sm:text-xl font-serif italic text-[#D0C3AD]">
-                        Śrī Meru Chakra — Mahameru
-                      </p>
                       <p className="mt-4 text-sm sm:text-[15px] font-serif text-[#F0EAE0]/90 leading-relaxed">
-                        The supreme geometric mandala of the Śrīvidyā tradition—constructed from an outer three-walled square sanctuary (<span className="text-[#F5DEAB] italic">Bhūpura</span>), concentric sixteen-petal and eight-petal lotus rings, and nine interlocking triangles generating forty-three peripheral and central triangles around the dimensionless <span className="text-[#F5DEAB] italic">Bindu</span>.
+                        {t(
+                          'The supreme geometric mandala of the Śrīvidyā tradition—constructed from an outer three-walled square sanctuary (Bhūpura), concentric sixteen-petal and eight-petal lotus rings, and nine interlocking triangles generating forty-three peripheral and central triangles around the dimensionless Bindu.',
+                          'श्रीविद्या परंपरा का सर्वोच्च ज्यामितीय मण्डल—जो तीन प्राचीरों वाले वर्गाकार भूपुर, सोलह-दल एवं अष्ट-दल कमल वलयों, तथा नौ परस्पर प्रतिच्छेदी त्रिकोणों से निर्मित है, जो आयामहीन बिन्दु के चारों ओर तैंतालीस परिधीय एवं केंद्रीय त्रिकोणों की रचना करते हैं।'
+                        )}
                       </p>
                     </div>
                   ) : (
                     <div className="py-4">
                       <h4 className="text-2xl sm:text-3xl font-serif font-bold text-[#F0C66C] tracking-wide">
-                        एक यन्त्र · तीन स्तर
+                        {t('One yantra — a symbol at three levels', 'एक यन्त्र · तीन स्तर')}
                       </h4>
-                      <p className="mt-1 text-base sm:text-lg font-serif italic text-[#D0C3AD]">
-                        One yantra — a symbol at three levels
-                      </p>
 
-                      {/* Three Levels Cards (including अणु · Atoms at 00:05–00:06) */}
+                      {/* Three Levels Cards (Single-Language) */}
                       <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
                         <div className="p-3.5 rounded-lg bg-[#080503]/80 border border-[#F0C66C]/50">
                           <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#E8792D]">
-                            LEVEL 01 · MICRO
+                            {t('LEVEL 01 · MICRO', 'स्तर 01 · सूक्ष्म')}
                           </span>
                           <div className="mt-1 font-serif text-lg font-bold text-[#F0C66C]">
-                            अणु · Atoms
+                            {t('Atoms', 'अणु')}
                           </div>
                           <p className="mt-1 text-xs font-serif text-[#D0C3AD] leading-relaxed">
-                            Vibrational symmetry, nodal harmonic fields, and central nucleus-to-orbit ratios.
+                            {t(
+                              'Vibrational symmetry, nodal harmonic fields, and central nucleus-to-orbit ratios.',
+                              'कंपनात्मक सममिति, निस्पंद अनुनादी क्षेत्र और केंद्रीय नाभिक-से-कक्षा का अनुपात।'
+                            )}
                           </p>
                         </div>
 
                         <div className="p-3.5 rounded-lg bg-[#080503]/80 border border-[#C99B48]/40">
                           <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#E8792D]">
-                            LEVEL 02 · SOMATIC
+                            {t('LEVEL 02 · SOMATIC', 'स्तर 02 · देह')}
                           </span>
                           <div className="mt-1 font-serif text-lg font-bold text-[#F5DEAB]">
-                            शरीर · Body
+                            {t('Body', 'शरीर')}
                           </div>
                           <p className="mt-1 text-xs font-serif text-[#D0C3AD] leading-relaxed">
-                            Each geometric ring of the yantra mirrors an inner subtle center (chakra) and mental threshold.
+                            {t(
+                              'Each geometric ring of the yantra mirrors an inner subtle center (chakra) and mental threshold.',
+                              'यन्त्र का प्रत्येक ज्यामितीय वलय शरीर के भीतर एक सूक्ष्म चक्र और मानसिक दहलीज का दर्पण है।'
+                            )}
                           </p>
                         </div>
 
                         <div className="p-3.5 rounded-lg bg-[#080503]/80 border border-[#C99B48]/40">
                           <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#E8792D]">
-                            LEVEL 03 · COSMIC
+                            {t('LEVEL 03 · COSMIC', 'स्तर 03 · ब्रह्माण्डीय')}
                           </span>
                           <div className="mt-1 font-serif text-lg font-bold text-[#F5DEAB]">
-                            चेतना · Cosmos
+                            {t('Cosmos', 'चेतना')}
                           </div>
                           <p className="mt-1 text-xs font-serif text-[#D0C3AD] leading-relaxed">
-                            From multiplicity at the outer perimeter to unified awareness at the central Bindu.
+                            {t(
+                              'From multiplicity at the outer perimeter to unified awareness at the central Bindu.',
+                              'बाहरी परिधि की बहुलता से केंद्रीय बिन्दु की एकीकृत चेतना की ओर यात्रा।'
+                            )}
                           </p>
                         </div>
                       </div>
@@ -1300,7 +1281,7 @@ export default function ShriMeruExperience({
 
                   <div className="mt-4 pt-3 border-t border-[#C99B48]/20 flex items-center justify-between">
                     <span className="font-mono text-[10px] text-[#D0C3AD]/80">
-                      NEXT: नव आवरण · Nine Enclosures (Outside to Inside)
+                      {t('NEXT: Nine Enclosures (Outside to Inside)', 'आगे: नव आवरण (बाहर से भीतर की ओर)')}
                     </span>
                     <button
                       type="button"
@@ -1311,19 +1292,17 @@ export default function ShriMeruExperience({
                       }}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#E8792D]/20 border border-[#F0C66C]/60 text-xs font-mono text-[#F0C66C] hover:bg-[#E8792D]/35 transition-colors cursor-pointer"
                     >
-                      Enter Nine Enclosures
+                      {t('Enter Nine Enclosures', 'नव आवरण में प्रवेश करें')}
                       <ChevronRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </motion.div>
               )}
 
-              {/* ============================================================
-                  SEQUENCE B (00:10–00:33): NINE ENCLOSURES (नव आवरण)
-                 ============================================================ */}
+              {/* SEQUENCE B: NINE ENCLOSURES */}
               {activeSequence === 'enclosures' && (
                 <motion.div
-                  key="seq-enclosures"
+                  key={`seq-enclosures-${lang}`}
                   initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -10 }}
@@ -1333,38 +1312,44 @@ export default function ShriMeruExperience({
                   <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-[#C99B48]/25">
                     <div>
                       <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#E8792D]">
-                        नव आवरण · NINE ENCLOSURES — OUTSIDE TO INSIDE
+                        {t('NINE ENCLOSURES — OUTSIDE TO INSIDE', 'नव आवरण — बाहर से भीतर की ओर')}
                       </span>
                     </div>
                     <span className="px-2.5 py-0.5 rounded bg-[#321708] border border-[#F0C66C]/45 font-mono text-xs text-[#F0C66C]">
-                      {currentAvarana.indexLabel} ({currentAvarana.timeCue})
+                      {t(currentAvarana.indexLabelEn, currentAvarana.indexLabel)} ({currentAvarana.timeCue})
                     </span>
                   </div>
 
-                  {/* Active Enclosure Primary Typography (Matches 00:13–00:33) */}
+                  {/* Active Enclosure Primary Typography (Single-Language) */}
                   <div className="mt-4 p-4 rounded-lg bg-[#080503]/85 border border-[#F0C66C]/40">
                     <div className="font-mono text-xs tracking-[0.2em] text-[#E8792D] uppercase">
-                      {currentAvarana.indexLabel}
+                      {t(currentAvarana.indexLabelEn, currentAvarana.indexLabel)}
                     </div>
                     <h4 className="mt-1 text-2xl sm:text-3xl font-serif font-bold text-[#F0C66C]">
-                      {currentAvarana.hindiName}
+                      {t(currentAvarana.transliteration, currentAvarana.hindiName)}
                     </h4>
                     <p className="mt-1 text-base sm:text-lg font-serif italic text-[#F5DEAB]">
-                      {currentAvarana.subtitleLine}
+                      {t(currentAvarana.subtitleLine, currentAvarana.subtitleLineHi)}
                     </p>
                     <p className="mt-2.5 text-xs sm:text-sm font-serif text-[#D0C3AD] leading-relaxed">
-                      {currentAvarana.architecturalNote}
+                      {t(currentAvarana.architecturalNote, currentAvarana.architecturalNoteHi)}
                     </p>
                     <div className="mt-2.5 pt-2 border-t border-[#866334]/30 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-[#F5DEAB]/85">
-                      <span>PRESIDING GROUP: {currentAvarana.yoginiGroup}</span>
-                      <span>GEOMETRY: {currentAvarana.geometrySummary}</span>
+                      <span>
+                        {t('PRESIDING GROUP:', 'अधिष्ठात्री समूह:')}{' '}
+                        {t(currentAvarana.yoginiGroup, currentAvarana.yoginiGroupHi)}
+                      </span>
+                      <span>
+                        {t('GEOMETRY:', 'ज्यामिति:')}{' '}
+                        {t(currentAvarana.geometrySummary, currentAvarana.geometrySummaryHi)}
+                      </span>
                     </div>
                   </div>
 
                   {/* Interactive 9-Enclosure Selector Grid (1/9 to 9/9) */}
                   <div className="mt-4">
                     <span className="block font-mono text-[9.5px] uppercase tracking-[0.18em] text-[#D0C3AD] mb-2">
-                      SELECT ENCLOSURE (OUTSIDE → BINDU):
+                      {t('SELECT ENCLOSURE (OUTSIDE → BINDU):', 'आवरण चुनें (बाहर → बिन्दु):')}
                     </span>
                     <div className="grid grid-cols-3 sm:grid-cols-3 gap-1.5">
                       {NINE_AVARANAS.map((av, idx) => {
@@ -1385,13 +1370,13 @@ export default function ShriMeruExperience({
                             }`}
                           >
                             <div className="font-mono text-[9px] text-[#E8792D] font-semibold">
-                              आवरण {av.number}/9
+                              {t(av.indexLabelEn, av.indexLabel)}
                             </div>
                             <div className="font-serif text-xs font-semibold text-[#F0EAE0] truncate">
-                              {av.hindiName.replace(' चक्र', '')}
+                              {t(av.englishName, av.hindiName.replace(' चक्र', ''))}
                             </div>
                             <div className="font-mono text-[8.5px] text-[#D0C3AD]/80 truncate">
-                              {av.geometrySummary}
+                              {t(av.geometrySummary, av.geometrySummaryHi)}
                             </div>
                           </button>
                         );
@@ -1401,12 +1386,10 @@ export default function ShriMeruExperience({
                 </motion.div>
               )}
 
-              {/* ============================================================
-                  SEQUENCE C (00:34–00:43): FORTY-FOUR TRIANGLES (४४ त्रिकोण)
-                 ============================================================ */}
+              {/* SEQUENCE C: FORTY-FOUR TRIANGLES */}
               {activeSequence === 'triangles' && (
                 <motion.div
-                  key="seq-triangles"
+                  key={`seq-triangles-${lang}`}
                   initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -10 }}
@@ -1415,28 +1398,25 @@ export default function ShriMeruExperience({
                 >
                   <div className="flex items-center justify-between gap-2 pb-3 border-b border-[#C99B48]/25">
                     <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#E8792D]">
-                      SEQUENCE 03 · 00:34–00:43 · TRIANGLE ACCUMULATION
+                      {t('SEQUENCE 03 · 00:34–00:43 · TRIANGLE ACCUMULATION', 'अनुक्रम 03 · 00:34–00:43 · त्रिकोण संकलन')}
                     </span>
                     <span className="font-mono text-xs text-[#F0C66C]">
-                      TOTAL: {currentTriangleStep.cumulativeTotal} / 44
+                      {t('TOTAL:', 'कुल:')} {currentTriangleStep.cumulativeTotal} / 44
                     </span>
                   </div>
 
                   <div className="mt-4 text-center sm:text-left">
                     <h4 className="text-2xl sm:text-3xl font-serif font-bold text-[#F0C66C]">
-                      ४४ त्रिकोण · 44 Triangles
+                      {t('44 Triangles', '४४ त्रिकोण')}
                     </h4>
 
-                    {/* Animated Additive Formula Box (00:34–00:38) */}
+                    {/* Animated Additive Formula Box (Single-Language) */}
                     <div className="mt-3 p-4 rounded-lg bg-[#080503]/90 border border-[#F0C66C]/50 text-center">
                       <div className="font-mono text-lg sm:text-2xl font-bold tracking-wider text-[#F5DEAB]">
                         {currentTriangleStep.formulaDisplay}
                       </div>
                       <div className="mt-1 font-serif text-sm text-[#F0C66C]">
-                        {currentTriangleStep.hindiLabel}
-                      </div>
-                      <div className="font-mono text-[11px] text-[#D0C3AD]">
-                        {currentTriangleStep.englishLabel}
+                        {t(currentTriangleStep.englishLabel, currentTriangleStep.hindiLabel)}
                       </div>
                     </div>
 
@@ -1461,33 +1441,34 @@ export default function ShriMeruExperience({
                       ))}
                     </div>
 
-                    {/* Body Reflection Statement (00:39–00:43) */}
+                    {/* Body Reflection Statement (Single-Language) */}
                     <div className="mt-4 p-4 rounded-lg bg-[#321708]/60 border-l-2 border-[#E8792D]">
                       <p className="text-base sm:text-lg font-serif font-semibold text-[#F0EAE0]">
-                        हर वलय शरीर के एक चक्र का दर्पण है
-                      </p>
-                      <p className="mt-0.5 text-sm font-serif italic text-[#D0C3AD]">
-                        Each ring of the yantra mirrors a chakra in the body
+                        {t(
+                          'Each ring of the yantra mirrors a chakra in the body',
+                          'हर वलय शरीर के एक चक्र का दर्पण है'
+                        )}
                       </p>
                     </div>
 
-                    {/* Editorial / Textual Verification Note (Part 6) */}
+                    {/* Editorial / Textual Verification Note */}
                     <p className="mt-3 text-[11px] font-serif text-[#D0C3AD]/80 leading-relaxed">
                       <strong className="text-[#F5DEAB] font-mono uppercase text-[9.5px] tracking-wider">
-                        Archival Note:{' '}
+                        {t('Archival Note: ', 'अभिलेखीय टिप्पणी: ')}
                       </strong>
-                      Classical Śrīvidyā treatises enumerate 43 triangles formed by the 9 primary intersecting Śiva–Śakti triangles (`14 + 10 + 10 + 8 + 1 = 43`) plus the central Bindu (`+ 1 = 44` focal units), presented visually in the film as `14 + 10 + 10 + 8 + 1 + 1 = 44`.
+                      {t(
+                        'Classical Śrīvidyā treatises enumerate 43 triangles formed by the 9 primary intersecting Śiva–Śakti triangles (14 + 10 + 10 + 8 + 1 = 43) plus the central Bindu (+ 1 = 44 focal units), presented visually as 14 + 10 + 10 + 8 + 1 + 1 = 44.',
+                        'शास्त्रीय श्रीविद्या ग्रंथों में 9 प्राथमिक प्रतिच्छेदी शिव-शक्ति त्रिकोणों से निर्मित 43 त्रिकोणों (14 + 10 + 10 + 8 + 1 = 43) तथा केंद्रीय बिन्दु (+ 1 = 44 इकाइयाँ) की गणना की गई है, जिसे दृश्य रूप में 14 + 10 + 10 + 8 + 1 + 1 = 44 के रूप में प्रस्तुत किया गया है।'
+                      )}
                     </p>
                   </div>
                 </motion.div>
               )}
 
-              {/* ============================================================
-                  SEQUENCE D (00:44–00:49): BHUPURA CLOSE-UP (भूपुर · Bhūpura)
-                 ============================================================ */}
+              {/* SEQUENCE D: BHUPURA CLOSE-UP */}
               {activeSequence === 'bhupura' && (
                 <motion.div
-                  key="seq-bhupura"
+                  key={`seq-bhupura-${lang}`}
                   initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -10 }}
@@ -1496,7 +1477,7 @@ export default function ShriMeruExperience({
                 >
                   <div className="flex items-center justify-between gap-2 pb-3 border-b border-[#C99B48]/25">
                     <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#E8792D]">
-                      SEQUENCE 04 · 00:44–00:49 · ARCHITECTURAL THRESHOLD
+                      {t('SEQUENCE 04 · 00:44–00:49 · ARCHITECTURAL THRESHOLD', 'अनुक्रम 04 · 00:44–00:49 · स्थापत्य दहलीज')}
                     </span>
                     <div className="flex gap-1.5">
                       <button
@@ -1508,7 +1489,7 @@ export default function ShriMeruExperience({
                             : 'bg-[#080503]/60 border border-[#866334]/40 text-[#D0C3AD]'
                         }`}
                       >
-                        00:44 · भूपुर
+                        {t('00:44 · Bhūpura', '00:44 · भूपुर')}
                       </button>
                       <button
                         type="button"
@@ -1519,17 +1500,17 @@ export default function ShriMeruExperience({
                             : 'bg-[#080503]/60 border border-[#866334]/40 text-[#D0C3AD]'
                         }`}
                       >
-                        00:47 · बाहरी दीवार
+                        {t('00:47 · Outer Wall', '00:47 · बाहरी दीवार')}
                       </button>
                     </div>
                   </div>
 
                   <div className="mt-4">
                     <h4 className="text-2xl sm:text-3xl font-serif font-bold text-[#F0C66C]">
-                      भूपुर · Bhūpura
+                      {t('Bhūpura', 'भूपुर')}
                     </h4>
                     <p className="mt-1 text-base sm:text-lg font-serif italic text-[#F5DEAB]">
-                      Three walls · four gates · 28 Prakaṭa Yoginīs
+                      {t('Three walls · four gates · 28 Prakaṭa Yoginīs', 'तीन प्राचीर · चार द्वार · 28 प्रकट योगिनियाँ')}
                     </p>
 
                     <div className="mt-4 space-y-2.5">
@@ -1543,36 +1524,51 @@ export default function ShriMeruExperience({
                       >
                         <div className="flex items-center justify-between">
                           <span className="font-serif text-base font-bold text-[#F0C66C]">
-                            1. बाहरी दीवार · Outer Wall
+                            {t('1. Outer Wall', '1. बाहरी दीवार')}
                           </span>
-                          <span className="font-mono text-xs text-[#E8792D]">10 सिद्धि · Siddhis</span>
+                          <span className="font-mono text-xs text-[#E8792D]">
+                            {t('10 Siddhis', '10 सिद्धियाँ')}
+                          </span>
                         </div>
                         <p className="mt-1 text-xs font-serif text-[#D0C3AD]">
-                          Aṇimā, Laghimā, Mahimā, ईशित्व, वशित्व, प्राकाम्य, भुक्ति, इच्छा, प्राप्ति, सर्वकाम — the ten attainment powers stationed along the outer perimeter.
+                          {t(
+                            'Aṇimā, Laghimā, Mahimā, Īśitva, Vaśitva, Prākāmya, Bhukti, Icchā, Prāpti, Sarvakāma — the ten attainment powers stationed along the outer perimeter.',
+                            'अणिमा, लघिमा, महिमा, ईशित्व, वशित्व, प्राकाम्य, भुक्ति, इच्छा, प्राप्ति, सर्वकाम — बाहरी परिधि पर प्रतिष्ठित दस सिद्धियाँ।'
+                          )}
                         </p>
                       </div>
 
                       <div className="p-3.5 rounded-lg bg-[#321708]/95 border border-[#E8792D]">
                         <div className="flex items-center justify-between">
                           <span className="font-serif text-base font-bold text-[#F0C66C]">
-                            2. मध्य दीवार · Middle Wall (The 8 Gates)
+                            {t('2. Middle Wall (The 8 Gates)', '2. मध्य दीवार (8 द्वार)')}
                           </span>
-                          <span className="font-mono text-xs text-[#F0C66C]">8 अष्ट मातृका · Ashta Matrikas</span>
+                          <span className="font-mono text-xs text-[#F0C66C]">
+                            {t('8 Ashta Matrikas', '8 अष्ट मातृकाएँ')}
+                          </span>
                         </div>
                         <p className="mt-1 text-xs font-serif text-[#F0EAE0]">
-                          Brāhmī, Māheśvarī, Kaumārī, Vaiṣṇavī, Vārāhī, Māhendrī, Cāmuṇḍā, and Mahālakṣmī — guardians of the yantra&apos;s gates and the eight knots of the mind.
+                          {t(
+                            "Brāhmī, Māheśvarī, Kaumārī, Vaiṣṇavī, Vārāhī, Māhendrī, Cāmuṇḍā, and Mahālakṣmī — guardians of the yantra's gates and the eight knots of the mind.",
+                            'ब्राह्मी, माहेश्वरी, कौमारी, वैष्णवी, वाराही, माहेन्द्री, चामुण्डा और महालक्ष्मी — यन्त्र के द्वारपाल और मन की आठ ग्रन्थियाँ।'
+                          )}
                         </p>
                       </div>
 
                       <div className="p-3.5 rounded-lg bg-[#080503]/80 border border-[#C99B48]/40">
                         <div className="flex items-center justify-between">
                           <span className="font-serif text-base font-bold text-[#F5DEAB]">
-                            3. भीतरी दीवार · Inner Wall
+                            {t('3. Inner Wall', '3. भीतरी दीवार')}
                           </span>
-                          <span className="font-mono text-xs text-[#D0C3AD]">10 मुद्रा शक्ति · Mudrā Śaktis</span>
+                          <span className="font-mono text-xs text-[#D0C3AD]">
+                            {t('10 Mudrā Śaktis', '10 मुद्रा शक्तियाँ')}
+                          </span>
                         </div>
                         <p className="mt-1 text-xs font-serif text-[#D0C3AD]">
-                          Together the three walls house <strong className="text-[#F5DEAB]">10 + 8 + 10 = 28 Prakaṭa Yoginīs</strong> of the first enclosure (Trailokya Mohana Chakra).
+                          {t(
+                            'Together the three walls house 10 + 8 + 10 = 28 Prakaṭa Yoginīs of the first enclosure (Trailokya Mohana Chakra).',
+                            'तीनों प्राचीर मिलकर प्रथम आवरण (त्रैलोक्य मोहन चक्र) की 10 + 8 + 10 = 28 प्रकट योगिनियों का निवास हैं।'
+                          )}
                         </p>
                       </div>
                     </div>
@@ -1580,12 +1576,10 @@ export default function ShriMeruExperience({
                 </motion.div>
               )}
 
-              {/* ============================================================
-                  SEQUENCE E (00:50–00:89): EIGHT MATRIKA PROFILES (अष्ट मातृका)
-                 ============================================================ */}
+              {/* SEQUENCE E: EIGHT MATRIKA PROFILES */}
               {activeSequence === 'matrikas' && (
                 <motion.div
-                  key={`seq-matrika-${currentMatrika.number}`}
+                  key={`seq-matrika-${currentMatrika.number}-${lang}`}
                   initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -10 }}
@@ -1596,55 +1590,52 @@ export default function ShriMeruExperience({
                   <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-[#C99B48]/25">
                     <div>
                       <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#E8792D]">
-                        अष्ट मातृका · THE EIGHT MOTHERS OF THE BHUPURA
+                        {t('THE EIGHT MOTHERS OF THE BHUPURA', 'भूपुर की अष्ट मातृकाएँ')}
                       </span>
                       <p className="text-[11px] font-serif text-[#D0C3AD]">
-                        यन्त्र के द्वारपाल · और मन की आठ ग्रन्थियाँ — Guardians of the yantra&apos;s gates & eight knots of the mind
+                        {t(
+                          "Guardians of the yantra's gates & eight knots of the mind",
+                          'यन्त्र के द्वारपाल · और मन की आठ ग्रन्थियाँ'
+                        )}
                       </p>
                     </div>
                     <span className="px-2.5 py-1 rounded bg-[#6A2B0B] border border-[#F0C66C]/60 font-mono text-xs font-bold text-[#F0C66C]">
-                      {currentMatrika.indexHeader}
+                      {t(currentMatrika.indexHeaderEn, currentMatrika.indexHeaderHi)}
                     </span>
                   </div>
 
-                  {/* Active Matrika Profile Card (Exact Video Typography & Hierarchy) */}
+                  {/* Active Matrika Profile Card (Single-Language) */}
                   <div className="mt-4 p-4 sm:p-5 rounded-lg bg-[#080503]/90 border border-[#F0C66C]/45">
                     <div className="flex items-center justify-between gap-2">
                       <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.18em] text-[#E8792D]">
-                        {currentMatrika.indexHeader}
+                        {t(currentMatrika.indexHeaderEn, currentMatrika.indexHeaderHi)}
                       </span>
                       <span className="font-mono text-[10px] text-[#D0C3AD]/75">
                         {currentMatrika.timeRange}
                       </span>
                     </div>
 
-                    {/* Large Gold Devanagari Name */}
+                    {/* Large Gold Name (Single-Language) */}
                     <h4 className="mt-1.5 text-3xl sm:text-4xl font-serif font-bold text-[#F0C66C] tracking-wide">
-                      {currentMatrika.hindiName}
+                      {t(currentMatrika.transliteration, currentMatrika.hindiName)}
                     </h4>
 
                     {/* Italic Descriptor Line */}
                     <p className="mt-1 text-sm sm:text-base font-serif italic text-[#D0C3AD]">
-                      {currentMatrika.descriptorLine}
+                      {t(currentMatrika.descriptorLine, currentMatrika.descriptorLineHi)}
                     </p>
 
-                    {/* Hindi & English Interpretive Statement */}
+                    {/* Interpretive Statement (Single-Language) */}
                     <div className="mt-3.5 pt-3 border-t border-[#866334]/30">
                       <p className="text-base sm:text-lg font-serif font-medium text-[#F0EAE0]">
-                        {currentMatrika.hindiStatement}
-                      </p>
-                      <p className="mt-0.5 text-xs sm:text-sm font-serif italic text-[#D0C3AD]">
-                        {currentMatrika.englishStatement}
+                        {t(currentMatrika.englishStatement, currentMatrika.hindiStatement)}
                       </p>
                     </div>
 
-                    {/* Nivarana (Obstacle Removed) */}
+                    {/* Nivarana (Obstacle Removed - Single-Language) */}
                     <div className="mt-3.5 p-3 rounded bg-[#321708]/75 border-l-2 border-[#E8792D]">
                       <p className="text-sm sm:text-[15px] font-serif font-semibold text-[#F5DEAB]">
-                        {currentMatrika.nivaranaHindi}
-                      </p>
-                      <p className="mt-0.5 text-xs font-mono text-[#D0C3AD]">
-                        {currentMatrika.nivaranaEnglish}
+                        {t(currentMatrika.nivaranaEnglish, currentMatrika.nivaranaHindi)}
                       </p>
                     </div>
                   </div>
@@ -1670,10 +1661,10 @@ export default function ShriMeruExperience({
                             }`}
                           >
                             <div className="font-mono text-[8.5px] text-[#E8792D] font-bold">
-                              {m.indexFraction} · {m.hindiDirection}
+                              {m.indexFraction} · {t(m.englishDirection, m.hindiDirection)}
                             </div>
                             <div className="font-serif text-xs font-semibold text-[#F0EAE0] truncate">
-                              {m.hindiName}
+                              {t(m.transliteration, m.hindiName)}
                             </div>
                           </button>
                         );
@@ -1681,7 +1672,7 @@ export default function ShriMeruExperience({
                     </div>
                   </div>
 
-                  {/* Cross-reference links to 3-Bit Cybernetic Profile & 64 Matrix */}
+                  {/* Cross-reference links to 3-Bit Cybernetic Profile & 64 Yogini */}
                   {(onOpenCyberneticMatrika || onOpenMatrix) && (
                     <div className="mt-3.5 pt-3 border-t border-[#C99B48]/20 flex flex-wrap items-center justify-between gap-2">
                       {onOpenCyberneticMatrika && (
@@ -1691,7 +1682,10 @@ export default function ShriMeruExperience({
                           className="inline-flex items-center gap-1.5 text-[11px] font-mono text-[#F5DEAB] hover:text-[#F0C66C] underline decoration-dotted cursor-pointer"
                         >
                           <Eye className="w-3.5 h-3.5 text-[#E8792D]" />
-                          Inspect {currentMatrika.transliteration} in 3-Bit Symbolic Profile View
+                          {t(
+                            `Inspect ${currentMatrika.transliteration} in 3-Bit Symbolic Profile View`,
+                            `3-बिट प्रतीकात्मक प्रोफ़ाइल दृश्य में ${currentMatrika.hindiName} का निरीक्षण करें`
+                          )}
                         </button>
                       )}
                       {onOpenMatrix && (
@@ -1701,7 +1695,7 @@ export default function ShriMeruExperience({
                           className="inline-flex items-center gap-1 text-[11px] font-mono text-[#D0C3AD] hover:text-[#F0C66C] cursor-pointer"
                         >
                           <Layers className="w-3.5 h-3.5 text-[#C99B48]" />
-                          64 Matrix
+                          {t('64 Yogini', '64 योगिनी')}
                         </button>
                       )}
                     </div>
@@ -1709,12 +1703,10 @@ export default function ShriMeruExperience({
                 </motion.div>
               )}
 
-              {/* ============================================================
-                  SEQUENCE F (00:90–01:41): WORSHIP LAYOUT & CLOSING
-                 ============================================================ */}
+              {/* SEQUENCE F: WORSHIP LAYOUT & CLOSING */}
               {activeSequence === 'closing' && (
                 <motion.div
-                  key="seq-closing"
+                  key={`seq-closing-${lang}`}
                   initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -10 }}
@@ -1723,7 +1715,7 @@ export default function ShriMeruExperience({
                 >
                   <div className="flex items-center justify-between gap-2 pb-3 border-b border-[#C99B48]/25">
                     <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#E8792D]">
-                      SEQUENCE 06 · 01:30–01:41 · RITUAL INTEGRITY & CLOSING
+                      {t('SEQUENCE 06 · 01:30–01:41 · RITUAL INTEGRITY & CLOSING', 'अनुक्रम 06 · 01:30–01:41 · अनुष्ठानिक पूर्णता एवं समापन')}
                     </span>
                     <div className="flex gap-1.5">
                       <button
@@ -1735,7 +1727,7 @@ export default function ShriMeruExperience({
                             : 'bg-[#080503]/60 border border-[#866334]/40 text-[#D0C3AD]'
                         }`}
                       >
-                        पञ्चामृत अभिषेक
+                        {t('Panchamrita Abhisheka', 'पञ्चामृत अभिषेक')}
                       </button>
                       <button
                         type="button"
@@ -1746,7 +1738,7 @@ export default function ShriMeruExperience({
                             : 'bg-[#080503]/60 border border-[#866334]/40 text-[#D0C3AD]'
                         }`}
                       >
-                        एकाग्रता अनुष्ठान
+                        {t('Ritual of Focus', 'एकाग्रता अनुष्ठान')}
                       </button>
                     </div>
                   </div>
@@ -1754,24 +1746,21 @@ export default function ShriMeruExperience({
                   {closingStep === 0 ? (
                     <div className="mt-4">
                       <h4 className="text-2xl sm:text-3xl font-serif font-bold text-[#F0C66C]">
-                        पञ्चामृत अभिषेक
+                        {t('Worshipped with Panchamrita — before entering the inner rings', 'पञ्चामृत अभिषेक')}
                       </h4>
-                      <p className="mt-1 text-base sm:text-lg font-serif italic text-[#D0C3AD]">
-                        Worshipped with Panchamrita — before entering the inner rings
-                      </p>
 
                       <div className="mt-3.5 p-4 rounded-lg bg-[#080503]/85 border border-[#F0C66C]/40">
                         <p className="text-base sm:text-lg font-serif text-[#F0EAE0]">
-                          आठ मातृकाओं की वन्दना के बिना श्री यन्त्र की यात्रा अधूरी है
-                        </p>
-                        <p className="mt-1 text-xs sm:text-sm font-serif italic text-[#D0C3AD]">
-                          Without honoring the eight Matrikas, the journey into the Shri Yantra is incomplete
+                          {t(
+                            'Without honoring the eight Matrikas, the journey into the Shri Yantra is incomplete',
+                            'आठ मातृकाओं की वन्दना के बिना श्री यन्त्र की यात्रा अधूरी है'
+                          )}
                         </p>
                       </div>
 
                       <div className="mt-3.5">
                         <span className="block font-mono text-[9.5px] uppercase tracking-[0.18em] text-[#F5DEAB] mb-2">
-                          ALL 8 BHŪPURA GATES (CLICK ANY MARKER TO INSPECT):
+                          {t('ALL 8 BHŪPURA GATES (CLICK ANY MARKER TO INSPECT):', 'सभी 8 भूपुर द्वार (निरीक्षण के लिए किसी भी द्वार पर क्लिक करें):')}
                         </span>
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
                           {BHUPURA_MATRIKA_PROFILES.map((m, idx) => (
@@ -1785,10 +1774,10 @@ export default function ShriMeruExperience({
                               className="p-2 rounded bg-[#080503]/75 border border-[#C99B48]/40 hover:border-[#F0C66C] text-left transition-colors cursor-pointer"
                             >
                               <div className="font-mono text-[9px] text-[#E8792D]">
-                                {m.number} · {m.hindiDirection} ({m.englishDirection})
+                                {m.number} · {t(m.englishDirection, m.hindiDirection)}
                               </div>
                               <div className="font-serif text-xs font-bold text-[#F0C66C]">
-                                {m.hindiName}
+                                {t(m.transliteration, m.hindiName)}
                               </div>
                             </button>
                           ))}
@@ -1799,33 +1788,27 @@ export default function ShriMeruExperience({
                     <div className="mt-4">
                       <div className="text-center p-4 rounded-lg bg-[#080503]/90 border border-[#F0C66C]/45">
                         <h4 className="text-2xl sm:text-3xl font-serif font-bold text-[#F0C66C]">
-                          एकाग्रता अनुष्ठान
+                          {t('A Ritual of Focus', 'एकाग्रता अनुष्ठान')}
                         </h4>
-                        <p className="mt-0.5 text-base font-serif italic text-[#D0C3AD]">
-                          A Ritual of Focus
-                        </p>
 
                         <div className="my-3 h-px w-24 mx-auto bg-[#C99B48]/45" />
 
                         <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#D0C3AD]">
-                          आगामी पुस्तक से · From the forthcoming book
+                          {t('From the forthcoming book', 'आगामी पुस्तक से')}
                         </p>
                         <p className="mt-1 text-xl sm:text-2xl font-serif font-bold text-[#F5DEAB]">
-                          A Path Within
+                          {t('A Path Within', 'अ पाथ विदिन')}
                         </p>
                       </div>
 
-                      {/* Interactive Resonance Prompt (00:96–01:41) */}
+                      {/* Interactive Resonance Prompt (Single-Language) */}
                       <div className="mt-4 p-4 rounded-lg bg-[#321708]/65 border border-[#C99B48]/40">
                         <div className="text-center">
                           <p className="text-base sm:text-lg font-serif font-semibold text-[#F0EAE0]">
-                            कौन सी मातृका ने आपको छुआ?
-                          </p>
-                          <p className="text-xs sm:text-sm font-serif italic text-[#D0C3AD]">
-                            Which Matrika resonated with you?
+                            {t('Which Matrika resonated with you?', 'कौन सी मातृका ने आपको छुआ?')}
                           </p>
                           <p className="mt-1 font-mono text-[10px] text-[#F5DEAB]">
-                            1–8 में से चुनें · और भीतर की यात्रा शुरू करें
+                            {t('Choose from 1–8 and begin the journey within', '1–8 में से चुनें · और भीतर की यात्रा शुरू करें')}
                           </p>
                         </div>
 
@@ -1849,7 +1832,7 @@ export default function ShriMeruExperience({
                                     isChosen ? 'text-[#080503]' : 'text-[#D0C3AD]'
                                   }`}
                                 >
-                                  {m.hindiName}
+                                  {t(m.transliteration, m.hindiName)}
                                 </div>
                               </button>
                             );
@@ -1859,17 +1842,24 @@ export default function ShriMeruExperience({
                         {resonatedMatrikaIdx !== null && (
                           <div className="mt-3 p-3 rounded bg-[#080503]/90 border border-[#F0C66C]/50 text-center">
                             <div className="font-serif text-base font-bold text-[#F0C66C]">
-                              {BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].indexHeader} ·{' '}
-                              {BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].hindiName} (
-                              {BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].transliteration})
+                              {t(
+                                `${BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].indexHeaderEn} · ${BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].transliteration}`,
+                                `${BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].indexHeaderHi} · ${BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].hindiName}`
+                              )}
                             </div>
                             <p className="mt-1 text-xs font-serif text-[#F0EAE0]">
-                              “{BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].hindiStatement} —{' '}
-                              {BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].englishStatement}”
+                              “
+                              {t(
+                                BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].englishStatement,
+                                BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].hindiStatement
+                              )}
+                              ”
                             </p>
                             <p className="mt-1 text-[11px] font-mono text-[#E8792D]">
-                              {BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].nivaranaHindi} (
-                              {BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].nivaranaEnglish})
+                              {t(
+                                BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].nivaranaEnglish,
+                                BHUPURA_MATRIKA_PROFILES[resonatedMatrikaIdx].nivaranaHindi
+                              )}
                             </p>
                           </div>
                         )}
@@ -1889,21 +1879,21 @@ export default function ShriMeruExperience({
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#1A0D06] border border-[#C99B48]/50 text-xs font-mono text-[#F0EAE0] hover:border-[#F0C66C] hover:text-[#F0C66C] transition-colors cursor-pointer"
                 >
                   <ChevronLeft className="w-3.5 h-3.5" />
-                  Prev Step
+                  {t('Prev Step', 'पिछला चरण')}
                 </button>
                 <button
                   type="button"
                   onClick={handleStepNext}
                   className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-[#6A2B0B]/85 border border-[#F0C66C]/70 text-xs font-mono text-[#F0C66C] hover:bg-[#E8792D]/35 transition-colors cursor-pointer"
                 >
-                  Next Step
+                  {t('Next Step', 'अगला चरण')}
                   <ChevronRight className="w-3.5 h-3.5" />
                 </button>
               </div>
 
               <div className="text-right">
                 <span className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-[#D0C3AD]/80">
-                  आगामी पुस्तक · A PATH WITHIN · RAKESH SHARMA
+                  {t('FORTHCOMING BOOK · A PATH WITHIN · RAM ASHOK KUMAR', 'आगामी पुस्तक · अ पाथ विदिन · राम अशोक कुमार')}
                 </span>
               </div>
             </div>

@@ -1,30 +1,28 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Activity, Eye, Volume2, Wind, Layers, Settings, ShieldAlert, Cpu } from 'lucide-react';
-import { equipmentList } from '../data';
-import { Equipment } from '../types';
+import { Activity, Eye, Volume2, Wind, Layers, Settings } from 'lucide-react';
+import { getEquipmentList } from '../data';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function EquipmentSection() {
+  const { lang, t } = useLanguage();
+  const items = getEquipmentList(lang);
   const [selectedEqId, setSelectedEqId] = useState<string>('eq-emf');
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
-  const [needleAngle, setNeedleAngle] = useState(0); // For EMF meter fluctuation
-  const canvasRef = useRef<HTMLCanvasElement | null>(null); // For infrasound wave
-  const [thermalColor, setThermalColor] = useState({ x: 50, y: 50 }); // For thermal camera screen interactive coordinate
+  const [, setNeedleAngle] = useState(0);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  const activeEquipment = equipmentList.find(eq => eq.id === selectedEqId) || equipmentList[0];
+  const activeEquipment = items.find(eq => eq.id === selectedEqId) || items[0];
 
-  // 1. Simulating EMF needle fluctuation
   useEffect(() => {
     if (selectedEqId !== 'eq-emf') return;
     const interval = setInterval(() => {
-      // Base center is 0 deg (pointing straight up). Fluctuate between -35 and +45
       const randomFluctuation = Math.sin(Date.now() / 200) * 15 + (Math.random() * 10 - 5);
       setNeedleAngle(randomFluctuation);
     }, 100);
     return () => clearInterval(interval);
   }, [selectedEqId]);
 
-  // 2. Painting continuous live waveform on HTML5 Canvas for acoustic/seismic
   useEffect(() => {
     if (selectedEqId !== 'eq-acoustic' && selectedEqId !== 'eq-gpr') return;
     const canvas = canvasRef.current;
@@ -46,7 +44,6 @@ export default function EquipmentSection() {
       const midY = height / 2;
 
       for (let x = 0; x < width; x++) {
-        // Compose multiple sine waves for high-fidelity acoustic wave noise look
         const angle1 = (x / 25) + offset;
         const angle2 = (x / 8) + offset * 2;
         const angle3 = (x / 60) + offset * 0.5;
@@ -67,22 +64,6 @@ export default function EquipmentSection() {
       }
       ctx.stroke();
 
-      // Draw faint grid behind wave
-      ctx.strokeStyle = 'rgba(212, 175, 55, 0.04)';
-      ctx.lineWidth = 0.5;
-      for (let g = 10; g < width; g += 20) {
-        ctx.beginPath();
-        ctx.moveTo(g, 0);
-        ctx.lineTo(g, height);
-        ctx.stroke();
-      }
-      for (let g = 10; g < height; g += 15) {
-        ctx.beginPath();
-        ctx.moveTo(0, g);
-        ctx.lineTo(width, g);
-        ctx.stroke();
-      }
-
       offset += selectedEqId === 'eq-acoustic' ? 0.08 : 0.03;
       animationFrameId = requestAnimationFrame(render);
     };
@@ -94,14 +75,6 @@ export default function EquipmentSection() {
     };
   }, [selectedEqId]);
 
-  // 3. Handle thermal camera screen hover coordinate trigger
-  const handleThermalMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    setThermalColor({ x, y });
-  };
-
   const getIcon = (name: string) => {
     switch (name) {
       case 'Activity': return Activity;
@@ -111,6 +84,15 @@ export default function EquipmentSection() {
       case 'Layers': return Layers;
       default: return Settings;
     }
+  };
+
+  const getStatusLabel = (status: string) => {
+    if (lang === 'hi') {
+      if (status === 'active_field') return 'सक्रिय क्षेत्रीय मोड';
+      if (status === 'calibrating') return 'अंशांकन जारी';
+      return 'संग्रहालय में सुरक्षित';
+    }
+    return status.replace('_', ' ');
   };
 
   return (
@@ -133,13 +115,18 @@ export default function EquipmentSection() {
         {/* Title */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="flex items-center justify-center gap-3 mb-2">
-            <span className="font-mono text-[10px] tracking-[0.3em] text-gold-faded uppercase">The Museum Cabinet</span>
+            <span className="font-mono text-[10px] tracking-[0.3em] text-gold-faded uppercase">
+              {t('The Museum Cabinet', 'संग्रहालय उपकरण कक्ष')}
+            </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-serif text-gold-warm tracking-wide font-medium">
-            SCIENTIFIC INSTRUMENTS
+            {t('SCIENTIFIC INSTRUMENTS', 'वैज्ञानिक उपकरण')}
           </h2>
           <p className="mt-4 text-lg md:text-xl text-ancient-beige/65 font-vintage italic leading-relaxed">
-            "Arranged on our laboratory research table. Select a tool below to power up the physical testing grid and read live subterranean sensors."
+            {t(
+              '"Arranged on our laboratory research table. Select a tool below to power up the physical testing grid and read live subterranean sensors."',
+              '"हमारी प्रयोगशाला की शोध मेज पर व्यवस्थित। भौतिक परीक्षण ग्रिड को सक्रिय करने और भूमिगत सेंसरों को पढ़ने के लिए नीचे दिए गए किसी उपकरण को चुनें।"'
+            )}
           </p>
         </div>
 
@@ -149,9 +136,9 @@ export default function EquipmentSection() {
           {/* Side List: The Instrument Grid Selection (4 cols on lg) */}
           <div className="lg:col-span-4 flex flex-col gap-3">
             <span className="font-mono text-[9px] tracking-widest text-gold-faded/50 uppercase mb-1">
-              Select Instrument for Testing:
+              {t('Select Instrument for Testing:', 'परीक्षण हेतु उपकरण चुनें:')}
             </span>
-            {equipmentList.map(eq => {
+            {items.map(eq => {
               const isSelected = eq.id === selectedEqId;
               const IconComp = getIcon(eq.iconName);
               return (
@@ -192,7 +179,7 @@ export default function EquipmentSection() {
           <div id="equipment-dashboard-card" className="lg:col-span-8">
             <AnimatePresence mode="wait">
               <motion.div
-                key={activeEquipment.id}
+                key={`${activeEquipment.id}-${lang}`}
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.98 }}
@@ -208,7 +195,9 @@ export default function EquipmentSection() {
                 {/* Dashboard top meta */}
                 <div className="flex flex-wrap items-center justify-between border-b border-bronze-dark/50 pb-4 mb-6 gap-3">
                   <div>
-                    <span className="font-mono text-[8.5px] tracking-[0.25em] text-gold-faded uppercase">Calibration Interface Active</span>
+                    <span className="font-mono text-[8.5px] tracking-[0.25em] text-gold-faded uppercase">
+                      {t('Calibration Interface Active', 'अंशांकन इंटरफ़ेस सक्रिय')}
+                    </span>
                     <h3 className="font-serif text-lg md:text-xl text-gold-warm font-medium mt-0.5">{activeEquipment.name}</h3>
                   </div>
                   <div>
@@ -226,7 +215,7 @@ export default function EquipmentSection() {
                           ? 'bg-amber-450 animate-pulse'
                           : 'bg-gold-faded'
                       }`} />
-                      {activeEquipment.status.replace('_', ' ')}
+                      {getStatusLabel(activeEquipment.status)}
                     </span>
                   </div>
                 </div>
@@ -253,14 +242,18 @@ export default function EquipmentSection() {
                   {/* Right: Textual Specs & Historical Precedent */}
                   <div className="space-y-4">
                     <div>
-                      <h4 className="font-serif text-xs uppercase tracking-wider text-gold-faded font-bold">Physical Function:</h4>
+                      <h4 className="font-serif text-xs uppercase tracking-wider text-gold-faded font-bold">
+                        {t('Physical Function:', 'भौतिक कार्यप्रणाली:')}
+                      </h4>
                       <p className="font-sans text-[12.5px] font-light leading-relaxed text-ancient-beige/80 mt-1">
                         {activeEquipment.description}
                       </p>
                     </div>
 
                     <div className="p-4 bg-ancient-charcoal/40 border border-bronze-dark/40 rounded">
-                      <h5 className="font-mono text-[8.5px] tracking-wider text-gold-faded uppercase font-semibold">Historical Museum Precedent:</h5>
+                      <h5 className="font-mono text-[8.5px] tracking-wider text-gold-faded uppercase font-semibold">
+                        {t('Historical Museum Precedent:', 'ऐतिहासिक एवं प्राचीन संदर्भ:')}
+                      </h5>
                       <p className="font-vintage text-[12.5px] leading-relaxed italic text-ancient-beige/60 mt-1">
                         "{activeEquipment.historicalPrecedent}"
                       </p>
@@ -272,12 +265,12 @@ export default function EquipmentSection() {
                 {/* Technical data footer */}
                 <div className="mt-8 pt-4 border-t border-bronze-dark/40 grid grid-cols-2 gap-4 font-mono text-[8px] text-ancient-beige/40 uppercase tracking-widest">
                   <div>
-                    <span>Sensor Unit:</span>
+                    <span>{t('Sensor Unit:', 'सेंसर इकाई:')}</span>
                     <strong className="block text-gold-faded font-semibold text-[9.5px] mt-0.5">{activeEquipment.measurementUnit}</strong>
                   </div>
                   <div>
-                    <span>Coil Frequency:</span>
-                    <strong className="block text-gold-faded font-semibold text-[9.5px] mt-0.5">{activeEquipment.soundFrequency || 'None'}</strong>
+                    <span>{t('Coil Frequency:', 'कुंडल आवृत्ति:')}</span>
+                    <strong className="block text-gold-faded font-semibold text-[9.5px] mt-0.5">{activeEquipment.soundFrequency || t('None', 'कोई नहीं')}</strong>
                   </div>
                 </div>
 
@@ -311,13 +304,13 @@ export default function EquipmentSection() {
               onClick={() => setLightboxImage(null)}
               className="absolute top-4 right-4 lg:-top-12 lg:-right-12 text-white/80 hover:text-gold-warm transition-colors p-3 z-10 bg-black/50 lg:bg-transparent rounded-full lg:rounded-none backdrop-blur-sm lg:backdrop-blur-none"
             >
-              <span className="sr-only">Close</span>
+              <span className="sr-only">{t('Close', 'बंद करें')}</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
             </button>
             
             <img 
               src={lightboxImage} 
-              alt="Equipment detail" 
+              alt={t('Equipment detail', 'उपकरण विवरण')} 
               className="w-full h-full lg:h-auto lg:max-h-[85vh] object-contain lg:rounded border-0 lg:border lg:border-gold-faded/20 shadow-2xl"
               referrerPolicy="no-referrer"
             />
