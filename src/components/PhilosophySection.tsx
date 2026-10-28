@@ -657,11 +657,29 @@ export default function PhilosophySection() {
 
   const handleOpenArticle = useCallback(
     (categorySlug: string, articleSlug: string) => {
-      const portal = getPortalBySlug(categorySlug);
+      const resolved = getArticleBySlugs(categorySlug, articleSlug);
+      const portal = resolved?.portal || getPortalBySlug(categorySlug);
       if (portal) {
+        const chIdx = portal.chapterIndex;
+        const intIdx = resolved?.article.interactiveIndex;
+        if (chIdx === 0 && typeof intIdx === 'number') {
+          const node = EMPIRICAL_NODES[intIdx];
+          if (node) setSelectedEmpiricalId(node.id);
+        } else if (chIdx === 1 && typeof intIdx === 'number') {
+          setFocusedBhairavaProfileIdx(intIdx);
+        } else if (chIdx === 2 && typeof intIdx === 'number') {
+          if (intIdx === 0) {
+            setSelectedBhairavId(KAAL_BHAIRAV_CORE_ENTRY.id);
+          } else {
+            const entry = BHAIRAV_CODEX_ENTRIES[intIdx - 1];
+            if (entry) setSelectedBhairavId(entry.id);
+          }
+        } else if ((chIdx === 4 || chIdx === 5) && typeof intIdx === 'number') {
+          setFocusedMatrikaProfileIdx(intIdx);
+        }
         setViewState(prev => ({
-          index: portal.chapterIndex,
-          direction: portal.chapterIndex >= prev.index ? 1 : -1
+          index: chIdx,
+          direction: chIdx >= prev.index ? 1 : -1
         }));
       }
       const nextPath = `/research/${categorySlug}/${articleSlug}`;
@@ -951,49 +969,9 @@ export default function PhilosophySection() {
 
             {/* Standalone Research Page Main Content Area */}
             <div className="relative z-10 max-w-[1480px] w-full mx-auto px-3 sm:px-6 md:px-10 lg:px-14 py-8 sm:py-12 pb-24">
-              {/* Dedicated Individual Article Monograph View (when URL is /research/:categorySlug/:articleSlug) */}
-              {routeState.mode === 'article' &&
-                routeState.categorySlug &&
-                routeState.articleSlug && (() => {
-                  const resolved = getArticleBySlugs(
-                    routeState.categorySlug,
-                    routeState.articleSlug
-                  );
-                  if (!resolved) {
-                    return (
-                      <div className="mb-10 pb-8">
-                        <CategoryLandingPageView
-                          portal={getPortalBySlug(routeState.categorySlug) || activePortal}
-                          onBackToOverview={() => handleReturnToOverview()}
-                          onSelectCategoryPortal={handleOpenCategoryPortal}
-                          onOpenArticle={handleOpenArticle}
-                        />
-                      </div>
-                    );
-                  }
-                  return (
-                    <div className="mb-10 pb-8">
-                      <ArticleMonographPageView
-                        portal={resolved.portal}
-                        article={resolved.article}
-                        onBackToCategory={handleOpenCategoryPortal}
-                        onBackToOverview={() => handleReturnToOverview()}
-                        onOpenArticle={handleOpenArticle}
-                        onLaunchStudioAtNode={handleLaunchStudioAtNode}
-                      />
-                    </div>
-                  );
-                })()}
-
-              {/* Dedicated Category Portal Landing Page View (when URL is /research/:categorySlug) */}
-              {routeState.mode === 'category' && routeState.categorySlug && (
-                <div className="mb-10 pb-8">
-                  <CategoryLandingPageView
-                    portal={getPortalBySlug(routeState.categorySlug) || activePortal}
-                    onBackToOverview={() => handleReturnToOverview()}
-                    onSelectCategoryPortal={handleOpenCategoryPortal}
-                    onOpenArticle={handleOpenArticle}
-                  >
+              {(() => {
+                const interactiveStudioNode = (
+                  <>
               {/* Mobile & Tablet Chapter Switcher Bar */}
               <div className="lg:hidden mb-4 flex items-center justify-between gap-2 bg-[#110c09]/90 border border-[#5A3922]/70 rounded-lg p-2">
                 <button
@@ -1738,9 +1716,65 @@ export default function PhilosophySection() {
             />
           </button>
         </div>
-            </CategoryLandingPageView>
-          </div>
-        )}
+                  </>
+                );
+
+                if (
+                  routeState.mode === 'article' &&
+                  routeState.categorySlug &&
+                  routeState.articleSlug
+                ) {
+                  const resolved = getArticleBySlugs(
+                    routeState.categorySlug,
+                    routeState.articleSlug
+                  );
+                  if (!resolved) {
+                    return (
+                      <div className="mb-10 pb-8">
+                        <CategoryLandingPageView
+                          portal={getPortalBySlug(routeState.categorySlug) || activePortal}
+                          onBackToOverview={() => handleReturnToOverview()}
+                          onSelectCategoryPortal={handleOpenCategoryPortal}
+                          onOpenArticle={handleOpenArticle}
+                        >
+                          {interactiveStudioNode}
+                        </CategoryLandingPageView>
+                      </div>
+                    );
+                  }
+                  return (
+                    <div className="mb-10 pb-8">
+                      <ArticleMonographPageView
+                        portal={resolved.portal}
+                        article={resolved.article}
+                        onBackToCategory={handleOpenCategoryPortal}
+                        onBackToOverview={() => handleReturnToOverview()}
+                        onOpenArticle={handleOpenArticle}
+                        onLaunchStudioAtNode={handleLaunchStudioAtNode}
+                      >
+                        {interactiveStudioNode}
+                      </ArticleMonographPageView>
+                    </div>
+                  );
+                }
+
+                if (routeState.mode === 'category' && routeState.categorySlug) {
+                  return (
+                    <div className="mb-10 pb-8">
+                      <CategoryLandingPageView
+                        portal={getPortalBySlug(routeState.categorySlug) || activePortal}
+                        onBackToOverview={() => handleReturnToOverview()}
+                        onSelectCategoryPortal={handleOpenCategoryPortal}
+                        onOpenArticle={handleOpenArticle}
+                      >
+                        {interactiveStudioNode}
+                      </CategoryLandingPageView>
+                    </div>
+                  );
+                }
+
+                return null;
+              })()}
 
               {/* Bottom Back-Navigation Bar inside the Dedicated Research Page */}
               <div className="mt-8 pt-6 border-t border-[#5A3922]/60 flex flex-wrap items-center justify-between gap-4">

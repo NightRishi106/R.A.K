@@ -28,6 +28,8 @@ export interface SpecialCircularSeal {
   accentColor: string;
   motifType: 'vaishnava' | 'aghora' | 'ghora11' | 'kapalika5' | 'prahar8' | 'bhairavagana' | 'shakta' | 'mahavidya';
   isPendingVerificationNote?: boolean;
+  parentSealId?: string;
+  subParts?: SpecialCircularSeal[];
 }
 
 // ============================================================================
@@ -422,8 +424,16 @@ export const DEEP_SACRED_SEAL_ARTICLES: ResearchArticle[] = [
           'अघोर परंपरा के ऐतिहासिक विकास को समझने के लिए तीन स्तरों को अलग-अलग देखना आवश्यक है: (A. प्राचीन पाशुपत शैव परंपरा): इसके प्रवर्तक लकुलीश (नकुलीश) माने जाते हैं। पाशुपत सूत्र और कौण्डिन्य के पञ्चार्थभाष्य में भस्म-स्नान और अहंकार-नाश की साधना मिलती है, किंतु पाशुपत, कापालिक और अघोर को बिना भेद के एक ही संगठन मानना ऐतिहासिक अति-सरलीकरण होगा। (B. मध्यकालीन कापालिक परंपरा): ७वीं से १४वीं शताब्दी के मध्य कापालिक साधक कपाल-पात्र धारण करने, श्मशान-साधना और भैरव-चामुण्डा उपासना के लिए प्रसिद्ध रहे। (C. ऐतिहासिक एवं आधुनिक अघोर परंपराएँ): उत्तर भारत, विशेषतः वाराणसी के "क्रीं कुण्ड" से जुड़ी बाबा कीनाराम (ग्रन्थ: विवेकसार, रामगीता) और २०वीं शताब्दी के अघोरेश्वर भगवान राम की परंपरा। भगवान राम ने अघोर के "निर्भेद समदर्शिता" सिद्धांत को समाज-सेवा और कुष्ठ-रोगियों की चिकित्सा से जोड़ा।'
       },
       {
-        headingEn: '3. Methodological Caution: Historical Evidence vs. Sensationalized Stereotypes',
-        headingHi: '3. ऐतिहासिक सावधानी: प्रामाणिक साक्ष्य बनाम लोक-प्रचलित अतिरंजना',
+        headingEn: '3. The Six Points of the Aghora–Kāpālika–Ghora Dossier & Its Two Sub-Parts',
+        headingHi: '3. अघोर सम्प्रदाय के ६ मुख्य बिंदु एवं इसके २ उप-भाग (घोर ११/१२ भेद व कापालिक ५ भेद)',
+        bodyEn:
+          'In the research notes for Aghora Sampradāya, six interconnected points are organized under one umbrella, with Points 5 and 6 forming the two specialized sub-parts of this study: (1) Origin / Background (Pravartaka/Mūla): The historical emergence of fierce Śaiva asceticism out of the Pāśupata milieu associated with Lakulīśa (Nakulīśa), while noting that Lakulīśa’s historical vs. mythic status and the exact institutional continuity require careful scholarly distinction. (2) Guru Lineage (Guru Paramparā): The 12 Kāpālika gurus recorded in the Sarvatantra and Śābara compendia (Ādinātha, Anādi, Kāla, Amitābha/Atikāla, Karāla, Vikarāla, Mahākāla, Kālabhairavanātha, Baṭuka, Bhūtanātha, Vīranātha, and Śrīkaṇṭha). (3) Presiding Deities (Iṣṭadeva): Fierce Bhairava alongside Mahākālī, Cāmuṇḍā, and Tripurasundarī. (4) Core Doctrine (Mukhya Siddhānta): Somāsiddhānta and ritual contemplation utilizing the cranial bowl (kapāla) and non-dual equanimity. (5) Sub-Part I — Ghora Sampradāya (11/12 Bhedas): Detailed philological study of the 12 listed terms (Rakta, Śukla, Vinmūtra, Bhakṣa, Vanānta, Ghora, Ghoratara, Vīṇā, Nīla, Śarvabhakṣa, Ghorāghora, and Siddha). (6) Sub-Part II — Kāpālika Sampradāya (5 Bhedas): Detailed study of Somāsiddhānta and the 5 reported subdivisions (Indra, Deva, Rudra, Vidyā, and Siddha). Use the two engraved Sub-Part Circular Seals above to open each sub-part monograph in full.',
+        bodyHi:
+          'अघोर सम्प्रदाय के शोध-नोट्स में ६ मुख्य बिंदु एक साथ जुड़े हैं, जिनमें बिंदु ५ और ६ इसके दो प्रमुख उप-भाग (Sub-Parts) हैं: (१. प्रवर्तक/मूल): पाशुपत मत (लकुलीश/नकुलीश) की पृष्ठभूमि से उग्र शैव साधना का विकास (लकुलीश की ऐतिहासिकता और सीधी वंशावली पर अकादमिक सावधानी सहित)। (२. गुरु परंपरा): सर्वतन्त्र और अन्य तांत्रिक ग्रन्थों में उल्लिखित १२ गुरु—आदिनाथ, अनादि, काल, अमिताभ, कराल, विकराल, महाकाल, कालभैरवनाथ, बटुक, भूतनाथ, वीरनाथ और श्रीकण्ठ। (३. इष्टदेव): भैरव (उग्र शिव रूप) तथा महाकाली, चामुण्डा और त्रिपुरसुन्दरी। (४. मुख्य सिद्धांत): सोमसिद्धान्त दर्शन, कपाल-पात्र का प्रतीक और शुद्ध-अशुद्ध से परे अद्वैत समदृष्टि। (५. उप-भाग I — घोर सम्प्रदाय के ११/१२ भेद): रक्त, शुक्ल, विन्मूत्र, भक्ष, वनान्त, घोर, घोरतर, वीणा, नील, शर्वभक्ष, घोराघोर और सिद्ध का विस्तृत विश्लेषण। (६. उप-भाग II — कापालिक सम्प्रदाय के ५ भेद): इन्द्र, देव, रुद्र, विद्या और सिद्ध का विस्तृत अध्ययन। ऊपर दिए गए दोनों उप-भागों की वृत्ताकार मुद्राओं पर क्लिक करके प्रत्येक उप-भाग का पूर्ण स्वतंत्र पृष्ठ भी खोला जा सकता है।'
+      },
+      {
+        headingEn: '4. Methodological Caution: Historical Evidence vs. Sensationalized Stereotypes',
+        headingHi: '4. ऐतिहासिक सावधानी: प्रामाणिक साक्ष्य बनाम लोक-प्रचलित अतिरंजना',
         bodyEn:
           'Popular media frequently portrays all Aghorīs through sensationalized cremation-ground tropes. In rigorous ethnographic and textual scholarship, Aghora philosophy is grounded in the recognition that the entire phenomenal universe is pervaded by Śiva-Śakti, rendering conventional caste and ritual pollution boundaries ultimate illusions. At the same time, modern Aghora communities exhibit diverse lineages, rules, and contemplative practices; no single transgressive practice is universally mandatory across all Aghora practitioners.',
         bodyHi:
@@ -432,17 +442,17 @@ export const DEEP_SACRED_SEAL_ARTICLES: ResearchArticle[] = [
     ],
     keyFindingsEn: [
       'Aghora (a + ghora) means "fearless / non-terrifying" and denotes both Sadāśiva’s southern face and a non-dual Śaiva-Śākta contemplative path.',
-      'Early Vidyāpīṭha Tantras (Brahmayāmala, Siddhayogeśvarīmata) already feature the goddess Aghorī and the triad Aghorā–Ghorā–Ghoratarā.',
+      'Integrates the 6 core research points and directly houses Sub-Part I (Ghora Sampradāya 11/12 Bhedas) and Sub-Part II (Kāpālika Sampradāya 5 Bhedas).',
       'Pāśupata, medieval Kāpālika, and modern Kīnārāmī Aghora represent three related yet historically distinct Śaiva currents.'
     ],
     keyFindingsHi: [
       'अघोर (अ + घोर) का अर्थ "अभय / भयावहता से परे" है; यह सदाशिव के दक्षिण मुख और अद्वैत समदृष्टि दोनों का वाचक है।',
-      'प्रारंभिक शाक्त-शैव तन्त्रों (ब्रह्मयामल, सिद्धयोगेश्वरीमत) में अघोरी देवी और अघोरा–घोरा–घोरतरा त्रिक का प्रामाणिक उल्लेख मिलता है।',
+      'अघोर सम्प्रदाय के ६ मुख्य बिंदुओं के अंतर्गत इसके दोनों उप-भाग—उप-भाग I (घोर सम्प्रदाय के ११/१२ भेद) और उप-भाग II (कापालिक सम्प्रदाय के ५ भेद)—यहाँ एकीकृत हैं।',
       'पाशुपत, मध्यकालीन कापालिक और आधुनिक बाबा कीनाराम अघोर परंपरा तीन संबंधित किंतु ऐतिहासिक रूप से विशिष्ट धाराएँ हैं।'
     ],
     metadata: [
       { labelEn: 'Sanskrit Etymology', labelHi: 'संस्कृत व्युत्पत्ति', valueEn: 'Aghora (अघोर = Non-Terrible / Fearless) · Aghorin (अघोरी)', valueHi: 'अघोर (अ + घोर = अभय / सहज) · अघोरी' },
-      { labelEn: 'Primary Textual Witnesses', labelHi: 'प्रमुख ग्रंथीय साक्ष्य', valueEn: 'Taittirīya Āraṇyaka · Svacchanda Tantra · Siddhayogeśvarīmata · Vivekasāra', valueHi: 'तैत्तिरीय आरण्यक · स्वच्छन्द तन्त्र · सिद्धयोगेश्वरीमत · विवेकसार (बाबा कीनाराम)' },
+      { labelEn: 'Two Dedicated Sub-Parts', labelHi: 'दो समर्पित उप-भाग', valueEn: 'Sub-Part I: Ghora 11/12 Bhedas · Sub-Part II: Kāpālika 5 Bhedas', valueHi: 'उप-भाग I: घोर सम्प्रदाय ११/१२ भेद · उप-भाग II: कापालिक ५ भेद' },
       { labelEn: 'Major Living Seat', labelHi: 'प्रमुख जीवंत पीठ', valueEn: 'Bābā Kīnārām Sthal, Krīṃ Kuṇḍa, Varanasi (Kāśī)', valueHi: 'बाबा कीनाराम स्थल, क्रीं कुण्ड, वाराणसी (काशी)' },
       { labelEn: 'Academic References', labelHi: 'अकादमिक संदर्भ', valueEn: 'Judit Törzsök · Alexis Sanderson · David N. Lorenzen · Ron Barrett', valueHi: 'Judit Törzsök · Alexis Sanderson · David N. Lorenzen · Ron Barrett' }
     ],
@@ -714,9 +724,56 @@ export const DEEP_SACRED_SEAL_ARTICLES: ResearchArticle[] = [
 ];
 
 // ============================================================================
-// EIGHT DEDICATED CIRCULAR ENGRAVED SEALS (विशेष शोध मुद्रिकाएँ)
-// Allows direct circular-seal navigation to Jaya-Vijaya, Aghora, Ghora 11/12 Bhedas,
-// Kapalika 5 Bhedas, Ashta Prahar, Bhairavagana, Kalikula-Srikula & Mahavidya-Navadurga
+// TWO DEDICATED SUB-PART SEALS OF AGHORA SAMPRADĀYA
+// Sub-Part I: Ghora Sampradāya (11/12 Bhedas)
+// Sub-Part II: Kāpālika Sampradāya & Somāsiddhānta (5 Bhedas)
+// ============================================================================
+export const AGHORA_SUBPART_SEALS: SpecialCircularSeal[] = [
+  {
+    id: 'seal-ghora-11-bhedas',
+    sealNumber: 'SUB-PART I',
+    parentSealId: 'seal-aghora-sampradaya',
+    categorySlug: 'ashta-bhairava',
+    articleSlug: 'ghora-sampradaya-11-bhedas-study',
+    sanskritSeal: 'घोर सम्प्रदाय · ११/१२ भेद',
+    shortTitleEn: 'Ghora Sampradāya (11/12 Bhedas)',
+    shortTitleHi: 'घोर सम्प्रदाय (११/१२ भेद)',
+    subtitleEn: 'Sub-Part I of Aghora Sampradāya: Rakta, Śukla, Vinmūtra, Bhakṣa to Siddha (12 Terms)',
+    subtitleHi: 'अघोर सम्प्रदाय का उप-भाग I: रक्त, शुक्ल, विन्मूत्र से सिद्ध तक १२ नामों की समीक्षा',
+    domainBadgeEn: 'AGHORA SUB-PART I · SOURCE AUDIT',
+    domainBadgeHi: 'अघोर उप-भाग I · स्रोत पुष्टि लंबित',
+    accentColor: '#EF4444',
+    motifType: 'ghora11',
+    isPendingVerificationNote: true
+  },
+  {
+    id: 'seal-kapalika-5-bhedas',
+    sealNumber: 'SUB-PART II',
+    parentSealId: 'seal-aghora-sampradaya',
+    categorySlug: 'ashta-bhairava',
+    articleSlug: 'kapalika-sampradaya-5-bhedas-somasiddhanta',
+    sanskritSeal: 'कापालिक · सोमसिद्धान्त · ५ भेद',
+    shortTitleEn: 'Kāpālika Sampradāya (5 Bhedas)',
+    shortTitleHi: 'कापालिक सम्प्रदाय (५ भेद)',
+    subtitleEn: 'Sub-Part II of Aghora Sampradāya: Somāsiddhānta, 12 Gurus & Indra–Deva–Rudra–Vidyā–Siddha',
+    subtitleHi: 'अघोर सम्प्रदाय का उप-भाग II: सोमसिद्धान्त, १२ गुरु एवं इन्द्र–देव–रुद्र–विद्या–सिद्ध',
+    domainBadgeEn: 'AGHORA SUB-PART II · SOURCE AUDIT',
+    domainBadgeHi: 'अघोर उप-भाग II · स्रोत समीक्षा',
+    accentColor: '#D97706',
+    motifType: 'kapalika5',
+    isPendingVerificationNote: true
+  }
+];
+
+// Also attach the Ghora 11/12 Bhedas and Kapalika 5 Bhedas tables directly to Aghora Sampradāya
+ARTICLE_COMPARISON_TABLES['aghora-sampradaya-history-theology'] = [
+  ...(ARTICLE_COMPARISON_TABLES['ghora-sampradaya-11-bhedas-study'] || []),
+  ...(ARTICLE_COMPARISON_TABLES['kapalika-sampradaya-5-bhedas-somasiddhanta'] || [])
+];
+
+// ============================================================================
+// DEDICATED CIRCULAR ENGRAVED SEALS (विशेष शोध मुद्रिकाएँ)
+// Ghora 11/12 Bhedas & Kāpālika 5 Bhedas are organized as Sub-Parts inside SEAL 02 (Aghora Sampradāya)
 // ============================================================================
 export const SPECIAL_CIRCULAR_SEALS: SpecialCircularSeal[] = [
   {
@@ -742,48 +799,17 @@ export const SPECIAL_CIRCULAR_SEALS: SpecialCircularSeal[] = [
     sanskritSeal: 'अघोर सम्प्रदाय · क्रीं कुण्ड',
     shortTitleEn: 'Aghora Sampradāya',
     shortTitleHi: 'अघोर सम्प्रदाय',
-    subtitleEn: 'Etymology, 3 Historical Strata & Bābā Kīnārām',
-    subtitleHi: 'अघोर शब्दार्थ, ३ ऐतिहासिक स्तर एवं बाबा कीनाराम',
-    domainBadgeEn: 'ŚAIVA RAHASYA · AGHORA',
-    domainBadgeHi: 'शैव रहस्य · अघोर परम्परा',
+    subtitleEn: 'Etymology, 3 Historical Strata, Bābā Kīnārām + 2 Sub-Parts (Ghora 11 Bhedas & Kāpālika 5 Bhedas)',
+    subtitleHi: 'अघोर शब्दार्थ, ३ ऐतिहासिक स्तर, बाबा कीनाराम + २ उप-भाग (घोर ११ भेद व कापालिक ५ भेद)',
+    domainBadgeEn: 'ŚAIVA RAHASYA · AGHORA & 2 SUB-PARTS',
+    domainBadgeHi: 'शैव रहस्य · अघोर एवं २ उप-भाग',
     accentColor: '#F59E0B',
-    motifType: 'aghora'
-  },
-  {
-    id: 'seal-ghora-11-bhedas',
-    sealNumber: 'SEAL 03',
-    categorySlug: 'ashta-bhairava',
-    articleSlug: 'ghora-sampradaya-11-bhedas-study',
-    sanskritSeal: 'घोर सम्प्रदाय · ११/१२ भेद',
-    shortTitleEn: 'Ghora 11/12 Bhedas',
-    shortTitleHi: 'घोर सम्प्रदाय ११/१२ भेद',
-    subtitleEn: 'Rakta, Śukla, Vinmūtra, Bhakṣa to Siddha (12 Terms)',
-    subtitleHi: 'रक्त, शुक्ल, विन्मूत्र से सिद्ध तक १२ नामों की समीक्षा',
-    domainBadgeEn: 'SOURCE VERIFICATION PENDING',
-    domainBadgeHi: 'स्रोत की पुष्टि लंबित',
-    accentColor: '#EF4444',
-    motifType: 'ghora11',
-    isPendingVerificationNote: true
-  },
-  {
-    id: 'seal-kapalika-5-bhedas',
-    sealNumber: 'SEAL 04',
-    categorySlug: 'ashta-bhairava',
-    articleSlug: 'kapalika-sampradaya-5-bhedas-somasiddhanta',
-    sanskritSeal: 'कापालिक · सोमसिद्धान्त · ५ भेद',
-    shortTitleEn: 'Kāpālika & 5 Bhedas',
-    shortTitleHi: 'कापालिक एवं ५ भेद',
-    subtitleEn: 'Somāsiddhānta, 12 Gurus & Indra–Deva–Rudra–Vidyā–Siddha',
-    subtitleHi: 'सोमसिद्धान्त, १२ गुरु एवं इन्द्र–देव–रुद्र–विद्या–सिद्ध',
-    domainBadgeEn: 'ŚAIVA HISTORY & SOURCE AUDIT',
-    domainBadgeHi: 'शैव इतिहास एवं स्रोत समीक्षा',
-    accentColor: '#D97706',
-    motifType: 'kapalika5',
-    isPendingVerificationNote: true
+    motifType: 'aghora',
+    subParts: AGHORA_SUBPART_SEALS
   },
   {
     id: 'seal-ashta-prahar',
-    sealNumber: 'SEAL 05',
+    sealNumber: 'SEAL 03',
     categorySlug: 'the-14-lokas',
     articleSlug: 'samaya-ashta-prahar-timekeeping',
     sanskritSeal: 'समय एवं अष्ट प्रहर · काल-तत्त्व',
@@ -798,7 +824,7 @@ export const SPECIAL_CIRCULAR_SEALS: SpecialCircularSeal[] = [
   },
   {
     id: 'seal-bhairavagana',
-    sealNumber: 'SEAL 06',
+    sealNumber: 'SEAL 04',
     categorySlug: 'ashta-bhairava',
     articleSlug: 'bhairavagana-taxonomy-kshetrapalas',
     sanskritSeal: 'भैरवगण · क्षेत्रपाल · बटुक',
@@ -813,7 +839,7 @@ export const SPECIAL_CIRCULAR_SEALS: SpecialCircularSeal[] = [
   },
   {
     id: 'seal-kalikula-srikula',
-    sealNumber: 'SEAL 07',
+    sealNumber: 'SEAL 05',
     categorySlug: 'eight-matrikas',
     articleSlug: 'kalikula-srikula-streams',
     sanskritSeal: 'कालीकुल एवं श्रीकुल · आम्नाय',
@@ -828,7 +854,7 @@ export const SPECIAL_CIRCULAR_SEALS: SpecialCircularSeal[] = [
   },
   {
     id: 'seal-mahavidya-navadurga',
-    sealNumber: 'SEAL 08',
+    sealNumber: 'SEAL 06',
     categorySlug: 'eight-matrikas',
     articleSlug: 'dasa-mahavidya-ten-wisdom-goddesses',
     sanskritSeal: 'दशमहाविद्या · नवदुर्गा',
