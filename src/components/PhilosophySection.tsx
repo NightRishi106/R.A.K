@@ -104,7 +104,7 @@ const EMPIRICAL_NODES: MethodologyNode[] = [
     activeCase: 'The Musical Pillars of Vittala, Hampi',
     activeCaseHi: 'विट्ठल मंदिर के संगीतमय स्तंभ, हम्पी',
     icon: Radio,
-    angle: 0
+    angle: -90
   },
   {
     id: 'node-geomagnetic',
@@ -122,7 +122,7 @@ const EMPIRICAL_NODES: MethodologyNode[] = [
     activeCase: 'The Natural Fields of Kuldhara Village',
     activeCaseHi: 'कुलधरा ग्राम के प्राकृतिक चुंबकीय क्षेत्र',
     icon: Zap,
-    angle: 72
+    angle: -18
   },
   {
     id: 'node-thermal',
@@ -140,7 +140,7 @@ const EMPIRICAL_NODES: MethodologyNode[] = [
     activeCase: 'The Gateway cold-spots of Bhangarh Fort',
     activeCaseHi: 'भानगढ़ किले के प्रवेश-द्वार के शीत-स्थल',
     icon: Thermometer,
-    angle: 144
+    angle: 54
   },
   {
     id: 'node-chemistry',
@@ -158,7 +158,7 @@ const EMPIRICAL_NODES: MethodologyNode[] = [
     activeCase: 'The Thorium Aquifers of Kodinhi',
     activeCaseHi: 'कोडिन्ही के थोरियम जलभृत',
     icon: Droplet,
-    angle: 216
+    angle: 126
   },
   {
     id: 'node-structural',
@@ -176,7 +176,7 @@ const EMPIRICAL_NODES: MethodologyNode[] = [
     activeCase: 'The Ellipsoidal Sanctums of Western Ghats',
     activeCaseHi: 'पश्चिमी घाट के दीर्घवृत्ताकार गर्भगृह',
     icon: Layers,
-    angle: 288
+    angle: 198
   }
 ];
 
@@ -920,7 +920,11 @@ export default function PhilosophySection() {
               aria-label={t('Dedicated Research Philosophy Page', 'समर्पित शोध दर्शन पृष्ठ')}
               className="fixed inset-0 z-[80] isolate overflow-y-auto overflow-x-hidden bg-[#17100C] text-[#F5E8CE] vintage-scrollbar"
             >
-              <TransparentLineScrollbar containerRef={researchPageScrollRef} variant="overlay" />
+              <TransparentLineScrollbar
+                containerRef={researchPageScrollRef}
+                variant="overlay"
+                watchKey={`${routeState.mode}-${routeState.categorySlug || ''}-${routeState.articleSlug || ''}-${viewState.chapter}`}
+              />
             {/* Standalone Research Page Background Texture */}
             <div
               className="fixed inset-0 z-0 pointer-events-none"
@@ -1014,12 +1018,39 @@ export default function PhilosophySection() {
                         </text>
                       </svg>
 
-                      {/* Connecting Bronze Lines (SVGs radiating from core) */}
+                      {/* Upright Pentagon & Connecting Bronze Lines (SVGs radiating from core with NADA at top apex) */}
                       <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 200 200">
+                        {/* Upright Regular Pentagon connecting the 5 nodes (NADA at top 12 o'clock) */}
+                        <polygon
+                          points={EMPIRICAL_NODES.map(node => {
+                            const rad = (node.angle * Math.PI) / 180;
+                            const px = 100 + Math.cos(rad) * 68.75;
+                            const py = 100 + Math.sin(rad) * 68.75;
+                            return `${px.toFixed(2)},${py.toFixed(2)}`;
+                          }).join(' ')}
+                          fill="rgba(212, 175, 55, 0.03)"
+                          stroke="#bfa15f"
+                          strokeOpacity="0.45"
+                          strokeWidth="1"
+                        />
+                        {/* Inner Concentric Pentagon */}
+                        <polygon
+                          points={EMPIRICAL_NODES.map(node => {
+                            const rad = (node.angle * Math.PI) / 180;
+                            const px = 100 + Math.cos(rad) * 38;
+                            const py = 100 + Math.sin(rad) * 38;
+                            return `${px.toFixed(2)},${py.toFixed(2)}`;
+                          }).join(' ')}
+                          fill="none"
+                          stroke="#bfa15f"
+                          strokeOpacity="0.2"
+                          strokeWidth="0.6"
+                          strokeDasharray="2 2"
+                        />
                         {EMPIRICAL_NODES.map(node => {
                           const rad = (node.angle * Math.PI) / 180;
-                          const x2 = 100 + Math.cos(rad) * 72;
-                          const y2 = 100 + Math.sin(rad) * 72;
+                          const x2 = 100 + Math.cos(rad) * 68.75;
+                          const y2 = 100 + Math.sin(rad) * 68.75;
                           const isSelected = node.id === selectedEmpiricalNode.id;
                           return (
                             <g key={node.id}>
@@ -1028,8 +1059,8 @@ export default function PhilosophySection() {
                                 y1="100"
                                 x2={x2}
                                 y2={y2}
-                                stroke={isSelected ? '#d4af37' : '#3a2e24'}
-                                strokeWidth={isSelected ? '1.75' : '0.75'}
+                                stroke={isSelected ? '#d4af37' : '#544338'}
+                                strokeWidth={isSelected ? '1.75' : '0.85'}
                                 strokeDasharray={isSelected ? 'none' : '2 2'}
                                 className="transition-all duration-300 motion-reduce:transition-none"
                               />

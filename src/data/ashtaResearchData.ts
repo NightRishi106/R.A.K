@@ -74,12 +74,32 @@ export interface AshtaMatrikaProfile {
   sourceNoteHi: string;
 }
 
+export interface YoginiBhairavaDyad {
+  index: number; // 1..64
+  cellId: string; // BM-01-01 .. BM-08-08
+  rowIdx: number; // 0..7
+  colIdx: number; // 0..7
+  octadIndex: number; // 1..8
+  yoginiName: string;
+  yoginiFull: string;
+  yoginiNameHi: string;
+  yoginiFullHi: string;
+  bhairavaConsortName: string;
+  bhairavaConsortFull: string;
+  bhairavaConsortNameHi: string;
+  bhairavaConsortFullHi: string;
+  dyadLabelEn: string;
+  dyadLabelHi: string;
+}
+
 export interface MatrixIntersectionData {
   id: string; // BM-01-01 .. BM-08-08
+  pairNumber: number; // 1..64
   rowIndex: number;
   colIndex: number;
   bhairava: AshtaBhairavaProfile;
   matrika: AshtaMatrikaProfile;
+  dyad: YoginiBhairavaDyad;
   isCanonicalConsortPair: boolean;
   relationshipSummary: string;
   relationshipSummaryHi: string;
@@ -664,47 +684,172 @@ export const COSMIC_STARFIELD = Array.from({ length: 56 }, (_, i) => ({
   opacity: i % 4 === 0 ? 0.65 : i % 3 === 0 ? 0.38 : 0.2
 }));
 
+const RAW_64_YOGINI_BHAIRAVA_PAIRS: Array<{
+  yoginiName: string;
+  yoginiNameHi: string;
+  bhairavaConsortName: string;
+  bhairavaConsortNameHi: string;
+}> = [
+  // Octad I (1–8 · Row 1)
+  { yoginiName: 'Mahalakshmi', yoginiNameHi: 'महालक्ष्मी', bhairavaConsortName: 'Mahakala', bhairavaConsortNameHi: 'महाकाल' },
+  { yoginiName: 'Kaumari', yoginiNameHi: 'कौमारी', bhairavaConsortName: 'Chandisara', bhairavaConsortNameHi: 'चण्डीश्वर' },
+  { yoginiName: 'Varahi', yoginiNameHi: 'वाराही', bhairavaConsortName: 'Ruru', bhairavaConsortNameHi: 'रुरु' },
+  { yoginiName: 'Chamunda', yoginiNameHi: 'चामुण्डा', bhairavaConsortName: 'Kapaleshvara', bhairavaConsortNameHi: 'कपालेश्वर' },
+  { yoginiName: 'Brahmani', yoginiNameHi: 'ब्राह्मणी', bhairavaConsortName: 'Krodhana', bhairavaConsortNameHi: 'क्रोधन' },
+  { yoginiName: 'Vaishnavi', yoginiNameHi: 'वैष्णवी', bhairavaConsortName: 'Unmatta', bhairavaConsortNameHi: 'उन्मत्त' },
+  { yoginiName: 'Indrani', yoginiNameHi: 'इन्द्राणी', bhairavaConsortName: 'Bhishana', bhairavaConsortNameHi: 'भीषण' },
+  { yoginiName: 'Narasinhi', yoginiNameHi: 'नारसिंही', bhairavaConsortName: 'Dandapani', bhairavaConsortNameHi: 'दण्डपाणि' },
+
+  // Octad II (9–16 · Row 2)
+  { yoginiName: 'Vayuvegini', yoginiNameHi: 'वायुवेगिनी', bhairavaConsortName: 'Bherunda', bhairavaConsortNameHi: 'भेरुण्ड' },
+  { yoginiName: 'Gandhari', yoginiNameHi: 'गान्धारी', bhairavaConsortName: 'Tripuranta', bhairavaConsortNameHi: 'त्रिपुरान्त' },
+  { yoginiName: 'Vajra', yoginiNameHi: 'वज्रा', bhairavaConsortName: 'Rudra', bhairavaConsortNameHi: 'रुद्र' },
+  { yoginiName: 'Kameshvari', yoginiNameHi: 'कामेश्वरी', bhairavaConsortName: 'Brahmashirasa', bhairavaConsortNameHi: 'ब्रह्मशिरस' },
+  { yoginiName: 'Bhadrakali', yoginiNameHi: 'भद्रकाली', bhairavaConsortName: 'Durvasana', bhairavaConsortNameHi: 'दुर्वासन' },
+  { yoginiName: 'Kaushiki', yoginiNameHi: 'कौशिकी', bhairavaConsortName: 'Krodhisha', bhairavaConsortNameHi: 'क्रोधीश' },
+  { yoginiName: 'Shivaduti', yoginiNameHi: 'शिवदूती', bhairavaConsortName: 'Vyomakesha', bhairavaConsortNameHi: 'व्योमकेश' },
+  { yoginiName: 'Charchika', yoginiNameHi: 'चर्चिका', bhairavaConsortName: 'Jvalanpuri', bhairavaConsortNameHi: 'ज्वलनपुरी' },
+
+  // Octad III (17–24 · Row 3)
+  { yoginiName: 'Tara', yoginiNameHi: 'तारा', bhairavaConsortName: 'Bhairavi', bhairavaConsortNameHi: 'भैरवी' },
+  { yoginiName: 'Bagalamukhi', yoginiNameHi: 'बगलामुखी', bhairavaConsortName: 'Kshitinashana', bhairavaConsortNameHi: 'क्षितिनाशन' },
+  { yoginiName: 'Dhumavati', yoginiNameHi: 'धूमावती', bhairavaConsortName: 'Ruru Bhairava', bhairavaConsortNameHi: 'रुरु भैरव' },
+  { yoginiName: 'Matangi', yoginiNameHi: 'मातंगी', bhairavaConsortName: 'Vamadeva', bhairavaConsortNameHi: 'वामदेव' },
+  { yoginiName: 'Kamala', yoginiNameHi: 'कमला', bhairavaConsortName: 'Ishana', bhairavaConsortNameHi: 'ईशान' },
+  { yoginiName: 'Shodashi', yoginiNameHi: 'षोडशी', bhairavaConsortName: 'Ugrachanda', bhairavaConsortNameHi: 'उग्रचण्ड' },
+  { yoginiName: 'Tripura Bhairavi', yoginiNameHi: 'त्रिपुर भैरवी', bhairavaConsortName: 'Nilkantha', bhairavaConsortNameHi: 'नीलकण्ठ' },
+  { yoginiName: 'Kali', yoginiNameHi: 'काली', bhairavaConsortName: 'Unmatta', bhairavaConsortNameHi: 'उन्मत्त' },
+
+  // Octad IV (25–32 · Row 4)
+  { yoginiName: 'Siddhalakshmi', yoginiNameHi: 'सिद्धलक्ष्मी', bhairavaConsortName: 'Chhagalanda', bhairavaConsortNameHi: 'छागलण्ड' },
+  { yoginiName: 'Vajreshvari', yoginiNameHi: 'वज्रेश्वरी', bhairavaConsortName: 'Rakshasa', bhairavaConsortNameHi: 'राक्षस' },
+  { yoginiName: 'Guhyakali', yoginiNameHi: 'गुह्यकाली', bhairavaConsortName: 'Mahadeva', bhairavaConsortNameHi: 'महादेव' },
+  { yoginiName: 'Bhima', yoginiNameHi: 'भीमा', bhairavaConsortName: 'Bhutapati', bhairavaConsortNameHi: 'भूतपति' },
+  { yoginiName: 'Chandika', yoginiNameHi: 'चण्डिका', bhairavaConsortName: 'Kamadeva', bhairavaConsortNameHi: 'कामदेव' },
+  { yoginiName: 'Annapurna', yoginiNameHi: 'अन्नपूर्णा', bhairavaConsortName: 'Aghora', bhairavaConsortNameHi: 'अघोर' },
+  { yoginiName: 'Kapalini', yoginiNameHi: 'कपालिनी', bhairavaConsortName: 'Kalabhairava', bhairavaConsortNameHi: 'कालभैरव' },
+  { yoginiName: 'Sarvamangala', yoginiNameHi: 'सर्वमंगला', bhairavaConsortName: 'Vishalaksha', bhairavaConsortNameHi: 'विशालाक्ष' },
+
+  // Octad V (33–40 · Row 5)
+  { yoginiName: 'Bhagamalini', yoginiNameHi: 'भगमालिनी', bhairavaConsortName: 'Bhishana', bhairavaConsortNameHi: 'भीषण' },
+  { yoginiName: 'Tripura Sundari', yoginiNameHi: 'त्रिपुर सुन्दरी', bhairavaConsortName: 'Shuddhapada', bhairavaConsortNameHi: 'शुद्धपाद' },
+  { yoginiName: 'Chinnamasta', yoginiNameHi: 'छिन्नमस्ता', bhairavaConsortName: 'Bhringi', bhairavaConsortNameHi: 'भृंगी' },
+  { yoginiName: 'Nitya', yoginiNameHi: 'नित्या', bhairavaConsortName: 'Kalagni', bhairavaConsortNameHi: 'कालाग्नि' },
+  { yoginiName: 'Nirriti', yoginiNameHi: 'नैऋती', bhairavaConsortName: 'Bhutadhya', bhairavaConsortNameHi: 'भूताढ्य' },
+  { yoginiName: 'Mahakali', yoginiNameHi: 'महाकाली', bhairavaConsortName: 'Dhurjati', bhairavaConsortNameHi: 'धूर्जटि' },
+  { yoginiName: 'Bhavani', yoginiNameHi: 'भवानी', bhairavaConsortName: 'Kshipra', bhairavaConsortNameHi: 'क्षिप्र' },
+  { yoginiName: 'Aparajita', yoginiNameHi: 'अपराजिता', bhairavaConsortName: 'Darpana', bhairavaConsortNameHi: 'दर्पण' },
+
+  // Octad VI (41–48 · Row 6)
+  { yoginiName: 'Ugraprabha', yoginiNameHi: 'उग्रप्रभा', bhairavaConsortName: 'Vishvamata', bhairavaConsortNameHi: 'विश्वमाता' },
+  { yoginiName: 'Ardhanarishvara', yoginiNameHi: 'अर्धनारीश्वर', bhairavaConsortName: 'Panchanana', bhairavaConsortNameHi: 'पंचानन' },
+  { yoginiName: 'Jwalamukhi', yoginiNameHi: 'ज्वालामुखी', bhairavaConsortName: 'Bhimalochana', bhairavaConsortNameHi: 'भीमलोचन' },
+  { yoginiName: 'Maheshvari', yoginiNameHi: 'माहेश्वरी', bhairavaConsortName: 'Maheshvara', bhairavaConsortNameHi: 'महेश्वर' },
+  { yoginiName: 'Yogeshvari', yoginiNameHi: 'योगेश्वरी', bhairavaConsortName: 'Vyomakesha', bhairavaConsortNameHi: 'व्योमकेश' },
+  { yoginiName: 'Panchami', yoginiNameHi: 'पंचमी', bhairavaConsortName: 'Tumburu', bhairavaConsortNameHi: 'तुम्बुरु' },
+  { yoginiName: 'Jnaneshvari', yoginiNameHi: 'ज्ञानेश्वरी', bhairavaConsortName: 'Ananda', bhairavaConsortNameHi: 'आनन्द' },
+  { yoginiName: 'Bhageshvari', yoginiNameHi: 'भागेश्वरी', bhairavaConsortName: 'Bhutadhya', bhairavaConsortNameHi: 'भूताढ्य' },
+
+  // Octad VII (49–56 · Row 7)
+  { yoginiName: 'Rakteshvari', yoginiNameHi: 'रक्तेश्वरी', bhairavaConsortName: 'Vijaya', bhairavaConsortNameHi: 'विजय' },
+  { yoginiName: 'Siddheshvari', yoginiNameHi: 'सिद्धेश्वरी', bhairavaConsortName: 'Virupaksha', bhairavaConsortNameHi: 'विरूपाक्ष' },
+  { yoginiName: 'Pitheshvari', yoginiNameHi: 'पीठेश्वरी', bhairavaConsortName: 'Jalandhara', bhairavaConsortNameHi: 'जालन्धर' },
+  { yoginiName: 'Shriparni', yoginiNameHi: 'श्रीपर्णी', bhairavaConsortName: 'Ganesha', bhairavaConsortNameHi: 'गणेश' },
+  { yoginiName: 'Parnashavari', yoginiNameHi: 'पर्णशवरी', bhairavaConsortName: 'Chandramukha', bhairavaConsortNameHi: 'चन्द्रमुख' },
+  { yoginiName: 'Balabhadra', yoginiNameHi: 'बलभद्रा', bhairavaConsortName: 'Nilakantha', bhairavaConsortNameHi: 'नीलकण्ठ' },
+  { yoginiName: 'Sureshvari', yoginiNameHi: 'सुरेश्वरी', bhairavaConsortName: 'Urdhvasheersha', bhairavaConsortNameHi: 'ऊर्ध्वशीर्ष' },
+  { yoginiName: 'Ajita', yoginiNameHi: 'अजिता', bhairavaConsortName: 'Vishveshvara', bhairavaConsortNameHi: 'विश्वेश्वर' },
+
+  // Octad VIII (57–64 · Row 8)
+  { yoginiName: 'Durga', yoginiNameHi: 'दुर्गा', bhairavaConsortName: 'Kartikeya', bhairavaConsortNameHi: 'कार्तिकेय' },
+  { yoginiName: 'Ambika', yoginiNameHi: 'अम्बिका', bhairavaConsortName: 'Chandrasekhara', bhairavaConsortNameHi: 'चन्द्रशेखर' },
+  { yoginiName: 'Bhutamata', yoginiNameHi: 'भूतमाता', bhairavaConsortName: 'Pitambara', bhairavaConsortNameHi: 'पीताम्बर' },
+  { yoginiName: 'Karali', yoginiNameHi: 'कराली', bhairavaConsortName: 'Shikhandi', bhairavaConsortNameHi: 'शिखण्डी' },
+  { yoginiName: 'Virabhadra', yoginiNameHi: 'वीरभद्रा', bhairavaConsortName: 'Vajrabhairava', bhairavaConsortNameHi: 'वज्रभैरव' },
+  { yoginiName: 'Sharika', yoginiNameHi: 'शारिका', bhairavaConsortName: 'Harikesa', bhairavaConsortNameHi: 'हरिकेश' },
+  { yoginiName: 'Vikarali', yoginiNameHi: 'विकराली', bhairavaConsortName: 'Ankusha', bhairavaConsortNameHi: 'अंकुश' },
+  { yoginiName: 'Mahamaya', yoginiNameHi: 'महामाया', bhairavaConsortName: 'Dakshinapistitha', bhairavaConsortNameHi: 'दक्षिणपीठस्थित' }
+];
+
+export const SIXTY_FOUR_YOGINI_BHAIRAVA_DYADS: YoginiBhairavaDyad[] = RAW_64_YOGINI_BHAIRAVA_PAIRS.map(
+  (pair, idx) => {
+    const rowIdx = Math.floor(idx / 8);
+    const colIdx = idx % 8;
+    const rowNum = String(rowIdx + 1).padStart(2, '0');
+    const colNum = String(colIdx + 1).padStart(2, '0');
+    const cellId = `BM-${rowNum}-${colNum}`;
+    const yoginiFull = `Yogini ${pair.yoginiName}`;
+    const yoginiFullHi = `योगिनी ${pair.yoginiNameHi}`;
+    const bhairavaConsortFull = `Bhairava ${pair.bhairavaConsortName}`;
+    const bhairavaConsortFullHi = `भैरव ${pair.bhairavaConsortNameHi}`;
+
+    return {
+      index: idx + 1,
+      cellId,
+      rowIdx,
+      colIdx,
+      octadIndex: rowIdx + 1,
+      yoginiName: pair.yoginiName,
+      yoginiFull,
+      yoginiNameHi: pair.yoginiNameHi,
+      yoginiFullHi,
+      bhairavaConsortName: pair.bhairavaConsortName,
+      bhairavaConsortFull,
+      bhairavaConsortNameHi: pair.bhairavaConsortNameHi,
+      bhairavaConsortFullHi,
+      dyadLabelEn: `${yoginiFull} – ${bhairavaConsortFull}`,
+      dyadLabelHi: `${yoginiFullHi} – ${bhairavaConsortFullHi}`
+    };
+  }
+);
+
 export function getMatrixIntersection(
   rowIdx: number,
   colIdx: number
 ): MatrixIntersectionData {
-  const bhairava = ASHTA_BHAIRAVA_PROFILES[rowIdx] || ASHTA_BHAIRAVA_PROFILES[0];
-  const matrika = ASHTA_MATRIKA_PROFILES[colIdx] || ASHTA_MATRIKA_PROFILES[0];
-  const rowNum = String(rowIdx + 1).padStart(2, '0');
-  const colNum = String(colIdx + 1).padStart(2, '0');
+  const safeRow = Math.min(Math.max(rowIdx, 0), 7);
+  const safeCol = Math.min(Math.max(colIdx, 0), 7);
+  const bhairava = ASHTA_BHAIRAVA_PROFILES[safeRow] || ASHTA_BHAIRAVA_PROFILES[0];
+  const matrika = ASHTA_MATRIKA_PROFILES[safeCol] || ASHTA_MATRIKA_PROFILES[0];
+  const pairIndex = safeRow * 8 + safeCol;
+  const dyad = SIXTY_FOUR_YOGINI_BHAIRAVA_DYADS[pairIndex] || SIXTY_FOUR_YOGINI_BHAIRAVA_DYADS[0];
+  const rowNum = String(safeRow + 1).padStart(2, '0');
+  const colNum = String(safeCol + 1).padStart(2, '0');
   const id = `BM-${rowNum}-${colNum}`;
-  const isCanonicalConsortPair = rowIdx === colIdx;
+  const isCanonicalConsortPair = safeRow === safeCol;
 
   const relationshipSummary = isCanonicalConsortPair
-    ? `Primary diagonal pairing in the 8×8 schema: ${bhairava.englishName} (${bhairava.directionFull} guardian, traditionally paired with ${bhairava.shakti}) intersects with ${matrika.englishName} (${matrika.conceptualTitle}, ${matrika.tattva}).`
-    : `Exploratory cross-vector matrika linking ${bhairava.englishName} (${bhairava.directionFull} · ${bhairava.planet}) with ${matrika.englishName} (${matrika.rowLabel} · ${matrika.binaryCode} · ${matrika.conceptualTitle}).`;
+    ? `Sacred Dyad #${String(dyad.index).padStart(2, '0')} (${dyad.dyadLabelEn}) anchors the primary diagonal node ${id}: ${bhairava.englishName} (${bhairava.directionFull} guardian, paired with ${bhairava.shakti}) intersects with ${matrika.englishName} (${matrika.conceptualTitle}, ${matrika.tattva}).`
+    : `Sacred Dyad #${String(dyad.index).padStart(2, '0')} (${dyad.dyadLabelEn}) presides over cell ${id}, linking Row ${safeRow + 1} ${bhairava.englishName} (${bhairava.directionFull} · ${bhairava.planet}) with Column ${safeCol + 1} ${matrika.englishName} (${matrika.rowLabel} · ${matrika.binaryCode} · ${matrika.conceptualTitle}).`;
 
   const relationshipSummaryHi = isCanonicalConsortPair
-    ? `8×8 संरचना में प्राथमिक विकर्ण युग्म: ${bhairava.hindiName} (${bhairava.directionFullHi} के रक्षक, पारंपरिक रूप से ${bhairava.shaktiHi} के साथ युग्मित) का संगम ${matrika.hindiName} (${matrika.conceptualTitleHi}, ${matrika.tattvaHi} तत्त्व) से होता है।`
-    : `अन्वेषणात्मक क्रॉस-वेक्टर मातृका जो ${bhairava.hindiName} (${bhairava.directionFullHi} · ${bhairava.planetHi}) को ${matrika.hindiName} (${matrika.rowLabelHi} · कोड ${matrika.binaryCode} · ${matrika.conceptualTitleHi}) से जोड़ती है।`;
+    ? `पवित्र युग्म #${String(dyad.index).padStart(2, '0')} (${dyad.dyadLabelHi}) प्राथमिक विकर्ण बिंदु ${id} को स्थापित करता है: ${bhairava.hindiName} (${bhairava.directionFullHi} के रक्षक, ${bhairava.shaktiHi} के साथ युग्मित) का संगम ${matrika.hindiName} (${matrika.conceptualTitleHi}, ${matrika.tattvaHi} तत्त्व) से होता है।`
+    : `पवित्र युग्म #${String(dyad.index).padStart(2, '0')} (${dyad.dyadLabelHi}) कोष्ठ ${id} का अधिष्ठान करता है, जो पंक्ति ${safeRow + 1} के ${bhairava.hindiName} (${bhairava.directionFullHi} · ${bhairava.planetHi}) को स्तंभ ${safeCol + 1} की ${matrika.hindiName} (${matrika.rowLabelHi} · कोड ${matrika.binaryCode} · ${matrika.conceptualTitleHi}) से जोड़ता है।`;
 
   const researchQuestion = isCanonicalConsortPair
-    ? `How do Shaiva-Shakta Agamic texts and temple mandalas articulate the direct directional pairing of ${bhairava.englishName} (${bhairava.directionFull}) and ${matrika.englishName} (${matrika.kshetra} / ${matrika.tattva})?`
-    : `How might the matrika of ${bhairava.englishName}'s directional domain (${bhairava.directionFull}) and ${matrika.englishName}'s archetypal function (${matrika.conceptualTitle}) be interpreted within comparative tantric or iconographic traditions?`;
+    ? `How do Tantric and Agamic mandala traditions articulate the sovereign pairing of ${dyad.yoginiFull} and ${dyad.bhairavaConsortFull} at the directional convergence of ${bhairava.englishName} (${bhairava.directionFull}) and ${matrika.englishName} (${matrika.kshetra} / ${matrika.tattva})?`
+    : `How does the consort pairing of ${dyad.yoginiFull} – ${dyad.bhairavaConsortFull} (Dyad #${String(dyad.index).padStart(2, '0')}) synthesize ${bhairava.englishName}'s directional domain (${bhairava.directionFull}) with ${matrika.englishName}'s archetypal function (${matrika.conceptualTitle})?`;
 
   const researchQuestionHi = isCanonicalConsortPair
-    ? `शैव-शाक्त आगम ग्रंथ और मंदिर मण्डल ${bhairava.hindiName} (${bhairava.directionFullHi}) और ${matrika.hindiName} (${matrika.kshetraHi} / ${matrika.tattvaHi} तत्त्व) के प्रत्यक्ष दिशात्मक युग्मन को किस प्रकार व्यक्त करते हैं?`
-    : `तुलनात्मक तांत्रिक या प्रतिमाशास्त्रीय परम्पराओं में ${bhairava.hindiName} के दिशात्मक क्षेत्र (${bhairava.directionFullHi}) और ${matrika.hindiName} के आद्यप्ररूप कार्य (${matrika.conceptualTitleHi}) के संगम की व्याख्या कैसे की जा सकती है?`;
+    ? `तांत्रिक और आगम मण्डल परम्पराएँ ${bhairava.hindiName} (${bhairava.directionFullHi}) और ${matrika.hindiName} (${matrika.kshetraHi} / ${matrika.tattvaHi} तत्त्व) के दिशात्मक संगम पर ${dyad.yoginiFullHi} तथा ${dyad.bhairavaConsortFullHi} के युग्मन को किस प्रकार व्यक्त करती हैं?`
+    : `${dyad.yoginiFullHi} – ${dyad.bhairavaConsortFullHi} (युग्म #${String(dyad.index).padStart(2, '0')}) का संयोग ${bhairava.hindiName} के दिशात्मक क्षेत्र (${bhairava.directionFullHi}) और ${matrika.hindiName} के आद्यप्ररूप कार्य (${matrika.conceptualTitleHi}) का समन्वय कैसे करता है?`;
 
   const evidenceStatus = isCanonicalConsortPair
-    ? 'Traditional directional pairing (Agamic & temple compendia) · Interpretive synthesis requires primary-source verification'
-    : 'Research framework — source verification required';
+    ? `Chatushashti Yogini-Bhairava Dyad #${String(dyad.index).padStart(2, '0')} (${dyad.dyadLabelEn}) · Primary Octant Node`
+    : `Chatushashti Yogini-Bhairava Dyad #${String(dyad.index).padStart(2, '0')} (${dyad.dyadLabelEn}) · Combinatorial Mandala Node`;
 
   const evidenceStatusHi = isCanonicalConsortPair
-    ? 'पारंपरिक दिशात्मक युग्म (आगम एवं मंदिर संग्रह) · व्याख्यात्मक संश्लेषण हेतु मूल-स्रोत सत्यापन आवश्यक'
-    : 'शोध रूपरेखा — मूल-स्रोत सत्यापन आवश्यक';
+    ? `चतुःषष्टि योगिनी-भैरव युग्म #${String(dyad.index).padStart(2, '0')} (${dyad.dyadLabelHi}) · प्राथमिक अष्टांश बिंदु`
+    : `चतुःषष्टि योगिनी-भैरव युग्म #${String(dyad.index).padStart(2, '0')} (${dyad.dyadLabelHi}) · संयोजनात्मक मण्डल बिंदु`;
 
   return {
     id,
-    rowIndex: rowIdx,
-    colIndex: colIdx,
+    pairNumber: dyad.index,
+    rowIndex: safeRow,
+    colIndex: safeCol,
     bhairava,
     matrika,
+    dyad,
     isCanonicalConsortPair,
     relationshipSummary,
     relationshipSummaryHi,

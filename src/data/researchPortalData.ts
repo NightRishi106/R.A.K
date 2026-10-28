@@ -659,27 +659,28 @@ const BHAIRAV_CODEX_ARTICLES: ResearchArticle[] = [
 const MATRIX_64_PRIMARY_ARTICLES: ResearchArticle[] = ASHTA_BHAIRAVA_PROFILES.map((bh, idx) => {
   const intersection = getMatrixIntersection(idx, idx);
   const mk = intersection.matrika;
+  const dyad = intersection.dyad;
   const code = intersection.id; // BM-01-01 .. BM-08-08
   return {
     slug: code.toLowerCase(),
     categorySlug: '64-yogini-matrix',
     code,
-    titleEn: `${code}: ${bh.englishName} × ${mk.englishName} (Canonical Octant Synthesis)`,
-    titleHi: `${code}: ${bh.hindiName} × ${mk.hindiName} (प्रामाणिक अष्टांश युग्म)`,
-    subtitleEn: `Octant 0${idx + 1} Diagonal Pairing · ${bh.directionFull} (${bh.planet}) × ${mk.conceptualTitle} (${mk.binaryCode} · ${mk.tattva})`,
-    subtitleHi: `अष्टांश 0${idx + 1} विकर्ण युग्म · ${bh.directionFullHi} (${bh.planetHi}) × ${mk.conceptualTitleHi} (${mk.binaryCode} · ${mk.tattvaHi})`,
-    sanskritEpigraph: `॥ अष्टभैरव-अष्टमातृका चतुःषष्टियोगिनी मण्डलम् · ${bh.hindiName} - ${mk.hindiName} संयोगः (${code}) ॥`,
-    epigraphTranslationEn: `"In the 8×8 Chatushashti Yogini Mandala, cell ${code} unites ${bh.englishName} of the ${bh.directionFull} with Matrika ${mk.englishName} (${mk.tattva})."`,
-    epigraphTranslationHi: `"8×8 चतुःषष्टि योगिनी मण्डल में, कोष्ठ ${code} ${bh.directionFullHi} के ${bh.hindiName} को मातृका ${mk.hindiName} (${mk.tattvaHi} तत्त्व) के साथ संयोजित करता है।"`,
-    evidenceBadgeEn: 'CANONICAL DIAGONAL PAIRING · 8×8 MATRIX',
-    evidenceBadgeHi: 'प्रामाणिक विकर्ण युग्म · 8×8 आव्यूह',
+    titleEn: `${code} (#${String(dyad.index).padStart(2, '0')}): ${dyad.dyadLabelEn}`,
+    titleHi: `${code} (#${String(dyad.index).padStart(2, '0')}): ${dyad.dyadLabelHi}`,
+    subtitleEn: `Vector ${bh.englishName} × ${mk.englishName} · ${bh.directionFull} (${bh.planet}) × ${mk.conceptualTitle} (${mk.binaryCode} · ${mk.tattva})`,
+    subtitleHi: `सदिश ${bh.hindiName} × ${mk.hindiName} · ${bh.directionFullHi} (${bh.planetHi}) × ${mk.conceptualTitleHi} (${mk.binaryCode} · ${mk.tattvaHi})`,
+    sanskritEpigraph: `॥ चतुःषष्टियोगिनी-भैरव मण्डलम् · ${dyad.yoginiFullHi} – ${dyad.bhairavaConsortFullHi} (${code}) ॥`,
+    epigraphTranslationEn: `"In the 8×8 Chatushashti Yogini Mandala, cell ${code} (#${String(dyad.index).padStart(2, '0')}) enshrines ${dyad.dyadLabelEn} along the vector of ${bh.englishName} and Matrika ${mk.englishName}."`,
+    epigraphTranslationHi: `"8×8 चतुःषष्टि योगिनी मण्डल में, कोष्ठ ${code} (#${String(dyad.index).padStart(2, '0')}) ${bh.hindiName} और मातृका ${mk.hindiName} के सदिश पर '${dyad.dyadLabelHi}' को प्रतिष्ठित करता है।"`,
+    evidenceBadgeEn: `DYAD #${String(dyad.index).padStart(2, '0')} · CANONICAL 8×8 MATRIX`,
+    evidenceBadgeHi: `युग्म #${String(dyad.index).padStart(2, '0')} · प्रामाणिक 8×8 आव्यूह`,
     accentColor: bh.accentColor,
     summaryEn: intersection.relationshipSummary,
     summaryHi: intersection.relationshipSummaryHi,
     sections: [
       {
-        headingEn: '1. Combinatorial Architecture of the 8×8 Yogini Matrix',
-        headingHi: '1. 8×8 योगिनी आव्यूह की संयोजनात्मक संरचना',
+        headingEn: '1. Sacred Yoginī – Bhairava Consort Dyad & Matrix Architecture',
+        headingHi: '1. पवित्र योगिनी – भैरव युग्म एवं 8×8 आव्यूह संरचना',
         bodyEn: `${intersection.relationshipSummary} Within the 64-cell research lattice, Row 0${idx + 1} is governed by ${bh.englishName} (${bh.controlsLine}) while Column 0${idx + 1} is governed by ${mk.englishName} (${mk.conceptualFormula} — ${mk.description}).`,
         bodyHi: `${intersection.relationshipSummaryHi} 64-कोष्ठकीय शोध जालक में पंक्ति 0${idx + 1} का संचालन ${bh.hindiName} (${bh.controlsLineHi}) द्वारा और स्तंभ 0${idx + 1} का संचालन ${mk.hindiName} (${mk.conceptualFormulaHi} — ${mk.descriptionHi}) द्वारा होता है।`
       },
@@ -697,20 +698,22 @@ const MATRIX_64_PRIMARY_ARTICLES: ResearchArticle[] = ASHTA_BHAIRAVA_PROFILES.ma
       }
     ],
     keyFindingsEn: [
+      `Sacred Dyad (#${String(dyad.index).padStart(2, '0')}/64): ${dyad.dyadLabelEn}.`,
       `Matrix Coordinate: ${code} (Row ${idx + 1}: ${bh.englishName} × Col ${idx + 1}: ${mk.englishName}).`,
       `Harmonic & Binary Signature: ${bh.toneHz} (${bh.planet}) coupled with Binary State ${mk.binaryCode} (${mk.tattva}).`,
       `Evidence Status: ${intersection.evidenceStatus}`
     ],
     keyFindingsHi: [
+      `पवित्र युग्म (#${String(dyad.index).padStart(2, '0')}/64): ${dyad.dyadLabelHi}।`,
       `आव्यूह निर्देशांक: ${code} (पंक्ति ${idx + 1}: ${bh.hindiName} × स्तंभ ${idx + 1}: ${mk.hindiName})।`,
       `आवृत्ति एवं द्विआधारी संकेत: ${bh.toneHz} (${bh.planetHi}) तथा बाइनरी कोड ${mk.binaryCode} (${mk.tattvaHi})।`,
       `प्रमाण स्थिति: ${intersection.evidenceStatusHi}`
     ],
     metadata: [
+      { labelEn: 'Sacred Dyad', labelHi: 'योगिनी–भैरव युग्म', valueEn: `#${String(dyad.index).padStart(2, '0')} ${dyad.dyadLabelEn}`, valueHi: `#${String(dyad.index).padStart(2, '0')} ${dyad.dyadLabelHi}` },
       { labelEn: 'Matrix Cell ID', labelHi: 'कोष्ठ क्रमांक', valueEn: code, valueHi: code },
       { labelEn: 'Bhairava Vector', labelHi: 'भैरव सदिश', valueEn: `${bh.englishName} (${bh.directionFull})`, valueHi: `${bh.hindiName} (${bh.directionFullHi})` },
-      { labelEn: 'Matrika Operator', labelHi: 'मातृका शक्ति', valueEn: `${mk.englishName} (${mk.binaryCode} · ${mk.tattva})`, valueHi: `${mk.hindiName} (${mk.binaryCode} · ${mk.tattvaHi})` },
-      { labelEn: 'Sacred Kshetra', labelHi: 'पवित्र क्षेत्र', valueEn: mk.kshetra, valueHi: mk.kshetraHi }
+      { labelEn: 'Matrika Operator', labelHi: 'मातृका शक्ति', valueEn: `${mk.englishName} (${mk.binaryCode} · ${mk.tattva})`, valueHi: `${mk.hindiName} (${mk.binaryCode} · ${mk.tattvaHi})` }
     ],
     primarySourcesEn: `${bh.sourceReference} · ${mk.sourceNote}`,
     primarySourcesHi: `${bh.sourceReferenceHi} · ${mk.sourceNoteHi}`,
@@ -2417,30 +2420,31 @@ export function getArticleBySlugs(
       const cell = getMatrixIntersection(rIdx, cIdx);
       const bh = cell.bhairava;
       const mk = cell.matrika;
+      const dyad = cell.dyad;
       const dynamicArticle: ResearchArticle = {
         slug: cell.id.toLowerCase(),
         categorySlug: '64-yogini-matrix',
         code: cell.id,
-        titleEn: `${cell.id}: ${bh.englishName} × ${mk.englishName}`,
-        titleHi: `${cell.id}: ${bh.hindiName} × ${mk.hindiName}`,
-        subtitleEn: `Row ${rIdx + 1} (${bh.directionFull} · ${bh.planet}) × Col ${cIdx + 1} (${mk.conceptualTitle} · ${mk.binaryCode})`,
-        subtitleHi: `पंक्ति ${rIdx + 1} (${bh.directionFullHi} · ${bh.planetHi}) × स्तंभ ${cIdx + 1} (${mk.conceptualTitleHi} · ${mk.binaryCode})`,
-        sanskritEpigraph: `॥ चतुःषष्टियोगिनी संहिता · ${bh.hindiName} × ${mk.hindiName} (${cell.id}) ॥`,
-        epigraphTranslationEn: `"Matrix node ${cell.id} synthesizing ${bh.englishName} (${bh.directionFull}) and Matrika ${mk.englishName} (${mk.tattva})."`,
-        epigraphTranslationHi: `"आव्यूह बिंदु ${cell.id} जो ${bh.hindiName} (${bh.directionFullHi}) और मातृका ${mk.hindiName} (${mk.tattvaHi}) का समन्वय करता है।"`,
-        evidenceBadgeEn: cell.isCanonicalConsortPair
-          ? 'CANONICAL DIAGONAL PAIRING'
-          : 'CROSS-VECTOR MATRIKA NODE',
-        evidenceBadgeHi: cell.isCanonicalConsortPair
-          ? 'प्रामाणिक विकर्ण युग्म'
-          : 'क्रॉस-वेक्टर मातृका बिंदु',
+        titleEn: `${cell.id} (#${String(dyad.index).padStart(2, '0')}): ${dyad.dyadLabelEn}`,
+        titleHi: `${cell.id} (#${String(dyad.index).padStart(2, '0')}): ${dyad.dyadLabelHi}`,
+        subtitleEn: `Row ${rIdx + 1} (${bh.englishName} · ${bh.directionFull}) × Col ${cIdx + 1} (${mk.englishName} · ${mk.binaryCode})`,
+        subtitleHi: `पंक्ति ${rIdx + 1} (${bh.hindiName} · ${bh.directionFullHi}) × स्तंभ ${cIdx + 1} (${mk.hindiName} · ${mk.binaryCode})`,
+        sanskritEpigraph: `॥ चतुःषष्टियोगिनी संहिता · ${dyad.yoginiFullHi} – ${dyad.bhairavaConsortFullHi} (${cell.id}) ॥`,
+        epigraphTranslationEn: `"Matrix node ${cell.id} (#${String(dyad.index).padStart(2, '0')}) enshrining ${dyad.dyadLabelEn} at the intersection of ${bh.englishName} and Matrika ${mk.englishName}."`,
+        epigraphTranslationHi: `"आव्यूह बिंदु ${cell.id} (#${String(dyad.index).padStart(2, '0')}) जो ${bh.hindiName} और मातृका ${mk.hindiName} के संगम पर '${dyad.dyadLabelHi}' को प्रतिष्ठित करता है।"`,
+        evidenceBadgeEn: `DYAD #${String(dyad.index).padStart(2, '0')} · ${
+          cell.isCanonicalConsortPair ? 'CANONICAL DIAGONAL PAIRING' : 'CROSS-VECTOR MATRIKA NODE'
+        }`,
+        evidenceBadgeHi: `युग्म #${String(dyad.index).padStart(2, '0')} · ${
+          cell.isCanonicalConsortPair ? 'प्रामाणिक विकर्ण युग्म' : 'क्रॉस-वेक्टर मातृका बिंदु'
+        }`,
         accentColor: bh.accentColor,
         summaryEn: cell.relationshipSummary,
         summaryHi: cell.relationshipSummaryHi,
         sections: [
           {
-            headingEn: '1. Combinatorial Vector Relationship',
-            headingHi: '1. संयोजनात्मक सदिश संबंध',
+            headingEn: '1. Sacred Yoginī – Bhairava Consort Dyad & Vector Relationship',
+            headingHi: '1. पवित्र योगिनी – भैरव युग्म एवं संयोजनात्मक सदिश संबंध',
             bodyEn: cell.relationshipSummary,
             bodyHi: cell.relationshipSummaryHi
           },
@@ -2458,20 +2462,22 @@ export function getArticleBySlugs(
           }
         ],
         keyFindingsEn: [
+          `Sacred Dyad (#${String(dyad.index).padStart(2, '0')}/64): ${dyad.dyadLabelEn}.`,
           `Coordinate: ${cell.id} (Row ${rIdx + 1}, Column ${cIdx + 1}).`,
           `Evidence Classification: ${cell.evidenceStatus}`,
           `Harmonic & Binary Pairing: ${bh.toneHz} × Binary ${mk.binaryCode}.`
         ],
         keyFindingsHi: [
+          `पवित्र युग्म (#${String(dyad.index).padStart(2, '0')}/64): ${dyad.dyadLabelHi}।`,
           `निर्देशांक: ${cell.id} (पंक्ति ${rIdx + 1}, स्तंभ ${cIdx + 1})।`,
           `प्रमाण वर्गीकरण: ${cell.evidenceStatusHi}`,
           `आवृत्ति एवं बाइनरी युग्मन: ${bh.toneHz} × बाइनरी ${mk.binaryCode}।`
         ],
         metadata: [
+          { labelEn: 'Sacred Dyad', labelHi: 'योगिनी–भैरव युग्म', valueEn: `#${String(dyad.index).padStart(2, '0')} ${dyad.dyadLabelEn}`, valueHi: `#${String(dyad.index).padStart(2, '0')} ${dyad.dyadLabelHi}` },
           { labelEn: 'Cell ID', labelHi: 'कोष्ठ क्र.', valueEn: cell.id, valueHi: cell.id },
           { labelEn: 'Bhairava Row', labelHi: 'भैरव पंक्ति', valueEn: bh.englishName, valueHi: bh.hindiName },
-          { labelEn: 'Matrika Column', labelHi: 'मातृका स्तंभ', valueEn: mk.englishName, valueHi: mk.hindiName },
-          { labelEn: 'Lead Investigator', labelHi: 'प्रमुख अन्वेषक', valueEn: 'Ram Ashok Kumar', valueHi: 'राम अशोक कुमार' }
+          { labelEn: 'Matrika Column', labelHi: 'मातृका स्तंभ', valueEn: mk.englishName, valueHi: mk.hindiName }
         ],
         primarySourcesEn: `${bh.sourceReference} · ${mk.sourceNote}`,
         primarySourcesHi: `${bh.sourceReferenceHi} · ${mk.sourceNoteHi}`,

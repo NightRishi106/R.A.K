@@ -1,10 +1,13 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
+import { ChevronUp, ChevronDown } from 'lucide-react';
 
 interface TransparentLineScrollbarProps {
   /** If omitted, binds to the main browser window/document scroll */
   containerRef?: React.RefObject<HTMLElement | null>;
-  /** Fixed to viewport right edge ('fixed') or sticky/absolute inside a modal ('modal') */
+  /** Visual & z-index placement variant for each page type */
   variant?: 'window' | 'overlay' | 'modal';
+  /** Optional key that triggers recalculation when page route/content changes */
+  watchKey?: string | number;
   /** Optional className override */
   className?: string;
 }
@@ -12,14 +15,15 @@ interface TransparentLineScrollbarProps {
 export const TransparentLineScrollbar: React.FC<TransparentLineScrollbarProps> = ({
   containerRef,
   variant = 'window',
+  watchKey,
   className = '',
 }) => {
   const trackRef = useRef<HTMLDivElement | null>(null);
   const [scrollState, setScrollState] = useState({
     scrollTop: 0,
-    scrollHeight: 1,
-    clientHeight: 1,
-    canScroll: false,
+    scrollHeight: 1000,
+    clientHeight: 500,
+    canScroll: true,
   });
   const [isDragging, setIsDragging] = useState(false);
   const dragStartRef = useRef<{ startY: number; startScrollTop: number }>({
@@ -34,27 +38,29 @@ export const TransparentLineScrollbar: React.FC<TransparentLineScrollbarProps> =
         return { scrollTop: 0, scrollHeight: 1, clientHeight: 1, canScroll: false };
       }
       const scrollTop = el.scrollTop;
-      const scrollHeight = el.scrollHeight;
-      const clientHeight = el.clientHeight;
+      const scrollHeight = Math.max(el.scrollHeight, 1);
+      const clientHeight = Math.max(el.clientHeight, 1);
       return {
         scrollTop,
         scrollHeight,
         clientHeight,
-        canScroll: scrollHeight > clientHeight + 8,
+        canScroll: scrollHeight > clientHeight + 4,
       };
     } else {
       const docEl = document.documentElement;
-      const scrollTop = window.scrollY || docEl.scrollTop || 0;
+      const body = document.body;
+      const scrollTop = window.scrollY || docEl.scrollTop || (body ? body.scrollTop : 0) || 0;
       const scrollHeight = Math.max(
-        docEl.scrollHeight,
-        document.body ? document.body.scrollHeight : 0
+        docEl.scrollHeight || 0,
+        body ? body.scrollHeight : 0,
+        1
       );
-      const clientHeight = window.innerHeight || docEl.clientHeight || 1;
+      const clientHeight = Math.max(window.innerHeight || docEl.clientHeight || 1, 1);
       return {
         scrollTop,
         scrollHeight,
         clientHeight,
-        canScroll: scrollHeight > clientHeight + 8,
+        canScroll: scrollHeight > clientHeight + 4,
       };
     }
   }, [containerRef]);
@@ -83,8 +89,8 @@ export const TransparentLineScrollbar: React.FC<TransparentLineScrollbarProps> =
     setScrollState((prev) => {
       if (
         Math.abs(prev.scrollTop - metrics.scrollTop) < 0.5 &&
-        prev.scrollHeight === metrics.scrollHeight &&
-        prev.clientHeight === metrics.clientHeight &&
+        Math.abs(prev.scrollHeight - metrics.scrollHeight) < 1 &&
+        Math.abs(prev.clientHeight - metrics.clientHeight) < 1 &&
         prev.canScroll === metrics.canScroll
       ) {
         return prev;
@@ -113,23 +119,40 @@ export const TransparentLineScrollbar: React.FC<TransparentLineScrollbarProps> =
       });
       if (containerRef?.current) {
         resizeObserver.observe(containerRef.current);
-        if (containerRef.current.firstElementChild) {
-          resizeObserver.observe(containerRef.current.firstElementChild);
-        }
+        Array.from(containerRef.current.children).forEach((child) => {
+          resizeObserver?.observe(child);
+        });
       } else if (document.body) {
         resizeObserver.observe(document.body);
       }
     }
 
-    const timer = window.setTimeout(updateMetrics, 250);
+    let mutationObserver: MutationObserver | null = null;
+    if (typeof MutationObserver !== 'undefined') {
+      const rootNode = containerRef?.current || document.body;
+      if (rootNode) {
+        mutationObserver = new MutationObserver(() => {
+          updateMetrics();
+        });
+        mutationObserver.observe(rootNode, {
+          childList: true,
+          subtree: true,
+        });
+      }
+    }
+
+    const t1 = window.setTimeout(updateMetrics, 120);
+    const t2 = window.setTimeout(updateMetrics, 450);
 
     return () => {
       targetEl.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', updateMetrics);
       if (resizeObserver) resizeObserver.disconnect();
-      window.clearTimeout(timer);
+      if (mutationObserver) mutationObserver.disconnect();
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
     };
-  }, [containerRef, updateMetrics]);
+  }, [containerRef, watchKey, updateMetrics]);
 
   // Pointer drag handling for smooth thumb dragging along the line
   useEffect(() => {
@@ -143,7 +166,7 @@ export const TransparentLineScrollbar: React.FC<TransparentLineScrollbarProps> =
       const maxScroll = Math.max(scrollHeight - clientHeight, 1);
 
       const thumbRatio = Math.min(Math.max(clientHeight / Math.max(scrollHeight, 1), 0.08), 1);
-      const thumbHeightPx = Math.max(trackHeight * thumbRatio, 28);
+      const thumbHeightPx = Math.max(trackHeight * thumbRatio, 32);
       const availableTrack = Math.max(trackHeight - thumbHeightPx, 1);
 
       const deltaY = e.clientY - dragStartRef.current.startY;
@@ -170,16 +193,16 @@ export const TransparentLineScrollbar: React.FC<TransparentLineScrollbarProps> =
     };
   }, [isDragging, getScrollMetrics, scrollToPosition]);
 
-  if (!scrollState.canScroll) return null;
-
-  const { scrollTop, scrollHeight, clientHeight } = scrollState;
+  const { scrollTop, scrollHeight, clientHeight, canScroll } = scrollState;
   const maxScroll = Math.max(scrollHeight - clientHeight, 1);
-  const progress = Math.min(Math.max(scrollTop / maxScroll, 0), 1);
-  const thumbHeightPercent = Math.min(Math.max((clientHeight / scrollHeight) * 100, 7), 92);
-  const thumbTopPercent = progress * (100 - thumbHeightPercent);
+  const progress = canScroll ? Math.min(Math.max(scrollTop / maxScroll, 0), 1) : 0;
+  const thumbHeightPercent = canScroll
+    ? Math.min(Math.max((clientHeight / Math.max(scrollHeight, 1)) * 100, 8), 90)
+    : 100;
+  const thumbTopPercent = canScroll ? progress * (100 - thumbHeightPercent) : 0;
 
   const handleTrackPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (!trackRef.current) return;
+    if (!trackRef.current || !canScroll) return;
     e.stopPropagation();
 
     const trackRect = trackRef.current.getBoundingClientRect();
@@ -198,6 +221,7 @@ export const TransparentLineScrollbar: React.FC<TransparentLineScrollbarProps> =
   };
 
   const handleThumbPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!canScroll) return;
     e.stopPropagation();
     e.preventDefault();
     dragStartRef.current = {
@@ -209,41 +233,43 @@ export const TransparentLineScrollbar: React.FC<TransparentLineScrollbarProps> =
 
   const handleStepScroll = (direction: 'up' | 'down', e: React.MouseEvent) => {
     e.stopPropagation();
-    const step = Math.max(clientHeight * 0.45, 220);
-    const next = direction === 'up' ? Math.max(scrollTop - step, 0) : Math.min(scrollTop + step, maxScroll);
+    if (!canScroll) return;
+    const step = Math.max(clientHeight * 0.45, 260);
+    const next =
+      direction === 'up' ? Math.max(scrollTop - step, 0) : Math.min(scrollTop + step, maxScroll);
     scrollToPosition(next, true);
   };
 
   const positionClasses =
     variant === 'window'
-      ? 'fixed right-1.5 sm:right-2.5 top-20 bottom-20 z-[75]'
+      ? 'fixed right-2 sm:right-3.5 top-20 bottom-20 z-[75]'
       : variant === 'overlay'
-        ? 'fixed right-1.5 sm:right-2.5 top-16 bottom-20 z-[88]'
+        ? 'fixed right-2 sm:right-3.5 top-20 bottom-20 z-[88]'
         : 'fixed right-2 sm:right-4 top-[10vh] bottom-[10vh] z-[110]';
 
   return (
     <div
       className={`${positionClasses} flex flex-col items-center select-none pointer-events-auto group ${className}`}
-      aria-hidden="true"
+      aria-label="Page Scrollbar"
     >
-      {/* Top Line Cap — Click to Scroll Up */}
+      {/* Top Scroll Up Button */}
       <button
         type="button"
         onClick={(e) => handleStepScroll('up', e)}
         title="Scroll Up"
-        className="w-4 h-4 flex items-center justify-center bg-transparent text-[#D4AF37]/45 hover:text-[#D4AF37] transition-colors cursor-pointer focus:outline-none"
+        className="w-5 h-5 rounded-full bg-black/25 hover:bg-black/55 border border-[#D4AF37]/35 hover:border-[#D4AF37] flex items-center justify-center text-[#D4AF37]/80 hover:text-[#D4AF37] transition-all cursor-pointer focus:outline-none backdrop-blur-[2px] mb-1"
       >
-        <span className="block w-1.5 h-1.5 border-t border-l border-current rotate-45 translate-y-0.5" />
+        <ChevronUp className="w-3.5 h-3.5 stroke-[2.5]" />
       </button>
 
       {/* Transparent Vertical Line Track */}
       <div
         ref={trackRef}
         onPointerDown={handleTrackPointerDown}
-        className="relative flex-1 w-4 flex justify-center cursor-pointer bg-transparent"
+        className="relative flex-1 w-4 flex justify-center cursor-pointer bg-transparent py-0.5"
       >
-        {/* Continuous Hairline Guide */}
-        <div className="h-full w-[1.5px] bg-gradient-to-b from-[#D4AF37]/15 via-[#D4AF37]/30 to-[#D4AF37]/15 group-hover:via-[#D4AF37]/45 transition-colors rounded-full" />
+        {/* Continuous Transparent Vertical Line Guide */}
+        <div className="h-full w-[2px] bg-gradient-to-b from-[#D4AF37]/25 via-[#D4AF37]/45 to-[#D4AF37]/25 group-hover:via-[#D4AF37]/65 transition-colors rounded-full shadow-[0_0_6px_rgba(0,0,0,0.6)]" />
 
         {/* Active Draggable Line Thumb */}
         <div
@@ -251,24 +277,24 @@ export const TransparentLineScrollbar: React.FC<TransparentLineScrollbarProps> =
           style={{
             top: `${thumbTopPercent}%`,
             height: `${thumbHeightPercent}%`,
-            minHeight: '26px',
+            minHeight: '32px',
           }}
           className={`absolute left-1/2 -translate-x-1/2 rounded-full transition-[width,background-color,box-shadow] duration-150 cursor-grab active:cursor-grabbing ${
             isDragging
-              ? 'w-[3.5px] bg-[#D4AF37] shadow-[0_0_12px_rgba(212,175,55,0.9)]'
-              : 'w-[2px] group-hover:w-[3px] bg-[#D4AF37]/65 group-hover:bg-[#D4AF37]/95 shadow-[0_0_8px_rgba(212,175,55,0.45)]'
+              ? 'w-[5px] bg-[#F3D068] shadow-[0_0_14px_rgba(212,175,55,0.95)]'
+              : 'w-[3.5px] group-hover:w-[5px] bg-gradient-to-b from-[#E5C158]/90 via-[#D4AF37] to-[#B8860B]/90 shadow-[0_0_10px_rgba(212,175,55,0.65)]'
           }`}
         />
       </div>
 
-      {/* Bottom Line Cap — Click to Scroll Down */}
+      {/* Bottom Scroll Down Button */}
       <button
         type="button"
         onClick={(e) => handleStepScroll('down', e)}
         title="Scroll Down"
-        className="w-4 h-4 flex items-center justify-center bg-transparent text-[#D4AF37]/45 hover:text-[#D4AF37] transition-colors cursor-pointer focus:outline-none"
+        className="w-5 h-5 rounded-full bg-black/25 hover:bg-black/55 border border-[#D4AF37]/35 hover:border-[#D4AF37] flex items-center justify-center text-[#D4AF37]/80 hover:text-[#D4AF37] transition-all cursor-pointer focus:outline-none backdrop-blur-[2px] mt-1"
       >
-        <span className="block w-1.5 h-1.5 border-b border-r border-current rotate-45 -translate-y-0.5" />
+        <ChevronDown className="w-3.5 h-3.5 stroke-[2.5]" />
       </button>
     </div>
   );

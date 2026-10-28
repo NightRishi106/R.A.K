@@ -23,7 +23,11 @@ import {
   ResearchCategoryPortal,
   ResearchArticle
 } from '../data/researchPortalData';
-import { ASHTA_BHAIRAVA_PROFILES, ASHTA_MATRIKA_PROFILES } from '../data/ashtaResearchData';
+import {
+  ASHTA_BHAIRAVA_PROFILES,
+  ASHTA_MATRIKA_PROFILES,
+  getMatrixIntersection
+} from '../data/ashtaResearchData';
 import {
   SPECIAL_CIRCULAR_SEALS,
   AGHORA_SUBPART_SEALS,
@@ -1155,28 +1159,33 @@ export const CategoryLandingPageView: React.FC<CategoryLandingPageViewProps> = (
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
                 {ASHTA_MATRIKA_PROFILES.map((mk, cIdx) => {
-                  const rNum = String(selectedMatrixBhairavaRow + 1).padStart(2, '0');
-                  const cNum = String(cIdx + 1).padStart(2, '0');
-                  const cellCode = `BM-${rNum}-${cNum}`;
+                  const cell = getMatrixIntersection(selectedMatrixBhairavaRow, cIdx);
+                  const cellCode = cell.id;
                   const cellSlug = cellCode.toLowerCase();
-                  const bh = ASHTA_BHAIRAVA_PROFILES[selectedMatrixBhairavaRow];
+                  const bh = cell.bhairava;
+                  const dyad = cell.dyad;
                   return (
                     <button
                       key={cellCode}
                       type="button"
                       onClick={() => onOpenArticle('64-yogini-matrix', cellSlug)}
-                      className="p-2.5 rounded-lg border border-[#5A3922]/60 bg-[#1C110B] hover:border-[#D3AD55] hover:bg-[#2B1910] text-left transition-all cursor-pointer group"
+                      className="p-3 rounded-lg border border-[#5A3922]/60 bg-[#1C110B] hover:border-[#D3AD55] hover:bg-[#2B1910] text-left transition-all cursor-pointer group"
                     >
-                      <span className="block font-mono text-[9px] text-[#D3AD55] font-bold">
-                        {cellCode}
-                      </span>
-                      <span className="block font-serif text-xs text-[#F5E8CE] group-hover:text-[#D3AD55] mt-0.5 truncate">
-                        {t(bh.shortTranslit, bh.shortHindi)} × {t(mk.englishName, mk.hindiName)}
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="font-mono text-[9.5px] text-[#D3AD55] font-bold">
+                          #{String(dyad.index).padStart(2, '0')} · {cellCode}
+                        </span>
+                        <span className="font-mono text-[8px] text-[#877665]">
+                          {t(bh.shortTranslit, bh.shortHindi)} × {t(mk.englishName, mk.hindiName)}
+                        </span>
+                      </div>
+                      <span className="block font-serif text-xs sm:text-[13px] font-bold text-[#F5E8CE] group-hover:text-[#D3AD55] mt-1">
+                        {t(dyad.dyadLabelEn, dyad.dyadLabelHi)}
                       </span>
                       <span className="block font-mono text-[8px] text-[#877665] mt-1">
-                        {t('Open URL →', 'पृष्ठ खोलें →')}
+                        {t('Open Dyad Monograph →', 'युग्म शोध-लेख खोलें →')}
                       </span>
                     </button>
                   );

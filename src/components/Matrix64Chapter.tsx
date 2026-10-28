@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { ChevronLeft, ChevronRight, Grid, Compass, Cpu } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Grid, Compass, Cpu, Search, Sparkles, Flame } from 'lucide-react';
 import {
   ASHTA_BHAIRAVA_PROFILES,
   ASHTA_MATRIKA_PROFILES,
   COSMIC_STARFIELD,
+  SIXTY_FOUR_YOGINI_BHAIRAVA_DYADS,
   getMatrixIntersection
 } from '../data/ashtaResearchData';
 import { useLanguage } from '../context/LanguageContext';
@@ -37,6 +38,8 @@ export default function Matrix64Chapter({
       ? initialColIndex
       : 0
   );
+  const [activeOctadFilter, setActiveOctadFilter] = useState<number>(0); // 0 = All 64, 1..8 = Octad 1..8
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
@@ -51,6 +54,30 @@ export default function Matrix64Chapter({
   const activeIntersection = getMatrixIntersection(selectedRow, selectedCol);
   const activeBhairava = activeIntersection.bhairava;
   const activeMatrika = activeIntersection.matrika;
+  const activeDyad = activeIntersection.dyad;
+
+  const selectByPairNumber = (pairNum: number) => {
+    const normalized = ((pairNum - 1 + 64) % 64);
+    setSelectedRow(Math.floor(normalized / 8));
+    setSelectedCol(normalized % 8);
+  };
+
+  const filteredDyads = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    return SIXTY_FOUR_YOGINI_BHAIRAVA_DYADS.filter(d => {
+      if (activeOctadFilter !== 0 && d.octadIndex !== activeOctadFilter) {
+        return false;
+      }
+      if (!q) return true;
+      return (
+        d.dyadLabelEn.toLowerCase().includes(q) ||
+        d.dyadLabelHi.toLowerCase().includes(q) ||
+        d.cellId.toLowerCase().includes(q) ||
+        String(d.index) === q ||
+        `#${String(d.index).padStart(2, '0')}` === q
+      );
+    });
+  }, [activeOctadFilter, searchQuery]);
 
   const handleCellKeyDown = (e: React.KeyboardEvent, r: number, c: number) => {
     if (e.key === 'ArrowRight') {
@@ -104,36 +131,39 @@ export default function Matrix64Chapter({
       />
 
       <div className="relative z-10 px-4 sm:px-7 md:px-10 py-6 md:py-7">
-        {/* Main Heading (Single-Language) */}
+        {/* Main Heading */}
         <div className="flex flex-col items-center text-center">
           <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-[#070A16]/80 border border-[#FFBF38]/35 mb-2">
             <Grid className="w-3 h-3 text-[#FFBF38]" />
             <span className="font-mono text-[9.5px] tracking-[0.22em] text-[#F7D57A] uppercase">
-              {t('INTERPRETIVE FRAMEWORK · COMBINATORIAL ARCHIVE', 'व्याख्यात्मक ढाँचा · संयोजनात्मक अभिलेखागार')}
+              {t('CHATUSHASHTI MANDALA · 64 SACRED CONSORT DYADS', 'चतुःषष्टि मण्डल · 64 योगिनी–भैरव युग्म संहिता')}
             </span>
           </div>
 
           <div className="flex items-center gap-3">
             <span className="h-[1px] w-6 sm:w-12 bg-[#FFBF38]/40" />
             <h3 className="text-xl sm:text-2xl md:text-[28px] font-serif font-bold tracking-[0.08em] text-[#FFBF38]">
-              {t('64 YOGINI', '64 योगिनी')}
+              {t('64 YOGINI – 64 BHAIRAVA', '64 योगिनी – 64 भैरव')}
             </h3>
             <span className="h-[1px] w-6 sm:w-12 bg-[#FFBF38]/40" />
           </div>
 
           <p className="mt-1 font-mono text-[10.5px] sm:text-xs tracking-[0.22em] text-[#F3F2F1] font-semibold uppercase">
-            {t('8 BHAIRAVAS × 8 MATRIKAS = 64 MATRIKAS', '8 भैरव × 8 मातृका = 64 मातृका')}
+            {t(
+              '8 BHAIRAVAS × 8 MATRIKAS = 64 YOGINI – BHAIRAVA DYADS',
+              '8 भैरव × 8 मातृका = 64 योगिनी – भैरव युग्म'
+            )}
           </p>
 
           <p className="mt-1 text-xs sm:text-[13px] font-serif italic text-[#A6AFBF]">
             {t(
-              'An interactive map of the eight-by-eight research model',
-              'आठ-गुणा-आठ शोध मॉडल का एक संवादात्मक मानचित्र'
+              'Interactive 8×8 mandala of all 64 Yoginīs paired with their 64 Bhairava consorts',
+              'सभी 64 योगिनियों और उनके 64 भैरव युग्मों का संवादात्मक 8×8 शोध मण्डल'
             )}
           </p>
         </div>
 
-        {/* Mobile Quick Row & Column Selector (Visible on small screens so users can pick any 8x8 pair without horizontal scrolling) */}
+        {/* Mobile Quick Row & Column Selector */}
         <div className="md:hidden mt-4 p-3 rounded-lg bg-[#070A16]/85 border border-[#526078]/45 space-y-2.5">
           <div>
             <span className="block font-mono text-[9px] uppercase tracking-[0.18em] text-[#FFBF38] mb-1.5">
@@ -188,7 +218,7 @@ export default function Matrix64Chapter({
         <div className="mt-4 sm:mt-5 grid grid-cols-1 xl:grid-cols-12 gap-5 sm:gap-6 items-start">
           {/* Left Column: The 8 × 8 Interactive Matrix */}
           <div className="xl:col-span-7 w-full overflow-x-auto pb-2">
-            <div className="min-w-[520px] sm:min-w-[540px] bg-[#070A16]/75 border border-[#526078]/40 rounded-lg p-2.5 sm:p-4 relative">
+            <div className="min-w-[560px] sm:min-w-[600px] bg-[#070A16]/75 border border-[#526078]/40 rounded-lg p-2.5 sm:p-4 relative">
               {/* Column Headers: The Eight Matrikas (1..8) */}
               <div className="grid grid-cols-[118px_repeat(8,minmax(0,1fr))] sm:grid-cols-[132px_repeat(8,minmax(0,1fr))] gap-1.5 items-end mb-2">
                 <div className="px-1.5 py-1 text-left">
@@ -234,11 +264,11 @@ export default function Matrix64Chapter({
                 })}
               </div>
 
-              {/* Eight Horizontal Bands: 8 Bhairava Rows × 8 Matrika Columns = 64 Cells */}
+              {/* Eight Horizontal Bands: 8 Bhairava Rows × 8 Matrika Columns = 64 Yogini-Bhairava Cells */}
               <div
                 className="space-y-1.5"
                 role="grid"
-                aria-label={t('64 Matrix of 8 Bhairavas by 8 Matrikas', '8 भैरव × 8 मातृका का 64 आव्यूह')}
+                aria-label={t('64 Matrix of 64 Yoginis and 64 Bhairavas', '64 योगिनी एवं 64 भैरव का 8×8 आव्यूह')}
               >
                 {ASHTA_BHAIRAVA_PROFILES.map((bhairava, rowIdx) => {
                   const isRowSelected = rowIdx === selectedRow;
@@ -247,7 +277,7 @@ export default function Matrix64Chapter({
                     <div
                       key={bhairava.id}
                       role="row"
-                      className={`relative grid grid-cols-[132px_repeat(8,minmax(0,1fr))] gap-1.5 items-center rounded-md p-1 transition-all duration-300 ${
+                      className={`relative grid grid-cols-[118px_repeat(8,minmax(0,1fr))] sm:grid-cols-[132px_repeat(8,minmax(0,1fr))] gap-1.5 items-center rounded-md p-1 transition-all duration-300 ${
                         isRowSelected ? 'bg-[#102344]/55' : 'bg-transparent'
                       }`}
                       style={{
@@ -291,11 +321,13 @@ export default function Matrix64Chapter({
                         const isSelected = rowIdx === selectedRow && colIdx === selectedCol;
                         const isSameRowOrCol = rowIdx === selectedRow || colIdx === selectedCol;
                         const isDiagonal = rowIdx === colIdx;
-                        const cellCode = `${rowIdx + 1}×${colIdx + 1}`;
-                        const fullId = `BM-0${rowIdx + 1}-0${colIdx + 1}`;
+                        const pairIdx = rowIdx * 8 + colIdx;
+                        const cellDyad = SIXTY_FOUR_YOGINI_BHAIRAVA_DYADS[pairIdx];
+                        const pairNumberStr = `#${String(cellDyad.index).padStart(2, '0')}`;
+                        const fullId = cellDyad.cellId;
                         const staggerDelay = shouldReduceMotion
                           ? 0
-                          : (rowIdx * 8 + colIdx) * 0.006;
+                          : pairIdx * 0.005;
 
                         return (
                           <motion.button
@@ -303,9 +335,10 @@ export default function Matrix64Chapter({
                             type="button"
                             role="gridcell"
                             aria-selected={isSelected}
+                            title={`${pairNumberStr} (${fullId}): ${t(cellDyad.dyadLabelEn, cellDyad.dyadLabelHi)}`}
                             aria-label={t(
-                              `Matrika ${fullId}: ${bhairava.englishName} and ${matrika.englishName}`,
-                              `मातृका ${fullId}: ${bhairava.hindiName} और ${matrika.hindiName}`
+                              `${pairNumberStr} ${cellDyad.dyadLabelEn} (${fullId})`,
+                              `${pairNumberStr} ${cellDyad.dyadLabelHi} (${fullId})`
                             )}
                             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.92 }}
                             animate={{
@@ -318,12 +351,12 @@ export default function Matrix64Chapter({
                               setSelectedCol(colIdx);
                             }}
                             onKeyDown={e => handleCellKeyDown(e, rowIdx, colIdx)}
-                            className={`relative h-10 rounded flex flex-col items-center justify-center border transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFBF38] ${
+                            className={`relative h-[50px] px-1 py-1 rounded flex flex-col items-center justify-between border transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFBF38] ${
                               isSelected
                                 ? 'z-20 shadow-[0_0_16px_rgba(255,191,56,0.45)]'
                                 : isSameRowOrCol
                                   ? 'opacity-95'
-                                  : 'opacity-70 hover:opacity-100'
+                                  : 'opacity-80 hover:opacity-100'
                             }`}
                             style={{
                               background: isSelected
@@ -341,28 +374,43 @@ export default function Matrix64Chapter({
                               borderWidth: isSelected ? '1.5px' : '1px'
                             }}
                           >
-                            {/* Top-left row color dot & top-right col color dot */}
-                            <div className="flex items-center gap-1">
+                            {/* Top bar: Pair Number (#01..#64) & Color Dots */}
+                            <div className="w-full flex items-center justify-between px-0.5">
                               <span
-                                className="w-1.5 h-1.5 rounded-full"
-                                style={{ backgroundColor: bhairava.accentColor }}
-                              />
-                              <span
-                                className="w-1.5 h-1.5 rounded-full"
-                                style={{ backgroundColor: matrika.accentColor }}
-                              />
+                                className={`font-mono text-[7.5px] leading-none ${
+                                  isSelected
+                                    ? 'text-[#FFBF38] font-bold'
+                                    : isDiagonal
+                                      ? 'text-[#F7D57A]'
+                                      : 'text-[#A6AFBF]/80'
+                                }`}
+                              >
+                                {pairNumberStr}
+                              </span>
+                              <div className="flex items-center gap-0.5">
+                                <span
+                                  className="w-1.5 h-1.5 rounded-full"
+                                  style={{ backgroundColor: bhairava.accentColor }}
+                                />
+                                <span
+                                  className="w-1.5 h-1.5 rounded-full"
+                                  style={{ backgroundColor: matrika.accentColor }}
+                                />
+                              </div>
                             </div>
 
+                            {/* Middle: Yogini Name */}
                             <span
-                              className={`font-mono text-[8.5px] mt-0.5 tracking-tighter ${
-                                isSelected
-                                  ? 'text-[#F3F2F1] font-bold'
-                                  : isDiagonal
-                                    ? 'text-[#F7D57A] font-semibold'
-                                    : 'text-[#A6AFBF]'
+                              className={`w-full text-center font-serif text-[8.5px] leading-tight truncate ${
+                                isSelected ? 'text-white font-bold' : 'text-[#F3F2F1]'
                               }`}
                             >
-                              {cellCode}
+                              {t(cellDyad.yoginiName, cellDyad.yoginiNameHi)}
+                            </span>
+
+                            {/* Bottom: Bhairava Consort Name */}
+                            <span className="w-full text-center font-mono text-[7px] leading-tight text-[#F7D57A]/85 truncate">
+                              {t(cellDyad.bhairavaConsortName, cellDyad.bhairavaConsortNameHi)}
                             </span>
 
                             {/* Crosshair connection indicator on active cell */}
@@ -381,21 +429,18 @@ export default function Matrix64Chapter({
             {/* Matrix Summary Note */}
             <div className="mt-3 text-center sm:text-left flex flex-col sm:flex-row sm:items-center justify-between gap-2 px-1">
               <span className="font-mono text-[10px] tracking-[0.2em] text-[#FFBF38] uppercase font-semibold">
-                {t('8 BHAIRAVAS · 8 MATRIKAS · 64 MATRIKAS', '8 भैरव · 8 मातृका · 64 मातृका')}
+                {t(
+                  '64 YOGINIS · 64 BHAIRAVAS · 8 × 8 MANDALA',
+                  '64 योगिनी · 64 भैरव · 8 × 8 मण्डल'
+                )}
               </span>
               <span className="font-mono text-[9.5px] text-[#A6AFBF]/85">
                 {t(
-                  'Diagonal cells (1×1 … 8×8) mark canonical directional consort pairings.',
-                  'विकर्ण कोष्ठक (1×1 … 8×8) प्रामाणिक दिशात्मक भैरव-मातृका युग्मों को दर्शाते हैं।'
+                  'Click any cell (#01–#64) to inspect its Yoginī–Bhairava dyad and vector synthesis.',
+                  'किसी भी कोष्ठक (#01–#64) पर क्लिक करके उसका योगिनी–भैरव युग्म और सदिश विश्लेषण देखें।'
                 )}
               </span>
             </div>
-            <p className="mt-1 px-1 text-[11px] font-serif italic text-[#A6AFBF]/80">
-              {t(
-                'The matrix is an interpretive framework for organizing comparative research. Individual associations require source-based verification.',
-                'यह आव्यूह तुलनात्मक शोध को व्यवस्थित करने के लिए एक व्याख्यात्मक ढाँचा है। व्यक्तिगत संबंधों के लिए मूल-स्रोत आधारित सत्यापन आवश्यक है।'
-              )}
-            </p>
           </div>
 
           {/* Right Column: MatrixIntersectionPanel (5 cols on xl) */}
@@ -407,35 +452,124 @@ export default function Matrix64Chapter({
               transition={{ duration: shouldReduceMotion ? 0 : 0.22 }}
               className="rounded-xl bg-[#070A16]/90 border border-[#526078]/50 p-4 sm:p-5 shadow-xl"
             >
-              {/* Identifier & Evidence Status Header */}
+              {/* Identifier, Pair Counter & Prev/Next Pair Stepper */}
               <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-[#526078]/30">
                 <div className="flex items-center gap-2">
                   <span className="px-2.5 py-1 rounded bg-[#FFBF38]/15 border border-[#FFBF38]/50 font-mono text-xs font-bold text-[#FFBF38] tracking-wider">
-                    {activeIntersection.id}
+                    #{String(activeDyad.index).padStart(2, '0')} · {activeIntersection.id}
                   </span>
                   <span className="font-mono text-[9.5px] uppercase tracking-[0.16em] text-[#A6AFBF]">
                     {t(`CELL [${selectedRow + 1}, ${selectedCol + 1}]`, `कोष्ठक [${selectedRow + 1}, ${selectedCol + 1}]`)}
                   </span>
                 </div>
 
-                <span
-                  className={`px-2 py-0.5 rounded font-mono text-[8.5px] uppercase tracking-[0.14em] border ${
-                    activeIntersection.isCanonicalConsortPair
-                      ? 'border-[#FFBF38]/60 bg-[#FFBF38]/15 text-[#F7D57A]'
-                      : 'border-[#526078]/60 bg-[#102344]/50 text-[#A6AFBF]'
-                  }`}
-                >
-                  {activeIntersection.isCanonicalConsortPair
-                    ? t('PRIMARY DIRECTIONAL PAIR', 'प्राथमिक दिशात्मक युग्म')
-                    : t('EXPLORATORY MATRIKA', 'अन्वेषणात्मक मातृका')}
-                </span>
+                <div className="flex items-center gap-1.5">
+                  <button
+                    type="button"
+                    onClick={() => selectByPairNumber(activeDyad.index - 1)}
+                    title={t('Previous Yoginī–Bhairava Pair', 'पिछला योगिनी–भैरव युग्म')}
+                    className="p-1 rounded bg-[#102344]/70 border border-[#526078]/50 text-[#F3F2F1] hover:border-[#FFBF38] hover:text-[#FFBF38] transition cursor-pointer"
+                  >
+                    <ChevronLeft className="w-3.5 h-3.5" />
+                  </button>
+                  <span className="font-mono text-[9px] text-[#F7D57A] px-1.5">
+                    {activeDyad.index} / 64
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => selectByPairNumber(activeDyad.index + 1)}
+                    title={t('Next Yoginī–Bhairava Pair', 'अगला योगिनी–भैरव युग्म')}
+                    className="p-1 rounded bg-[#102344]/70 border border-[#526078]/50 text-[#F3F2F1] hover:border-[#FFBF38] hover:text-[#FFBF38] transition cursor-pointer"
+                  >
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
 
-              {/* Visual Connection Diagram Between Row (Bhairava) & Column (Matrika) */}
+              {/* FEATURED SACRED CONSORT DYAD CARD (YOGINI – BHAIRAVA) */}
+              <div
+                className="mt-3.5 p-3.5 rounded-xl border relative overflow-hidden"
+                style={{
+                  background:
+                    'linear-gradient(135deg, rgba(255,191,56,0.13) 0%, rgba(16,35,68,0.85) 50%, rgba(244,63,94,0.12) 100%)',
+                  borderColor: 'rgba(255,191,56,0.55)'
+                }}
+              >
+                <div className="flex items-center justify-between gap-2 mb-2.5">
+                  <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.2em] text-[#FFBF38] font-semibold">
+                    <Sparkles className="w-3 h-3 text-[#FFBF38]" />
+                    {t(
+                      `SACRED YOGINI – BHAIRAVA DYAD #${String(activeDyad.index).padStart(2, '0')}`,
+                      `पवित्र योगिनी – भैरव युग्म #${String(activeDyad.index).padStart(2, '0')}`
+                    )}
+                  </span>
+                  <span className="px-2 py-0.5 rounded bg-[#070A16]/80 border border-[#FFBF38]/35 font-mono text-[8px] uppercase tracking-wider text-[#F7D57A]">
+                    {t(`OCTAD ${activeDyad.octadIndex}`, `अष्टक ${activeDyad.octadIndex}`)}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-2.5 items-center">
+                  {/* Yogini Box */}
+                  <div className="p-2.5 rounded-lg bg-[#070A16]/90 border border-[#FFBF38]/40">
+                    <span className="block font-mono text-[8px] uppercase tracking-[0.18em] text-[#F7D57A]">
+                      {t(`YOGINI (${activeDyad.index} OF 64)`, `योगिनी (${activeDyad.index} / 64)`)}
+                    </span>
+                    <p className="font-serif text-base sm:text-[17px] font-bold text-[#FFBF38] mt-0.5 leading-snug">
+                      {t(activeDyad.yoginiFull, activeDyad.yoginiFullHi)}
+                    </p>
+                    <span className="block font-mono text-[8.5px] text-[#A6AFBF] mt-0.5">
+                      {t(activeDyad.yoginiFullHi, activeDyad.yoginiFull)}
+                    </span>
+                  </div>
+
+                  {/* Dyad Union Connector */}
+                  <div className="flex sm:flex-col items-center justify-center">
+                    <span className="px-2 py-1 rounded-full bg-[#FFBF38]/20 border border-[#FFBF38]/60 font-mono text-[10px] font-bold text-[#FFBF38]">
+                      –
+                    </span>
+                  </div>
+
+                  {/* Bhairava Consort Box */}
+                  <div className="p-2.5 rounded-lg bg-[#070A16]/90 border border-[#F97316]/45">
+                    <span className="flex items-center gap-1 font-mono text-[8px] uppercase tracking-[0.18em] text-[#FDBA74]">
+                      <Flame className="w-2.5 h-2.5 text-[#F97316]" />
+                      {t(`BHAIRAVA (${activeDyad.index} OF 64)`, `भैरव (${activeDyad.index} / 64)`)}
+                    </span>
+                    <p className="font-serif text-base sm:text-[17px] font-bold text-[#FDBA74] mt-0.5 leading-snug">
+                      {t(activeDyad.bhairavaConsortFull, activeDyad.bhairavaConsortFullHi)}
+                    </p>
+                    <span className="block font-mono text-[8.5px] text-[#A6AFBF] mt-0.5">
+                      {t(activeDyad.bhairavaConsortFullHi, activeDyad.bhairavaConsortFull)}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Canonical Line */}
+                <div className="mt-2.5 pt-2 border-t border-[#FFBF38]/25 text-center">
+                  <p className="font-serif text-xs sm:text-[13px] font-semibold text-[#F3F2F1] tracking-wide">
+                    {t(activeDyad.dyadLabelEn, activeDyad.dyadLabelHi)}
+                  </p>
+                </div>
+              </div>
+
+              {/* Visual Connection Diagram Between Row (Ashta Bhairava) & Column (Ashta Matrika) */}
               <div className="mt-3.5 p-3 rounded-lg bg-[#030D32]/80 border border-[#526078]/35">
-                <span className="block font-mono text-[9px] uppercase tracking-[0.2em] text-[#A6AFBF] mb-2">
-                  {t('MATRIKA', 'मातृका')}
-                </span>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#A6AFBF]">
+                    {t('8 × 8 MATRIX COORDINATE AXES', '8 × 8 आव्यूह अक्ष निर्देशांक')}
+                  </span>
+                  <span
+                    className={`px-2 py-0.5 rounded font-mono text-[8px] uppercase tracking-[0.12em] border ${
+                      activeIntersection.isCanonicalConsortPair
+                        ? 'border-[#FFBF38]/60 bg-[#FFBF38]/15 text-[#F7D57A]'
+                        : 'border-[#526078]/60 bg-[#102344]/50 text-[#A6AFBF]'
+                    }`}
+                  >
+                    {activeIntersection.isCanonicalConsortPair
+                      ? t('DIAGONAL OCTANT', 'विकर्ण अष्टांश')
+                      : t('CROSS-VECTOR', 'क्रॉस-वेक्टर')}
+                  </span>
+                </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-2 items-center">
                   {/* Bhairava Node */}
@@ -448,7 +582,7 @@ export default function Matrix64Chapter({
                       <span>{t(activeBhairava.directionCode, activeBhairava.directionCodeHi)}</span>
                     </div>
                     <p
-                      className="font-serif text-base font-bold mt-0.5"
+                      className="font-serif text-sm font-bold mt-0.5"
                       style={{ color: activeBhairava.accentColor }}
                     >
                       {t(activeBhairava.englishName, activeBhairava.hindiName)}
@@ -477,7 +611,7 @@ export default function Matrix64Chapter({
                       <span>{t(`CODE ${activeMatrika.binaryCode}`, `कोड ${activeMatrika.binaryCode}`)}</span>
                     </div>
                     <p
-                      className="font-serif text-base font-bold mt-0.5"
+                      className="font-serif text-sm font-bold mt-0.5"
                       style={{ color: activeMatrika.accentColor }}
                     >
                       {t(activeMatrika.englishName, activeMatrika.hindiName)}
@@ -493,7 +627,7 @@ export default function Matrix64Chapter({
               <div className="mt-3.5 space-y-3">
                 <div>
                   <span className="block font-mono text-[9px] uppercase tracking-[0.2em] text-[#FFBF38]">
-                    {t('RELATIONSHIP BEING EXPLORED', 'अन्वेषित संबंध')}
+                    {t('DYAD & VECTOR SYNTHESIS', 'युग्म एवं सदिश संश्लेषण')}
                   </span>
                   <p className="mt-1 text-xs sm:text-[13px] font-serif text-[#F3F2F1]/90 leading-relaxed">
                     {t(activeIntersection.relationshipSummary, activeIntersection.relationshipSummaryHi)}
@@ -583,6 +717,152 @@ export default function Matrix64Chapter({
           </div>
         </div>
 
+        {/* =====================================================================
+            COMPLETE 64 YOGINI – 64 BHAIRAVA SACRED ROSTER (1 TO 64)
+           ===================================================================== */}
+        <div className="mt-7 pt-6 border-t border-[#526078]/40">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-4">
+            <div>
+              <span className="inline-flex items-center gap-1.5 font-mono text-[9.5px] uppercase tracking-[0.22em] text-[#FFBF38]">
+                <Sparkles className="w-3 h-3" />
+                {t(
+                  'COMPLETE CANONICAL CONCORDANCE · 64 YOGINI – 64 BHAIRAVA',
+                  'संपूर्ण प्रामाणिक अनुक्रमणिका · 64 योगिनी – 64 भैरव'
+                )}
+              </span>
+              <h4 className="text-lg sm:text-xl font-serif font-bold text-[#F3F2F1] mt-0.5">
+                {t(
+                  'The 64 Yoginī – Bhairava Sacred Dyads (01 to 64)',
+                  'चतुःषष्टि (64) योगिनी – भैरव पवित्र युग्म सूची (01 से 64)'
+                )}
+              </h4>
+            </div>
+
+            {/* Search Input */}
+            <div className="relative w-full sm:w-72">
+              <Search className="w-3.5 h-3.5 text-[#A6AFBF] absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+                placeholder={t('Search Yoginī or Bhairava (1–64)...', 'योगिनी या भैरव खोजें (1–64)...')}
+                className="w-full pl-8 pr-3 py-1.5 rounded-lg bg-[#070A16]/90 border border-[#526078]/60 text-xs text-[#F3F2F1] placeholder-[#A6AFBF]/60 focus:outline-none focus:border-[#FFBF38]"
+              />
+            </div>
+          </div>
+
+          {/* Octad Filter Tabs (All 64 + 8 Octads of 8 Pairs) */}
+          <div className="flex flex-wrap items-center gap-1.5 mb-4">
+            <button
+              type="button"
+              onClick={() => setActiveOctadFilter(0)}
+              className={`px-2.5 py-1 rounded-md font-mono text-[9.5px] uppercase tracking-wider border transition cursor-pointer ${
+                activeOctadFilter === 0
+                  ? 'bg-[#FFBF38]/20 border-[#FFBF38] text-[#FFBF38] font-bold'
+                  : 'bg-[#070A16]/75 border-[#526078]/45 text-[#A6AFBF] hover:text-[#F3F2F1]'
+              }`}
+            >
+              {t('All 64 Dyads', 'सभी 64 युग्म')}
+            </button>
+            {ASHTA_BHAIRAVA_PROFILES.map((bh, rIdx) => {
+              const octadNum = rIdx + 1;
+              const startNum = rIdx * 8 + 1;
+              const endNum = startNum + 7;
+              const isOctadActive = activeOctadFilter === octadNum;
+              return (
+                <button
+                  key={bh.id}
+                  type="button"
+                  onClick={() => setActiveOctadFilter(octadNum)}
+                  className={`px-2.5 py-1 rounded-md font-mono text-[9.5px] uppercase tracking-wider border transition cursor-pointer ${
+                    isOctadActive
+                      ? 'bg-[#102344] text-white font-bold'
+                      : 'bg-[#070A16]/75 text-[#A6AFBF] hover:text-[#F3F2F1]'
+                  }`}
+                  style={{
+                    borderColor: isOctadActive ? bh.accentColor : `${bh.accentColor}40`
+                  }}
+                >
+                  {t(
+                    `Octad ${octadNum} (${startNum}–${endNum}) · ${bh.shortTranslit}`,
+                    `अष्टक ${octadNum} (${startNum}–${endNum}) · ${bh.shortHindi}`
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Grid of 64 Yogini - Bhairava Dyad Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+            {filteredDyads.map(dyad => {
+              const isCurrent = dyad.rowIdx === selectedRow && dyad.colIdx === selectedCol;
+              const rowBhairava = ASHTA_BHAIRAVA_PROFILES[dyad.rowIdx];
+              const colMatrika = ASHTA_MATRIKA_PROFILES[dyad.colIdx];
+              return (
+                <button
+                  key={dyad.cellId}
+                  type="button"
+                  onClick={() => {
+                    setSelectedRow(dyad.rowIdx);
+                    setSelectedCol(dyad.colIdx);
+                  }}
+                  className={`p-3 rounded-lg border text-left transition-all duration-200 cursor-pointer flex flex-col justify-between ${
+                    isCurrent
+                      ? 'bg-[#102344]/95 shadow-[0_0_18px_rgba(255,191,56,0.3)]'
+                      : 'bg-[#070A16]/80 hover:bg-[#102344]/50'
+                  }`}
+                  style={{
+                    borderColor: isCurrent ? '#FFBF38' : `${rowBhairava.accentColor}40`
+                  }}
+                >
+                  <div>
+                    {/* Top Row: #01..#64 Badge + Matrix Coordinate */}
+                    <div className="flex items-center justify-between gap-2 mb-1.5">
+                      <span
+                        className={`px-1.5 py-0.5 rounded font-mono text-[9px] font-bold ${
+                          isCurrent
+                            ? 'bg-[#FFBF38] text-[#030D32]'
+                            : 'bg-[#102344] text-[#FFBF38] border border-[#FFBF38]/35'
+                        }`}
+                      >
+                        #{String(dyad.index).padStart(2, '0')}
+                      </span>
+                      <span className="font-mono text-[8.5px] text-[#A6AFBF]">
+                        {dyad.cellId} · {t(rowBhairava.shortTranslit, rowBhairava.shortHindi)} ×{' '}
+                        {t(colMatrika.englishName, colMatrika.hindiName)}
+                      </span>
+                    </div>
+
+                    {/* Yogini */}
+                    <p className="font-serif text-[13px] font-bold text-[#FFBF38] leading-snug">
+                      {t(dyad.yoginiFull, dyad.yoginiFullHi)}
+                    </p>
+
+                    {/* Divider & Bhairava Consort */}
+                    <div className="flex items-center gap-1.5 mt-1">
+                      <span className="font-mono text-[10px] text-[#A6AFBF]">–</span>
+                      <p className="font-serif text-[12.5px] font-semibold text-[#FDBA74] leading-snug">
+                        {t(dyad.bhairavaConsortFull, dyad.bhairavaConsortFullHi)}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Secondary Bilingual Subtitle */}
+                  <div className="mt-2 pt-1.5 border-t border-[#526078]/25 flex items-center justify-between">
+                    <span className="font-serif text-[10px] text-[#A6AFBF]/85 truncate">
+                      {t(dyad.dyadLabelHi, dyad.dyadLabelEn)}
+                    </span>
+                    <span
+                      className="w-2 h-2 rounded-full shrink-0"
+                      style={{ backgroundColor: rowBhairava.accentColor }}
+                    />
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Chapter Footer Navigation */}
         <div className="mt-5 pt-3.5 border-t border-[#526078]/35 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
@@ -616,3 +896,4 @@ export default function Matrix64Chapter({
     </div>
   );
 }
+
