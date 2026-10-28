@@ -14,6 +14,7 @@ import EquipmentSection from './components/EquipmentSection';
 import TimelineSection from './components/TimelineSection';
 import ContactSection from './components/ContactSection';
 import VisualDivider from './components/VisualDivider';
+import TransparentLineScrollbar from './components/TransparentLineScrollbar';
 
 function AppContent() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -21,6 +22,7 @@ function AppContent() {
 
   return (
     <div className="min-h-screen w-full bg-[#1a1512] text-ancient-beige font-sans selection:bg-gold-warm selection:text-ancient-dark overflow-x-hidden vintage-scrollbar">
+      <TransparentLineScrollbar variant="window" />
       
       {/* Sticky Antique Navigation Ledger */}
       <header className="fixed top-0 left-0 w-full z-50 bg-[#110e0d]/30 backdrop-blur-sm border-b border-bronze-dark/40 shadow-lg px-4 md:px-8 py-4 flex items-center justify-between">

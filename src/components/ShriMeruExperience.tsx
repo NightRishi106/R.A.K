@@ -21,6 +21,7 @@ import {
 import { useLanguage } from '../context/LanguageContext';
 
 interface ShriMeruExperienceProps {
+  initialAvaranaIndex?: number;
   initialMatrikaIndex?: number;
   onPrevChapter?: () => void;
   onNextChapter?: () => void;
@@ -147,6 +148,7 @@ function buildBhupuraPath(halfSize: number, neckHalfWidth: number, neckLen: numb
 }
 
 export default function ShriMeruExperience({
+  initialAvaranaIndex,
   initialMatrikaIndex,
   onPrevChapter,
   onNextChapter,
@@ -156,9 +158,17 @@ export default function ShriMeruExperience({
   const { lang, t } = useLanguage();
   const shouldReduceMotion = useReducedMotion();
 
-  const [activeSequence, setActiveSequence] = useState<ShriMeruSequenceId>('opening');
+  const [activeSequence, setActiveSequence] = useState<ShriMeruSequenceId>(
+    typeof initialAvaranaIndex === 'number' && initialAvaranaIndex >= 0 && initialAvaranaIndex < 9
+      ? 'enclosures'
+      : 'opening'
+  );
   const [openingStep, setOpeningStep] = useState<0 | 1>(1);
-  const [activeAvaranaIdx, setActiveAvaranaIdx] = useState<number>(0);
+  const [activeAvaranaIdx, setActiveAvaranaIdx] = useState<number>(
+    typeof initialAvaranaIndex === 'number' && initialAvaranaIndex >= 0 && initialAvaranaIndex < 9
+      ? initialAvaranaIndex
+      : 0
+  );
   const [activeTriangleStepIdx, setActiveTriangleStepIdx] = useState<number>(5);
   const [bhupuraStep, setBhupuraStep] = useState<0 | 1>(0);
   const [activeMatrikaIdx, setActiveMatrikaIdx] = useState<number>(initialMatrikaIndex ?? 0);
@@ -170,11 +180,12 @@ export default function ShriMeruExperience({
   const [timelineSec, setTimelineSec] = useState<number>(0);
 
   useEffect(() => {
-    if (typeof initialMatrikaIndex === 'number' && initialMatrikaIndex >= 0 && initialMatrikaIndex < 8) {
-      setActiveMatrikaIdx(initialMatrikaIndex);
-      setActiveSequence('matrikas');
+    if (typeof initialAvaranaIndex === 'number' && initialAvaranaIndex >= 0 && initialAvaranaIndex < 9) {
+      setActiveAvaranaIdx(initialAvaranaIndex);
+      setActiveSequence('enclosures');
+      setTimelineSec(NINE_AVARANAS[initialAvaranaIndex]?.startSec ?? 13);
     }
-  }, [initialMatrikaIndex]);
+  }, [initialAvaranaIndex]);
 
   const applyTimelineSecond = (sec: number) => {
     setTimelineSec(sec);

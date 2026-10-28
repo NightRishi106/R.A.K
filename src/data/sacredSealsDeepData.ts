@@ -177,18 +177,18 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
       headersEn: ['#', 'Devanāgarī & IAST', 'Defensible Sanskrit Lexical Meaning', 'Known Religious / Textual Context', 'Scholarly Research Question'],
       headersHi: ['क्र.', 'नाम (देवनागरी एवं IAST)', 'प्रामाणिक संस्कृत शब्दार्थ', 'ज्ञात धार्मिक एवं ग्रंथीय संदर्भ', 'शोध एवं सत्यापन प्रश्न'],
       rowsEn: [
-        ['1', 'इन्द्र · Indra', 'Vedic King of Devas; sovereign lord or chief', 'Vedic-Purāṇic sovereign; occasionally used as an honorific title ("chief among...") in सिद्ध lists', 'Does Indra represent a guru honorific, a directional guardian, or a heading within a larger tantric table?'],
-        ['2', 'देव · Deva', 'Shining one, deity, divine being; royal/ascetic suffix', 'Common suffix in Śaiva initiatory names (e.g., Somadeva, Vāmadeva) and general term for deities', 'Does Deva refer to a class of initiates bearing the -deva name-ending or a deity-focused observance?'],
-        ['3', 'रुद्र · Rudra', 'The Roarer / fierce Vedic-Śaiva deity; Rudrabheda Āgamas', 'Central to Śaiva history; 18 of the 28 Siddhānta Āgamas belong to the Rudrabheda division', 'Does Rudra reflect the Rudrabheda Āgamic classification or worship of fierce Rudra-Bhairava forms?'],
-        ['4', 'विद्या · Vidyā', 'Sacred knowledge, liberating wisdom, female mantra-deity', 'The Bhairava Tantras are famously divided into Mantrapīṭha and Vidyāpīṭha (goddess-centered texts)', 'Does Vidyā point to the canonical Vidyāpīṭha division of the Bhairava Tantras rather than a Kāpālika subsect?'],
-        ['5', 'सिद्ध · Siddha', 'Perfected master, accomplished tantric yogin', 'The 12 Kāpālika gurus and 12 disciples in Sarvatantra/Śābara lists are revered as Siddhas', 'Does Siddha denote the Siddha-santāna lineage of perfected masters rather than a fifth sectarian subdivision?']
+        ['1', 'इन्द्रजाली · Indrajali', 'Indra + jāla ("Net of Indra") + -in: practitioner or lineage associated with Indrajāla (sacred illusion, wonder-working, or cosmic net)', 'Indrajāla appears in Atharvavedic, Tantric, and Dāmaratantra traditions for wonder-working rites and the illusory weave of māyā', 'Does Indrajali denote a Kāpālika sub-order specializing in Indrajāla-tantra or a Siddha-lineage classification?'],
+        ['2', 'देवजाली · Devjali', 'Deva + jāla ("Divine Net / Network of Deities") + -in: initiate or stream associated with the luminous deity-matrix', 'Relates to the mandala-network (jāla) of Devas and Śaiva initiatory lineages bearing divine classifications', 'Does Devjali classify a deity-mandala observance (deva-jāla) within the fivefold Kāpālika taxonomy?'],
+        ['3', 'रुद्रजाली · Rudrajali', 'Rudra + jāla ("Net/Matrix of Rudra") + -in: fierce Rudra-centered lineage or practitioner of the Rudrabheda stream', 'Central to fierce Śaiva-Bhairava practice; resonates with the 18 Rudrabheda Āgamas and Rudra-grantha networks', 'Does Rudrajali reflect the Rudrabheda Āgamic stream and fierce Rudra-Bhairava kapāla-vrata?'],
+        ['4', 'विद्याजाली · Vidyajali', 'Vidyā + jāla ("Network of Mantric Vidyās") + -in: adept or branch centered on the Vidyāpīṭha goddess-mantra corpus', 'The Bhairava Tantras are divided into Mantrapīṭha and Vidyāpīṭha; Vidyājāla denotes a lattice of esoteric mantra-vidyās', 'Does Vidyajali point to the canonical Vidyāpīṭha division of the Bhairava Tantras within Kāpālika practice?'],
+        ['5', 'सिद्धजाली · Siddhajali', 'Siddha + jāla ("Lineage-Net of Perfected Masters") + -in: stream of accomplished Siddha-yogins (Siddha-jāla / Siddha-santāna)', 'The 12 Kāpālika gurus and 12 disciples in Sarvatantra/Śābara lists are revered as the Siddha network', 'Does Siddhajali denote the Siddha-jāla / Siddha-santāna lineage of perfected Kāpālika masters?']
       ],
       rowsHi: [
-        ['१', 'इन्द्र (Indra)', 'वैदिक देवराज इन्द्र; अधिपति या श्रेष्ठ', 'वैदिक-पौराणिक देवता; कभी-कभी सिद्ध-सूचियों में "श्रेष्ठ/इन्द्र" उपाधि के रूप में प्रयुक्त', 'क्या "इन्द्र" किसी गुरु-उपाधि, दिक्पाल या किसी बड़े वर्गीकरण के पद का नाम है?'],
-        ['२', 'देव (Deva)', 'दिव्य सत्ता, प्रकाशमान देव; शैव दीक्षा-नाम प्रत्यय', 'शैव आचार्यों के दीक्षा-नामों (जैसे सोमदेव, वामदेव) के अंत में लगनेय वाला सामान्य पद', 'क्या यह किसी प्रकार के दीक्षित साधक-समूह या देव-उपासना को दर्शाता है?'],
-        ['३', 'रुद्र (Rudra)', 'वैदिक-शैव देवता रुद्र; रुद्रभेद आगम वर्ग', '२८ शैव आगमों में १० शिवभेद और १८ रुद्रभेद आगमों का प्रसिद्ध शास्त्रीय विभाजन है', 'क्या यह "रुद्रभेद" आगम वर्गीकरण या उग्र रुद्र-भैरव उपासना का संकेत है?'],
-        ['४', 'विद्या (Vidyā)', 'परा-विद्या, मन्त्र-शक्ति अथवा देवी-संहिता', 'भैरव तन्त्रों का प्रसिद्ध विभाजन "मन्त्रपीठ" और "विद्यापीठ" (देवी-प्रधान तन्त्र) के रूप में हुआ है', 'क्या "विद्या" शब्द भैरव आगमों के "विद्यापीठ" वर्ग को दर्शाता है?'],
-        ['५', 'सिद्ध (Siddha)', 'सिद्धि-प्राप्त पूर्ण साधक या सिद्ध आचार्य', 'सर्वतन्त्र और नाथ-कापालिक सूचियों में १२ गुरुओं को सिद्ध-परंपरा से जोड़ा गया है', 'क्या "सिद्ध" किसी साधक की पूर्णता की अवस्था है या सिद्ध-सन्तान गुरु-परंपरा का संकेत?']
+        ['१', 'इन्द्रजाली · Indrajali', 'इन्द्रजाल + इन् = इन्द्रजाल (माया-जाल, ऐन्द्रजालिक विद्या या ब्रह्माण्डीय जाल) से युक्त साधक/शाखा', 'अथर्ववेदीय परिशिष्ट, डामर तन्त्र और तांत्रिक साहित्य में "इन्द्रजाल" एवं कौतुक-सिद्धियों का उल्लेख मिलता है', 'क्या "इन्द्रजाली" इन्द्रजाल-तन्त्र या माया-तत्त्व की साधना करने वाली कापालिक उपशाखा का नाम है?'],
+        ['२', 'देवजाली · Devjali', 'देवजाल + इन् = देव-मण्डल या दिव्य-जाल की उपासना से संबद्ध साधक-वर्ग', 'तांत्रिक मण्डल-विधान में देवताओं के समूह या शक्ति-जाल के संदर्भ में प्रयुक्त', 'क्या "देवजाली" देव-मण्डल उपासना से जुड़ी कापालिक शाखा को दर्शाता है?'],
+        ['३', 'रुद्रजाली · Rudrajali', 'रुद्रजाल + इन् = उग्र रुद्र-भैरव के शक्ति-जाल एवं रुद्रभेद आगम-धारा से संबद्ध', '२८ शैव आगमों में १८ रुद्रभेद आगम हैं तथा कापालिक साधना में उग्र रुद्र-भैरव की प्रधानता है', 'क्या "रुद्रजाली" रुद्रभेद आगम-परंपरा या उग्र रुद्र-कपाल व्रत की शाखा का सूचक है?'],
+        ['४', 'विद्याजाली · Vidyajali', 'विद्याजाल + इन् = परा-विद्या एवं मन्त्र-विद्याओं के जाल (विद्यापीठ) का साधक/वर्ग', 'भैरव तन्त्रों का प्रसिद्ध विभाजन "मन्त्रपीठ" और "विद्यापीठ" (देवी-मन्त्र प्रधान तन्त्र) के रूप में हुआ है', 'क्या "विद्याजाली" भैरव आगमों के "विद्यापीठ" आम्नाय से जुड़ी कापालिक धारा को दर्शाता है?'],
+        ['५', 'सिद्धजाली · Siddhajali', 'सिद्धजाल + इन् = सिद्ध आचार्यों के मण्डल (सिद्ध-जाल / सिद्ध-सन्तान) से संबद्ध पूर्ण साधक', 'सर्वतन्त्र और नाथ-कापालिक सूचियों में १२ गुरुओं और १२ शिष्यों को सिद्ध-परंपरा से जोड़ा गया है', 'क्या "सिद्धजाली" १२ कापालिक सिद्ध-गुरुओं की "सिद्ध-सन्तान" परंपरा या सिद्ध-वर्ग का संकेत है?']
       ]
     },
     {
@@ -209,7 +209,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
           'Preserve all 12 terms in a clearly labeled "Source Verification Pending" ledger with lexical meanings only'
         ],
         [
-          '5 Bhedas of Kāpālika Sampradāya (Indra, Deva, Rudra, Vidyā, Siddha)',
+          '5 Bhedas of Kāpālika Sampradāya (Indrajali, Devjali, Rudrajali, Vidyajali, Siddhajali)',
           'Not corroborated as historical Kāpālika subsects in primary inscriptions or monographs',
           'Provide Sanskrit lexical analysis and philological research questions without inventing sect histories'
         ],
@@ -226,7 +226,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
           'सभी १२ नामों को "मूल स्रोत की पुष्टि लंबित" टिप्पणी और संभावित शब्दार्थ के साथ सुरक्षित रखना'
         ],
         [
-          'कापालिक सम्प्रदाय के ५ भेद (इन्द्र, देव, रुद्र, विद्या, सिद्ध)',
+          'कापालिक सम्प्रदाय के ५ भेद (इन्द्रजाली, देवजाली, रुद्रजाली, विद्याजाली, सिद्धजाली)',
           'स्वतंत्र कापालिक उपशाखाओं के रूप में प्राथमिक शिलालेखों या ग्रन्थों में पुष्टि नहीं',
           'कल्पित इतिहास गढ़े बिना केवल प्रामाणिक शब्दार्थ और शोध-दिशा प्रस्तुत करना'
         ],
@@ -297,6 +297,288 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         ['संध्या (Sandhyā)', 'दिन और रात का संधिकाल; संधिकाल की उपासना', 'प्रातः, मध्याह्न और सायंकाल के तीन संधिकाल', 'संध्या एक संक्षिप्त संक्रमण-काल है; यह पूरे तीन घंटे के प्रहर के बराबर नहीं होती'],
         ['ब्रह्ममुहूर्त (Brahma-muhūrta)', 'सूर्योदय से पूर्व का विशेष प्रातःकालीन मुहूर्त', 'प्रचलित गणना में सूर्योदय से लगभग ९६ से ४८ मिनट पहले (४८ मिनट की अवधि)', 'यह अष्टम प्रहर के भीतर आता है, किन्तु पूरे ३ घंटे के अष्टम प्रहर को ब्रह्ममुहूर्त मानना अशुद्ध है'],
         ['अहोरात्र (Ahorātra)', 'एक पूरा दिन और रात (अहन् + रात्रि)', '२४ घंटे (८ प्रहर = ३० मुहूर्त = ६० घटिका)', 'भारतीय पंचांग परंपरा में अहोरात्र की गणना सूर्योदय से अगले सूर्योदय तक की जाती है']
+      ]
+    }
+  ],
+  'dasa-mahavidya-ten-wisdom-goddesses': [
+    {
+      id: 'table-mahavidya-10-comparative-system',
+      articleSlug: 'dasa-mahavidya-ten-wisdom-goddesses',
+      titleEn: 'The Ten Mahāvidyās — Comparative Theological, Iconographic & Philosophical Framework',
+      titleHi: 'दशमहाविद्या — तुलनात्मक धर्मशास्त्रीय, प्रतिमाशास्त्रीय एवं दार्शनिक रूपरेखा',
+      captionEn:
+        'A comparative interpretive framework across the ten Great Wisdom Goddesses (Daśa Mahāvidyā). Note: Recurring associations and symbolic themes vary across individual Tantric scriptures, regional lineages, and iconographic forms (cf. David Kinsley; Jae-Eun Shin).',
+      captionHi:
+        'दस महाविद्याओं (दशमहाविद्या) की तुलनात्मक दार्शनिक एवं प्रतिमाशास्त्रीय रूपरेखा। विशेष टिप्पणी: विभिन्न तांत्रिक ग्रन्थों, आम्नायों और क्षेत्रीय परम्पराओं में इनके क्रम और प्रतीकात्मक अर्थों में विविधता मिलती है।',
+      headersEn: ['#', 'Mahāvidyā (Devanāgarī & IAST)', 'Core Associations & Familiar Iconography', 'Central Theme', 'Question for Philosophical Research'],
+      headersHi: ['क्र.', 'महाविद्या (देवनागरी एवं IAST)', 'मुख्य संबद्धता एवं प्रमुख प्रतिमाशास्त्रीय लक्षण', 'केंद्रीय विषय', 'दार्शनिक शोध हेतु मुख्य प्रश्न'],
+      rowsEn: [
+        [
+          '1',
+          'काली · Kālī (Kālikā) — The Power of Time',
+          'Time, death, transformation, dissolution of limiting identities & maternal liberation; dark/black complexion, disheveled hair, garland of skulls, standing upon Śiva',
+          'Time and dissolution',
+          'What happens to identity when all forms are impermanent?'
+        ],
+        [
+          '2',
+          'तारा · Tārā — The Saviouress',
+          'Protection, deliverance across danger, and liberating speech; blue/dark coloration, fierce expression, weapons/ritual implements, cremation-ground imagery (distinct from yet historically studied alongside Buddhist Tārā)',
+          'Deliverance and protection',
+          'What does it mean to cross beyond danger or suffering?'
+        ],
+        [
+          '3',
+          'त्रिपुरसुन्दरी · Tripurasundarī (Ṣoḍaśī · Lalitā) — Beauty of the Three Worlds',
+          'Central to Śrīvidyā & Śrīcakra; youthful radiant form, red garments, jeweled crown, four arms holding sugarcane bow, five flowery arrows, noose (pāśa), and goad (aṅkuśa)',
+          'Beauty and sovereignty',
+          'How can the manifested universe express divine harmony?'
+        ],
+        [
+          '4',
+          'भुवनेश्वरी · Bhuvaneśvarī — The Queen of the Worlds',
+          'Cosmos as the spatial expanse in which manifestation unfolds; regal radiant Goddess with elaborate ornaments, holding noose and goad with gestures of abhaya (reassurance) and varada (blessing)',
+          'Cosmic expanse',
+          'How is the universe understood as a domain of divine power?'
+        ],
+        [
+          '5',
+          'त्रिपुरभैरवी · Tripurā Bhairavī — The Fierce Radiance',
+          'Fierce divine power, tapas, discipline, and transformative energy; red/fiery coloration, crown, multiple arms with weapons or ritual implements, combining royal and ascetic intensity',
+          'Intensity and transformation',
+          'What is the role of discipline and formidable energy?'
+        ],
+        [
+          '6',
+          'छिन्नमस्ता · Chhinnamastā — The Self-Decapitated Goddess',
+          'Self-sacrifice, circulation of vital life-force, and the paradox of selfhood; stands holding her own severed head while three streams of blood nourish her head and two attendant figures',
+          'Sacrifice and life force',
+          'How are giving, nourishment, and destruction interconnected?'
+        ],
+        [
+          '7',
+          'धूमावती · Dhūmāvatī — The Smoky Goddess',
+          'Smoke (dhūma), absence, deprivation, old age, and widowhood; elderly woman with disheveled hair, worn clothing, winnowing basket (śūrpa), and crow-associated austerity',
+          'Absence and impermanence',
+          'Can the sacred be recognized in loss and deprivation?'
+        ],
+        [
+          '8',
+          'बगलामुखी · Bagalāmukhī (Bagalā) — The Power of Arresting',
+          'Arresting, restraining, or immobilizing hostile speech and action; yellow/golden coloration, yellow garments, seated on a throne, restraining an adversary’s tongue with a club raised',
+          'Arrest and restraint',
+          'What does it mean to interrupt harmful action or speech?'
+        ],
+        [
+          '9',
+          'मातङ्गी · Mātaṅgī — The Goddess of Speech and Art',
+          'Spoken language, music, learning, artistic expression, and knowledge challenging social boundaries; dark/emerald-greenish hue, royal throne, veena (lute), and affinities with yet distinct from Sarasvatī',
+          'Speech and expression',
+          'How are knowledge, language, art, and authority related?'
+        ],
+        [
+          '10',
+          'कमला · Kamalā (Kamalātmikā) — The Lotus Goddess',
+          'Prosperity, fertility, auspiciousness, beauty, and flourishing; golden complexion, seated on a lotus, holding lotuses while elephants pour lustral water over her (closely identified with Lakṣmī)',
+          'Prosperity and auspiciousness',
+          'How should abundance and spiritual life be understood together?'
+        ]
+      ],
+      rowsHi: [
+        [
+          '१',
+          'काली · Kālī (कालिका) — काल की अधिष्ठात्री शक्ति',
+          'काल, मृत्यु, रूपांतरण, सीमित अहं का लय एवं मातृवत् करुणा; श्यामल/कृष्ण वर्ण, मुक्त केश, मुण्डमाला, खड्ग एवं शिव के वक्ष पर स्थित मुद्रा',
+          'काल एवं लय (Time & Dissolution)',
+          'जब समस्त रूप अनित्य हैं, तब अस्मिता (Identity) का स्वरूप क्या रहता है?'
+        ],
+        [
+          '२',
+          'तारा · Tārā — तारिणी एवं संकट-मोचनी शक्ति',
+          'रक्षा, भव-संकट से पार लगाना एवं वाक्-शक्ति; नील/श्यामल वर्ण, उग्र मुद्रा, कर्तरी-खड्ग-पद्म एवं श्मशान-वास (हिन्दू एवं बौद्ध तारा परंपराओं का तुलनात्मक ऐतिहासिक संदर्भ)',
+          'उद्धार एवं संरक्षण (Deliverance & Protection)',
+          'भय, संकट या दुःख के पार जाने (तरण) का वास्तविक दार्शनिक अर्थ क्या है?'
+        ],
+        [
+          '३',
+          'त्रिपुरसुन्दरी · Tripurasundarī (षोडशी · ललिता) — त्रैलोक्य-सुन्दरी',
+          'श्रीविद्या एवं श्रीचक्र की अधिष्ठात्री; अरुण आभा, रत्नजटित मुकुट, चतुर्भुज रूप में इक्षु-धनुष, पंच-पुष्पबाण, पाश और अंकुश धारिणी',
+          'सौन्दर्य एवं ऐश्वर्य-सम्पन्न संप्रभुता',
+          'प्रकट ब्रह्माण्ड दिव्य सामरस्य और सौन्दर्य की अभिव्यक्ति कैसे बनता है?'
+        ],
+        [
+          '४',
+          'भुवनेश्वरी · Bhuvaneśvarī — भुवनों की अधीश्वरी',
+          'ब्रह्माण्डीय आकाश एवं सृष्टि के विस्तार की स्वामिनी; सौम्य राजकीय तेज, पाश, अंकुश तथा अभय एवं वरद मुद्रा से युक्त',
+          'ब्रह्माण्डीय विस्तार (Cosmic Expanse)',
+          'संपूर्ण विश्व को पराशक्ति के चिन्मय क्षेत्र (Domain) के रूप में कैसे समझा जाए?'
+        ],
+        [
+          '५',
+          'त्रिपुरभैरवी · Tripurā Bhairavī — प्रचण्ड तेज एवं तपःशक्ति',
+          'उग्र दिव्य शक्ति, अनुशासन, तप एवं रूपांतरणकारी ऊर्जा; रक्त/अग्निवर्ण आभा, मुकुट, बहुभुजाओं में शस्त्र अथवा जपमाला-पुस्तक',
+          'तीव्रता एवं रूपांतरण (Intensity & Transformation)',
+          'साधना में कठोर अनुशासन और प्रचण्ड ऊर्जा की क्या भूमिका है?'
+        ],
+        [
+          '६',
+          'छिन्नमस्ता · Chhinnamastā — स्व-शीर्षच्छेदिनी महाविद्या',
+          'आत्म-त्याग, प्राण-शक्ति का संचरण, जीवन-मृत्यु का अंतर्संबंध एवं अहं का विखंडन; स्व-कटे मस्तक को हाथ में धारण किए तीन रक्त-धाराओं से स्वयं व दो सहचरियों का पोषण',
+          'त्याग एवं प्राण-शक्ति (Sacrifice & Life Force)',
+          'उत्सर्ग (त्याग), पोषण और संहार एक-दूसरे से किस प्रकार जुड़े हैं?'
+        ],
+        [
+          '७',
+          'धूमावती · Dhūmāvatī — धूम्र-रूपा एवं अभाव में निहित सत्य',
+          'धूम (धुआँ), अभाव, वृद्धावस्था, वैधव्य एवं लौकिक समृद्धि से बहिष्कृत यथार्थ; वृद्धा स्वरूप, शूर्प (सूप) और काक-ध्वज रथ से संबद्ध',
+          'अभाव एवं अनित्यता (Absence & Impermanence)',
+          'क्या हानि, रिक्तता और अभाव में भी पवित्र सत्ता का साक्षात्कार संभव है?'
+        ],
+        [
+          '८',
+          'बगलामुखी · Bagalāmukhī (बगला) — स्तम्भन शक्ति',
+          'शत्रुतापूर्ण वाणी, गति और आक्रामक क्रियाओं का स्तम्भन (रोकना); पीत (पीला/स्वर्ण) वर्ण, पीताम्बर, सिंहासन पर आसीन होकर विरोधी की जिह्वा को नियंत्रित करती हुईं',
+          'स्तम्भन एवं नियंत्रण (Arrest & Restraint)',
+          'हानिकारक वाणी या आक्रामक क्रिया को बाधित/स्तम्भित करने का क्या तात्पर्य है?'
+        ],
+        [
+          '९',
+          'मातङ्गी · Mātaṅgī — वाक्, संगीत एवं कला की अधिष्ठात्री',
+          'वाणी, संगीत, विद्या, कलात्मक अभिव्यक्ति एवं सामाजिक सीमाओं का अतिक्रमण करने वाला ज्ञान; मरकत-श्यामल वर्ण, वीणा-धारिणी, सरस्वती के सदृश किंतु विशिष्ट तांत्रिक स्वरूप',
+          'वाणी एवं अभिव्यक्ति (Speech & Expression)',
+          'ज्ञान, भाषा, कला और सामाजिक अधिकार परस्पर किस प्रकार संबद्ध हैं?'
+        ],
+        [
+          '१०',
+          'कमला · Kamalā (कमलात्मिका) — पद्म-वासिनी ऐश्वर्य शक्ति',
+          'समृद्धि, उर्वरता, मांगल्य, सौन्दर्य एवं प्रचुरता; स्वर्ण आभा, पद्मासन, कर-कमलों में पद्म एवं गजों द्वारा अभिषेक (लक्ष्मी से प्रगाढ़ तादात्म्य)',
+          'समृद्धि एवं मांगल्य (Prosperity & Auspiciousness)',
+          'भौतिक प्रचुरता और आध्यात्मिक जीवन को एक साथ कैसे समझा जाना चाहिए?'
+        ]
+      ]
+    },
+    {
+      id: 'table-mahavidya-primary-scholarly-sources',
+      articleSlug: 'dasa-mahavidya-ten-wisdom-goddesses',
+      titleEn: 'Primary Texts, Tantric Compendia & Modern Scholarly Literature on the Mahāvidyās',
+      titleHi: 'दशमहाविद्या अध्ययन के प्रमुख शास्त्रीय ग्रन्थ एवं आधुनिक अकादमिक शोध-साहित्य',
+      captionEn:
+        'Foundational scriptural and peer-reviewed sources for documenting textual history, iconography, and theological debates.',
+      captionHi:
+        'दशमहाविद्याओं के ग्रंथीय इतिहास, प्रतिमाशास्त्र और दार्शनिक विमर्श के प्रलेखन हेतु प्रमुख प्राथमिक एवं अकादमिक स्रोत।',
+      headersEn: ['#', 'Source / Author', 'Category & Publication Context', 'Significance for the Mahāvidyā Archive'],
+      headersHi: ['क्र.', 'ग्रन्थ / लेखक', 'श्रेणी एवं प्रकाशन संदर्भ', 'महाविद्या अभिलेखागार के लिए महत्त्व'],
+      rowsEn: [
+        [
+          '1',
+          'David Kinsley — Tantric Visions of the Divine Feminine: The Ten Mahavidyas',
+          'Modern Academic Monograph · University of California Press (1997)',
+          'Comprehensive scholarly study of the ten Mahāvidyās, their individual identities, mythology, iconography, and theological relationships.'
+        ],
+        [
+          '2',
+          'Jae-Eun Shin — Change, Continuity and Complexity: The Mahavidyas in East Indian Sakta Traditions',
+          'Modern Historical Scholarship · Routledge (2018)',
+          'Examines the historical development of the Mahāvidyās in eastern Indian Śākta traditions, regional epigraphy, Purāṇic synthesis, and complexity of grouping.'
+        ],
+        [
+          '3',
+          'The Devī Māhātmya (Mārkaṇḍeya Purāṇa)',
+          'Primary Purāṇic Scripture (c. 5th–6th century CE)',
+          'Foundational text for the wider history of Hindu Goddess theology (Kālī, Ambikā, Cāmuṇḍā), though not yet an exposition of the complete tenfold Mahāvidyā list.'
+        ],
+        [
+          '4',
+          'The Mahābhāgavata Purāṇa & Bṛhaddharma Purāṇa',
+          'Eastern Śākta Upapurāṇas',
+          'Primary narrative source for Satī manifesting the ten Mahāvidyās in ten directions before Śiva prior to Dakṣa’s sacrifice.'
+        ],
+        [
+          '5',
+          'Muṇḍamālā Tantra, Toḍala Tantra, Śaktisaṅgama Tantra & Śāktapramoda',
+          'Tantric Textual Traditions & Ritual Compendia',
+          'Preserve canonical verses listing the ten Mahāvidyās, their Bhairava consorts, dhyāna-ślokas, mantras, and yantras across distinct historical layers.'
+        ],
+        [
+          '6',
+          'Journal of Hindu Studies (Oxford Academic) — Scholarship on Tārā, Kālīkula & Śrīkula',
+          'Peer-Reviewed Journal Scholarship',
+          'Analyzes how the Mahāvidyā framework bridges Kālīkula and Śrīkula currents and investigates Tārā’s incorporation across Hindu and Buddhist contexts.'
+        ]
+      ],
+      rowsHi: [
+        [
+          '१',
+          'डेविड किन्सले (David Kinsley) — Tantric Visions of the Divine Feminine: The Ten Mahavidyas',
+          'आधुनिक अकादमिक शोध-ग्रन्थ · यूनिवर्सिटी ऑफ कैलिफ़ोर्निया प्रेस (१९९७)',
+          'दसों महाविद्याओं के स्वतंत्र व्यक्तित्व, मिथक, प्रतिमाशास्त्र और पारस्परिक धर्मशास्त्रीय संबंधों का आधारभूत अध्ययन।'
+        ],
+        [
+          '२',
+          'जे-युन शिन (Jae-Eun Shin) — Change, Continuity and Complexity: The Mahavidyas in East Indian Sakta Traditions',
+          'ऐतिहासिक शोध-ग्रन्थ · रूटलेज (Routledge)',
+          'पूर्वी भारत की शाक्त परम्पराओं में दशमहाविद्या समूह के ऐतिहासिक विकास, क्षेत्रीय मंदिरों और पुराण-तन्त्र समन्वय का गहन विश्लेषण।'
+        ],
+        [
+          '३',
+          'देवी माहात्म्य (मार्कण्डेय पुराण का अंश)',
+          'मूल पौराणिक शास्त्र',
+          'हिन्दू देवी-तत्त्वज्ञान के व्यापक इतिहास का आधारभूत ग्रन्थ (यद्यपि इसमें दसों महाविद्याओं की परवर्ती सूची एक साथ नहीं है, तथापि यह आवश्यक पृष्ठभूमि है)।'
+        ],
+        [
+          '४',
+          'महाभागवत पुराण एवं बृहद्धर्म पुराण',
+          'पूर्वी भारत के शाक्त उपपुराण',
+          'दक्ष-यज्ञ के प्रसंग में सती द्वारा शिव के समक्ष दसों दिशाओं में दस महाविद्याओं के प्राकट्य की कथा का प्रमुख स्रोत।'
+        ],
+        [
+          '५',
+          'मुण्डमाला तन्त्र, तोडल तन्त्र, शक्तिसंगम तन्त्र एवं शाक्तप्रमोद',
+          'तांत्रिक संहिताएँ एवं पूजा-पद्धति ग्रन्थ',
+          'दशमहाविद्याओं की प्रामाणिक नामावली, भैरव-युग्म, ध्यान-श्लोक, मन्त्र और यन्त्र-विधान के विविध ऐतिहासिक स्तरों के स्रोत।'
+        ],
+        [
+          '६',
+          'जर्नल ऑफ हिन्दू स्टडीज़ (Oxford Academic) — तारा, कालीकुल एवं श्रीकुल पर शोध',
+          'समीक्षित अकादमिक शोध-पत्र',
+          'कालीकुल और श्रीकुल को जोड़ने वाले ढाँचे के रूप में महाविद्या समूह तथा हिन्दू व बौद्ध संदर्भों में तारा के स्थान का विश्लेषण।'
+        ]
+      ]
+    },
+    {
+      id: 'table-mahavidya-10-point-research-template',
+      articleSlug: 'dasa-mahavidya-ten-wisdom-goddesses',
+      titleEn: 'Standardized 10-Point Archival Research Template & 7 Collection Categories',
+      titleHi: 'प्रत्येक महाविद्या के अध्ययन हेतु १०-सूत्रीय मानक शोध-प्रारूप एवं ७ संग्रह श्रेणियाँ',
+      captionEn:
+        'Methodological template applied across the Tantric Ram Ashok Kumar Archive to ensure every Goddess profile separates primary evidence from modern commentary.',
+      captionHi:
+        'राम अशोक कुमार शोध अभिलेखागार में प्रत्येक महाविद्या के व्यवस्थित, स्रोत-सचेत और प्रामाणिक प्रलेखन हेतु १०-सूत्रीय मानक संरचना।',
+      headersEn: ['Module #', 'Research Module Heading', 'Required Archival Documentation & Evidentiary Scope'],
+      headersHi: ['क्रम', 'शोध अनुभाग शीर्षक', 'आवश्यक अभिलेखीय विवरण एवं प्रमाण-पद्धति'],
+      rowsEn: [
+        ['01', 'Overview and Terminology', 'Sanskrit name in Devanāgarī, IAST transliteration, alternative epithets (e.g., Ṣoḍaśī, Kamalātmikā), and lexical definition.'],
+        ['02', 'Historical Development', 'Earliest surviving textual or material evidence, regional history, and chronological stages before and after tenfold standardization.'],
+        ['03', 'Mythology and Narratives', 'Major Purāṇic and Tantric narratives, variant textual versions, and theological interpretations drawn from them.'],
+        ['04', 'Iconography', 'Posture, complexion, attributes, weapons/implements, attendants, provenance/date of artifacts, and documented visual variants.'],
+        ['05', 'Philosophy and Symbolism', 'Conceptual themes (time, crossing, space, sacrifice, speech, restraint, abundance) grounded in identifiable texts.'],
+        ['06', 'Scriptures and Manuscripts', 'Primary Tantras and Purāṇas, critical editions, translators, chapter/verse citations, and manuscript lineages.'],
+        ['07', 'Worship and Ritual History', 'Clear distinction between public temple devotional practice, textual ritual manuals, initiatory (dīkṣā) lineages, and modern interpretations.'],
+        ['08', 'Temples and Regional Traditions', 'Documented seats (such as Kāmākhyā, Tarapith, Varanasi, Mithila, Bengal, South India) and living community observances.'],
+        ['09', 'Comparative Studies', 'Connections with other Mahāvidyās, Kālīkula vs. Śrīkula synthesis, and cross-tradition parallels (e.g., Hindu and Buddhist Tārā).'],
+        ['10', 'Bibliography and Evidence', 'Complete source ledger, edition details, provenance notes, scholarly disagreements, and unresolved historical questions.']
+      ],
+      rowsHi: [
+        ['०१', 'परिचय एवं शब्दावली (Overview & Terminology)', 'संस्कृत नाम (देवनागरी), IAST लिप्यंतरण, वैकल्पिक नाम (जैसे षोडशी, कमलात्मिका) और प्रामाणिक परिभाषा।'],
+        ['०२', 'ऐतिहासिक विकास (Historical Development)', 'प्राचीनतम उपलब्ध ग्रंथीय या पुरातात्विक साक्ष्य, क्षेत्रीय इतिहास और दश-समूह के मानकीकरण के चरण।'],
+        ['०३', 'मिथक एवं आख्यान (Mythology & Narratives)', 'प्रमुख पौराणिक एवं तांत्रिक कथाएँ, विभिन्न ग्रन्थों के पाठांतर और उनके दार्शनिक निहितार्थ।'],
+        ['०४', 'प्रतिमाशास्त्र (Iconography)', 'मुद्रा, वर्ण, आयुध, वाहन, सहचरी शक्तियाँ, ऐतिहासिक प्रतिमाओं का काल/स्थान और दृश्य भिन्नताएँ।'],
+        ['०५', 'दर्शन एवं प्रतीक-विधान (Philosophy & Symbolism)', 'विशिष्ट ग्रन्थों द्वारा समर्थित वैचारिक विषय (काल, तरण, आकाश, आत्म-त्याग, वाक्, स्तम्भन, मांगल्य)।'],
+        ['०६', 'शास्त्र एवं पाण्डुलिपियाँ (Scriptures & Manuscripts)', 'मूल तन्त्र एवं पुराण, प्रामाणिक संस्करण, अनुवादक, अध्याय/श्लोक संख्या और पाण्डुलिपि विवरण।'],
+        ['०७', 'उपासना एवं अनुष्ठान इतिहास (Worship & Ritual History)', 'सार्वजनिक मंदिर भक्ति, शास्त्रीय पूजा-पद्धति, गुरु-दीक्षा (आम्नाय) परंपरा और आधुनिक व्याख्याओं में स्पष्ट भेद।'],
+        ['०८', 'मंदिर एवं क्षेत्रीय परंपराएँ (Temples & Regional Traditions)', 'प्रमुख पीठ (कामाख्या, तारापीठ, काशी, मिथिला, बंगाल, दक्षिण भारत) और जीवंत उपासना परंपराएँ।'],
+        ['०९', 'तुलनात्मक अध्ययन (Comparative Studies)', 'अन्य महाविद्याओं से संबंध, कालीकुल-श्रीकुल समन्वय तथा अन्य धार्मिक धाराओं (जैसे बौद्ध तारा) से तुलना।'],
+        ['१०', 'संदर्भ-सूची एवं साक्ष्य समीक्षा (Bibliography & Evidence)', 'संपूर्ण स्रोत-सूची, संस्करण विवरण, विद्वानों के मतभेद और अनसुलझे ऐतिहासिक प्रश्न।']
       ]
     }
   ]
@@ -427,9 +709,9 @@ export const DEEP_SACRED_SEAL_ARTICLES: ResearchArticle[] = [
         headingEn: '3. The Six Points of the Aghora–Kāpālika–Ghora Dossier & Its Two Sub-Parts',
         headingHi: '3. अघोर सम्प्रदाय के ६ मुख्य बिंदु एवं इसके २ उप-भाग (घोर ११/१२ भेद व कापालिक ५ भेद)',
         bodyEn:
-          'In the research notes for Aghora Sampradāya, six interconnected points are organized under one umbrella, with Points 5 and 6 forming the two specialized sub-parts of this study: (1) Origin / Background (Pravartaka/Mūla): The historical emergence of fierce Śaiva asceticism out of the Pāśupata milieu associated with Lakulīśa (Nakulīśa), while noting that Lakulīśa’s historical vs. mythic status and the exact institutional continuity require careful scholarly distinction. (2) Guru Lineage (Guru Paramparā): The 12 Kāpālika gurus recorded in the Sarvatantra and Śābara compendia (Ādinātha, Anādi, Kāla, Amitābha/Atikāla, Karāla, Vikarāla, Mahākāla, Kālabhairavanātha, Baṭuka, Bhūtanātha, Vīranātha, and Śrīkaṇṭha). (3) Presiding Deities (Iṣṭadeva): Fierce Bhairava alongside Mahākālī, Cāmuṇḍā, and Tripurasundarī. (4) Core Doctrine (Mukhya Siddhānta): Somāsiddhānta and ritual contemplation utilizing the cranial bowl (kapāla) and non-dual equanimity. (5) Sub-Part I — Ghora Sampradāya (11/12 Bhedas): Detailed philological study of the 12 listed terms (Rakta, Śukla, Vinmūtra, Bhakṣa, Vanānta, Ghora, Ghoratara, Vīṇā, Nīla, Śarvabhakṣa, Ghorāghora, and Siddha). (6) Sub-Part II — Kāpālika Sampradāya (5 Bhedas): Detailed study of Somāsiddhānta and the 5 reported subdivisions (Indra, Deva, Rudra, Vidyā, and Siddha). Use the two engraved Sub-Part Circular Seals above to open each sub-part monograph in full.',
+          'In the research notes for Aghora Sampradāya, six interconnected points are organized under one umbrella, with Points 5 and 6 forming the two specialized sub-parts of this study: (1) Origin / Background (Pravartaka/Mūla): The historical emergence of fierce Śaiva asceticism out of the Pāśupata milieu associated with Lakulīśa (Nakulīśa), while noting that Lakulīśa’s historical vs. mythic status and the exact institutional continuity require careful scholarly distinction. (2) Guru Lineage (Guru Paramparā): The 12 Kāpālika gurus recorded in the Sarvatantra and Śābara compendia (Ādinātha, Anādi, Kāla, Amitābha/Atikāla, Karāla, Vikarāla, Mahākāla, Kālabhairavanātha, Baṭuka, Bhūtanātha, Vīranātha, and Śrīkaṇṭha). (3) Presiding Deities (Iṣṭadeva): Fierce Bhairava alongside Mahākālī, Cāmuṇḍā, and Tripurasundarī. (4) Core Doctrine (Mukhya Siddhānta): Somāsiddhānta and ritual contemplation utilizing the cranial bowl (kapāla) and non-dual equanimity. (5) Sub-Part I — Ghora Sampradāya (11/12 Bhedas): Detailed philological study of the 12 listed terms (Rakta, Śukla, Vinmūtra, Bhakṣa, Vanānta, Ghora, Ghoratara, Vīṇā, Nīla, Śarvabhakṣa, Ghorāghora, and Siddha). (6) Sub-Part II — Kāpālika Sampradāya (5 Bhedas): Detailed study of Somāsiddhānta and the 5 reported subdivisions (Indrajali, Devjali, Rudrajali, Vidyajali, and Siddhajali). Use the two engraved Sub-Part Circular Seals above to open each sub-part monograph in full.',
         bodyHi:
-          'अघोर सम्प्रदाय के शोध-नोट्स में ६ मुख्य बिंदु एक साथ जुड़े हैं, जिनमें बिंदु ५ और ६ इसके दो प्रमुख उप-भाग (Sub-Parts) हैं: (१. प्रवर्तक/मूल): पाशुपत मत (लकुलीश/नकुलीश) की पृष्ठभूमि से उग्र शैव साधना का विकास (लकुलीश की ऐतिहासिकता और सीधी वंशावली पर अकादमिक सावधानी सहित)। (२. गुरु परंपरा): सर्वतन्त्र और अन्य तांत्रिक ग्रन्थों में उल्लिखित १२ गुरु—आदिनाथ, अनादि, काल, अमिताभ, कराल, विकराल, महाकाल, कालभैरवनाथ, बटुक, भूतनाथ, वीरनाथ और श्रीकण्ठ। (३. इष्टदेव): भैरव (उग्र शिव रूप) तथा महाकाली, चामुण्डा और त्रिपुरसुन्दरी। (४. मुख्य सिद्धांत): सोमसिद्धान्त दर्शन, कपाल-पात्र का प्रतीक और शुद्ध-अशुद्ध से परे अद्वैत समदृष्टि। (५. उप-भाग I — घोर सम्प्रदाय के ११/१२ भेद): रक्त, शुक्ल, विन्मूत्र, भक्ष, वनान्त, घोर, घोरतर, वीणा, नील, शर्वभक्ष, घोराघोर और सिद्ध का विस्तृत विश्लेषण। (६. उप-भाग II — कापालिक सम्प्रदाय के ५ भेद): इन्द्र, देव, रुद्र, विद्या और सिद्ध का विस्तृत अध्ययन। ऊपर दिए गए दोनों उप-भागों की वृत्ताकार मुद्राओं पर क्लिक करके प्रत्येक उप-भाग का पूर्ण स्वतंत्र पृष्ठ भी खोला जा सकता है।'
+          'अघोर सम्प्रदाय के शोध-नोट्स में ६ मुख्य बिंदु एक साथ जुड़े हैं, जिनमें बिंदु ५ और ६ इसके दो प्रमुख उप-भाग (Sub-Parts) हैं: (१. प्रवर्तक/मूल): पाशुपत मत (लकुलीश/नकुलीश) की पृष्ठभूमि से उग्र शैव साधना का विकास (लकुलीश की ऐतिहासिकता और सीधी वंशावली पर अकादमिक सावधानी सहित)। (२. गुरु परंपरा): सर्वतन्त्र और अन्य तांत्रिक ग्रन्थों में उल्लिखित १२ गुरु—आदिनाथ, अनादि, काल, अमिताभ, कराल, विकराल, महाकाल, कालभैरवनाथ, बटुक, भूतनाथ, वीरनाथ और श्रीकण्ठ। (३. इष्टदेव): भैरव (उग्र शिव रूप) तथा महाकाली, चामुण्डा और त्रिपुरसुन्दरी। (४. मुख्य सिद्धांत): सोमसिद्धान्त दर्शन, कपाल-पात्र का प्रतीक और शुद्ध-अशुद्ध से परे अद्वैत समदृष्टि। (५. उप-भाग I — घोर सम्प्रदाय के ११/१२ भेद): रक्त, शुक्ल, विन्मूत्र, भक्ष, वनान्त, घोर, घोरतर, वीणा, नील, शर्वभक्ष, घोराघोर और सिद्ध का विस्तृत विश्लेषण। (६. उप-भाग II — कापालिक सम्प्रदाय के ५ भेद): इन्द्रजाली, देवजाली, रुद्रजाली, विद्याजाली और सिद्धजाली का विस्तृत अध्ययन। ऊपर दिए गए दोनों उप-भागों की वृत्ताकार मुद्राओं पर क्लिक करके प्रत्येक उप-भाग का पूर्ण स्वतंत्र पृष्ठ भी खोला जा सकता है।'
       },
       {
         headingEn: '4. Methodological Caution: Historical Evidence vs. Sensationalized Stereotypes',
@@ -530,8 +812,8 @@ export const DEEP_SACRED_SEAL_ARTICLES: ResearchArticle[] = [
     slug: 'kapalika-sampradaya-5-bhedas-somasiddhanta',
     categorySlug: 'ashta-bhairava',
     code: 'SHA-03',
-    titleEn: 'Kāpālika Sampradāya (कापालिक सम्प्रदाय): Somāsiddhānta, the 12 Gurus & the Reported 5 Bhedas',
-    titleHi: 'कापालिक सम्प्रदाय: सोमसिद्धान्त, १२ कापालिक गुरु एवं बताए गए ५ भेदों (इन्द्र, देव, रुद्र, विद्या, सिद्ध) का अध्ययन',
+    titleEn: 'Kāpālika Sampradāya (कापालिक सम्प्रदाय): Somāsiddhānta, the 12 Gurus & the Reported 5 Bhedas (Indrajali, Devjali, Rudrajali, Vidyajali, Siddhajali)',
+    titleHi: 'कापालिक सम्प्रदाय: सोमसिद्धान्त, १२ कापालिक गुरु एवं बताए गए ५ भेदों (इन्द्रजाली, देवजाली, रुद्रजाली, विद्याजाली, सिद्धजाली) का अध्ययन',
     subtitleEn: 'Medieval Cranial-Bowl Asceticism, Relationship with Pāśupata & Lakulīśa, Bhairava–Cāmuṇḍā Worship, Somāsiddhānta & Source-Conscious Analysis of the 5 Reported Subdivisions',
     subtitleHi: 'मध्यकालीन कपाल-व्रत परंपरा, पाशुपत व लकुलीश से संबंध, भैरव-चामुण्डा-त्रिपुरसुन्दरी उपासना, सोमसिद्धान्त एवं ५ कथित भेदों की स्रोत-समीक्षा',
     sanskritEpigraph: '॥ कपालपाणयो नित्यं सोमसिद्धान्तवेदिनः। भैरवीं भैरवं देवं पूजयन्ति समाहिताः ॥',
@@ -541,9 +823,9 @@ export const DEEP_SACRED_SEAL_ARTICLES: ResearchArticle[] = [
     evidenceBadgeHi: 'मध्यकालीन शैव इतिहास एवं स्रोत-सत्यापन शोध-पत्र',
     accentColor: '#D97706',
     summaryEn:
-      'Examines the medieval Kāpālika tradition across two distinct planes: (1) Verified historical and textual scholarship covering the meaning of Kāpālika (from kapāla, skull-bowl), the relationship with Pāśupata Śaivism and Lakulīśa, the traditional list of 12 Kāpālika gurus (Ādinātha, Anādi, Kāla, Amitābha, Karāla, Vikarāla, etc.) in Sarvatantra compendia, the worship of Bhairava, Mahākālī, Cāmuṇḍā, and Tripurasundarī, and the doctrine of Somāsiddhānta; and (2) A source-conscious lexical analysis of the reported fivefold Kāpālika classification—Indra, Deva, Rudra, Vidyā, and Siddha—clearly labeled as "source verification pending."',
+      'Examines the medieval Kāpālika tradition across two distinct planes: (1) Verified historical and textual scholarship covering the meaning of Kāpālika (from kapāla, skull-bowl), the relationship with Pāśupata Śaivism and Lakulīśa, the traditional list of 12 Kāpālika gurus (Ādinātha, Anādi, Kāla, Amitābha, Karāla, Vikarāla, etc.) in Sarvatantra compendia, the worship of Bhairava, Mahākālī, Cāmuṇḍā, and Tripurasundarī, and the doctrine of Somāsiddhānta; and (2) A source-conscious lexical analysis of the reported fivefold Kāpālika classification—Indrajali (इन्द्रजाली), Devjali (देवजाली), Rudrajali (रुद्रजाली), Vidyajali (विद्याजाली), and Siddhajali (सिद्धजाली)—clearly labeled as "source verification pending."',
     summaryHi:
-      'कापालिक सम्प्रदाय का दो स्पष्ट स्तरों पर विस्तृत अध्ययन प्रस्तुत करता है: (१) प्रमाणित ऐतिहासिक एवं ग्रंथीय अध्ययन—जिसमें कपाल-पात्र का प्रतीक, पाशुपत मत और लकुलीश से संबंध, सर्वतन्त्र में उल्लिखित १२ कापालिक गुरुओं (आदिनाथ, अनादि, काल, अमिताभ, कराल, विकराल आदि) की परंपरा, भैरव, महाकाली, चामुण्डा एवं त्रिपुरसुन्दरी की इष्टदेव रूप में उपासना तथा "सोमसिद्धान्त" दर्शन शामिल है; और (२) कापालिक सम्प्रदाय के बताए गए पाँच भेदों—इन्द्र, देव, रुद्र, विद्या और सिद्ध—की शब्दार्थ एवं शोध-समीक्षा ("मूल स्रोत की पुष्टि लंबित")।',
+      'कापालिक सम्प्रदाय का दो स्पष्ट स्तरों पर विस्तृत अध्ययन प्रस्तुत करता है: (१) प्रमाणित ऐतिहासिक एवं ग्रंथीय अध्ययन—जिसमें कपाल-पात्र का प्रतीक, पाशुपत मत और लकुलीश से संबंध, सर्वतन्त्र में उल्लिखित १२ कापालिक गुरुओं (आदिनाथ, अनादि, काल, अमिताभ, कराल, विकराल आदि) की परंपरा, भैरव, महाकाली, चामुण्डा एवं त्रिपुरसुन्दरी की इष्टदेव रूप में उपासना तथा "सोमसिद्धान्त" दर्शन शामिल है; और (२) कापालिक सम्प्रदाय के बताए गए पाँच भेदों—इन्द्रजाली, देवजाली, रुद्रजाली, विद्याजाली और सिद्धजाली—की शब्दार्थ एवं शोध-समीक्षा ("मूल स्रोत की पुष्टि लंबित")।',
     sections: [
       {
         headingEn: '1. Four Foundational Points of the Kāpālika Tradition & Historical Qualifications',
@@ -554,28 +836,28 @@ export const DEEP_SACRED_SEAL_ARTICLES: ResearchArticle[] = [
           'शिलालेखों, संस्कृत नाटकों (भवभूति के मालतीमाधव, कृष्णमिश्र के प्रबोधचन्द्रोदय), पुराणों और आधुनिक शोध (David N. Lorenzen, Alexis Sanderson, गोपीनाथ कविराज) के आधार पर कापालिक परंपरा के चार मुख्य बिंदु इस प्रकार हैं: (१. प्रवर्तक एवं पाशुपत/लकुलीश से संबंध): कापालिक परंपरा का विकास प्राचीन अतिमार्ग/पाशुपत शैव वातावरण के बाद हुआ, जिसके प्रवर्तक लकुलीश (नकुलीश) माने जाते हैं; किंतु कापालिकों का "महाव्रत" (ब्रह्म-कपाल धारण करने वाले भैरव का अनुकरण) पाशुपत और कालामुख मत से अपनी विशिष्ट पहचान रखता था। (२. १२ कापालिक गुरुओं की परंपरा): सर्वतन्त्र और नाथ-तांत्रिक सूचियों में १२ कापालिक आचार्यों के नाम मिलते हैं—आदिनाथ, अनादि, काल, अतिकाल/अमिताभ, कराल, विकराल, महाकाल, कालभैरवनाथ, बटुक, भूतनाथ, वीरनाथ और श्रीकण्ठ—तथा उनके १२ शिष्य (नागार्जुन, जड़भरत, हरिश्चन्द्र, चर्पट, गोरक्ष, जालन्धर आदि) गिनाए गए हैं। (३. इष्टदेव): इनके प्रमुख आराध्य उग्र भैरव तथा महाकाली, चामुण्डा और परवर्ती कौल समन्वय में त्रिपुरसुन्दरी रहे हैं। (४. सोमसिद्धान्त एवं कपाल-प्रतीक): इनके दर्शन को "सोमसिद्धान्त" (स-उमा अर्थात् उमा-सहित शिव, तथा सहस्रार-स्थित सोम-अमृत का सिद्धांत) कहा जाता था और ये साधना में मानव कपाल-पात्र एवं षण्मुद्रा (कण्ठिका, कुण्डल, रुचक, शिखामणि, पवित्री और भस्म) धारण करते थे।'
       },
       {
-        headingEn: '2. Reported Fivefold Kāpālika Classification — Source Verification Pending (Indra, Deva, Rudra, Vidyā, Siddha)',
-        headingHi: '2. कापालिक सम्प्रदाय के बताए गए पाँच भेद — मूल स्रोत की पुष्टि लंबित (इन्द्र, देव, रुद्र, विद्या, सिद्ध)',
+        headingEn: '2. Reported Fivefold Kāpālika Classification — Source Verification Pending (Indrajali, Devjali, Rudrajali, Vidyajali, Siddhajali)',
+        headingHi: '2. कापालिक सम्प्रदाय के बताए गए पाँच भेद — मूल स्रोत की पुष्टि लंबित (इन्द्रजाली, देवजाली, रुद्रजाली, विद्याजाली, सिद्धजाली)',
         bodyEn:
-          'In the user’s research notes, five names are listed as subdivisions (bhedas) of the Kāpālika Sampradāya: (1) Indra (इन्द्र), (2) Deva (देव), (3) Rudra (रुद्र), (4) Vidyā (विद्या), and (5) Siddha (सिद्ध). Because no surviving primary Sanskrit text or epigraphic record currently validates these five nouns as five separate historical subsects of Kāpālikas, they are documented here with strict philological discipline: (1) Indra (इन्द्र): Name of the Vedic king of devas and wielder of the vajra; in tantric catalogues, Indra can also function as an honorific ("chief/sovereign among...") or directional guardian. Research question: Does "Indra" denote a guru title, a directional octant, or a deity heading? (2) Deva (देव): Literally "shining one" or "deity"; also a standard initiatory name-suffix (-deva) in medieval Śaiva orders. Research question: Does it classify initiates or a deity-focused observance? (3) Rudra (रुद्र): The fierce Vedic-Śaiva deity; crucially, the 28 Śaiva Āgamas are divided into 10 Śivabheda and 18 Rudrabheda texts. Research question: Does "Rudra" here reflect the canonical Rudrabheda Āgamic division? (4) Vidyā (विद्या): Liberating wisdom or female mantra-deity; the 64 Bhairava Tantras are famously divided into Mantrapīṭha and Vidyāpīṭha (goddess-focused Tantras where Kāpālika-style practices were prominent). Research question: Does "Vidyā" refer to the Vidyāpīṭha stream of Bhairava Tantras? (5) Siddha (सिद्ध): Perfected master or adept, central to the 12 Kāpālika Siddha-guru lineages. Research question: Does "Siddha" denote the stage of perfection (siddhi) or a Siddha-santāna lineage?',
+          'In the research notes, five names ending in -jālī (-jali) are listed as subdivisions (bhedas) of the Kāpālika Sampradāya: (1) Indrajali / Indrajālī (इन्द्रजाली), (2) Devjali / Devajālī (देवजाली), (3) Rudrajali / Rudrajālī (रुद्रजाली), (4) Vidyajali / Vidyājālī (विद्याजाली), and (5) Siddhajali / Siddhajālī (सिद्धजाली). Because no surviving primary Sanskrit text or epigraphic record currently validates these five terms as five separate historical subsects of Kāpālikas, they are documented here with strict philological discipline: (1) Indrajālī / Indrajali (इन्द्रजाली): Derived from indrajāla ("the net of Indra", magical illusion, or wonder-working tantric rites); in Atharvavedic and Dāmara-tantric contexts, indrajāla denotes mastery over wondrous appearances and māyā. (2) Devajālī / Devjali (देवजाली): Derived from deva-jāla ("network/mandala of deities"), pointing to initiates or observances centered on the luminous deity-matrix. (3) Rudrajālī / Rudrajali (रुद्रजाली): Derived from rudra-jāla ("matrix/net of fierce Rudra"); crucially, 18 of the 28 Śaiva Āgamas belong to the Rudrabheda division, and fierce Rudra-Bhairava is the archetype of the Kāpālika mahāvrata. (4) Vidyājālī / Vidyajali (विद्याजाली): Derived from vidyā-jāla ("network of sacred female mantras/vidyās"); the 64 Bhairava Tantras are famously divided into Mantrapīṭha and Vidyāpīṭha (goddess-focused Tantras where Kāpālika-style practices were prominent). (5) Siddhajālī / Siddhajali (सिद्धजाली): Derived from siddha-jāla ("lineage-network of perfected masters"), central to the 12 Kāpālika Siddha-guru lineages.',
         bodyHi:
-          'शोध-नोट्स में कापालिक सम्प्रदाय के पाँच भेद बताए गए हैं: (१) इन्द्र, (२) देव, (३) रुद्र, (४) विद्या, और (५) सिद्ध। चूँकि किसी विश्वसनीय प्राथमिक संस्कृत ग्रन्थ में इन पाँच नामों की स्वतंत्र कापालिक उपशाखाओं के रूप में पुष्टि नहीं मिली है, अतः काल्पनिक इतिहास गढ़ने के स्थान पर प्रत्येक शब्द का प्रामाणिक अर्थ और शोध-प्रश्न इस प्रकार है: (१) इन्द्र (Indra): वैदिक देवराज इन्द्र अथवा श्रेष्ठता-सूचक उपाधि; शोध प्रश्न—क्या यह किसी गुरु-उपाधि या दिक्पाल-मण्डल का संकेत है? (२) देव (Deva): दिव्य सत्ता अथवा शैव दीक्षा-नामों का उत्तर-पद (-देव); शोध प्रश्न—क्या यह साधकों की किसी श्रेणी को दर्शाता है? (३) रुद्र (Rudra): उग्र शिव-स्वरूप; शैव आगमों में १८ आगम "रुद्रभेद" कहलाते हैं; शोध प्रश्न—क्या यह रुद्रभेद आगम-वर्ग या रुद्र-उपासना का सूचक है? (४) विद्या (Vidyā): मन्त्र-विद्या या देवी-शक्ति; भैरव तन्त्रों की कापालिक-प्रभावित शाखा को शास्त्रीय रूप से "विद्यापीठ" कहा जाता है; शोध प्रश्न—क्या "विद्या" शब्द इसी विद्यापीठ आम्नाय का संक्षिप्त रूप है? (५) सिद्ध (Siddha): सिद्धि-प्राप्त पूर्ण साधक या १२ कापालिक सिद्ध-गुरुओं की परंपरा।'
+          'शोध-नोट्स में कापालिक सम्प्रदाय के पाँच भेद बताए गए हैं: (१) इन्द्रजाली (Indrajali), (२) देवजाली (Devjali), (३) रुद्रजाली (Rudrajali), (४) विद्याजाली (Vidyajali), और (५) सिद्धजाली (Siddhajali)। चूँकि किसी विश्वसनीय प्राथमिक संस्कृत ग्रन्थ में इन पाँच नामों की स्वतंत्र कापालिक उपशाखाओं के रूप में पुष्टि नहीं मिली है, अतः काल्पनिक इतिहास गढ़ने के स्थान पर प्रत्येक शब्द का प्रामाणिक अर्थ और शोध-प्रश्न इस प्रकार है: (१) इन्द्रजाली (Indrajali): "इन्द्रजाल" (माया-जाल अथवा कौतुक-सिद्धि विद्या) से संबद्ध साधक या धारा; शोध प्रश्न—क्या यह इन्द्रजाल-तन्त्र से जुड़ी किसी कापालिक उपशाखा का संकेत है? (२) देवजाली (Devjali): "देवजाल" (दिव्य मण्डल या देव-समूह) की उपासना से संबद्ध साधक-वर्ग। (३) रुद्रजाली (Rudrajali): उग्र रुद्र-भैरव के शक्ति-जाल से संबद्ध; शैव आगमों में १८ आगम "रुद्रभेद" कहलाते हैं। (४) विद्याजाली (Vidyajali): मन्त्र-विद्याओं के जाल ("विद्याजाल") का साधक; भैरव तन्त्रों की कापालिक-प्रभावित शाखा को शास्त्रीय रूप से "विद्यापीठ" कहा जाता है। (५) सिद्धजाली (Siddhajali): सिद्धि-प्राप्त आचार्यों के मण्डल ("सिद्धजाल" / १२ कापालिक सिद्ध-गुरुओं की परंपरा) से संबद्ध साधक-वर्ग।'
       }
     ],
     keyFindingsEn: [
       'Documents the 4 core historical features of the Kāpālikas: Atimārga/Pāśupata background, the 12 Kāpālika gurus of Sarvatantra, Bhairava–Cāmuṇḍā–Mahākālī–Tripurasundarī worship, and Somāsiddhānta.',
-      'Preserves the 5 reported Kāpālika subdivisions (Indra, Deva, Rudra, Vidyā, Siddha) with explicit "Source Verification Pending" status.',
-      'Highlights the philological parallel between Rudra / Vidyā and the canonical Rudrabheda / Vidyāpīṭha divisions of the Śaiva-Bhairava scriptural corpus.'
+      'Preserves the 5 reported Kāpālika subdivisions (Indrajali, Devjali, Rudrajali, Vidyajali, Siddhajali) with explicit "Source Verification Pending" status.',
+      'Highlights the philological parallel between Rudrajali / Vidyajali and the canonical Rudrabheda / Vidyāpīṭha divisions of the Śaiva-Bhairava scriptural corpus.'
     ],
     keyFindingsHi: [
       'कापालिक परंपरा के ४ प्रमुख ऐतिहासिक बिंदुओं (लकुलीश/पाशुपत पृष्ठभूमि, सर्वतन्त्र के १२ कापालिक गुरु, भैरव-चामुण्डा-महाकाली-त्रिपुरसुन्दरी उपासना और सोमसिद्धान्त) का प्रामाणिक प्रलेखन।',
-      'कापालिक सम्प्रदाय के ५ कथित भेदों (इन्द्र, देव, रुद्र, विद्या, सिद्ध) को "मूल स्रोत की पुष्टि लंबित" टिप्पणी और शब्दार्थ के साथ सुरक्षित रखा गया है।',
-      'रुद्र और विद्या पदों का शैव आगमों के "रुद्रभेद" और भैरव तन्त्रों के "विद्यापीठ" वर्गीकरण से संभावित शास्त्रीय संबंध रेखांकित किया गया है।'
+      'कापालिक सम्प्रदाय के ५ कथित भेदों (इन्द्रजाली, देवजाली, रुद्रजाली, विद्याजाली, सिद्धजाली) को "मूल स्रोत की पुष्टि लंबित" टिप्पणी और शब्दार्थ के साथ सुरक्षित रखा गया है।',
+      'रुद्रजाली और विद्याजाली पदों का शैव आगमों के "रुद्रभेद" और भैरव तन्त्रों के "विद्यापीठ" वर्गीकरण से संभावित शास्त्रीय संबंध रेखांकित किया गया है।'
     ],
     metadata: [
       { labelEn: 'Philosophical System', labelHi: 'दार्शनिक सिद्धांत', valueEn: 'Somāsiddhānta (सोमसिद्धान्त) & Mahāvrata', valueHi: 'सोमसिद्धान्त एवं महाव्रत' },
       { labelEn: '12 Gurus (Sarvatantra)', labelHi: '१२ कापालिक गुरु (सर्वतन्त्र)', valueEn: 'Ādinātha, Anādi, Kāla, Amitābha, Karāla, Vikarāla, Mahākāla, etc.', valueHi: 'आदिनाथ, अनादि, काल, अमिताभ, कराल, विकराल, महाकाल आदि' },
-      { labelEn: '5 Reported Bhedas (Unverified)', labelHi: '५ बताए गए भेद (अपुष्ट स्रोत)', valueEn: 'Indra · Deva · Rudra · Vidyā · Siddha', valueHi: 'इन्द्र · देव · रुद्र · विद्या · सिद्ध' },
+      { labelEn: '5 Reported Bhedas (Unverified)', labelHi: '५ बताए गए भेद (अपुष्ट स्रोत)', valueEn: 'Indrajali · Devjali · Rudrajali · Vidyajali · Siddhajali', valueHi: 'इन्द्रजाली · देवजाली · रुद्रजाली · विद्याजाली · सिद्धजाली' },
       { labelEn: 'Key Academic Sources', labelHi: 'प्रमुख अकादमिक स्रोत', valueEn: 'David N. Lorenzen (1972) · Alexis Sanderson (1988, 2009) · Elizabeth A. Cecil', valueHi: 'David N. Lorenzen · Alexis Sanderson · Elizabeth A. Cecil' }
     ],
     primarySourcesEn: 'Prabodhacandrodaya (Kṛṣṇamiśra) · Mālatīmādhava (Bhavabhūti) · Śबर/Sarvatantra Lists · David N. Lorenzen, The Kāpālikas and Kālāmukhas (1972) · Elizabeth A. Cecil (2020)',
@@ -755,8 +1037,8 @@ export const AGHORA_SUBPART_SEALS: SpecialCircularSeal[] = [
     sanskritSeal: 'कापालिक · सोमसिद्धान्त · ५ भेद',
     shortTitleEn: 'Kāpālika Sampradāya (5 Bhedas)',
     shortTitleHi: 'कापालिक सम्प्रदाय (५ भेद)',
-    subtitleEn: 'Sub-Part II of Aghora Sampradāya: Somāsiddhānta, 12 Gurus & Indra–Deva–Rudra–Vidyā–Siddha',
-    subtitleHi: 'अघोर सम्प्रदाय का उप-भाग II: सोमसिद्धान्त, १२ गुरु एवं इन्द्र–देव–रुद्र–विद्या–सिद्ध',
+    subtitleEn: 'Sub-Part II of Aghora Sampradāya: Somāsiddhānta, 12 Gurus & Indrajali–Devjali–Rudrajali–Vidyajali–Siddhajali',
+    subtitleHi: 'अघोर सम्प्रदाय का उप-भाग II: सोमसिद्धान्त, १२ गुरु एवं इन्द्रजाली–देवजाली–रुद्रजाली–विद्याजाली–सिद्धजाली',
     domainBadgeEn: 'AGHORA SUB-PART II · SOURCE AUDIT',
     domainBadgeHi: 'अघोर उप-भाग II · स्रोत समीक्षा',
     accentColor: '#D97706',
@@ -857,13 +1139,13 @@ export const SPECIAL_CIRCULAR_SEALS: SpecialCircularSeal[] = [
     sealNumber: 'SEAL 06',
     categorySlug: 'eight-matrikas',
     articleSlug: 'dasa-mahavidya-ten-wisdom-goddesses',
-    sanskritSeal: 'दशमहाविद्या · नवदुर्गा',
-    shortTitleEn: '10 Mahāvidyā & 9 Durgā',
-    shortTitleHi: 'दशमहाविद्या एवं नवदुर्गा',
-    subtitleEn: 'Ten Wisdom Goddesses & Nine Forms of Navadurgā',
-    subtitleHi: 'दस महाविद्याएँ एवं नवदुर्गा के नौ शास्त्रीय स्वरूप',
-    domainBadgeEn: 'ŚAKTI TATTVA · DEVĪ MANDALA',
-    domainBadgeHi: 'शक्ति तत्त्व · देवी मण्डल',
+    sanskritSeal: 'दशमहाविद्या · Daśa Mahāvidyā',
+    shortTitleEn: 'The Ten Mahāvidyās Archive',
+    shortTitleHi: 'दशमहाविद्या संपूर्ण शोध अभिलेखागार',
+    subtitleEn: 'Complete Research Archive: Origins, Kālīkula–Śrīkula, Profiles of All 10 Goddesses, Philosophy, Sources & Ritual',
+    subtitleHi: 'दस महाविद्याओं का संपूर्ण शोध अभिलेखागार: उत्पत्ति, दसों देवियों का विस्तृत विवरण, दर्शन, शास्त्र एवं उपासना',
+    domainBadgeEn: 'ŚAKTI TATTVA · DAŚA MAHĀVIDYĀ',
+    domainBadgeHi: 'शक्ति तत्त्व · दशमहाविद्या',
     accentColor: '#F43F5E',
     motifType: 'mahavidya'
   }

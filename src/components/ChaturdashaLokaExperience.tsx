@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   FOURTEEN_LOKAS,
   THREE_IMPORTANT_DISTINCTIONS,
@@ -8,6 +8,7 @@ import {
 import { useLanguage } from '../context/LanguageContext';
 
 interface ChaturdashaLokaExperienceProps {
+  initialLokaIndex?: number;
   onPrevChapter?: () => void;
   onNextChapter?: () => void;
 }
@@ -15,13 +16,25 @@ interface ChaturdashaLokaExperienceProps {
 type FilterMode = 'all' | LokaCategory;
 
 export const ChaturdashaLokaExperience: React.FC<ChaturdashaLokaExperienceProps> = ({
+  initialLokaIndex,
   onPrevChapter,
   onNextChapter
 }) => {
   const { t } = useLanguage();
-  const [selectedNumber, setSelectedNumber] = useState<number>(1);
+  const [selectedNumber, setSelectedNumber] = useState<number>(
+    typeof initialLokaIndex === 'number' && initialLokaIndex >= 0 && initialLokaIndex < 14
+      ? initialLokaIndex + 1
+      : 1
+  );
   const [filterMode, setFilterMode] = useState<FilterMode>('all');
   const [hoveredNumber, setHoveredNumber] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (typeof initialLokaIndex === 'number' && initialLokaIndex >= 0 && initialLokaIndex < 14) {
+      setSelectedNumber(initialLokaIndex + 1);
+      setFilterMode('all');
+    }
+  }, [initialLokaIndex]);
 
   const selectedLoka: LokaRecord = useMemo(() => {
     return FOURTEEN_LOKAS.find((l) => l.number === selectedNumber) || FOURTEEN_LOKAS[0];

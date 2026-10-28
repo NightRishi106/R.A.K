@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { ChevronLeft, ChevronRight, Grid, Compass, Cpu } from 'lucide-react';
 import {
@@ -10,6 +10,8 @@ import {
 import { useLanguage } from '../context/LanguageContext';
 
 interface Matrix64ChapterProps {
+  initialRowIndex?: number;
+  initialColIndex?: number;
   onPrevChapter?: () => void;
   onNextChapter?: () => void;
   onSelectBhairavaProfile?: (bhairavaIdx: number) => void;
@@ -17,15 +19,34 @@ interface Matrix64ChapterProps {
 }
 
 export default function Matrix64Chapter({
+  initialRowIndex,
+  initialColIndex,
   onPrevChapter,
   onNextChapter,
   onSelectBhairavaProfile,
   onSelectMatrikaProfile
 }: Matrix64ChapterProps) {
   const { lang, t } = useLanguage();
-  const [selectedRow, setSelectedRow] = useState<number>(0);
-  const [selectedCol, setSelectedCol] = useState<number>(0);
+  const [selectedRow, setSelectedRow] = useState<number>(
+    typeof initialRowIndex === 'number' && initialRowIndex >= 0 && initialRowIndex < 8
+      ? initialRowIndex
+      : 0
+  );
+  const [selectedCol, setSelectedCol] = useState<number>(
+    typeof initialColIndex === 'number' && initialColIndex >= 0 && initialColIndex < 8
+      ? initialColIndex
+      : 0
+  );
   const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    if (typeof initialRowIndex === 'number' && initialRowIndex >= 0 && initialRowIndex < 8) {
+      setSelectedRow(initialRowIndex);
+    }
+    if (typeof initialColIndex === 'number' && initialColIndex >= 0 && initialColIndex < 8) {
+      setSelectedCol(initialColIndex);
+    }
+  }, [initialRowIndex, initialColIndex]);
 
   const activeIntersection = getMatrixIntersection(selectedRow, selectedCol);
   const activeBhairava = activeIntersection.bhairava;

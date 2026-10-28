@@ -791,6 +791,29 @@ export const CategoryLandingPageView: React.FC<CategoryLandingPageViewProps> = (
 
   return (
     <div className="w-full space-y-8">
+      {/* SECTION A: LIVE INTERACTIVE RESEARCH STUDIO AT THE VERY TOP OF ALL GATEWAY CONTENTS */}
+      {children && (
+        <div className="rounded-2xl border border-[#D3AD55]/45 bg-[#120B07]/95 p-4 sm:p-6 space-y-4 shadow-[0_20px_50px_rgba(0,0,0,0.75)]">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#5A3922]/50 pb-3">
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-[#D3AD55]">
+                {t('INTERACTIVE RESEARCH APPARATUS', 'संवादात्मक शोध यंत्र एवं मानचित्रण')}
+              </span>
+              <h4 className="text-xl sm:text-2xl font-serif text-[#F5E8CE] mt-0.5">
+                {t(
+                  `${portal.shortTitleEn} — Live Interactive Studio`,
+                  `${portal.shortTitleHi} — संवादात्मक अध्ययन कक्ष`
+                )}
+              </h4>
+            </div>
+            <span className="font-mono text-[9.5px] uppercase tracking-[0.18em] px-2.5 py-1 rounded border border-[#D3AD55]/40 bg-[#23160E] text-[#D3AD55]">
+              {t(`GATEWAY ${portal.roman} · LIVE STUDIO`, `द्वार ${portal.roman} · संवादात्मक कक्ष`)}
+            </span>
+          </div>
+          {children}
+        </div>
+      )}
+
       {/* Category Landing Page Hero Banner */}
       <div className="relative rounded-2xl border border-[#D3AD55]/45 bg-gradient-to-br from-[#26170F] via-[#180F0A] to-[#110A07] p-6 sm:p-8 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.75)] overflow-hidden">
         <div
@@ -922,26 +945,6 @@ export const CategoryLandingPageView: React.FC<CategoryLandingPageViewProps> = (
           </div>
         </div>
       </div>
-
-      {/* SECTION A: EMBEDDED INTERACTIVE RESEARCH STUDIO (ABOVE MONOGRAPH ARTICLES) */}
-      {(activeTab === 'both' || activeTab === 'studio') && children && (
-        <div className="pt-2 space-y-4">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#5A3922]/50 pb-3">
-            <div>
-              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-[#D3AD55]">
-                {t('INTERACTIVE RESEARCH APPARATUS', 'संवादात्मक शोध यंत्र एवं मानचित्रण')}
-              </span>
-              <h4 className="text-xl sm:text-2xl font-serif text-[#F5E8CE] mt-0.5">
-                {t(
-                  `${portal.shortTitleEn} — Live Interactive Studio`,
-                  `${portal.shortTitleHi} — संवादात्मक अध्ययन कक्ष`
-                )}
-              </h4>
-            </div>
-          </div>
-          {children}
-        </div>
-      )}
 
       {/* SECTION B1: SUBCATEGORIES & CORE TRADITIONS WITHIN THIS SACRED GATEWAY */}
       {(activeTab === 'both' || activeTab === 'articles') &&
@@ -1279,179 +1282,37 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
     setTimeout(() => setCopiedUrl(false), 2000);
   };
 
+  const hasDedicatedInteractiveStudio =
+    Boolean(children) && typeof article.interactiveIndex === 'number';
+
   return (
-    <div className="w-full max-w-6xl mx-auto space-y-6">
-      {/* Interactive Research Studio Placed Above the Monograph Article */}
-      {children && (
-        <div className="rounded-2xl border border-[#5A3922]/70 bg-[#120B07]/90 p-4 sm:p-6 space-y-4 shadow-xl">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#5A3922]/50 pb-3">
+    <div className="w-full space-y-8">
+      {/* Live Interactive Studio Placed at the Very Top ONLY for Units With Their Own Interactive Studio */}
+      {hasDedicatedInteractiveStudio && (
+        <div className="rounded-2xl border border-[#D3AD55]/45 bg-[#120B07]/95 p-4 sm:p-6 space-y-4 shadow-[0_20px_50px_rgba(0,0,0,0.75)]">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#5A3922]/50 pb-3">
             <div>
               <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-[#D3AD55]">
                 {t('INTERACTIVE RESEARCH APPARATUS', 'संवादात्मक शोध यंत्र एवं मानचित्रण')}
               </span>
-              <h2 className="text-lg sm:text-xl font-serif text-[#F5E8CE] mt-0.5">
+              <h2 className="text-lg sm:text-2xl font-serif text-[#F5E8CE] mt-0.5">
                 {t(
                   `${portal.shortTitleEn} — Live Interactive Studio`,
                   `${portal.shortTitleHi} — संवादात्मक अध्ययन कक्ष`
                 )}
               </h2>
             </div>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="font-mono text-[9.5px] uppercase tracking-[0.16em] px-2.5 py-1 rounded border border-[#D3AD55]/45 bg-[#23160E] text-[#D3AD55]">
+                {article.code} · {t(article.titleEn, article.titleHi)}
+              </span>
+            </div>
           </div>
           {children}
         </div>
       )}
 
-      {/* ====================================================================
-          AGHORA SAMPRADĀYA & ITS TWO SUB-PARTS (GHORA 11/12 BHEDAS & KĀPĀLIKA 5 BHEDAS)
-          Displayed when viewing Aghora Sampradāya or either of its two Sub-Parts
-          ==================================================================== */}
-      {(article.slug === 'aghora-sampradaya-history-theology' ||
-        article.slug === 'ghora-sampradaya-11-bhedas-study' ||
-        article.slug === 'kapalika-sampradaya-5-bhedas-somasiddhanta') && (
-        <div className="rounded-2xl border border-[#F59E0B]/55 bg-gradient-to-b from-[#23150C]/95 via-[#160D08]/95 to-[#100906]/95 p-5 sm:p-6 space-y-5 shadow-[0_18px_45px_rgba(0,0,0,0.75)]">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#5A3922]/60 pb-3.5">
-            <div>
-              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#F59E0B] font-bold">
-                {t(
-                  'AGHORA SAMPRADĀYA ARCHIVE · MAIN TRADITION & TWO SUB-PARTS',
-                  'अघोर सम्प्रदाय अभिलेखागार · मुख्य परम्परा एवं इसके २ उप-भाग'
-                )}
-              </span>
-              <h2 className="text-lg sm:text-2xl font-serif text-[#F5E8CE] mt-0.5">
-                {t(
-                  'Aghora Sampradāya & Its Two Sub-Parts (Ghora 11/12 Bhedas & Kāpālika 5 Bhedas)',
-                  'अघोर सम्प्रदाय एवं इसके दो उप-भाग (घोर सम्प्रदाय ११/१२ भेद तथा कापालिक ५ भेद)'
-                )}
-              </h2>
-            </div>
-
-            {article.slug !== 'aghora-sampradaya-history-theology' && (
-              <button
-                type="button"
-                onClick={() =>
-                  onOpenArticle('ashta-bhairava', 'aghora-sampradaya-history-theology')
-                }
-                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-[#F59E0B] bg-[#2D1A0E] hover:bg-[#3F2413] text-[#F59E0B] font-mono text-[10px] font-bold uppercase tracking-wider transition-all cursor-pointer"
-              >
-                <ArrowLeft className="w-3.5 h-3.5" />
-                <span>
-                  {t(
-                    'Back to Parent: Aghora Sampradāya',
-                    'मुख्य अघोर सम्प्रदाय पृष्ठ पर वापस जाएँ'
-                  )}
-                </span>
-              </button>
-            )}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {/* Parent Seal Card: Aghora Sampradāya */}
-            <button
-              type="button"
-              onClick={() =>
-                onOpenArticle('ashta-bhairava', 'aghora-sampradaya-history-theology')
-              }
-              className={`group rounded-2xl border p-4 flex flex-col items-center text-center transition-all cursor-pointer ${
-                article.slug === 'aghora-sampradaya-history-theology'
-                  ? 'border-[#F59E0B] bg-[#2A190E] shadow-[0_0_24px_rgba(245,158,11,0.22)]'
-                  : 'border-[#5A3922]/75 bg-[#170E09]/90 hover:border-[#F59E0B]/70'
-              }`}
-            >
-              <div className="w-full flex items-center justify-between gap-1 mb-2">
-                <span className="font-mono text-[8.5px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border border-[#F59E0B]/50 text-[#F59E0B] bg-[#F59E0B]/10">
-                  {t('PARENT TRADITION', 'मुख्य सम्प्रदाय')}
-                </span>
-                {article.slug === 'aghora-sampradaya-history-theology' && (
-                  <span className="font-mono text-[8px] uppercase tracking-wider text-emerald-400">
-                    ● {t('Viewing', 'सक्रिय')}
-                  </span>
-                )}
-              </div>
-
-              <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-[#2E1B11] via-[#190F0A] to-[#0D0704] border-2 border-[#F59E0B]/80 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-                <SealGeometricMotif motifType="aghora" accentColor="#F59E0B" />
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <span className="px-1.5 py-0.5 rounded bg-[#120B07]/90 border border-[#F59E0B]/50 font-serif text-[8.5px] font-semibold text-[#F5E8CE]">
-                    अघोर सम्प्रदाय
-                  </span>
-                </div>
-              </div>
-
-              <h3 className="mt-2.5 font-serif text-sm sm:text-base font-semibold text-[#F5E8CE] group-hover:text-[#F59E0B]">
-                {t('Aghora Sampradāya (Main)', 'अघोर सम्प्रदाय (मुख्य अध्ययन)')}
-              </h3>
-              <p className="mt-1 text-[11px] font-serif text-[#C8B69E]/85 line-clamp-2">
-                {t(
-                  'Etymology, 3 Historical Strata, 6 Core Points & Bābā Kīnārām Lineage',
-                  'शब्दार्थ, ३ ऐतिहासिक स्तर, ६ मुख्य बिंदु एवं बाबा कीनाराम परम्परा'
-                )}
-              </p>
-            </button>
-
-            {/* Two Engraved Circular Sub-Part Seal Cards */}
-            {AGHORA_SUBPART_SEALS.map(sub => {
-              const isCurrentSub = article.slug === sub.articleSlug;
-              const centerLabel = sub.sanskritSeal.split('·')[0].trim();
-              return (
-                <button
-                  key={sub.id}
-                  type="button"
-                  onClick={() => onOpenArticle(sub.categorySlug, sub.articleSlug)}
-                  className={`group rounded-2xl border p-4 flex flex-col items-center text-center transition-all cursor-pointer ${
-                    isCurrentSub
-                      ? 'border-[#D3AD55] bg-[#2A190E] shadow-[0_0_24px_rgba(211,173,85,0.25)]'
-                      : 'border-[#5A3922]/75 bg-[#170E09]/90 hover:border-[#D3AD55]/75'
-                  }`}
-                >
-                  <div className="w-full flex items-center justify-between gap-1 mb-2">
-                    <span
-                      className="font-mono text-[8.5px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border"
-                      style={{
-                        borderColor: `${sub.accentColor}66`,
-                        color: sub.accentColor,
-                        backgroundColor: `${sub.accentColor}15`
-                      }}
-                    >
-                      {sub.sealNumber} · {t('OF AGHORA', 'अघोर उप-भाग')}
-                    </span>
-                    {isCurrentSub && (
-                      <span className="font-mono text-[8px] uppercase tracking-wider text-emerald-400">
-                        ● {t('Viewing', 'सक्रिय')}
-                      </span>
-                    )}
-                  </div>
-
-                  <div
-                    className="relative w-20 h-20 rounded-full bg-gradient-to-br from-[#2E1B11] via-[#190F0A] to-[#0D0704] border-2 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform"
-                    style={{ borderColor: `${sub.accentColor}99` }}
-                  >
-                    <SealGeometricMotif
-                      motifType={sub.motifType}
-                      accentColor={sub.accentColor}
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <span
-                        className="px-1.5 py-0.5 rounded bg-[#120B07]/90 border font-serif text-[8.5px] font-semibold text-[#F5E8CE]"
-                        style={{ borderColor: `${sub.accentColor}66` }}
-                      >
-                        {centerLabel}
-                      </span>
-                    </div>
-                  </div>
-
-                  <h3 className="mt-2.5 font-serif text-sm sm:text-base font-semibold text-[#F5E8CE] group-hover:text-[#D3AD55]">
-                    {t(sub.shortTitleEn, sub.shortTitleHi)}
-                  </h3>
-                  <p className="mt-1 text-[11px] font-serif text-[#C8B69E]/85 line-clamp-2">
-                    {t(sub.subtitleEn, sub.subtitleHi)}
-                  </p>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      )}
-
+      <div className="w-full max-w-6xl mx-auto space-y-6">
       {/* Main Archival Monograph Folio */}
       <article className="rounded-2xl border border-[#B68A32]/45 bg-[#F2E6D2] text-[#2B1F17] p-6 sm:p-8 md:p-11 shadow-[0_24px_60px_rgba(0,0,0,0.8)] paper-grain">
         {/* Header Metadata Ribbon */}
@@ -1514,7 +1375,7 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
               <h3 className="text-lg sm:text-xl font-serif text-[#17100C] font-semibold">
                 {t(sec.headingEn, sec.headingHi)}
               </h3>
-              <p className="mt-2 text-sm sm:text-[15.5px] font-serif text-[#2D2018] leading-relaxed">
+              <p className="mt-2 text-sm sm:text-[15.5px] font-serif text-[#2D2018] leading-relaxed whitespace-pre-line">
                 {t(sec.bodyEn, sec.bodyHi)}
               </p>
             </div>
@@ -1652,57 +1513,6 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
           )}
         </div>
       </article>
-
-      {/* Previous / Next Article & Back to Category Footer Navigation */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        {prevArticle ? (
-          <button
-            type="button"
-            onClick={() => onOpenArticle(portal.slug, prevArticle.slug)}
-            className="p-4 rounded-xl border border-[#5A3922]/70 bg-[#17100C]/90 hover:border-[#D3AD55] text-left transition-all cursor-pointer group"
-          >
-            <span className="font-mono text-[9px] uppercase tracking-widest text-[#877665] flex items-center gap-1">
-              <ArrowLeft className="w-3 h-3" />
-              {t('Previous Article', 'पिछला शोध-लेख')} ({prevArticle.code})
-            </span>
-            <span className="block font-serif text-sm text-[#F5E8CE] group-hover:text-[#D3AD55] mt-1 truncate">
-              {t(prevArticle.titleEn, prevArticle.titleHi)}
-            </span>
-          </button>
-        ) : (
-          <div />
-        )}
-
-        <button
-          type="button"
-          onClick={() => onBackToCategory(portal.slug)}
-          className="p-4 rounded-xl border border-[#D3AD55]/45 bg-[#23160E]/90 hover:bg-[#382116] text-center transition-all cursor-pointer flex flex-col items-center justify-center"
-        >
-          <span className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-[#D3AD55]">
-            {t('Category Portal Index', 'श्रेणी पोर्टल अनुक्रमणिका')}
-          </span>
-          <span className="font-serif text-xs text-[#F5E8CE] mt-0.5">
-            {t(portal.shortTitleEn, portal.shortTitleHi)} ({portal.articles.length})
-          </span>
-        </button>
-
-        {nextArticle ? (
-          <button
-            type="button"
-            onClick={() => onOpenArticle(portal.slug, nextArticle.slug)}
-            className="p-4 rounded-xl border border-[#5A3922]/70 bg-[#17100C]/90 hover:border-[#D3AD55] text-right transition-all cursor-pointer group"
-          >
-            <span className="font-mono text-[9px] uppercase tracking-widest text-[#877665] flex items-center justify-end gap-1">
-              {t('Next Article', 'अगला शोध-लेख')} ({nextArticle.code})
-              <ArrowRight className="w-3 h-3" />
-            </span>
-            <span className="block font-serif text-sm text-[#F5E8CE] group-hover:text-[#D3AD55] mt-1 truncate">
-              {t(nextArticle.titleEn, nextArticle.titleHi)}
-            </span>
-          </button>
-        ) : (
-          <div />
-        )}
       </div>
     </div>
   );

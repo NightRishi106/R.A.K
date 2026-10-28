@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, ShieldAlert, Send, Languages, Printer } from 'lucide-react';
+import TransparentLineScrollbar from './TransparentLineScrollbar';
 
 interface InvestigationFormModalProps {
   isOpen: boolean;
@@ -10,6 +11,7 @@ interface InvestigationFormModalProps {
 export default function InvestigationFormModal({ isOpen, onClose }: InvestigationFormModalProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [lang, setLang] = useState<'en' | 'hi'>('en');
+  const modalScrollRef = useRef<HTMLDivElement | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -113,11 +115,13 @@ export default function InvestigationFormModal({ isOpen, onClose }: Investigatio
 
         {/* Modal Box */}
         <motion.div
+          ref={modalScrollRef}
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#FAF5E9] text-ancient-dark rounded-lg shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-bronze-dark/30 paper-grain vintage-scrollbar"
         >
+          <TransparentLineScrollbar containerRef={modalScrollRef} variant="modal" className="print-hide" />
           {/* Close Button */}
           <button
             onClick={onClose}
