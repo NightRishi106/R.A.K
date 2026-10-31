@@ -755,6 +755,160 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         ]
       ]
     }
+  ],
+  'navadurga-nine-forms': [
+    {
+      id: 'table-navadurga-nine-nights-sequence',
+      articleSlug: 'navadurga-nine-forms',
+      titleEn: 'The Nine Forms of Navadurgā in Navarātri (Devī Kavaca Sequence)',
+      titleHi: 'नवरात्रि के नौ दिनों में पूजित नवदुर्गा के नौ स्वरूप (देवी कवच क्रम)',
+      captionEn:
+        'The Navadurgā are commonly worshipped in sequence over the nine nights of Navarātri. This familiar order is documented in the Devī Kavaca, a protective hymn traditionally associated with the Devī Māhātmya. Precise observances, colors, offerings, and local narratives vary by region and community.',
+      captionHi:
+        'नवरात्रि की नौ रात्रियों में नवदुर्गा की क्रमिक उपासना की जाती है। यह प्रसिद्ध क्रम दुर्गा सप्तशती (देवी माहात्म्य) से संबद्ध रक्षा-स्तोत्र "देवी कवच" में प्रलेखित है।',
+      headersEn: ['Navarātri Day', 'Goddess (IAST & Devanāgarī)', 'Meaning & Traditional Mount / Attributes', 'Main Traditional Association'],
+      headersHi: ['नवरात्रि दिवस', 'देवी (संस्कृत एवं IAST)', 'शाब्दिक अर्थ एवं वाहन / प्रमुख प्रतीक', 'मुख्य पारंपरिक संबंध एवं आध्यात्मिक भाव'],
+      rowsEn: [
+        [
+          '1',
+          'Śailaputrī (शैलपुत्री)',
+          'Daughter of the Mountain · Mount: Bull (Nandī) · Trident & Lotus',
+          'Mountains, beginnings, grounding, and the Goddess as daughter of Himālaya (Pārvatī reborn after Satī)'
+        ],
+        [
+          '2',
+          'Brahmacāriṇī (ब्रह्मचारिणी)',
+          'She Who Practices Brahmacarya · Attributes: Rosary (akṣamālā) & Water Pot (kamaṇḍalu)',
+          'Penance (tapasyā), devotion, self-restraint, and disciplined spiritual practice'
+        ],
+        [
+          '3',
+          'Candraghaṇṭā (चन्द्रघण्टा)',
+          'Crescent Moon Like a Bell · Mount: Tiger or Lion · Multi-armed with weapons & bell',
+          'Courage, protection, and martial readiness'
+        ],
+        [
+          '4',
+          'Kūṣmāṇḍā (कूष्माण्डा)',
+          'Cosmic Warmth & Radiance · Mount: Lion · Eight arms with weapons, rosary & nectar jar',
+          'Creative radiance, solar illumination, and cosmic manifestation (brahmāṇḍa)'
+        ],
+        [
+          '5',
+          'Skandamātā (स्कन्दमाता)',
+          'Mother of Skanda (Kārttikeya) · Mount: Lotus / Lion · Holding child Skanda & lotuses',
+          'Motherhood, nurture, auspiciousness, and divine protection'
+        ],
+        [
+          '6',
+          'Kātyāyanī (कात्यायनी)',
+          'Manifested in Sage Kātyāyana’s Hermitage · Mount: Lion · Sword, lotus, abhaya & varada',
+          'Warrior power, defense of cosmic order, and the defeat of demonic forces'
+        ],
+        [
+          '7',
+          'Kālarātrī (कालरात्रि)',
+          'The Dark Night or Night of Time · Mount: Donkey (gardabha) · Fierce protective form (Śubhaṅkarī)',
+          'Fierce protection, confrontation with danger, and the destruction of fear'
+        ],
+        [
+          '8',
+          'Mahāgaurī (महागौरी)',
+          'The Great Radiant or Fair One · Mount: White Bull · Trident, drum (ḍamaru), white garments',
+          'Purity, serenity, luminous grace, and auspiciousness'
+        ],
+        [
+          '9',
+          'Siddhidātrī (सिद्धिदात्री)',
+          'Bestower of Siddhis · Seat/Mount: Lotus or Lion · Conch, discus, mace & lotus',
+          'Spiritual accomplishments, fulfillment, and the bestowal of siddhis'
+        ]
+      ],
+      rowsHi: [
+        [
+          '१',
+          'शैलपुत्री (Śailaputrī)',
+          'पर्वतराज हिमालय की पुत्री · वाहन: वृषभ (नन्दी) · त्रिशूल एवं कमल',
+          'पर्वत, आध्यात्मिक आरंभ, स्थिरता और हिमालय-पुत्री पार्वती के रूप में देवी का प्राकट्य'
+        ],
+        [
+          '२',
+          'ब्रह्मचारिणी (Brahmacāriṇī)',
+          'ब्रह्मचर्य और तपस्या का आचरण करने वाली · प्रतीक: अक्षमाला एवं कमण्डलु',
+          'तपस्या, निष्ठा, आत्म-संयम और अनुशासित आध्यात्मिक साधना'
+        ],
+        [
+          '३',
+          'चन्द्रघण्टा (Candraghaण्टा)',
+          'मस्तक पर घण्टे के आकार का अर्धचन्द्र · वाहन: बाघ या सिंह · दशभुजा आयुधधारी रूप',
+          'साहस, भक्तों की रक्षा और आसुरी शक्तियों के विरुद्ध सामरिक तत्परता'
+        ],
+        [
+          '४',
+          'कूष्माण्डा (Kūṣmāṇḍा)',
+          'ब्रह्माण्डीय ऊष्मा एवं तेज · वाहन: सिंह · अष्टभुजा, कमण्डलु, धनुष, बाण, कमल व जपमाला',
+          'सृजनात्मक तेज, सूर्य-समान प्रकाश और ब्रह्माण्ड की अभिव्यक्ति'
+        ],
+        [
+          '५',
+          'स्कन्दमाता (Skandamātā)',
+          'भगवान् स्कन्द (कार्तिकेय) की माता · आसन/वाहन: पद्मासना / सिंह · गोद में बालक स्कन्द',
+          'मातृत्व, वात्सल्य, पोषण और दिव्य संरक्षण'
+        ],
+        [
+          '६',
+          'कात्यायनी (Kātyāyanī)',
+          'महर्षि कात्यायन के आश्रम में प्रकट · वाहन: सिंह · खड्ग, कमल, अभय एवं वरद मुद्रा',
+          'योद्धा शक्ति, धर्म की रक्षा और आसुरी शक्तियों का विनाश'
+        ],
+        [
+          '७',
+          'कालरात्रि (Kālarātrī)',
+          'महाकाल की रात्रि · वाहन: गर्दभ (गधा) · उग्र रक्षिका एवं शुभंकरी स्वरूप',
+          'उग्र संरक्षण, संकट का निर्भय सामना और भय का पूर्ण विनाश'
+        ],
+        [
+          '८',
+          'महागौरी (Mahāgaurī)',
+          'परम उज्ज्वल एवं गौर वर्ण वाली · वाहन: श्वेत वृषभ · त्रिशूल, डमरू एवं श्वेत वस्त्र',
+          'पवित्रता, प्रशांति, निर्मल आभा और मांगल्य'
+        ],
+        [
+          '९',
+          'सिद्धिदात्री (Siddhidātrī)',
+          'सिद्धियों को प्रदान करने वाली · आसन/वाहन: कमल या सिंह · शंख, चक्र, गदा एवं पद्म',
+          'आध्यात्मिक पूर्णता, साधना की सिद्धि और अष्ट-सिद्धियों का वरदान'
+        ]
+      ]
+    },
+    {
+      id: 'table-navadurga-vs-dasa-mahavidya',
+      articleSlug: 'navadurga-nine-forms',
+      titleEn: 'Part IX (35) · Navadurgā and the Daśa Mahāvidyās: Structural Comparison',
+      titleHi: 'भाग IX (३५) · नवदुर्गा एवं दशमहाविद्या: संरचनात्मक एवं ऐतिहासिक तुलना',
+      captionEn:
+        'Although both groups belong to the wider Śākta Goddess tradition, the Navadurgā and the Daśa Mahāvidyās have distinct numbers, scriptural frameworks, liturgical contexts, and historical emphases.',
+      captionHi:
+        'यद्यपि दोनों समूह व्यापक शाक्त देवी-परम्परा के अंग हैं, तथापि नवदुर्गा और दशमहाविद्या की संख्या, शास्त्रीय संरचना, उपासना-संदर्भ और ऐतिहासिक विकास में स्पष्ट अंतर है।',
+      headersEn: ['Feature', 'Navadurgā (नवदुर्गा)', 'Daśa Mahāvidyā (दशमहाविद्या)'],
+      headersHi: ['विशेषता / आधार', 'नवदुर्गा (Navadurgā)', 'दशमहाविद्या (Daśa Mahāvidyā)'],
+      rowsEn: [
+        ['Number', 'Nine forms', 'Ten forms'],
+        ['Best-known context', 'Nine nights of Navarātri', 'Śākta Tantric Goddess traditions'],
+        ['Familiar list begins with', 'Śailaputrī (शैलपुत्री)', 'Kālī (काली)'],
+        ['Familiar list ends with', 'Siddhidātrī (सिद्धिदात्री)', 'Kamalā (कमला)'],
+        ['Main organizational idea', 'Nine forms of Durgā in a traditional sequence', 'Ten Great Wisdom Goddesses'],
+        ['Historical emphasis', 'Devotional worship, Navarātri, Purāṇic and regional traditions', 'Tantric theology, ritual traditions, iconography, and philosophical interpretations']
+      ],
+      rowsHi: [
+        ['संख्या (Number)', 'नौ स्वरूप (Nine forms)', 'दस स्वरूप (Ten forms)'],
+        ['प्रमुख संदर्भ (Best-known context)', 'नवरात्रि की नौ रात्रियाँ (Nine nights of Navarātri)', 'शाक्त तांत्रिक देवी परम्पराएँ (Śākta Tantric Goddess traditions)'],
+        ['प्रसिद्ध सूची का प्रथम नाम', 'शैलपुत्री (Śailaputrī)', 'काली (Kālī)'],
+        ['प्रसिद्ध सूची का अंतिम नाम', 'सिद्धिदात्री (Siddhidātrī)', 'कमला (Kamalā)'],
+        ['मुख्य संगठनात्मक विचार', 'पारंपरिक अनुक्रम में भगवती दुर्गा के नौ स्वरूप', 'दस महाविद्याएँ (Ten Great Wisdom Goddesses)'],
+        ['ऐतिहासिक एवं साधनात्मक बल', 'भक्तिपूर्ण आराधना, नवरात्रि पर्व, पौराणिक एवं क्षेत्रीय परम्पराएँ', 'तांत्रिक तत्त्वज्ञान, आनुष्ठानिक आम्नाय, प्रतिमाशास्त्र एवं दार्शनिक व्याख्याएँ']
+      ]
+    }
   ]
 };
 
@@ -1488,6 +1642,82 @@ const KALIKULA_PART1_TABLES: ResearchComparisonTable[] = [
         'काली के कुछ रूप श्मशान और सीमांत स्थलों से जुड़े हैं। ये स्थल साधक को अनित्यता, मृत्यु, सामाजिक सीमाओं और साधारण अहं की नश्वरता के प्रत्यक्ष साक्षात्कार के लिए प्रेरित करते हैं।'
       ]
     ]
+  },
+  {
+    id: 'table-kaligana-terminological-inquiry',
+    articleSlug: 'kalikula-archive-tradition',
+    titleEn: 'Part I · Kālīgaṇa (कालीगण), Kālīkula & The Twelve Kālīs: Terminological & Historical Matrix',
+    titleHi: 'भाग I · कालीगण (Kālīgaṇa), कालीकुल एवं द्वादश काली: पारिभाषिक एवं ऐतिहासिक तुलनात्मक सारणी',
+    captionEn:
+      'Terminological precision distinguishing the descriptive Sanskrit compound Kālīgaṇa ("group/retinue/collection of Kālī forms") from formally attested Tantric school designations (Kālīkula, Kālīkrama, Kaula).',
+    captionHi:
+      'संस्कृत सामासिक पद "कालीगण" (काली के स्वरूपों या परिचारिकाओं का समूह/गण) और प्रमाणित तांत्रिक संप्रदाय-नामों (कालीकुल, कालीक्रम, कौल) के बीच सूक्ष्म पारिभाषिक एवं ऐतिहासिक अंतर।',
+    headersEn: ['Sanskrit Term', 'Literal Meaning', 'Historical & Textual Status', 'Primary Texts & Scholarly Context'],
+    headersHi: ['संस्कृत शब्द', 'शाब्दिक अर्थ', 'ऐतिहासिक एवं ग्रंथीय स्थिति', 'प्रमुख मूल ग्रन्थ एवं अकादमिक संदर्भ'],
+    rowsEn: [
+      [
+        'Kālīgaṇa (कालीगण)',
+        'Group, class, troop, retinue, or series of Kālīs (Kālī + gaṇa)',
+        'Grammatically valid descriptive compound for a collective of Kālī manifestations or retinue deities; not an established academic name for a major independent Tantric sect.',
+        'Used descriptively for deity groups/retinues; requires manuscript-specific verification rather than conflation with Kālīkula.'
+      ],
+      [
+        'Kālīkula (कालीकुल)',
+        'The family, lineage, or tradition of Kālī (Kālī + kula)',
+        'Major umbrella designation in Śākta Tantra encompassing eastern Indian/Bengali Śākta lineages and medieval Kashmirian Krama streams.',
+        'Kālīkulakramasadbhāva, Jayadrathayāmala, Devīpañcaśataka, Tantrāloka.'
+      ],
+      [
+        'Kālīkrama / Mahānaya (कालीक्रम / महानय)',
+        'The sequence/way of Kālī; the Great Way',
+        'Nondual Śākta-Śaiva mystical and philosophical system of medieval Kashmir centered on sequential manifestation and reabsorption of consciousness.',
+        'Abhinavagupta’s Tantrāloka, Kṣemarāja’s commentaries, Krama corpus.'
+      ],
+      [
+        'Dvādaśa Kālī (द्वादश काली · The Twelve Kālīs)',
+        'The twelvefold sequence of Kālī manifestations',
+        'Evolved from the earlier bhānavīkrama ("sequence of the Sun-Goddess") in Kula/Kaula texts into the nondual doctrine of kālagrāsa ("time-consumption").',
+        'Devīpañcaśataka, Jayadrathayāmala, Tantrāloka; Aleksandra Wenta (Journal of Indian Philosophy, 2021).'
+      ],
+      [
+        'Kaula / Kula (कौल / कुल)',
+        'Relating to kula (spiritual family, embodied totality, śakti-network)',
+        'Esoteric initiatory currents emphasizing lineage transmission, yoginī/mātṛkā circles, and embodied realization of consciousness.',
+        'Early Kula/Kaula scriptures and Kashmirian nondual Śaiva-Śākta exegesis.'
+      ]
+    ],
+    rowsHi: [
+      [
+        'कालीगण (Kālīgaṇa)',
+        'काली के रूपों का समूह, वर्ग, परिचारिका-गण या शृंखला (काली + गण)',
+        'काली की अभिव्यक्तियों या योगिनी-परिचारिकाओं के समूह हेतु व्याकरणसम्मत सामासिक पद; किसी स्वतंत्र तांत्रिक संप्रदाय का मानक अकादमिक नाम नहीं।',
+        'देवी-समूहों/गणों के वर्णन में प्रयुक्त; इसे बिना पाण्डुलिपि-प्रमाण के कालीकुल का पर्याय नहीं माना जाना चाहिए।'
+      ],
+      [
+        'कालीकुल (Kālīkula)',
+        'काली का परिवार, वंश या परम्परा (काली + कुल)',
+        'शाक्त तन्त्र की प्रमुख महाधारा जिसमें बंगाल/पूर्वी भारत की परम्पराएँ और कश्मीर की मध्यकालीन क्रम धारा समाहित हैं।',
+        'कालीकुलक्रमसद्भाव, जयद्रथयामल, देवीपञ्चशतक, तन्त्रालोक।'
+      ],
+      [
+        'कालीक्रम / महानय (Kālīkrama / Mahānaya)',
+        'काली का अनुक्रम / महान् पथ',
+        'मध्यकालीन कश्मीर की अद्वैत शाक्त-शैव दार्शनिक प्रणाली जो चेतना के क्रमिक उन्मेष और लय पर केंद्रित है।',
+        'अभिनवगुप्त कृत तन्त्रालोक, क्षेमराज के भाष्य एवं क्रम-साहित्य।'
+      ],
+      [
+        'द्वादश काली (Dvādaśa Kālī · बारह कालियाँ)',
+        'काली-स्वरूपों का बारह-स्तरीय अनुक्रम',
+        'प्रारंभिक कुल/कौल ग्रन्थों के "भानवीक्रम" (सूर्य-देवी के अनुक्रम) से विकसित होकर परवर्ती दर्शन में "कालग्रास" (काल के भक्षण/समावेशन) के सिद्धांत में रूपांतरित।',
+        'देवीपञ्चशतक, जयद्रथयामल, तन्त्रालोक; अलेक्ज़ांद्रा वेंटा (२०२१)।'
+      ],
+      [
+        'कौल / कुल (Kaula / Kula)',
+        '"कुल" (आध्यात्मिक परिवार, समग्र शक्ति-चक्र) से संबद्ध',
+        'वंश-परम्परा, दीक्षा, योगिनी/मातृका चक्र और देहस्थ चेतना के साक्षात्कार पर बल देने वाली गूढ़ तांत्रिक धाराएँ।',
+        'प्रारंभिक कुल/कौल आगम एवं कश्मीरी अद्वैत शैव-शाक्त भाष्य।'
+      ]
+    ]
   }
 ];
 
@@ -1552,7 +1782,7 @@ const KALIKULA_SRIKULA_PART3_4_TABLES: ResearchComparisonTable[] = [
       'Overview comparing the two great streams of Śākta Tantra while recognizing that both traditions are internally diverse and historically interconnected, not absolute opposites.',
     captionHi:
       'शाक्त तन्त्र की दोनों महाधाराओं का तुलनात्मक अवलोकन—यह ध्यान रखते हुए कि दोनों परम्पराएँ आंतरिक रूप से विविध और परस्पर संबद्ध हैं, न कि पूर्णतः विरोधी।',
-    headersEn: ['Dimension', 'Kālīkula (कालीकुल)', 'Śrīkula (श्रीकुल)'],
+    headersEn: ['Dimension', 'Kālīkula (कालीकुल)', 'Śrīkula (Śrīvidyā / श्रीकुल)'],
     headersHi: ['आयाम / आधार', 'कालीकुल (Kālīkula)', 'श्रीकुल (Śrīkula)'],
     rowsEn: [
       ['Central Goddess', 'Kālī and related forms', 'Tripurasundarī, Lalitā, and related forms'],
@@ -1570,7 +1800,7 @@ const KALIKULA_SRIKULA_PART3_4_TABLES: ResearchComparisonTable[] = [
       ['प्रमुख अकादमिक केंद्र (Scholarly focus)', 'काली-केंद्रित शाक्त परम्पराएँ, विशेषतः कश्मीर क्रम दर्शन', 'श्रीविद्या और त्रिपुरसुन्दरी उपासना परम्परा'],
       ['दार्शनिक विषय (Philosophical themes)', 'काल, रूपांतरण, लय (संहार/विलय) एवं परम चेतना', 'अभिव्यक्ति (सृष्टि-विस्तार), मांगल्य, संप्रभुता एवं परम चेतना'],
       ['प्रमुख प्रतीक (Important symbols)', 'काली का प्रतिमाशास्त्र, विशिष्ट यन्त्र एवं आनुष्ठानिक प्रतीक', 'श्रीचक्र (श्रीयन्त्र), मन्त्र (पञ्चदशी/षोडशी) एवं देवी का विग्रह'],
-      ['प्रमुख ग्रंथीय क्षेत्र (Major textual areas)', 'कालीकुलकक्रमसद्भाव, जयद्रथयामल, देवीपञ्चशतक, तन्त्रालोक एवं क्रम भाष्य', 'वामकेश्वरीमत, योगिनीहृदय, नित्याषोडशिकार्णव, परशुराम कल्पसूत्र, ललिता सहस्रनाम'],
+      ['प्रमुख ग्रंथीय क्षेत्र (Major textual areas)', 'कालीकुलक्रमसद्भाव, जयद्रथयामल, देवीपञ्चशतक, तन्त्रालोक एवं क्रम भाष्य', 'वामकेश्वरीमत, योगिनीहृदय, नित्याषोडशिकार्णव, परशुराम कल्पसूत्र, ललिता सहस्रनाम'],
       ['ऐतिहासिक भूगोल (Historical geography)', 'पूर्वी भारत (बंगाल, कामरूप, मिथिला) एवं कश्मीर में विशेष ऐतिहासिक विकास', 'दक्षिण भारत में सुदृढ़ ऐतिहासिक विकास तथा कश्मीर के साथ दार्शनिक आदान-प्रदान'],
       ['साधना एवं अभ्यास (Practice)', 'परम्परा के अनुसार विविध; भक्ति, आनुष्ठानिक पूजा एवं अद्वैत चिंतन', 'परम्परा के अनुसार विविध; मन्त्र-साधना, श्रीचक्र अर्चन, बाह्य पूजा एवं अंतर्मुखी ध्यान']
     ]
@@ -1581,9 +1811,9 @@ const KALIKULA_SRIKULA_PART3_4_TABLES: ResearchComparisonTable[] = [
     titleEn: 'Part IV · Selected Peer-Reviewed Bibliography & Eightfold Archival Architecture',
     titleHi: 'भाग IV · चयनित अकादमिक संदर्भ-सूची एवं अष्ट-स्तरीय अभिलेखागार संरचना',
     captionEn:
-      'Editorial Recommendation: Label each page as a research synthesis and distinguish primary textual evidence from scholarly interpretation and contemporary practitioner explanations.',
+      'Distinguishes primary textual evidence from peer-reviewed scholarly interpretation and contemporary practitioner explanations.',
     captionHi:
-      'संपादकीय अनुशंसा: प्रत्येक पृष्ठ को "शोध संश्लेषण" (Research Synthesis) के रूप में चिह्नित करें तथा प्राथमिक ग्रंथीय साक्ष्य, अकादमिक व्याख्या और समकालीन साधक-विवरणों के बीच स्पष्ट अंतर रखें।',
+      'प्राथमिक ग्रंथीय साक्ष्य, समीक्षित अकादमिक व्याख्या और समकालीन साधक-विवरणों के बीच स्पष्ट अंतर।',
     headersEn: ['Ref #', 'Scholar & Publication Title', 'Publication Venue & Year', 'Archival Scope & Research Relevance'],
     headersHi: ['क्र.', 'विद्वान् एवं शोध-ग्रन्थ / लेख शीर्षक', 'प्रकाशन माध्यम एवं वर्ष', 'शोध विषय एवं अभिलेखीय महत्त्व'],
     rowsEn: [
@@ -1642,19 +1872,131 @@ const KALIKULA_SRIKULA_PART3_4_TABLES: ResearchComparisonTable[] = [
 ];
 
 ARTICLE_COMPARISON_TABLES['kalikula-srikula-streams'] = [
-  ...KALIKULA_SRIKULA_PART3_4_TABLES,
-  ...KALIKULA_PART1_TABLES,
-  ...SRIKULA_PART2_TABLES
+  ...KALIKULA_SRIKULA_PART3_4_TABLES
 ];
 
 ARTICLE_COMPARISON_TABLES['kalikula-archive-tradition'] = [
-  ...KALIKULA_PART1_TABLES,
-  ...KALIKULA_SRIKULA_PART3_4_TABLES
+  ...KALIKULA_PART1_TABLES
 ];
 
 ARTICLE_COMPARISON_TABLES['srikula-archive-tradition'] = [
-  ...SRIKULA_PART2_TABLES,
-  ...KALIKULA_SRIKULA_PART3_4_TABLES
+  ...SRIKULA_PART2_TABLES
 ];
+
+// ============================================================================
+// STRUCTURED TABLES FOR PORTAL VII: THE 14 LOKAS IN HINDU COSMOLOGY
+// ============================================================================
+const FOURTEEN_LOKAS_HIERARCHY_TABLES: ResearchComparisonTable[] = [
+  {
+    id: 'table-14-lokas-complete-hierarchy',
+    articleSlug: 'satya-loka',
+    titleEn: 'The 14 Lokas in Hindu Cosmology · Complete Hierarchy at a Glance',
+    titleHi: 'हिन्दू ब्रह्माण्ड विज्ञान में १४ लोक · संपूर्ण पदानुक्रम एक दृष्टि में',
+    captionEn:
+      'Earth (Bhūloka, Realm 7) separates the upper and lower sequences: realms 1–6 sit above Bhūloka as the celestial and meditative Urdhva Lokas, realm 7 is the human world itself, and realms 8–14 (Adho Lokas / Pātāla) extend downward beneath it.',
+    captionHi:
+      'पृथ्वी (भूलोक, ७वाँ लोक) ऊर्ध्व और अधो लोकों की शृंखला को विभाजित करती है: लोक १–६ भूलोक के ऊपर स्थित हैं, ७वाँ लोक स्वयं मानव जगत है, और लोक ८–१४ इसके नीचे विस्तृत सप्त-तल हैं।',
+    headersEn: ['#', 'Loka Name', 'Division', 'Ruler / Sovereign Presence', 'Defining Cosmological Character'],
+    headersHi: ['क्र.', 'लोक का नाम', 'विभाग', 'अधिपति / शासक उपस्थिति', 'प्रमुख ब्रह्माण्डीय विशेषता'],
+    rowsEn: [
+      ['01', 'Satya Loka (Brahma Loka)', 'Upper World (Urdhva Loka)', 'Brahmā', 'Highest realm of truth, pure knowledge, and liberation at cosmic dissolution (krama-mukti)'],
+      ['02', 'Tapa Loka', 'Upper World (Urdhva Loka)', 'Ascetic Siddhas & Kumāras', 'Realm of supreme austerity, spiritual fire, and deathless meditative absorption'],
+      ['03', 'Jana Loka', 'Upper World (Urdhva Loka)', 'Sanaka, Sanandana, Sanātana, Sanatkumāra', 'Abode of pure wisdom-born beings and mind-born sons of Brahmā untouched by passion'],
+      ['04', 'Mahar Loka', 'Upper World (Urdhva Loka)', 'Bhṛgu & Kalpa-surviving Ṛṣis', 'Transitional plane of great sages that endures nightly cosmic dissolutions (naimittika pralaya)'],
+      ['05', 'Svar Loka (Svarga)', 'Upper World (Urdhva Loka)', 'Indra & the Devas', 'Celestial paradise of righteous enjoyment, Gandharvas, and Apsarās prior to rebirth'],
+      ['06', 'Bhuvar Loka', 'Upper World (Urdhva Loka)', 'Sūrya, Grahas, Pitṛs & Siddhas', 'Atmospheric and intermediary astral space between Earth and Indra’s heaven'],
+      ['07', 'Bhur Loka (Bhūloka)', 'Middle Terrestrial Pivot', 'Prithvī & Embodied Beings', 'Physical Earth realm of human birth, sensory action (karma-bhūmi), and moral choice'],
+      ['08', 'Atala Loka', 'Lower World (Adho Loka / Tala)', 'Bala (son of Maya Dānava)', 'First subterranean realm of magical illusions and hypnotic sensual luxury'],
+      ['09', 'Vitala Loka', 'Lower World (Adho Loka / Tala)', 'Hāṭakeśvara Śiva & Bhavānī', 'Second subterranean plane famous for rivers of liquid Hāṭaka gold'],
+      ['10', 'Sutala Loka', 'Lower World (Adho Loka / Tala)', 'Mahābali (guarded by Viṣṇu / Vāmana)', 'Blessed subterranean kingdom of righteous King Bali, surpassing Indra’s splendor'],
+      ['11', 'Talatala Loka', 'Lower World (Adho Loka / Tala)', 'Maya Dānava (blessed by Śiva)', 'Architectural capital of the master illusionist and builder of the three cities'],
+      ['12', 'Mahatala Loka', 'Lower World (Adho Loka / Tala)', 'Kadrū’s Multi-Hooded Nāgas', 'Dominion of fierce many-hooded serpents (Kuhaka, Takṣaka, Suṣeṇa)'],
+      ['13', 'Rasatala Loka', 'Lower World (Adho Loka / Tala)', 'Dānavas, Daityas & Paṇis', 'Subterranean fortress of titanic enemies of the Devas living in mountain recesses'],
+      ['14', 'Patala Loka (Nāga-Loka)', 'Lowest World (Adho Loka / Tala)', 'Vāsuki & Śeṣa (Ananta)', 'Deepest jewel-lit subterranean realm of the Nāga sovereigns; below its base rests Naraka']
+    ],
+    rowsHi: [
+      ['०१', 'सत्यलोक (ब्रह्मलोक)', 'ऊर्ध्व लोक (Upper World)', 'ब्रह्मा', 'सत्य, विशुद्ध ज्ञान और महाप्रलय के समय क्रम-मुक्ति का सर्वोच्च लोक'],
+      ['०२', 'तपोलोक', 'ऊर्ध्व लोक (Upper World)', 'तपस्वी सिद्ध एवं कुमार', 'परम तपस्या, आध्यात्मिक तेज और अटूट ध्यान-समाधि का लोक'],
+      ['०३', 'जनलोक', 'ऊर्ध्व लोक (Upper World)', 'सनक, सनन्दन, सनातन, सनत्कुमार', 'राग-द्वेष से रहित ब्रह्मा के मानस-पुत्रों और विशुद्ध ज्ञानियों का निवास'],
+      ['०४', 'महर्लोक', 'ऊर्ध्व लोक (Upper World)', 'महर्षि भृगु एवं कल्पजीवी ऋषि', 'नैमित्तिक प्रलय में भी सुरक्षित रहने वाला महान ऋषियों का संधि-लोक'],
+      ['०५', 'स्वर्लोक (स्वर्ग)', 'ऊर्ध्व लोक (Upper World)', 'इन्द्र एवं देवतागण', 'पुण्यकर्मों के फलभोग, गन्धर्वों और अप्सराओं का दिव्य लोक (जहाँ से पुण्य क्षीण होने पर पुनर्जन्म होता है)'],
+      ['०६', 'भुवर्लोक (अन्तरिक्ष)', 'ऊर्ध्व लोक (Upper World)', 'सूर्य, ग्रह, पितर एवं सिद्ध', 'पृथ्वी और स्वर्ग के मध्य स्थित अंतरिक्ष एवं सूक्ष्म प्राण-लोक'],
+      ['०७', 'भूर्लोक (भूलोक / पृथ्वी)', 'मध्य पार्थिव केंद्र', 'पृथ्वी एवं देहधारी जीव', 'मनुष्यों, प्राणियों और प्रकृति का भौतिक संसार जहाँ कर्म और धर्म का संपादन होता है'],
+      ['०८', 'अतल लोक', 'अधो लोक (पाताल / सप्त-तल)', 'बल (मय दानव का पुत्र)', 'मायावी शक्तियों और ऐन्द्रिय विलास से युक्त प्रथम अधोलोक'],
+      ['०९', 'वितल लोक', 'अधो लोक (पाताल / सप्त-तल)', 'हाटकेश्वर शिव एवं भवानी', 'हाटक स्वर्ण की नदियों के लिए प्रसिद्ध द्वितीय अधोलोक'],
+      ['१०', 'सुतल लोक', 'अधो लोक (पाताल / सप्त-तल)', 'राजा महाबलि (वामन/विष्णु द्वारा रक्षित)', 'धर्मनिष्ठ राजा बलि का पुण्यमय राज्य जहाँ स्वयं भगवान विष्णु द्वारपाल हैं'],
+      ['११', 'तलातल लोक', 'अधो लोक (पाताल / सप्त-तल)', 'मय दानव (शिव द्वारा रक्षित)', 'असुरों के महान वास्तुकार और मायावी मय दानव की राजधानी'],
+      ['१२', 'महातल लोक', 'अधो लोक (पाताल / सप्त-तल)', 'कद्रू के बहु-फणधारी नाग', 'कुहक, तक्षक और सुषेण आदि क्रोधी बहु-फणधारी सर्पों का लोक'],
+      ['१३', 'रसातल लोक', 'अधो लोक (पाताल / सप्त-तल)', 'दैत्य, दानव एवं पणि', 'देवताओं के प्रतिद्वंद्वी दैत्यों और दानवों का दुर्गम निवास'],
+      ['१४', 'पाताल लोक (नागलोक)', 'अधो लोक (सप्तम तल)', 'वासुकि एवं अनन्त शेष', 'मणि-जटित फणों के प्रकाश से आलोकित नागराज वासुकि का सबसे निचला तल']
+    ]
+  },
+  {
+    id: 'table-14-lokas-three-important-distinctions',
+    articleSlug: 'satya-loka',
+    titleEn: 'Three Important Cosmological & Philosophical Distinctions in the 14-Loka System',
+    titleHi: '१४ लोकों की व्यवस्था में तीन अत्यंत महत्त्वपूर्ण शास्त्रीय एवं दार्शनिक भेद',
+    captionEn:
+      'Foundational interpretive safeguards from the Purāṇic, Upaniṣadic, and Vedāntic traditions regarding Svarga, Pātāla vs. Naraka, and multi-layered cosmology.',
+    captionHi:
+      'स्वर्ग बनाम मोक्ष, पाताल बनाम नरक तथा पौराणिक व उपनिषद्-वेदान्तिक दृष्टियों के संबंध में तीन मूलभूत शास्त्रीय सिद्धांत।',
+    headersEn: ['Distinction', 'Common Misconception', 'Scriptural & Philosophical Clarification'],
+    headersHi: ['शास्त्रीय भेद', 'सामान्य भ्रांति', 'पौराणिक एवं दार्शनिक स्पष्टीकरण'],
+    rowsEn: [
+      [
+        '1. Svarga is not necessarily the final spiritual destination',
+        'Equating Svar Loka (Indra’s heaven) with eternal liberation.',
+        'In many Hindu traditions, Svarga is a temporary reward for good deeds (puṇya). Once that merit is exhausted, the soul returns to rebirth (kṣīṇe puṇye martyalokaṁ viśanti). Final liberation (mokṣa) is placed beyond the cycle of worlds or associated with realms like Vaikuṇṭha, Kailāsa, Goloka, or Satya Loka.'
+      ],
+      [
+        '2. Pātāla is not synonymous with Naraka',
+        'Treating the seven subterranean Talas as hells of punishment.',
+        'Naraka is the realm of moral punishment and post-mortem purification, whereas the seven lower Talas (Atala through Pātāla, often called bila-svarga) are richly built subterranean worlds filled with palaces, jewels, serpents, demons, and supernatural powers—albeit steeped in sensory attachment and illusion.'
+      ],
+      [
+        '3. Descriptions differ between scriptures',
+        'Assuming all Hindu scriptures describe the 14 Lokas only as physical geography.',
+        'The Purāṇas (such as the Bhāgavata, Viṣṇu, and Padma Purāṇa) describe these realms with vivid cosmological detail, rulers, and inhabitants, while Upaniṣadic, Vedāntic, and Tantric traditions also interpret them as levels of consciousness, prāṇic strata, and subtle states of existence.'
+      ]
+    ],
+    rowsHi: [
+      [
+        '१. स्वर्ग अंतिम आध्यात्मिक गंतव्य (मोक्ष) नहीं है',
+        'इन्द्र के स्वर्ग (स्वर्लोक) को ही शाश्वत मुक्ति मान लेना।',
+        'अनेक हिन्दू परम्पराओं में स्वर्ग पुण्यकर्मों का अस्थायी फल मात्र है। पुण्य क्षीण होने पर जीव पुनः जन्म-मरण के चक्र में लौटता है ("क्षीणे पुण्ये मर्त्यलोकं विशन्ति")। अंतिम मुक्ति (मोक्ष) लोक-चक्र से परे है अथवा वैकुण्ठ, कैलास या सत्यलोक की क्रम-मुक्ति से संबद्ध है।'
+      ],
+      [
+        '२. पाताल (सप्त-तल) और नरक पर्यायवाची नहीं हैं',
+        'नीचे के सातों तलों को दण्ड देने वाला नरक समझ लेना।',
+        'नरक अधर्म के दण्ड और शुद्धि का क्षेत्र है (जो पाताल के भी नीचे गर्भोदक सागर के ऊपर स्थित है), जबकि सात अधोलोक (अतल से पाताल तक, जिन्हें "बिल-स्वर्ग" भी कहा जाता है) भव्य महलों, मणियों, नागों, दानवों और मायावी ऐश्वर्य से भरे समृद्ध भूमिगत लोक हैं।'
+      ],
+      [
+        '३. विभिन्न शास्त्रों में विवरण की दृष्टि भिन्न है',
+        'सभी शास्त्रों के लोक-वर्णन को केवल बाह्य भौतिक भूगोल मान लेना।',
+        'पुराण (भागवत, विष्णु, पद्म पुराण आदि) इन लोकों का वर्णन सजीव शासकों, नगरों और निवासियों के साथ करते हैं, जबकि उपनिषद्, वेदान्त और तन्त्र इन्हें चेतना के स्तरों, सूक्ष्म शरीर के चक्रों और अस्तित्व की आध्यात्मिक अवस्थाओं के रूप में भी व्याख्यायित करते हैं।'
+      ]
+    ]
+  }
+];
+
+[
+  'satya-loka',
+  'tapa-loka',
+  'jana-loka',
+  'mahar-loka',
+  'svar-loka',
+  'bhuvar-loka',
+  'bhur-loka',
+  'atala-loka',
+  'vitala-loka',
+  'sutala-loka',
+  'talatala-loka',
+  'mahatala-loka',
+  'rasatala-loka',
+  'patala-loka'
+].forEach((lokaSlug) => {
+  ARTICLE_COMPARISON_TABLES[lokaSlug] = FOURTEEN_LOKAS_HIERARCHY_TABLES;
+});
+
 
 
