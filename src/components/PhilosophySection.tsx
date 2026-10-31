@@ -90,91 +90,111 @@ interface BhairavCodexEntry {
 const EMPIRICAL_NODES: MethodologyNode[] = [
   {
     id: 'node-acoustic',
-    name: 'Acoustic Resonance',
-    nameHi: 'ध्वनि अनुनाद',
+    name: 'I. Acoustic Resonance (Nada-Shastra)',
+    nameHi: 'I. ध्वनि अनुनाद (नाद-शास्त्र)',
     sanskritTerm: 'Nada-Shastra',
-    shortDesc: 'Acoustic standing waves and elliptical sound amplification in temple sanctums.',
-    fullPrinciple: 'Ancient Indian temples were often carved in ellipsoidal or dome shapes using high-quartz granite blocks. When speakers chant deep pitch notes in the center, the vaults mirror frequencies between 110Hz and 130Hz—the exact frequency of a deep male baritone. This creates a powerful acoustic feedback loop, making the space hum as if alive and triggering profound psychological state shifts in subjects.',
-    fullPrincipleHi: 'प्राचीन भारतीय मंदिरों के गर्भगृह प्रायः उच्च-क्वार्ट्ज ग्रेनाइट शिलाओं से दीर्घवृत्ताकार या गुंबद के आकार में निर्मित किए जाते थे। जब केंद्र में गहरे स्वर में मंत्रोच्चार किया जाता है, तो छत 110Hz से 130Hz के बीच की आवृत्तियों को परावर्तित करती है। इससे एक शक्तिशाली ध्वनि-अनुनाद चक्र उत्पन्न होता है, जिससे संपूर्ण कक्ष स्पंदित होने लगता है और साधक की चेतना में गहरा मनोवैज्ञानिक परिवर्तन आता है।',
-    sanskritVerse: 'शब्देनान्तरिक्षं पूरितं। मन्द्रध्वनिः शिलायाः प्रतिश्रुतिं जनयति॥',
+    shortDesc: 'Standing Wave Acoustics & Ellipsoidal Focal Amplification',
+    fullPrinciple:
+      'Ancient architectural marvels, particularly those designed for ritualistic chanting and spiritual convergence, were frequently constructed using high-quartz granite blocks shaped into ellipsoidal or dome configurations. When vocalists or practitioners project deep-pitch resonant tones near the geometric focal center of these structures, the vaulted ceilings and dense mineral walls mirror frequencies typically ranging between 110 Hz and 130 Hz.\n\nThis specific frequency band matches the fundamental vocal resonance of a mature human male baritone. When sustained, it creates a powerful acoustic feedback loop. The physical structure itself begins to vibrate and hum, turning the chamber into an organic amplifier. Neurologically, prolonged exposure to standing waves in this frequency range can induce auditory distortions, cranial pressure, and profound psychological state shifts in subjects, frequently misinterpreted as ghostly whispering or otherworldly presence.',
+    fullPrincipleHi:
+      'अनुष्ठानिक मंत्रोच्चार और आध्यात्मिक एकाग्रता के लिए निर्मित प्राचीन स्थापत्य संरचनाएँ प्रायः उच्च-क्वार्ट्ज ग्रेनाइट शिलाओं से दीर्घवृत्ताकार या गुंबद के आकार में बनाई जाती थीं। जब साधक इन संरचनाओं के ज्यामितीय नाभीय केंद्र के समीप गहरे स्वर में ध्वनि प्रक्षेपित करते हैं, तो गुंबददार छतें और सघन खनिज दीवारें 110 Hz से 130 Hz के बीच की आवृत्तियों को परावर्तित करती हैं।\n\nयह विशिष्ट आवृत्ति बैंड एक परिपक्व मानव बैरिटोन स्वर की मूल अनुनाद आवृत्ति से मेल खाता है। निरंतर उच्चारण करने पर यह एक शक्तिशाली ध्वनि-पुनर्निवेश (फीडबैक) चक्र बनाता है। संपूर्ण भौतिक संरचना स्वयं स्पंदित और गुंजायमान होने लगती है, जिससे कक्ष एक जैविक प्रवर्धक में बदल जाता है। तंत्रिका-विज्ञान की दृष्टि से, इस आवृत्ति परिसर में स्थायी तरंगों के दीर्घकालिक संपर्क से श्रवण संबंधी परिवर्तन, कपाल दाब और गहन मनोवैज्ञानिक अवस्था परिवर्तन हो सकते हैं, जिन्हें प्रायः अलौकिक उपस्थिति या फुसफुसाहट समझ लिया जाता है।',
+    sanskritVerse: 'शब्देनान्तरिक्षं पूरितं। मन्द्रध्वनिः शिलायाः प्रतिश्रुतिं जनयति।',
     translation: '"By sound is the space filled. The deep low chant produces a heavy resonance in the stone."',
     translationHi: '"ध्वनि से ही अंतरिक्ष व्याप्त है। मंद्र (गंभीर) स्वर शिलाओं में गहन प्रतिध्वनि उत्पन्न करता है।"',
     scientificConcept: 'Standing Wave Acoustics & Ellipsoidal Focal Amplification',
     scientificConceptHi: 'स्थायी तरंग ध्वनि-विज्ञान एवं दीर्घवृत्तीय नाभीय प्रवर्धन',
-    activeCase: 'The Musical Pillars of Vittala, Hampi',
-    activeCaseHi: 'विट्ठल मंदिर के संगीतमय स्तंभ, हम्पी',
+    activeCase:
+      'The Musical Pillars of Vittala, Hampi: Composed of resonant stone clusters that produce distinct musical notes when struck, interacting with surrounding vaulted stone mandapas to create sustained acoustic envelopes.',
+    activeCaseHi:
+      'विट्ठल मंदिर के संगीतमय स्तंभ, हम्पी: अनुनादी प्रस्तर समूहों से निर्मित जो आघात करने पर स्पष्ट संगीत स्वर उत्पन्न करते हैं और आसपास के प्रस्तर मण्डपों के साथ मिलकर दीर्घकालिक ध्वनि-आवरण बनाते हैं।',
     icon: Radio,
     angle: -90
   },
   {
     id: 'node-geomagnetic',
-    name: 'Geomagnetic Friction',
-    nameHi: 'भू-चुंबकीय घर्षण',
+    name: 'II. Geomagnetic Friction (Bhu-Marma)',
+    nameHi: 'II. भू-चुंबकीय घर्षण (भू-मर्म)',
     sanskritTerm: 'Bhu-Marma',
-    shortDesc: 'Subterranean fault line friction inducing high electromagnetic fluxes.',
-    fullPrinciple: 'Tectonic friction points and groundwater faults can emit continuous, micro-frequency electromagnetic currents. When a structure sits directly atop a geomagnetic joint (Marma), the intense magnetic field changes affect human temporal lobes, occasionally triggering mild visual shadows in peripheral vision, dizziness, and intense lucid dreaming.',
-    fullPrincipleHi: 'विवर्तनिक घर्षण बिंदु और भूमिगत जल-भ्रंश निरंतर सूक्ष्म-आवृत्ति वाली विद्युत-चुंबकीय धाराएँ उत्सर्जित कर सकते हैं। जब कोई संरचना सीधे किसी भू-चुंबकीय संधि (मर्म) के ऊपर स्थित होती है, तो तीव्र चुंबकीय परिवर्तन मानव मस्तिष्क के टेम्पोरल लोब को प्रभावित करते हैं, जिससे परिधीय दृष्टि में छायाओं का आभास और गहन स्वप्न-अनुभूतियाँ हो सकती हैं।',
-    sanskritVerse: 'यत्र पृथिव्याः मर्माणि संधीयन्ते तत्र विद्युतप्रवाहो जायते॥',
+    shortDesc: 'Vapor-Diffusion Magnetic Deflection & Temporal Lobe Stimulation',
+    fullPrinciple:
+      'Tectonic fault lines, subterranean shear zones, and shifting groundwater aquifers generate continuous, micro-frequency electromagnetic currents via friction and piezoelectric quartz compression. When a historical structure or settlement is established directly atop these high-stress geomagnetic intersections (Marma), the localized electromagnetic fluctuations directly interact with human biology.\n\nSpecifically, fluctuating magnetic fields can stimulate the temporal lobes of the human brain. This neurological disruption is well-documented in neuro-theology; it can trigger mild visual anomalies in peripheral vision, sudden bouts of unexplained dizziness, feelings of dread, and vivid, lucid dream states. Generations inhabiting these zones historically attributed these neurological sensations to phantom visitations.',
+    fullPrincipleHi:
+      'विवर्तनिक भ्रंश रेखाएँ, भूमिगत अपरूपण क्षेत्र और गतिशील भूजल स्तर घर्षण तथा पीजोइलेक्ट्रिक क्वार्ट्ज संपीड़न के माध्यम से निरंतर सूक्ष्म-आवृत्ति वाली विद्युत-चुंबकीय धाराएँ उत्पन्न करते हैं। जब कोई ऐतिहासिक संरचना या बस्ती सीधे इन उच्च-तनाव वाले भू-चुंबकीय संधि-स्थलों (मर्म) के ऊपर स्थापित होती है, तो स्थानीय विद्युत-चुंबकीय उतार-चढ़ाव सीधे मानव जीवविज्ञान को प्रभावित करते हैं।\n\nविशेष रूप से, परिवर्तित होते चुंबकीय क्षेत्र मानव मस्तिष्क के टेम्पोरल लोब को उत्तेजित कर सकते हैं। यह तंत्रिका-संबंधी प्रभाव परिधीय दृष्टि में सूक्ष्म दृश्य विसंगतियाँ, अचानक चक्कर आना, अकारण भय की अनुभूति और अत्यंत स्पष्ट स्वप्न-अवस्थाओं को जन्म दे सकता है। इन क्षेत्रों में निवास करने वाली पीढ़ियों ने ऐतिहासिक रूप से इन तंत्रिका-संवेदनाओं को प्रेत-दर्शन से जोड़ा।',
+    sanskritVerse: 'यत्र पृथिव्याः मर्माणि संधीयन्ते तत्र विद्युतप्रवाहो जायते।',
     translation: '"Where the core joints of the earth are knit, there an invisible current of force is generated."',
     translationHi: '"जहाँ पृथ्वी के मर्म-स्थल जुड़ते हैं, वहाँ शक्ति की एक अदृश्य धारा उत्पन्न होती है।"',
     scientificConcept: 'Vapor-Diffusion Magnetic Deflection & Temporal Lobe Stimulation',
     scientificConceptHi: 'वाष्प-प्रसार चुंबकीय विक्षेपण एवं टेम्पोरल लोब उत्तेजना',
-    activeCase: 'The Natural Fields of Kuldhara Village',
-    activeCaseHi: 'कुलधरा ग्राम के प्राकृतिक चुंबकीय क्षेत्र',
+    activeCase:
+      'The Natural Fields of Kuldhara Village: An abandoned settlement situated across active micro-fault lines exhibiting distinct ambient magnetic anomalies and localized cognitive disturbance fields.',
+    activeCaseHi:
+      'कुलधरा ग्राम के प्राकृतिक चुंबकीय क्षेत्र: सक्रिय सूक्ष्म-भ्रंश रेखाओं पर स्थित एक परित्यक्त बस्ती जो स्पष्ट परिवेशीय चुंबकीय विसंगतियाँ और स्थानीय संज्ञानात्मक संवेदन क्षेत्र प्रदर्शित करती है।',
     icon: Zap,
     angle: -18
   },
   {
     id: 'node-thermal',
-    name: 'Thermodynamic Inversion',
-    nameHi: 'ऊष्मागतिकीय व्युत्क्रमण',
+    name: 'III. Thermodynamic Inversion (Ushna-Saman)',
+    nameHi: 'III. ऊष्मागतिकीय व्युत्क्रमण (उष्ण-शमन)',
     sanskritTerm: 'Ushna-Saman',
-    shortDesc: 'Cold-spot formations caused by gaseous seeps and masonry thermal gaps.',
-    fullPrinciple: 'Alleged "cold spots" are analyzed through strict thermodynamics. In places built with dry-stone, mortar-less masonry, small cracks seeping deep subterranean radon or compressed carbon dioxide gases create sudden, physical local cooling. Ambient moisture condenses instantly, creating draft currents and visible mist pockets that mimic apparitions.',
-    fullPrincipleHi: 'कथित "शीत स्थलों" (कोल्ड स्पॉट्स) का विश्लेषण सख्त ऊष्मागतिकी के माध्यम से किया जाता है। बिना गारे की सूखी शिलाओं से बनी संरचनाओं में, भूमिगत रेडॉन या संपीड़ित कार्बन डाइऑक्साइड गैसों के रिसाव से अचानक स्थानीय शीतलन पैदा होता है। परिवेश की नमी तुरंत संघनित होकर धुंध का रूप ले लेती है, जो किसी छाया या आकृति जैसा भ्रम उत्पन्न करती है।',
-    sanskritVerse: 'शिलानां शीतता वायुप्रवाहाच्च जायते मन्दं॥',
+    shortDesc: 'Adiabatic Gas Expansion & Differential Structural Heat Capacity',
+    fullPrinciple:
+      'The classic paranormal trope of the sudden "cold spot" can be rigorously evaluated through thermodynamics. In historical structures utilizing dry-stone or mortar-less masonry, hairline cracks and subterranean fissures often act as conduits for deep-earth gases, including compressed carbon dioxide or low-temperature radon seeping from tectonic cavities.\n\nAs these gases expand adiabatically through narrow structural vents, they induce localized physical cooling. Simultaneously, ambient atmospheric moisture condenses instantly upon contact with the chilled stone interface. This generates invisible draft currents and microscopic mist pockets that drift through corridors, mimicking the visual profile of ephemeral apparitions or wandering cold spirits.',
+    fullPrincipleHi:
+      'अचानक अनुभव होने वाले "शीत-स्थल" (कोल्ड स्पॉट) की पारंपरिक मान्यता का ऊष्मागतिकी के माध्यम से सटीक मूल्यांकन किया जा सकता है। बिना गारे की सूखी शिलाओं से निर्मित ऐतिहासिक संरचनाओं में, सूक्ष्म दरारें और भूमिगत विदर प्रायः संपीड़ित कार्बन डाइऑक्साइड या निम्न-तापमान रेडॉन जैसी भूगर्भीय गैसों के लिए वाहक का कार्य करते हैं।\n\nजब ये गैसें संकरे संरचनात्मक छिद्रों से रुद्धोष्म (एडियाबेटिक) रूप से फैलती हैं, तो वे तत्काल स्थानीय भौतिक शीतलन उत्पन्न करती हैं। साथ ही, वातावरण की नमी ठंडी शिलाओं के संपर्क में आते ही तुरंत संघनित हो जाती है। इससे अदृश्य वायु-प्रवाह और सूक्ष्म धुंध के पुंज बनते हैं जो गलियारों में तैरते हुए किसी छाया या भटकती आत्मा जैसा दृश्य आभास कराते हैं।',
+    sanskritVerse: 'शिलानां शीतता वायुप्रवाहाच्च जायते मन्दं।',
     translation: '"The localized chill of the stones is produced slowly by the upward movement of deep air."',
     translationHi: '"गंभीर भूमिगत वायु के ऊर्ध्वगामी प्रवाह से शिलाओं में धीरे-धीरे शीतलता उत्पन्न होती है।"',
     scientificConcept: 'Adiabatic Gas Expansion & Differential Structural Heat Capacity',
     scientificConceptHi: 'रुद्धोष्म गैस विस्तार एवं विभेदक संरचनात्मक ऊष्मा धारिता',
-    activeCase: 'The Gateway cold-spots of Bhangarh Fort',
-    activeCaseHi: 'भानगढ़ किले के प्रवेश-द्वार के शीत-स्थल',
+    activeCase:
+      'The Gateway Cold-Spots of Bhangarh Fort: Deep bastion chambers featuring marked temperature differentials uncorrelated with external weather patterns, driven by subterranean structural drafts and high-density stone heat capacities.',
+    activeCaseHi:
+      'भानगढ़ किले के प्रवेश-द्वार के शीत-स्थल: गहरे बुर्ज कक्ष जो बाहरी मौसम से स्वतंत्र स्पष्ट तापमान अंतर प्रदर्शित करते हैं, जो भूमिगत संरचनात्मक वायु-प्रवाह और उच्च-घनत्व वाली शिलाओं की ऊष्मा धारिता से संचालित होते हैं।',
     icon: Thermometer,
     angle: 54
   },
   {
     id: 'node-chemistry',
-    name: 'Environmental Chemistry',
-    nameHi: 'पर्यावरणीय रसायन',
+    name: 'IV. Environmental Chemistry (Rasa-Vijnana)',
+    nameHi: 'IV. पर्यावरणीय रसायन (रस-विज्ञान)',
     sanskritTerm: 'Rasa-Vijnana',
-    shortDesc: 'Ionization currents and trace heavy minerals in groundwater faultlines.',
-    fullPrinciple: 'Natural mineral faultlines, heavy metal deposits (such as iron oxide, magnetite, or radioactive thorium-rich monazite) dissolve into local subterranean aquifers. Chronic ingestion or close proximity to these highly ionized water sources leads to distinct physiological changes, including high cell replication rates, altered hormone production, and mild perceptual distortion.',
-    fullPrincipleHi: 'प्राकृतिक खनिज भ्रंश और भारी धातु भंडार (जैसे आयरन ऑक्साइड, मैग्नेटाइट, या थोरियम-युक्त मोनाजाइट) स्थानीय भूमिगत जलभृतों में घुल जाते हैं। इन अत्यधिक आयनित जल स्रोतों के दीर्घकालिक संपर्क या सेवन से विशिष्ट शारीरिक परिवर्तन होते हैं, जिनमें कोशिका विभाजन दर में वृद्धि और संवेदी बोध में बदलाव शामिल हैं।',
-    sanskritVerse: 'पृथिव्याः रसाः सलिलगताः जीवनप्रक्रियायां प्रभावं कुर्वन्ति॥',
+    shortDesc: 'Aquifer Mass Spectroscopy & Background Ionizing Radiation',
+    fullPrinciple:
+      'Geological strata rich in heavy metal deposits—such as iron oxide, magnetite, or radioactive thorium-bearing monazite sands—leach complex chemical signatures into local subterranean water tables. Populations inhabiting these micro-regions consume or live in close proximity to these highly ionized water sources over generations.\n\nChronic exposure to background ionizing radiation and heavy metal ions alters physiological baseline metrics, including cellular replication rates, endocrine hormone balance, and neural synaptic conductivity. These biochemical shifts frequently manifest as heightened sensory sensitivity, localized health clustering, and subtle perceptual distortions that reinforce local folklore regarding cursed waters or haunted lands.',
+    fullPrincipleHi:
+      'भारी धातु निक्षेपों—जैसे आयरन ऑक्साइड, मैग्नेटाइट, या रेडियोधर्मी थोरियम-युक्त मोनाजाइट रेत—से समृद्ध भूवैज्ञानिक स्तर स्थानीय भूमिगत जलभृतों में जटिल रासायनिक तत्वों का निक्षालन करते हैं। इन सूक्ष्म-क्षेत्रों में निवास करने वाली जनसंख्या पीढ़ियों तक इन अत्यधिक आयनित जल स्रोतों के संपर्क में रहती है।\n\nपृष्ठभूमि आयनकारी विकिरण और भारी धातु आयनों के दीर्घकालिक संपर्क से कोशिका विभाजन दर, अंतःस्रावी हार्मोन संतुलन और तंत्रिका चालकता जैसे शारीरिक मापदंड प्रभावित होते हैं। ये जैव-रासायनिक परिवर्तन प्रायः तीव्र संवेदी संवेदनशीलता और सूक्ष्म बोधात्मक परिवर्तनों के रूप में प्रकट होते हैं, जो शापित जल या प्रेतबाधित भूमि से जुड़ी लोक-मान्यताओं को सुदृढ़ करते हैं।',
+    sanskritVerse: 'पृथिव्याः रसाः सलिलगताः जीवनप्रक्रियायां प्रभावं कुर्वन्ति।',
     translation: '"The essences of the earth dissolved in water exert a heavy weight upon the flow of life."',
     translationHi: '"जल में घुले हुए पृथ्वी के रस जीवन-प्रक्रिया के प्रवाह पर गहरा प्रभाव डालते हैं।"',
     scientificConcept: 'Aquifer Mass Spectroscopy & Background Ionizing Radiation',
     scientificConceptHi: 'जलभृत द्रव्यमान स्पेक्ट्रोस्कोपी एवं पृष्ठभूमि आयनकारी विकिरण',
-    activeCase: 'The Thorium Aquifers of Kodinhi',
-    activeCaseHi: 'कोडिन्ही के थोरियम जलभृत',
+    activeCase:
+      'The Thorium Aquifers of Kodinhi: Regions with anomalous background geochemical profiles demonstrating unique physiological interaction markers among local inhabitants.',
+    activeCaseHi:
+      'कोडिन्ही के थोरियम जलभृत: असामान्य भू-रासायनिक पृष्ठभूमि वाले क्षेत्र जो स्थानीय निवासियों में विशिष्ट शारीरिक प्रभाव संकेतक प्रदर्शित करते हैं।',
     icon: Droplet,
     angle: 126
   },
   {
     id: 'node-structural',
-    name: 'Architectural Waveguides',
-    nameHi: 'वास्तु तरंग-पथक',
+    name: 'V. Architectural Waveguides (Vastu-Mandala)',
+    nameHi: 'V. वास्तु तरंग-पथक (वास्तु-मण्डल)',
     sanskritTerm: 'Vastu-Mandala',
-    shortDesc: 'The geometry of stone layouts focusing low-frequency environmental waves.',
-    fullPrinciple: 'Pyramidal, concentric, and square-within-square temple layouts function similarly to modern radio waveguides. By aligning heavy granite structures to cardinal coordinates, these layouts trap and focus low-frequency ambient environmental waves (such as wind friction or microseisms), turning the building itself into a passive energetic resonator.',
-    fullPrincipleHi: 'पिरामिडनुमा, संकेंद्रित और वर्ग-के-भीतर-वर्ग वाले मंदिर विन्यास आधुनिक रेडियो वेवगाइड की भांति कार्य करते हैं। भारी ग्रेनाइट संरचनाओं को मुख्य दिशाओं के अनुरूप संरेखित करने से ये विन्यास निम्न-आवृत्ति वाली पर्यावरणीय तरंगों (जैसे वायु घर्षण या सूक्ष्म-भूकंपीय कंपन) को केंद्रित करते हैं, जिससे संपूर्ण भवन एक निष्क्रिय ऊर्जा अनुनादक बन जाता है।',
-    sanskritVerse: 'मण्डलस्य रेखाः वायुतरङ्गान् आकर्षन्ति। मन्दिरं महायन्त्रं भवति॥',
+    shortDesc: 'Concentric Dielectric Waveguides & Environmental RF Traps',
+    fullPrinciple:
+      'Ancient master builders utilized precise geometric frameworks—such as pyramidal profiles, concentric squares, and interlocking mandala grids—to lay out sacred structures. From a physical perspective, these architectural geometries function analogously to modern radio frequency waveguides and acoustic horn structures.\n\nBy aligning dense granite and sandstone monoliths to cardinal magnetic coordinates, these layouts passively capture, trap, and focus low-frequency environmental waves, including wind shear friction, atmospheric pressure fluctuations, and microseisms. The building transforms into a passive energetic resonator, concentrating ambient kinetic energy into specific sanctum nodes within the structure.',
+    fullPrincipleHi:
+      'प्राचीन वास्तुकारों ने पवित्र संरचनाओं के निर्माण हेतु पिरामिडनुमा रूपरेखा, संकेंद्रित वर्ग और अंतर्ग्रथित मण्डल जालक जैसे सटीक ज्यामितीय ढाँचों का उपयोग किया। भौतिक विज्ञान की दृष्टि से, ये वास्तु-ज्यामितियाँ आधुनिक रेडियो आवृत्ति वेवगाइड और ध्वनि हॉर्न संरचनाओं के समान कार्य करती हैं।\n\nसघन ग्रेनाइट और बलुआ पत्थर के एकाश्मों को मुख्य चुंबकीय दिशाओं के अनुरूप संरेखित करने से, ये विन्यास वायु-अपरूपण घर्षण, वायुमंडलीय दाब परिवर्तनों और सूक्ष्म-भूकंपीय तरंगों जैसी निम्न-आवृत्ति की पर्यावरणीय तरंगों को निष्क्रिय रूप से पकड़ते और केंद्रित करते हैं। इस प्रकार संपूर्ण भवन एक निष्क्रिय ऊर्जा अनुनादक में परिवर्तित होकर परिवेशीय गतिज ऊर्जा को गर्भगृह के विशिष्ट बिंदुओं में केंद्रित कर देता है।',
+    sanskritVerse: 'मण्डलस्य रेखाः वायुतरङ्गान् आकर्षन्ति। मन्दिरं महायन्त्रं भवति।',
     translation: '"The lines of the sacred mandala draw the waves of the wind. The temple becomes a great machine."',
     translationHi: '"पवित्र मण्डल की रेखाएँ वायु-तरंगों को आकर्षित करती हैं। मंदिर स्वयं एक महायन्त्र बन जाता है।"',
     scientificConcept: 'Concentric Dielectric Waveguides & Environmental RF Traps',
     scientificConceptHi: 'संकेंद्रित परावैद्युत तरंग-पथक एवं पर्यावरणीय आरएफ ट्रैप',
-    activeCase: 'The Ellipsoidal Sanctums of Western Ghats',
-    activeCaseHi: 'पश्चिमी घाट के दीर्घवृत्ताकार गर्भगृह',
+    activeCase:
+      'The Ellipsoidal Sanctums of Western Ghats: Temple complexes whose core sanctum geometries demonstrate clear resonance trapping characteristics for regional microseismic and atmospheric waves.',
+    activeCaseHi:
+      'पश्चिमी घाट के दीर्घवृत्ताकार गर्भगृह: ऐसे मंदिर परिसर जिनकी मूल गर्भगृह ज्यामिति क्षेत्रीय सूक्ष्म-भूकंपीय और वायुमंडलीय तरंगों को केंद्रित करने की स्पष्ट विशेषता दर्शाती है।',
     icon: Layers,
     angle: 198
   }
@@ -512,6 +532,7 @@ interface ResearchRouteState {
   mode: 'overview' | 'category' | 'article';
   categorySlug?: string;
   articleSlug?: string;
+  openedFromOverview?: boolean;
 }
 
 function parseResearchUrl(pathname: string): ResearchRouteState {
@@ -666,7 +687,7 @@ export default function PhilosophySection() {
   );
 
   const handleOpenArticle = useCallback(
-    (categorySlug: string, articleSlug: string) => {
+    (categorySlug: string, articleSlug: string, openedFromOverview = false) => {
       const resolved = getArticleBySlugs(categorySlug, articleSlug);
       const portal = resolved?.portal || getPortalBySlug(categorySlug);
       if (portal) {
@@ -710,7 +731,7 @@ export default function PhilosophySection() {
       if (window.location.pathname !== nextPath) {
         window.history.pushState({ researchRoute: nextPath }, '', nextPath);
       }
-      setRouteState({ mode: 'article', categorySlug, articleSlug });
+      setRouteState({ mode: 'article', categorySlug, articleSlug, openedFromOverview });
       scrollDedicatedPageToTop();
     },
     [scrollDedicatedPageToTop]
@@ -735,10 +756,26 @@ export default function PhilosophySection() {
     [scrollResearchIntoView]
   );
 
-  // Back arrow handler: goes directly back to the outer page where all the units are
+  // Back arrow handler:
+  // - When inside a unit monograph (mode === 'article' and not opened directly from a standalone seal on overview), returns to that unit's page (mode === 'category')
+  // - When on a unit page (mode === 'category') or a standalone overview seal monograph, returns to the outer page where all units are (mode === 'overview')
   const handleStepBack = useCallback(() => {
+    if (
+      routeState.mode === 'article' &&
+      routeState.categorySlug &&
+      !routeState.openedFromOverview
+    ) {
+      handleOpenCategoryPortal(routeState.categorySlug);
+      return;
+    }
     handleReturnToOverview();
-  }, [handleReturnToOverview]);
+  }, [
+    routeState.mode,
+    routeState.categorySlug,
+    routeState.openedFromOverview,
+    handleOpenCategoryPortal,
+    handleReturnToOverview
+  ]);
 
   const isAshtaExhibitView = viewState.index === 1;
   const isBhairavView = viewState.index === 2;
@@ -906,7 +943,7 @@ export default function PhilosophySection() {
           activeRouteMode="overview"
           onSelectChapterPreview={goToChapter}
           onOpenCategoryPortal={handleOpenCategoryPortal}
-          onOpenArticle={handleOpenArticle}
+          onOpenArticle={(catSlug, artSlug) => handleOpenArticle(catSlug, artSlug, true)}
         />
 
         {/* Whole New Standalone Page Dedicated Exclusively to the Research Section (Opened Portals & Articles) */}
@@ -923,7 +960,7 @@ export default function PhilosophySection() {
               <TransparentLineScrollbar
                 containerRef={researchPageScrollRef}
                 variant="overlay"
-                watchKey={`${routeState.mode}-${routeState.categorySlug || ''}-${routeState.articleSlug || ''}-${viewState.chapter}`}
+                watchKey={`${routeState.mode}-${routeState.categorySlug || ''}-${routeState.articleSlug || ''}-${viewState.index}`}
               />
             {/* Standalone Research Page Background Texture */}
             <div
@@ -944,12 +981,21 @@ export default function PhilosophySection() {
                   <button
                     type="button"
                     onClick={handleStepBack}
-                    aria-label={t('Back to outer page with all research units', 'सभी शोध इकाइयों वाले मुख्य पृष्ठ पर वापस जाएँ')}
+                    aria-label={
+                      routeState.mode === 'article' && !routeState.openedFromOverview
+                        ? t('Exit monograph and return to unit page', 'शोध-प्रबंध बंद करें और इकाई पृष्ठ पर वापस जाएँ')
+                        : t('Back to outer page with all research units', 'सभी शोध इकाइयों वाले मुख्य पृष्ठ पर वापस जाएँ')
+                    }
                     className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border-2 border-[#D3AD55] bg-[#26170F] hover:bg-[#382116] text-[#D3AD55] font-mono text-[10.5px] sm:text-xs font-bold uppercase tracking-[0.16em] transition-all cursor-pointer shadow-[0_0_18px_rgba(211,173,85,0.25)] active:scale-95"
                   >
                     <ArrowLeft className="w-4 h-4 shrink-0" />
                     <span>
-                      {t('Back to All Research Units', 'सभी शोध इकाइयों (मुख्य पृष्ठ) पर वापस जाएँ')}
+                      {routeState.mode === 'article' && !routeState.openedFromOverview
+                        ? t(
+                            `Exit Monograph · Back to ${(getPortalBySlug(routeState.categorySlug || '') || activePortal).shortTitleEn}`,
+                            `शोध-प्रबंध बंद करें · ${(getPortalBySlug(routeState.categorySlug || '') || activePortal).shortTitleHi} पृष्ठ पर वापस जाएँ`
+                          )
+                        : t('Back to All Research Units', 'सभी शोध इकाइयों (मुख्य पृष्ठ) पर वापस जाएँ')}
                     </span>
                   </button>
                 </div>
@@ -1194,53 +1240,53 @@ export default function PhilosophySection() {
                         </div>
 
                         <div className="space-y-4">
+                          <div className="p-3.5 rounded bg-[#e5d8c5] border border-[#3a2e24]/15">
+                            <h4 className="font-mono text-[10px] tracking-widest text-[#544338] uppercase font-bold">
+                              {t('Empirical Field Term', 'आनुभविक क्षेत्रीय पारिभाषिक शब्द')}
+                            </h4>
+                            <p className="font-serif text-[14px] sm:text-[15px] font-semibold text-[#2a1f18] mt-1">
+                              {t(selectedEmpiricalNode.scientificConcept, selectedEmpiricalNode.scientificConceptHi)}
+                            </p>
+                          </div>
+
                           <div>
                             <h4 className="font-serif text-[12px] uppercase tracking-wider text-[#544338] font-bold">
-                              {t('Investigation Principle:', 'अन्वेषण सिद्धांत:')}
+                              {t('Investigation Principle', 'अन्वेषण सिद्धांत')}
                             </h4>
-                            <p className="text-[14px] leading-relaxed text-[#2c221a] mt-1">
+                            <p className="text-[14px] sm:text-[14.5px] leading-relaxed text-[#2c221a] mt-1.5 whitespace-pre-line">
                               {t(selectedEmpiricalNode.fullPrinciple, selectedEmpiricalNode.fullPrincipleHi)}
                             </p>
                           </div>
 
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-[#3a2e24]/15">
-                            <div>
-                              <h5 className="font-mono text-[9px] tracking-wider text-[#544338] uppercase">
-                                {t('Empirical Field Term:', 'आनुभविक क्षेत्रीय पारिभाषिक शब्द:')}
-                              </h5>
-                              <p className="font-sans text-[12px] font-medium text-[#2c221a] mt-0.5">
-                                {t(selectedEmpiricalNode.scientificConcept, selectedEmpiricalNode.scientificConceptHi)}
-                              </p>
-                            </div>
-                            <div>
-                              <h5 className="font-mono text-[9px] tracking-wider text-[#544338] uppercase">
-                                {t('Benchmark Case Log:', 'संदर्भ केस अभिलेख:')}
-                              </h5>
-                              <span className="inline-flex items-center gap-1 font-sans text-[12px] font-semibold text-amber-900 mt-0.5 underline decoration-dotted">
-                                <Eye className="w-3.5 h-3.5" />
-                                {t(selectedEmpiricalNode.activeCase, selectedEmpiricalNode.activeCaseHi)}
-                              </span>
-                            </div>
+                          <div className="pt-4 border-t border-[#3a2e24]/15">
+                            <h5 className="font-mono text-[10px] tracking-wider text-[#544338] uppercase font-bold">
+                              {t('Benchmark Case Log', 'संदर्भ केस अभिलेख')}
+                            </h5>
+                            <p className="font-serif text-[13.5px] sm:text-[14px] font-medium text-amber-950 mt-1 leading-relaxed">
+                              {t(selectedEmpiricalNode.activeCase, selectedEmpiricalNode.activeCaseHi)}
+                            </p>
                           </div>
                         </div>
 
                         <div className="mt-6 flex flex-wrap justify-between items-center gap-2 text-[9px] sm:text-[10px] font-mono text-[#544338]/60 uppercase tracking-widest pt-3.5 border-t border-[#3a2e24]/10">
                           <span>{t('Center for Anomalous Studies', 'असाधारण अध्ययन केंद्र')}</span>
                           <div className="flex flex-wrap items-center gap-2">
-                            <span>{t('Codex No:', 'संहिता क्र.:')} {selectedEmpiricalNode.id.replace('node-', 'CAGS-0')}</span>
-                            <button
-                              type="button"
-                              onClick={() =>
-                                handleOpenArticle(
-                                  'cags-field-archive',
-                                  EMPIRICAL_NODE_TO_ARTICLE_SLUG[selectedEmpiricalNode.id] || 'acoustic-resonance'
-                                )
-                              }
-                              className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[#2a1f18] text-[#D3AD55] hover:bg-[#3d2d22] font-mono text-[9px] uppercase tracking-wider transition-all cursor-pointer"
-                            >
-                              <FileText className="w-3 h-3" />
-                              <span>{t('Open Full Article Page →', 'संपूर्ण शोध-लेख खोलें →')}</span>
-                            </button>
+                            <span>{t('Subunit Article Codex:', 'उप-इकाई संहिता:')} {selectedEmpiricalNode.sanskritTerm}</span>
+                            {routeState.mode === 'category' && (
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  handleOpenArticle(
+                                    'cags-field-archive',
+                                    EMPIRICAL_NODE_TO_ARTICLE_SLUG[selectedEmpiricalNode.id] || 'acoustic-resonance'
+                                  )
+                                }
+                                className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[#28180F] text-[#D3AD55] hover:bg-[#382116] font-mono text-[9px] uppercase tracking-wider transition-all cursor-pointer"
+                              >
+                                <FileText className="w-3 h-3" />
+                                <span>{t('Explore Monograph →', 'शोध-प्रबंध खोलें →')}</span>
+                              </button>
+                            )}
                           </div>
                         </div>
                       </motion.div>
@@ -1701,6 +1747,7 @@ export default function PhilosophySection() {
                       <ArticleMonographPageView
                         portal={resolvedArticle.portal}
                         article={resolvedArticle.article}
+                        openedFromOverview={Boolean(routeState.openedFromOverview)}
                         onBackToCategory={handleOpenCategoryPortal}
                         onBackToOverview={() => handleReturnToOverview()}
                         onOpenArticle={handleOpenArticle}
@@ -1741,7 +1788,12 @@ export default function PhilosophySection() {
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>
-                    {t('Back to All Research Units', 'सभी शोध इकाइयों (मुख्य पृष्ठ) पर वापस जाएँ')}
+                    {routeState.mode === 'article' && !routeState.openedFromOverview
+                      ? t(
+                          `Exit Monograph · Back to ${(getPortalBySlug(routeState.categorySlug || '') || activePortal).shortTitleEn}`,
+                          `शोध-प्रबंध बंद करें · ${(getPortalBySlug(routeState.categorySlug || '') || activePortal).shortTitleHi} पृष्ठ पर वापस जाएँ`
+                        )
+                      : t('Back to All Research Units', 'सभी शोध इकाइयों (मुख्य पृष्ठ) पर वापस जाएँ')}
                   </span>
                 </button>
 

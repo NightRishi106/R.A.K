@@ -581,6 +581,180 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         ['१०', 'संदर्भ-सूची एवं साक्ष्य समीक्षा (Bibliography & Evidence)', 'संपूर्ण स्रोत-सूची, संस्करण विवरण, विद्वानों के मतभेद और अनसुलझे ऐतिहासिक प्रश्न।']
       ]
     }
+  ],
+  'bavan-bhairava-chhappan-kalua-concordance': [
+    {
+      id: 'table-52-bhairava-complete-roster',
+      articleSlug: 'bavan-bhairava-chhappan-kalua-concordance',
+      titleEn: 'Complete Roster of the 52 Bhairavas (बावन भैरव — Bāvan Bhairava: 01 to 52)',
+      titleHi: 'बावन भैरव (52 भैरव) की संपूर्ण प्रामाणिक नामावली (क्रमांक 01 से 52)',
+      captionEn:
+        'The 52 Bhairavas (Bāvan Bhairav) invoked alongside the 64 Yoginīs (Chausath Yoginī) in Śākta-Śaiva and North Indian devotional traditions.',
+      captionHi:
+        'चौंसठ योगिनी (64 योगिनी) के साथ शाक्त-शैव एवं उत्तर भारतीय उपासना परम्पराओं में आहूत बावन भैरव (52 भैरव) की क्रमबद्ध सूची।',
+      headersEn: ['No.', 'Devanāgarī Name (हिंदी नाम)', 'Transliteration (English)', 'Primary Aspect / Epithet Domain'],
+      headersHi: ['क्र.', 'भैरव नाम (देवनागरी)', 'लिप्यंतरण (Transliteration)', 'स्वरूप / अधिष्ठान क्षेत्र'],
+      rowsEn: [
+        ['01', 'असितांग भैरव', 'Asitāṅga Bhairava', 'First of the Aṣṭa Bhairavas · Eastern creative axis'],
+        ['02', 'महाकाल भैरव', 'Mahākāla Bhairava', 'Lord of Great Time & consort of Mahākālī / Mahālakṣmī'],
+        ['03', 'त्रिलोचन भैरव', 'Trilocana Bhairava', 'Three-eyed sovereign of triadic vision'],
+        ['04', 'काल भैरव', 'Kāla Bhairava', 'Supreme Kotwal of Kāśī & sovereign of time'],
+        ['05', 'त्रिपुर भैरव', 'Tripura Bhairava', 'Guardian of the three cities / states of consciousness'],
+        ['06', 'क्रोध भैरव', 'Krodha Bhairava', 'South-Western Aṣṭa Bhairava of fierce transformative wrath'],
+        ['07', 'तांडव भैरव', 'Tāṇḍava Bhairava', 'Lord of the cosmic dance of creation and dissolution'],
+        ['08', 'यम भैरव', 'Yama Bhairava', 'Sovereign of cosmic law, restraint, and mortal threshold'],
+        ['09', 'नीलकंठ भैरव', 'Nīlakaṇṭha Bhairava', 'Blue-throated absorber of world-poison (Hālāhala)'],
+        ['10', 'श्मशान भैरव', 'Śmaśāna Bhairava', 'Dweller of the cremation ground & ultimate detachment'],
+        ['11', 'चंड भैरव', 'Caṇḍa Bhairava', 'Southern Aṣṭa Bhairava of blazing martial energy'],
+        ['12', 'धूम्रलोचन भैरव', 'Dhūmralocana Bhairava', 'Smoke-eyed guardian of veil and atmospheric dissolution'],
+        ['13', 'वीर भैरव', 'Vīra Bhairava', 'Heroic Virabhadra-aligned protector of the mandala'],
+        ['14', 'रुद्र भैरव', 'Rudra Bhairava', 'Vedic-Āgamic roaring storm and purifier'],
+        ['15', 'क्षेत्रपाल भैरव', 'Kṣetrapāla Bhairava', 'Sanctuary guardian of sacred geography (Kṣetra)'],
+        ['16', 'लोकनाथ भैरव', 'Lokanātha Bhairava', 'Protector and sovereign of the worlds (Lokas)'],
+        ['17', 'पापभंजन भैरव', 'Pāpabhañjana Bhairava', 'Destroyer of karmic transgressions and fetters'],
+        ['18', 'महाभैरव', 'Mahābhairava', 'Transcendent macrocosmic Bhairava consciousness'],
+        ['19', 'वत्सनाभ भैरव', 'Vatsanābha Bhairava', 'Fierce protector bearing the potent Vatsanābha force'],
+        ['20', 'चित्रभानु भैरव', 'Citrabhānu Bhairava', 'Radiant solar-fire manifestation of Bhairava'],
+        ['21', 'भीषण भैरव', 'Bhīṣaṇa Bhairava', 'Northern Aṣṭa Bhairava of awe-inspiring dread'],
+        ['22', 'संहार भैरव', 'Saṃhāra Bhairava', 'North-Eastern Aṣṭa Bhairava of cosmic reabsorption'],
+        ['23', 'क्रोधनाथ भैरव', 'Krodhanātha Bhairava', 'Master of wrathful protective intervention'],
+        ['24', 'कालाग्नि भैरव', 'Kālāgni Bhairava', 'Fire of final cosmic dissolution (Kālāgnirudra)'],
+        ['25', 'त्र्यम्बक भैरव', 'Tryambaka Bhairava', 'Three-eyed healer and liberator from mortality'],
+        ['26', 'सर्प भैरव', 'Sarpa Bhairava', 'Nāga-adorned lord of Kuṇḍalinī and subterranean forces'],
+        ['27', 'प्रचंड भैरव', 'Pracaṇḍa Bhairava', 'Formidable, irresistible solar-fierce guardian'],
+        ['28', 'वरुण भैरव', 'Varuṇa Bhairava', 'Sovereign of cosmic waters and western horizon'],
+        ['29', 'गवाक्ष भैरव', 'Gavākṣa Bhairava', 'All-seeing lattice-window observer of the mandala'],
+        ['30', 'कामरूप भैरव', 'Kāmarūpa Bhairava', 'Guardian of Kāmarūpa Pīṭha & shape-shifting will'],
+        ['31', 'चक्र भैरव', 'Cakra Bhairava', 'Central axis lord of the Yoginī Cakra'],
+        ['32', 'विद्याराज भैरव', 'Vidyārāja Bhairava', 'Sovereign king of esoteric Mantras and Vidyās'],
+        ['33', 'पद्म भैरव', 'Padma Bhairava', 'Lotus-enthroned guardian of subtle cakra unfolding'],
+        ['34', 'विष्णु भैरव', 'Viṣṇu Bhairava', 'All-pervading protective synthesis of Hari-Hara'],
+        ['35', 'मुण्डपाल भैरव', 'Muṇḍapāla Bhairava', 'Guardian of the severed-head / ego-transcendence vow'],
+        ['36', 'शव भैरव', 'Śava Bhairava', 'Inert substratum consciousness beneath dynamic Śakti'],
+        ['37', 'भूतनाथ भैरव', 'Bhūtanātha Bhairava', 'Lord of all elemental beings (Pañcamahābhūtas & Bhūtagaṇas)'],
+        ['38', 'पिंड भैरव', 'Piṇḍa Bhairava', 'Lord of the microcosmic embodied form (Piṇḍāṇḍa)'],
+        ['39', 'योगिनी भैरव', 'Yoginī Bhairava', 'Beloved consort and leader of the 64 Yoginī hosts'],
+        ['40', 'जटा भैरव', 'Jaṭā Bhairava', 'Ascetic dreadlocked lord of yogic tapas'],
+        ['41', 'कंकाल भैरव', 'Kaṅkāla Bhairava', 'Skeletal staff-bearer of Purāṇic and Kāpālika lore'],
+        ['42', 'धूम्र भैरव', 'Dhūmra Bhairava', 'Smoky-hued lord of twilight and dissolution'],
+        ['43', 'त्रिनेत्र भैरव', 'Trinetra Bhairava', 'Lord of the awakened Ājñā third eye'],
+        ['44', 'त्रिशूलपाणि भैरव', 'Triśūlapāṇi Bhairava', 'Wielder of the trident of Icchā, Jñāna, and Kriyā'],
+        ['45', 'खड्गपाणि भैरव', 'Khaḍgapāṇi Bhairava', 'Wielder of the sword of discriminative wisdom'],
+        ['46', 'अज भैरव', 'Aja Bhairava', 'Unborn, beginningless eternal Śiva-Bhairava'],
+        ['47', 'इंद्राचूर भैरव', 'Indrācūra Bhairava', 'Crest-jewel sovereign transcending Indra’s realm'],
+        ['48', 'इंद्रा मूर्ति भैरव', 'Indrāmūrti Bhairava', 'Embodied thunderbolt-power manifestation'],
+        ['49', 'कुस्मांड भैरव', 'Kuṣmāṇḍa Bhairava', 'Leader of the Kuṣmāṇḍa gaṇas of Kāśī & cosmic gourd-egg'],
+        ['50', 'विमुक्ता भैरव', 'Vimuktā Bhairava', 'Bestower of supreme liberation (Vimukti)'],
+        ['51', 'लिपिटक भैरव', 'Lipiṭaka Bhairava', 'Guardian of inscribed script, Mātṛkā lipi, and destiny'],
+        ['52', 'एकदंश भैरव', 'Ekadaṃśa Bhairava', 'Single-tusked / single-pointed resolute protector']
+      ],
+      rowsHi: [
+        ['01', 'असितांग भैरव', 'Asitāṅga Bhairava', 'अष्ट भैरवों में प्रथम · पूर्व दिशा एवं सृजन शक्ति'],
+        ['02', 'महाकाल भैरव', 'Mahākāla Bhairava', 'महाकालेश्वर · काल के अधिपति एवं महाकाली/महालक्ष्मी युग्म'],
+        ['03', 'त्रिलोचन भैरव', 'Trilocana Bhairava', 'त्रिकालदर्शी तीन नेत्रों वाले भैरव'],
+        ['04', 'काल भैरव', 'Kāla Bhairava', 'काशी के कोतवाल एवं काल-चक्र के सर्वोच्च शासक'],
+        ['05', 'त्रिपुर भैरव', 'Tripura Bhairava', 'तीनों पुरों एवं जाग्रत-स्वप्न-सुषुप्ति के अधिपति'],
+        ['06', 'क्रोध भैरव', 'Krodha Bhairava', 'अष्ट भैरव (नैऋत्य कोण) · अज्ञान-विनाशक उग्र रूप'],
+        ['07', 'तांडव भैरव', 'Tāṇḍava Bhairava', 'सृष्टि-संहार के ब्रह्माण्डीय ताण्डव नृत्य के स्वामी'],
+        ['08', 'यम भैरव', 'Yama Bhairava', 'धर्म-नियम, संयम एवं काल-मर्यादा के नियामक'],
+        ['09', 'नीलकंठ भैरव', 'Nīlakaṇṭha Bhairava', 'हालाहल विष को कंठ में धारण करने वाले रक्षक'],
+        ['10', 'श्मशान भैरव', 'Śmaśāna Bhairava', 'श्मशान-वासी एवं परम वैराग्य के अधिष्ठाता'],
+        ['11', 'चंड भैरव', 'Caṇḍa Bhairava', 'अष्ट भैरव (दक्षिण दिशा) · प्रचण्ड तेज एवं शौर्य स्वरूप'],
+        ['12', 'धूम्रलोचन भैरव', 'Dhūmralocana Bhairava', 'धूम्र-नेत्र धारी आवरण-भेदी रक्षक भैरव'],
+        ['13', 'वीर भैरव', 'Vīra Bhairava', 'वीरभद्र-तुल्य अदम्य पराक्रमी मण्डल-रक्षक'],
+        ['14', 'रुद्र भैरव', 'Rudra Bhairava', 'वैदिक-आगमिक रौद्र तेज एवं पावनकारी स्वरूप'],
+        ['15', 'क्षेत्रपाल भैरव', 'Kṣetrapāla Bhairava', 'तीर्थों, पीठों एवं पवित्र भू-क्षेत्रों के रक्षक'],
+        ['16', 'लोकनाथ भैरव', 'Lokanātha Bhairava', 'चतुर्दश लोकों के स्वामी एवं लोक-रक्षक'],
+        ['17', 'पापभंजन भैरव', 'Pāpabhañjana Bhairava', 'पाप-ताप एवं कर्म-पाश का नाश करने वाले भैरव'],
+        ['18', 'महाभैरव', 'Mahābhairava', 'सर्वोच्च परात्पर महाभैरव चेतना'],
+        ['19', 'वत्सनाभ भैरव', 'Vatsanābha Bhairava', 'तीव्र शक्ति-सम्पन्न उग्र रक्षक भैरव'],
+        ['20', 'चित्रभानु भैरव', 'Citrabhānu Bhairava', 'सूर्य और अग्नि के समान दिव्य-तेजस्वी भैरव'],
+        ['21', 'भीषण भैरव', 'Bhīṣaṇa Bhairava', 'अष्ट भैरव (उत्तर दिशा) · आसुरी वृत्तियों के लिए भयकारी'],
+        ['22', 'संहार भैरव', 'Saṃhāra Bhairava', 'अष्ट भैरव (ईशान कोण) · महाप्रलय एवं लय के स्वामी'],
+        ['23', 'क्रोधनाथ भैरव', 'Krodhanātha Bhairava', 'उग्र-रक्षा एवं अन्याय-दमन के अधिपति'],
+        ['24', 'कालाग्नि भैरव', 'Kālāgni Bhairava', 'प्रलयाग्नि (कालाग्निरुद्र) स्वरूप भैरव'],
+        ['25', 'त्र्यम्बक भैरव', 'Tryambaka Bhairava', 'मृत्युंजय एवं मोक्ष-प्रदाता त्रिनेत्र भैरव'],
+        ['26', 'सर्प भैरव', 'Sarpa Bhairava', 'नाग-भूषण एवं कुण्डलिनी शक्ति के नियामक'],
+        ['27', 'प्रचंड भैरव', 'Pracaṇḍa Bhairava', 'अजेय एवं उद्दाम तेज वाले रक्षक भैरव'],
+        ['28', 'वरुण भैरव', 'Varuṇa Bhairava', 'जल-तत्त्व एवं पश्चिम दिगन्त के नियामक भैरव'],
+        ['29', 'गवाक्ष भैरव', 'Gavākṣa Bhairava', 'सर्वद्रष्टा एवं मण्डल-वातायन के सजग प्रहरी'],
+        ['30', 'कामरूप भैरव', 'Kāmarūpa Bhairava', 'कामरूप शक्तिपीठ एवं इच्छा-शक्ति के अधिपति'],
+        ['31', 'चक्र भैरव', 'Cakra Bhairava', 'चौंसठ योगिनी चक्र के केंद्रीय अधिष्ठाता'],
+        ['32', 'विद्याराज भैरव', 'Vidyārāja Bhairava', 'गूढ़ मन्त्र-विद्याओं एवं महाविद्याओं के अधीश्वर'],
+        ['33', 'पद्म भैरव', 'Padma Bhairava', 'कमल-आसीन एवं षट्चक्र-पद्मों के प्रकाशक'],
+        ['34', 'विष्णु भैरव', 'Viṣṇu Bhairava', 'हरि-हर समन्वय एवं सर्वव्यापी पालन-रक्षा शक्ति'],
+        ['35', 'मुण्डपाल भैरव', 'Muṇḍapāla Bhairava', 'मुण्ड-माला धारी एवं अहंकार-छेदन के रक्षक'],
+        ['36', 'शव भैरव', 'Śava Bhairava', 'शक्ति के नीचे स्थित निस्पन्द शिव-अधिष्ठान स्वरूप'],
+        ['37', 'भूतनाथ भैरव', 'Bhūtanātha Bhairava', 'पञ्चमहाभूतों एवं समस्त भूतगणों के स्वामी'],
+        ['38', 'पिंड भैरव', 'Piṇḍa Bhairava', 'पिण्डाण्ड (सूक्ष्म व स्थूल देह) के अधिष्ठाता'],
+        ['39', 'योगिनी भैरव', 'Yoginī Bhairava', 'चौंसठ योगिनी समूह के नायक एवं सहचर'],
+        ['40', 'जटा भैरव', 'Jaṭā Bhairava', 'जटाजूट-धारी तपोमय योगी भैरव'],
+        ['41', 'कंकाल भैरव', 'Kaṅkāla Bhairava', 'कंकाल-दण्ड धारी पौराणिक एवं कापालिक स्वरूप'],
+        ['42', 'धूम्र भैरव', 'Dhūmra Bhairava', 'संध्या एवं धूम्र-वर्ण आवरण के अधिपति'],
+        ['43', 'त्रिनेत्र भैरव', 'Trinetra Bhairava', 'आज्ञाचक्र एवं ज्ञान-नेत्र के प्रकाशक भैरव'],
+        ['44', 'त्रिशूलपाणि भैरव', 'Triśūlapāṇi Bhairava', 'इच्छा-ज्ञान-क्रिया रूपी त्रिशूल धारण करने वाले'],
+        ['45', 'खड्गपाणि भैरव', 'Khaḍgapāṇi Bhairava', 'विवेक-रूपी खड्ग से अज्ञान का छेदन करने वाले'],
+        ['46', 'अज भैरव', 'Aja Bhairava', 'अजन्मा, अनादि एवं नित्य भैरव तत्त्व'],
+        ['47', 'इंद्राचूर भैरव', 'Indrācūra Bhairava', 'इन्द्र-लोक से परे सर्वोच्च मुकुटमणि स्वरूप'],
+        ['48', 'इंद्रा मूर्ति भैरव', 'Indrāmūrti Bhairava', 'वज्र-समान अमोघ शक्ति के विग्रह रूप'],
+        ['49', 'कुस्मांड भैरव', 'Kuṣmāṇḍa Bhairava', 'काशी के कूष्माण्ड गणों के नायक एवं क्षेत्र-रक्षक'],
+        ['50', 'विमुक्ता भैरव', 'Vimuktā Bhairava', 'भव-बन्धन से परम मुक्ति (विमुक्ति) प्रदान करने वाले'],
+        ['51', 'लिपिटक भैरव', 'Lipiṭaka Bhairava', 'मातृका लिपि, अक्षर-न्यास एवं विधि-लेख के रक्षक'],
+        ['52', 'एकदंश भैरव', 'Ekadaṃśa Bhairava', 'एकनिष्ठ एवं अद्वितीय संकल्प-शक्ति के धारक भैरव']
+      ]
+    },
+    {
+      id: 'table-52-bhairav-64-yogini-56-kalua-triad',
+      articleSlug: 'bavan-bhairava-chhappan-kalua-concordance',
+      titleEn: 'Archival Verification Matrix: 52 Bhairavas, 64 Yoginīs & 56 Kalua (छप्पन कलुआ)',
+      titleHi: 'अभिलेखीय सत्यापन तालिका: ५२ भैरव, ६४ योगिनी एवं ५६ कलुआ (छप्पन कलुआ)',
+      captionEn:
+        'Comparative philological and ethnographic status of the three groups invoked together in North Indian devotional formulas such as “bāvan Bhairav, chausath Yoginī, chhappan Kalua”.',
+      captionHi:
+        'उत्तर भारतीय भक्ति एवं सरभंग गायत्री मंत्र परंपरा (“बावन भैरव, चौंसठ योगिनी, छप्पन कलुआ”) में एक साथ प्रयुक्त तीनों समूहों की शास्त्रीय एवं शोध स्थिति।',
+      headersEn: ['Group / Collective Term', 'Canonical Count', 'Tradition & Context', 'Archival Verification & Research Status'],
+      headersHi: ['समूह / संज्ञा', 'संख्या', 'परम्परा एवं संदर्भ', 'अभिलेखीय सत्यापन एवं शोध स्थिति'],
+      rowsEn: [
+        [
+          'Catuḥṣaṣṭi Yoginī (चौंसठ योगिनी)',
+          '64 (8 × 8)',
+          'Kaula Tantras, Agni Purāṇa, Kāśī Khaṇḍa & Hypaethral Circular Temples (Hirapur, Bhedaghat, Mitauli)',
+          'Fully attested in primary Sanskrit Āgamas, Purāṇas, epigraphy, and 64 Yoginī – 64 Bhairava dyadic lists.'
+        ],
+        [
+          'Bāvan Bhairava (बावन भैरव)',
+          '52',
+          'Śākta Pīṭha guardianship (51/52 Pīṭhas), Kāśī/regional Bhairava liturgies & North Indian Nātha/Śākta invocations',
+          'Complete 52-name roster documented in regional devotional and Tantric manuals (see Roster 01–52 above).'
+        ],
+        [
+          'Chhappan Kalua (छप्पन कलुआ)',
+          '56',
+          'North Indian folk-Tantric & devotional traditions (connected in oral accounts with Guru Gorakhnath, Guga Jaharveer / Gugga, Baba Kalua Paun, and Sarbhang Gayatri mantra)',
+          'Group reference is attested in regional mantra and devotional material; however, the complete 56-name roster, individual attributes, and exact doctrinal relationship to Bhairava remain unverified across primary Sanskrit sources.'
+        ]
+      ],
+      rowsHi: [
+        [
+          'चतुःषष्टि योगिनी (चौंसठ योगिनी)',
+          '64 (8 × 8)',
+          'कौल तन्त्र, अग्नि पुराण, काशी खण्ड एवं वृत्ताकार चौंसठ योगिनी मंदिर (हीरापुर, भेड़ाघाट, मितावली)',
+          'मूल संस्कृत आगमों, पुराणों, शिलालेखों तथा ६४ योगिनी–६४ भैरव युग्म सूचियों में पूर्णतः प्रमाणित।'
+        ],
+        [
+          'बावन भैरव (52 भैरव)',
+          '52',
+          'शक्तिपीठ रक्षक परम्परा (५१/५२ पीठ), क्षेत्रीय भैरव उपासना एवं नाथ/शाक्त आह्वान मंत्र',
+          'असितांग भैरव से एकदंश भैरव पर्यन्त सभी ५२ भैरवों की नामावली क्षेत्रीय एवं तांत्रिक उपासना में प्रलेखित (ऊपर तालिका ०१–५२ देखें)।'
+        ],
+        [
+          'छप्पन कलुआ (56 Kalua)',
+          '56',
+          'उत्तर भारतीय लोक-तांत्रिक एवं भक्ति परम्पराएँ (गुरु गोरखनाथ, गोगा जाहरवीर / गुग्गा, बाबा कलुआ पौन तथा सरभंग गायत्री मंत्र संदर्भ)',
+          'समूह का उल्लेख (“बावन भैरव, चौंसठ योगिनी, छप्पन कलुआ”) प्रमाणित है; किन्तु सभी ५६ कलुआओं के व्यक्तिगत नाम, गुण और भैरव से उनका सटीक शास्त्रीय संबंध किसी विशिष्ट परम्परा या मूल ग्रन्थ से सत्यापन की अपेक्षा रखता है।'
+        ]
+      ]
+    }
   ]
 };
 
@@ -1127,12 +1301,46 @@ export const SPECIAL_CIRCULAR_SEALS: SpecialCircularSeal[] = [
     sanskritSeal: 'कालीकुल एवं श्रीकुल · आम्नाय',
     shortTitleEn: 'Kālīkula & Śrīkula',
     shortTitleHi: 'कालीकुल एवं श्रीकुल',
-    subtitleEn: 'The Two Great Streams of Śākta Tantra & Krama',
-    subtitleHi: 'शाक्त तन्त्र की दो महाधाराएँ एवं आम्नाय समन्वय',
-    domainBadgeEn: 'ŚAKTI TATTVA · KULA STREAMS',
-    domainBadgeHi: 'शक्ति तत्त्व · कुल-परम्परा',
+    subtitleEn: 'Research Synthesis (Parts I–IV) + 2 Dedicated Archives: Kālīkula Archive & Śrīkula Archive',
+    subtitleHi: 'शोध संश्लेषण (भाग I–IV) + २ पृथक् शोध संग्रह: कालीकुल अभिलेखागार एवं श्रीकुल अभिलेखागार',
+    domainBadgeEn: 'ŚAKTI TATTVA · KULA STREAMS & 2 ARCHIVES',
+    domainBadgeHi: 'शक्ति तत्त्व · कुल-परम्परा एवं २ संग्रह',
     accentColor: '#EC4899',
-    motifType: 'shakta'
+    motifType: 'shakta',
+    subParts: [
+      {
+        id: 'seal-kalikula-archive-part1',
+        sealNumber: 'PART I · ARCHIVE',
+        parentSealId: 'seal-kalikula-srikula',
+        categorySlug: 'eight-matrikas',
+        articleSlug: 'kalikula-archive-tradition',
+        sanskritSeal: 'कालीकुल · Kālīkula Archive',
+        shortTitleEn: 'Part I — Kālīkula Archive (Time, Transformation & Dissolution)',
+        shortTitleHi: 'भाग I — कालीकुल अभिलेखागार (काल, रूपांतरण एवं लय)',
+        subtitleEn: 'The family, lineage, or tradition of Kālī: Definition, Philosophy, Iconography, Krama & Sources',
+        subtitleHi: 'काली का कुल/परम्परा: परिभाषा, दार्शनिक आधार, प्रतिमाशास्त्र, कश्मीर क्रम एवं ग्रंथीय स्रोत',
+        domainBadgeEn: 'PART I · KĀLĪKULA RESEARCH ARCHIVE',
+        domainBadgeHi: 'भाग I · कालीकुल शोध संग्रह',
+        accentColor: '#F43F5E',
+        motifType: 'shakta'
+      },
+      {
+        id: 'seal-srikula-archive-part2',
+        sealNumber: 'PART II · ARCHIVE',
+        parentSealId: 'seal-kalikula-srikula',
+        categorySlug: 'eight-matrikas',
+        articleSlug: 'srikula-archive-tradition',
+        sanskritSeal: 'श्रीकुल · Śrīkula Archive',
+        shortTitleEn: 'Part II — Śrīkula Archive (Sovereignty, Manifestation & Śrīvidyā)',
+        shortTitleHi: 'भाग II — श्रीकुल अभिलेखागार (संप्रभुता, अभिव्यक्ति एवं श्रीविद्या)',
+        subtitleEn: 'The family, lineage, or tradition of Śrī: Tripurasundarī, Śrīcakra, Mantra, Jīvanmukti & Sources',
+        subtitleHi: 'श्री का कुल/परम्परा: त्रिपुरसुन्दरी, श्रीचक्र ज्यामिति, मन्त्र-तत्त्व, जीवनमुक्ति एवं मूल ग्रंथ',
+        domainBadgeEn: 'PART II · ŚRĪKULA RESEARCH ARCHIVE',
+        domainBadgeHi: 'भाग II · श्रीकुल शोध संग्रह',
+        accentColor: '#EC4899',
+        motifType: 'mahavidya'
+      }
+    ]
   },
   {
     id: 'seal-mahavidya-navadurga',
@@ -1148,5 +1356,305 @@ export const SPECIAL_CIRCULAR_SEALS: SpecialCircularSeal[] = [
     domainBadgeHi: 'शक्ति तत्त्व · दशमहाविद्या',
     accentColor: '#F43F5E',
     motifType: 'mahavidya'
+  },
+  {
+    id: 'seal-navadurga-nine-forms',
+    sealNumber: 'SEAL 07',
+    categorySlug: 'eight-matrikas',
+    articleSlug: 'navadurga-nine-forms',
+    sanskritSeal: 'नवदुर्गा · शैलपुत्र्यादि नव-स्वरूप',
+    shortTitleEn: 'Navadurgā — Nine Forms',
+    shortTitleHi: 'नवदुर्गा — देवी के नौ स्वरूप',
+    subtitleEn: 'Śailaputrī to Siddhidātrī: Devī Kavaca Liturgy, Agni Purāṇa Mandala & Kāśī Pilgrimage',
+    subtitleHi: 'शैलपुत्री से सिद्धिदात्री: देवी कवच विधान, अग्नि पुराण मण्डल एवं काशी नवदुर्गा यात्रा',
+    domainBadgeEn: 'ŚAKTI TATTVA · NAVADURGĀ',
+    domainBadgeHi: 'शक्ति तत्त्व · नवदुर्गा मण्डल',
+    accentColor: '#FB7185',
+    motifType: 'shakta'
+  },
+  {
+    id: 'seal-shakti-pithas-geography',
+    sealNumber: 'SEAL 08',
+    categorySlug: 'eight-matrikas',
+    articleSlug: 'shakti-pithas-sacred-geography',
+    sanskritSeal: 'शक्तिपीठ · चतुष्पीठ एवं ५१ पीठ',
+    shortTitleEn: 'Śakti Pīṭhas — 51 Seats',
+    shortTitleHi: '५१ शक्तिपीठ एवं पवित्र भूगोल',
+    subtitleEn: 'Catuṣpīṭha, 51 Embodied Seats of Satī, 51 Sanskrit Mātṛkā Letters & Bhairava Consorts',
+    subtitleHi: 'आदि चतुष्पीठ, ५१ शक्तिपीठ, ५१ मातृका अक्षर एवं रक्षक भैरव युग्म',
+    domainBadgeEn: 'ŚAKTI TATTVA · ŚAKTI PĪṬHAS',
+    domainBadgeHi: 'शक्ति तत्त्व · ५१ शक्तिपीठ',
+    accentColor: '#E879F9',
+    motifType: 'mahavidya'
   }
 ];
+
+// ============================================================================
+// STRUCTURED TABLES FOR KĀLĪKULA & ŚRĪKULA (PARTS I, II, III & IV)
+// ============================================================================
+const KALIKULA_PART1_TABLES: ResearchComparisonTable[] = [
+  {
+    id: 'table-kalikula-wider-traditions',
+    articleSlug: 'kalikula-archive-tradition',
+    titleEn: 'Part I · Important Traditions Within the Wider Kālī-Centered Landscape',
+    titleHi: 'भाग I · व्यापक काली-केंद्रित परिदृश्य की प्रमुख परम्पराएँ एवं शोध क्षेत्र',
+    captionEn:
+      'Kālīkula should not be treated as a fixed list of subsects. These are key research areas that are not all interchangeable or necessarily separate branches of one formal organization.',
+    captionHi:
+      'कालीकुल को उप-संप्रदायों की किसी एक निश्चित सूची के रूप में नहीं देखा जाना चाहिए। ये प्रमुख शोध-क्षेत्र हैं, जो किसी एक ही औपचारिक संगठन की शाखाएँ नहीं हैं।',
+    headersEn: ['Tradition or Subject', 'Religious, Regional & Philosophical Significance'],
+    headersHi: ['परम्परा / शोध विषय', 'धार्मिक, क्षेत्रीय एवं दार्शनिक महत्त्व'],
+    rowsEn: [
+      [
+        'Bengali Śākta traditions',
+        'Diverse devotional, philosophical, and Tantric approaches to Kālī and the Goddess, with important regional and historical variations.'
+      ],
+      [
+        'Kashmirian Krama',
+        'A nondual Śākta-Śaiva current in which Kālī and her sequences (notably the Twelve Kālīs) are central to theories of consciousness and dissolution.'
+      ],
+      [
+        'Mahāvidyā traditions',
+        'Kālī is one of the ten Mahāvidyās, a group of Goddess forms interpreted differently across Tantric texts and lineages.'
+      ],
+      [
+        'Kaula traditions',
+        'Tantric traditions emphasizing lineage, initiation, ritual, and the relationship between the individual and the larger reality designated by kula. Some overlap with Kālī-centered worship.'
+      ]
+    ],
+    rowsHi: [
+      [
+        'बंगाली शाक्त परम्पराएँ (Bengali Śākta traditions)',
+        'काली और पराशक्ति के प्रति भक्तिमूलक, दार्शनिक और तांत्रिक दृष्टिकोणों की विविधता, जिसमें महत्त्वपूर्ण क्षेत्रीय और ऐतिहासिक विशेषताएँ हैं।'
+      ],
+      [
+        'कश्मीरी क्रम परम्परा (Kashmirian Krama)',
+        'एक अद्वैत शाक्त-शैव धारा जिसमें काली और उनका क्रम (विशेषतः द्वादश काली) चेतना के उन्मेष और लय (विलय) के सिद्धांतों के केंद्र में हैं।'
+      ],
+      [
+        'महाविद्या परम्पराएँ (Mahāvidyā traditions)',
+        'काली दस महाविद्याओं में से एक प्रमुख स्वरूप हैं, जिनकी व्याख्या विभिन्न तांत्रिक ग्रन्थों और आम्नायों में विविध प्रकार से की गई है।'
+      ],
+      [
+        'कौल परम्पराएँ (Kaula traditions)',
+        'वंश-परम्परा, दीक्षा, अनुष्ठान तथा व्यक्ति और "कुल" (समग्र चेतना-शक्ति) के संबंध पर बल देने वाली तांत्रिक धाराएँ, जिनका काली-केंद्रित उपासना से गहरा संबंध है।'
+      ]
+    ]
+  },
+  {
+    id: 'table-kalikula-iconography-symbolism',
+    articleSlug: 'kalikula-archive-tradition',
+    titleEn: 'Part I · Kālī: Iconography, Visual Features & Documented Interpretive Registers',
+    titleHi: 'भाग I · काली प्रतिमाशास्त्र एवं प्रतीकार्थ: दृश्य रूप बनाम शास्त्रीय व्याख्या',
+    captionEn:
+      'Research Note: Iconographic descriptions distinguish what is visibly represented from interpretations attributed to particular scriptures, commentaries, or living traditions. A symbol may carry several meanings rather than one universal explanation.',
+    captionHi:
+      'शोध टिप्पणी: प्रतिमाशास्त्रीय विवरण में दृश्य रूप और विशिष्ट शास्त्रों, भाष्यों या जीवंत परम्पराओं की व्याख्याओं के बीच स्पष्ट अंतर रखा जाना चाहिए।',
+    headersEn: ['Iconographic Element', 'Visual Representation & Theological / Devotional Interpretations'],
+    headersHi: ['प्रतिमाशास्त्रीय तत्त्व', 'दृश्य स्वरूप एवं धर्मशास्त्रीय / भक्तिमूलक व्याख्याएँ'],
+    rowsEn: [
+      [
+        'Dark or black complexion',
+        'Kālī is frequently depicted with a dark complexion. Devotional and theological interpretations associate this darkness with the boundless, the unmanifest, or a reality that cannot be contained by ordinary categories. Interpretations differ between texts and communities.'
+      ],
+      [
+        'Garland of heads and other fierce attributes',
+        'These features belong to particular iconographic forms of Kālī. They can be interpreted in relation to mortality, the destruction of ego, the transience of embodied existence, and the severing of limiting attachments. Specific meanings depend on the relevant textual and ritual context.'
+      ],
+      [
+        'Kālī standing upon Śiva',
+        'In a widely recognized image, Kālī stands upon the reclining Śiva. The image is interpreted in different ways, including through the relationship between consciousness (Śiva) and dynamic power (Śakti). Popular devotional narratives also connect it with Kālī’s cessation of destructive activity upon recognizing Śiva beneath her feet.'
+      ],
+      [
+        'Cremation-ground imagery',
+        'Certain forms of Kālī are associated with cremation grounds and other liminal settings. These places confront practitioners and observers with impermanence, death, social boundaries, and the limits of ordinary identity. Their meanings differ across devotional, ritual, and philosophical traditions.'
+      ]
+    ],
+    rowsHi: [
+      [
+        'श्यामल या कृष्ण वर्ण (Dark or black complexion)',
+        'काली को प्रायः गहरे श्यामल या कृष्ण वर्ण में चित्रित किया जाता है। भक्ति और धर्मशास्त्रीय व्याख्याएँ इस अंधकार/श्यामता को असीम, अव्यक्त, या सामान्य श्रेणियों से परे के परम यथार्थ से जोड़ती हैं।'
+      ],
+      [
+        'मुण्डमाला एवं अन्य उग्र लक्षण (Garland of heads & fierce attributes)',
+        'ये लक्षण काली के विशिष्ट प्रतिमा-रूपों से संबद्ध हैं। इनकी व्याख्या नश्वरता, अहंकार के नाश, देहधारी अस्तित्व की क्षणभंगुरता और सीमित करने वाली आसक्तियों के उच्छेदन के संदर्भ में की जाती है।'
+      ],
+      [
+        'शिव के ऊपर खड़ी काली (Kālī standing upon Śiva)',
+        'सुप्रसिद्ध प्रतिमा में काली शवासन में लेटे शिव के ऊपर स्थित हैं। इसकी व्याख्या चेतना (शिव) और गतिशील शक्ति (शक्ति) के अंतर्संबंध के साथ-साथ अपने चरणों के नीचे शिव को पहचानकर संहारक वेग को शांत करने की भक्ति-कथाओं से भी जुड़ी है।'
+      ],
+      [
+        'श्मशान-भूमि के प्रतीक (Cremation-ground imagery)',
+        'काली के कुछ रूप श्मशान और सीमांत स्थलों से जुड़े हैं। ये स्थल साधक को अनित्यता, मृत्यु, सामाजिक सीमाओं और साधारण अहं की नश्वरता के प्रत्यक्ष साक्षात्कार के लिए प्रेरित करते हैं।'
+      ]
+    ]
+  }
+];
+
+const SRIKULA_PART2_TABLES: ResearchComparisonTable[] = [
+  {
+    id: 'table-srikula-sricakra-components',
+    articleSlug: 'srikula-archive-tradition',
+    titleEn: 'Part II · The Śrīcakra (Śrīyantra): Principal Geometric Components & Theological System',
+    titleHi: 'भाग II · श्रीचक्र (श्रीयन्त्र): प्रमुख ज्यामितीय घटक एवं धर्मशास्त्रीय व्यवस्था',
+    captionEn:
+      'In Śrīvidyā, the Goddess is worshipped through interconnected forms including her anthropomorphic image, her mantra (Pañcadaśī / Ṣoḍaśī), and the Śrīcakra across nine enclosures (āvaraṇas).',
+    captionHi:
+      'श्रीविद्या में देवी की उपासना उनके साकार विग्रह, मन्त्र (पञ्चदशी / षोडशी) और श्रीचक्र के नौ आवरणों की एकीकृत धर्मशास्त्रीय प्रणाली के माध्यम से होती है।',
+    headersEn: ['Principal Component', 'Geometric Structure & Theological / Ritual Significance'],
+    headersHi: ['प्रमुख घटक', 'ज्यामितीय संरचना एवं धर्मशास्त्रीय / आनुष्ठानिक महत्त्व'],
+    rowsEn: [
+      [
+        'The Bindu (केन्द्रीय बिन्दु)',
+        'The central point is associated with unity, the concentrated presence of the Goddess, and the source from which multiplicity emerges. Its exact interpretation depends on the relevant doctrinal and ritual framework.'
+      ],
+      [
+        'The Interlocking Triangles (९ अंतर्ग्रथित त्रिकोण)',
+        'The central triangular structure is traditionally composed of nine principal interlocking triangles, conventionally counted as five downward-pointing and four upward-pointing triangles. Together they generate the complex network of smaller triangles associated with the diagram.'
+      ],
+      [
+        'Lotus Enclosures & Outer Boundary (पद्म-दल एवं भूपुर)',
+        'The surrounding lotus circles (8-petal and 16-petal) and square enclosure (bhūpura) form part of the Śrīcakra’s layered structure, associated with differentiated powers, protective boundaries, and the organized relationship between the central deity and the surrounding cosmos.'
+      ],
+      [
+        'The Nine Enclosures (नव-आवरण · Nine Āvaraṇas)',
+        'The Śrīcakra is commonly described through nine enclosures, called āvaraṇas. Śrīvidyā ritual and textual traditions associate these enclosures with groups of deities, powers, and stages of contemplative or ritual engagement. Details should be taken from specific authoritative ritual manuals rather than simplified diagrams.'
+      ]
+    ],
+    rowsHi: [
+      [
+        'केन्द्रीय बिन्दु (The Bindu)',
+        'केंद्रीय बिन्दु पूर्ण एकत्व, भगवती की घनीभूत उपस्थिति और उस मूल स्रोत से संबद्ध है जहाँ से बहुलता (सृष्टि) का उन्मेष होता है।'
+      ],
+      [
+        'अंतर्ग्रथित त्रिकोण (The Interlocking Triangles)',
+        'केंद्रीय त्रिकोणीय संरचना पारंपरिक रूप से नौ मुख्य अंतर्ग्रथित त्रिकोणों (५ अधोमुखी शक्ति त्रिकोण और ४ ऊर्ध्वमुखी शिव त्रिकोण) से निर्मित है, जो मिलकर छोटे त्रिकोणों के जटिल जाल की रचना करते हैं।'
+      ],
+      [
+        'कमल-दल एवं बाहरी भूपुर (Lotus Enclosures & Outer Boundary)',
+        'चारों ओर के कमल-वृत्त (अष्टदल एवं षोडशदल) और वर्गाकार भूपुर श्रीचक्र की स्तरीय संरचना के अंग हैं, जो विभेदित शक्तियों, रक्षक सीमाओं और केंद्रीय देवता व ब्रह्माण्ड के सुव्यवस्थित संबंध को दर्शाते हैं।'
+      ],
+      [
+        'नौ आवरण (The Nine Enclosures / Āvaraṇas)',
+        'श्रीचक्र का वर्णन नौ आवरणों के माध्यम से किया जाता है। श्रीविद्या के ग्रन्थ इन आवरणों को विशिष्ट देवता-समूहों, शक्तियों और ध्यान/पूजा के क्रमिक सोपानों से जोड़ते हैं।'
+      ]
+    ]
+  }
+];
+
+const KALIKULA_SRIKULA_PART3_4_TABLES: ResearchComparisonTable[] = [
+  {
+    id: 'table-part3-comparing-kalikula-srikula',
+    articleSlug: 'kalikula-srikula-streams',
+    titleEn: 'Part III · Comparing Kālīkula and Śrīkula Across Eight Core Dimensions',
+    titleHi: 'भाग III · आठ प्रमुख आयामों में कालीकुल और श्रीकुल का तुलनात्मक अध्ययन',
+    captionEn:
+      'Overview comparing the two great streams of Śākta Tantra while recognizing that both traditions are internally diverse and historically interconnected, not absolute opposites.',
+    captionHi:
+      'शाक्त तन्त्र की दोनों महाधाराओं का तुलनात्मक अवलोकन—यह ध्यान रखते हुए कि दोनों परम्पराएँ आंतरिक रूप से विविध और परस्पर संबद्ध हैं, न कि पूर्णतः विरोधी।',
+    headersEn: ['Dimension', 'Kālīkula (कालीकुल)', 'Śrīkula (श्रीकुल)'],
+    headersHi: ['आयाम / आधार', 'कालीकुल (Kālīkula)', 'श्रीकुल (Śrīkula)'],
+    rowsEn: [
+      ['Central Goddess', 'Kālī and related forms', 'Tripurasundarī, Lalitā, and related forms'],
+      ['Name', 'Family or lineage of Kālī', 'Family or lineage of Śrī'],
+      ['Prominent scholarly focus', 'Kālī-centered Śākta traditions, including Krama', 'Śrīvidyā and the Tripurasundarī tradition'],
+      ['Philosophical themes', 'Time, transformation, dissolution, consciousness', 'Manifestation, auspiciousness, sovereignty, consciousness'],
+      ['Important symbols', 'Kālī’s iconography, particular yantras and ritual symbols', 'Śrīcakra, mantra, and the Goddess’s iconographic form'],
+      ['Major textual areas', 'Kālī-centered Tantras, Krama texts, related commentaries', 'Vāmakeśvarīmata, Yoginīhṛdaya, Nityāṣoḍaśikārṇava'],
+      ['Historical geography', 'Diverse traditions, with important eastern Indian and Kashmirian contexts', 'Strong historical development in South India and connections with Kashmir'],
+      ['Practice', 'Varies by lineage; may include devotional, ritual, and contemplative approaches', 'Varies by lineage; may include mantra, yantra, external worship, and meditation']
+    ],
+    rowsHi: [
+      ['केंद्रीय देवी (Central Goddess)', 'काली और उनसे संबंधित स्वरूप', 'त्रिपुरसुन्दरी, ललिता, राजराजेश्वरी और संबंधित स्वरूप'],
+      ['नाम का अर्थ (Name)', 'काली का कुल, परिवार या परम्परा', 'श्री (पराशक्ति) का कुल, परिवार या परम्परा'],
+      ['प्रमुख अकादमिक केंद्र (Scholarly focus)', 'काली-केंद्रित शाक्त परम्पराएँ, विशेषतः कश्मीर क्रम दर्शन', 'श्रीविद्या और त्रिपुरसुन्दरी उपासना परम्परा'],
+      ['दार्शनिक विषय (Philosophical themes)', 'काल, रूपांतरण, लय (संहार/विलय) एवं परम चेतना', 'अभिव्यक्ति (सृष्टि-विस्तार), मांगल्य, संप्रभुता एवं परम चेतना'],
+      ['प्रमुख प्रतीक (Important symbols)', 'काली का प्रतिमाशास्त्र, विशिष्ट यन्त्र एवं आनुष्ठानिक प्रतीक', 'श्रीचक्र (श्रीयन्त्र), मन्त्र (पञ्चदशी/षोडशी) एवं देवी का विग्रह'],
+      ['प्रमुख ग्रंथीय क्षेत्र (Major textual areas)', 'कालीकुलकक्रमसद्भाव, जयद्रथयामल, देवीपञ्चशतक, तन्त्रालोक एवं क्रम भाष्य', 'वामकेश्वरीमत, योगिनीहृदय, नित्याषोडशिकार्णव, परशुराम कल्पसूत्र, ललिता सहस्रनाम'],
+      ['ऐतिहासिक भूगोल (Historical geography)', 'पूर्वी भारत (बंगाल, कामरूप, मिथिला) एवं कश्मीर में विशेष ऐतिहासिक विकास', 'दक्षिण भारत में सुदृढ़ ऐतिहासिक विकास तथा कश्मीर के साथ दार्शनिक आदान-प्रदान'],
+      ['साधना एवं अभ्यास (Practice)', 'परम्परा के अनुसार विविध; भक्ति, आनुष्ठानिक पूजा एवं अद्वैत चिंतन', 'परम्परा के अनुसार विविध; मन्त्र-साधना, श्रीचक्र अर्चन, बाह्य पूजा एवं अंतर्मुखी ध्यान']
+    ]
+  },
+  {
+    id: 'table-part4-selected-bibliography-and-structure',
+    articleSlug: 'kalikula-srikula-streams',
+    titleEn: 'Part IV · Selected Peer-Reviewed Bibliography & Eightfold Archival Architecture',
+    titleHi: 'भाग IV · चयनित अकादमिक संदर्भ-सूची एवं अष्ट-स्तरीय अभिलेखागार संरचना',
+    captionEn:
+      'Editorial Recommendation: Label each page as a research synthesis and distinguish primary textual evidence from scholarly interpretation and contemporary practitioner explanations.',
+    captionHi:
+      'संपादकीय अनुशंसा: प्रत्येक पृष्ठ को "शोध संश्लेषण" (Research Synthesis) के रूप में चिह्नित करें तथा प्राथमिक ग्रंथीय साक्ष्य, अकादमिक व्याख्या और समकालीन साधक-विवरणों के बीच स्पष्ट अंतर रखें।',
+    headersEn: ['Ref #', 'Scholar & Publication Title', 'Publication Venue & Year', 'Archival Scope & Research Relevance'],
+    headersHi: ['क्र.', 'विद्वान् एवं शोध-ग्रन्थ / लेख शीर्षक', 'प्रकाशन माध्यम एवं वर्ष', 'शोध विषय एवं अभिलेखीय महत्त्व'],
+    rowsEn: [
+      [
+        '01',
+        'Aleksandra Wenta — “From the Sequence of the Sun-Goddess to Time-Consumption”',
+        'Journal of Indian Philosophy (2021)',
+        'A peer-reviewed study of the twelve Kālīs, the Krama tradition, and the development of their philosophical interpretation from earlier Kula/Kaula contexts.'
+      ],
+      [
+        '02',
+        'Douglas Renfrew Brooks — Auspicious Wisdom: The Texts and Traditions of Śrīvidyā Śākta Tantrism in South India',
+        'State University of New York (SUNY) Press (1992)',
+        'A major scholarly study of Śrīvidyā texts, ritual traditions, theology, and historical development in South India.'
+      ],
+      [
+        '03',
+        'Anna A. Golovkova — “From Worldly Powers to Jīvanmukti”',
+        'The Journal of Hindu Studies (2019)',
+        'Examines changing understandings of ritual, liberation during one’s lifetime (jīvanmukti), and spiritual attainment in early Tripurasundarī traditions.'
+      ],
+      [
+        '04',
+        'Maciej Karasiński — “Śrī Vidyā”',
+        'Oxford Bibliographies in Hinduism (2025)',
+        'A scholarly overview of Śrīvidyā’s history, terminology, texts, and changing ritual contexts.'
+      ]
+    ],
+    rowsHi: [
+      [
+        '०१',
+        'अलेक्ज़ांद्रा वेंटा (Aleksandra Wenta) — “From the Sequence of the Sun-Goddess to Time-Consumption”',
+        'Journal of Indian Philosophy (२०२१)',
+        'द्वादश काली, कश्मीर क्रम परम्परा तथा प्रारंभिक कुल/कौल संदर्भों से परवर्ती दार्शनिक व्याख्याओं के विकास का समीक्षित अध्ययन।'
+      ],
+      [
+        '०२',
+        'डगलस रेनफ्रू ब्रुक्स (Douglas Renfrew Brooks) — Auspicious Wisdom: The Texts and Traditions of Śrīvidyā Śākta Tantrism in South India',
+        'State University of New York Press (१९९२)',
+        'दक्षिण भारत में श्रीविद्या ग्रन्थों, अनुष्ठान परम्पराओं, धर्मशास्त्र और ऐतिहासिक विकास का प्रमुख अकादमिक अध्ययन।'
+      ],
+      [
+        '०३',
+        'अन्ना ए. गोलोवकोवा (Anna A. Golovkova) — “From Worldly Powers to Jīvanmukti”',
+        'The Journal of Hindu Studies (२०१९)',
+        'प्रारंभिक त्रिपुरसुन्दरी परम्पराओं में अनुष्ठान, लौकिक सिद्धियों से जीवनमुक्ति की ओर विकसित होती दार्शनिक दृष्टि का अध्ययन।'
+      ],
+      [
+        '०४',
+        'माचिये करासिंस्की (Maciej Karasiński) — “Śrī Vidyā”',
+        'Oxford Bibliographies in Hinduism (२०२५)',
+        'श्रीविद्या के इतिहास, पारिभाषिक शब्दावली, प्रमुख ग्रन्थों और बदलते आनुष्ठानिक संदर्भों का प्रामाणिक अकादमिक सर्वेक्षण।'
+      ]
+    ]
+  }
+];
+
+ARTICLE_COMPARISON_TABLES['kalikula-srikula-streams'] = [
+  ...KALIKULA_SRIKULA_PART3_4_TABLES,
+  ...KALIKULA_PART1_TABLES,
+  ...SRIKULA_PART2_TABLES
+];
+
+ARTICLE_COMPARISON_TABLES['kalikula-archive-tradition'] = [
+  ...KALIKULA_PART1_TABLES,
+  ...KALIKULA_SRIKULA_PART3_4_TABLES
+];
+
+ARTICLE_COMPARISON_TABLES['srikula-archive-tradition'] = [
+  ...SRIKULA_PART2_TABLES,
+  ...KALIKULA_SRIKULA_PART3_4_TABLES
+];
+
+

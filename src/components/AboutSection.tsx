@@ -79,6 +79,50 @@ export default function AboutSection() {
               </div>
             </div>
 
+            {/* Society for Psychical Research Membership Badge */}
+            <a
+              href="https://www.spr.ac.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 max-w-sm w-full block bg-transparent hover:scale-[1.02] transition-all duration-300"
+            >
+              <img
+                src="/assets/aistudio/spr-member-badge_ed941de5.jpg"
+                alt={t('Member of Society for Psychical Research', 'सोसाइटी फॉर साइकिकल रिसर्च के सदस्य')}
+                onLoad={(e) => {
+                  const img = e.currentTarget;
+                  if (img.dataset.processed === 'true') return;
+                  const canvas = document.createElement('canvas');
+                  canvas.width = img.naturalWidth;
+                  canvas.height = img.naturalHeight;
+                  const ctx = canvas.getContext('2d');
+                  if (!ctx) return;
+                  ctx.drawImage(img, 0, 0);
+                  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                  const data = imageData.data;
+                  for (let i = 0; i < data.length; i += 4) {
+                    const r = data[i];
+                    const g = data[i + 1];
+                    const b = data[i + 2];
+                    const maxChannel = Math.max(r, g, b);
+                    if (maxChannel <= 20) {
+                      data[i + 3] = 0;
+                    } else if (maxChannel < 65) {
+                      const alphaRatio = (maxChannel - 20) / (65 - 20);
+                      data[i] = Math.min(255, Math.round(r / alphaRatio));
+                      data[i + 1] = Math.min(255, Math.round(g / alphaRatio));
+                      data[i + 2] = Math.min(255, Math.round(b / alphaRatio));
+                      data[i + 3] = Math.round(alphaRatio * 255);
+                    }
+                  }
+                  ctx.putImageData(imageData, 0, 0);
+                  img.dataset.processed = 'true';
+                  img.src = canvas.toDataURL('image/png');
+                }}
+                className="w-full h-auto block object-contain bg-transparent"
+              />
+            </a>
+
           </div>
 
           {/* Right Column: Biography & Details (8 cols on lg) */}

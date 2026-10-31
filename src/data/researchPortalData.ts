@@ -113,64 +113,60 @@ const CAGS_FIELD_ARTICLES: ResearchArticle[] = [
     slug: 'acoustic-resonance',
     categorySlug: 'cags-field-archive',
     code: 'CAGS-01',
-    titleEn: 'Acoustic Resonance in Ellipsoidal Sanctums',
-    titleHi: 'दीर्घवृत्ताकार गर्भगृहों में ध्वनि अनुनाद (नाद-शास्त्र)',
-    subtitleEn: 'Standing Wave Acoustics & Ellipsoidal Focal Amplification in High-Quartz Granite Architecture',
-    subtitleHi: 'उच्च-क्वार्ट्ज ग्रेनाइट वास्तुकला में स्थायी तरंग ध्वनि-विज्ञान एवं नाभीय प्रवर्धन',
-    sanskritEpigraph: 'शब्देनान्तरिक्षं पूरितं। मन्द्रध्वनिः शिलायाः प्रतिश्रुतिं जनयति॥',
+    titleEn: 'I. Acoustic Resonance (Nada-Shastra)',
+    titleHi: 'I. ध्वनि अनुनाद (नाद-शास्त्र)',
+    subtitleEn: 'Standing Wave Acoustics & Ellipsoidal Focal Amplification',
+    subtitleHi: 'स्थायी तरंग ध्वनि-विज्ञान एवं दीर्घवृत्तीय नाभीय प्रवर्धन',
+    sanskritEpigraph: 'शब्देनान्तरिक्षं पूरितं। मन्द्रध्वनिः शिलायाः प्रतिश्रुतिं जनयति।',
     epigraphTranslationEn: '"By sound is the space filled. The deep low chant produces a heavy resonance in the stone."',
     epigraphTranslationHi: '"ध्वनि से ही अंतरिक्ष व्याप्त है। मंद्र (गंभीर) स्वर शिलाओं में गहन प्रतिध्वनि उत्पन्न करता है।"',
-    evidenceBadgeEn: 'EMPIRICAL FIELD MEASUREMENT · ACOUSTICS',
-    evidenceBadgeHi: 'आनुभविक क्षेत्रीय मापन · ध्वनि-विज्ञान',
+    evidenceBadgeEn: 'EMPIRICAL FIELD TERM · NADA-SHASTRA',
+    evidenceBadgeHi: 'आनुभविक क्षेत्रीय मापन · नाद-शास्त्र',
     accentColor: '#D4AF37',
-    summaryEn:
-      'Ancient Indian temple sanctums (garbhagriha) were engineered using high-quartz granite blocks arranged in paraboloid or ellipsoidal vaults. Acoustic sweeps conducted by Ram Ashok Kumar demonstrate sharp standing-wave peaks between 110 Hz and 130 Hz.',
-    summaryHi:
-      'प्राचीन भारतीय मंदिरों के गर्भगृह उच्च-क्वार्ट्ज ग्रेनाइट शिलाओं से दीर्घवृत्ताकार या परवलयिक छतों के रूप में निर्मित किए गए थे। राम अशोक कुमार द्वारा किए गए ध्वनि-मापन 110 Hz से 130 Hz के बीच तीव्र स्थायी-तरंग अनुनाद दर्शाते हैं।',
+    summaryEn: 'Standing Wave Acoustics & Ellipsoidal Focal Amplification',
+    summaryHi: 'स्थायी तरंग ध्वनि-विज्ञान एवं दीर्घवृत्तीय नाभीय प्रवर्धन',
     sections: [
       {
-        headingEn: '1. Architectural Lithic Acoustics & Standing Wave Formation',
-        headingHi: '1. प्रस्तर वास्तुकला ध्वनि-विज्ञान एवं स्थायी तरंग निर्माण',
-        bodyEn:
-          'When a baritone vocalisation or conch-shell (shankha) fundamental tone is emitted at the focal point of an enclosed granite garbhagriha, the high density and low acoustic absorption coefficient of dressed granite reflect over 96% of incident sound energy. This generates phase-locked standing waves between 110 Hz and 130 Hz, enveloping the listener in a tactile acoustic field.',
-        bodyHi:
-          'जब बंद ग्रेनाइट गर्भगृह के नाभीय बिंदु पर गंभीर मंत्रोच्चार या शंख-ध्वनि की जाती है, तो तराशे गए ग्रेनाइट का उच्च घनत्व और न्यून ध्वनि-अवशोषण गुणांक 96% से अधिक ध्वनि ऊर्जा को परावर्तित कर देता है। इससे 110 Hz से 130 Hz के बीच कला-संबद्ध स्थायी तरंगें उत्पन्न होती हैं जो साधक को स्पर्शनीय ध्वनि-क्षेत्र से घेर लेती हैं।'
+        headingEn: 'Empirical Field Term',
+        headingHi: 'आनुभविक क्षेत्रीय पारिभाषिक शब्द',
+        bodyEn: 'Standing Wave Acoustics & Ellipsoidal Focal Amplification',
+        bodyHi: 'स्थायी तरंग ध्वनि-विज्ञान एवं दीर्घवृत्तीय नाभीय प्रवर्धन'
       },
       {
-        headingEn: '2. Neuro-Perceptual & Autonomic Entrainment',
-        headingHi: '2. तंत्रिका-संवेदी एवं स्वायत्त तंत्रिका समन्वय',
+        headingEn: 'Investigation Principle',
+        headingHi: 'अन्वेषण सिद्धांत',
         bodyEn:
-          'Controlled EEG and acoustic field logging indicate that sustained exposure to 110–114 Hz standing resonances shifts cortical activity toward alpha-theta border rhythms while reducing prefrontal verbal chatter. What folklore describes as the stone sanctum "speaking" or vibrating with unseen presence is an intentional masterpiece of Nada-Shastra acoustic engineering.',
+          'Ancient architectural marvels, particularly those designed for ritualistic chanting and spiritual convergence, were frequently constructed using high-quartz granite blocks shaped into ellipsoidal or dome configurations. When vocalists or practitioners project deep-pitch resonant tones near the geometric focal center of these structures, the vaulted ceilings and dense mineral walls mirror frequencies typically ranging between 110 Hz and 130 Hz.\n\nThis specific frequency band matches the fundamental vocal resonance of a mature human male baritone. When sustained, it creates a powerful acoustic feedback loop. The physical structure itself begins to vibrate and hum, turning the chamber into an organic amplifier. Neurologically, prolonged exposure to standing waves in this frequency range can induce auditory distortions, cranial pressure, and profound psychological state shifts in subjects, frequently misinterpreted as ghostly whispering or otherworldly presence.',
         bodyHi:
-          'नियंत्रित ईईजी (EEG) और क्षेत्रीय ध्वनि अभिलेख दर्शाते हैं कि 110–114 Hz के निरंतर अनुनाद के संपर्क में आने से मस्तिष्क की गतिविधि अल्फा-थीटा तरंगों की ओर अग्रसर होती है। जिसे लोक-मान्यता में पत्थरों का "जीवंत होकर बोलना" कहा जाता है, वह वस्तुतः नाद-शास्त्र की सचेत ध्वनि-अभियांत्रिकी है।'
+          'अनुष्ठानिक मंत्रोच्चार और आध्यात्मिक एकाग्रता के लिए निर्मित प्राचीन स्थापत्य संरचनाएँ प्रायः उच्च-क्वार्ट्ज ग्रेनाइट शिलाओं से दीर्घवृत्ताकार या गुंबद के आकार में बनाई जाती थीं। जब साधक इन संरचनाओं के ज्यामितीय नाभीय केंद्र के समीप गहरे स्वर में ध्वनि प्रक्षेपित करते हैं, तो गुंबददार छतें और सघन खनिज दीवारें 110 Hz से 130 Hz के बीच की आवृत्तियों को परावर्तित करती हैं।\n\nयह विशिष्ट आवृत्ति बैंड एक परिपक्व मानव बैरिटोन स्वर की मूल अनुनाद आवृत्ति से मेल खाता है। निरंतर उच्चारण करने पर यह एक शक्तिशाली ध्वनि-पुनर्निवेश (फीडबैक) चक्र बनाता है। संपूर्ण भौतिक संरचना स्वयं स्पंदित और गुंजायमान होने लगती है, जिससे कक्ष एक जैविक प्रवर्धक में बदल जाता है। तंत्रिका-विज्ञान की दृष्टि से, इस आवृत्ति परिसर में स्थायी तरंगों के दीर्घकालिक संपर्क से श्रवण संबंधी परिवर्तन, कपाल दाब और गहन मनोवैज्ञानिक अवस्था परिवर्तन हो सकते हैं, जिन्हें प्रायः अलौकिक उपस्थिति या फुसफुसाहट समझ लिया जाता है।'
       },
       {
-        headingEn: '3. Benchmark Field Verification: Vittala Complex, Hampi',
-        headingHi: '3. क्षेत्रीय सत्यापन: विट्ठल मंदिर परिसर, हम्पी',
+        headingEn: 'Benchmark Case Log',
+        headingHi: 'संदर्भ केस अभिलेख',
         bodyEn:
-          'At the Vittala temple mandapa in Hampi, colonnette clusters carved from monolithic resonant granite (Svara-stambha) exhibit distinct modal frequencies corresponding to traditional raga intervals. Ultrasonic pulse velocity testing confirms deliberate hollowing and tapering ratios designed to tune each stone column.',
+          'The Musical Pillars of Vittala, Hampi: Composed of resonant stone clusters that produce distinct musical notes when struck, interacting with surrounding vaulted stone mandapas to create sustained acoustic envelopes.',
         bodyHi:
-          'हम्पी के विट्ठल मंदिर मंडप में एकाश्म ग्रेनाइट से निर्मित स्वर-स्तंभों के समूह पारंपरिक राग अंतरालों के अनुरूप स्पष्ट आवृत्तियाँ उत्पन्न करते हैं। अल्ट्रासोनिक पल्स वेलोसिटी परीक्षण प्रत्येक स्तंभ को स्वरबद्ध करने के लिए किए गए सटीक अनुपातों की पुष्टि करता है।'
+          'विट्ठल मंदिर के संगीतमय स्तंभ, हम्पी: अनुनादी प्रस्तर समूहों से निर्मित जो आघात करने पर स्पष्ट संगीत स्वर उत्पन्न करते हैं और आसपास के प्रस्तर मण्डपों के साथ मिलकर दीर्घकालिक ध्वनि-आवरण बनाते हैं।'
       }
     ],
     keyFindingsEn: [
-      'Reverberation time (RT60) inside sealed granite sanctums reaches 4.2–6.8 seconds at 112 Hz.',
-      'Quartz-rich granite exhibits micro-piezoelectric coupling under sustained high-decibel low-frequency resonance.',
-      'Ellipsoidal ceiling curvature focuses acoustic pressure directly onto the central ritual pedestal (pitha).'
+      'Empirical Field Term: Standing Wave Acoustics & Ellipsoidal Focal Amplification',
+      'Fundamental baritone vocal resonance band: 110 Hz – 130 Hz',
+      'Benchmark Case Log: The Musical Pillars of Vittala, Hampi'
     ],
     keyFindingsHi: [
-      'बंद ग्रेनाइट गर्भगृहों के भीतर 112 Hz पर प्रतिध्वनि काल (RT60) 4.2 से 6.8 सेकंड तक पहुँच जाता है।',
-      'क्वार्ट्ज-समृद्ध ग्रेनाइट निरंतर निम्न-आवृत्ति अनुनाद के अंतर्गत सूक्ष्म-पीजोइलेक्ट्रिक प्रभाव प्रदर्शित करता है।',
-      'दीर्घवृत्ताकार छत की वक्रता ध्वनि-दाब को सीधे केंद्रीय पीठ पर केंद्रित करती है।'
+      'आनुभविक क्षेत्रीय पारिभाषिक शब्द: स्थायी तरंग ध्वनि-विज्ञान एवं दीर्घवृत्तीय नाभीय प्रवर्धन',
+      'मूल अनुनाद आवृत्ति बैंड: 110 Hz – 130 Hz',
+      'संदर्भ केस अभिलेख: विट्ठल मंदिर के संगीतमय स्तंभ, हम्पी'
     ],
     metadata: [
-      { labelEn: 'Sanskrit Classification', labelHi: 'संस्कृत वर्गीकरण', valueEn: 'Nada-Shastra (नाद-शास्त्र)', valueHi: 'नाद-शास्त्र' },
-      { labelEn: 'Target Frequency Band', labelHi: 'लक्षित आवृत्ति बैंड', valueEn: '110 Hz – 130 Hz (Fundamental)', valueHi: '110 Hz – 130 Hz (मूल आवृत्ति)' },
-      { labelEn: 'Benchmark Site', labelHi: 'संदर्भ स्थल', valueEn: 'Musical Pillars of Vittala, Hampi', valueHi: 'विट्ठल मंदिर के संगीतमय स्तंभ, हम्पी' },
+      { labelEn: 'Subunit', labelHi: 'उप-इकाई', valueEn: 'I. Acoustic Resonance (Nada-Shastra)', valueHi: 'I. ध्वनि अनुनाद (नाद-शास्त्र)' },
+      { labelEn: 'Empirical Field Term', labelHi: 'आनुभविक क्षेत्रीय शब्द', valueEn: 'Standing Wave Acoustics & Ellipsoidal Focal Amplification', valueHi: 'स्थायी तरंग ध्वनि-विज्ञान एवं दीर्घवृत्तीय नाभीय प्रवर्धन' },
+      { labelEn: 'Benchmark Case Log', labelHi: 'संदर्भ केस अभिलेख', valueEn: 'The Musical Pillars of Vittala, Hampi', valueHi: 'विट्ठल मंदिर के संगीतमय स्तंभ, हम्पी' },
       { labelEn: 'Lead Investigator', labelHi: 'प्रमुख अन्वेषक', valueEn: 'Ram Ashok Kumar', valueHi: 'राम अशोक कुमार' }
     ],
-    primarySourcesEn: 'Mayamata · Manasara Shilpa Shastra · CAGS Acoustic Field Ledger Vol. IV',
-    primarySourcesHi: 'मयमतम् · मानसार शिल्प शास्त्र · क्षेत्रीय ध्वनि अभिलेख खण्ड IV',
+    primarySourcesEn: 'Nada-Shastra · Musical Pillars of Vittala, Hampi · CAGS Acoustic Field Ledger',
+    primarySourcesHi: 'नाद-शास्त्र · विट्ठल मंदिर के संगीतमय स्तंभ, हम्पी · क्षेत्रीय ध्वनि अभिलेख',
     authorEn: 'Ram Ashok Kumar',
     authorHi: 'राम अशोक कुमार',
     interactiveIndex: 0
@@ -179,64 +175,60 @@ const CAGS_FIELD_ARTICLES: ResearchArticle[] = [
     slug: 'geomagnetic-friction',
     categorySlug: 'cags-field-archive',
     code: 'CAGS-02',
-    titleEn: 'Geomagnetic Friction & Subterranean Fault Marma',
-    titleHi: 'भू-चुंबकीय घर्षण एवं भूमिगत भ्रंश मर्म (भू-मर्म)',
-    subtitleEn: 'Tectonic Micro-Currents, Vapor-Diffusion Deflection & Temporal Lobe Sensitivity',
-    subtitleHi: 'विवर्तनिक सूक्ष्म-धाराएँ, चुंबकीय विक्षेपण एवं टेम्पोरल लोब संवेदनशीलता',
-    sanskritEpigraph: 'यत्र पृथिव्याः मर्माणि संधीयन्ते तत्र विद्युतप्रवाहो जायते॥',
+    titleEn: 'II. Geomagnetic Friction (Bhu-Marma)',
+    titleHi: 'II. भू-चुंबकीय घर्षण (भू-मर्म)',
+    subtitleEn: 'Vapor-Diffusion Magnetic Deflection & Temporal Lobe Stimulation',
+    subtitleHi: 'वाष्प-प्रसार चुंबकीय विक्षेपण एवं टेम्पोरल लोब उत्तेजना',
+    sanskritEpigraph: 'यत्र पृथिव्याः मर्माणि संधीयन्ते तत्र विद्युतप्रवाहो जायते।',
     epigraphTranslationEn: '"Where the core joints of the earth are knit, there an invisible current of force is generated."',
     epigraphTranslationHi: '"जहाँ पृथ्वी के मर्म-स्थल जुड़ते हैं, वहाँ शक्ति की एक अदृश्य धारा उत्पन्न होती है।"',
-    evidenceBadgeEn: 'MAGNETOMETRY SURVEY · GEOPHYSICS',
-    evidenceBadgeHi: 'चुंबकत्व मापन सर्वेक्षण · भू-भौतिकी',
+    evidenceBadgeEn: 'EMPIRICAL FIELD TERM · BHU-MARMA',
+    evidenceBadgeHi: 'आनुभविक क्षेत्रीय मापन · भू-मर्म',
     accentColor: '#E5A93C',
-    summaryEn:
-      'Tectonic shear zones and subterranean aquifer intersections generate localized geomagnetic anomalies (Bhu-Marma). Fluxgate magnetometer surveys by Ram Ashok Kumar map how ancient shrines and deserted settlements sit directly atop high-gradient magnetic joints.',
-    summaryHi:
-      'विवर्तनिक घर्षण क्षेत्र और भूमिगत जल-भ्रंश स्थानीय भू-चुंबकीय विसंगतियाँ (भू-मर्म) उत्पन्न करते हैं। राम अशोक कुमार द्वारा किए गए फ्लक्सगेट मैग्नेटोमीटर सर्वेक्षण दर्शाते हैं कि प्राचीन तीर्थ और परित्यक्त बस्तियाँ उच्च-प्रवणता वाले चुंबकीय संधि-स्थलों पर स्थित हैं।',
+    summaryEn: 'Vapor-Diffusion Magnetic Deflection & Temporal Lobe Stimulation',
+    summaryHi: 'वाष्प-प्रसार चुंबकीय विक्षेपण एवं टेम्पोरल लोब उत्तेजना',
     sections: [
       {
-        headingEn: '1. Tectonic Piezomagnetism & Streaming Potentials',
-        headingHi: '1. विवर्तनिक पीजोमैग्नेटिज्म एवं प्रवाही विभव',
-        bodyEn:
-          'When saline groundwater flows under pressure through fractured quartz-bearing strata along geological fault lines, electrokinetic streaming potentials produce fluctuating ultra-low-frequency (ULF, 0.1–15 Hz) electromagnetic fields at the surface. Ancient Vastu soil-testing protocols identified these active nodes as Bhu-Marma points.',
-        bodyHi:
-          'जब खनिज-युक्त भूमिगत जल भूवैज्ञानिक भ्रंश रेखाओं के साथ क्वार्ट्ज-युक्त चट्टानों से दबाव में बहता है, तो इलेक्ट्रोकाइनेटिक विभव सतह पर अति-निम्न-आवृत्ति (ULF, 0.1–15 Hz) वाले चुंबकीय क्षेत्र उत्पन्न करते हैं। प्राचीन वास्तु भूमि-परीक्षण विधियों में इन सक्रिय बिंदुओं को भू-मर्म के रूप में पहचाना गया था।'
+        headingEn: 'Empirical Field Term',
+        headingHi: 'आनुभविक क्षेत्रीय पारिभाषिक शब्द',
+        bodyEn: 'Vapor-Diffusion Magnetic Deflection & Temporal Lobe Stimulation',
+        bodyHi: 'वाष्प-प्रसार चुंबकीय विक्षेपण एवं टेम्पोरल लोब उत्तेजना'
       },
       {
-        headingEn: '2. Neurobiological Response to High-Gradient Fluxes',
-        headingHi: '2. उच्च-प्रवणता चुंबकीय प्रवाह के प्रति तंत्रिका-जैविक प्रतिक्रिया',
+        headingEn: 'Investigation Principle',
+        headingHi: 'अन्वेषण सिद्धांत',
         bodyEn:
-          'In susceptible individuals, steep spatial gradients exceeding 150–300 nanoTesla per meter across sleeping or meditation quarters can induce vestibular disorientation, peripheral shadow pareidolia, and heightened hypnagogic imagery—phenomena frequently cataloged in regional haunting folklore.',
+          'Tectonic fault lines, subterranean shear zones, and shifting groundwater aquifers generate continuous, micro-frequency electromagnetic currents via friction and piezoelectric quartz compression. When a historical structure or settlement is established directly atop these high-stress geomagnetic intersections (Marma), the localized electromagnetic fluctuations directly interact with human biology.\n\nSpecifically, fluctuating magnetic fields can stimulate the temporal lobes of the human brain. This neurological disruption is well-documented in neuro-theology; it can trigger mild visual anomalies in peripheral vision, sudden bouts of unexplained dizziness, feelings of dread, and vivid, lucid dream states. Generations inhabiting these zones historically attributed these neurological sensations to phantom visitations.',
         bodyHi:
-          'संवेदनशील व्यक्तियों में, शयन या ध्यान कक्षों में प्रति मीटर 150–300 नैनोटेस्ला से अधिक की तीव्र चुंबकीय प्रवणता संतुलन-भ्रम, परिधीय दृष्टि में छाया-आभास और गहन स्वप्न-चित्र उत्पन्न कर सकती है—जिन्हें अक्सर क्षेत्रीय लोककथाओं में प्रेत-बाधा मान लिया जाता है।'
+          'विवर्तनिक भ्रंश रेखाएँ, भूमिगत अपरूपण क्षेत्र और गतिशील भूजल स्तर घर्षण तथा पीजोइलेक्ट्रिक क्वार्ट्ज संपीड़न के माध्यम से निरंतर सूक्ष्म-आवृत्ति वाली विद्युत-चुंबकीय धाराएँ उत्पन्न करते हैं। जब कोई ऐतिहासिक संरचना या बस्ती सीधे इन उच्च-तनाव वाले भू-चुंबकीय संधि-स्थलों (मर्म) के ऊपर स्थापित होती है, तो स्थानीय विद्युत-चुंबकीय उतार-चढ़ाव सीधे मानव जीवविज्ञान को प्रभावित करते हैं।\n\nविशेष रूप से, परिवर्तित होते चुंबकीय क्षेत्र मानव मस्तिष्क के टेम्पोरल लोब को उत्तेजित कर सकते हैं। यह तंत्रिका-संबंधी प्रभाव परिधीय दृष्टि में सूक्ष्म दृश्य विसंगतियाँ, अचानक चक्कर आना, अकारण भय की अनुभूति और अत्यंत स्पष्ट स्वप्न-अवस्थाओं को जन्म दे सकता है। इन क्षेत्रों में निवास करने वाली पीढ़ियों ने ऐतिहासिक रूप से इन तंत्रिका-संवेदनाओं को प्रेत-दर्शन से जोड़ा।'
       },
       {
-        headingEn: '3. Field Benchmark: The Fault Line of Kuldhara Village',
-        headingHi: '3. क्षेत्रीय केस अध्ययन: कुलधरा ग्राम की भ्रंश रेखा',
+        headingEn: 'Benchmark Case Log',
+        headingHi: 'संदर्भ केस अभिलेख',
         bodyEn:
-          'Multi-night proton magnetometer grids across the abandoned Paliwal Brahmin settlement of Kuldhara (Jaisalmer basin) revealed a sharp subterranean palaeochannel fault where nocturnal thermal contraction triggers measurable micro-magnetic spikes at dusk and pre-dawn.',
+          'The Natural Fields of Kuldhara Village: An abandoned settlement situated across active micro-fault lines exhibiting distinct ambient magnetic anomalies and localized cognitive disturbance fields.',
         bodyHi:
-          'जैसलमेर बेसिन के परित्यक्त कुलधरा ग्राम में किए गए बहु-रात्रि प्रोटॉन मैग्नेटोमीटर सर्वेक्षणों ने एक भूमिगत प्राचीन जल-भ्रंश का खुलासा किया, जहाँ रात्रि के तापीय संकुचन से गोधूलि और ब्रह्म-मुहूर्त के समय मापनीय सूक्ष्म-चुंबकीय स्पंदन उत्पन्न होते हैं।'
+          'कुलधरा ग्राम के प्राकृतिक चुंबकीय क्षेत्र: सक्रिय सूक्ष्म-भ्रंश रेखाओं पर स्थित एक परित्यक्त बस्ती जो स्पष्ट परिवेशीय चुंबकीय विसंगतियाँ और स्थानीय संज्ञानात्मक संवेदन क्षेत्र प्रदर्शित करती है।'
       }
     ],
     keyFindingsEn: [
-      'Subterranean palaeochannel faults produce 80–240 nT diurnal magnetic anomalies during rapid desert cooling.',
-      'Iron-rich sandstone foundations amplify local magnetic field gradients inside narrow courtyard corridors.',
-      'Zero supernatural agency required; nocturnal sensory reports correlate with ULF geomagnetic transients.'
+      'Empirical Field Term: Vapor-Diffusion Magnetic Deflection & Temporal Lobe Stimulation',
+      'Piezoelectric quartz compression & tectonic fault micro-frequency currents at Marma intersections',
+      'Benchmark Case Log: The Natural Fields of Kuldhara Village'
     ],
     keyFindingsHi: [
-      'भूमिगत प्राचीन जल-भ्रंश तीव्र मरुस्थलीय शीतलन के दौरान 80–240 nT की दैनिक चुंबकीय विसंगतियाँ उत्पन्न करते हैं।',
-      'लौह-समृद्ध बलुआ पत्थर की नींव संकरे गलियारों के भीतर स्थानीय चुंबकीय क्षेत्र प्रवणता को बढ़ाती है।',
-      'रात्रिकालीन संवेदी अनुभव किसी अलौकिक कारण से नहीं, बल्कि ULF भू-चुंबकीय स्पंदनों से संबद्ध पाए गए।'
+      'आनुभविक क्षेत्रीय पारिभाषिक शब्द: वाष्प-प्रसार चुंबकीय विक्षेपण एवं टेम्पोरल लोब उत्तेजना',
+      'भू-मर्म संधि-स्थलों पर पीजोइलेक्ट्रिक क्वार्ट्ज संपीड़न एवं सूक्ष्म-आवृत्ति विद्युत-चुंबकीय धाराएँ',
+      'संदर्भ केस अभिलेख: कुलधरा ग्राम के प्राकृतिक चुंबकीय क्षेत्र'
     ],
     metadata: [
-      { labelEn: 'Sanskrit Classification', labelHi: 'संस्कृत वर्गीकरण', valueEn: 'Bhu-Marma (भू-मर्म)', valueHi: 'भू-मर्म' },
-      { labelEn: 'Instrumentation', labelHi: 'प्रयुक्त उपकरण', valueEn: 'Tri-Axial Fluxgate Magnetometer', valueHi: 'त्रि-अक्षीय फ्लक्सगेट मैग्नेटोमीटर' },
-      { labelEn: 'Benchmark Site', labelHi: 'संदर्भ स्थल', valueEn: 'The Natural Fields of Kuldhara Village', valueHi: 'कुलधरा ग्राम के प्राकृतिक चुंबकीय क्षेत्र' },
+      { labelEn: 'Subunit', labelHi: 'उप-इकाई', valueEn: 'II. Geomagnetic Friction (Bhu-Marma)', valueHi: 'II. भू-चुंबकीय घर्षण (भू-मर्म)' },
+      { labelEn: 'Empirical Field Term', labelHi: 'आनुभविक क्षेत्रीय शब्द', valueEn: 'Vapor-Diffusion Magnetic Deflection & Temporal Lobe Stimulation', valueHi: 'वाष्प-प्रसार चुंबकीय विक्षेपण एवं टेम्पोरल लोब उत्तेजना' },
+      { labelEn: 'Benchmark Case Log', labelHi: 'संदर्भ केस अभिलेख', valueEn: 'The Natural Fields of Kuldhara Village', valueHi: 'कुलधरा ग्राम के प्राकृतिक चुंबकीय क्षेत्र' },
       { labelEn: 'Lead Investigator', labelHi: 'प्रमुख अन्वेषक', valueEn: 'Ram Ashok Kumar', valueHi: 'राम अशोक कुमार' }
     ],
-    primarySourcesEn: 'Brihat Samhita (Dakargala) · Samaranganasutradhara · CAGS Magnetometry Dossier #12',
-    primarySourcesHi: 'बृहत्संहिता (दकार्गल अध्याय) · समरांगणसूत्रधार · चुंबकत्व सर्वेक्षण फाइल #12',
+    primarySourcesEn: 'Bhu-Marma · The Natural Fields of Kuldhara Village · CAGS Magnetometry Dossier',
+    primarySourcesHi: 'भू-मर्म · कुलधरा ग्राम के प्राकृतिक चुंबकीय क्षेत्र · चुंबकत्व सर्वेक्षण फाइल',
     authorEn: 'Ram Ashok Kumar',
     authorHi: 'राम अशोक कुमार',
     interactiveIndex: 1
@@ -245,64 +237,60 @@ const CAGS_FIELD_ARTICLES: ResearchArticle[] = [
     slug: 'thermodynamic-inversion',
     categorySlug: 'cags-field-archive',
     code: 'CAGS-03',
-    titleEn: 'Thermodynamic Inversion & Dry-Stone Cold Spots',
-    titleHi: 'ऊष्मागतिकीय व्युत्क्रमण एवं शीत-स्थल विश्लेषण (उष्ण-शमन)',
-    subtitleEn: 'Adiabatic Gas Expansion, Differential Heat Capacity & Mist Condensation in Fortified Masonry',
-    subtitleHi: 'प्राचीर शिल्प में रुद्धोष्म गैस विस्तार, विभेदक ऊष्मा धारिता एवं वाष्प संघनन',
-    sanskritEpigraph: 'शिलानां शीतता वायुप्रवाहाच्च जायते मन्दं॥',
+    titleEn: 'III. Thermodynamic Inversion (Ushna-Saman)',
+    titleHi: 'III. ऊष्मागतिकीय व्युत्क्रमण (उष्ण-शमन)',
+    subtitleEn: 'Adiabatic Gas Expansion & Differential Structural Heat Capacity',
+    subtitleHi: 'रुद्धोष्म गैस विस्तार एवं विभेदक संरचनात्मक ऊष्मा धारिता',
+    sanskritEpigraph: 'शिलानां शीतता वायुप्रवाहाच्च जायते मन्दं।',
     epigraphTranslationEn: '"The localized chill of the stones is produced slowly by the upward movement of deep air."',
     epigraphTranslationHi: '"गंभीर भूमिगत वायु के ऊर्ध्वगामी प्रवाह से शिलाओं में धीरे-धीरे शीतलता उत्पन्न होती है।"',
-    evidenceBadgeEn: 'THERMOGRAPHY · FLUID DYNAMICS',
-    evidenceBadgeHi: 'थर्मोग्राफी · तरल गतिकी',
+    evidenceBadgeEn: 'EMPIRICAL FIELD TERM · USHNA-SAMAN',
+    evidenceBadgeHi: 'आनुभविक क्षेत्रीय मापन · उष्ण-शमन',
     accentColor: '#38BDF8',
-    summaryEn:
-      'Sudden localized temperature drops ("cold spots") inside historic forts and stepwells are investigated through strict thermodynamics. High-resolution FLIR thermography reveals adiabatic gas expansion through dry-stone fissures and stack-effect micro-drafts.',
-    summaryHi:
-      'ऐतिहासिक दुर्गों और बावड़ियों के भीतर अचानक तापमान गिरने ("शीत-स्थलों") का विश्लेषण सख्त ऊष्मागतिकी के माध्यम से किया गया है। उच्च-रिज़ॉल्यूशन थर्मोग्राफी सूखी शिलाओं की दरारों से होने वाले रुद्धोष्म गैस विस्तार और सूक्ष्म वायु-प्रवाह को उजागर करती है।',
+    summaryEn: 'Adiabatic Gas Expansion & Differential Structural Heat Capacity',
+    summaryHi: 'रुद्धोष्म गैस विस्तार एवं विभेदक संरचनात्मक ऊष्मा धारिता',
     sections: [
       {
-        headingEn: '1. Adiabatic Expansion in Subterranean Karst & Masonry Fissures',
-        headingHi: '1. भूमिगत गुहाओं और शिला-दरारों में रुद्धोष्म गैस विस्तार',
-        bodyEn:
-          'When pressurized subterranean air or dissolved CO₂ pockets migrate upward through narrow constriction joints in mortar-less rubble masonry and suddenly expand into an open chamber, the Joule-Thomson and adiabatic cooling effects produce rapid localized drops of 4°C to 7°C within seconds.',
-        bodyHi:
-          'जब दबावयुक्त भूमिगत वायु या कार्बन डाइऑक्साइड के बुलबुले बिना गारे की शिला-संधियों से ऊपर उठकर अचानक खुले कक्ष में फैलते हैं, तो रुद्धोष्म शीतलन प्रभाव के कारण कुछ ही सेकंड में स्थानीय तापमान में 4°C से 7°C तक की गिरावट आती है।'
+        headingEn: 'Empirical Field Term',
+        headingHi: 'आनुभविक क्षेत्रीय पारिभाषिक शब्द',
+        bodyEn: 'Adiabatic Gas Expansion & Differential Structural Heat Capacity',
+        bodyHi: 'रुद्धोष्म गैस विस्तार एवं विभेदक संरचनात्मक ऊष्मा धारिता'
       },
       {
-        headingEn: '2. Dew-Point Crossing & Transient Mist Apparitions',
-        headingHi: '2. ओस-बिंदु अतिक्रमण एवं क्षणिक धुंध आकृतियाँ',
+        headingEn: 'Investigation Principle',
+        headingHi: 'अन्वेषण सिद्धांत',
         bodyEn:
-          'In humid post-monsoon air, a sudden 5°C cold plume crossing the local dew point causes instantaneous micro-condensation of water vapor. Illuminated by oblique twilight or torchlight, these drifting condensation vortices closely resemble translucent human-scale silhouettes.',
+          'The classic paranormal trope of the sudden "cold spot" can be rigorously evaluated through thermodynamics. In historical structures utilizing dry-stone or mortar-less masonry, hairline cracks and subterranean fissures often act as conduits for deep-earth gases, including compressed carbon dioxide or low-temperature radon seeping from tectonic cavities.\n\nAs these gases expand adiabatically through narrow structural vents, they induce localized physical cooling. Simultaneously, ambient atmospheric moisture condenses instantly upon contact with the chilled stone interface. This generates invisible draft currents and microscopic mist pockets that drift through corridors, mimicking the visual profile of ephemeral apparitions or wandering cold spirits.',
         bodyHi:
-          'आर्द्र मानसून-पश्चात वायु में, अचानक 5°C की शीतल धारा जब ओस-बिंदु को पार करती है, तो जलवाष्प का तात्कालिक सूक्ष्म-संघनन होता है। तिरछे प्रकाश में ये तैरते हुए धुंध के भंवर किसी पारभासी मानवाकृति का भ्रम उत्पन्न करते हैं।'
+          'अचानक अनुभव होने वाले "शीत-स्थल" (कोल्ड स्पॉट) की पारंपरिक मान्यता का ऊष्मागतिकी के माध्यम से सटीक मूल्यांकन किया जा सकता है। बिना गारे की सूखी शिलाओं से निर्मित ऐतिहासिक संरचनाओं में, सूक्ष्म दरारें और भूमिगत विदर प्रायः संपीड़ित कार्बन डाइऑक्साइड या निम्न-तापमान रेडॉन जैसी भूगर्भीय गैसों के लिए वाहक का कार्य करते हैं।\n\nजब ये गैसें संकरे संरचनात्मक छिद्रों से रुद्धोष्म (एडियाबेटिक) रूप से फैलती हैं, तो वे तत्काल स्थानीय भौतिक शीतलन उत्पन्न करती हैं। साथ ही, वातावरण की नमी ठंडी शिलाओं के संपर्क में आते ही तुरंत संघनित हो जाती है। इससे अदृश्य वायु-प्रवाह और सूक्ष्म धुंध के पुंज बनते हैं जो गलियारों में तैरते हुए किसी छाया या भटकती आत्मा जैसा दृश्य आभास कराते हैं।'
       },
       {
-        headingEn: '3. Field Benchmark: The Gateway Cold-Spots of Bhangarh Fort',
-        headingHi: '3. क्षेत्रीय केस अध्ययन: भानगढ़ किले के प्रवेश-द्वार के शीत-स्थल',
+        headingEn: 'Benchmark Case Log',
+        headingHi: 'संदर्भ केस अभिलेख',
         bodyEn:
-          'Continuous thermal array logging across the inner gateways and Someshwar temple precinct at Bhangarh Fort demonstrated repeatable katabatic cold-air drainage funneled down the Aravalli gorge directly through the fort’s arched limestone portals after sunset.',
+          'The Gateway Cold-Spots of Bhangarh Fort: Deep bastion chambers featuring marked temperature differentials uncorrelated with external weather patterns, driven by subterranean structural drafts and high-density stone heat capacities.',
         bodyHi:
-          'भानगढ़ किले के आंतरिक द्वारों और सोमेश्वर मंदिर परिसर में किए गए सतत थर्मल लॉगिंग ने सिद्ध किया कि सूर्यास्त के बाद अरावली की घाटी से उतरने वाली ठंडी हवा की धाराएँ किले के मेहराबदार द्वारों से होकर एक निश्चित पथ पर बहती हैं।'
+          'भानगढ़ किले के प्रवेश-द्वार के शीत-स्थल: गहरे बुर्ज कक्ष जो बाहरी मौसम से स्वतंत्र स्पष्ट तापमान अंतर प्रदर्शित करते हैं, जो भूमिगत संरचनात्मक वायु-प्रवाह और उच्च-घनत्व वाली शिलाओं की ऊष्मा धारिता से संचालित होते हैं।'
       }
     ],
     keyFindingsEn: [
-      'FLIR thermal imaging documents 5.8°C localized drops along limestone fissure vents within 12 seconds of sunset katabatic shifts.',
-      'Anemometer arrays confirm micro-vortex shedding behind medieval bastion piers.',
-      'Apparitional mist reports correspond 1:1 with dew-point condensation events in high-humidity niches.'
+      'Empirical Field Term: Adiabatic Gas Expansion & Differential Structural Heat Capacity',
+      'Adiabatic expansion of deep-earth gases & instant moisture condensation across chilled stone interfaces',
+      'Benchmark Case Log: The Gateway Cold-Spots of Bhangarh Fort'
     ],
     keyFindingsHi: [
-      'थर्मल इमेजिंग सूर्यास्त के 12 सेकंड के भीतर चूना-पत्थर की दरारों के पास 5.8°C की स्थानीय तापमान गिरावट दर्ज करती है।',
-      'एनीमोमीटर सारणियाँ मध्यकालीन बुर्जों के पीछे सूक्ष्म वायु-भंवरों की पुष्टि करती हैं।',
-      'धुंध-आकृतियों के अनुभव उच्च आर्द्रता वाले कोनों में ओस-बिंदु संघनन की घटनाओं से पूर्णतः मेल खाते हैं।'
+      'आनुभविक क्षेत्रीय पारिभाषिक शब्द: रुद्धोष्म गैस विस्तार एवं विभेदक संरचनात्मक ऊष्मा धारिता',
+      'भूगर्भीय गैसों का रुद्धोष्म विस्तार एवं शीतल शिलाओं पर तात्कालिक नमी संघनन',
+      'संदर्भ केस अभिलेख: भानगढ़ किले के प्रवेश-द्वार के शीत-स्थल'
     ],
     metadata: [
-      { labelEn: 'Sanskrit Classification', labelHi: 'संस्कृत वर्गीकरण', valueEn: 'Ushna-Saman (उष्ण-शमन)', valueHi: 'उष्ण-शमन' },
-      { labelEn: 'Instrumentation', labelHi: 'प्रयुक्त उपकरण', valueEn: 'Radiometric FLIR Thermal Array & Hot-Wire Anemometer', valueHi: 'रेडियोमेट्रिक थर्मल कैमरे एवं हॉट-वायर एनीमोमीटर' },
-      { labelEn: 'Benchmark Site', labelHi: 'संदर्भ स्थल', valueEn: 'The Gateway Cold-Spots of Bhangarh Fort', valueHi: 'भानगढ़ किले के प्रवेश-द्वार के शीत-स्थल' },
+      { labelEn: 'Subunit', labelHi: 'उप-इकाई', valueEn: 'III. Thermodynamic Inversion (Ushna-Saman)', valueHi: 'III. ऊष्मागतिकीय व्युत्क्रमण (उष्ण-शमन)' },
+      { labelEn: 'Empirical Field Term', labelHi: 'आनुभविक क्षेत्रीय शब्द', valueEn: 'Adiabatic Gas Expansion & Differential Structural Heat Capacity', valueHi: 'रुद्धोष्म गैस विस्तार एवं विभेदक संरचनात्मक ऊष्मा धारिता' },
+      { labelEn: 'Benchmark Case Log', labelHi: 'संदर्भ केस अभिलेख', valueEn: 'The Gateway Cold-Spots of Bhangarh Fort', valueHi: 'भानगढ़ किले के प्रवेश-द्वार के शीत-स्थल' },
       { labelEn: 'Lead Investigator', labelHi: 'प्रमुख अन्वेषक', valueEn: 'Ram Ashok Kumar', valueHi: 'राम अशोक कुमार' }
     ],
-    primarySourcesEn: 'Vastu Ratnavali · Aravalli Microclimate Survey · CAGS Thermal Log #09',
-    primarySourcesHi: 'वास्तु रत्नावली · अरावली सूक्ष्म-जलवायु सर्वेक्षण · थर्मल अभिलेख #09',
+    primarySourcesEn: 'Ushna-Saman · The Gateway Cold-Spots of Bhangarh Fort · CAGS Thermal Log',
+    primarySourcesHi: 'उष्ण-शमन · भानगढ़ किले के प्रवेश-द्वार के शीत-स्थल · थर्मल अभिलेख',
     authorEn: 'Ram Ashok Kumar',
     authorHi: 'राम अशोक कुमार',
     interactiveIndex: 2
@@ -311,64 +299,60 @@ const CAGS_FIELD_ARTICLES: ResearchArticle[] = [
     slug: 'environmental-chemistry',
     categorySlug: 'cags-field-archive',
     code: 'CAGS-04',
-    titleEn: 'Environmental Chemistry & Ionized Aquifer Hydrogeology',
-    titleHi: 'पर्यावरणीय रसायन एवं आयनित जलभृत विज्ञान (रस-विज्ञान)',
-    subtitleEn: 'Trace Heavy Minerals, Monazite Thorium Aquifers & Physiological Anomalies',
-    subtitleHi: 'सूक्ष्म खनिज, मोनाजाइट थोरियम जलभृत एवं शारीरिक प्रभाव',
-    sanskritEpigraph: 'पृथिव्याः रसाः सलिलगताः जीवनप्रक्रियायां प्रभावं कुर्वन्ति॥',
+    titleEn: 'IV. Environmental Chemistry (Rasa-Vijnana)',
+    titleHi: 'IV. पर्यावरणीय रसायन (रस-विज्ञान)',
+    subtitleEn: 'Aquifer Mass Spectroscopy & Background Ionizing Radiation',
+    subtitleHi: 'जलभृत द्रव्यमान स्पेक्ट्रोस्कोपी एवं पृष्ठभूमि आयनकारी विकिरण',
+    sanskritEpigraph: 'पृथिव्याः रसाः सलिलगताः जीवनप्रक्रियायां प्रभावं कुर्वन्ति।',
     epigraphTranslationEn: '"The essences of the earth dissolved in water exert a heavy weight upon the flow of life."',
     epigraphTranslationHi: '"जल में घुले हुए पृथ्वी के रस जीवन-प्रक्रिया के प्रवाह पर गहरा प्रभाव डालते हैं।"',
-    evidenceBadgeEn: 'HYDROGEOCHEMISTRY · MASS SPECTROSCOPY',
-    evidenceBadgeHi: 'जल-भूरसायन · द्रव्यमान स्पेक्ट्रोस्कोपी',
+    evidenceBadgeEn: 'EMPIRICAL FIELD TERM · RASA-VIJNANA',
+    evidenceBadgeHi: 'आनुभविक क्षेत्रीय मापन · रस-विज्ञान',
     accentColor: '#34D399',
-    summaryEn:
-      'Subterranean aquifers passing through monazite sands, magnetite veins, or sulfide ore bodies acquire unique ionic and trace-element profiles (Rasa-Vijnana). Inductively coupled plasma mass spectrometry (ICP-MS) links localized biological and perceptual anomalies to groundwater chemistry.',
-    summaryHi:
-      'मोनाजाइट रेत, मैग्नेटाइट शिराओं या सल्फाइड अयस्कों से गुजरने वाले भूमिगत जलभृत विशिष्ट आयनिक और सूक्ष्म-खनिज गुण (रस-विज्ञान) प्राप्त कर लेते हैं। द्रव्यमान स्पेक्ट्रोमेट्री (ICP-MS) स्थानीय जैविक और संवेदी विशेषताओं को भूजल रसायन से जोड़ती है।',
+    summaryEn: 'Aquifer Mass Spectroscopy & Background Ionizing Radiation',
+    summaryHi: 'जलभृत द्रव्यमान स्पेक्ट्रोस्कोपी एवं पृष्ठभूमि आयनकारी विकिरण',
     sections: [
       {
-        headingEn: '1. Lithological Leaching & Sacred Teertha Hydrochemistry',
-        headingHi: '1. शिला-निक्षालन एवं पवित्र तीर्थ जल-रसायन',
-        bodyEn:
-          'Classical Rasashastra and Ayurveda treatises classify sacred temple tanks (pushkarini) and natural springs by the mineral strata they traverse—such as copper-bearing chalcopyrite, sulfur springs, or mercury-cinnabar traces. Water chemistry directly governs microbial suppression and metabolic bio-availability.',
-        bodyHi:
-          'शास्त्रीय रसशास्त्र और आयुर्वेद ग्रंथ पवित्र मंदिर कुण्डों (पुष्करिणी) और प्राकृतिक झरनों को उन खनिज परतों के आधार पर वर्गीकृत करते हैं जिनसे होकर वे बहते हैं—जैसे ताम्र-युक्त खनिज, गंधक स्रोत या लौह-चुंबकीय शिलाएँ। जल का रसायन सीधे जैविक गुणों को निर्धारित करता है।'
+        headingEn: 'Empirical Field Term',
+        headingHi: 'आनुभविक क्षेत्रीय पारिभाषिक शब्द',
+        bodyEn: 'Aquifer Mass Spectroscopy & Background Ionizing Radiation',
+        bodyHi: 'जलभृत द्रव्यमान स्पेक्ट्रोस्कोपी एवं पृष्ठभूमि आयनकारी विकिरण'
       },
       {
-        headingEn: '2. Background Ionizing Radiation & Cellular Kinetics',
-        headingHi: '2. पृष्ठभूमि आयनकारी विकिरण एवं कोशिकीय गतिकी',
+        headingEn: 'Investigation Principle',
+        headingHi: 'अन्वेषण सिद्धांत',
         bodyEn:
-          'Where deep lateritic water tables intersect thorium-bearing monazite placer deposits or dissolved radon gas, chronic low-dose environmental exposure and trace-mineral endocrine modulation create statistically significant demographic clusters.',
+          'Geological strata rich in heavy metal deposits—such as iron oxide, magnetite, or radioactive thorium-bearing monazite sands—leach complex chemical signatures into local subterranean water tables. Populations inhabiting these micro-regions consume or live in close proximity to these highly ionized water sources over generations.\n\nChronic exposure to background ionizing radiation and heavy metal ions alters physiological baseline metrics, including cellular replication rates, endocrine hormone balance, and neural synaptic conductivity. These biochemical shifts frequently manifest as heightened sensory sensitivity, localized health clustering, and subtle perceptual distortions that reinforce local folklore regarding cursed waters or haunted lands.',
         bodyHi:
-          'जहाँ गहरे लैटेराइट जल-स्तर थोरियम-युक्त मोनाजाइट निक्षेपों या घुली हुई रेडॉन गैस से मिलते हैं, वहाँ दीर्घकालिक पर्यावरणीय संपर्क और सूक्ष्म-खनिजों का अंतःस्रावी प्रभाव विशिष्ट जनसांख्यिकीय पैटर्न उत्पन्न करता है।'
+          'भारी धातु निक्षेपों—जैसे आयरन ऑक्साइड, मैग्नेटाइट, या रेडियोधर्मी थोरियम-युक्त मोनाजाइट रेत—से समृद्ध भूवैज्ञानिक स्तर स्थानीय भूमिगत जलभृतों में जटिल रासायनिक तत्वों का निक्षालन करते हैं। इन सूक्ष्म-क्षेत्रों में निवास करने वाली जनसंख्या पीढ़ियों तक इन अत्यधिक आयनित जल स्रोतों के संपर्क में रहती है।\n\nपृष्ठभूमि आयनकारी विकिरण और भारी धातु आयनों के दीर्घकालिक संपर्क से कोशिका विभाजन दर, अंतःस्रावी हार्मोन संतुलन और तंत्रिका चालकता जैसे शारीरिक मापदंड प्रभावित होते हैं। ये जैव-रासायनिक परिवर्तन प्रायः तीव्र संवेदी संवेदनशीलता और सूक्ष्म बोधात्मक परिवर्तनों के रूप में प्रकट होते हैं, जो शापित जल या प्रेतबाधित भूमि से जुड़ी लोक-मान्यताओं को सुदृढ़ करते हैं।'
       },
       {
-        headingEn: '3. Field Benchmark: Hydrochemical Sampling at Kodinhi',
-        headingHi: '3. क्षेत्रीय केस अध्ययन: कोडिन्ही में जल-रासायनिक परीक्षण',
+        headingEn: 'Benchmark Case Log',
+        headingHi: 'संदर्भ केस अभिलेख',
         bodyEn:
-          'Systematic water-table and sediment sampling in the backwater enclave of Kodinhi (Kerala) examined dissolved trace lanthanides, seasonal salinity lock-in during monsoon flooding, and genetic-environmental co-factors behind its extraordinary twin-birth rate.',
+          'The Thorium Aquifers of Kodinhi: Regions with anomalous background geochemical profiles demonstrating unique physiological interaction markers among local inhabitants.',
         bodyHi:
-          'केरल के कोडिन्ही क्षेत्र में किए गए व्यवस्थित भूजल और तलछट परीक्षणों में घुले हुए सूक्ष्म खनिजों, मानसून के दौरान जल-अवरोधन और वहाँ की असाधारण जुड़वां-जन्म दर के पीछे के आनुवंशिक-पर्यावरणीय सह-कारकों का अध्ययन किया गया।'
+          'कोडिन्ही के थोरियम जलभृत: असामान्य भू-रासायनिक पृष्ठभूमि वाले क्षेत्र जो स्थानीय निवासियों में विशिष्ट शारीरिक प्रभाव संकेतक प्रदर्शित करते हैं।'
       }
     ],
     keyFindingsEn: [
-      'ICP-MS assays reveal elevated trace lanthanide and dissolved silica signatures in isolated laterite wells.',
-      'Temple stepwells lined with copper and silver-alloy plates exhibit measurable oligodynamic bacteriostatic action.',
-      'Environmental hydrochemistry accounts for localized physiological clusters often attributed to folkloric blessings or curses.'
+      'Empirical Field Term: Aquifer Mass Spectroscopy & Background Ionizing Radiation',
+      'Heavy metal & thorium-bearing monazite leaching into subterranean water tables',
+      'Benchmark Case Log: The Thorium Aquifers of Kodinhi'
     ],
     keyFindingsHi: [
-      'ICP-MS परीक्षणों से एकाकी लैटेराइट कुओं में विशिष्ट सूक्ष्म-खनिज और घुले हुए सिलिका के स्तर का पता चलता है।',
-      'ताम्र और रजत-मिश्रित पट्टिकाओं से युक्त प्राचीन कुण्डों में जीवाणुरोधी (ओलिगोडायनामिक) प्रभाव प्रमाणित होता है।',
-      'पर्यावरणीय जल-रसायन उन स्थानीय शारीरिक विशेषताओं की वैज्ञानिक व्याख्या करता है जिन्हें अक्सर वरदान या शाप मान लिया जाता था।'
+      'आनुभविक क्षेत्रीय पारिभाषिक शब्द: जलभृत द्रव्यमान स्पेक्ट्रोस्कोपी एवं पृष्ठभूमि आयनकारी विकिरण',
+      'भूमिगत जलभृतों में भारी धातु एवं थोरियम-युक्त मोनाजाइट निक्षालन का प्रभाव',
+      'संदर्भ केस अभिलेख: कोडिन्ही के थोरियम जलभृत'
     ],
     metadata: [
-      { labelEn: 'Sanskrit Classification', labelHi: 'संस्कृत वर्गीकरण', valueEn: 'Rasa-Vijnana (रस-विज्ञान)', valueHi: 'रस-विज्ञान' },
-      { labelEn: 'Instrumentation', labelHi: 'प्रयुक्त उपकरण', valueEn: 'ICP-MS & Gamma Scintillation Dosimetry', valueHi: 'ICP-MS एवं गामा सिंटिलेशन डोसीमेट्री' },
-      { labelEn: 'Benchmark Site', labelHi: 'संदर्भ स्थल', valueEn: 'The Thorium Aquifers of Kodinhi', valueHi: 'कोडिन्ही के थोरियम जलभृत' },
+      { labelEn: 'Subunit', labelHi: 'उप-इकाई', valueEn: 'IV. Environmental Chemistry (Rasa-Vijnana)', valueHi: 'IV. पर्यावरणीय रसायन (रस-विज्ञान)' },
+      { labelEn: 'Empirical Field Term', labelHi: 'आनुभविक क्षेत्रीय शब्द', valueEn: 'Aquifer Mass Spectroscopy & Background Ionizing Radiation', valueHi: 'जलभृत द्रव्यमान स्पेक्ट्रोस्कोपी एवं पृष्ठभूमि आयनकारी विकिरण' },
+      { labelEn: 'Benchmark Case Log', labelHi: 'संदर्भ केस अभिलेख', valueEn: 'The Thorium Aquifers of Kodinhi', valueHi: 'कोडिन्ही के थोरियम जलभृत' },
       { labelEn: 'Lead Investigator', labelHi: 'प्रमुख अन्वेषक', valueEn: 'Ram Ashok Kumar', valueHi: 'राम अशोक कुमार' }
     ],
-    primarySourcesEn: 'Rasarnava · Charaka Samhita · CAGS Hydrogeochemical Report #17',
-    primarySourcesHi: 'रसार्णव · चरक संहिता · जल-भूरसायन शोध प्रतिवेदन #17',
+    primarySourcesEn: 'Rasa-Vijnana · The Thorium Aquifers of Kodinhi · CAGS Hydrogeochemical Report',
+    primarySourcesHi: 'रस-विज्ञान · कोडिन्ही के थोरियम जलभृत · जल-भूरसायन शोध प्रतिवेदन',
     authorEn: 'Ram Ashok Kumar',
     authorHi: 'राम अशोक कुमार',
     interactiveIndex: 3
@@ -377,64 +361,60 @@ const CAGS_FIELD_ARTICLES: ResearchArticle[] = [
     slug: 'architectural-waveguides',
     categorySlug: 'cags-field-archive',
     code: 'CAGS-05',
-    titleEn: 'Architectural Waveguides & Vastu-Mandala Dielectric Traps',
-    titleHi: 'वास्तु तरंग-पथक एवं मण्डल परावैद्युत संरचनाएँ (वास्तु-मण्डल)',
-    subtitleEn: 'Concentric Granite Prakaras, Stepped Shikhara Geometry & Microseismic Focusing',
-    subtitleHi: 'संकेंद्रित ग्रेनाइट प्राकार, शिखर ज्यामिति एवं सूक्ष्म-भूकंपीय तरंग संकेंद्रण',
-    sanskritEpigraph: 'मण्डलस्य रेखाः वायुतरङ्गान् आकर्षन्ति। मन्दिरं महायन्त्रं भवति॥',
+    titleEn: 'V. Architectural Waveguides (Vastu-Mandala)',
+    titleHi: 'V. वास्तु तरंग-पथक (वास्तु-मण्डल)',
+    subtitleEn: 'Concentric Dielectric Waveguides & Environmental RF Traps',
+    subtitleHi: 'संकेंद्रित परावैद्युत तरंग-पथक एवं पर्यावरणीय आरएफ ट्रैप',
+    sanskritEpigraph: 'मण्डलस्य रेखाः वायुतरङ्गान् आकर्षन्ति। मन्दिरं महायन्त्रं भवति।',
     epigraphTranslationEn: '"The lines of the sacred mandala draw the waves of the wind. The temple becomes a great machine."',
     epigraphTranslationHi: '"पवित्र मण्डल की रेखाएँ वायु-तरंगों को आकर्षित करती हैं। मंदिर स्वयं एक महायन्त्र बन जाता है।"',
-    evidenceBadgeEn: 'STRUCTURAL PHYSICS · VASTU GEOMETRY',
-    evidenceBadgeHi: 'संरचनात्मक भौतिकी · वास्तु ज्यामिति',
+    evidenceBadgeEn: 'EMPIRICAL FIELD TERM · VASTU-MANDALA',
+    evidenceBadgeHi: 'आनुभविक क्षेत्रीय मापन · वास्तु-मण्डल',
     accentColor: '#A78BFA',
-    summaryEn:
-      'Concentric enclosure walls (prakaras), stepped pyramidal towers (vimana/shikhara), and copper kalasha finials act as passive mechanical and dielectric waveguides—damping destructive seismic shear waves while focusing ambient low-frequency harmonic vibrations.',
-    summaryHi:
-      'संकेंद्रित प्राकार दीवारें, सीढ़ीदार शिखर/विमान और ताम्र कलश निष्क्रिय यांत्रिक एवं परावैद्युत तरंग-पथक (वेवगाइड) के रूप में कार्य करते हैं—जो विनाशकारी भूकंपीय तरंगों को शांत करते हैं और परिवेशीय सूक्ष्म-आवृत्ति स्पंदनों को केंद्रित करते हैं।',
+    summaryEn: 'Concentric Dielectric Waveguides & Environmental RF Traps',
+    summaryHi: 'संकेंद्रित परावैद्युत तरंग-पथक एवं पर्यावरणीय आरएफ ट्रैप',
     sections: [
       {
-        headingEn: '1. Metamaterial Seismic Damping in Concentric Prakaras',
-        headingHi: '1. संकेंद्रित प्राकारों में भूकंपीय तरंग अवमंदन',
-        bodyEn:
-          'Nested square-within-square temple enclosures (Vastu-Purusha-Mandala) built with interlocking dry-stone granite blocks and sand-cushion foundations (sikata-nyasa) behave like modern acoustic metamaterials. They scatter destructive surface Rayleigh waves while preserving vertical structural equilibrium.',
-        bodyHi:
-          'अंतर्ग्रथित ग्रेनाइट शिलाओं और रेत-आधार (सिकता-न्यास) से निर्मित वर्ग-के-भीतर-वर्ग वाले मंदिर प्राकार (वास्तु-पुरुष-मण्डल) आधुनिक ध्वनिक मेटामटेरियल की भांति व्यवहार करते हैं। वे विनाशकारी सतही भूकंपीय तरंगों को विक्षेपित कर संरचनात्मक संतुलन बनाए रखते हैं।'
+        headingEn: 'Empirical Field Term',
+        headingHi: 'आनुभविक क्षेत्रीय पारिभाषिक शब्द',
+        bodyEn: 'Concentric Dielectric Waveguides & Environmental RF Traps',
+        bodyHi: 'संकेंद्रित परावैद्युत तरंग-पथक एवं पर्यावरणीय आरएफ ट्रैप'
       },
       {
-        headingEn: '2. Copper Kalasha Finials & Atmospheric Charge Equalization',
-        headingHi: '2. ताम्र कलश शिखर एवं वायुमंडलीय आवेश संतुलन',
+        headingEn: 'Investigation Principle',
+        headingHi: 'अन्वेषण सिद्धांत',
         bodyEn:
-          'Crowned with a conductive bronze or copper kalasha filled with consecrated grain and minerals and grounded through structural stone joints, the temple shikhara functions as an atmospheric potential equalizer and electrostatic corona dissipator during monsoon storms.',
+          'Ancient master builders utilized precise geometric frameworks—such as pyramidal profiles, concentric squares, and interlocking mandala grids—to lay out sacred structures. From a physical perspective, these architectural geometries function analogously to modern radio frequency waveguides and acoustic horn structures.\n\nBy aligning dense granite and sandstone monoliths to cardinal magnetic coordinates, these layouts passively capture, trap, and focus low-frequency environmental waves, including wind shear friction, atmospheric pressure fluctuations, and microseisms. The building transforms into a passive energetic resonator, concentrating ambient kinetic energy into specific sanctum nodes within the structure.',
         bodyHi:
-          'पवित्र अन्न और खनिजों से भरे सुचालक कांस्य या ताम्र कलश से सुशोभित मंदिर शिखर मानसून के तूफानों के दौरान वायुमंडलीय विद्युत विभव को संतुलित करने और तड़ित-आवेश को सुरक्षित रूप से विसर्जित करने का कार्य करता है।'
+          'प्राचीन वास्तुकारों ने पवित्र संरचनाओं के निर्माण हेतु पिरामिडनुमा रूपरेखा, संकेंद्रित वर्ग और अंतर्ग्रथित मण्डल जालक जैसे सटीक ज्यामितीय ढाँचों का उपयोग किया। भौतिक विज्ञान की दृष्टि से, ये वास्तु-ज्यामितियाँ आधुनिक रेडियो आवृत्ति वेवगाइड और ध्वनि हॉर्न संरचनाओं के समान कार्य करती हैं।\n\nसघन ग्रेनाइट और बलुआ पत्थर के एकाश्मों को मुख्य चुंबकीय दिशाओं के अनुरूप संरेखित करने से, ये विन्यास वायु-अपरूपण घर्षण, वायुमंडलीय दाब परिवर्तनों और सूक्ष्म-भूकंपीय तरंगों जैसी निम्न-आवृत्ति की पर्यावरणीय तरंगों को निष्क्रिय रूप से पकड़ते और केंद्रित करते हैं। इस प्रकार संपूर्ण भवन एक निष्क्रिय ऊर्जा अनुनादक में परिवर्तित होकर परिवेशीय गतिज ऊर्जा को गर्भगृह के विशिष्ट बिंदुओं में केंद्रित कर देता है।'
       },
       {
-        headingEn: '3. Field Benchmark: Ellipsoidal Sanctums of the Western Ghats',
-        headingHi: '3. क्षेत्रीय केस अध्ययन: पश्चिमी घाट के दीर्घवृत्ताकार गर्भगृह',
+        headingEn: 'Benchmark Case Log',
+        headingHi: 'संदर्भ केस अभिलेख',
         bodyEn:
-          'Tri-axial geophone and RF spectrum logging across basalt and granite temples along the Western Ghats escarpment confirmed that concentric colonnades attenuate external wind-induced micro-tremors by 18 dB inside the inner sanctum.',
+          'The Ellipsoidal Sanctums of Western Ghats: Temple complexes whose core sanctum geometries demonstrate clear resonance trapping characteristics for regional microseismic and atmospheric waves.',
         bodyHi:
-          'पश्चिमी घाट के बेसाल्ट और ग्रेनाइट मंदिरों में किए गए त्रि-अक्षीय जियोफोन मापन ने पुष्टि की कि संकेंद्रित स्तंभ-गलियारे बाहरी वायु-जनित सूक्ष्म कंपनों को गर्भगृह के भीतर 18 dB तक शांत कर देते हैं।'
+          'पश्चिमी घाट के दीर्घवृत्ताकार गर्भगृह: ऐसे मंदिर परिसर जिनकी मूल गर्भगृह ज्यामिति क्षेत्रीय सूक्ष्म-भूकंपीय और वायुमंडलीय तरंगों को केंद्रित करने की स्पष्ट विशेषता दर्शाती है।'
       }
     ],
     keyFindingsEn: [
-      'Sand-box foundations (sikata-nyasa) reduce horizontal microseismic shear transmission by up to 62%.',
-      'Fractal projections (ratha/bhadra offsets) break up wind-vortex resonance along high temple towers.',
-      'The Vastu-Mandala functions simultaneously as a cosmological diagram and a passive structural resonator.'
+      'Empirical Field Term: Concentric Dielectric Waveguides & Environmental RF Traps',
+      'Cardinal-aligned granite & sandstone mandala layouts focus low-frequency environmental waves',
+      'Benchmark Case Log: The Ellipsoidal Sanctums of Western Ghats'
     ],
     keyFindingsHi: [
-      'सिकता-न्यास (रेत-आधार) क्षैतिज सूक्ष्म-भूकंपीय कंपन संचरण को 62% तक कम कर देता है।',
-      'शिखर के रथ और भद्र कोण ऊँचे मंदिर टावरों पर वायु-भंवर अनुनाद को नियंत्रित करते हैं।',
-      'वास्तु-मण्डल एक साथ ब्रह्माण्डीय आरेख और निष्क्रिय संरचनात्मक अनुनादक दोनों के रूप में कार्य करता है।'
+      'आनुभविक क्षेत्रीय पारिभाषिक शब्द: संकेंद्रित परावैद्युत तरंग-पथक एवं पर्यावरणीय आरएफ ट्रैप',
+      'मुख्य चुंबकीय दिशाओं में संरेखित ग्रेनाइट मण्डल विन्यास द्वारा निम्न-आवृत्ति पर्यावरणीय तरंग संकेंद्रण',
+      'संदर्भ केस अभिलेख: पश्चिमी घाट के दीर्घवृत्ताकार गर्भगृह'
     ],
     metadata: [
-      { labelEn: 'Sanskrit Classification', labelHi: 'संस्कृत वर्गीकरण', valueEn: 'Vastu-Mandala (वास्तु-मण्डल)', valueHi: 'वास्तु-मण्डल' },
-      { labelEn: 'Instrumentation', labelHi: 'प्रयुक्त उपकरण', valueEn: '4.5 Hz Tri-Axial Geophones & VLF Spectrum Analyzer', valueHi: '4.5 Hz त्रि-अक्षीय जियोफोन एवं स्पेक्ट्रम विश्लेषक' },
-      { labelEn: 'Benchmark Site', labelHi: 'संदर्भ स्थल', valueEn: 'The Ellipsoidal Sanctums of Western Ghats', valueHi: 'पश्चिमी घाट के दीर्घवृत्ताकार गर्भगृह' },
+      { labelEn: 'Subunit', labelHi: 'उप-इकाई', valueEn: 'V. Architectural Waveguides (Vastu-Mandala)', valueHi: 'V. वास्तु तरंग-पथक (वास्तु-मण्डल)' },
+      { labelEn: 'Empirical Field Term', labelHi: 'आनुभविक क्षेत्रीय शब्द', valueEn: 'Concentric Dielectric Waveguides & Environmental RF Traps', valueHi: 'संकेंद्रित परावैद्युत तरंग-पथक एवं पर्यावरणीय आरएफ ट्रैप' },
+      { labelEn: 'Benchmark Case Log', labelHi: 'संदर्भ केस अभिलेख', valueEn: 'The Ellipsoidal Sanctums of Western Ghats', valueHi: 'पश्चिमी घाट के दीर्घवृत्ताकार गर्भगृह' },
       { labelEn: 'Lead Investigator', labelHi: 'प्रमुख अन्वेषक', valueEn: 'Ram Ashok Kumar', valueHi: 'राम अशोक कुमार' }
     ],
-    primarySourcesEn: 'Aparajitapriccha · Kashyapa Shilpa Shastra · CAGS Structural Waveguide Monograph',
-    primarySourcesHi: 'अपराजितपृच्छा · कश्यप शिल्प शास्त्र · संरचनात्मक तरंग-पथक शोध-प्रबंध',
+    primarySourcesEn: 'Vastu-Mandala · The Ellipsoidal Sanctums of Western Ghats · CAGS Structural Waveguide Monograph',
+    primarySourcesHi: 'वास्तु-मण्डल · पश्चिमी घाट के दीर्घवृत्ताकार गर्भगृह · संरचनात्मक तरंग-पथक शोध-प्रबंध',
     authorEn: 'Ram Ashok Kumar',
     authorHi: 'राम अशोक कुमार',
     interactiveIndex: 4
@@ -913,64 +893,272 @@ const SHAKTI_TATTVA_CORE_ARTICLES: ResearchArticle[] = [
     slug: 'kalikula-srikula-streams',
     categorySlug: 'eight-matrikas',
     code: 'SKT-01',
-    titleEn: 'Kālīkula & Śrīkula — The Two Great Streams of Śākta Tantra',
-    titleHi: 'कालीकुल एवं श्रीकुल — शाक्त तन्त्र की दो महाधाराएँ',
-    subtitleEn: 'Comparative Theology, Liturgical Geography & Textual Lineages of the Northern/Eastern and Southern Śākta Transmissions',
-    subtitleHi: 'उत्तरी-पूर्वी एवं दक्षिणी शाक्त आम्नायों का तुलनात्मक तत्त्वज्ञान, अनुष्ठान भूगोल एवं ग्रंथीय परम्परा',
+    titleEn: 'Kālīkula & Śrīkula — Complete Research Synthesis (Parts I–IV)',
+    titleHi: 'कालीकुल एवं श्रीकुल — संपूर्ण शोध संश्लेषण (भाग I से IV)',
+    subtitleEn: 'Sanskrit: कालीकुल एवं श्रीकुल · Part I: Kālīkula (The Family, Lineage, or Tradition of Kālī) · Part II: Śrīkula (The Family, Lineage, or Tradition of Śrī / Śrīvidyā) · Part III: Comparative Analysis · Part IV: Archival Structure & Bibliography',
+    subtitleHi: 'संस्कृत: कालीकुल एवं श्रीकुल · भाग I: कालीकुल (काली का कुल, वंश या परम्परा) · भाग II: श्रीकुल (श्री / त्रिपुरसुन्दरी एवं श्रीविद्या की परम्परा) · भाग III: तुलनात्मक अध्ययन · भाग IV: अभिलेखीय संरचना एवं संदर्भ-सूची',
     sanskritEpigraph: '॥ कालीकुलं च श्रीकुलं च द्वौ प्रवाहौ महापथौ। चित्-शक्ति-साम्य-रूपायै महादेव्यै नमो नमः ॥',
-    epigraphTranslationEn: '"Kālīkula and Śrīkula stand as the two great Complementary Streams of the Supreme Goddess, who is the unity of Consciousness (Cit) and Power (Śakti)."',
-    epigraphTranslationHi: '"कालीकुल और श्रीकुल पराशक्ति की दो पूरक महाधाराएँ हैं, जो चित् और शक्ति के अद्वैत सामरस्य का साक्षात्कार कराती हैं।"',
-    evidenceBadgeEn: 'PRIMARY SCRIPTURAL & LINEAGE RECORD · ŚĀKTA TANTRA',
-    evidenceBadgeHi: 'मूल शास्त्रीय एवं आम्नाय अभिलेख · शाक्त तन्त्र',
+    epigraphTranslationEn: '"Kālīkula (the family, lineage, or tradition of Kālī) and Śrīkula (the family, lineage, or tradition of Śrī) stand as two interconnected Śākta Tantric streams contemplating the Goddess across time, dissolution, manifestation, sovereignty, and consciousness."',
+    epigraphTranslationHi: '"कालीकुल (काली का कुल या परम्परा) और श्रीकुल (श्री का कुल या परम्परा) शाक्त तन्त्र की दो परस्पर संबद्ध महाधाराएँ हैं, जो काल, लय, सृष्टि-अभिव्यक्ति, संप्रभुता और चेतना के धरातल पर भगवती पराशक्ति का साक्षात्कार कराती हैं।"',
+    evidenceBadgeEn: 'RESEARCH SYNTHESIS · PRIMARY TEXTS, SCHOLARLY INTERPRETATION & LINEAGE CONTEXT',
+    evidenceBadgeHi: 'शोध संश्लेषण · प्राथमिक ग्रंथीय साक्ष्य, अकादमिक व्याख्या एवं परम्परा संदर्भ',
     accentColor: '#EC4899',
     summaryEn:
-      'Classical Śākta Tantra is historically and liturgically organized around two primary families (kula): Kālīkula (predominant in Bengal, Assam, Mithila, Odisha, and Kashmir, centered on Kālī, Tārā, and epistemological transcendence) and Śrīkula (predominant in South India, Kashmir, and Varanasi, centered on Lalitā Tripurasundarī, the Śrīcakra, and aesthetic-cosmological harmony).',
+      'Editorial Synthesis: This page serves as a comprehensive four-part research synthesis distinguishing primary textual evidence from scholarly interpretation and contemporary practitioner explanations. Part I examines Kālīkula (कालीकुल — the family, lineage, or tradition of Kālī) across Bengal, eastern India, and the Kashmirian Krama current. Part II examines Śrīkula (श्रीकुल — the family, lineage, or tradition of Śrī), centered on Tripurasundarī (Lalitā, Rājarājeśvarī, Ṣoḍaśī), the Śrīcakra, and Śrīvidyā across South India and Kashmir. Part III compares Kālīkula and Śrīkula across eight analytical dimensions while demonstrating why they are not simple binary opposites. Part IV establishes the two dedicated research collections (Kālīkula Archive and Śrīkula Archive), their 8-point archival content structure, and peer-reviewed bibliography (Wenta 2021; Brooks 1992; Golovkova 2019; Karasiński 2025).',
     summaryHi:
-      'शास्त्रीय शाक्त तन्त्र ऐतिहासिक और आनुष्ठानिक रूप से दो प्रमुख कुलों में विभाजित है: कालीकुल (बंगाल, असम, मिथिला, ओडिशा और कश्मीर में प्रमुख; काली, तारा तथा तीव्र ज्ञान-वैराग्य पर केंद्रित) और श्रीकुल (दक्षिण भारत, कश्मीर और काशी में प्रमुख; ललिता त्रिपुरसुन्दरी, श्रीचक्र और सौन्दर्य-सामरस्य पर केंद्रित)।',
+      'संपादकीय शोध संश्लेषण: यह पृष्ठ प्राथमिक ग्रंथीय साक्ष्य, अकादमिक व्याख्या और समकालीन साधक-विवरणों के बीच स्पष्ट अंतर रखते हुए चार भागों में प्रस्तुत एक संपूर्ण शोध संश्लेषण (Research Synthesis) है। भाग I में कालीकुल (काली का परिवार, वंश या परम्परा) का बंगाल, पूर्वी भारत और कश्मीर की क्रम परम्परा के संदर्भ में विश्लेषण है। भाग II में श्रीकुल (श्री का परिवार, वंश या परम्परा) का त्रिपुरसुन्दरी (ललिता, राजराजेश्वरी, षोडशी), श्रीचक्र और श्रीविद्या के संदर्भ में दक्षिण भारत एवं कश्मीर के ऐतिहासिक परिप्रेक्ष्य में अध्ययन है। भाग III में आठ प्रमुख आयामों के आधार पर कालीकुल और श्रीकुल की तुलना करते हुए यह स्पष्ट किया गया है कि वे परस्पर निरपेक्ष विरोधी नहीं हैं। भाग IV में दोनों पृथक् शोध संग्रहों (कालीकुल अभिलेखागार और श्रीकुल अभिलेखागार) की ८-स्तरीय संरचना तथा प्रमुख अकादमिक संदर्भ-सूची (वेंटा २०२१; ब्रुक्स १९९२; गोलोवकोवा २०१९; करासिंस्की २०२५) दी गई है।',
     sections: [
       {
-        headingEn: '1. Kālīkula (कालीकुल): Epistemological Rupture & Transcendence of Time',
-        headingHi: '1. कालीकुल: काल-अतिक्रमण एवं प्रज्ञा-चक्र विधान',
+        headingEn: 'Part I (1 & 2) — Kālīkula: Definition, Religious Significance & Philosophical Foundations',
+        headingHi: 'भाग I (१ एवं २) — कालीकुल: परिभाषा, धार्मिक महत्त्व एवं दार्शनिक आधार',
         bodyEn:
-          'In Kālīkula texts—ranging from the early Krama systems of Kashmir (Mahārthamañjarī, Tantrāloka Ch. 4) to eastern Kaula compendia (Bṛhannīla Tantra, Kālīkulārṇava, Tantrasāra of Kṛṣṇānanda Āgamavāgīśa)—Kālī is venerated as Kālasaṅkarṣiṇī, the supreme power of consciousness that devours linear time and dualistic constriction. The Kālīkula path emphasizes direct confrontation with finitude (mṛtyu/kāla) and non-dual realization.',
+          'Sanskrit: कालीकुल · Transliteration: Kālīkula · Literal meaning: The family, lineage, or tradition of Kālī.\n1. Definition and religious significance: Kālīkula is a name used for Śākta Tantric traditions centered on Kālī and related forms of the Goddess. The term combines Kālī, the Goddess, with kula, meaning family, lineage, group, or, in certain Tantric philosophical contexts, a larger interconnected whole.\nBroad family of traditions: Kālīkula is not one universally standardized organization with a single scripture, ritual system, or theology. It is better understood as a broad family of related traditions whose teachings developed across different regions and historical periods. Some are strongly associated with Bengal and eastern India; others belong to the medieval Tantric traditions of Kashmir, particularly the Krama current.\nBeyond destroying evil: In these traditions, Kālī is not merely a goddess who destroys evil. Depending on the text and lineage, she can represent supreme consciousness, the power of time, the dynamic nature of existence, the dissolution of the universe, or the reality beyond ordinary distinctions. Her iconography, mythology, mantra traditions, and philosophical interpretations provide different ways of understanding the relationship between consciousness, creation, time, transformation, and liberation.\n2.1 Śakti as supreme reality: Śakti means power, capacity, or divine energy. In Śākta traditions, Śakti is not simply an instrument belonging to a separate male deity. She may be understood as the ultimate reality itself—the power through which existence manifests, continues, and returns to its source. In some nondual Tantric systems, Śiva and Śakti are inseparable aspects of reality: Śiva represents consciousness, while Śakti represents its dynamic, self-expressive power. This distinction is a philosophical framework, not necessarily a claim that the two are separate entities. Kālīkula traditions vary in how they formulate this relationship—some emphasize Kālī as the supreme Goddess beyond all categories; others explain her through more elaborate systems of manifestation, cognition, and dissolution.\n2.2 Kālī and time: The Sanskrit word kāla is associated with time and, in certain contexts, death. In the Kashmirian Krama tradition, the Goddess is associated with cycles of manifestation, experience, and dissolution. A particularly important doctrine concerns the twelve Kālīs, whose sequence is interpreted in later philosophical texts as the unfolding and reabsorption of consciousness. In this philosophical setting, what arises, is experienced, and disappears is understood in relation to the dynamic activity of consciousness itself.\n2.3 Creation and dissolution: Kālī’s destructive imagery is often interpreted through the larger cycle of existence: (1) Manifestation — reality appears in differentiated forms; (2) Experience — beings encounter and participate in the world; (3) Transformation — forms change and cease to remain as they were; (4) Dissolution — distinctions and manifested forms return to their source. These stages are a useful interpretive framework, not a single four-stage doctrine shared by every Kālīkula lineage.\n2.4 Liberation and recognition: Some nondual Śākta and Śaiva traditions understand liberation as a transformation in how reality is recognized and experienced, seeking more than temporary supernatural benefits. In the Kashmirian Krama tradition, the sequence of the Goddess is interpreted as the unfolding and reabsorption of awareness, aiming at realizing the nature of consciousness rather than remaining confined to ordinary, limited perception. This philosophical interpretation should not be automatically attributed to every Bengali Kālī worship tradition or every lineage that uses the name Kālīkula.',
         bodyHi:
-          'कश्मीर की क्रम प्रणाली (महार्थमञ्जरी, तन्त्रालोक) से लेकर पूर्वी भारत के बृहन्नील तन्त्र, कालीकुलार्णव और कृष्णानन्द आगमवागीश के तन्त्रसार तक—कालीकुल में भगवती काली की उपासना कालसंकर्षिणी के रूप में की जाती है, जो द्वैत और काल की सीमाओं का संहार कर अद्वैत बोध प्रदान करती हैं।'
+          'संस्कृत: कालीकुल · लिप्यंतरण: Kālīkula · शाब्दिक अर्थ: काली का परिवार, वंश, परम्परा या कुल।\n१. परिभाषा एवं धार्मिक महत्त्व: कालीकुल नाम का प्रयोग काली और देवी के संबंधित स्वरूपों पर केंद्रित शाक्त तांत्रिक परम्पराओं के लिए किया जाता है। यह शब्द "काली" (देवी) और "कुल" (परिवार, वंश, समूह अथवा तांत्रिक दर्शन में परस्पर संबद्ध समग्रता) के संयोग से बना है।\nसंबंधित परम्पराओं का व्यापक परिवार: कालीकुल कोई एक सर्वत्र मानकीकृत संगठन नहीं है जिसका केवल एक ही शास्त्र, एक ही पूजा-पद्धति या एक ही धर्मशास्त्र हो। इसे विभिन्न क्षेत्रों और ऐतिहासिक कालखंडों में विकसित हुई संबंधित परम्पराओं के एक व्यापक परिवार के रूप में समझना अधिक उपयुक्त है। इनमें से कुछ बंगाल और पूर्वी भारत से गहराई से जुड़ी हैं, जबकि अन्य कश्मीर की मध्यकालीन तांत्रिक परम्पराओं, विशेषतः "क्रम" (Krama) धारा से संबद्ध हैं।\nदुष्ट-दलन से परे दार्शनिक अर्थ: इन परम्पराओं में काली केवल दुष्टों का संहार करने वाली देवी मात्र नहीं हैं। ग्रन्थ और परम्परा के अनुसार वे सर्वोच्च चेतना, काल की शक्ति, अस्तित्व की गतिशील प्रकृति, ब्रह्माण्ड के लय, अथवा साधारण भेदों से परे के परम यथार्थ का प्रतिनिधित्व करती हैं।\n२.१ परम यथार्थ के रूप में शक्ति (Śakti as supreme reality): शक्ति का अर्थ सामर्थ्य या दिव्य ऊर्जा है। शाक्त परम्पराओं में शक्ति किसी पृथक् पुरुष देवता का मात्र उपकरण नहीं हैं; वे स्वयं परम यथार्थ हैं—वह शक्ति जिसके द्वारा अस्तित्व प्रकट होता है, बना रहता है और अपने मूल स्रोत में लौटता है। कुछ अद्वैत तांत्रिक प्रणालियों में शिव (चेतना) और शक्ति (उसकी गतिशील स्व-अभिव्यक्ति) यथार्थ के अविभाज्य पहलू हैं।\n२.२ काली और काल (Kālī and time): संस्कृत शब्द "काल" समय और मृत्यु से संबद्ध है। कश्मीर की क्रम परम्परा में देवी को सृष्टि के उन्मेष, अनुभव और विलय के चक्रों से जोड़ा गया है। इसमें "द्वादश काली" (बारह कालियों) का सिद्धांत विशेष महत्त्वपूर्ण है, जिनके अनुक्रम की व्याख्या परवर्ती दार्शनिक ग्रन्थों में चेतना के प्रकटन और पुनः समावेशन के रूप में की गई है।\n२.३ सृष्टि एवं लय (Creation and dissolution): काली के संहारक प्रतीकों को अस्तित्व के वृहत्तर चक्र के माध्यम से समझा जाता है: (१) उन्मेष / अभिव्यक्ति (Manifestation) — यथार्थ का विभेदित रूपों में प्रकट होना; (२) अनुभव (Experience) — जीवों का जगत में सहभागी होना; (३) रूपांतरण (Transformation) — रूपों का परिवर्तन; तथा (४) लय / विलय (Dissolution) — भेदों और प्रकट रूपों का अपने मूल स्रोत में लौट जाना। ये चार चरण एक उपयोगी व्याख्यात्मक रूपरेखा हैं, न कि प्रत्येक कालीकुल शाखा का एकसमान नियम।\n२.४ मुक्ति एवं प्रत्यभिज्ञा (Liberation and recognition): अद्वैत शाक्त और शैव परम्पराओं में मुक्ति को यथार्थ की पहचान (प्रत्यभिज्ञा) और अनुभव के रूपांतरण के रूप में समझा जाता है। कश्मीर क्रम दर्शन में देवी के अनुक्रम को सीमित बोध से ऊपर उठकर चेतना के वास्तविक स्वरूप के साक्षात्कार से जोड़ा गया है; किंतु इस विशिष्ट दार्शनिक व्याख्या को बिना प्रमाण के प्रत्येक बंगाली काली-उपासना परम्परा पर स्वतः आरोपित नहीं किया जाना चाहिए।'
       },
       {
-        headingEn: '2. Śrīkula (श्रीकुल): Śrīvidyā, Aesthetic Non-Dualism & the Śrīcakra',
-        headingHi: '2. श्रीकुल: श्रीविद्या, सौन्दर्य-अद्वैत एवं श्रीचक्र उपासना',
+        headingEn: 'Part I (3, 4, 5 & 6) — Kālīkula: Iconography, Wider Traditions, Textual Sources & Methodological Safeguards',
+        headingHi: 'भाग I (३, ४, ५ एवं ६) — कालीकुल: प्रतिमाशास्त्र, प्रमुख परम्पराएँ, ग्रंथीय स्रोत एवं शोध सावधानियाँ',
         bodyEn:
-          'Anchored in the Vāmakeśvara Tantra (Nityāṣoḍaśikārṇava), Yoginīhṛdaya, Lalitā Sahasranāma (Brahmāṇḍa Purāṇa), and Paraśurāma Kalpasūtra, Śrīkula contemplates the Divine Feminine as Lalitā Mahātripurasundarī. Rather than rejecting phenomenal manifestation, Śrīkula maps the universe as the auspicious self-reflection (vimarśa) of Śiva-Śakti across the nine enclosures of the Śrī Meru Chakra.',
+          '3. Kālī — iconography and symbolism:\n(a) Dark or black complexion — Kālī is frequently depicted with a dark complexion; devotional and theological interpretations associate this darkness with the boundless, the unmanifest, or a reality that cannot be contained by ordinary categories, though interpretations differ between texts and communities.\n(b) Garland of heads and other fierce attributes — These features belong to particular iconographic forms of Kālī and can be interpreted in relation to mortality, the destruction of ego, the transience of embodied existence, and the severing of limiting attachments.\n(c) Kālī standing upon Śiva — Interpreted through the relationship between consciousness and dynamic power, while popular devotional narratives also connect it with Kālī’s cessation of destructive activity upon recognizing Śiva beneath her feet.\n(d) Cremation-ground imagery — Certain forms of Kālī are associated with cremation grounds and other liminal settings that confront practitioners and observers with impermanence, death, social boundaries, and the limits of ordinary identity.\nResearch note on iconography: Iconographic descriptions should distinguish what is visibly represented from interpretations attributed to particular scriptures, commentaries, or living traditions; a symbol may carry several meanings rather than one universal explanation.\n4. Important traditions within the wider Kālī-centered landscape: Kālīkula should not be treated as a fixed list of subsects. Key research areas include (1) Bengali Śākta traditions (diverse devotional, philosophical, and Tantric approaches with regional variations); (2) Kashmirian Krama (a nondual Śākta-Śaiva current in which Kālī and her sequences are central to theories of consciousness and dissolution); (3) Mahāvidyā traditions (where Kālī is one of the ten Mahāvidyās); and (4) Kaula traditions (emphasizing lineage, initiation, ritual, and kula).\n5. Textual sources and historical research: A serious Kālīkula archive distinguishes primary sources, scholarly interpretations, and modern devotional explanations: (1) Kālīkulakramasadbhāva — A Tantric text associated with the Kālī-centered Krama textual tradition; (2) Jayadrathayāmala — A major Tantric textual source relevant to the historical study of Bhairava and Kālī-centered traditions; (3) Devīpañcaśataka — Examined in modern scholarship on the development of the twelve Kālīs; (4) Tantrāloka — Abhinavagupta’s major philosophical and ritual work systematizing Krama and related Tantric doctrines; and (5) Modern scholarship — Aleksandra Wenta’s peer-reviewed study examining the historical development of the twelve Kālīs from earlier Kula/Kaula contexts to later philosophical formulations.\n6. What Kālīkula should not be reduced to: (1) Kālīkula is not synonymous with black magic; (2) Kālī worship is not necessarily transgressive or associated with cremation-ground practices; (3) Every Kālī-centered tradition does not follow the same ritual system; (4) The twelve Kālīs of Kashmirian Krama should not be confused with the ten Mahāvidyās; and (5) Claims about supernatural powers or ritual effects should be presented as religious beliefs or textual claims, not as scientifically established facts.',
         bodyHi:
-          'वामकेश्वर तन्त्र (नित्याषोडशिकार्णव), योगिनीहृदय, ललिता सहस्रनाम (ब्रह्माण्ड पुराण) और परशुराम कल्पसूत्र पर आधारित श्रीकुल में पराशक्ति की उपासना ललिता महात्रिपुरसुन्दरी के रूप में होती है। यह धारा दृश्य जगत को त्यागने के स्थान पर उसे श्रीचक्र के नौ आवरणों में शिव-शक्ति के चिन्मय विमर्श के रूप में देखती है।'
+          '३. काली — प्रतिमाशास्त्र एवं प्रतीकार्थ:\n(क) श्यामल या कृष्ण वर्ण — काली को प्रायः गहरे श्यामल या कृष्ण वर्ण में चित्रित किया जाता है; भक्ति और धर्मशास्त्रीय व्याख्याएँ इसे असीम, अव्यक्त या साधारण श्रेणियों से परे के यथार्थ से जोड़ती हैं।\n(ख) मुण्डमाला एवं अन्य उग्र लक्षण — ये लक्षण नश्वरता, अहंकार के विनाश, देहधारी जीवन की क्षणभंगुरता और सीमित आसक्तियों के उच्छेदन के संदर्भ में व्याख्यायित होते हैं।\n(ग) शिव के ऊपर खड़ी काली — इसे चेतना (शिव) और गतिशील शक्ति (शक्ति) के संबंध के रूप में तथा भक्ति-आख्यानों में अपने चरणों के नीचे शिव को पहचानकर संहारक वेग रोकने के प्रसंग से जोड़ा जाता है।\n(घ) श्मशान-भूमि के प्रतीक — काली के कुछ स्वरूप श्मशान और सीमांत स्थलों से जुड़े हैं, जो अनित्यता, मृत्यु, सामाजिक सीमाओं और साधारण पहचान की सीमाओं का साक्षात्कार कराते हैं।\nप्रतिमाशास्त्रीय शोध टिप्पणी: दृश्य रूप और विशिष्ट शास्त्रों/भाष्यों की व्याख्याओं में स्पष्ट अंतर रखा जाना चाहिए; एक प्रतीक के कई अर्थ हो सकते हैं।\n४. व्यापक काली-केंद्रित परिदृश्य की प्रमुख परम्पराएँ: कालीकुल को उप-संप्रदायों की निश्चित सूची नहीं मानना चाहिए। प्रमुख शोध-क्षेत्र हैं—(१) बंगाली शाक्त परम्पराएँ; (२) कश्मीरी क्रम परम्परा (जहाँ काली और उनका अनुक्रम चेतना व लय के केंद्र में हैं); (३) महाविद्या परम्पराएँ (दस महाविद्याओं में काली का स्थान); तथा (४) कौल परम्पराएँ (वंश, दीक्षा, अनुष्ठान और कुल-तत्त्व)।\n५. ग्रंथीय स्रोत एवं ऐतिहासिक शोध: (१) कालीकुलक्रमसद्भाव — काली-केंद्रित क्रम परम्परा से संबद्ध तांत्रिक ग्रन्थ; (२) जयद्रथयामल — भैरव और काली-केंद्रित परम्पराओं के ऐतिहासिक अध्ययन का प्रमुख यामल स्रोत; (३) देवीपञ्चशतक — द्वादश काली के विकास पर आधुनिक शोध में परीक्षित ग्रन्थ; (४) तन्त्रालोक — अभिनवगुप्त की प्रमुख दार्शनिक एवं आनुष्ठानिक कृति; तथा (५) आधुनिक अकादमिक शोध — अलेक्ज़ांद्रा वेंटा (Aleksandra Wenta) का समीक्षित अध्ययन।\n६. कालीकुल को किन सरलीकरणों में सीमित नहीं किया जाना चाहिए: (१) कालीकुल काले जादू (अभिचार) का पर्याय नहीं है; (२) काली की प्रत्येक उपासना वाममार्गी या श्मशान-साधना पर आधारित नहीं होती; (३) सभी काली-केंद्रित परम्पराएँ एक ही पूजा-पद्धति का पालन नहीं करतीं; (४) कश्मीरी क्रम की "द्वादश काली" को "दशमहाविद्या" के साथ भ्रमित नहीं करना चाहिए; तथा (५) अलौकिक सिद्धियों या अनुष्ठान-प्रभावों के दावों को धार्मिक विश्वास या ग्रंथीय कथन के रूप में प्रस्तुत किया जाना चाहिए, न कि वैज्ञानिक रूप से सिद्ध तथ्य के रूप में।'
       },
       {
-        headingEn: '3. Methodological Note: Avoiding Rigid Binary Oversimplification',
-        headingHi: '3. शोध-पद्धति टिप्पणी: अति-सरलीकरण से बचाव एवं आगम समन्वय',
+        headingEn: 'Part II (1, 2 & 3) — Śrīkula: Definition, Tripurasundarī & Philosophical Foundations',
+        headingHi: 'भाग II (१, २ एवं ३) — श्रीकुल: परिभाषा, त्रिपुरसुन्दरी एवं दार्शनिक आधार',
         bodyEn:
-          'Historical manuscript scholarship demonstrates that Kālīkula and Śrīkula were never hermetically sealed rivals. Texts such as the Todala Tantra, Muṇḍamālā Tantra, and Sarvollāsa Tantra synthesize both families within the overarching Daśa Mahāvidyā framework and the Āmnāya (directional transmission) mandala.',
+          'Sanskrit: श्रीकुल · Transliteration: Śrīkula · Literal meaning: The family, lineage, or tradition of Śrī.\n1. Definition and religious significance: Śrīkula is a name used for Śākta Tantric traditions centered on Śrī, especially the Goddess Tripurasundarī, also known as Lalitā and Rājarājeśvarī. Its best-known associated tradition is Śrīvidyā, whose name is commonly translated as “auspicious knowledge” or “sacred wisdom.” In Śrīvidyā, the Goddess is worshipped through interconnected forms that include her anthropomorphic image, her mantra, and the Śrīcakra or Śrīyantra; these form an integrated theological and ritual system. Śrīkula traditions have had a particularly significant history in South India, while also developing through exchanges with Kashmirian Śaiva and Śākta philosophical traditions. As with Kālīkula, Śrīkula is not a single uniform organization, but a family of related Goddess-centered traditions.\n2. Tripurasundarī — the central Goddess: Commonly translated as “the Beauty of the Three Cities” or “the Beauty of the Three Worlds,” she is also known as: (1) Lalitā — the graceful or playful Goddess; (2) Rājarājeśvarī — the sovereign of sovereigns; (3) Ṣoḍaśī — a name associated with her sixteenfold aspect in particular traditions; and (4) Tripurā — emphasizing her connection with the threefold structure of reality. In Śrīvidyā, Tripurasundarī is understood as a supreme manifestation of Śakti rather than merely one deity among many. Her royal imagery communicates sovereignty, while her beauty and benevolent appearance express the harmonious, creative, and auspicious dimensions of the Goddess—manifesting as both the source of the cosmos and an accessible object of devotion.\n3.1 The unity of consciousness and manifestation: Many Śrīvidyā traditions draw on nondual Śaiva philosophical frameworks in which consciousness and its power of manifestation are inseparable. The manifested world is understood as an expression of her power, while her ultimate nature exceeds any particular form or manifestation; some teachers emphasize nondual metaphysics while others integrate Śākta worship with Vedāntic interpretations.\n3.2 The threefold nature of Tripurā: Depending on the text and lineage, threefold correspondences include: (1) The three worlds; (2) The knower, the act of knowing, and the known; (3) Creation, preservation, and dissolution; and (4) Waking, dreaming, and deep sleep. An archive should identify the particular text or commentary that establishes each correspondence rather than presenting every triad as canonical Śrīvidyā doctrine.\n3.3 Beauty, auspiciousness, and sovereignty: In this theological setting, beauty is not merely a superficial quality; it expresses the intelligibility, harmony, and creative fullness of manifestation. The Goddess is sovereign over the cosmos while remaining its inner power and source—one reason Śrīvidyā is not adequately described as simply the “gentle” counterpart to Kālī worship, as its theology is sophisticated and its ritual traditions include both contemplative and complex esoteric elements.',
         bodyHi:
-          'पाण्डुलिपि अध्ययन सिद्ध करते हैं कि कालीकुल और श्रीकुल परस्पर विरोधी नहीं, अपितु पूरक आम्नाय हैं। तोडल तन्त्र, मुण्डमाला तन्त्र और सर्वोल्लास तन्त्र जैसे ग्रन्थ दशमहाविद्या और षड्-आम्नाय व्यवस्था के अंतर्गत दोनों धाराओं का समन्वय प्रस्तुत करते हैं।'
+          'संस्कृत: श्रीकुल · लिप्यंतरण: Śrīkula · शाब्दिक अर्थ: श्री का परिवार, वंश, परम्परा या कुल।\n१. परिभाषा एवं धार्मिक महत्त्व: श्रीकुल नाम का प्रयोग "श्री" विशेषतः भगवती त्रिपुरसुन्दरी (जिन्हें ललिता और राजराजेश्वरी भी कहा जाता है) पर केंद्रित शाक्त तांत्रिक परम्पराओं के लिए किया जाता है। इससे संबद्ध सर्वाधिक प्रसिद्ध परम्परा "श्रीविद्या" है, जिसका अर्थ "मंगलमयी विद्या" या "पवित्र प्रज्ञा" है। श्रीविद्या में देवी की उपासना उनके साकार विग्रह, उनके मन्त्र और श्रीचक्र (श्रीयन्त्र) के अंतर्संबंधित रूपों में होती है—ये तीनों मिलकर एक एकीकृत धर्मशास्त्रीय और आनुष्ठानिक प्रणाली बनाते हैं। दक्षिण भारत में श्रीकुल परम्पराओं का विशेष ऐतिहासिक विकास हुआ तथा कश्मीर की शैव और शाक्त दार्शनिक परम्पराओं के साथ भी इनका गहरा आदान-प्रदान रहा।\n२. केंद्रीय देवी — त्रिपुरसुन्दरी: "त्रिपुरसुन्दरी" नाम का अनुवाद "तीनों पुरों (लोकों) की सुन्दरी" के रूप में किया जाता है। उन्हें इन प्रमुख नामों से भी जाना जाता है: (१) ललिता — ललित या लीलामयी देवी; (२) राजराजेश्वरी — सम्राटों की भी अधीश्वरी; (३) षोडशी — विशिष्ट परम्पराओं में उनके षोडश-कलात्मक स्वरूप से संबद्ध नाम; तथा (४) त्रिपुरा — यथार्थ की त्रिविध संरचना से उनके संबंध को दर्शाने वाला नाम। उनका राजसी स्वरूप संप्रभुता को और सौम्य सौन्दर्य सृष्टि के सामंजस्यपूर्ण व मंगलमय आयाम को प्रकट करता है।\n३.१ चेतना और अभिव्यक्ति की एकता: अनेक श्रीविद्या परम्पराएँ अद्वैत शैव दार्शनिक ढाँचे को अपनाती हैं जिसमें चेतना और उसकी अभिव्यक्ति-शक्ति अविभाज्य हैं। प्रकट जगत देवी की शक्ति की ही अभिव्यक्ति है, यद्यपि उनका परम स्वरूप किसी भी सीमित रूप से परे है।\n३.२ त्रिपुरा का त्रिविध स्वरूप: ग्रन्थ और परम्परा के अनुसार "त्रिपुरा" की व्याख्या विविध त्रिक-संरचनाओं से की जाती है: (१) तीन लोक; (२) प्रमाता (ज्ञाता), प्रमाण (ज्ञान-प्रक्रिया) और प्रमेय (ज्ञेय); (३) सृष्टि, स्थिति और संहार; तथा (४) जाग्रत, स्वप्न और सुषुप्ति। अभिलेखागार में प्रत्येक त्रयी के विशिष्ट ग्रंथ या भाष्य का उल्लेख किया जाना चाहिए।\n३.३ सौन्दर्य, मांगल्य एवं संप्रभुता: इस धर्मशास्त्रीय दृष्टि में सौन्दर्य केवल बाह्य गुण नहीं है, अपितु यह सृष्टि की बोधगम्यता, सामरस्य और रचनात्मक पूर्णता की अभिव्यक्ति है। इसीलिए श्रीविद्या को केवल काली-उपासना का "सौम्य" प्रतिपक्ष कहना पर्याप्त नहीं है; इसका तत्त्वज्ञान अत्यंत गहन है और इसमें ध्यानात्मक तथा गूढ़ आनुष्ठानिक दोनों तत्त्व समाहित हैं।'
+      },
+      {
+        headingEn: 'Part II (4, 5, 6, 7 & 8) — Śrīkula: The Śrīcakra, Mantra, Ritual & Jīvanmukti, Textual Sources & Safeguards',
+        headingHi: 'भाग II (४, ५, ६, ७ एवं ८) — श्रीकुल: श्रीचक्र ज्यामिति, मन्त्र, जीवनमुक्ति, मूल ग्रंथ एवं शोध सावधानियाँ',
+        bodyEn:
+          '4. The Śrīcakra — geometry as a theological system: The Śrīcakra (Śrīyantra) is a complex sacred diagram made from interlocking triangles, surrounding geometric enclosures, lotus forms, and a central point known as the bindu.\nPrincipal components of the Śrīcakra: (a) The Bindu — The central point associated with unity, the concentrated presence of the Goddess, and the source from which multiplicity emerges; (b) The Interlocking Triangles — Composed of nine principal interlocking triangles, conventionally counted as five downward-pointing and four upward-pointing triangles, generating the complex network of smaller triangles; (c) Lotus Enclosures and the Outer Boundary — The surrounding lotus circles and square enclosure associated with differentiated powers, protective boundaries, and the organized relationship between the central deity and the cosmos; and (d) The Nine Enclosures (Āvaraṇas) — Associated with groups of deities, powers, and stages of contemplative or ritual engagement; their names and deity arrangements must be taken from specific authoritative ritual manuals rather than simplified diagrams.\n5. Mantra and the subtle form of the Goddess: In Śrīvidyā theology, a mantra is not simply a verbal description of the Goddess; it is understood as a subtle form through which her power and presence are encountered. The Śrīvidyā mantra traditions include the well-known Pañcadaśī (fifteenfold) and Ṣoḍaśī (sixteenfold) systems. A public research archive should explain the history, terminology, theological role, and textual context of mantra while distinguishing academic discussion from restricted lineage-specific initiatory instructions.\n6. Ritual, meditation, and liberation (Jīvanmukti): Śrīvidyā practices include external worship, mantra recitation, yantra worship, visualization, meditation, and philosophical contemplation. Modern scholarship (e.g., Anna A. Golovkova) has traced the development of Śrīvidyā from early ritual systems toward later philosophical interpretations that place greater emphasis on liberation during one’s lifetime (jīvanmukti).\n7. Textual sources and historical research: Starting points for a Śrīvidyā research collection include: (1) Vāmakeśvarīmata — An important early text associated with the development of the Tripurasundarī cult; (2) Yoginīhṛdaya — A major Śrīvidyā text exploring the theological and ritual significance of the Śrīcakra, mantra, and the Goddess; (3) Nityāṣoḍaśikārṇava — A foundational text associated with the Nityā tradition and broader Śrīvidyā history; (4) Paraśurāma Kalpasūtra — A ritual source associated with Śrīvidyā practice in particular traditions; and (5) Lalitā Sahasranāma — A widely revered hymn of a thousand names of Lalitā. These texts belong to different literary genres and historical contexts and should not be assumed to have identical authority in every lineage.\n8. What Śrīkula should not be reduced to: (1) Śrīkula is not merely a tradition of geometric diagrams; (2) The Śrīcakra is not just decorative sacred geometry, as it has a specific theological and ritual context; (3) Śrīvidyā is not exclusively a public devotional tradition, nor is it uniformly secretive; (4) All Śrīvidyā lineages do not share identical ritual procedures or philosophical interpretations; and (5) Tripurasundarī should not be reduced to a symbol of physical beauty or worldly prosperity alone.',
+        bodyHi:
+          '४. श्रीचक्र — एक धर्मशास्त्रीय प्रणाली के रूप में ज्यामिति: श्रीचक्र (श्रीयन्त्र) अंतर्ग्रथित त्रिकोणों, संकेंद्रित ज्यामितीय आवरणों, कमल-दलों और केंद्रीय बिन्दु से निर्मित एक पवित्र आरेख है।\nश्रीचक्र के प्रमुख घटक: (क) बिन्दु (The Bindu) — केंद्रीय बिन्दु जो एकत्व, देवी की घनीभूत उपस्थिति और बहुलता के उद्गम से संबद्ध है; (ख) अंतर्ग्रथित त्रिकोण (The Interlocking Triangles) — नौ मुख्य त्रिकोण (५ अधोमुखी और ४ ऊर्ध्वमुखी) जो छोटे त्रिकोणों के जटिल जाल का निर्माण करते हैं; (ग) कमल-वृत्त एवं बाहरी भूपुर — विभेदित शक्तियों, सुरक्षात्मक सीमाओं और केंद्रीय देवता व ब्रह्माण्ड के सुव्यवस्थित संबंध के प्रतीक; तथा (घ) नौ आवरण (Nine Āvaraṇas) — श्रीचक्र का वर्णन नौ आवरणों के माध्यम से होता है जो विशिष्ट देवता-समूहों और साधना के सोपानों से जुड़े हैं।\n५. मन्त्र एवं देवी का सूक्ष्म स्वरूप: श्रीविद्या धर्मशास्त्र में मन्त्र केवल देवी का शाब्दिक वर्णन नहीं है, अपितु वह सूक्ष्म स्वरूप है जिसके माध्यम से उनकी शक्ति और उपस्थिति का साक्षात्कार होता है। इसमें पञ्चदशी (१५-अक्षरी) और षोडशी (१६-अक्षरी) मन्त्र-प्रणालियाँ सुप्रसिद्ध हैं। एक सार्वजनिक शोध अभिलेखागार को दीक्षा-गम्य गोपनीय निर्देशों का प्रकाशन किए बिना मन्त्र के इतिहास, शब्दावली और ग्रंथीय संदर्भ की अकादमिक व्याख्या करनी चाहिए।\n६. अनुष्ठान, ध्यान एवं जीवनमुक्ति: श्रीविद्या में बाह्य पूजा, मन्त्र-जप, यन्त्र-अर्चन, ध्यान और दार्शनिक चिंतन शामिल हैं। आधुनिक शोध (जैसे अन्ना ए. गोलोवकोवा) ने प्रारंभिक आनुष्ठानिक प्रणालियों से परवर्ती दार्शनिक व्याख्याओं की ओर विकास को रेखांकित किया है, जहाँ "जीवनमुक्ति" पर विशेष बल दिया गया है।\n७. ग्रंथीय स्रोत एवं ऐतिहासिक शोध: (१) वामकेश्वरीमत — त्रिपुरसुन्दरी उपासना के विकास से संबद्ध प्रमुख प्रारंभिक ग्रन्थ; (२) योगिनीहृदय — श्रीचक्र, मन्त्र और देवी के धर्मशास्त्रीय व आनुष्ठानिक महत्त्व का विवेचन करने वाला मुख्य ग्रन्थ; (३) नित्याषोडशिकार्णव — नित्या परम्परा और श्रीविद्या के व्यापक इतिहास का आधारभूत ग्रन्थ; (४) परशुराम कल्पसूत्र — श्रीविद्या अनुष्ठान पद्धति का प्रमुख कल्पसूत्र; तथा (५) ललिता सहस्रनाम — ललिता के एक हजार नामों का सुप्रसिद्ध स्तोत्र।\n८. श्रीकुल को किन सरलीकरणों में सीमित नहीं किया जाना चाहिए: (१) श्रीकुल केवल ज्यामितीय आकृतियों की परम्परा मात्र नहीं है; (२) श्रीचक्र केवल सजावटी पवित्र ज्यामिति नहीं है, इसका विशिष्ट धर्मशास्त्रीय और आनुष्ठानिक संदर्भ है; (३) श्रीविद्या न तो केवल सार्वजनिक भक्ति तक सीमित है और न ही सर्वत्र एकसमान रूप से गोपनीय है; (४) सभी श्रीविद्या परम्पराओं की पूजा-विधि या दार्शनिक व्याख्या एकसमान नहीं है; तथा (५) त्रिपुरसुन्दरी को केवल भौतिक सौन्दर्य या लौकिक समृद्धि के प्रतीक मात्र में सीमित नहीं किया जाना चाहिए।'
+      },
+      {
+        headingEn: 'Part III — Comparing Kālīkula and Śrīkula: Are They Opposites?',
+        headingHi: 'भाग III — कालीकुल और श्रीकुल की तुलना: क्या वे परस्पर विरोधी हैं?',
+        bodyEn:
+          'Are they opposites? Not in any absolute sense.\nBeyond the fierce vs. gentle binary: A common modern simplification portrays Kālīkula as fierce, dark, and destructive, while Śrīkula is portrayed as gentle, bright, and creative. The imagery can reflect real differences between particular forms of the Goddess, but the division becomes misleading when treated as a universal philosophical rule.\nContemplative depth and esoteric rigor in both streams: Kālī-centered traditions can be deeply contemplative and concerned with ultimate reality. Conversely, Śrīvidyā traditions can involve complex esoteric ritual, rigorous discipline, and sophisticated metaphysics.\nShared Śākta framework and interconnected history: The two streams share a wider Śākta framework in which the Goddess is central to understanding reality, ritual, and spiritual transformation. Their histories are interconnected, and their boundaries do not always correspond to a neat division between separate, mutually exclusive systems (see Part I Table 01 above for the 8-dimension comparative matrix).',
+        bodyHi:
+          'क्या वे परस्पर विरोधी हैं? किसी भी निरपेक्ष अर्थ में नहीं।\nउग्र बनाम सौम्य के सरल द्विभाजन से परे: एक सामान्य आधुनिक सरलीकरण कालीकुल को उग्र, अंधकारमय और संहारक तथा श्रीकुल को सौम्य, उज्ज्वल और सृजनात्मक के रूप में चित्रित करता है। यह दृश्य अंतर देवी के विशिष्ट रूपों की भिन्नता को तो दर्शा सकता है, किंतु जब इसे एक सार्वभौमिक दार्शनिक नियम मान लिया जाता है तब यह भ्रामक हो जाता है।\nदोनों धाराओं में दार्शनिक गहनता और आनुष्ठानिक अनुशासन: काली-केंद्रित परम्पराएँ अत्यंत चिंतनशील और परम यथार्थ के साक्षात्कार पर केंद्रित हो सकती हैं; दूसरी ओर, श्रीविद्या परम्पराओं में जटिल गूढ़ अनुष्ठान, कठोर अनुशासन और सूक्ष्म तत्त्वमीमांसा समाहित रहती है।\nसाझा शाक्त ढाँचा एवं अंतर्संबंधित इतिहास: दोनों ही धाराएँ एक व्यापक शाक्त ढाँचे को साझा करती हैं जिसमें यथार्थ, अनुष्ठान और आध्यात्मिक रूपांतरण को समझने के केंद्र में स्वयं देवी हैं। उनके इतिहास परस्पर जुड़े हुए हैं और उनकी सीमाएँ सदैव दो परस्पर अनन्य प्रणालियों के कठोर विभाजन से मेल नहीं खातीं (आठ आयामों की तुलनात्मक सारणी ऊपर भाग I की तालिका ०१ में दी गई है)।'
+      },
+      {
+        headingEn: 'Part IV — Archival Presentation Structure, Dual Research Collections & Selected Bibliography',
+        headingHi: 'भाग IV — अभिलेखीय प्रस्तुति संरचना, दो पृथक् शोध संग्रह एवं चयनित संदर्भ-सूची',
+        bodyEn:
+          'Dual Research Collection Architecture: Each tradition is given its own dedicated landing archive alongside this comparative synthesis: (1) Kālīkula Archive — The Goddess of Time, Transformation, and Dissolution (an index of Kālī-centered traditions, philosophical systems, iconography, textual sources, regional histories, and documented ritual contexts); and (2) Śrīkula Archive — The Goddess of Sovereignty, Manifestation, and Sacred Knowledge (an index of Śrīvidyā, Tripurasundarī, Śrīcakra traditions, mantra theology, historical texts, ritual systems, and philosophical commentaries).\nEight-Part Content Structure for Each Archive:\n1. Overview — definition, historical context, terminology, and principal concepts.\n2. Philosophy and theology — doctrines, interpretations, and conceptual frameworks.\n3. Deities and iconography — forms of the Goddess, attributes, symbols, and documented variations.\n4. Texts and manuscripts — primary sources, translations, commentaries, and bibliographic records.\n5. Ritual and practice — historically documented practices, with distinctions between public descriptions and lineage-specific instructions.\n6. Regional histories and lineages — geographical development, transmission, and variations between traditions.\n7. Comparative research — relationships with other Śākta, Śaiva, and Tantric traditions.\n8. References and evidence — citations, provenance, scholarly publications, and unresolved questions.\nSelected Bibliography for the Archive:\n1. Aleksandra Wenta — “From the Sequence of the Sun-Goddess to Time-Consumption”, Journal of Indian Philosophy, 2021: A peer-reviewed study of the twelve Kālīs, the Krama tradition, and the development of their philosophical interpretation.\n2. Douglas Renfrew Brooks — Auspicious Wisdom: The Texts and Traditions of Śrīvidyā Śākta Tantrism in South India, State University of New York Press, 1992: A major scholarly study of Śrīvidyā texts, ritual traditions, theology, and historical development.\n3. Anna A. Golovkova — “From Worldly Powers to Jīvanmukti”, The Journal of Hindu Studies, 2019: Examines changing understandings of ritual, liberation, and spiritual attainment in early Tripurasundarī traditions.\n4. Maciej Karasiński — “Śrī Vidyā”, Oxford Bibliographies in Hinduism, published 2025: A scholarly overview of Śrīvidyā’s history, terminology, texts, and changing ritual contexts.\nEditorial Recommendation: Label each page as a research synthesis and distinguish primary textual evidence from scholarly interpretation and contemporary practitioner explanations. For a website dedicated to serious Tantric research, that distinction makes the archive substantially more useful and credible than a collection of descriptions alone.',
+        bodyHi:
+          'दो पृथक् शोध संग्रहों की संरचना: इस तुलनात्मक संश्लेषण के साथ-साथ दोनों परम्पराओं के लिए स्वतंत्र शोध-पृष्ठ स्थापित किए गए हैं: (१) कालीकुल अभिलेखागार (Kālīkula Archive) — काल, रूपांतरण और लय की देवी (काली-केंद्रित परम्पराओं, दार्शनिक प्रणालियों, प्रतिमाशास्त्र, ग्रंथीय स्रोतों, क्षेत्रीय इतिहास और प्रमाणित आनुष्ठानिक संदर्भों की अनुक्रमणिका); तथा (२) श्रीकुल अभिलेखागार (Śrīkula Archive) — संप्रभुता, अभिव्यक्ति और पवित्र ज्ञान की देवी (श्रीविद्या, त्रिपुरसुन्दरी, श्रीचक्र परम्पराओं, मन्त्र-धर्मशास्त्र, ऐतिहासिक ग्रन्थों, पूजा-पद्धतियों और दार्शनिक भाष्यों की अनुक्रमणिका)।\nप्रत्येक अभिलेखागार के लिए ८-स्तरीय विषय-संरचना:\n१. अवलोकन (Overview) — परिभाषा, ऐतिहासिक संदर्भ, शब्दावली एवं प्रमुख अवधारणाएँ।\n२. दर्शन एवं धर्मशास्त्र (Philosophy and theology) — सिद्धांत, व्याख्याएँ एवं वैचारिक ढाँचे।\n३. देवता एवं प्रतिमाशास्त्र (Deities and iconography) — देवी के स्वरूप, आयुध, प्रतीक एवं प्रमाणित क्षेत्रीय भिन्नताएँ।\n४. ग्रन्थ एवं पाण्डुलिपियाँ (Texts and manuscripts) — प्राथमिक स्रोत, अनुवाद, भाष्य एवं ग्रंथ-विवरण।\n५. अनुष्ठान एवं साधना (Ritual and practice) — ऐतिहासिक रूप से प्रलेखित अभ्यास, सार्वजनिक विवरण और दीक्षा-आधारित निर्देशों के स्पष्ट भेद सहित।\n६. क्षेत्रीय इतिहास एवं परम्पराएँ (Regional histories and lineages) — भौगोलिक विकास, संप्रेषण और विभिन्न आम्नायों की विशेषताएँ।\n७. तुलनात्मक शोध (Comparative research) — अन्य शाक्त, शैव और तांत्रिक परम्पराओं के साथ अंतर्संबंध।\n८. संदर्भ एवं साक्ष्य (References and evidence) — उद्धरण, स्रोत-प्रामाणिकता, अकादमिक प्रकाशन एवं अनसुलझे प्रश्न।\nचयनित अकादमिक संदर्भ-सूची (Selected Bibliography):\n१. अलेक्ज़ांद्रा वेंटा (Aleksandra Wenta) — “From the Sequence of the Sun-Goddess to Time-Consumption”, Journal of Indian Philosophy, २०२१: द्वादश काली, क्रम परम्परा और उनकी दार्शनिक व्याख्या के विकास का समीक्षित अध्ययन।\n२. डगलस रेनफ्रू ब्रुक्स (Douglas Renfrew Brooks) — Auspicious Wisdom: The Texts and Traditions of Śrīvidyā Śākta Tantrism in South India, SUNY Press, १९९२: दक्षिण भारत में श्रीविद्या ग्रन्थों, अनुष्ठान परम्पराओं और धर्मशास्त्र का प्रमुख अध्ययन।\n३. अन्ना ए. गोलोवकोवा (Anna A. Golovkova) — “From Worldly Powers to Jīvanmukti”, The Journal of Hindu Studies, २०१९: प्रारंभिक त्रिपुरसुन्दरी परम्पराओं में अनुष्ठान और जीवनमुक्ति की अवधारणा के विकास का अध्ययन।\n४. माचिये करासिंस्की (Maciej Karasiński) — “Śrī Vidyā”, Oxford Bibliographies in Hinduism, २०२५: श्रीविद्या के इतिहास, शब्दावली, ग्रन्थों और आनुष्ठानिक संदर्भों का अकादमिक सर्वेक्षण।\nसंपादकीय अनुशंसा: प्रत्येक पृष्ठ को "शोध संश्लेषण" (Research Synthesis) के रूप में चिह्नित किया गया है तथा प्राथमिक ग्रंथीय साक्ष्य, अकादमिक व्याख्या और समकालीन साधक-विवरणों के बीच स्पष्ट अंतर रखा गया है।'
       }
     ],
     keyFindingsEn: [
-      'Kālīkula centers on Kālī, Tārā, and Chinnamastā; primary regions include Bengal, Kamakhya (Assam), Mithila, and Kashmir Krama.',
-      'Śrīkula centers on Tripurasundarī (Ṣoḍaśī), Bhuvaneśvarī, and Mātaṅgī; codified in Vāmakeśvara Tantra and Yoginīhṛdaya.',
-      'Both lineages share the foundational Aṣṭa Mātṛkā and Catuḥṣaṣṭi Yoginī mandala structures.'
+      'Kālīkula ("family/lineage of Kālī") spans Bengali/eastern Indian Śākta traditions and the Kashmirian Krama current (Twelve Kālīs), focusing on Śakti as supreme reality, time (kāla), manifestation–dissolution cycles, and nondual recognition.',
+      'Śrīkula ("family/lineage of Śrī") centers on Tripurasundarī (Lalitā, Rājarājeśvarī, Ṣoḍaśī) and Śrīvidyā across South India and Kashmir, integrating anthropomorphic form, Pañcadaśī/Ṣoḍaśī mantra, and the nine-enclosure Śrīcakra.',
+      'Kālīkula and Śrīkula are not absolute binary opposites: Kālī-centered traditions include deep nondual contemplation, while Śrīvidyā encompasses complex esoteric ritual and metaphysics oriented toward jīvanmukti.',
+      'Primary texts (Kālīkulakramasadbhāva, Jayadrathayāmala, Devīpañcaśataka, Tantrāloka; Vāmakeśvarīmata, Yoginīhṛdaya, Nityāṣoḍaśikārṇava, Paraśurāma Kalpasūtra, Lalitā Sahasranāma) are clearly distinguished from peer-reviewed scholarship (Wenta 2021; Brooks 1992; Golovkova 2019; Karasiński 2025).'
     ],
     keyFindingsHi: [
-      'कालीकुल में काली, तारा और छिन्नमस्ता की प्रधानता है; इसके प्रमुख केंद्र बंगाल, कामाख्या (असम), मिथिला और कश्मीर क्रम परम्परा हैं।',
-      'श्रीकुल में त्रिपुरसुन्दरी (षोडशी), भुवनेश्वरी और मातंगी की प्रधानता है; इसके मूल ग्रन्थ वामकेश्वर तन्त्र और योगिनीहृदय हैं।',
-      'दोनों ही धाराएँ अष्ट मातृका और चतुःषष्टि योगिनी के मण्डल विधान को साझा करती हैं।'
+      'कालीकुल ("काली का कुल/परम्परा") में बंगाली/पूर्वी भारतीय शाक्त धाराएँ और कश्मीर की क्रम परम्परा (द्वादश काली) शामिल हैं, जो परम यथार्थ के रूप में शक्ति, काल, सृष्टि-लय चक्र और अद्वैत प्रत्यभिज्ञा पर केंद्रित हैं।',
+      'श्रीकुल ("श्री का कुल/परम्परा") त्रिपुरसुन्दरी (ललिता, राजराजेश्वरी, षोडशी) और श्रीविद्या पर केंद्रित है, जो देवी विग्रह, पञ्चदशी/षोडशी मन्त्र और नव-आवरण श्रीचक्र को एक एकीकृत प्रणाली में जोड़ता है।',
+      'कालीकुल और श्रीकुल निरपेक्ष विरोधी नहीं हैं: काली-परम्पराओं में गहन अद्वैत चिंतन है और श्रीविद्या में गूढ़ आनुष्ठानिक अनुशासन तथा जीवनमुक्ति-केंद्रित तत्त्वमीमांसा है।',
+      'मूल संस्कृत ग्रन्थों (कालीकुलक्रमसद्भाव, जयद्रथयामल, देवीपञ्चशतक, तन्त्रालोक; वामकेश्वरीमत, योगिनीहृदय, नित्याषोडशिकार्णव, परशुराम कल्पसूत्र, ललिता सहस्रनाम) और आधुनिक अकादमिक शोध (वेंटा २०२१; ब्रुक्स १९९२; गोलोवकोवा २०१९; करासिंस्की २०२५) के बीच स्पष्ट अंतर रखा गया है।'
     ],
     metadata: [
-      { labelEn: 'Sanskrit Classification', labelHi: 'संस्कृत वर्गीकरण', valueEn: 'Kālīkula & Śrīkula (कालीकुल · श्रीकुल)', valueHi: 'कालीकुल एवं श्रीकुल' },
-      { labelEn: 'Evidence Category', labelHi: 'प्रमाण श्रेणी', valueEn: 'Primary Tantric Compendia & Manuscript Lineages', valueHi: 'मूल तांत्रिक संहिताएँ एवं पाण्डुलिपि परम्परा' },
-      { labelEn: 'Core Texts', labelHi: 'प्रमुख ग्रन्थ', valueEn: 'Nityāṣoḍaśikārṇava · Yoginīhṛdaya · Tantrasāra · Mahārthamañjarī', valueHi: 'नित्याषोडशिकार्णव · योगिनीहृदय · तन्त्रसार · महार्थमञ्जरी' },
-      { labelEn: 'Lead Investigator', labelHi: 'प्रमुख अन्वेषक', valueEn: 'Ram Ashok Kumar', valueHi: 'राम अशोक कुमार' }
+      { labelEn: 'Sanskrit & Literal Meaning', labelHi: 'संस्कृत एवं शाब्दिक अर्थ', valueEn: 'कालीकुल (Kālīkula: Family/Lineage of Kālī) · श्रीकुल (Śrīkula: Family/Lineage of Śrī)', valueHi: 'कालीकुल (काली का कुल/परम्परा) · श्रीकुल (श्री का कुल/परम्परा)' },
+      { labelEn: 'Editorial Classification', labelHi: 'संपादकीय वर्गीकरण', valueEn: 'Research Synthesis (Primary Texts · Scholarly Interpretation · Living Practice)', valueHi: 'शोध संश्लेषण (मूल ग्रन्थ · अकादमिक व्याख्या · साधना परम्परा)' },
+      { labelEn: 'Primary Kālīkula Texts', labelHi: 'प्रमुख कालीकुल ग्रन्थ', valueEn: 'Kālīkulakramasadbhāva · Jayadrathayāmala · Devīpañcaśataka · Tantrāloka', valueHi: 'कालीकुलक्रमसद्भाव · जयद्रथयामल · देवीपञ्चशतक · तन्त्रालोक' },
+      { labelEn: 'Primary Śrīkula Texts', labelHi: 'प्रमुख श्रीकुल ग्रन्थ', valueEn: 'Vāmakeśvarīmata · Yoginīhṛdaya · Nityāṣoḍaśikārṇava · Paraśurāma Kalpasūtra · Lalitā Sahasranāma', valueHi: 'वामकेश्वरीमत · योगिनीहृदय · नित्याषोडशिकार्णव · परशुराम कल्पसूत्र · ललिता सहस्रनाम' }
     ],
-    primarySourcesEn: 'Vāmakeśvara Tantra · Yoginīhṛdaya · Tantrasāra (Kṛṣṇānanda Āgamavāgīśa) · Mahārthamañjarī',
-    primarySourcesHi: 'वामकेश्वर तन्त्र · योगिनीहृदय · तन्त्रसार (कृष्णानन्द आगमवागीश) · महार्थमञ्जरी',
+    primarySourcesEn: 'Kālīkulakramasadbhāva · Jayadrathayāmala · Devīpañcaśataka · Tantrāloka · Vāmakeśvarīmata · Yoginīhṛdaya · Nityāṣoḍaśikārṇava · Paraśurāma Kalpasūtra · Lalitā Sahasranāma · Wenta (2021) · Brooks (1992) · Golovkova (2019) · Karasiński (2025)',
+    primarySourcesHi: 'कालीकुलक्रमसद्भाव · जयद्रथयामल · देवीपञ्चशतक · तन्त्रालोक · वामकेश्वरीमत · योगिनीहृदय · नित्याषोडशिकार्णव · परशुराम कल्पसूत्र · ललिता सहस्रनाम · वेंटा (२०२१) · ब्रुक्स (१९९२) · गोलोवकोवा (२०१९) · करासिंस्की (२०२५)',
+    authorEn: 'Ram Ashok Kumar',
+    authorHi: 'राम अशोक कुमार'
+  },
+  {
+    slug: 'kalikula-archive-tradition',
+    categorySlug: 'eight-matrikas',
+    code: 'SKT-01A',
+    titleEn: 'Part I — Kālīkula Archive: The Goddess of Time, Transformation, and Dissolution',
+    titleHi: 'भाग I — कालीकुल अभिलेखागार: काल, रूपांतरण और लय की देवी',
+    subtitleEn: 'Sanskrit: कालीकुल · Transliteration: Kālīkula · Literal meaning: The family, lineage, or tradition of Kālī — Definition, Philosophical Foundations, Iconography, Wider Traditions, Textual Sources & Methodological Distinctions',
+    subtitleHi: 'संस्कृत: कालीकुल · लिप्यंतरण: Kālīkula · शाब्दिक अर्थ: काली का परिवार, वंश या परम्परा — परिभाषा, दार्शनिक आधार, प्रतिमाशास्त्र, प्रमुख धाराएँ, ग्रंथीय स्रोत एवं शोध सावधानियाँ',
+    sanskritEpigraph: '॥ कालीकुलक्रमसद्भावः · कालं कलयते या तु सा काली परमा कला ॥',
+    epigraphTranslationEn: '"Kālīkula Archive — An index of Kālī-centered traditions, philosophical systems, iconography, textual sources, regional histories, and documented ritual contexts."',
+    epigraphTranslationHi: '"कालीकुल अभिलेखागार — काली-केंद्रित परम्पराओं, दार्शनिक प्रणालियों, प्रतिमाशास्त्र, ग्रंथीय स्रोतों, क्षेत्रीय इतिहास और प्रलेखित आनुष्ठानिक संदर्भों का शोध संश्लेषण।"',
+    evidenceBadgeEn: 'PART I · KĀLĪKULA RESEARCH SYNTHESIS & ARCHIVE',
+    evidenceBadgeHi: 'भाग I · कालीकुल शोध संश्लेषण एवं अभिलेखागार',
+    accentColor: '#F43F5E',
+    summaryEn:
+      'Kālīkula (Sanskrit: कालीकुल — "The family, lineage, or tradition of Kālī") is a name used for Śākta Tantric traditions centered on Kālī and related forms of the Goddess. Rather than one universally standardized organization with a single scripture, ritual system, or theology, Kālīkula is a broad family of related traditions whose teachings developed across different regions and historical periods—some strongly associated with Bengal and eastern India, and others belonging to the medieval Tantric traditions of Kashmir, particularly the Krama current. In these traditions, Kālī can represent supreme consciousness, the power of time, the dynamic nature of existence, the dissolution of the universe, or the reality beyond ordinary distinctions.',
+    summaryHi:
+      'कालीकुल (संस्कृत: कालीकुल — "काली का परिवार, वंश या परम्परा") काली और उनसे संबंधित देवी-स्वरूपों पर केंद्रित शाक्त तांत्रिक परम्पराओं का नाम है। यह किसी एक शास्त्र, एक पूजा-पद्धति या एक धर्मशास्त्र वाला मानकीकृत संगठन नहीं है, अपितु विभिन्न क्षेत्रों और ऐतिहासिक कालखंडों में विकसित संबंधित परम्पराओं का एक व्यापक परिवार है—जिनमें से कुछ बंगाल और पूर्वी भारत से गहराई से जुड़ी हैं और अन्य कश्मीर की मध्यकालीन तांत्रिक परम्पराओं, विशेषतः "क्रम" धारा से संबद्ध हैं। इन परम्पराओं में काली सर्वोच्च चेतना, काल की शक्ति, अस्तित्व की गतिशील प्रकृति, ब्रह्माण्ड के लय और सामान्य भेदों से परे के परम यथार्थ का प्रतिनिधित्व करती हैं।',
+    sections: [
+      {
+        headingEn: '1. Definition and Religious Significance',
+        headingHi: '1. परिभाषा एवं धार्मिक महत्त्व (Definition and Religious Significance)',
+        bodyEn:
+          'Etymology of Kālīkula: Kālīkula is a name used for Śākta Tantric traditions centered on Kālī and related forms of the Goddess. The term combines Kālī, the Goddess, with kula, meaning family, lineage, group, or, in certain Tantric philosophical contexts, a larger interconnected whole.\nA broad family of related traditions: Kālīkula is not one universally standardized organization with a single scripture, ritual system, or theology. It is better understood as a broad family of related traditions whose teachings developed across different regions and historical periods. Some are strongly associated with Bengal and eastern India; others belong to the medieval Tantric traditions of Kashmir, particularly the Krama current.\nSupreme consciousness and the power of time: In these traditions, Kālī is not merely a goddess who destroys evil. Depending on the text and lineage, she can represent supreme consciousness, the power of time, the dynamic nature of existence, the dissolution of the universe, or the reality beyond ordinary distinctions.\nMultidimensional significance: The significance of Kālī therefore extends beyond her visual imagery. Her iconography, mythology, mantra traditions, and philosophical interpretations provide different ways of understanding the relationship between consciousness, creation, time, transformation, and liberation.',
+        bodyHi:
+          'कालीकुल की व्युत्पत्ति: कालीकुल नाम का प्रयोग काली और देवी के संबंधित स्वरूपों पर केंद्रित शाक्त तांत्रिक परम्पराओं के लिए किया जाता है। यह शब्द "काली" (देवी) और "कुल" (परिवार, वंश, समूह अथवा विशिष्ट तांत्रिक दार्शनिक संदर्भों में एक वृहत्तर अंतर्संबंधित समग्रता) के मेल से बना है।\nसंबंधित परम्पराओं का व्यापक परिवार: कालीकुल कोई एक सर्वत्र मानकीकृत संगठन नहीं है जिसका एक ही शास्त्र, एक ही अनुष्ठान-पद्धति या एक ही धर्मशास्त्र हो। इसे विभिन्न क्षेत्रों और ऐतिहासिक कालों में विकसित संबंधित परम्पराओं के एक व्यापक परिवार के रूप में समझा जाना चाहिए—जिनमें कुछ बंगाल और पूर्वी भारत से जुड़ी हैं तथा अन्य कश्मीर की मध्यकालीन तांत्रिक परम्पराओं, विशेषतः क्रम (Krama) धारा से संबद्ध हैं।\nसर्वोच्च चेतना एवं काल की शक्ति: इन परम्पराओं में काली केवल दुष्टों का विनाश करने वाली देवी मात्र नहीं हैं। ग्रन्थ और परम्परा के अनुसार वे सर्वोच्च चेतना, काल की शक्ति, अस्तित्व की गतिशील प्रकृति, ब्रह्माण्ड के विलय, अथवा साधारण भेदों से परे के परम यथार्थ का प्रतिनिधित्व करती हैं।\nबहुआयामी महत्त्व: इसलिए काली का महत्त्व केवल उनकी दृश्य प्रतिमा तक सीमित नहीं है। उनका प्रतिमाशास्त्र, पौराणिक आख्यान, मन्त्र-परम्पराएँ और दार्शनिक व्याख्याएँ चेतना, सृष्टि, काल, रूपांतरण और मुक्ति के अंतर्संबंध को समझने के विविध मार्ग प्रदान करती हैं।'
+      },
+      {
+        headingEn: '2. The Philosophical Foundations of Kālīkula (2.1 to 2.4)',
+        headingHi: '2. कालीकुल के दार्शनिक आधार (२.१ से २.४)',
+        bodyEn:
+          '2.1 Śakti as supreme reality: Śakti means power, capacity, or divine energy. In Śākta traditions, Śakti is not simply an instrument belonging to a separate male deity. She may be understood as the ultimate reality itself—the power through which existence manifests, continues, and returns to its source. In some nondual Tantric systems, Śiva and Śakti are inseparable aspects of reality: Śiva represents consciousness, while Śakti represents its dynamic, self-expressive power. This distinction is a philosophical framework, not necessarily a claim that the two are separate entities. Kālīkula traditions vary in how they formulate this relationship: some emphasize Kālī as the supreme Goddess beyond all categories; others explain her through more elaborate systems of manifestation, cognition, and dissolution.\n2.2 Kālī and time: The Sanskrit word kāla is associated with time and, in certain contexts, death. Kālī’s relationship with time is therefore a central theme in many interpretations of her name and mythology. In the Kashmirian Krama tradition, the Goddess is associated with cycles of manifestation, experience, and dissolution. A particularly important doctrine concerns the twelve Kālīs, whose sequence is interpreted in later philosophical texts as the unfolding and reabsorption of consciousness. This is more specific than simply describing Kālī as a destroyer: in this philosophical setting, what arises, is experienced, and disappears is understood in relation to the dynamic activity of consciousness itself.\n2.3 Creation and dissolution: Kālī’s destructive imagery is often interpreted through the larger cycle of existence: (1) Manifestation — reality appears in differentiated forms; (2) Experience — beings encounter and participate in the world; (3) Transformation — forms change and cease to remain as they were; (4) Dissolution — distinctions and manifested forms return to their source. These stages are a useful interpretive framework, not a single four-stage doctrine shared by every Kālīkula lineage; particular Tantric texts employ their own technical classifications.\n2.4 Liberation and recognition: Some nondual Śākta and Śaiva traditions understand liberation as a transformation in how reality is recognized and experienced. The practitioner seeks more than temporary supernatural benefits or favorable circumstances. In the Kashmirian Krama tradition, the sequence of the Goddess can be interpreted as the unfolding and reabsorption of awareness, where the aim is associated with realizing the nature of consciousness rather than remaining confined to ordinary, limited perception. This philosophical interpretation should not be automatically attributed to every Bengali Kālī worship tradition or every lineage that uses the name Kālīkula.',
+        bodyHi:
+          '२.१ परम यथार्थ के रूप में शक्ति (Śakti as supreme reality): शक्ति का अर्थ सामर्थ्य, क्षमता या दिव्य ऊर्जा है। शाक्त परम्पराओं में शक्ति किसी पृथक् पुरुष देवता का मात्र उपकरण नहीं हैं; वे स्वयं परम यथार्थ हैं—वह शक्ति जिसके द्वारा अस्तित्व प्रकट होता है, बना रहता है और अपने मूल स्रोत में लौटता है। कुछ अद्वैत तांत्रिक प्रणालियों में शिव और शक्ति यथार्थ के अविभाज्य पहलू हैं—शिव चेतना का और शक्ति उसकी गतिशील, स्व-अभिव्यंजक सामर्थ्य का प्रतिनिधित्व करती हैं। कालीकुल परम्पराओं में इस संबंध को विविध प्रकार से व्यक्त किया गया है: कुछ काली को समस्त श्रेणियों से परे सर्वोच्च देवी मानती हैं, तो अन्य उन्हें उन्मेष, संवेदन और विलय की विस्तृत प्रणालियों के माध्यम से समझाती हैं।\n२.२ काली और काल (Kālī and time): संस्कृत शब्द "काल" समय और मृत्यु से संबद्ध है। कश्मीर की क्रम परम्परा में देवी को अभिव्यक्ति, अनुभव और लय के चक्रों से जोड़ा गया है। इसमें "द्वादश काली" (बारह कालियों) का सिद्धांत विशेष महत्त्वपूर्ण है, जिनके अनुक्रम की व्याख्या परवर्ती दार्शनिक ग्रन्थों में चेतना के प्रकटन और पुनः समावेशन के रूप में की गई है। यहाँ जो कुछ भी उत्पन्न होता है, अनुभव किया जाता है और विलीन होता है, उसे स्वयं चेतना की गतिशील क्रिया के संदर्भ में समझा जाता है।\n२.३ सृष्टि और लय (Creation and dissolution): काली के संहारक प्रतीकों की व्याख्या अस्तित्व के वृहत्तर चक्र के माध्यम से की जाती है: (१) अभिव्यक्ति (Manifestation) — यथार्थ का विभेदित रूपों में प्रकट होना; (२) अनुभव (Experience) — जीवों का संसार से साक्षात्कार और सहभागिता; (३) रूपांतरण (Transformation) — रूपों का बदलना; तथा (४) लय (Dissolution) — भेदों और प्रकट रूपों का अपने मूल स्रोत में लौट जाना। ये चार चरण एक उपयोगी व्याख्यात्मक रूपरेखा हैं, न कि हर कालीकुल शाखा का एक ही निश्चित नियम।\n२.४ मुक्ति और प्रत्यभिज्ञा (Liberation and recognition): अद्वैत शाक्त और शैव परम्पराओं में मुक्ति को यथार्थ की पहचान और अनुभव के रूपांतरण के रूप में देखा जाता है, जहाँ साधक केवल अस्थायी चमत्कारिक लाभों से ऊपर उठता है। कश्मीरी क्रम परम्परा में देवी के अनुक्रम का उद्देश्य साधारण, सीमित बोध में बँधे रहने के बजाय चेतना के वास्तविक स्वरूप का साक्षात्कार करना है; किंतु इस दार्शनिक व्याख्या को स्वतः प्रत्येक बंगाली काली-उपासना परम्परा पर लागू नहीं माना जाना चाहिए।'
+      },
+      {
+        headingEn: '3. Kālī: Iconography and Symbolism',
+        headingHi: '3. काली: प्रतिमाशास्त्र एवं प्रतीकार्थ (Iconography and Symbolism)',
+        bodyEn:
+          'Dark or black complexion: Kālī is frequently depicted with a dark complexion. Devotional and theological interpretations associate this darkness with the boundless, the unmanifest, or a reality that cannot be contained by ordinary categories. Interpretations differ between texts and communities.\nGarland of heads and other fierce attributes: These features belong to particular iconographic forms of Kālī. They can be interpreted in relation to mortality, the destruction of ego, the transience of embodied existence, and the severing of limiting attachments. Specific meanings depend on the relevant textual and ritual context.\nKālī standing upon Śiva: In a widely recognized image, Kālī stands upon the reclining Śiva. The image is interpreted in different ways, including through the relationship between consciousness and dynamic power. Popular devotional narratives also connect it with Kālī’s cessation of destructive activity upon recognizing Śiva beneath her feet.\nCremation-ground imagery: Certain forms of Kālī are associated with cremation grounds and other liminal settings. These places confront practitioners and observers with impermanence, death, social boundaries, and the limits of ordinary identity. Their meanings differ across devotional, ritual, and philosophical traditions.\nResearch note: Iconographic descriptions should distinguish what is visibly represented from interpretations attributed to particular scriptures, commentaries, or living traditions. A symbol may carry several meanings rather than one universal explanation.',
+        bodyHi:
+          'श्यामल या कृष्ण वर्ण (Dark or black complexion): काली को प्रायः श्यामल या कृष्ण वर्ण में चित्रित किया जाता है। भक्तिमूलक और धर्मशास्त्रीय व्याख्याएँ इस श्यामता/अंधकार को असीम, अव्यक्त अथवा सामान्य श्रेणियों में न बँधने वाले परम यथार्थ से जोड़ती हैं। विभिन्न ग्रन्थों और समुदायों में इसकी व्याख्याएँ भिन्न हो सकती हैं।\nमुण्डमाला एवं अन्य उग्र लक्षण (Garland of heads and other fierce attributes): ये लक्षण काली के विशिष्ट प्रतिमा-रूपों से जुड़े हैं। इनकी व्याख्या नश्वरता, अहंकार के विनाश, देहधारी अस्तित्व की क्षणभंगुरता और सीमित करने वाली आसक्तियों के उच्छेदन के संबंध में की जाती है। विशिष्ट अर्थ संबंधित ग्रंथीय और आनुष्ठानिक संदर्भ पर निर्भर करते हैं।\nशिव के ऊपर खड़ी काली (Kālī standing upon Śiva): एक सुप्रसिद्ध प्रतिमा में काली लेटे हुए शिव के ऊपर खड़ी हैं। इस छवि की व्याख्या चेतना और गतिशील शक्ति के संबंध सहित विविध रूपों में की जाती है। लोकप्रिय भक्ति-आख्यान इसे अपने चरणों के नीचे शिव को पहचानने पर काली द्वारा संहारक गति को शांत करने से भी जोड़ते हैं।\nश्मशान-भूमि के प्रतीक (Cremation-ground imagery): काली के कुछ स्वरूप श्मशान और अन्य सीमांत स्थलों से संबद्ध हैं। ये स्थान साधकों और द्रष्टाओं को अनित्यता, मृत्यु, सामाजिक सीमाओं और साधारण पहचान की परिधि के आमने-सामने लाते हैं।\nशोध टिप्पणी (Research note): प्रतिमाशास्त्रीय विवरणों में यह स्पष्ट अंतर होना चाहिए कि दृश्य रूप में क्या दर्शाया गया है और विशिष्ट शास्त्रों, भाष्यों या जीवंत परम्पराओं में उसकी क्या व्याख्या की गई है।'
+      },
+      {
+        headingEn: '4. Important Traditions Within the Wider Kālī-Centered Landscape',
+        headingHi: '4. व्यापक काली-केंद्रित परिदृश्य की प्रमुख परम्पराएँ',
+        bodyEn:
+          'Non-sectarian research framework: Kālīkula should not be treated as a fixed list of subsects. The following are useful research areas, but they are not all interchangeable or necessarily separate branches of one formal organization.\nBengali Śākta traditions: Diverse devotional, philosophical, and Tantric approaches to Kālī and the Goddess, with important regional and historical variations.\nKashmirian Krama: A nondual Śākta-Śaiva current in which Kālī and her sequences are central to theories of consciousness and dissolution.\nMahāvidyā traditions: Kālī is one of the ten Mahāvidyās, a group of Goddess forms interpreted differently across Tantric texts and lineages.\nKaula traditions: Tantric traditions emphasizing lineage, initiation, ritual, and the relationship between the individual and the larger reality designated by kula. Some overlap with Kālī-centered worship.\nArchival significance of the Krama tradition: The Krama tradition is especially important for a research archive because its texts and philosophical commentaries document a sophisticated interpretation of Kālī beyond the more familiar popular iconography.',
+        bodyHi:
+          'शोध-दृष्टि: कालीकुल को उप-संप्रदायों की किसी एक निश्चित सूची के रूप में नहीं देखा जाना चाहिए। निम्नलिखित क्षेत्र शोध के लिए उपयोगी हैं, किंतु वे सभी एक-दूसरे के पर्याय या किसी एक ही औपचारिक संगठन की शाखाएँ नहीं हैं।\nबंगाली शाक्त परम्पराएँ (Bengali Śākta traditions): काली और देवी के प्रति विविध भक्तिमूलक, दार्शनिक और तांत्रिक दृष्टिकोण, जिनमें महत्त्वपूर्ण क्षेत्रीय और ऐतिहासिक भिन्नताएँ हैं।\nकश्मीरी क्रम परम्परा (Kashmirian Krama): एक अद्वैत शाक्त-शैव धारा जिसमें काली और उनके अनुक्रम (द्वादश काली) चेतना और लय के सिद्धांतों के केंद्र में हैं।\nमहाविद्या परम्पराएँ (Mahāvidyā traditions): काली दस महाविद्याओं में से एक हैं, जिनकी व्याख्या तांत्रिक ग्रन्थों और परम्पराओं में भिन्न-भिन्न प्रकार से होती है।\nकौल परम्पराएँ (Kaula traditions): वंश, दीक्षा, अनुष्ठान तथा व्यक्ति और "कुल" द्वारा निर्दिष्ट वृहत्तर यथार्थ के संबंध पर बल देने वाली तांत्रिक परम्पराएँ, जिनका काली-केंद्रित उपासना से गहरा जुड़ाव है।\nशोध अभिलेखागार के लिए क्रम परम्परा का महत्त्व: क्रम परम्परा एक शोध अभिलेखागार के लिए विशेष रूप से महत्त्वपूर्ण है क्योंकि इसके ग्रन्थ और दार्शनिक भाष्य लोकप्रिय प्रतिमाशास्त्र से परे काली की अत्यंत परिष्कृत दार्शनिक व्याख्या का प्रलेखन करते हैं।'
+      },
+      {
+        headingEn: '5. Textual Sources and Historical Research',
+        headingHi: '5. ग्रंथीय स्रोत एवं ऐतिहासिक शोध (Textual Sources and Historical Research)',
+        bodyEn:
+          'Distinguishing tiers of evidence: A serious Kālīkula archive should distinguish primary sources, scholarly interpretations, and modern devotional explanations.\nKālīkulakramasadbhāva: A Tantric text associated with the Kālī-centered Krama textual tradition.\nJayadrathayāmala: A major Tantric textual source relevant to the historical study of the Bhairava and Kālī-centered traditions.\nDevīpañcaśataka: A source examined in modern scholarship on the development of the twelve Kālīs.\nTantrāloka: Abhinavagupta’s major philosophical and ritual work, important for the later systematization of Krama and related Tantric doctrines.\nModern scholarship: Aleksandra Wenta’s peer-reviewed study (“From the Sequence of the Sun-Goddess to Time-Consumption”, Journal of Indian Philosophy, 2021) examines the historical development of the twelve Kālīs and the transformation of their interpretation from earlier Kula/Kaula contexts to later philosophical formulations.\nContextual caution: These works differ in scope and historical setting. They should not all be described as manuals for the same contemporary practice.',
+        bodyHi:
+          'साक्ष्यों के स्तरों में भेद: एक गंभीर कालीकुल अभिलेखागार को प्राथमिक स्रोतों, अकादमिक व्याख्याओं और आधुनिक भक्तिमूलक विवरणों के बीच स्पष्ट अंतर रखना चाहिए।\nकालीकुलक्रमसद्भाव (Kālīkulakramasadbhāva): काली-केंद्रित क्रम ग्रंथ-परम्परा से संबद्ध एक प्रमुख तांत्रिक ग्रन्थ।\nजयद्रथयामल (Jayadrathayāmala): भैरव और काली-केंद्रित परम्पराओं के ऐतिहासिक अध्ययन के लिए अत्यंत महत्त्वपूर्ण तांत्रिक यामल स्रोत।\nदेवीपञ्चशतक (Devīpañcaśataka): द्वादश काली के विकास पर आधुनिक अकादमिक शोध में परीक्षित एक प्रमुख मूल स्रोत।\nतन्त्रालोक (Tantrāloka): अभिनवगुप्त की प्रमुख दार्शनिक और आनुष्ठानिक कृति, जो क्रम और संबंधित तांत्रिक सिद्धांतों के परवर्ती व्यवस्थितीकरण के लिए अत्यंत महत्त्वपूर्ण है।\nआधुनिक अकादमिक शोध (Modern scholarship): अलेक्ज़ांद्रा वेंटा (Aleksandra Wenta, २०२१) का समीक्षित अध्ययन द्वादश काली के ऐतिहासिक विकास और प्रारंभिक कुल/कौल संदर्भों से परवर्ती दार्शनिक सूत्रों में उनके रूपांतरण का विश्लेषण करता है।\nऐतिहासिक सावधानी: ये कृतियाँ अपने विषय-क्षेत्र और ऐतिहासिक परिवेश में भिन्न हैं; इन सभी को एक ही समकालीन साधना की पूजा-पुस्तिकाओं के रूप में वर्णित नहीं किया जाना चाहिए।'
+      },
+      {
+        headingEn: '6. What Kālīkula Should Not Be Reduced To & Archival Content Structure',
+        headingHi: '6. कालीकुल को किन सरलीकरणों में सीमित नहीं किया जाना चाहिए एवं अभिलेखीय संरचना',
+        bodyEn:
+          'Avoiding oversimplifications: A credible research presentation should avoid several oversimplifications:\n1. Not black magic: Kālīkula is not synonymous with black magic.\n2. Not uniformly transgressive: Kālī worship is not necessarily transgressive or associated with cremation-ground practices.\n3. Ritual diversity: Every Kālī-centered tradition does not follow the same ritual system.\n4. Twelve Kālīs vs. Ten Mahāvidyās: The twelve Kālīs of Kashmirian Krama should not be confused with the ten Mahāvidyās.\n5. Scientific vs. religious claims: Claims about supernatural powers or ritual effects should be presented as religious beliefs or textual claims, not as scientifically established facts.\nWhy these distinctions matter: Kālī’s popular image is only one part of a much wider religious and philosophical history.\nKālīkula Archive Eightfold Content Structure: (1) Overview — definition, historical context, terminology, and principal concepts; (2) Philosophy and theology — doctrines, interpretations, and conceptual frameworks; (3) Deities and iconography — forms of the Goddess, attributes, symbols, and documented variations; (4) Texts and manuscripts — primary sources, translations, commentaries, and bibliographic records; (5) Ritual and practice — historically documented practices, distinguishing public descriptions from lineage-specific instructions; (6) Regional histories and lineages — geographical development, transmission, and variations across Bengal, eastern India, and Kashmir; (7) Comparative research — relationships with Śrīkula, Śaiva, and Tantric traditions; and (8) References and evidence — citations, provenance, scholarly publications, and unresolved questions.',
+        bodyHi:
+          'अति-सरलीकरण से बचाव: एक विश्वसनीय शोध प्रस्तुति को निम्नलिखित सरलीकरणों से बचना चाहिए:\n१. काला जादू नहीं: कालीकुल काले जादू (अभिचार) का पर्याय नहीं है।\n२. सर्वत्र वाममार्गी या श्मशान-साधना नहीं: काली की उपासना अनिवार्य रूप से सीमांत या श्मशान-साधना से ही जुड़ी नहीं होती।\n३. आनुष्ठानिक विविधता: प्रत्येक काली-केंद्रित परम्परा एक ही अनुष्ठान-प्रणाली का पालन नहीं करती।\n४. द्वादश काली बनाम दशमहाविद्या: कश्मीरी क्रम परम्परा की "बारह कालियों" (द्वादश काली) को "दस महाविद्याओं" के साथ भ्रमित नहीं किया जाना चाहिए।\n५. धार्मिक विश्वास बनाम वैज्ञानिक तथ्य: अलौकिक शक्तियों या आनुष्ठानिक प्रभावों संबंधी दावों को धार्मिक विश्वास या ग्रंथीय कथन के रूप में प्रस्तुत किया जाना चाहिए, न कि वैज्ञानिक रूप से स्थापित तथ्य के रूप में।\nकालीकुल अभिलेखागार की ८-स्तरीय संरचना: (१) अवलोकन (Overview); (२) दर्शन एवं धर्मशास्त्र (Philosophy and theology); (३) देवता एवं प्रतिमाशास्त्र (Deities and iconography); (४) ग्रन्थ एवं पाण्डुलिपियाँ (Texts and manuscripts); (५) अनुष्ठान एवं अभ्यास (Ritual and practice); (६) क्षेत्रीय इतिहास एवं परम्पराएँ (Regional histories and lineages); (७) तुलनात्मक शोध (Comparative research); तथा (८) संदर्भ एवं साक्ष्य (References and evidence)।'
+      }
+    ],
+    keyFindingsEn: [
+      'Literal meaning of Kālīkula (कालीकुल): The family, lineage, or tradition of Kālī — encompassing diverse regional streams across Bengal, eastern India, and the medieval Kashmirian Krama current.',
+      'Philosophical core: Examines Śakti as supreme reality, Kālī’s relationship with kāla (time), the Twelve Kālīs of Kashmirian Krama as the unfolding and reabsorption of consciousness, and liberation as transformative recognition.',
+      'Primary source register: Kālīkulakramasadbhāva, Jayadrathayāmala, Devīpañcaśataka, and Abhinavagupta’s Tantrāloka, alongside peer-reviewed scholarship such as Aleksandra Wenta (2021).',
+      'Methodological safeguard: Kālīkula is not synonymous with black magic, nor should the Twelve Kālīs of Krama be conflated with the Ten Mahāvidyās.'
+    ],
+    keyFindingsHi: [
+      'कालीकुल का शाब्दिक अर्थ: काली का परिवार, वंश या परम्परा — जिसमें बंगाल व पूर्वी भारत की शाक्त धाराओं से लेकर कश्मीर की मध्यकालीन क्रम (Krama) परम्परा तक विविध धाराएँ समाहित हैं।',
+      'दार्शनिक केंद्र: परम यथार्थ के रूप में शक्ति, काल (समय) के साथ काली का संबंध, चेतना के उन्मेष और लय के रूप में कश्मीर क्रम की द्वादश काली तथा प्रत्यभिज्ञा-मूलक मुक्ति।',
+      'प्रमुख ग्रंथीय स्रोत: कालीकुलक्रमसद्भाव, जयद्रथयामल, देवीपञ्चशतक और अभिनवगुप्त का तन्त्रालोक, तथा अलेक्ज़ांद्रा वेंटा (२०२१) का समीक्षित अकादमिक शोध।',
+      'पद्धतिगत सावधानी: कालीकुल काले जादू का पर्याय नहीं है, और कश्मीरी क्रम की द्वादश काली को दशमहाविद्या के साथ भ्रमित नहीं किया जाना चाहिए।'
+    ],
+    metadata: [
+      { labelEn: 'Sanskrit & Transliteration', labelHi: 'संस्कृत एवं लिप्यंतरण', valueEn: 'कालीकुल · Kālīkula', valueHi: 'कालीकुल · Kālīkula' },
+      { labelEn: 'Literal Meaning', labelHi: 'शाब्दिक अर्थ', valueEn: 'The family, lineage, or tradition of Kālī', valueHi: 'काली का परिवार, वंश या परम्परा' },
+      { labelEn: 'Primary Textual Sources', labelHi: 'मूल ग्रंथीय स्रोत', valueEn: 'Kālīkulakramasadbhāva · Jayadrathayāmala · Devīpañcaśataka · Tantrāloka', valueHi: 'कालीकुलक्रमसद्भाव · जयद्रथयामल · देवीपञ्चशतक · तन्त्रालोक' },
+      { labelEn: 'Key Modern Scholarship', labelHi: 'प्रमुख आधुनिक शोध', valueEn: 'Aleksandra Wenta, Journal of Indian Philosophy (2021)', valueHi: 'अलेक्ज़ांद्रा वेंटा, Journal of Indian Philosophy (२०२१)' }
+    ],
+    primarySourcesEn: 'Kālīkulakramasadbhāva · Jayadrathayāmala · Devīpañcaśataka · Tantrāloka (Abhinavagupta) · Aleksandra Wenta (2021)',
+    primarySourcesHi: 'कालीकुलक्रमसद्भाव · जयद्रथयामल · देवीपञ्चशतक · तन्त्रालोक (अभिनवगुप्त) · अलेक्ज़ांद्रा वेंटा (२०२१)',
+    authorEn: 'Ram Ashok Kumar',
+    authorHi: 'राम अशोक कुमार'
+  },
+  {
+    slug: 'srikula-archive-tradition',
+    categorySlug: 'eight-matrikas',
+    code: 'SKT-01B',
+    titleEn: 'Part II — Śrīkula Archive: The Goddess of Sovereignty, Manifestation, and Sacred Knowledge',
+    titleHi: 'भाग II — श्रीकुल अभिलेखागार: संप्रभुता, अभिव्यक्ति और पवित्र ज्ञान की देवी',
+    subtitleEn: 'Sanskrit: श्रीकुल · Transliteration: Śrīkula · Literal meaning: The family, lineage, or tradition of Śrī — Śrīvidyā, Tripurasundarī, Philosophy, Śrīcakra Geometry, Mantra, Jīvanmukti & Textual Sources',
+    subtitleHi: 'संस्कृत: श्रीकुल · लिप्यंतरण: Śrīkula · शाब्दिक अर्थ: श्री का परिवार, वंश या परम्परा — श्रीविद्या, त्रिपुरसुन्दरी, दार्शनिक आधार, श्रीचक्र ज्यामिति, मन्त्र, जीवनमुक्ति एवं ग्रंथीय स्रोत',
+    sanskritEpigraph: '॥ श्रीविद्या राजराजेश्वरी महात्रिपुरसुन्दरी · श्रीचक्र-नव-आवरण-रूपायै नमः ॥',
+    epigraphTranslationEn: '"Śrīkula Archive — An index of Śrīvidyā, Tripurasundarī, Śrīcakra traditions, mantra theology, historical texts, ritual systems, and philosophical commentaries."',
+    epigraphTranslationHi: '"श्रीकुल अभिलेखागार — श्रीविद्या, त्रिपुरसुन्दरी, श्रीचक्र परम्पराओं, मन्त्र-धर्मशास्त्र, ऐतिहासिक ग्रन्थों, अनुष्ठान प्रणालियों और दार्शनिक भाष्यों का शोध संश्लेषण।"',
+    evidenceBadgeEn: 'PART II · ŚRĪKULA & ŚRĪVIDYĀ RESEARCH SYNTHESIS & ARCHIVE',
+    evidenceBadgeHi: 'भाग II · श्रीकुल एवं श्रीविद्या शोध संश्लेषण एवं अभिलेखागार',
+    accentColor: '#EC4899',
+    summaryEn:
+      'Śrīkula (Sanskrit: श्रीकुल — "The family, lineage, or tradition of Śrī") is a name used for Śākta Tantric traditions centered on Śrī, especially the Goddess Tripurasundarī, also known as Lalitā, Rājarājeśvarī, Ṣoḍaśī, and Tripurā. Its best-known associated tradition is Śrīvidyā ("auspicious knowledge" or "sacred wisdom"), in which the Goddess is worshipped through an integrated theological and ritual system uniting her anthropomorphic image, her mantra (Pañcadaśī / Ṣoḍaśī), and the nine-enclosure Śrīcakra (Śrīyantra). With a particularly significant history in South India and deep philosophical exchanges with Kashmir, Śrīkula encompasses external worship, internalized meditation, nondual metaphysics, and the pursuit of liberation during one’s lifetime (jīvanmukti).',
+    summaryHi:
+      'श्रीकुल (संस्कृत: श्रीकुल — "श्री का परिवार, वंश या परम्परा") "श्री" विशेषतः भगवती त्रिपुरसुन्दरी (जिन्हें ललिता, राजराजेश्वरी, षोडशी और त्रिपुरा भी कहा जाता है) पर केंद्रित शाक्त तांत्रिक परम्पराओं का नाम है। इससे जुड़ी सर्वाधिक प्रसिद्ध परम्परा "श्रीविद्या" ("मंगलमयी विद्या" या "पवित्र प्रज्ञा") है, जिसमें देवी की उपासना उनके साकार विग्रह, मन्त्र (पञ्चदशी / षोडशी) और नव-आवरण श्रीचक्र (श्रीयन्त्र) की एकीकृत धर्मशास्त्रीय और आनुष्ठानिक प्रणाली के माध्यम से की जाती है। दक्षिण भारत में सुदृढ़ ऐतिहासिक विकास और कश्मीर की शैव-शाक्त दार्शनिक परम्पराओं के साथ गहरे संवाद से युक्त श्रीकुल में बाह्य पूजा, अंतर्मुखी ध्यान, अद्वैत तत्त्वमीमांसा और "जीवनमुक्ति" का चिंतन समाहित है।',
+    sections: [
+      {
+        headingEn: '1. Definition and Religious Significance',
+        headingHi: '1. परिभाषा एवं धार्मिक महत्त्व (Definition and Religious Significance)',
+        bodyEn:
+          'Śrīkula and Śrīvidyā: Śrīkula is a name used for Śākta Tantric traditions centered on Śrī, especially the Goddess Tripurasundarī, also known as Lalitā and Rājarājeśvarī. Its best-known associated tradition is Śrīvidyā, whose name is commonly translated as “auspicious knowledge” or “sacred wisdom.”\nIntegrated triad of image, mantra, and Śrīcakra: In Śrīvidyā, the Goddess is worshipped through interconnected forms that include her anthropomorphic image, her mantra, and the Śrīcakra or Śrīyantra. These are not simply three unrelated objects; they form an integrated theological and ritual system.\nHistorical geography across South India and Kashmir: Śrīkula traditions have had a particularly significant history in South India, while also developing through exchanges with Kashmirian Śaiva and Śākta philosophical traditions. Their history includes different forms of ritual practice, textual interpretation, temple worship, meditation, and devotional observance.\nA family of related traditions: As with Kālīkula, Śrīkula is not a single uniform organization. The term is most useful when discussing a family of related Goddess-centered traditions, especially the Śrīvidyā current.',
+        bodyHi:
+          'श्रीकुल एवं श्रीविद्या: श्रीकुल नाम का प्रयोग "श्री", विशेषतः भगवती त्रिपुरसुन्दरी (जिन्हें ललिता और राजराजेश्वरी भी कहा जाता है) पर केंद्रित शाक्त तांत्रिक परम्पराओं के लिए किया जाता है। इससे संबद्ध सर्वाधिक प्रसिद्ध परम्परा "श्रीविद्या" है, जिसका सामान्य अर्थ "मंगलमयी विद्या" या "पवित्र प्रज्ञा" है।\nविग्रह, मन्त्र और श्रीचक्र की एकीकृत प्रणाली: श्रीविद्या में देवी की उपासना उनके मानवीय (साकार) विग्रह, उनके मन्त्र और श्रीचक्र या श्रीयन्त्र के परस्पर संबद्ध रूपों के माध्यम से की जाती है। ये केवल तीन अलग-अलग वस्तुएँ नहीं हैं, अपितु एक एकीकृत धर्मशास्त्रीय और आनुष्ठानिक प्रणाली का निर्माण करते हैं।\nदक्षिण भारत एवं कश्मीर में ऐतिहासिक विकास: दक्षिण भारत में श्रीकुल परम्पराओं का विशेष रूप से महत्त्वपूर्ण इतिहास रहा है, साथ ही कश्मीर की शैव और शाक्त दार्शनिक परम्पराओं के साथ आदान-प्रदान के माध्यम से भी इनका विकास हुआ है।\nसंबंधित परम्पराओं का परिवार: कालीकुल की भाँति श्रीकुल भी कोई एक एकसमान संगठन नहीं है; यह शब्द संबंधित देवी-केंद्रित परम्पराओं के परिवार, विशेषतः श्रीविद्या धारा की चर्चा के लिए सर्वाधिक उपयोगी है।'
+      },
+      {
+        headingEn: '2. Tripurasundarī: The Central Goddess',
+        headingHi: '2. त्रिपुरसुन्दरी: केंद्रीय देवी (Tripurasundarī: The Central Goddess)',
+        bodyEn:
+          'Meaning of Tripurasundarī: The name Tripurasundarī is commonly translated as “the Beauty of the Three Cities” or “the Beauty of the Three Worlds,” depending on the interpretive context.\nPrincipal names and aspects: She is also known by names such as: (1) Lalitā — the graceful or playful Goddess; (2) Rājarājeśvarī — the sovereign of sovereigns; (3) Ṣoḍaśī — a name associated with her sixteenfold aspect in particular traditions; and (4) Tripurā — a related name emphasizing her connection with the threefold structure of reality.\nSupreme manifestation of Śakti: The precise theological relationships among these names vary across texts and lineages. In Śrīvidyā, Tripurasundarī is understood as a supreme manifestation of Śakti rather than merely one deity among many.\nSovereignty, beauty, and transcendence: Her royal imagery communicates sovereignty, while her beauty and benevolent appearance express the harmonious, creative, and auspicious dimensions of the Goddess. These qualities are not necessarily opposed to her transcendence: in Śrīvidyā theology, the supreme reality can manifest as both the source of the cosmos and an accessible object of devotion.',
+        bodyHi:
+          'त्रिपुरसुन्दरी नाम का अर्थ: व्याख्यात्मक संदर्भ के अनुसार "त्रिपुरसुन्दरी" नाम का अनुवाद सामान्यतः "तीनों पुरों की सुन्दरी" या "तीनों लोकों की सुन्दरी" के रूप में किया जाता है।\nप्रमुख नाम एवं आयाम: उन्हें इन नामों से भी जाना जाता है: (१) ललिता — ललित, अनुग्रहपूर्ण या लीलामयी देवी; (२) राजराजेश्वरी — राजाओं के भी राजा की अधीश्वरी (सर्वोच्च साम्राज्ञी); (३) षोडशी — विशिष्ट परम्पराओं में उनके सोलह कलाओं वाले स्वरूप से संबद्ध नाम; तथा (४) त्रिपुरा — यथार्थ की त्रिविध संरचना के साथ उनके संबंध को रेखांकित करने वाला नाम।\nशक्ति की सर्वोच्च अभिव्यक्ति: विभिन्न ग्रन्थों और आम्नायों में इन नामों के सूक्ष्म धर्मशास्त्रीय संबंधों में विविधता मिलती है। श्रीविद्या में त्रिपुरसुन्दरी को अनेक देवताओं में से मात्र एक देवी के बजाय पराशक्ति की सर्वोच्च अभिव्यक्ति के रूप में समझा जाता है।\nसंप्रभुता, सौन्दर्य एवं लोकातीत स्वरूप: उनका राजसी रूप संप्रभुता को संप्रेषित करता है, जबकि उनका सौन्दर्य और सौम्य स्वरूप देवी के सामंजस्यपूर्ण, सृजनात्मक और मंगलमय आयामों को व्यक्त करता है। श्रीविद्या धर्मशास्त्र में परम यथार्थ ब्रह्माण्ड के मूल स्रोत और भक्ति के सुलभ आलंबन—दोनों रूपों में प्रकट हो सकता है।'
+      },
+      {
+        headingEn: '3. The Philosophical Foundations of Śrīkula (3.1 to 3.3)',
+        headingHi: '3. श्रीकुल के दार्शनिक आधार (३.१ से ३.३)',
+        bodyEn:
+          '3.1 The unity of consciousness and manifestation: Many Śrīvidyā traditions draw on nondual Śaiva philosophical frameworks in which consciousness and its power of manifestation are inseparable. The universe is not always treated as something entirely separate from the Goddess; rather, the manifested world can be understood as an expression of her power, while her ultimate nature exceeds any particular form or manifestation. The precise philosophical explanation differs among teachers and textual traditions: some emphasize nondual metaphysics, while others integrate Śākta worship with Vedāntic interpretations.\n3.2 The threefold nature of Tripurā: The name Tripurā invites interpretation through threefold structures, which are prominent in Indian philosophical and Tantric systems. Depending on the text and lineage, these may include: (1) The three worlds; (2) The knower, the act of knowing, and the known; (3) Creation, preservation, and dissolution; and (4) Waking, dreaming, and deep sleep. These are examples of interpretive correspondences, not a single universally fixed list of meanings. An archive should identify the particular text or commentary that establishes each correspondence rather than presenting every triad as canonical Śrīvidyā doctrine.\n3.3 Beauty, auspiciousness, and sovereignty: Tripurasundarī’s iconography frequently emphasizes beauty, radiance, royal authority, and auspiciousness. In this theological setting, beauty is not merely a superficial quality; it can express the intelligibility, harmony, and creative fullness of manifestation. The Goddess is portrayed as sovereign over the cosmos while remaining its inner power and source. This is one reason Śrīvidyā is not adequately described as simply the “gentle” counterpart to Kālī worship: its theology is sophisticated, and its ritual traditions include both contemplative and more complex esoteric elements.',
+        bodyHi:
+          '३.१ चेतना और अभिव्यक्ति की एकता (The unity of consciousness and manifestation): अनेक श्रीविद्या परम्पराएँ अद्वैत शैव दार्शनिक ढाँचे से जुड़ती हैं जहाँ चेतना और उसकी अभिव्यक्ति-शक्ति अविभाज्य हैं। ब्रह्माण्ड को देवी से पूर्णतः पृथक् वस्तु के रूप में नहीं देखा जाता; प्रत्युत प्रकट जगत को उनकी शक्ति की अभिव्यक्ति माना जाता है, जबकि उनका परम स्वरूप किसी भी विशेष रूप से परे है। कुछ आचार्य अद्वैत तत्त्वमीमांसा पर बल देते हैं, जबकि अन्य शाक्त उपासना को वेदान्तिक व्याख्याओं के साथ समन्वित करते हैं।\n३.२ त्रिपुरा का त्रिविध स्वरूप (The threefold nature of Tripurā): "त्रिपुरा" नाम भारतीय दर्शन और तन्त्र में प्रमुख त्रिविध संरचनाओं के माध्यम से व्याख्या को आमंत्रित करता है। ग्रन्थ और परम्परा के अनुसार इनमें शामिल हैं: (१) तीन लोक; (२) ज्ञाता (प्रमाता), ज्ञान-प्रक्रिया (प्रमाण) और ज्ञेय (प्रमेय); (३) सृष्टि, स्थिति और लय; तथा (४) जाग्रत, स्वप्न और सुषुप्ति। एक शोध अभिलेखागार को प्रत्येक त्रयी को सार्वभौमिक सिद्धांत मानने के बजाय उस विशिष्ट ग्रन्थ या भाष्य की पहचान करनी चाहिए जो उस सह-संबंध को स्थापित करता है।\n३.३ सौन्दर्य, मांगल्य एवं संप्रभुता (Beauty, auspiciousness, and sovereignty): त्रिपुरसुन्दरी के प्रतिमाशास्त्र में सौन्दर्य, तेज, राजकीय अधिकार और मांगल्य पर विशेष बल है। यहाँ सौन्दर्य कोई बाह्य या सतही गुण नहीं है; यह सृष्टि की बोधगम्यता, सामरस्य और रचनात्मक पूर्णता को व्यक्त करता है। यही कारण है कि श्रीविद्या को केवल काली-उपासना का "सौम्य" रूप कह देना पर्याप्त नहीं है; इसका धर्मशास्त्र अत्यंत परिष्कृत है और इसमें ध्यानात्मक व गूढ़ आनुष्ठानिक दोनों आयाम शामिल हैं।'
+      },
+      {
+        headingEn: '4. The Śrīcakra: Geometry as a Theological System',
+        headingHi: '4. श्रीचक्र: एक धर्मशास्त्रीय प्रणाली के रूप में ज्यामिति',
+        bodyEn:
+          'Defining symbol of Śrīvidyā: The Śrīcakra, also called the Śrīyantra, is one of the defining symbols of Śrīvidyā. It is a complex sacred diagram made from interlocking triangles, surrounding geometric enclosures, lotus forms, and a central point known as the bindu. Its details and ritual interpretation are elaborated in specific Śrīvidyā texts and traditions.\nThe Bindu: The central point is associated with unity, the concentrated presence of the Goddess, and the source from which multiplicity emerges. Its exact interpretation depends on the relevant doctrinal and ritual framework.\nThe Interlocking Triangles: The central triangular structure is traditionally composed of nine principal interlocking triangles, conventionally counted as five downward-pointing and four upward-pointing triangles. Together they generate the complex network of smaller triangles associated with the diagram.\nLotus Enclosures and the Outer Boundary: The surrounding lotus circles and square enclosure form part of the Śrīcakra’s layered structure. Their arrangement is associated with differentiated powers, protective boundaries, and the organized relationship between the central deity and the surrounding cosmos.\nThe Nine Enclosures (Āvaraṇas): The Śrīcakra is commonly described through nine enclosures, called āvaraṇas. Śrīvidyā ritual and textual traditions associate these enclosures with groups of deities, powers, and stages of contemplative or ritual engagement. The ninefold structure is important, but the names, deity arrangements, and interpretive details should be taken from a specific authoritative ritual manual or textual tradition; a simplified diagram should not be mistaken for a complete ritual prescription.',
+        bodyHi:
+          'श्रीविद्या का प्रमुख प्रतीक: श्रीचक्र, जिसे श्रीयन्त्र भी कहा जाता है, श्रीविद्या के सर्वाधिक महत्त्वपूर्ण प्रतीकों में से एक है। यह अंतर्ग्रथित त्रिकोणों, संकेंद्रित ज्यामितीय आवरणों, कमल-आकृतियों और "बिन्दु" नामक केंद्रीय बिंदु से निर्मित एक जटिल पवित्र आरेख है।\nकेन्द्रीय बिन्दु (The Bindu): केंद्रीय बिन्दु एकत्व, देवी की घनीभूत उपस्थिति और उस मूल स्रोत से संबद्ध है जहाँ से बहुलता का आविर्भाव होता है।\nअंतर्ग्रथित त्रिकोण (The Interlocking Triangles): केंद्रीय त्रिकोणीय संरचना पारंपरिक रूप से नौ मुख्य अंतर्ग्रथित त्रिकोणों से बनी है, जिन्हें ५ अधोमुखी और ४ ऊर्ध्वमुखी त्रिकोणों के रूप में गिना जाता है। ये मिलकर छोटे त्रिकोणों के जटिल जाल का निर्माण करते हैं।\nकमल-आवरण एवं बाहरी सीमा (Lotus Enclosures and the Outer Boundary): चारों ओर के कमल-वृत्त और वर्गाकार भूपुर श्रीचक्र की स्तरीय संरचना के अंग हैं, जो विभेदित शक्तियों, रक्षक सीमाओं और केंद्रीय देवता व ब्रह्माण्ड के सुव्यवस्थित संबंध से जुड़े हैं।\nनौ आवरण (The Nine Enclosures / Āvaraṇas): श्रीचक्र का वर्णन सामान्यतः नौ आवरणों के माध्यम से किया जाता है। श्रीविद्या के आनुष्ठानिक और ग्रंथीय स्रोत इन आवरणों को विशिष्ट देवता-समूहों, शक्तियों और ध्यान/पूजा के सोपानों से जोड़ते हैं। इनके नाम, देवता-विन्यास और विवरण किसी प्रामाणिक कल्पसूत्र या मूल ग्रन्थ से लिए जाने चाहिए; किसी सरलीकृत चित्र को संपूर्ण पूजा-विधान नहीं मान लेना चाहिए।'
+      },
+      {
+        headingEn: '5. Mantra & Subtle Form · 6. Ritual, Meditation, and Liberation (Jīvanmukti)',
+        headingHi: '5. मन्त्र एवं देवी का सूक्ष्म स्वरूप · 6. अनुष्ठान, ध्यान एवं जीवनमुक्ति',
+        bodyEn:
+          '5. Mantra and the subtle form of the Goddess: Mantra is central to Śrīvidyā. In its theological framework, a mantra is not simply a verbal description of the Goddess; it is understood as a form through which her power and presence are encountered.\nPañcadaśī and Ṣoḍaśī systems: The Śrīvidyā mantra traditions include the well-known Pañcadaśī and Ṣoḍaśī systems, referring to fifteenfold and sixteenfold mantra structures respectively, though their exact forms and interpretations vary across lineages.\nAcademic discussion vs. initiatory transmission: A distinction is necessary between discussing these systems academically and publishing restricted mantra instructions. Some forms of Śrīvidyā mantra practice are transmitted through initiation, and details differ among lineages. For a public research archive, it is appropriate to explain the history, terminology, theological role, and textual context of mantra without presenting every lineage-specific practice as universally available.\n6. Ritual, meditation, and liberation: Śrīvidyā has developed a range of practices that can include external worship, mantra recitation, yantra worship, visualization, meditation, and philosophical contemplation. Some ritual systems emphasize the performance of prescribed external rites; others give particular importance to internalized worship and the realization of the Goddess within consciousness.\nHistorical shift toward Jīvanmukti: Modern scholarship (notably Anna A. Golovkova, 2019) has traced the development of Śrīvidyā from early ritual systems toward later philosophical interpretations that place greater emphasis on liberation during one’s lifetime, known as jīvanmukti. This is a historical development documented in particular textual traditions, not a claim that every Śrīvidyā lineage follows an identical path. Śrīvidyā therefore encompasses more than ritual prosperity or worldly benefits; its textual traditions address knowledge, the nature of reality, devotion, and spiritual liberation.',
+        bodyHi:
+          '५. मन्त्र एवं देवी का सूक्ष्म स्वरूप: श्रीविद्या में मन्त्र का केंद्रीय स्थान है। इसके धर्मशास्त्रीय ढाँचे में मन्त्र केवल देवी का शाब्दिक वर्णन नहीं है, अपितु वह स्वरूप है जिसके माध्यम से उनकी शक्ति और उपस्थिति का साक्षात्कार किया जाता है।\nपञ्चदशी एवं षोडशी प्रणालियाँ: श्रीविद्या मन्त्र-परम्पराओं में सुप्रसिद्ध पञ्चदशी (१५-अक्षरी/खंडीय) और षोडशी (१६-अक्षरी/खंडीय) प्रणालियाँ शामिल हैं, यद्यपि विभिन्न आम्नायों में इनके स्वरूप और व्याख्याओं में भिन्नता मिलती है।\nअकादमिक चर्चा बनाम दीक्षा-परम्परा: इन प्रणालियों की अकादमिक चर्चा करने और दीक्षा-गम्य प्रतिबंधित मन्त्र-निर्देशों को प्रकाशित करने के बीच अंतर रखना आवश्यक है। सार्वजनिक शोध अभिलेखागार के लिए यह उपयुक्त है कि वह प्रत्येक परम्परा-विशिष्ट साधना को सर्वसुलभ बताए बिना मन्त्र के इतिहास, शब्दावली, धर्मशास्त्रीय भूमिका और ग्रंथीय संदर्भ को स्पष्ट करे।\n६. अनुष्ठान, ध्यान एवं मुक्ति (Ritual, meditation, and liberation): श्रीविद्या में बाह्य पूजा, मन्त्र-जप, यन्त्र-अर्चन, ध्यान, भावना और दार्शनिक चिंतन की विस्तृत शृंखला विकसित हुई है। कुछ प्रणालियाँ निर्धारित बाह्य अनुष्ठानों के संपादन पर बल देती हैं, जबकि अन्य अंतर्मुखी पूजा (अंतर्याग) और चेतना के भीतर देवी के साक्षात्कार को विशेष महत्त्व देती हैं।\nजीवनमुक्ति की ओर ऐतिहासिक विकास: आधुनिक अकादमिक शोध (विशेषतः अन्ना ए. गोलोवकोवा, २०१९) ने प्रारंभिक आनुष्ठानिक प्रणालियों से परवर्ती दार्शनिक व्याख्याओं की ओर श्रीविद्या के विकास को रेखांकित किया है, जहाँ इसी जीवन में मुक्ति ("जीवनमुक्ति") पर अधिक बल दिया गया है। इस प्रकार श्रीविद्या केवल लौकिक समृद्धि तक सीमित नहीं है, अपितु ज्ञान, यथार्थ के स्वरूप, भक्ति और आध्यात्मिक मुक्ति का विवेचन करती है।'
+      },
+      {
+        headingEn: '7. Textual Sources and Historical Research · 8. What Śrīkula Should Not Be Reduced To',
+        headingHi: '7. ग्रंथीय स्रोत एवं ऐतिहासिक शोध · 8. श्रीकुल को किन सरलीकरणों में सीमित नहीं किया जाना चाहिए',
+        bodyEn:
+          '7. Textual sources and historical research: Foundational sources for a Śrīvidyā research collection include:\n(1) Vāmakeśvarīmata — An important early text associated with the development of the Tripurasundarī cult.\n(2) Yoginīhṛdaya — A major Śrīvidyā text that explores the theological and ritual significance of the Śrīcakra, mantra, and the Goddess.\n(3) Nityāṣoḍaśikārṇava — A foundational text associated with the Nityā tradition and the broader textual history of Śrīvidyā.\n(4) Paraśurāma Kalpasūtra — A ritual source associated with Śrīvidyā practice in particular traditions.\n(5) Lalitā Sahasranāma — A widely revered hymn of a thousand names of Lalitā, important to devotional and theological presentations of the Goddess.\nGenre and lineage context: These texts belong to different literary genres and historical contexts. They should not be treated as identical sources or assumed to have the same authority in every lineage.\n8. What Śrīkula should not be reduced to:\n(1) Not merely geometric diagrams: Śrīkula is not merely a tradition of geometric diagrams.\n(2) Theological context of the Śrīcakra: The Śrīcakra is not just decorative sacred geometry; it has a specific theological and ritual context.\n(3) Public and initiatory dimensions: Śrīvidyā is not exclusively a public devotional tradition, nor is it uniformly secretive.\n(4) Lineage diversity: All Śrīvidyā lineages do not share identical ritual procedures or philosophical interpretations.\n(5) Beyond physical beauty or prosperity alone: Tripurasundarī should not be reduced to a symbol of physical beauty or worldly prosperity alone. A scholarly archive should preserve the relationship between iconography, ritual, philosophy, historical texts, and living practice.\nŚrīkula Archive Eightfold Content Structure: (1) Overview; (2) Philosophy and theology; (3) Deities and iconography; (4) Texts and manuscripts; (5) Ritual and practice; (6) Regional histories and lineages; (7) Comparative research; and (8) References and evidence (including Brooks 1992; Golovkova 2019; Karasiński 2025).',
+        bodyHi:
+          '७. ग्रंथीय स्रोत एवं ऐतिहासिक शोध: श्रीविद्या शोध संग्रह के लिए आधारभूत ग्रन्थ निम्नलिखित हैं:\n(१) वामकेश्वरीमत (Vāmakeśvarīmata) — त्रिपुरसुन्दरी उपासना के विकास से संबद्ध एक महत्त्वपूर्ण प्रारंभिक ग्रन्थ।\n(२) योगिनीहृदय (Yoginīhṛdaya) — एक प्रमुख श्रीविद्या ग्रन्थ जो श्रीचक्र, मन्त्र और देवी के धर्मशास्त्रीय एवं आनुष्ठानिक महत्त्व का गहन अन्वेषण करता है।\n(३) नित्याषोडशिकार्णव (Nityāṣoḍaśikārṇava) — नित्या परम्परा और श्रीविद्या के व्यापक ग्रंथीय इतिहास से संबद्ध आधारभूत तन्त्र।\n(४) परशुराम कल्पसूत्र (Paraśurāma Kalpasūtra) — विशिष्ट परम्पराओं में श्रीविद्या अनुष्ठान-पद्धति का प्रमुख कल्पसूत्र।\n(५) ललिता सहस्रनाम (Lalitā Sahasranāma) — ललिता के एक हजार नामों का अत्यंत समादृत स्तोत्र, जो देवी की भक्तिमूलक और धर्मशास्त्रीय प्रस्तुति के लिए महत्त्वपूर्ण है।\nसाहित्यिक विधा एवं प्रामाणिकता: ये ग्रन्थ विभिन्न साहित्यिक विधाओं और ऐतिहासिक संदर्भों से संबंधित हैं; इन्हें एकसमान स्रोत नहीं माना जाना चाहिए।\n८. श्रीकुल को किन सरलीकरणों में सीमित नहीं किया जाना चाहिए:\n(१) मात्र ज्यामितीय आकृतियाँ नहीं: श्रीकुल केवल ज्यामितीय आरेखों की परम्परा मात्र नहीं है।\n(२) श्रीचक्र का धर्मशास्त्रीय संदर्भ: श्रीचक्र केवल सजावटी पवित्र ज्यामिति नहीं है; इसका एक विशिष्ट धर्मशास्त्रीय और आनुष्ठानिक संदर्भ है।\n(३) सार्वजनिक एवं दीक्षा-गम्य आयाम: श्रीविद्या न तो केवल सार्वजनिक भक्ति परम्परा है और न ही सर्वत्र एकसमान रूप से गोपनीय है।\n(४) आम्नाय एवं परम्परा विविधता: सभी श्रीविद्या परम्पराएँ एकसमान पूजा-विधि या दार्शनिक व्याख्या साझा नहीं करतीं।\n(५) केवल भौतिक सौन्दर्य या समृद्धि तक सीमित नहीं: त्रिपुरसुन्दरी को मात्र भौतिक सौन्दर्य या सांसारिक समृद्धि के प्रतीक में सीमित नहीं किया जाना चाहिए। एक अकादमिक अभिलेखागार को प्रतिमाशास्त्र, अनुष्ठान, दर्शन, ऐतिहासिक ग्रन्थों और जीवंत साधना के अंतर्संबंध को सुरक्षित रखना चाहिए।'
+      }
+    ],
+    keyFindingsEn: [
+      'Literal meaning of Śrīkula (श्रीकुल): The family, lineage, or tradition of Śrī — centered on Tripurasundarī (Lalitā, Rājarājeśvarī, Ṣoḍaśī, Tripurā) and the Śrīvidyā ("auspicious knowledge") tradition.',
+      'Integrated ritual-theological triad: Unites the Goddess’s anthropomorphic form, subtle mantra (Pañcadaśī and Ṣoḍaśī systems), and the nine-enclosure (navāvaraṇa) Śrīcakra.',
+      'Primary source register: Vāmakeśvarīmata, Yoginīhṛdaya, Nityāṣoḍaśikārṇava, Paraśurāma Kalpasūtra, and Lalitā Sahasranāma, studied alongside Brooks (1992), Golovkova (2019), and Karasiński (2025).',
+      'Methodological safeguard: Neither the Śrīcakra nor Tripurasundarī should be reduced to decorative geometry or mere worldly prosperity; texts document a sophisticated nondual theology and movement toward jīvanmukti.'
+    ],
+    keyFindingsHi: [
+      'श्रीकुल का शाब्दिक अर्थ: श्री का परिवार, वंश या परम्परा — जो त्रिपुरसुन्दरी (ललिता, राजराजेश्वरी, षोडशी, त्रिपुरा) और श्रीविद्या ("मंगलमयी प्रज्ञा") पर केंद्रित है।',
+      'एकीकृत धर्मशास्त्रीय त्रयी: देवी के साकार विग्रह, सूक्ष्म मन्त्र (पञ्चदशी एवं षोडशी) और नौ आवरणों वाले श्रीचक्र (श्रीयन्त्र) का समन्वय।',
+      'प्रमुख ग्रंथीय स्रोत: वामकेश्वरीमत, योगिनीहृदय, नित्याषोडशिकार्णव, परशुराम कल्पसूत्र और ललिता सहस्रनाम, तथा ब्रुक्स (१९९२), गोलोवकोवा (२०१९) और करासिंस्की (२०२५) के अकादमिक शोध।',
+      'पद्धतिगत सावधानी: श्रीचक्र को केवल सजावटी ज्यामिति या त्रिपुरसुन्दरी को केवल भौतिक समृद्धि का प्रतीक नहीं माना जाना चाहिए; इसमें गहन अद्वैत दर्शन और जीवनमुक्ति की साधना निहित है।'
+    ],
+    metadata: [
+      { labelEn: 'Sanskrit & Transliteration', labelHi: 'संस्कृत एवं लिप्यंतरण', valueEn: 'श्रीकुल · Śrīkula (Śrīvidyā)', valueHi: 'श्रीकुल · Śrīkula (श्रीविद्या)' },
+      { labelEn: 'Literal Meaning', labelHi: 'शाब्दिक अर्थ', valueEn: 'The family, lineage, or tradition of Śrī', valueHi: 'श्री का परिवार, वंश या परम्परा' },
+      { labelEn: 'Primary Textual Sources', labelHi: 'मूल ग्रंथीय स्रोत', valueEn: 'Vāmakeśvarīmata · Yoginīhṛdaya · Nityāṣoḍaśikārṇava · Paraśurāma Kalpasūtra · Lalitā Sahasranāma', valueHi: 'वामकेश्वरीमत · योगिनीहृदय · नित्याषोडशिकार्णव · परशुराम कल्पसूत्र · ललिता सहस्रनाम' },
+      { labelEn: 'Key Modern Scholarship', labelHi: 'प्रमुख आधुनिक शोध', valueEn: 'Douglas Renfrew Brooks (1992) · Anna A. Golovkova (2019) · Maciej Karasiński (2025)', valueHi: 'डगलस रेनफ्रू ब्रुक्स (१९९२) · अन्ना ए. गोलोवकोवा (२०१९) · माचिये करासिंस्की (२०२५)' }
+    ],
+    primarySourcesEn: 'Vāmakeśvarīmata · Yoginīhṛdaya · Nityāṣoḍaśikārṇava · Paraśurāma Kalpasūtra · Lalitā Sahasranāma · Brooks (1992) · Golovkova (2019) · Karasiński (2025)',
+    primarySourcesHi: 'वामकेश्वरीमत · योगिनीहृदय · नित्याषोडशिकार्णव · परशुराम कल्पसूत्र · ललिता सहस्रनाम · ब्रुक्स (१९९२) · गोलोवकोवा (२०१९) · करासिंस्की (२०२५)',
     authorEn: 'Ram Ashok Kumar',
     authorHi: 'राम अशोक कुमार'
   },
@@ -1438,6 +1626,79 @@ const ADDITIONAL_GATEWAY_ARTICLES: Record<string, ResearchArticle[]> = {
       primarySourcesHi: 'कौलज्ञाननिर्णय (मत्स्येन्द्रनाथ) · अग्नि पुराण (अध्याय ५२ एवं १४६) · स्कन्द पुराण (काशी खण्ड ४५) · भारतीय पुरातत्व सर्वेक्षण अभिलेख',
       authorEn: 'Ram Ashok Kumar',
       authorHi: 'राम अशोक कुमार'
+    },
+    {
+      slug: 'bavan-bhairava-chhappan-kalua-concordance',
+      categorySlug: '64-yogini-matrix',
+      code: 'YM-10',
+      titleEn: '52 Bhairavas (बावन भैरव) & 56 Kalua (छप्पन कलुआ) — Regional Devotional Concordance in the 64 Yoginī Tradition',
+      titleHi: '52 भैरव (बावन भैरव) एवं 56 कलुआ (छप्पन कलुआ) — चौंसठ योगिनी परम्परा में क्षेत्रीय एवं लोक-तांत्रिक अनुक्रमणिका',
+      subtitleEn: 'Complete 52 Bhairava Roster (Asitāṅga to Ekadaṃśa Bhairava) & Critical Archival Description of Chhappan Kalua in North Indian Esoteric Traditions',
+      subtitleHi: 'असितांग से एकदंश भैरव पर्यन्त ५२ भैरवों की संपूर्ण सूची तथा उत्तर भारतीय लोक-तांत्रिक परम्परा में “छप्पन कलुआ” का प्रामाणिक शोध-विवरण',
+      sanskritEpigraph: '॥ बावन भैरव चौंसठ योगिनी छप्पन कलुआ — क्षेत्रीय मंत्र एवं नाथ-शाक्त लोक-परम्परा ॥',
+      epigraphTranslationEn: '"Fifty-Two Bhairavas (Bāvan Bhairav), Sixty-Four Yoginīs (Chausath Yoginī), and Fifty-Six Kalua (Chhappan Kalua) — the triadic protective invocation of North Indian regional mantra and devotional traditions."',
+      epigraphTranslationHi: '"बावन भैरव (५२ भैरव), चौंसठ योगिनी (६४ योगिनी) और छप्पन कलुआ (५६ कलुआ) — उत्तर भारतीय क्षेत्रीय मंत्र एवं लोक-तांत्रिक उपासना में प्रयुक्त रक्षात्मक त्रयी।"',
+      evidenceBadgeEn: '52 BHAIRAVA ROSTER · 56 KALUA ARCHIVAL NOTE (ATTESTED GROUP / UNVERIFIED ROSTER)',
+      evidenceBadgeHi: '५२ भैरव नामावली · ५६ कलुआ अभिलेखीय समीक्षा (समूह प्रमाणित / विस्तृत सूची असत्यापित)',
+      accentColor: '#F59E0B',
+      summaryEn:
+        'Alongside the canonical 64 Yoginī – 64 Bhairava mandala, regional Śākta, Nātha, and North Indian devotional traditions frequently invoke the 52 Bhairavas (Bāvan Bhairav) and the 56 Kalua (Chhappan Kalua)—most notably in formulas such as “bāvan Bhairav, chausath Yoginī, chhappan Kalua”. This monograph documents the complete numbered roster of all 52 Bhairavas (1. Asitāṅga Bhairava to 52. Ekadaṃśa Bhairava) alongside a rigorous, source-conscious archival analysis of the 56 Kalua (छप्पन कलुआ).',
+      summaryHi:
+        'शास्त्रीय ६४ योगिनी – ६४ भैरव मण्डल के साथ-साथ उत्तर भारतीय शाक्त, नाथ और क्षेत्रीय भक्ति परम्पराओं में “बावन भैरव (५२ भैरव)” और “छप्पन कलुआ (५६ कलुआ)” का विशेष उल्लेख मिलता है—विशेषतः “बावन भैरव, चौंसठ योगिनी, छप्पन कलुआ” जैसे सामूहिक मंत्र-सूत्रों में। यह शोध-प्रबंध १. असितांग भैरव से ५२. एकदंश भैरव तक सभी ५२ भैरवों की संपूर्ण सूची के साथ-साथ “५६ कलुआ (छप्पन कलुआ)” का तथ्यपरक एवं स्रोत-सचेत अभिलेखीय विवरण प्रस्तुत करता है।',
+      sections: [
+        {
+          headingEn: '1. Complete Roster of the 52 Bhairavas (बावन भैरव — Bāvan Bhairava: 01 to 52)',
+          headingHi: '1. बावन भैरव (52 भैरव) की संपूर्ण नामावली (01 से 52)',
+          bodyEn:
+            'In Śākta Pīṭha traditions and North Indian esoteric liturgies associated with the 64 Yoginīs, the Fifty-Two Bhairavas (Bāvan Bhairava) are enumerated as follows:\n\n' +
+            '1. असितांग भैरव (Asitāṅga Bhairava) · 2. महाकाल भैरव (Mahākāla Bhairava) · 3. त्रिलोचन भैरव (Trilocana Bhairava) · 4. काल भैरव (Kāla Bhairava) · 5. त्रिपुर भैरव (Tripura Bhairava) · 6. क्रोध भैरव (Krodha Bhairava) · 7. तांडव भैरव (Tāṇḍava Bhairava) · 8. यम भैरव (Yama Bhairava) · 9. नीलकंठ भैरव (Nīlakaṇṭha Bhairava) · 10. श्मशान भैरव (Śmaśāna Bhairava) · 11. चंड भैरव (Caṇḍa Bhairava) · 12. धूम्रलोचन भैरव (Dhūmralocana Bhairava) · 13. वीर भैरव (Vīra Bhairava) · 14. रुद्र भैरव (Rudra Bhairava) · 15. क्षेत्रपाल भैरव (Kṣetrapāla Bhairava) · 16. लोकनाथ भैरव (Lokanātha Bhairava) · 17. पापभंजन भैरव (Pāpabhañjana Bhairava) · 18. महाभैरव (Mahābhairava) · 19. वत्सनाभ भैरव (Vatsanābha Bhairava) · 20. चित्रभानु भैरव (Citrabhānu Bhairava) · 21. भीषण भैरव (Bhīṣaṇa Bhairava) · 22. संहार भैरव (Saṃhāra Bhairava) · 23. क्रोधनाथ भैरव (Krodhanātha Bhairava) · 24. कालाग्नि भैरव (Kālāgni Bhairava) · 25. त्र्यम्बक भैरव (Tryambaka Bhairava) · 26. सर्प भैरव (Sarpa Bhairava) · 27. प्रचंड भैरव (Pracaṇḍa Bhairava) · 28. वरुण भैरव (Varuṇa Bhairava) · 29. गवाक्ष भैरव (Gavākṣa Bhairava) · 30. कामरूप भैरव (Kāmarūpa Bhairava) · 31. चक्र भैरव (Cakra Bhairava) · 32. विद्याराज भैरव (Vidyārāja Bhairava) · 33. पद्म भैरव (Padma Bhairava) · 34. विष्णु भैरव (Viṣṇu Bhairava) · 35. मुण्डपाल भैरव (Muṇḍapāla Bhairava) · 36. शव भैरव (Śava Bhairava) · 37. भूतनाथ भैरव (Bhūtanātha Bhairava) · 38. पिंड भैरव (Piṇḍa Bhairava) · 39. योगिनी भैरव (Yoginī Bhairava) · 40. जटा भैरव (Jaṭā Bhairava) · 41. कंकाल भैरव (Kaṅkāla Bhairava) · 42. धूम्र भैरव (Dhūmra Bhairava) · 43. त्रिनेत्र भैरव (Trinetra Bhairava) · 44. त्रिशूलपाणि भैरव (Triśūlapāṇi Bhairava) · 45. खड्गपाणि भैरव (Khaḍgapāṇi Bhairava) · 46. अज भैरव (Aja Bhairava) · 47. इंद्राचूर भैरव (Indrācūra Bhairava) · 48. इंद्रा मूर्ति भैरव (Indrāmūrti Bhairava) · 49. कुस्मांड भैरव (Kuṣmāṇḍa Bhairava) · 50. विमुक्ता भैरव (Vimuktā Bhairava) · 51. लिपिटक भैरव (Lipiṭaka Bhairava) · 52. एकदंश भैरव (Ekadaṃśa Bhairava).',
+          bodyHi:
+            'चौंसठ योगिनी परम्परा से संबद्ध शाक्त एवं उत्तर भारतीय उपासना पद्धतियों में बावन भैरव (52 भैरव) की क्रमबद्ध नामावली इस प्रकार है:\n\n' +
+            '1. असितांग भैरव · 2. महाकाल भैरव · 3. त्रिलोचन भैरव · 4. काल भैरव · 5. त्रिपुर भैरव · 6. क्रोध भैरव · 7. तांडव भैरव · 8. यम भैरव · 9. नीलकंठ भैरव · 10. श्मशान भैरव · 11. चंड भैरव · 12. धूम्रलोचन भैरव · 13. वीर भैरव · 14. रुद्र भैरव · 15. क्षेत्रपाल भैरव · 16. लोकनाथ भैरव · 17. पापभंजन भैरव · 18. महाभैरव · 19. वत्सनाभ भैरव · 20. चित्रभानु भैरव · 21. भीषण भैरव · 22. संहार भैरव · 23. क्रोधनाथ भैरव · 24. कालाग्नि भैरव · 25. त्र्यम्बक भैरव · 26. सर्प भैरव · 27. प्रचंड भैरव · 28. वरुण भैरव · 29. गवाक्ष भैरव · 30. कामरूप भैरव · 31. चक्र भैरव · 32. विद्याराज भैरव · 33. पद्म भैरव · 34. विष्णु भैरव · 35. मुण्डपाल भैरव · 36. शव भैरव · 37. भूतनाथ भैरव · 38. पिंड भैरव · 39. योगिनी भैरव · 40. जटा भैरव · 41. कंकाल भैरव · 42. धूम्र भैरव · 43. त्रिनेत्र भैरव · 44. त्रिशूलपाणि भैरव · 45. खड्गपाणि भैरव · 46. अज भैरव · 47. इंद्राचूर भैरव · 48. इंद्रा मूर्ति भैरव · 49. कुस्मांड भैरव · 50. विमुक्ता भैरव · 51. लिपिटक भैरव · 52. एकदंश भैरव।'
+        },
+        {
+          headingEn: '2. 56 Kalua (छप्पन कलुआ) — Description & Critical Source Evaluation',
+          headingHi: '2. 56 कलुआ (छप्पन कलुआ) — विवरण एवं स्रोत समीक्षा',
+          bodyEn:
+            'The term “56 Kalua” (छप्पन कलुआ) appears in regional folk-religious accounts associated with North Indian devotional and esoteric traditions. In some accounts, the Kalua are described as a group of spiritual beings or powers connected with figures such as Guru Gorakhnath, Guga Jaharveer (Gugga), and Baba Kalua Paun.\n\n' +
+            'However, the precise meaning of Kalua, the identity of all 56 figures, and their relationship to Bhairava differ or remain unclear in the sources available. It would therefore be inaccurate to present one definitive origin story or doctrinal description as universally accepted.',
+          bodyHi:
+            '“56 कलुआ” (छप्पन कलुआ) पद उत्तर भारतीय भक्ति एवं गूढ़ लोक-धार्मिक परम्पराओं के क्षेत्रीय विवरणों में प्राप्त होता है। कुछ आख्यानों में कलुआ को गुरु गोरखनाथ, गोगा जाहरवीर (गुग्गा) और बाबा कलुआ पौन जैसी विभूतियों से जुड़ी आध्यात्मिक शक्तियों या गणों के समूह के रूप में वर्णित किया गया है।\n\n' +
+            'तथापि, उपलब्ध स्रोतों में “कलुआ” का सटीक अर्थ, सभी ५६ स्वरूपों की व्यक्तिगत पहचान और भैरव के साथ उनका संबंध भिन्न-भिन्न है अथवा अस्पष्ट बना हुआ है। अतः किसी एक उत्पत्ति-कथा या सैद्धांतिक विवरण को सर्वमान्य शास्त्रीय मत के रूप में प्रस्तुत करना ऐतिहासिक रूप से उचित नहीं होगा।'
+        },
+        {
+          headingEn: '3. Meaning Within Regional Devotional Traditions & Archival Classification',
+          headingHi: '3. क्षेत्रीय भक्ति परम्पराओं में अर्थ एवं अभिलेखीय वर्गीकरण',
+          bodyEn:
+            'The phrase often appears alongside Bāvan Bhairav (52 Bhairavas), Chausath Yoginī (64 Yoginīs) / Caurāsī Yoginī (84 Yoginīs in some oral formulations), and other supernatural or protective powers in regional mantra and devotional material. For example, a published version of a Sarbhang Gayatri mantra uses the phrase “bāvan Bhairav, chausath Yoginī, chhappan Kalua” together (Shree Sarkar Jogi et al.). This supports the existence of the phrase in certain devotional contexts, but it does not establish the identities, individual powers, or origins of all 56 Kalua.\n\n' +
+            'Archival Definition — Chhappan Kalua (छप्पन कलुआ): A group of 56 figures or powers referenced in certain North Indian folk-Tantric and devotional traditions. They appear in some oral and mantra traditions alongside the 52 Bhairavas and Yoginī groups. Their individual names, attributes, and relationship to Bhairava require verification from a specific lineage or textual source.\n\n' +
+            'Research Status: The group reference is attested; the complete roster and detailed classification remain unverified.',
+          bodyHi:
+            'क्षेत्रीय मंत्रों और भक्ति साहित्य में यह वाक्यांश प्रायः “बावन भैरव” (५२ भैरव), “चौंसठ योगिनी” (६४ योगिनी) अथवा कुछ मौखिक परम्पराओं में “चौरासी योगिनी” (८४ योगिनी) और अन्य रक्षक शक्तियों के साथ आता है। उदाहरणार्थ, सरभंग गायत्री मंत्र के एक प्रकाशित पाठ में “बावन भैरव, चौंसठ योगिनी, छप्पन कलुआ” वाक्यांश एक साथ प्रयुक्त हुआ है। यह विशिष्ट भक्ति संदर्भों में इस पद के अस्तित्व को प्रमाणित करता है, किन्तु इससे सभी ५६ कलुआओं की व्यक्तिगत पहचान, शक्तियाँ या उत्पत्ति स्थापित नहीं होती।\n\n' +
+            'अभिलेखीय परिभाषा — छप्पन कलुआ (Chhappan Kalua): उत्तर भारतीय लोक-तांत्रिक और भक्ति परम्पराओं में उल्लिखित ५६ शक्तियों या स्वरूपों का एक समूह। ये कुछ मौखिक और मंत्र परम्पराओं में ५२ भैरवों और योगिनी समूहों के साथ प्रकट होते हैं। उनके व्यक्तिगत नाम, गुण और भैरव के साथ संबंध किसी विशिष्ट आम्नाय/परम्परा या मूल ग्रंथ से सत्यापन की अपेक्षा रखते हैं।\n\n' +
+            'शोध स्थिति (Research Status): समूह का संदर्भ प्रमाणित है; संपूर्ण नामावली और विस्तृत वर्गीकरण असत्यापित (unverified) हैं।'
+        }
+      ],
+      keyFindingsEn: [
+        'Complete 52 Bhairava (Bāvan Bhairav) roster documented from 1. Asitāṅga Bhairava to 52. Ekadaṃśa Bhairava.',
+        'In regional mantra literature (such as the Sarbhang Gayatri mantra), the triad “bāvan Bhairav, chausath Yoginī, chhappan Kalua” is invoked together.',
+        'Chhappan Kalua (छप्पन कलुआ) is attested as a collective group of 56 figures/powers in North Indian folk-Tantric traditions (linked with Guru Gorakhnath, Guga Jaharveer, and Baba Kalua Paun), while their individual 56 names and doctrinal classification remain unverified.'
+      ],
+      keyFindingsHi: [
+        '१. असितांग भैरव से ५२. एकदंश भैरव तक सभी बावन भैरव (52 भैरव) की संपूर्ण क्रमबद्ध नामावली प्रलेखित।',
+        'क्षेत्रीय मंत्र साहित्य (जैसे सरभंग गायत्री मंत्र) में “बावन भैरव, चौंसठ योगिनी, छप्पन कलुआ” का सामूहिक आह्वान प्राप्त होता है।',
+        'छप्पन कलुआ (56 Kalua) समूह का उल्लेख प्रमाणित है (गुरु गोरखनाथ, गोगा जाहरवीर और बाबा कलुआ पौन के लोक-संदर्भों सहित), जबकि उनकी संपूर्ण व्यक्तिगत नामावली और विस्तृत वर्गीकरण असत्यापित हैं।'
+      ],
+      metadata: [
+        { labelEn: '52 Bhairava Group', labelHi: 'बावन भैरव समूह', valueEn: 'Bāvan Bhairava (01. Asitāṅga to 52. Ekadaṃśa Bhairava)', valueHi: 'बावन भैरव (०१. असितांग से ५२. एकदंश भैरव)' },
+        { labelEn: '56 Kalua Group', labelHi: 'छप्पन कलुआ समूह', valueEn: 'Chhappan Kalua (छप्पन कलुआ — North Indian Folk-Tantric Tradition)', valueHi: 'छप्पन कलुआ (उत्तर भारतीय लोक-तांत्रिक एवं नाथ-भक्ति परम्परा)' },
+        { labelEn: 'Attested Mantra Formula', labelHi: 'प्रमाणित मंत्र सूत्र', valueEn: '“bāvan Bhairav, chausath Yoginī, chhappan Kalua” (Sarbhang Gayatri)', valueHi: '“बावन भैरव, चौंसठ योगिनी, छप्पन कलुआ” (सरभंग गायत्री संदर्भ)' },
+        { labelEn: 'Research Status (56 Kalua)', labelHi: 'शोध स्थिति (56 कलुआ)', valueEn: 'Group reference attested; complete roster & classification unverified', valueHi: 'समूह संदर्भ प्रमाणित; संपूर्ण सूची एवं वर्गीकरण असत्यापित' }
+      ],
+      primarySourcesEn: 'Regional Śākta-Nātha Liturgical Lists · Sarbhang Gayatri Mantra (Shree Sarkar Jogi) · North Indian Folk-Tantric Oral Archives',
+      primarySourcesHi: 'क्षेत्रीय शाक्त-नाथ उपासना सूचियाँ · सरभंग गायत्री मंत्र (श्री सरकार जोगी) · उत्तर भारतीय लोक-तांत्रिक अभिलेख',
+      authorEn: 'Ram Ashok Kumar',
+      authorHi: 'राम अशोक कुमार'
     }
   ],
   'shri-meru-chakra': [
@@ -1541,110 +1802,112 @@ export const RESEARCH_CATEGORY_PORTALS: ResearchCategoryPortal[] = [
     subcategories: [
       {
         id: 'sub-nada-shastra',
-        sanskritName: 'नाद-शास्त्र · Nāda-Śāstra',
-        titleEn: 'Lithic Acoustics & Sanctum Resonance',
-        titleHi: 'प्रस्तर ध्वनि-विज्ञान एवं गर्भगृह अनुनाद',
-        summaryEn: 'Standing-wave amplification (110–130 Hz) and musical pillar modal tuning in granite temple architecture.',
-        summaryHi: 'ग्रेनाइट मंदिर गर्भगृहों में ११०–१३० हर्ट्ज स्थायी-तरंग प्रवर्धन और संगीतमय स्तंभों का ध्वनि-विज्ञान।',
-        keyTopicsEn: ['110–130 Hz Garbhagṛha Resonance', 'Svara-Stambha Musical Pillars', 'RT60 Reverberation Mapping'],
-        keyTopicsHi: ['११०–१३० Hz गर्भगृह अनुनाद', 'स्वर-स्तंभ (हम्पी)', 'RT60 प्रतिध्वनि मापन'],
-        sourceClassificationEn: 'Empirical Acoustics & Śilpa-Śāstra',
-        sourceClassificationHi: 'आनुभविक ध्वनि-मापन एवं शिल्प-शास्त्र',
+        sanskritName: 'शब्देनान्तरिक्षं पूरितं। मन्द्रध्वनिः शिलायाः प्रतिश्रुतिं जनयति।',
+        titleEn: 'I. Acoustic Resonance (Nada-Shastra)',
+        titleHi: 'I. Acoustic Resonance (Nada-Shastra) · नाद-शास्त्र',
+        summaryEn: '"By sound is the space filled. The deep low chant produces a heavy resonance in the stone." — Empirical Field Term: Standing Wave Acoustics & Ellipsoidal Focal Amplification.',
+        summaryHi: '"शब्देनान्तरिक्षं पूरितं। मन्द्रध्वनिः शिलायाः प्रतिश्रुतिं जनयति।" — Standing Wave Acoustics & Ellipsoidal Focal Amplification (110 Hz – 130 Hz).',
+        keyTopicsEn: [
+          'Standing Wave Acoustics & Ellipsoidal Focal Amplification',
+          '110 Hz and 130 Hz Baritone Vocal Resonance',
+          'Benchmark: The Musical Pillars of Vittala, Hampi'
+        ],
+        keyTopicsHi: [
+          'Standing Wave Acoustics & Ellipsoidal Focal Amplification',
+          '110 Hz – 130 Hz अनुनाद आवृत्ति',
+          'Benchmark: The Musical Pillars of Vittala, Hampi'
+        ],
+        sourceClassificationEn: 'SUBUNIT I · NADA-SHASTRA',
+        sourceClassificationHi: 'उप-इकाई I · नाद-शास्त्र',
         articleSlug: 'acoustic-resonance'
       },
       {
         id: 'sub-bhu-marma',
-        sanskritName: 'भू-मर्म एवं वास्तु · Bhū-Marma & Vāstu-Maṇḍala',
-        titleEn: 'Geomagnetic Faults, Thermodynamics & Vāstu Waveguides',
-        titleHi: 'भू-चुंबकीय भ्रंश, ऊष्मागतिकी एवं वास्तु तरंग-पथक',
-        summaryEn: 'Magnetometer, FLIR thermal, and hydrogeochemical surveys of sacred kṣetras, forts, and concentric prākāras.',
-        summaryHi: 'पवित्र क्षेत्रों, दुर्गों और संकेंद्रित प्राकारों का मैग्नेटोमीटर, थर्मोग्राफी और जल-रासायनिक सर्वेक्षण।',
-        keyTopicsEn: ['Bhū-Marma Tectonic Flux', 'Adiabatic Cold-Spot Physics', 'Sikata-Nyāsa Seismic Damping'],
-        keyTopicsHi: ['भू-मर्म विवर्तनिक प्रवाह', 'रुद्धोष्म शीत-स्थल भौतिकी', 'सिकता-न्यास भूकंपीय संतुलन'],
-        sourceClassificationEn: 'Geophysics, Vāstu-Śāstra & Hydrochemistry',
-        sourceClassificationHi: 'भू-भौतिकी, वास्तु-शास्त्र एवं जल-रसायन',
+        sanskritName: 'यत्र पृथिव्याः मर्माणि संधीयन्ते तत्र विद्युतप्रवाहो जायते।',
+        titleEn: 'II. Geomagnetic Friction (Bhu-Marma)',
+        titleHi: 'II. Geomagnetic Friction (Bhu-Marma) · भू-मर्म',
+        summaryEn: '"Where the core joints of the earth are knit, there an invisible current of force is generated." — Empirical Field Term: Vapor-Diffusion Magnetic Deflection & Temporal Lobe Stimulation.',
+        summaryHi: '"यत्र पृथिव्याः मर्माणि संधीयन्ते तत्र विद्युतप्रवाहो जायते।" — Vapor-Diffusion Magnetic Deflection & Temporal Lobe Stimulation.',
+        keyTopicsEn: [
+          'Vapor-Diffusion Magnetic Deflection & Temporal Lobe Stimulation',
+          'Piezoelectric Quartz Compression & Tectonic Faults',
+          'Benchmark: The Natural Fields of Kuldhara Village'
+        ],
+        keyTopicsHi: [
+          'Vapor-Diffusion Magnetic Deflection & Temporal Lobe Stimulation',
+          'भू-चुंबकीय विचलन एवं टेम्पोरल लोब प्रभाव',
+          'Benchmark: The Natural Fields of Kuldhara Village'
+        ],
+        sourceClassificationEn: 'SUBUNIT II · BHU-MARMA',
+        sourceClassificationHi: 'उप-इकाई II · भू-मर्म',
         articleSlug: 'geomagnetic-friction'
       },
       {
-        id: 'sub-agama-pramana',
-        sanskritName: 'निगम-आगम प्रमाण · Nigama & Āgama Pramāṇa',
-        titleEn: 'Veda, Āgama, Tantra & Purāṇa Source Taxonomy',
-        titleHi: 'वेद, आगम, तन्त्र एवं पुराण स्रोत वर्गीकरण',
-        summaryEn: 'Philological framework distinguishing Śruti, Smṛti, Purāṇa, Āgama, epigraphy, and modern analytical models.',
-        summaryHi: 'श्रुति, स्मृति, पुराण, आगम, शिलालेख और आधुनिक विश्लेषणात्मक मॉडलों के मध्य प्रामाणिक वर्गीकरण।',
-        keyTopicsEn: ['Nigama vs. Āgama Streams', '4-Tier Evidence Register', 'Manuscript & Epigraphic Citation'],
-        keyTopicsHi: ['निगम एवं आगम धाराएँ', 'चतुर्स्तरीय प्रमाण पंजिका', 'पाण्डुलिपि एवं शिलालेख संदर्भ'],
-        sourceClassificationEn: 'Primary Sanskrit Philology & Methodology',
-        sourceClassificationHi: 'मूल संस्कृत भाषाविज्ञान एवं शोध-पद्धति',
-        articleSlug: 'agama-nigama-shastra-pramana'
+        id: 'sub-ushna-saman',
+        sanskritName: 'शिलानां शीतता वायुप्रवाहाच्च जायते मन्दं।',
+        titleEn: 'III. Thermodynamic Inversion (Ushna-Saman)',
+        titleHi: 'III. Thermodynamic Inversion (Ushna-Saman) · उष्ण-शमन',
+        summaryEn: '"The localized chill of the stones is produced slowly by the upward movement of deep air." — Empirical Field Term: Adiabatic Gas Expansion & Differential Structural Heat Capacity.',
+        summaryHi: '"शिलानां शीतता वायुप्रवाहाच्च जायते मन्दं।" — Adiabatic Gas Expansion & Differential Structural Heat Capacity.',
+        keyTopicsEn: [
+          'Adiabatic Gas Expansion & Differential Structural Heat Capacity',
+          'Subterranean Stepwell (Baoli) Micro-Currents',
+          'Benchmark: The Gateway Cold-Spots of Bhangarh Fort'
+        ],
+        keyTopicsHi: [
+          'Adiabatic Gas Expansion & Differential Structural Heat Capacity',
+          'भूमिगत बावली वायु-प्रवाह एवं रुद्धोष्म शीतलन',
+          'Benchmark: The Gateway Cold-Spots of Bhangarh Fort'
+        ],
+        sourceClassificationEn: 'SUBUNIT III · USHNA-SAMAN',
+        sourceClassificationHi: 'उप-इकाई III · उष्ण-शमन',
+        articleSlug: 'thermodynamic-inversion'
       },
       {
-        id: 'sub-vaishnava-tattva',
-        sanskritName: 'पाञ्चरात्र एवं दशावतार · Pāñcarātra & Avatāra Tattva',
-        titleEn: 'Vaiṣṇava Traditions: Pāñcarātra, Catur-Vyūha & Daśāvatāra',
-        titleHi: 'वैष्णव परम्परा: पाञ्चरात्र आगम, चतुर्व्यूह एवं दशावतार',
-        summaryEn: 'Five modes of divine manifestation (Para, Vyūha, Vibhava, Antaryāmin, Arcā), Lakṣmī Tantra, and temple consecration.',
-        summaryHi: 'पर, व्यूह, विभव (दशावतार), अन्तर्यामी और अर्चा के पाँच स्तर तथा लक्ष्मी तन्त्र एवं वैखानस आगम।',
-        keyTopicsEn: ['Catur-Vyūha Emanation', 'Daśāvatāra & 24 Vibhavas', 'Lakṣmī Tantra & Sudarśana'],
-        keyTopicsHi: ['चतुर्व्यूह सिद्धांत', 'दशावतार एवं २४ विभव', 'लक्ष्मी तन्त्र एवं सुदर्शन तत्त्व'],
-        sourceClassificationEn: 'Vaiṣṇava Āgama (Pāñcarātra & Vaikhānasa) & Purāṇa',
-        sourceClassificationHi: 'वैष्णव आगम (पाञ्चरात्र एवं वैखानस) तथा पुराण',
-        articleSlug: 'vaishnava-pancharatra-avatara-tattva'
+        id: 'sub-rasa-vijnana',
+        sanskritName: 'पृथिव्याः रसाः सलिलगताः जीवनप्रक्रियायां प्रभावं कुर्वन्ति।',
+        titleEn: 'IV. Environmental Chemistry (Rasa-Vijnana)',
+        titleHi: 'IV. Environmental Chemistry (Rasa-Vijnana) · रस-विज्ञान',
+        summaryEn: '"The essences of the earth dissolved in water exert a heavy weight upon the flow of life." — Empirical Field Term: Aquifer Mass Spectroscopy & Background Ionizing Radiation.',
+        summaryHi: '"पृथिव्याः रसाः सलिलगताः जीवनप्रक्रियायां प्रभावं कुर्वन्ति।" — Aquifer Mass Spectroscopy & Background Ionizing Radiation.',
+        keyTopicsEn: [
+          'Aquifer Mass Spectroscopy & Background Ionizing Radiation',
+          'Dissolved Silicates, Monazite Sands & Trace Isotopes',
+          'Benchmark: The Thorium Aquifers of Kodinhi'
+        ],
+        keyTopicsHi: [
+          'Aquifer Mass Spectroscopy & Background Ionizing Radiation',
+          'जल-भूरसायन एवं मोनाजाइट थोरियम निक्षेप',
+          'Benchmark: The Thorium Aquifers of Kodinhi'
+        ],
+        sourceClassificationEn: 'SUBUNIT IV · RASA-VIJNANA',
+        sourceClassificationHi: 'उप-इकाई IV · रस-विज्ञान',
+        articleSlug: 'environmental-chemistry'
       },
       {
-        id: 'sub-jaya-vijaya-vaikuntha',
-        sanskritName: 'जय–विजय (वैकुण्ठ द्वारपाल) · Jaya & Vijaya',
-        titleEn: 'Jaya and Vijaya — The Divine Gatekeepers of Vaikuṇṭha & Three Earthly Births',
-        titleHi: 'जय और विजय — वैकुण्ठ के दिव्य द्वारपाल, सनकादि शाप एवं तीन जन्मों की कथा',
-        summaryEn: 'The Śrīmad-Bhāgavatam account of Viṣṇu’s dvārapālas, the four Kumāras’ curse, their three births across Satya, Tretā, and Dvāpara Yugas, and their theological distinction from the Śaiva Bhairavagaṇa.',
-        summaryHi: 'श्रीमद्भागवत पुराण में वर्णित वैकुण्ठ द्वारपाल जय–विजय, सनकादि कुमारों का शाप, तीन युगों के तीन जन्म (हिरण्याक्ष–हिरण्यकशिपु, रावण–कुम्भकर्ण, शिशुपाल–दन्तवक्र) तथा भैरवगण से उनका शास्त्रीय भेद।',
-        keyTopicsEn: ['4 Stages of the Kumāras’ Curse (SB 3.15–16)', '3 Earthly Births Across 3 Yugas', 'Vaiṣṇava Dvārapālas vs. Bhairavagaṇa'],
-        keyTopicsHi: ['सनकादि शाप के ४ चरण (भागवत ३.१५–१६)', 'तीन युगों में तीन असुर-जन्म', 'वैष्णव द्वारपाल बनाम शैव भैरवगण भेद'],
-        sourceClassificationEn: 'Śrīmad-Bhāgavatam (Cantos 3, 7 & 10) · Vaiṣṇava Theology',
-        sourceClassificationHi: 'श्रीमद्भागवत महापुराण (स्कन्ध ३, ७ एवं १०) · वैष्णव तत्त्वज्ञान',
-        articleSlug: 'jaya-vijaya-vaikuntha-dvarapalas'
+        id: 'sub-vastu-mandala',
+        sanskritName: 'मण्डलस्य रेखाः वायुतरङ्गान् आकर्षन्ति। मन्दिरं महायन्त्रं भवति।',
+        titleEn: 'V. Architectural Waveguides (Vastu-Mandala)',
+        titleHi: 'V. Architectural Waveguides (Vastu-Mandala) · वास्तु-मण्डल',
+        summaryEn: '"The lines of the sacred mandala draw the waves of the wind. The temple becomes a great machine." — Empirical Field Term: Concentric Dielectric Waveguides & Environmental RF Traps.',
+        summaryHi: '"मण्डलस्य रेखाः वायुतरङ्गान् आकर्षन्ति। मन्दिरं महायन्त्रं भवति।" — Concentric Dielectric Waveguides & Environmental RF Traps.',
+        keyTopicsEn: [
+          'Concentric Dielectric Waveguides & Environmental RF Traps',
+          'Prakara Walls, Sikata-Nyasa & Kalasha Copper Finials',
+          'Benchmark: The Ellipsoidal Sanctums of Western Ghats'
+        ],
+        keyTopicsHi: [
+          'Concentric Dielectric Waveguides & Environmental RF Traps',
+          'प्राकार भित्ति, सिकता-न्यास एवं कलश चालकता',
+          'Benchmark: The Ellipsoidal Sanctums of Western Ghats'
+        ],
+        sourceClassificationEn: 'SUBUNIT V · VASTU-MANDALA',
+        sourceClassificationHi: 'उप-इकाई V · वास्तु-मण्डल',
+        articleSlug: 'architectural-waveguides'
       }
     ],
-    crossLinks: [
-      {
-        targetCategorySlug: 'shri-meru-chakra',
-        gatewayRoman: 'VI',
-        labelEn: 'Gateway VI · Mantra, Yantra & Śrī Meru Geometry',
-        labelHi: 'द्वार VI · मन्त्र, यन्त्र एवं श्रीमेरु ज्यामिति',
-        relationNoteEn: 'Compare Vāstu-Purusha-Maṇḍala temple architecture with the nine concentric enclosures of the Śrī Meru Chakra.',
-        relationNoteHi: 'वास्तु-पुरुष-मण्डल स्थापत्य की श्रीमेरु चक्र के नौ संकेंद्रित आवरणों से तुलना करें।'
-      },
-      {
-        targetCategorySlug: 'ashta-bhairava',
-        targetArticleSlug: 'bhairavagana-taxonomy-kshetrapalas',
-        gatewayRoman: 'II',
-        labelEn: 'Gateway II · Bhairavagaṇa vs. Vaiṣṇava Dvārapālas (Jaya–Vijaya)',
-        labelHi: 'द्वार II · शैव भैरवगण बनाम वैष्णव द्वारपाल (जय–विजय)',
-        relationNoteEn: 'Compare the Vaiṣṇava gatekeepers of Vaikuṇṭha (Jaya and Vijaya) with the Śaiva-Śākta Bhairavagaṇa and Kṣetrapālas without conflating their distinct traditions.',
-        relationNoteHi: 'वैकुण्ठ के वैष्णव द्वारपालों (जय–विजय) और शैव-शाक्त भैरवगण एवं क्षेत्रपालों का तुलनात्मक अध्ययन करें।'
-      },
-      {
-        targetCategorySlug: 'eight-matrikas',
-        gatewayRoman: 'V',
-        labelEn: 'Gateway V · Śakti Tattva & Aṣṭa Mātṛkā',
-        labelHi: 'द्वार V · शक्ति तत्त्व एवं अष्ट मातृका',
-        relationNoteEn: 'Explore how Vaiṣṇavī, Vārāhī, and Mahālakṣmī bridge Pāñcarātra Vaiṣṇava theology with Śākta Mātṛkā mandalas.',
-        relationNoteHi: 'देखें कि वैष्णवी, वाराही और महालक्ष्मी किस प्रकार वैष्णव और शाक्त मण्डलों को जोड़ती हैं।'
-      },
-      {
-        targetCategorySlug: 'the-14-lokas',
-        gatewayRoman: 'VII',
-        labelEn: 'Gateway VII · The 14 Lokas & Samaya / Aṣṭa Prahar',
-        labelHi: 'द्वार VII · चतुर्दश लोक एवं समय / अष्ट प्रहर',
-        relationNoteEn: 'Connect terrestrial sacred geography (Bhūloka) with the vertical 14-Loka Puranic cosmography and 8-Prahar sacred timekeeping.',
-        relationNoteHi: 'पृथ्वी के पवित्र भूगोल (भूर्लोक) को चतुर्दश लोक और अष्ट प्रहर कालगणना से जोड़ें।'
-      }
-    ],
-    articles: [
-      ...CAGS_FIELD_ARTICLES,
-      ...ADDITIONAL_GATEWAY_ARTICLES['cags-field-archive'],
-      ...DEEP_SACRED_SEAL_ARTICLES.filter(a => a.categorySlug === 'cags-field-archive')
-    ]
+    crossLinks: [],
+    articles: [...CAGS_FIELD_ARTICLES]
   },
   {
     chapterIndex: 1,
@@ -1718,99 +1981,12 @@ export const RESEARCH_CATEGORY_PORTALS: ResearchCategoryPortal[] = [
         sourceClassificationEn: 'Contemporary Symbolic & Acoustic Model',
         sourceClassificationHi: 'आधुनिक प्रतीकात्मक एवं ध्वनि मॉडल',
         articleSlug: 'samhara-bhairava'
-      },
-      {
-        id: 'sub-bhairavagana-taxonomy',
-        sanskritName: 'भैरवगण एवं क्षेत्रपाल · Bhairavagaṇa & Kṣetrapālas',
-        titleEn: 'Bhairavagaṇa — Aṣṭa Bhairava, 64 Bhairavas, Kṣetrapālas & Retinue Taxonomy',
-        titleHi: 'भैरवगण — अष्ट भैरव, ६४ भैरव वर्गीकरण, क्षेत्रपाल एवं गण-तत्त्व',
-        summaryEn: 'Comprehensive study of Bhairava and gaṇa, 8×8 Bhairava groupings, Vaṭuka & Svacchanda Bhairava, and distinctions from Pramathagaṇas, Yoginīs, and Vaiṣṇava Dvārapālas.',
-        summaryHi: 'भैरव और गण का अर्थ, अष्ट भैरव, ६४ भैरव (८×८ समूह), बटुक व स्वच्छन्द भैरव तथा प्रमथगण, क्षेत्रपाल, योगिनी व वैष्णव द्वारपालों से उनका भेद।',
-        keyTopicsEn: ['Aṣṭa Bhairava & 8×8 (64) Groupings', 'Kāla, Vaṭuka & Svacchanda Bhairava', 'Bhairavagaṇa vs. Jaya–Vijaya Distinction'],
-        keyTopicsHi: ['अष्ट भैरव एवं ८×८ (६४) भैरव वर्ग', 'काल, बटुक एवं स्वच्छन्द भैरव', 'भैरवगण बनाम जय–विजय का स्पष्ट भेद'],
-        sourceClassificationEn: 'Śiva Purāṇa, Svacchanda Tantra & Tantrāloka',
-        sourceClassificationHi: 'शिव पुराण, स्वच्छन्द तन्त्र एवं तन्त्रालोक',
-        articleSlug: 'bhairavagana-taxonomy-kshetrapalas'
-      },
-      {
-        id: 'sub-aghora-sampradaya',
-        sanskritName: 'अघोर सम्प्रदाय · Aghora Sampradāya (Parent Tradition)',
-        titleEn: 'Aghora Sampradāya — Etymology, 6 Core Points & Two Sub-Parts (Ghora & Kāpālika)',
-        titleHi: 'अघोर सम्प्रदाय — व्युत्पत्ति, ६ मुख्य बिंदु एवं २ उप-भाग (घोर ११ भेद व कापालिक ५ भेद)',
-        summaryEn: 'Distinguishes Aghora (fivefold Śiva face & non-dual state), Aghorī, Pāśupata, medieval Kāpālika, and modern Varanasi Krīṃ Kuṇḍa lineages, and houses Sub-Part I (Ghora 11/12 Bhedas) and Sub-Part II (Kāpālika 5 Bhedas).',
-        summaryHi: 'अघोर, अघोरी, पाशुपत, मध्यकालीन कापालिक और वाराणसी की बाबा कीनाराम (क्रीं कुण्ड) परंपरा का अध्ययन तथा इसके दो उप-भाग (उप-भाग I: घोर ११/१२ भेद व उप-भाग II: कापालिक ५ भेद)।',
-        keyTopicsEn: ['6 Core Points of Aghora Dossier', 'Sub-Part I: Ghora 11/12 Bhedas', 'Sub-Part II: Kāpālika 5 Bhedas'],
-        keyTopicsHi: ['अघोर सम्प्रदाय के ६ मुख्य बिंदु', 'उप-भाग I: घोर सम्प्रदाय ११/१२ भेद', 'उप-भाग II: कापालिक सम्प्रदाय ५ भेद'],
-        sourceClassificationEn: 'Brahmayāmala, Siddhayogeśvarīmata & Academic Ethnography',
-        sourceClassificationHi: 'ब्रह्मयामल, सिद्धयोगेश्वरीमत एवं अकादमिक इतिहास',
-        articleSlug: 'aghora-sampradaya-history-theology'
-      },
-      {
-        id: 'sub-ghora-11-bhedas',
-        sanskritName: 'अघोर उप-भाग I · घोर सम्प्रदाय के ११ (१२) भेद',
-        titleEn: 'Sub-Part I of Aghora Sampradāya: Ghora Sampradāya 11 (12) Bhedas [Verification Pending]',
-        titleHi: 'अघोर सम्प्रदाय का उप-भाग I: घोर सम्प्रदाय के ११ (१२) भेद [स्रोत पुष्टि लंबित]',
-        summaryEn: 'Sub-Part I under Aghora Sampradāya: Lexical and methodological examination of Rakta, Śukla, Vinmūtra, Bhakṣa, Vanānta, Ghora, Ghoratara, Vīṇā, Nīla, Śarvabhakṣa, Ghorāghora, and Siddha.',
-        summaryHi: 'अघोर सम्प्रदाय के अंतर्गत उप-भाग I: रक्त, शुक्ल, विन्मूत्र, भक्ष, वनान्त, घोर, घोरतर, वीणा, नील, शर्वभक्ष, घोराघोर और सिद्ध—इन १२ नामों का शब्दार्थ और समीक्षा।',
-        keyTopicsEn: ['Sub-Part I of Aghora Sampradāya', 'Rakta, Śukla, Vinmūtra, Bhakṣa, Vanānta, Ghora', 'Ghoratara, Vīṇā, Nīla, Śarvabhakṣa, Ghorāghora, Siddha'],
-        keyTopicsHi: ['अघोर सम्प्रदाय का उप-भाग I', 'रक्त, शुक्ल, विन्मूत्र, भक्ष, वनान्त, घोर', 'घोरतर, वीणा, नील, शर्वभक्ष, घोराघोर, सिद्ध'],
-        sourceClassificationEn: 'Aghora Sub-Part I · Source Verification Pending',
-        sourceClassificationHi: 'अघोर उप-भाग I · मूल स्रोत की पुष्टि लंबित',
-        articleSlug: 'ghora-sampradaya-11-bhedas-study'
-      },
-      {
-        id: 'sub-kapalika-5-bhedas',
-        sanskritName: 'अघोर उप-भाग II · कापालिक सम्प्रदाय एवं ५ भेद',
-        titleEn: 'Sub-Part II of Aghora Sampradāya: Kāpālika Somāsiddhānta, 12 Gurus & 5 Bhedas (Indrajali, Devjali, Rudrajali, Vidyajali, Siddhajali)',
-        titleHi: 'अघोर सम्प्रदाय का उप-भाग II: कापालिक सोमसिद्धान्त, १२ गुरु एवं ५ भेद (इन्द्रजाली, देवजाली, रुद्रजाली, विद्याजाली, सिद्धजाली)',
-        summaryEn: 'Sub-Part II under Aghora Sampradāya: Examines medieval Kāpālika history, Somāsiddhānta, the 12 Gurus of Sarvatantra, and lexical analysis of the five reported Bhedas (Indrajali, Devjali, Rudrajali, Vidyajali, Siddhajali).',
-        summaryHi: 'अघोर सम्प्रदाय के अंतर्गत उप-भाग II: सोमसिद्धान्त, सर्वतन्त्र के १२ कापालिक गुरु तथा ५ बताए गए भेदों (इन्द्रजाली, देवजाली, रुद्रजाली, विद्याजाली, सिद्धजाली) का प्रामाणिक विश्लेषण।',
-        keyTopicsEn: ['Sub-Part II of Aghora Sampradāya', '12 Kāpālika Gurus (Ādinātha to Vikarāla)', '5 Reported Bhedas: Indrajali, Devjali, Rudrajali, Vidyajali, Siddhajali'],
-        keyTopicsHi: ['अघोर सम्प्रदाय का उप-भाग II', 'सर्वतन्त्र के १२ कापालिक गुरु', '५ बताए गए भेद: इन्द्रजाली, देवजाली, रुद्रजाली, विद्याजाली, सिद्धजाली'],
-        sourceClassificationEn: 'Aghora Sub-Part II · Source Verification Pending',
-        sourceClassificationHi: 'अघोर उप-भाग II · स्रोत समीक्षा लंबित',
-        articleSlug: 'kapalika-sampradaya-5-bhedas-somasiddhanta'
       }
     ],
-    crossLinks: [
-      {
-        targetCategorySlug: 'bhairav-investigation-codex',
-        gatewayRoman: 'III',
-        labelEn: 'Gateway III · Kāla Bhairava & Kāśī Field Codex',
-        labelHi: 'द्वार III · काल-भैरव एवं काशी अन्वेषण संहिता',
-        relationNoteEn: 'Inspect the living Kāśī shrine locations, bronze reliefs, and field protocols for Kaal Bhairava and the eight Bhairavas.',
-        relationNoteHi: 'काशी के जीवंत भैरव मंदिरों, कांस्य प्रतिमाओं और क्षेत्रीय अन्वेषण प्रोटोकॉल का अध्ययन करें।'
-      },
-      {
-        targetCategorySlug: 'cags-field-archive',
-        targetArticleSlug: 'jaya-vijaya-vaikuntha-dvarapalas',
-        gatewayRoman: 'I',
-        labelEn: 'Gateway I · Jaya and Vijaya (Vaiṣṇava Dvārapālas vs. Bhairavagaṇa)',
-        labelHi: 'द्वार I · जय और विजय (वैष्णव द्वारपाल बनाम शैव भैरवगण)',
-        relationNoteEn: 'See why Jaya and Vijaya belong to Vaiṣṇava Vaikuṇṭha theology rather than the Śaiva Bhairavagaṇa.',
-        relationNoteHi: 'देखें कि जय और विजय शैव भैरवगण के नहीं अपितु वैकुण्ठ की वैष्णव द्वारपाल परंपरा के अंग क्यों हैं।'
-      },
-      {
-        targetCategorySlug: '64-yogini-matrix',
-        gatewayRoman: 'IV',
-        labelEn: 'Gateway IV · 64 Yoginī (8 Bhairavas × 8 Mātṛkās Matrix)',
-        labelHi: 'द्वार IV · ६४ योगिनी (८ भैरव × ८ मातृका आव्यूह)',
-        relationNoteEn: 'See how the 8 Bhairavas form Rows 01–08 of the 64-cell Bhairava-Mātṛkā combinatorial matrix.',
-        relationNoteHi: 'देखें कि किस प्रकार अष्ट भैरव ६४-कोष्ठ भैरव-मातृका आव्यूह की ८ पंक्तियों का निर्माण करते हैं।'
-      },
-      {
-        targetCategorySlug: 'eight-matrikas',
-        gatewayRoman: 'V',
-        labelEn: 'Gateway V · Śakti Tattva & Aṣṭa Mātṛkā Consorts',
-        labelHi: 'द्वार V · शक्ति तत्त्व एवं अष्ट मातृका युग्म',
-        relationNoteEn: 'Explore the eight Mātṛkā consorts (Brāhmī to Mahālakṣmī) paired with each directional Bhairava.',
-        relationNoteHi: 'प्रत्येक दिशात्मक भैरव के साथ युग्मित अष्ट मातृका शक्तियों (ब्राह्मी से महालक्ष्मी) का अध्ययन करें।'
-      }
-    ],
+    crossLinks: [],
     articles: [
       ...ASHTA_BHAIRAVA_ARTICLES,
-      ...ADDITIONAL_GATEWAY_ARTICLES['ashta-bhairava'],
-      ...DEEP_SACRED_SEAL_ARTICLES.filter(a => a.categorySlug === 'ashta-bhairava')
+      ...ADDITIONAL_GATEWAY_ARTICLES['ashta-bhairava']
     ]
   },
   {
@@ -1979,7 +2155,20 @@ export const RESEARCH_CATEGORY_PORTALS: ResearchCategoryPortal[] = [
         keyTopicsHi: ['मातृजा योगिनी अष्टक', 'क्षेत्रजा भौगोलिक योगिनियाँ', '६४ योगिनी-भैरव चक्र विधान'],
         sourceClassificationEn: 'Primary Kaula & Purāṇic Manuscripts',
         sourceClassificationHi: 'मूल कौल एवं पौराणिक पाण्डुलिपियाँ',
-        articleSlug: 'octant-08-samhara-matrix'
+        articleSlug: 'bm-08-08'
+      },
+      {
+        id: 'sub-52-bhairava-56-kalua',
+        sanskritName: 'बावन भैरव एवं छप्पन कलुआ · 52 Bhairavas & 56 Kalua',
+        titleEn: '52 Bhairavas (Bāvan Bhairav) & 56 Kalua (Chhappan Kalua) — Devotional & Folk-Tantric Concordance',
+        titleHi: '52 भैरव (बावन भैरव) एवं 56 कलुआ (छप्पन कलुआ) — क्षेत्रीय एवं लोक-तांत्रिक अनुक्रमणिका',
+        summaryEn: 'Complete numbered roster of the 52 Bhairavas (1. Asitāṅga to 52. Ekadaṃśa Bhairava) alongside the archival description and research status of Chhappan Kalua (56 Kalua).',
+        summaryHi: 'असितांग भैरव से एकदंश भैरव पर्यन्त ५२ भैरवों की संपूर्ण सूची तथा उत्तर भारतीय लोक-तांत्रिक परम्परा में “छप्पन कलुआ” का प्रामाणिक शोध-विवरण।',
+        keyTopicsEn: ['52 Bhairavas Complete Roster (1–52)', 'Chhappan Kalua (छप्पन कलुआ) Description', 'Sarbhang Gayatri Triad Formula'],
+        keyTopicsHi: ['५२ भैरव संपूर्ण नामावली (१–५२)', 'छप्पन कलुआ (56 Kalua) शोध विवरण', '“बावन भैरव, चौंसठ योगिनी, छप्पन कलुआ”'],
+        sourceClassificationEn: 'Regional Śākta-Nātha & Folk-Tantric Archive',
+        sourceClassificationHi: 'क्षेत्रीय शाक्त-नाथ एवं लोक-तांत्रिक अभिलेख',
+        articleSlug: 'bavan-bhairava-chhappan-kalua-concordance'
       }
     ],
     crossLinks: [
@@ -2013,156 +2202,79 @@ export const RESEARCH_CATEGORY_PORTALS: ResearchCategoryPortal[] = [
   {
     chapterIndex: 4,
     slug: 'eight-matrikas',
-    aliasSlugs: ['shakti-tattva', 'divine-feminine', 'ashta-matrika'],
+    aliasSlugs: ['ashta-matrika', 'matrika-mandala'],
     roman: 'V',
-    gatewayBadgeEn: 'SACRED GATEWAY V · ŚAKTI TATTVA — THE DIVINE FEMININE',
-    gatewayBadgeHi: 'पवित्र ज्ञान-द्वार V · शक्ति तत्त्व — पराशक्ति एवं मातृका परम्परा',
-    shortTitleEn: 'Śakti Tattva & Matrikas',
-    shortTitleHi: 'शक्ति तत्त्व एवं अष्ट मातृका',
-    titleEn: 'V · Śakti Tattva — The Divine Feminine & Eight Mātṛkās',
-    titleHi: 'V · शक्ति तत्त्व — पराशक्ति, कुल-परम्परा एवं अष्ट मातृका',
-    sanskritSeal: 'शक्ति तत्त्व · कालीकुल · श्रीकुल · दशमहाविद्या · अष्टमातृका',
-    subtitleEn: 'Kālīkula, Śrīkula, Daśa Mahāvidyā, Aṣṭa Mātṛkā, Catuḥṣaṣṭi Yoginī, Navadurgā & Śakti Pīṭhas',
-    subtitleHi: 'कालीकुल, श्रीकुल, दशमहाविद्या, अष्ट मातृका, चतुःषष्टि योगिनी, नवदुर्गा एवं ५१ शक्तिपीठ',
-    epigraphEn: '“Exploring Śākta traditions, goddess theology, and primary religious literature — from Kālīkula, Śrīkula, and the Ten Mahāvidyās to the Eight Mātṛkās, Navadurgā, and the Śakti Pīṭhas.”',
-    epigraphHi: '“शाक्त परम्परा, देवी तत्त्वज्ञान और मूल आगम-पुराण साहित्य का अन्वेषण — कालीकुल, श्रीकुल और दशमहाविद्या से लेकर अष्ट मातृका, नवदुर्गा और शक्तिपीठों तक।”',
+    gatewayBadgeEn: 'SACRED GATEWAY V · AṢṬA MĀTṚKĀ — THE EIGHT MOTHER-POWERS',
+    gatewayBadgeHi: 'पवित्र ज्ञान-द्वार V · अष्ट मातृका — आठ मातृ-शक्तियाँ एवं वर्ण-चक्र',
+    shortTitleEn: 'Eight Matrikas',
+    shortTitleHi: 'अष्ट मातृका',
+    titleEn: 'V · The Eight Mātṛkās (Aṣṭa Mātṛkā — अष्ट मातृका)',
+    titleHi: 'V · अष्ट मातृका — ब्राह्म्यादि आठ मातृ-शक्तियाँ एवं वर्ण-विज्ञान',
+    sanskritSeal: 'ब्राह्मी · माहेश्वरी · कौमारी · वैष्णवी · वाराही · इन्द्राणी · चामुण्डा · महालक्ष्मी',
+    subtitleEn: 'Brāhmī, Māheśvarī, Kaumārī, Vaiṣṇavī, Vārāhī, Indrāṇī, Cāmuṇḍā & Mahālakṣmī — Purāṇic Iconography, Sanskrit Varga Phonemics & 3-Bit Cybernetic State-Space (000–111)',
+    subtitleHi: 'ब्राह्मी, माहेश्वरी, कौमारी, वैष्णवी, वाराही, इन्द्राणी, चामुण्डा एवं महालक्ष्मी — पौराणिक प्रतिमाशास्त्र, संस्कृत वर्ण-वर्ग एवं ३-बिट (000–111) साइबरनेटिक प्रणाली',
+    epigraphEn: '“Know the Mātṛkā as the subtle Mother of all mantras and cosmos — arrayed in eightfold sovereignty across the phoneme classes and the battleground of consciousness.”',
+    epigraphHi: '“मातृका को समस्त मन्त्रों और विश्व की सूक्ष्म जननी जानो — जो वर्णमाला के आठ वर्गों और चेतना के समरांगण में अष्ट-शक्तियों के रूप में अधिष्ठित हैं।”',
     overviewEn:
-      'Gateway V is the comprehensive Śakti Tattva (शक्ति तत्त्व — The Divine Feminine) research archive. It integrates the seven primary pillars of Śākta studies—Kālīkula, Śrīkula, Daśa Mahāvidyā, Aṣṭa Mātṛkā (Brāhmī, Māheśvarī, Kaumārī, Vaiṣṇavī, Vārāhī, Indrāṇī, Cāmuṇḍā, and Mahālakṣmī), Catuḥṣaṣṭi Yoginī, Navadurgā, and the Śakti Pīṭhas—alongside interactive elemental, sacred-geographical, and symbolic cybernetic (3-bit 000–111) visualizations.',
+      'Gateway V is dedicated exclusively to the Eight Mātṛkās (Aṣṭa Mātṛkā): Brāhmī, Māheśvarī, Kaumārī, Vaiṣṇavī, Vārāhī, Indrāṇī, Cāmuṇḍā, and Mahālakṣmī. Matching the Live Interactive Studio 1-to-1, this unit documents their emergence in the Devī Māhātmya (Ch. 8), their presidency over the eight Sanskrit phoneme classes (A-varga to Śa-varga), their role as Bhūpura guardians, and their comparative 3-bit cybernetic state-space (000–111) and neuro-endocrine mapping.',
     overviewHi:
-      'पंचम ज्ञान-द्वार "शक्ति तत्त्व" (पराशक्ति एवं शाक्त परम्परा) का विस्तृत शोध अभिलेखागार है। इसमें शाक्त अध्ययन के सातों प्रमुख स्तंभ—कालीकुल, श्रीकुल, दशमहाविद्या, अष्ट मातृका (ब्राह्मी, माहेश्वरी, कौमारी, वैष्णवी, वाराही, इन्द्राणी, चामुण्डा और महालक्ष्मी), चतुःषष्टि योगिनी, नवदुर्गा और शक्तिपीठ—तथा संवादात्मक तात्त्विक एवं प्रतीकात्मक साइबरनेटिक (000–111) दृश्य प्रणालियाँ समाहित हैं।',
+      'पंचम ज्ञान-द्वार पूर्णतः अष्ट मातृकाओं (ब्राह्मी, माहेश्वरी, कौमारी, वैष्णवी, वाराही, इन्द्राणी, चामुण्डा और महालक्ष्मी) को समर्पित है। संवादात्मक अध्ययन कक्ष (Interactive Studio) के अनुरूप, इस इकाई में देवी माहात्म्य (अध्याय ८) में उनके प्राकट्य, संस्कृत वर्णमाला के आठ वर्गों (अ-वर्ग से श-वर्ग) पर उनके अधिपतित्व, भूपुर द्वारपाल भूमिका तथा ३-बिट बाइनरी संकेतक (000–111) व अंतःस्रावी सह-संबंधों का प्रलेखन है।',
     editorialFramingEn:
-      'Editorial Note: Classical Śākta texts (Devī Māhātmya, Devī Bhāgavata, Kālikā Purāṇa, Vāmakeśvara Tantra, Todala Tantra, Pīṭhanirṇaya) are presented with full philological rigor. In the Aṣṭa Mātṛkā studio, the binary 3-bit state-space (000–111) and neuro-endocrine correlates are explicitly framed as contemporary comparative systems models alongside classical Purāṇic iconography.',
+      'Editorial Note: Classical Purāṇic and Āgamic accounts of the Eight Mātṛkās (Devī Māhātmya Ch. 8, Varāha Purāṇa, Matsya Purāṇa, Tantrāloka) are presented alongside the 3-bit binary state-space (000–111) and neuro-endocrine correlates in the Aṣṭa Mātṛkā Interactive Studio.',
     editorialFramingHi:
-      'संपादकीय टिप्पणी: मूल शाक्त ग्रन्थों (देवी माहात्म्य, देवी भागवत, कालिका पुराण, वामकेश्वर तन्त्र, तोडल तन्त्र, पीठनिर्णय) का प्रामाणिक विवरण दिया गया है। अष्ट मातृका अध्ययन कक्ष में बाइनरी ३-बिट संकेतक (000–111) और अंतःस्रावी सह-संबंधों को शास्त्रीय प्रतिमाशास्त्र के साथ एक आधुनिक तुलनात्मक प्रणाली मॉडल के रूप में स्पष्ट चिह्नित किया गया है।',
-    methodologyEn: 'Śākta textual philology · Kālīkula & Śrīkula comparative lineage study · Sacred Pīṭha cartography · Symbolic cybernetic state-space mapping',
-    methodologyHi: 'शाक्त ग्रंथ भाषाविज्ञान · कालीकुल एवं श्रीकुल आम्नाय अध्ययन · शक्तिपीठ मानचित्रण · प्रतीकात्मक साइबरनेटिक अवस्था-मानचित्रण',
+      'संपादकीय टिप्पणी: अष्ट मातृकाओं के शास्त्रीय पौराणिक एवं आगम विवरणों (देवी माहात्म्य अध्याय ८, वराह पुराण, मत्स्य पुराण, तन्त्रालोक) को संवादात्मक अध्ययन कक्ष के ३-बिट बाइनरी संकेतक (000–111) और अंतःस्रावी सह-संबंध मॉडल के साथ प्रस्तुत किया गया है।',
+    methodologyEn: 'Devī Māhātmya textual philology · Sanskrit Mātṛkā phoneme-class (Varga) analysis · Symbolic 3-bit cybernetic state-space mapping',
+    methodologyHi: 'देवी माहात्म्य भाषाविज्ञान · संस्कृत मातृका वर्ण-वर्ग विश्लेषण · प्रतीकात्मक ३-बिट साइबरनेटिक अवस्था-मानचित्रण',
     accentColor: '#EC4899',
     secondaryColor: '#4C1D95',
     mandalaAngle: 115.71,
-    domainTagEn: 'ŚAKTI TATTVA & MĀTṚKĀ ARCHIVE',
-    domainTagHi: 'शक्ति तत्त्व एवं मातृका विज्ञान',
-    sourceRegisterEn: 'Devī Māhātmya · Vāmakeśvara Tantra · Todala Tantra · Kālikā Purāṇa · Devī Bhāgavata · Pīṭhanirṇaya',
-    sourceRegisterHi: 'देवी माहात्म्य · वामकेश्वर तन्त्र · तोडल तन्त्र · कालिका पुराण · देवी भागवत · पीठनिर्णय',
+    domainTagEn: 'AṢṬA MĀTṚKĀ ARCHIVE',
+    domainTagHi: 'अष्ट मातृका विज्ञान',
+    sourceRegisterEn: 'Devī Māhātmya (Ch. 8) · Varāha Purāṇa · Matsya Purāṇa · Mālinīvijayottara Tantra · Tantrāloka',
+    sourceRegisterHi: 'देवी माहात्म्य (अध्याय ८) · वराह पुराण · मत्स्य पुराण · मालिनीविजयोत्तर तन्त्र · तन्त्रालोक',
     subcategories: [
       {
-        id: 'sub-kalikula',
-        sanskritName: 'कालीकुल · Kālīkula',
-        titleEn: 'Kālīkula — The Northern & Eastern Stream of Radical Transcendence',
-        titleHi: 'कालीकुल — काल-अतिक्रमण एवं अद्वैत प्रज्ञा की पूर्वी-उत्तरी धारा',
-        summaryEn: 'Centered on Kālī, Tārā, and Kālasaṅkarṣiṇī across Kashmir Krama, Bengal, Assam (Kāmākhyā), and Mithila.',
-        summaryHi: 'कश्मीर क्रम दर्शन, बंगाल, कामरूप (असम) और मिथिला में काली, तारा एवं कालसंकर्षिणी पर केंद्रित शाक्त आम्नाय।',
-        keyTopicsEn: ['Kashmir Krama & Mahārthamañjarī', 'Bṛhannīla Tantra & Tantrasāra', 'Kālī as Kālasaṅkarṣiṇī'],
-        keyTopicsHi: ['कश्मीर क्रम एवं महार्थमञ्जरी', 'बृहन्नील तन्त्र एवं तन्त्रसार', 'कालसंकर्षिणी भगवती काली'],
-        sourceClassificationEn: 'Primary Kālīkula Tantras & Krama Literature',
-        sourceClassificationHi: 'मूल कालीकुल तन्त्र एवं क्रम साहित्य',
-        articleSlug: 'kalikula-srikula-streams'
-      },
-      {
-        id: 'sub-srikula',
-        sanskritName: 'श्रीकुल · Śrīkula',
-        titleEn: 'Śrīkula — Śrīvidyā, Lalitā Tripurasundarī & Aesthetic Non-Dualism',
-        titleHi: 'श्रीकुल — श्रीविद्या, ललिता त्रिपुरसुन्दरी एवं सौन्दर्य-अद्वैत',
-        summaryEn: 'Centered on Lalitā Mahātripurasundarī, the Pañcadaśī/Ṣoḍaśī mantra, and the nine enclosures of the Śrīcakra.',
-        summaryHi: 'ललिता महात्रिपुरसुन्दरी, पञ्चदशी/षोडशी महामन्त्र और श्रीचक्र के नवावरण पर केंद्रित दक्षिणाम्नाय परम्परा।',
-        keyTopicsEn: ['Vāmakeśvara Tantra & Yoginīhṛdaya', 'Lalitā Sahasranāma & Saundarya Laharī', 'Kaula vs. Samaya Approaches'],
-        keyTopicsHi: ['वामकेश्वर तन्त्र एवं योगिनीहृदय', 'ललिता सहस्रनाम एवं सौन्दर्य लहरी', 'कौल एवं समय मत समन्वय'],
-        sourceClassificationEn: 'Primary Śrīvidyā Āgamas & Purāṇas',
-        sourceClassificationHi: 'मूल श्रीविद्या आगम एवं पुराण',
-        articleSlug: 'kalikula-srikula-streams'
-      },
-      {
-        id: 'sub-dasa-mahavidya',
-        sanskritName: 'दशमहाविद्या · Daśa Mahāvidyā',
-        titleEn: 'Daśa Mahāvidyā — The Ten Cosmic Wisdom Goddesses',
-        titleHi: 'दशमहाविद्या — दस महाविद्याओं का तत्त्वज्ञान',
-        summaryEn: 'Kālī, Tārā, Tripurasundarī, Bhuvaneśvarī, Bhairavī, Chinnamastā, Dhūmāvatī, Bagalāmukhī, Mātaṅgī, and Kamalā.',
-        summaryHi: 'काली, तारा, षोडशी, भुवनेश्वरी, भैरवी, छिन्नमस्ता, धूमावती, बगलामुखी, मातंगी और कमला का पूर्ण दश-मण्डल।',
-        keyTopicsEn: ['Ugra & Saumya Wisdom Forms', 'Todala Tantra Bhairava Pairings', 'Kāmākhyā Ten-Shrine Complex'],
-        keyTopicsHi: ['उग्र एवं सौम्य प्रज्ञा स्वरूप', 'तोडल तन्त्र भैरव युग्मन', 'कामाख्या के दस महाविद्या मंदिर'],
-        sourceClassificationEn: 'Todala Tantra, Muṇḍamālā Tantra & Śākta Upapurāṇas',
-        sourceClassificationHi: 'तोडल तन्त्र, मुण्डमाला तन्त्र एवं शाक्त उपपुराण',
-        articleSlug: 'dasa-mahavidya-ten-wisdom-goddesses'
-      },
-      {
-        id: 'sub-ashta-matrika',
-        sanskritName: 'अष्ट मातृका · Aṣṭa Mātṛkā',
-        titleEn: 'Aṣṭa Mātṛkā — The Eight Mother-Powers of the Cosmos & Syllable Classes',
-        titleHi: 'अष्ट मातृका — ब्राह्म्यादि आठ मातृका शक्तियाँ एवं वर्ण-वर्ग',
-        summaryEn: 'Brāhmī, Māheśvarī, Kaumārī, Vaiṣṇavī, Vārāhī, Indrāṇī, Cāmuṇḍā, and Mahālakṣmī across Purāṇa, phoneme classes, and 3-bit operators.',
-        summaryHi: 'ब्राह्मी, माहेश्वरी, कौमारी, वैष्णवी, वाराही, इन्द्राणी, चामुण्डा और महालक्ष्मी का शास्त्रीय, वर्णमाला एवं साइबरनेटिक अध्ययन।',
-        keyTopicsEn: ['Devī Māhātmya Ch. 8 Origin', '8 Sanskrit Consonant Classes (A–Śa varga)', 'Binary 3-Bit Operators (000–111)'],
-        keyTopicsHi: ['देवी माहात्म्य अध्याय ८ प्राकट्य', 'संस्कृत वर्णमाला के ८ वर्ग', 'बाइनरी ३-बिट संकेतक (000–111)'],
-        sourceClassificationEn: 'Devī Māhātmya, Varāha Purāṇa & Symbolic Systems Model',
-        sourceClassificationHi: 'देवी माहात्म्य, वराह पुराण एवं प्रतीकात्मक प्रणाली मॉडल',
+        id: 'sub-matrika-puranic-combat',
+        sanskritName: 'रक्तबीज-संहार एवं अष्ट-मातृका · Purāṇic Emergence',
+        titleEn: 'Devī Māhātmya Emergence & Raktabīja Battleground Iconography',
+        titleHi: 'देवी माहात्म्य में प्राकट्य एवं रक्तबीज समरांगण प्रतिमाशास्त्र',
+        summaryEn: 'How the śaktis of Brahmā, Śiva, Skanda, Viṣṇu, Varāha, Indra, and Devī emerged with distinct weapons and vāhanas to absorb Raktabīja’s proliferating blood-clones.',
+        summaryHi: 'ब्रह्मा, शिव, स्कन्द, विष्णु, वराह, इन्द्र और देवी की शक्तियों का अपने विशिष्ट आयुधों व वाहनों सहित प्राकट्य और रक्तबीज के रक्त-बिन्दुओं का शोषण।',
+        keyTopicsEn: ['Devī Māhātmya Chapter 8', 'Vāhanas & Āyudhas of the 8 Mothers', 'Varāha Purāṇa Psychological Allegory'],
+        keyTopicsHi: ['देवी माहात्म्य अध्याय ८', 'अष्ट मातृकाओं के वाहन एवं आयुध', 'वराह पुराण का मनोवैज्ञानिक रूपक'],
+        sourceClassificationEn: 'Mārkaṇḍeya Purāṇa (Devī Māhātmya) & Varāha Purāṇa',
+        sourceClassificationHi: 'मार्कण्डेय पुराण (देवी माहात्म्य) एवं वराह पुराण',
         articleSlug: 'brahmi'
       },
       {
-        id: 'sub-catuhshashti-yogini-link',
-        sanskritName: 'चतुःषष्टि योगिनी · Catuḥṣaṣṭi Yoginī',
-        titleEn: 'Catuḥṣaṣṭi Yoginī — The 64 Yoginī Emanations (8 × 8 = 64)',
-        titleHi: 'चतुःषष्टि योगिनी — अष्ट मातृकाओं से प्रकट ६४ योगिनी शक्तियाँ',
-        summaryEn: 'Each of the 8 Mātṛkās projects 8 Yoginī attendants, forming the 64-vector mandala explored in full in Gateway IV.',
-        summaryHi: 'प्रत्येक मातृका से ८-८ योगिनियों का प्राकट्य होकर ६४ योगिनी चक्र बनता है, जिसका पूर्ण ८×८ आव्यूह द्वार IV में स्थित है।',
-        keyTopicsEn: ['8 Mātṛkās × 8 Attendants = 64', 'Hypaethral Circular Sanctuaries', 'Direct Link to Gateway IV Matrix'],
-        keyTopicsHi: ['८ मातृका × ८ शक्तियाँ = ६४', 'वृत्ताकार चौंसठ योगिनी मंदिर', 'द्वार IV के ८×८ आव्यूह से सीधा सूत्र'],
-        sourceClassificationEn: 'Kaula Tantras, Agni Purāṇa & Temple Archaeology',
-        sourceClassificationHi: 'कौल तन्त्र, अग्नि पुराण एवं मंदिर पुरातत्व',
-        crossGatewaySlug: '64-yogini-matrix'
+        id: 'sub-matrika-varna-varga',
+        sanskritName: 'अष्ट-वर्ग वर्णमाला · Sanskrit Phoneme Classes',
+        titleEn: 'Mātṛkā Varṇamālā — Presidency Over the Eight Sanskrit Phoneme Classes',
+        titleHi: 'मातृका वर्णमाला — संस्कृत के आठ वर्ण-वर्गों पर अधिपतित्व',
+        summaryEn: 'Mapping the Eight Mātṛkās onto the eight articulation groups (A-varga vowels, Ka-varga gutturals, Ca-varga palatals, Ṭa-varga cerebrals, Ta-varga dentals, Pa-varga labials, Ya-varga semivowels, Śa-varga sibilants).',
+        summaryHi: 'संस्कृत वर्णमाला के आठ उच्चारण वर्गों (अ-वर्ग, क-वर्ग, च-वर्ग, ट-वर्ग, त-वर्ग, प-वर्ग, य-वर्ग, श-वर्ग) पर ब्राह्म्यादि अष्ट मातृकाओं का अधिष्ठान।',
+        keyTopicsEn: ['8 Phoneme Classes (A-varga to Śa-varga)', 'Mālinīvijayottara & Tantrāloka Nyāsa', 'Trailokyamohana Bhūpura Guardianship'],
+        keyTopicsHi: ['८ वर्ण-वर्ग (अ-वर्ग से श-वर्ग)', 'मालिनीविजयोत्तर एवं तन्त्रालोक न्यास', 'त्रैलोक्यमोहन भूपुर द्वारपाल'],
+        sourceClassificationEn: 'Mālinīvijayottara Tantra, Tantrāloka & Yoginīhṛdaya',
+        sourceClassificationHi: 'मालिनीविजयोत्तर तन्त्र, तन्त्रालोक एवं योगिनीहृदय',
+        articleSlug: 'maheshvari'
       },
       {
-        id: 'sub-navadurga',
-        sanskritName: 'नवदुर्गा · Navadurgā',
-        titleEn: 'Navadurgā — The Ninefold Liturgical & Protective Mandala of Durgā',
-        titleHi: 'नवदुर्गा — शैलपुत्री से सिद्धिदात्री पर्यन्त देवी के नौ स्वरूप',
-        summaryEn: 'Śailaputrī, Brahmacāriṇī, Candraghaṇṭā, Kūṣmāṇḍā, Skandamātā, Kātyāyanī, Kālarātri, Mahāgaurī, and Siddhidātrī.',
-        summaryHi: 'शैलपुत्री, ब्रह्मचारिणी, चन्द्रघण्टा, कूष्माण्डा, स्कन्दमाता, कात्यायनी, कालरात्रि, महागौरी एवं सिद्धिदात्री का नवरात्रि चक्र।',
-        keyTopicsEn: ['Devī Kavaca Ninefold Sequence', 'Agni Purāṇa Ugracaṇḍā Mandala', 'Kāśī Nine-Shrine Pilgrimage'],
-        keyTopicsHi: ['देवी कवच का नव-सोपान क्रम', 'अग्नि पुराण का उग्रचण्डा मण्डल', 'काशी की नवदुर्गा यात्रा'],
-        sourceClassificationEn: 'Devī Kavaca, Mārkaṇḍeya Purāṇa & Kāśī Khaṇḍa',
-        sourceClassificationHi: 'देवी कवच, मार्कण्डेय पुराण एवं काशी खण्ड',
-        articleSlug: 'navadurga-nine-forms'
-      },
-      {
-        id: 'sub-shakti-pithas',
-        sanskritName: 'शक्तिपीठ · Śakti Pīṭhas',
-        titleEn: 'Śakti Pīṭhas — Catuṣpīṭha & the 51 Sacred Seats of the Goddess',
-        titleHi: 'शक्तिपीठ — आदि चतुष्पीठ एवं ५१ शक्तिपीठों का पवित्र भूगोल',
-        summaryEn: 'Sacred geography linking the four primordial Tantric Pīṭhas and the 51 Purāṇic seats with the 51 Sanskrit Mātṛkā letters and guardian Bhairavas.',
-        summaryHi: 'चार आदि तांत्रिक पीठों (कामरूप, पूर्णगिरि, ओड्डियान, जालन्धर) और ५१ पौराणिक शक्तिपीठों का ५१ मातृका अक्षरों एवं भैरवों के साथ मानचित्रण।',
-        keyTopicsEn: ['Catuṣpīṭha (4 Primordial Seats)', '51 Pīṭhas = 51 Mātṛkā Letters', 'Śakti-Bhairava Consort Geography'],
-        keyTopicsHi: ['आदि चतुष्पीठ परम्परा', '५१ पीठ = ५१ मातृका अक्षर', 'शक्ति-भैरव युग्म भूगोल'],
-        sourceClassificationEn: 'Kubjikāmata, Kālikā Purāṇa, Devī Bhāgavata & Pīṭhanirṇaya',
-        sourceClassificationHi: 'कुब्जिकामत, कालिका पुराण, देवी भागवत एवं पीठनिर्णय',
-        articleSlug: 'shakti-pithas-sacred-geography'
+        id: 'sub-matrika-cybernetic-state',
+        sanskritName: 'त्र्यंगीय अवस्था-मॉडल · 3-Bit State-Space (000–111)',
+        titleEn: '3-Bit Binary Operators (000–111) & Neuro-Endocrine Systems Model',
+        titleHi: '३-बिट बाइनरी संकेतक (000–111) एवं तंत्रिका-अंतःस्रावी प्रणाली मॉडल',
+        summaryEn: 'Comparative systems mapping of the Eight Mātṛkās from [0,0,0] Brāhmī (Creation/Initiation) to [1,1,1] Mahālakṣmī (Sovereign Synthesis) across the 8×8 = 64 Yoginī matrix columns.',
+        summaryHi: '[0,0,0] ब्राह्मी (सृजन/प्रारंभ) से [1,1,1] महालक्ष्मी (पूर्ण संश्लेषण) तक अष्ट मातृकाओं का ३-बिट बाइनरी और ८×८ = ६४ योगिनी स्तंभों के साथ तुलनात्मक विश्लेषण।',
+        keyTopicsEn: ['Binary State-Space [000] to [111]', 'Neuro-Endocrine & Plexus Correlates', '8 Columns of the 64-Yoginī Matrix'],
+        keyTopicsHi: ['बाइनरी अवस्था-मानचित्र [000] से [111]', 'अंतःस्रावी ग्रंथि एवं चक्र सह-संबंध', '६४-योगिनी आव्यूह के ८ मातृका स्तंभ'],
+        sourceClassificationEn: 'Contemporary Comparative Systems & Cybernetic Model',
+        sourceClassificationHi: 'समकालीन तुलनात्मक प्रणाली एवं साइबरनेटिक मॉडल',
+        articleSlug: 'chamunda'
       }
     ],
-    crossLinks: [
-      {
-        targetCategorySlug: '64-yogini-matrix',
-        gatewayRoman: 'IV',
-        labelEn: 'Gateway IV · Catuḥṣaṣṭi Yoginī (8 Bhairavas × 8 Mātṛkās Matrix)',
-        labelHi: 'द्वार IV · चतुःषष्टि योगिनी (८ भैरव × ८ मातृका आव्यूह)',
-        relationNoteEn: 'Open the full 64-cell interactive matrix generated by the Eight Mātṛkās and Eight Bhairavas.',
-        relationNoteHi: 'अष्ट मातृकाओं और अष्ट भैरवों के संयोग से निर्मित संपूर्ण ६४-कोष्ठ संवादात्मक आव्यूह खोलें।'
-      },
-      {
-        targetCategorySlug: 'shri-meru-chakra',
-        gatewayRoman: 'VI',
-        labelEn: 'Gateway VI · Śrī Meru Chakra (Śrīkula Navāvaraṇa Geometry)',
-        labelHi: 'द्वार VI · श्रीमेरु चक्र (श्रीकुल नवावरण ज्यामिति)',
-        relationNoteEn: 'See how the Eight Mātṛkās guard the outer Trailokyamohana Bhūpura of the Śrī Meru Yantra.',
-        relationNoteHi: 'देखें कि किस प्रकार अष्ट मातृकाएँ श्रीमेरु यन्त्र के बाहरी त्रैलोक्यमोहन भूपुर के द्वारों की रक्षा करती हैं।'
-      },
-      {
-        targetCategorySlug: 'ashta-bhairava',
-        gatewayRoman: 'II',
-        labelEn: 'Gateway II · Śiva & Aṣṭa Bhairava Consort Pairings',
-        labelHi: 'द्वार II · शिव एवं अष्ट-भैरव युग्म विधान',
-        relationNoteEn: 'Examine the eight directional Bhairavas paired with each of the Eight Mātṛkās.',
-        relationNoteHi: 'प्रत्येक मातृका शक्ति के साथ युग्मित आठ दिशात्मक भैरवों का अध्ययन करें।'
-      }
-    ],
-    articles: [...SHAKTI_TATTVA_CORE_ARTICLES, ...EIGHT_MATRIKAS_ARTICLES]
+    crossLinks: [],
+    articles: [...EIGHT_MATRIKAS_ARTICLES]
   },
   {
     chapterIndex: 5,
@@ -2238,24 +2350,7 @@ export const RESEARCH_CATEGORY_PORTALS: ResearchCategoryPortal[] = [
         articleSlug: 'avarana-09-sarvanandamaya-chakra'
       }
     ],
-    crossLinks: [
-      {
-        targetCategorySlug: 'eight-matrikas',
-        gatewayRoman: 'V',
-        labelEn: 'Gateway V · Śakti Tattva, Śrīkula & Eight Mātṛkās',
-        labelHi: 'द्वार V · शक्ति तत्त्व, श्रीकुल एवं अष्ट मातृका',
-        relationNoteEn: 'Examine the Śrīkula theological lineage and the Eight Mātṛkās stationed at the outer Bhūpura of the Śrī Meru Chakra.',
-        relationNoteHi: 'श्रीकुल आम्नाय और श्रीमेरु के बाहरी भूपुर पर अधिष्ठित अष्ट मातृकाओं का अध्ययन करें।'
-      },
-      {
-        targetCategorySlug: 'the-14-lokas',
-        gatewayRoman: 'VII',
-        labelEn: 'Gateway VII · Mount Meru & The 14 Cosmic Realms',
-        labelHi: 'द्वार VII · सुमेरु अक्ष एवं चतुर्दश लोक',
-        relationNoteEn: 'Compare the microcosmic 3D Mahāmeru Yantra with the macrocosmic Mount Meru axis of the 14 Lokas.',
-        relationNoteHi: 'सूक्ष्म-ब्रह्माण्डीय त्रि-आयामी महामेरु यन्त्र की चतुर्दश लोक के सुमेरु अक्ष से तुलना करें।'
-      }
-    ],
+    crossLinks: [],
     articles: [...SHRI_MERU_ARTICLES, ...ADDITIONAL_GATEWAY_ARTICLES['shri-meru-chakra']]
   },
   {
@@ -2330,53 +2425,10 @@ export const RESEARCH_CATEGORY_PORTALS: ResearchCategoryPortal[] = [
         sourceClassificationEn: 'Comparative Purāṇic Philology',
         sourceClassificationHi: 'तुलनात्मक पौराणिक भाषाविज्ञान',
         articleSlug: 'patala-loka'
-      },
-      {
-        id: 'sub-samaya-ashta-prahar',
-        sanskritName: 'समय एवं अष्ट प्रहर (काल-गणना) · Samaya & Aṣṭa Prahara',
-        titleEn: 'Samaya and the Eight Prahars (Aṣṭa Prahara) — Traditional Indian Timekeeping',
-        titleHi: 'समय और उसके आठ पहर (अष्ट प्रहर) — भारतीय कालगणना एवं राग-समय का विस्तृत अध्ययन',
-        summaryEn: 'Complete study of the 8 Prahars of a 24-hour Ahorātra (Prātaḥkāla, Pūrvāhṇa, Madhyāhna, Aparāhṇa, Sandhyākāla, Prathama Rātri, Ardharātri, Aṣṭama Prahara), solar vs. clock reckoning, Rāga-Samaya, and Muhūrta vs. Brahma-muhūrta.',
-        summaryHi: '२४ घंटे के अहोरात्र के ८ प्रहरों (प्रातःकाल, पूर्वाह्न, मध्याह्न, अपराह्न, संध्याकाल, रात्रि का प्रथम भाग, अर्धरात्रि, अष्टम प्रहर), सूर्य-आधारित गणना, राग-समय सिद्धांत तथा प्रहर, याम, मुहूर्त (४८ मिनट) व ब्रह्ममुहूर्त के अंतर का विस्तृत अध्ययन।',
-        keyTopicsEn: ['8 Prahars (6 AM Illustrative Clock vs. Solar Reckoning)', 'Prahar, Yāma, Muhūrta (48m), Sandhyā & Brahma-muhūrta', 'Hindustani Rāga-Samaya (Time-Theory of Rāgas)'],
-        keyTopicsHi: ['अष्ट प्रहर (३-३ घंटे की मानक घड़ी बनाम सूर्योदय-आधारित गणना)', 'प्रहर, याम, मुहूर्त (४८ मिनट), संध्या व ब्रह्ममुहूर्त में अंतर', 'हिंदुस्तानी शास्त्रीय संगीत का राग-समय सिद्धांत'],
-        sourceClassificationEn: 'Jyotiṣa, Purāṇic Kāla-Vidyā & Musicological Scholarship',
-        sourceClassificationHi: 'ज्योतिष, पौराणिक काल-विद्या एवं संगीत-शास्त्र',
-        articleSlug: 'samaya-ashta-prahar-timekeeping'
       }
     ],
-    crossLinks: [
-      {
-        targetCategorySlug: 'shri-meru-chakra',
-        gatewayRoman: 'VI',
-        labelEn: 'Gateway VI · Śrī Meru Chakra & Subtle-Body Cakras',
-        labelHi: 'द्वार VI · श्रीमेरु चक्र एवं षट्चक्र समरूपता',
-        relationNoteEn: 'Compare the 7 upper Lokas and 7 lower Talas with the vertical subtle-body cakra axis and Mahāmeru geometry.',
-        relationNoteHi: '७ ऊर्ध्व लोकों और ७ अधो तलों की सूक्ष्म-शरीर के चक्र-अक्ष और महामेरु ज्यामिति से तुलना करें।'
-      },
-      {
-        targetCategorySlug: 'cags-field-archive',
-        targetArticleSlug: 'jaya-vijaya-vaikuntha-dvarapalas',
-        gatewayRoman: 'I',
-        labelEn: 'Gateway I · Jaya and Vijaya (Vaikuṇṭha Dvārapālas & Yuga Cycles)',
-        labelHi: 'द्वार I · जय और विजय (वैकुण्ठ द्वारपाल एवं युग-चक्र)',
-        relationNoteEn: 'See how Jaya and Vijaya’s three earthly births unfold across Satya, Tretā, and Dvāpara Yugas.',
-        relationNoteHi: 'देखें कि जय और विजय के तीन जन्म सत्य, त्रेता और द्वापर युग के काल-चक्र में किस प्रकार घटित होते हैं।'
-      },
-      {
-        targetCategorySlug: 'cags-field-archive',
-        targetArticleSlug: 'vaishnava-pancharatra-avatara-tattva',
-        gatewayRoman: 'I',
-        labelEn: 'Gateway I · Vaiṣṇava Cosmology (Vāmana in Sutala & Saṅkarṣaṇa Below Pātāla)',
-        labelHi: 'द्वार I · वैष्णव ब्रह्माण्ड-विज्ञान (सुतल में वामन एवं पाताल के नीचे संकर्षण)',
-        relationNoteEn: 'Explore the Pāñcarātra and Purāṇic theology of Vāmana, Varāha, and Ananta-Saṅkarṣaṇa across the cosmic strata.',
-        relationNoteHi: 'सुतल में वामन और पाताल के नीचे अनन्त-संकर्षण के वैष्णव आगम एवं पौराणिक तत्त्वज्ञान का अध्ययन करें।'
-      }
-    ],
-    articles: [
-      ...FOURTEEN_LOKA_ARTICLES,
-      ...DEEP_SACRED_SEAL_ARTICLES.filter(a => a.categorySlug === 'the-14-lokas')
-    ]
+    crossLinks: [],
+    articles: [...FOURTEEN_LOKA_ARTICLES]
   }
 ];
 
@@ -2409,6 +2461,17 @@ export function getArticleBySlugs(
     if (found) {
       return { portal: p, article: found };
     }
+  }
+
+  // Support standalone Sacred Seal articles & archival monographs opened from the outer index
+  const standaloneFound =
+    DEEP_SACRED_SEAL_ARTICLES.find(a => a.slug === articleSlug) ||
+    SHAKTI_TATTVA_CORE_ARTICLES.find(a => a.slug === articleSlug) ||
+    Object.values(ADDITIONAL_GATEWAY_ARTICLES)
+      .flat()
+      .find(a => a.slug === articleSlug);
+  if (standaloneFound) {
+    return { portal, article: standaloneFound };
   }
 
   // Dynamic support for any of the 64 Yogini matrix cells: bm-01-01 .. bm-08-08

@@ -680,15 +680,23 @@ export const CircularMandalaNavigation: React.FC<CircularMandalaNavProps> = ({
                     {t(seal.subtitleEn, seal.subtitleHi)}
                   </p>
 
-                  {/* Nested Sub-Parts of Aghora Sampradāya */}
+                  {/* Nested Sub-Parts / Separate Research Collections */}
                   {seal.subParts && seal.subParts.length > 0 && (
-                    <div className="mt-3 w-full rounded-xl border border-[#F59E0B]/40 bg-[#150C07]/95 p-2.5 text-left space-y-1.5">
+                    <div
+                      className="mt-3 w-full rounded-xl border bg-[#150C07]/95 p-2.5 text-left space-y-1.5"
+                      style={{ borderColor: `${seal.accentColor}66` }}
+                    >
                       <div className="flex items-center justify-between gap-1 border-b border-[#5A3922]/50 pb-1">
-                        <span className="font-mono text-[8px] font-bold uppercase tracking-[0.16em] text-[#F59E0B]">
-                          {t('SUB-PARTS OF AGHORA SAMPRADĀYA', 'अघोर सम्प्रदाय के २ उप-भाग')}
+                        <span
+                          className="font-mono text-[8px] font-bold uppercase tracking-[0.16em]"
+                          style={{ color: seal.accentColor }}
+                        >
+                          {seal.id === 'seal-kalikula-srikula'
+                            ? t('SEPARATE RESEARCH COLLECTIONS (PART I & II)', 'पृथक् शोध संग्रह (भाग I: कालीकुल एवं भाग II: श्रीकुल)')
+                            : t('SUB-PARTS OF AGHORA SAMPRADĀYA', 'अघोर सम्प्रदाय के २ उप-भाग')}
                         </span>
                         <span className="font-mono text-[7.5px] text-[#C8B69E]/75">
-                          {seal.subParts.length} {t('Sub-Parts', 'उप-भाग')}
+                          {seal.subParts.length} {t('Archives', 'संग्रह')}
                         </span>
                       </div>
                       <div className="grid grid-cols-1 gap-1.5 pt-0.5">
@@ -795,6 +803,34 @@ export const CategoryLandingPageView: React.FC<CategoryLandingPageViewProps> = (
 
   return (
     <div className="w-full space-y-8">
+      {/* Top Unit Page Back Navigation Bar inside the Unit Page Content Area */}
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[#D3AD55]/45 bg-[#1A100A]/95 px-4 py-3 shadow-[0_10px_28px_rgba(0,0,0,0.65)]">
+        <button
+          type="button"
+          onClick={onBackToOverview}
+          aria-label={t('Back to outer page with all research units', 'सभी शोध इकाइयों वाले मुख्य पृष्ठ पर वापस जाएँ')}
+          className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border-2 border-[#D3AD55] bg-[#26170F] hover:bg-[#382116] text-[#D3AD55] font-mono text-[10.5px] sm:text-xs font-bold uppercase tracking-[0.16em] transition-all cursor-pointer shadow-[0_0_16px_rgba(211,173,85,0.22)] active:scale-95"
+        >
+          <ArrowLeft className="w-4 h-4 shrink-0" />
+          <span>
+            {t('Back to All Research Units', 'सभी शोध इकाइयों (मुख्य पृष्ठ) पर वापस जाएँ')}
+          </span>
+        </button>
+
+        <div className="flex flex-wrap items-center gap-2">
+          <span
+            className="px-3 py-1 rounded-full font-mono text-[9.5px] sm:text-[10px] uppercase tracking-[0.2em] font-semibold border"
+            style={{
+              borderColor: `${portal.accentColor}66`,
+              color: portal.accentColor,
+              backgroundColor: `${portal.accentColor}15`
+            }}
+          >
+            {t(`UNIT ${portal.roman} · ${portal.shortTitleEn}`, `इकाई ${portal.roman} · ${portal.shortTitleHi}`)}
+          </span>
+        </div>
+      </div>
+
       {/* SECTION A: LIVE INTERACTIVE RESEARCH STUDIO AT THE VERY TOP OF ALL GATEWAY CONTENTS */}
       {children && (
         <div className="rounded-2xl border border-[#D3AD55]/45 bg-[#120B07]/95 p-4 sm:p-6 space-y-4 shadow-[0_20px_50px_rgba(0,0,0,0.75)]">
@@ -950,97 +986,8 @@ export const CategoryLandingPageView: React.FC<CategoryLandingPageViewProps> = (
         </div>
       </div>
 
-      {/* SECTION B1: SUBCATEGORIES & CORE TRADITIONS WITHIN THIS SACRED GATEWAY */}
-      {(activeTab === 'both' || activeTab === 'articles') &&
-        portal.subcategories &&
-        portal.subcategories.length > 0 && (
-          <div className="pt-6 border-t border-[#5A3922]/50 space-y-4">
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#5A3922]/50 pb-3">
-              <div>
-                <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-[#D3AD55]">
-                  {t('GATEWAY SUBCATEGORIES & TRADITIONS', 'ज्ञान-द्वार की उप-श्रेणियाँ एवं प्रमुख धाराएँ')}
-                </span>
-                <h4 className="text-xl sm:text-2xl font-serif text-[#F5E8CE] mt-0.5">
-                  {t(
-                    `Core Domains & Subcategories in ${portal.shortTitleEn}`,
-                    `${portal.shortTitleHi} के प्रमुख विषय एवं उप-परम्पराएँ`
-                  )}
-                </h4>
-              </div>
-              <span className="font-mono text-[10px] text-[#C8B69E]/75 uppercase tracking-widest">
-                {portal.subcategories.length} {t('Subcategories', 'उप-श्रेणियाँ')}
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {portal.subcategories.map(sub => (
-                <div
-                  key={sub.id}
-                  className="rounded-xl border border-[#5A3922]/80 bg-gradient-to-b from-[#1E120B]/95 to-[#120A06]/95 p-5 flex flex-col justify-between hover:border-[#D3AD55]/70 transition-all shadow-md"
-                >
-                  <div>
-                    <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                      <span className="font-serif text-xs sm:text-sm font-semibold text-[#D3AD55] px-2.5 py-0.5 rounded bg-[#2A1910] border border-[#D3AD55]/35">
-                        {sub.sanskritName}
-                      </span>
-                      <span className="font-mono text-[8.5px] uppercase tracking-wider text-[#C8B69E]/70">
-                        {t(sub.sourceClassificationEn, sub.sourceClassificationHi)}
-                      </span>
-                    </div>
-
-                    <h5 className="text-base sm:text-lg font-serif text-[#F5E8CE] font-semibold leading-snug mt-2">
-                      {t(sub.titleEn, sub.titleHi)}
-                    </h5>
-
-                    <p className="mt-2 text-xs sm:text-[13px] font-serif text-[#E6D7BD]/85 leading-relaxed">
-                      {t(sub.summaryEn, sub.summaryHi)}
-                    </p>
-
-                    <div className="mt-3 flex flex-wrap gap-1.5">
-                      {(t('en', 'hi') === 'en' ? sub.keyTopicsEn : sub.keyTopicsHi).map(
-                        (topic, i) => (
-                          <span
-                            key={i}
-                            className="px-2 py-0.5 rounded bg-[#160D08] border border-[#5A3922]/50 font-mono text-[9px] text-[#C8B69E]"
-                          >
-                            {topic}
-                          </span>
-                        )
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="mt-4 pt-3 border-t border-[#5A3922]/40 flex items-center justify-end">
-                    {sub.articleSlug ? (
-                      <button
-                        type="button"
-                        onClick={() => onOpenArticle(portal.slug, sub.articleSlug!)}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#382116] hover:bg-[#D3AD55] text-[#D3AD55] hover:text-[#17100C] font-mono text-[9.5px] font-semibold uppercase tracking-[0.14em] transition-all cursor-pointer"
-                      >
-                        <BookOpen className="w-3 h-3" />
-                        <span>{t('Explore Monograph', 'शोध-लेख खोलें')}</span>
-                        <ArrowRight className="w-3 h-3" />
-                      </button>
-                    ) : sub.crossGatewaySlug ? (
-                      <button
-                        type="button"
-                        onClick={() => onSelectCategoryPortal(sub.crossGatewaySlug!)}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-[#D3AD55]/60 bg-[#23160E] hover:bg-[#D3AD55] text-[#D3AD55] hover:text-[#17100C] font-mono text-[9.5px] font-semibold uppercase tracking-[0.14em] transition-all cursor-pointer"
-                      >
-                        <Compass className="w-3 h-3" />
-                        <span>{t('Open Linked Gateway', 'संबद्ध ज्ञान-द्वार खोलें')}</span>
-                        <ArrowRight className="w-3 h-3" />
-                      </button>
-                    ) : null}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-      {/* SECTION B2: COLLECTION OF INDIVIDUAL RESEARCH ARTICLES (MONOGRAPH ARTICLES) */}
-      {(activeTab === 'both' || activeTab === 'articles') && (
+      {/* SECTION B1: COLLECTION OF INDIVIDUAL RESEARCH ARTICLES (MONOGRAPH ARTICLES) */}
+      {portal.slug !== 'cags-field-archive' && (activeTab === 'both' || activeTab === 'articles') && (
         <div className="pt-6 border-t border-[#5A3922]/50 space-y-5">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#5A3922]/50 pb-3">
             <div>
@@ -1196,55 +1143,84 @@ export const CategoryLandingPageView: React.FC<CategoryLandingPageViewProps> = (
         </div>
       )}
 
-      {/* SECTION C: CROSS-GATEWAY RESEARCH CONNECTIONS (अंतर-द्वार शोध सूत्र) */}
-      {portal.crossLinks && portal.crossLinks.length > 0 && (
-        <div className="pt-6 border-t border-[#5A3922]/50 space-y-4">
-          <div>
-            <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-[#D3AD55]">
-              {t('CROSS-GATEWAY RESEARCH CONNECTIONS', 'अंतर-द्वार शोध सूत्र एवं अंतर्संबंध')}
-            </span>
-            <h4 className="text-lg sm:text-xl font-serif text-[#F5E8CE] mt-0.5">
-              {t(
-                'Related Sacred Gateways & Interlocking Traditions',
-                'संबद्ध पवित्र ज्ञान-द्वार एवं पूरक परम्पराएँ'
-              )}
-            </h4>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {portal.crossLinks.map((link, idx) => (
-              <button
-                key={idx}
-                type="button"
-                onClick={() => {
-                  if (link.targetArticleSlug) {
-                    onOpenArticle(link.targetCategorySlug, link.targetArticleSlug);
-                  } else {
-                    onSelectCategoryPortal(link.targetCategorySlug);
-                  }
-                }}
-                className="p-4 rounded-xl border border-[#5A3922]/75 bg-[#170F0A]/95 hover:border-[#D3AD55] hover:bg-[#23160E] text-left transition-all cursor-pointer group flex flex-col justify-between"
-              >
-                <div>
-                  <span className="inline-block font-mono text-[9px] uppercase tracking-[0.2em] px-2 py-0.5 rounded bg-[#2B1910] text-[#D3AD55] border border-[#D3AD55]/35">
-                    {t('GATEWAY', 'ज्ञान-द्वार')} {link.gatewayRoman}
-                  </span>
-                  <h5 className="mt-2 font-serif text-base text-[#F5E8CE] group-hover:text-[#D3AD55] font-semibold">
-                    {t(link.labelEn, link.labelHi)}
-                  </h5>
-                  <p className="mt-1.5 text-xs font-serif text-[#C8B69E]/85 leading-relaxed">
-                    {t(link.relationNoteEn, link.relationNoteHi)}
-                  </p>
-                </div>
-                <span className="mt-3 inline-flex items-center gap-1 font-mono text-[9.5px] uppercase tracking-wider text-[#D3AD55]">
-                  <span>{t('Traverse Gateway', 'इस द्वार में प्रवेश करें')}</span>
-                  <ArrowRight className="w-3 h-3" />
+      {/* SECTION B2: SUBCATEGORIES & CORE TRADITIONS WITHIN THIS SACRED GATEWAY */}
+      {(activeTab === 'both' || activeTab === 'articles') &&
+        portal.subcategories &&
+        portal.subcategories.length > 0 && (
+          <div className="pt-6 border-t border-[#5A3922]/50 space-y-4">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#5A3922]/50 pb-3">
+              <div>
+                <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-[#D3AD55]">
+                  {t('GATEWAY SUBCATEGORIES & TRADITIONS', 'ज्ञान-द्वार की उप-श्रेणियाँ एवं प्रमुख धाराएँ')}
                 </span>
-              </button>
-            ))}
+                <h4 className="text-xl sm:text-2xl font-serif text-[#F5E8CE] mt-0.5">
+                  {t(
+                    `Core Domains & Subcategories in ${portal.shortTitleEn}`,
+                    `${portal.shortTitleHi} के प्रमुख विषय एवं उप-परम्पराएँ`
+                  )}
+                </h4>
+              </div>
+              <span className="font-mono text-[10px] text-[#C8B69E]/75 uppercase tracking-widest">
+                {portal.subcategories.length} {t('Subcategories', 'उप-श्रेणियाँ')}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {portal.subcategories.map(sub => (
+                <div
+                  key={sub.id}
+                  className="rounded-xl border border-[#5A3922]/80 bg-gradient-to-b from-[#1E120B]/95 to-[#120A06]/95 p-5 flex flex-col justify-between hover:border-[#D3AD55]/70 transition-all shadow-md"
+                >
+                  <div>
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                      <span className="font-serif text-xs sm:text-sm font-semibold text-[#D3AD55] px-2.5 py-0.5 rounded bg-[#2A1910] border border-[#D3AD55]/35">
+                        {sub.sanskritName}
+                      </span>
+                      <span className="font-mono text-[8.5px] uppercase tracking-wider text-[#C8B69E]/70">
+                        {t(sub.sourceClassificationEn, sub.sourceClassificationHi)}
+                      </span>
+                    </div>
+
+                    <h5 className="text-base sm:text-lg font-serif text-[#F5E8CE] font-semibold leading-snug mt-2">
+                      {t(sub.titleEn, sub.titleHi)}
+                    </h5>
+
+                    <p className="mt-2 text-xs sm:text-[13px] font-serif text-[#E6D7BD]/85 leading-relaxed">
+                      {t(sub.summaryEn, sub.summaryHi)}
+                    </p>
+
+                    <div className="mt-3 flex flex-wrap gap-1.5">
+                      {(t('en', 'hi') === 'en' ? sub.keyTopicsEn : sub.keyTopicsHi).map(
+                        (topic, i) => (
+                          <span
+                            key={i}
+                            className="px-2 py-0.5 rounded bg-[#160D08] border border-[#5A3922]/50 font-mono text-[9px] text-[#C8B69E]"
+                          >
+                            {topic}
+                          </span>
+                        )
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-[#5A3922]/40 flex items-center justify-end">
+                    {sub.articleSlug ? (
+                      <button
+                        type="button"
+                        onClick={() => onOpenArticle(portal.slug, sub.articleSlug!)}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#382116] hover:bg-[#D3AD55] text-[#D3AD55] hover:text-[#17100C] font-mono text-[9.5px] font-semibold uppercase tracking-[0.14em] transition-all cursor-pointer"
+                      >
+                        <BookOpen className="w-3 h-3" />
+                        <span>{t('Explore Monograph', 'शोध-लेख खोलें')}</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </button>
+                    ) : null}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      )}
+        )}
     </div>
   );
 };
@@ -1255,6 +1231,7 @@ export const CategoryLandingPageView: React.FC<CategoryLandingPageViewProps> = (
 interface ArticleMonographPageViewProps {
   portal: ResearchCategoryPortal;
   article: ResearchArticle;
+  openedFromOverview?: boolean;
   onBackToCategory: (categorySlug: string) => void;
   onBackToOverview: () => void;
   onOpenArticle: (categorySlug: string, articleSlug: string) => void;
@@ -1262,9 +1239,114 @@ interface ArticleMonographPageViewProps {
   children?: React.ReactNode;
 }
 
+// Helper to transform any prose passage or numbered list into structured sub-points across all unit articles
+interface StructuredSubPoint {
+  code: string;
+  label?: string;
+  text: string;
+}
+
+const LEADING_MARKER_REGEX =
+  /^(?:\(\d+\)|\([a-zA-Z]\)|\([क-ह]\)|\([०-९]+\)|\[\d+\]|\d+(?:\.\d+)*[.)]|\d+\s+[.)]|[०-९]+(?:\.[०-९]+)*[.)]|•|-|–)\s*/u;
+
+function stripLeadingMarker(input: string): string {
+  let str = input.trim();
+  while (LEADING_MARKER_REGEX.test(str)) {
+    str = str.replace(LEADING_MARKER_REGEX, '').trim();
+  }
+  return str;
+}
+
+function parseStructuredSubPoints(rawBody: string): StructuredSubPoint[] {
+  if (!rawBody) return [];
+
+  // 1. Split by line breaks first and remove empty lines
+  const rawLines = rawBody
+    .split(/\n+/)
+    .map(l => l.trim())
+    .filter(Boolean);
+
+  // 2. Further split lines that contain inline numbered markers like (1), (2), (क), (ख)
+  const expandedSegments: string[] = [];
+  for (const rawLine of rawLines) {
+    // Strip leading serial number (e.g. "1.", "2.1", "१.", "(a)") BEFORE any splitting so "1." never becomes an empty segment
+    const lineWithoutLeadNum = stripLeadingMarker(rawLine).replace(
+      /^([^:：]{2,65}):\s*\(([^)]+)\):\s*/u,
+      '$1 ($2): '
+    );
+    if (!lineWithoutLeadNum) continue;
+
+    const inlineNumberSplit = lineWithoutLeadNum
+      .split(/(?=(?:\(\d+\)|\([क-ह]\)|\([०-९]+\)|\[\d+\])\s+)/gu)
+      .map(s => stripLeadingMarker(s))
+      .filter(Boolean);
+
+    for (const seg of inlineNumberSplit) {
+      // If segment is a long passage (> 160 chars), break into structured sentence points on English '.' or Devanagari '।'
+      // Avoid splitting after numbers (1., २.), single-letter initials (A.), or common abbreviations (Ch., cf., e.g., i.e., vs.)
+      if (seg.length > 160) {
+        const sentenceParts = seg
+          .split(
+            /(?<!\b\d)(?<!\b[०-९])(?<!\b[A-Z])(?<!\b(?:Ch|cf|vs|Dr|Mr|St|No|Pt|Sec|Vol))(?<=[.।!?])\s+(?=[A-Z\u0900-\u097F("“'])/gu
+          )
+          .map(s => stripLeadingMarker(s))
+          .filter(Boolean);
+        if (sentenceParts.length > 1) {
+          expandedSegments.push(...sentenceParts);
+        } else {
+          expandedSegments.push(seg);
+        }
+      } else {
+        expandedSegments.push(seg);
+      }
+    }
+  }
+
+  // 3. Clean, filter out any empty/punctuation-only fragments, and assign contiguous sequential s.no codes
+  const validItems: { label?: string; text: string }[] = [];
+
+  for (const seg of expandedSegments) {
+    const cleaned = stripLeadingMarker(seg)
+      .replace(/^[-–—•:：.\s]+/u, '')
+      .trim();
+
+    // Skip if empty or contains no letters/digits
+    if (!cleaned || !/[\p{L}\p{N}]/u.test(cleaned)) {
+      continue;
+    }
+
+    // Check if there is a structured lead label before ':' or '—' or '–'
+    const colonMatch = cleaned.match(/^([^:：—–]{2,70}?)\s*(?::|：|—|–)\s+(.+)$/u);
+    if (colonMatch) {
+      const rawLabel = stripLeadingMarker(colonMatch[1])
+        .replace(/^\(([^)]+)\)$/u, '$1')
+        .trim();
+      const bodyText = colonMatch[2].trim();
+      if (bodyText && /[\p{L}\p{N}]/u.test(bodyText)) {
+        validItems.push({
+          label: rawLabel || undefined,
+          text: bodyText,
+        });
+        continue;
+      }
+    }
+
+    validItems.push({
+      text: cleaned.replace(/[:：]$/u, '').trim(),
+    });
+  }
+
+  return validItems.map((item, idx) => ({
+    code: `${String(idx + 1).padStart(2, '0')}`,
+    label: item.label,
+    text: item.text,
+  }));
+}
+
 export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> = ({
   portal,
   article,
+  openedFromOverview = false,
   onBackToCategory,
   onBackToOverview,
   onOpenArticle,
@@ -1275,6 +1357,28 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
   const [copiedUrl, setCopiedUrl] = useState(false);
 
   const currentIdx = portal.articles.findIndex(a => a.slug === article.slug);
+  const isStandaloneSealArticle =
+    openedFromOverview || (currentIdx === -1 && !/^bm-0[1-8]-0[1-8]$/i.test(article.slug));
+
+  const handleExitMonograph = () => {
+    if (isStandaloneSealArticle) {
+      onBackToOverview();
+    } else {
+      onBackToCategory(portal.slug);
+    }
+  };
+
+  const exitLabel = isStandaloneSealArticle
+    ? t('Exit Monograph · Back to All Research Units', 'शोध-प्रबंध बंद करें · सभी शोध इकाइयों (मुख्य पृष्ठ) पर वापस जाएँ')
+    : t(
+        `Exit Monograph · Back to ${portal.shortTitleEn} Page`,
+        `शोध-प्रबंध बंद करें · ${portal.shortTitleHi} पृष्ठ पर वापस जाएँ`
+      );
+
+  const unitLabel = isStandaloneSealArticle
+    ? t(article.evidenceBadgeEn, article.evidenceBadgeHi)
+    : t(portal.shortTitleEn, portal.shortTitleHi);
+
   const prevArticle =
     currentIdx > 0 ? portal.articles[currentIdx - 1] : null;
   const nextArticle =
@@ -1292,10 +1396,34 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
   };
 
   const hasDedicatedInteractiveStudio =
-    Boolean(children) && typeof article.interactiveIndex === 'number';
+    !isStandaloneSealArticle &&
+    Boolean(children) &&
+    typeof article.interactiveIndex === 'number';
+
+  const isEn = t('en', 'hi') === 'en';
+  const customTables = ARTICLE_COMPARISON_TABLES[article.slug] || [];
+  const keyFindingsList = isEn ? article.keyFindingsEn : article.keyFindingsHi;
 
   return (
     <div className="w-full space-y-8">
+      {/* Top Monograph Exit Bar — Returns Directly to the Unit Page (or Outer Page for Standalone Seals) */}
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[#D3AD55]/45 bg-[#1A100A]/95 px-4 py-3 shadow-[0_10px_28px_rgba(0,0,0,0.65)]">
+        <button
+          type="button"
+          onClick={handleExitMonograph}
+          className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border-2 border-[#D3AD55] bg-[#26170F] hover:bg-[#382116] text-[#D3AD55] font-mono text-[10.5px] sm:text-xs font-bold uppercase tracking-[0.16em] transition-all cursor-pointer shadow-[0_0_16px_rgba(211,173,85,0.22)] active:scale-95"
+        >
+          <ArrowLeft className="w-4 h-4 shrink-0" />
+          <span>{exitLabel}</span>
+        </button>
+
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="font-mono text-[9.5px] sm:text-[10px] uppercase tracking-[0.18em] px-2.5 py-1 rounded border border-[#D3AD55]/40 bg-[#23160E] text-[#D3AD55]">
+            {article.code} · {unitLabel}
+          </span>
+        </div>
+      </div>
+
       {/* Live Interactive Studio Placed at the Very Top ONLY for Units With Their Own Interactive Studio */}
       {hasDedicatedInteractiveStudio && (
         <div className="rounded-2xl border border-[#D3AD55]/45 bg-[#120B07]/95 p-4 sm:p-6 space-y-4 shadow-[0_20px_50px_rgba(0,0,0,0.75)]">
@@ -1335,7 +1463,9 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
             </span>
           </div>
           <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#5A3922]">
-            {t('PORTAL', 'द्वार')} {portal.roman} · {t(portal.shortTitleEn, portal.shortTitleHi)}
+            {isStandaloneSealArticle
+              ? `${t('STANDALONE ARCHIVAL UNIT', 'स्वतंत्र शोध इकाई')} · ${article.code}`
+              : `${t('PORTAL', 'द्वार')} ${portal.roman} · ${t(portal.shortTitleEn, portal.shortTitleHi)}`}
           </span>
         </div>
 
@@ -1367,47 +1497,157 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
           </p>
         </div>
 
-        {/* Executive Abstract */}
-        <div className="mt-6">
-          <h2 className="font-mono text-[10.5px] uppercase tracking-[0.22em] text-[#5A3922] font-bold">
-            {t('EXECUTIVE RESEARCH ABSTRACT', 'शोध सारांश')}
-          </h2>
-          <p className="mt-1.5 text-sm sm:text-base md:text-[16.5px] font-serif text-[#241912] leading-relaxed">
-            {t(article.summaryEn, article.summaryHi)}
-          </p>
-        </div>
-
-        {/* Deep-Dive Scholarly Sections */}
-        <div className="mt-7 space-y-6">
-          {article.sections.map((sec, idx) => (
-            <div key={idx} className="pt-5 border-t border-[#3A281B]/15">
-              <h3 className="text-lg sm:text-xl font-serif text-[#17100C] font-semibold">
-                {t(sec.headingEn, sec.headingHi)}
-              </h3>
-              <p className="mt-2 text-sm sm:text-[15.5px] font-serif text-[#2D2018] leading-relaxed whitespace-pre-line">
-                {t(sec.bodyEn, sec.bodyHi)}
-              </p>
+        {/* Kālīkula & Śrīkula Dedicated Research Collection Switcher & Editorial Synthesis Banner */}
+        {(article.slug === 'kalikula-srikula-streams' ||
+          article.slug === 'kalikula-archive-tradition' ||
+          article.slug === 'srikula-archive-tradition') && (
+          <div className="mt-6 p-4 sm:p-5 rounded-xl border-2 border-[#2B1F17]/40 bg-[#E6D4B6] space-y-4 shadow-sm">
+            <div className="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-[#5A3922]/25">
+              <div>
+                <span className="font-mono text-[9.5px] uppercase tracking-[0.2em] text-[#5A3922] font-bold block">
+                  {t(
+                    'PART IV ARCHIVAL ARCHITECTURE · DEDICATED RESEARCH COLLECTIONS',
+                    'भाग IV अभिलेखीय संरचना · समर्पित शोध संग्रह (पृथक् पृष्ठ)'
+                  )}
+                </span>
+                <h2 className="text-base sm:text-lg font-serif text-[#17100C] font-bold mt-0.5">
+                  {t(
+                    'Kālīkula Archive (Part I) · Śrīkula Archive (Part II) · Comparative Synthesis (Parts I–IV)',
+                    'कालीकुल अभिलेखागार (भाग I) · श्रीकुल अभिलेखागार (भाग II) · तुलनात्मक संश्लेषण (भाग I–IV)'
+                  )}
+                </h2>
+              </div>
+              <span className="px-2.5 py-1 rounded bg-[#2B1F17] text-[#D3AD55] font-mono text-[9px] font-bold uppercase tracking-[0.18em]">
+                {t('RESEARCH SYNTHESIS', 'शोध संश्लेषण')}
+              </span>
             </div>
-          ))}
-        </div>
 
-        {/* Structured Archival Comparison Tables (Jaya-Vijaya, Ghora 11/12 Bhedas, Kapalika 5 Bhedas, 8 Prahars, Muhurta/Sandhya) */}
-        {ARTICLE_COMPARISON_TABLES[article.slug] &&
-          ARTICLE_COMPARISON_TABLES[article.slug].map((tbl, tIdx) => {
-            const isEn = t('en', 'hi') === 'en';
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                type="button"
+                onClick={() => onOpenArticle('eight-matrikas', 'kalikula-archive-tradition')}
+                className={`p-3.5 rounded-lg border text-left transition-all cursor-pointer ${
+                  article.slug === 'kalikula-archive-tradition'
+                    ? 'border-[#2B1F17] bg-[#2B1F17] text-[#F2E6D2] shadow-md'
+                    : 'border-[#5A3922]/35 bg-[#F2E6D2] text-[#17100C] hover:border-[#2B1F17]'
+                }`}
+              >
+                <span className="font-mono text-[9px] uppercase tracking-[0.18em] font-bold block opacity-85">
+                  {t('PART I · KĀLĪKULA ARCHIVE', 'भाग I · कालीकुल अभिलेखागार')}
+                </span>
+                <span className="font-serif text-sm sm:text-base font-bold block mt-0.5">
+                  {t(
+                    'The Goddess of Time, Transformation & Dissolution',
+                    'काल, रूपांतरण और लय की देवी (कालीकुल)'
+                  )}
+                </span>
+                <span className="font-serif text-xs block mt-1 opacity-85 leading-snug">
+                  {t(
+                    'An index of Kālī-centered traditions, philosophical systems, iconography, textual sources, regional histories & ritual contexts.',
+                    'काली-केंद्रित परम्पराओं, दार्शनिक प्रणालियों, प्रतिमाशास्त्र, ग्रंथीय स्रोतों और क्षेत्रीय इतिहास की अनुक्रमणिका।'
+                  )}
+                </span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => onOpenArticle('eight-matrikas', 'srikula-archive-tradition')}
+                className={`p-3.5 rounded-lg border text-left transition-all cursor-pointer ${
+                  article.slug === 'srikula-archive-tradition'
+                    ? 'border-[#2B1F17] bg-[#2B1F17] text-[#F2E6D2] shadow-md'
+                    : 'border-[#5A3922]/35 bg-[#F2E6D2] text-[#17100C] hover:border-[#2B1F17]'
+                }`}
+              >
+                <span className="font-mono text-[9px] uppercase tracking-[0.18em] font-bold block opacity-85">
+                  {t('PART II · ŚRĪKULA ARCHIVE', 'भाग II · श्रीकुल अभिलेखागार')}
+                </span>
+                <span className="font-serif text-sm sm:text-base font-bold block mt-0.5">
+                  {t(
+                    'The Goddess of Sovereignty, Manifestation & Sacred Knowledge',
+                    'संप्रभुता, अभिव्यक्ति और पवित्र ज्ञान की देवी (श्रीकुल)'
+                  )}
+                </span>
+                <span className="font-serif text-xs block mt-1 opacity-85 leading-snug">
+                  {t(
+                    'An index of Śrīvidyā, Tripurasundarī, Śrīcakra traditions, mantra theology, historical texts, ritual systems & commentaries.',
+                    'श्रीविद्या, त्रिपुरसुन्दरी, श्रीचक्र परम्पराओं, मन्त्र-धर्मशास्त्र, ऐतिहासिक ग्रन्थों और भाष्यों की अनुक्रमणिका।'
+                  )}
+                </span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => onOpenArticle('eight-matrikas', 'kalikula-srikula-streams')}
+                className={`p-3.5 rounded-lg border text-left transition-all cursor-pointer ${
+                  article.slug === 'kalikula-srikula-streams'
+                    ? 'border-[#2B1F17] bg-[#2B1F17] text-[#F2E6D2] shadow-md'
+                    : 'border-[#5A3922]/35 bg-[#F2E6D2] text-[#17100C] hover:border-[#2B1F17]'
+                }`}
+              >
+                <span className="font-mono text-[9px] uppercase tracking-[0.18em] font-bold block opacity-85">
+                  {t('PARTS I–IV · COMPLETE SYNTHESIS', 'भाग I–IV · संपूर्ण शोध संश्लेषण')}
+                </span>
+                <span className="font-serif text-sm sm:text-base font-bold block mt-0.5">
+                  {t(
+                    'Kālīkula & Śrīkula — Unified Comparative Synthesis',
+                    'कालीकुल एवं श्रीकुल — एकीकृत तुलनात्मक संश्लेषण'
+                  )}
+                </span>
+                <span className="font-serif text-xs block mt-1 opacity-85 leading-snug">
+                  {t(
+                    'All four parts together: Part I (Kālīkula), Part II (Śrīkula), Part III (8-Dimension Comparison) & Part IV (Bibliography).',
+                    'चारों भाग एक साथ: भाग I (कालीकुल), भाग II (श्रीकुल), भाग III (तुलनात्मक अध्ययन) एवं भाग IV (संदर्भ-सूची)।'
+                  )}
+                </span>
+              </button>
+            </div>
+
+            <p className="text-xs font-serif text-[#3D2B1F] italic leading-relaxed border-t border-[#5A3922]/20 pt-2.5">
+              {t(
+                'Editorial Recommendation: Each page is labeled as a research synthesis and distinguishes primary textual evidence from scholarly interpretation and contemporary practitioner explanations.',
+                'संपादकीय अनुशंसा: प्रत्येक पृष्ठ को "शोध संश्लेषण" (Research Synthesis) के रूप में प्रस्तुत किया गया है और इसमें प्राथमिक ग्रंथीय साक्ष्य, अकादमिक व्याख्या तथा समकालीन साधक-विवरणों के बीच स्पष्ट अंतर रखा गया है।'
+              )}
+            </p>
+          </div>
+        )}
+
+        {/* ====================================================================
+            PART I (TOP): STRUCTURED ARCHIVAL TABLES & PARAMETER MATRICES
+            Placed ABOVE the article sections across all units' articles
+           ==================================================================== */}
+        <div className="mt-7 pt-5 border-t-2 border-[#3A281B]/25 space-y-6">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#5A3922] font-bold block">
+                {t('PART I · STRUCTURED ARCHIVAL TABLES & LEDGERS', 'भाग १ · संरचित अभिलेखीय तालिकाएँ एवं मापदंड')}
+              </span>
+              <h2 className="text-lg sm:text-xl font-serif text-[#17100C] font-bold mt-0.5">
+                {t(
+                  'Comparative Reference Matrices & Technical Parameters',
+                  'तुलनात्मक संदर्भ तालिकाएँ एवं तकनीकी शोध मापदंड'
+                )}
+              </h2>
+            </div>
+            <span className="font-mono text-[9.5px] uppercase tracking-[0.18em] px-2.5 py-1 rounded bg-[#2B1F17] text-[#D3AD55]">
+              {customTables.length + 2} {t('STRUCTURED TABLES', 'संरचित तालिकाएँ')}
+            </span>
+          </div>
+
+          {/* 1A. Custom Comparison Tables (if defined for this article slug) */}
+          {customTables.map((tbl, tIdx) => {
             const headers = isEn ? tbl.headersEn : tbl.headersHi;
             const rows = isEn ? tbl.rowsEn : tbl.rowsHi;
             return (
               <div
                 key={tIdx}
-                className="mt-7 pt-5 border-t border-[#3A281B]/20 space-y-2.5"
+                className="p-4 sm:p-5 rounded-xl bg-[#E8D8BE]/85 border border-[#5A3922]/30 space-y-2.5 shadow-sm"
               >
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <h3 className="text-base sm:text-lg font-serif text-[#17100C] font-bold">
                     {t(tbl.titleEn, tbl.titleHi)}
                   </h3>
                   <span className="font-mono text-[9px] uppercase tracking-[0.18em] px-2 py-0.5 rounded bg-[#2B1F17] text-[#D3AD55]">
-                    {t('STRUCTURED ARCHIVAL LEDGER', 'संरचित तुलनात्मक तालिका')}
+                    {t(`TABLE 0${tIdx + 1} · COMPARATIVE MATRIX`, `तालिका ०${tIdx + 1} · तुलनात्मक सारणी`)}
                   </span>
                 </div>
                 {tbl.captionEn && (
@@ -1415,7 +1655,7 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
                     {t(tbl.captionEn, tbl.captionHi || tbl.captionEn)}
                   </p>
                 )}
-                <div className="overflow-x-auto rounded-xl border border-[#5A3922]/35 shadow-sm">
+                <div className="overflow-x-auto rounded-lg border border-[#5A3922]/35 shadow-sm">
                   <table className="w-full text-left border-collapse min-w-[540px]">
                     <thead>
                       <tr className="bg-[#2B1F17] text-[#F2E6D2]">
@@ -1458,44 +1698,210 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
             );
           })}
 
-        {/* Key Empirical & Textual Findings */}
-        <div className="mt-7 p-5 rounded-xl bg-[#E6D6BC]/90 border border-[#5A3922]/25">
-          <h3 className="font-mono text-[10.5px] uppercase tracking-[0.22em] text-[#5A3922] font-bold mb-3">
-            {t('KEY RESEARCH FINDINGS & PARAMETERS', 'प्रमुख शोध निष्कर्ष एवं मापदंड')}
-          </h3>
-          <ul className="space-y-2">
-            {(t('en', 'hi') === 'en' ? article.keyFindingsEn : article.keyFindingsHi).map(
-              (item, i) => (
-                <li
-                  key={i}
-                  className="flex items-start gap-2.5 text-xs sm:text-sm font-serif text-[#241912] leading-relaxed"
-                >
-                  <span className="mt-1 w-2 h-2 rounded-full bg-[#B68A32] shrink-0" />
-                  <span>{item}</span>
-                </li>
-              )
-            )}
-          </ul>
-        </div>
-
-        {/* Metadata Ledger Grid */}
-        <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-3 pt-5 border-t border-[#3A281B]/20">
-          {article.metadata.map((m, idx) => (
-            <div
-              key={idx}
-              className="p-3 rounded bg-[#E6D6BC]/65 border border-[#5A3922]/15"
-            >
-              <span className="block font-mono text-[9px] uppercase tracking-[0.18em] text-[#5A3922]">
-                {t(m.labelEn, m.labelHi)}
-              </span>
-              <span className="font-serif text-xs sm:text-sm font-semibold text-[#17100C] mt-0.5 block">
-                {t(m.valueEn, m.valueHi)}
+          {/* 1B. Universal Archival Technical Parameters & Classification Table (Present in ALL Units' Articles) */}
+          <div className="p-4 sm:p-5 rounded-xl bg-[#E8D8BE]/85 border border-[#5A3922]/30 space-y-2.5 shadow-sm">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <h3 className="text-base sm:text-lg font-serif text-[#17100C] font-bold">
+                {t(
+                  'Archival Technical Parameters & Classification Ledger',
+                  'अभिलेखीय तकनीकी मापदंड एवं वर्गीकरण तालिका'
+                )}
+              </h3>
+              <span className="font-mono text-[9px] uppercase tracking-[0.18em] px-2 py-0.5 rounded bg-[#2B1F17] text-[#D3AD55]">
+                {t('TECHNICAL PARAMETER TABLE', 'तकनीकी मापदंड सारणी')}
               </span>
             </div>
-          ))}
+            <div className="overflow-x-auto rounded-lg border border-[#5A3922]/35 shadow-sm">
+              <table className="w-full text-left border-collapse min-w-[480px]">
+                <thead>
+                  <tr className="bg-[#2B1F17] text-[#F2E6D2]">
+                    <th className="py-2.5 px-3.5 font-mono text-[10px] uppercase tracking-[0.15em] border-b border-[#5A3922]/40 w-24">
+                      {t('CODE', 'क्रमांक')}
+                    </th>
+                    <th className="py-2.5 px-3.5 font-mono text-[10px] uppercase tracking-[0.15em] border-b border-[#5A3922]/40 w-1/3">
+                      {t('ARCHIVAL PARAMETER / DIMENSION', 'अभिलेखीय मापदंड / आयाम')}
+                    </th>
+                    <th className="py-2.5 px-3.5 font-mono text-[10px] uppercase tracking-[0.15em] border-b border-[#5A3922]/40">
+                      {t('RECORDED SPECIFICATION & CORRELATE', 'अभिलेखित विवरण एवं संदर्भ')}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#5A3922]/20 bg-[#EFE0C6]">
+                  {article.metadata.map((m, idx) => (
+                    <tr
+                      key={idx}
+                      className={idx % 2 === 0 ? 'bg-[#EFE0C6]' : 'bg-[#E6D4B6]/80'}
+                    >
+                      <td className="py-2.5 px-3.5 font-mono text-[11px] font-bold text-[#5A3922] align-top">
+                        PRM-0{idx + 1}
+                      </td>
+                      <td className="py-2.5 px-3.5 text-xs sm:text-[13.5px] font-serif font-bold text-[#17100C] align-top">
+                        {t(m.labelEn, m.labelHi)}
+                      </td>
+                      <td className="py-2.5 px-3.5 text-xs sm:text-[13.5px] font-serif text-[#2B1F17] align-top">
+                        {t(m.valueEn, m.valueHi)}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* 1C. Universal Key Empirical & Scriptural Findings Table (Present in ALL Units' Articles) */}
+          <div className="p-4 sm:p-5 rounded-xl bg-[#E8D8BE]/85 border border-[#5A3922]/30 space-y-2.5 shadow-sm">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <h3 className="text-base sm:text-lg font-serif text-[#17100C] font-bold">
+                {t(
+                  'Key Research Findings & Verified Propositions Table',
+                  'प्रमुख शोध निष्कर्ष एवं प्रमाणित प्रतिपादन तालिका'
+                )}
+              </h3>
+              <span className="font-mono text-[9px] uppercase tracking-[0.18em] px-2 py-0.5 rounded bg-[#2B1F17] text-[#D3AD55]">
+                {t('KEY FINDINGS LEDGER', 'प्रमुख निष्कर्ष सारणी')}
+              </span>
+            </div>
+            <div className="overflow-x-auto rounded-lg border border-[#5A3922]/35 shadow-sm">
+              <table className="w-full text-left border-collapse min-w-[480px]">
+                <thead>
+                  <tr className="bg-[#2B1F17] text-[#F2E6D2]">
+                    <th className="py-2.5 px-3.5 font-mono text-[10px] uppercase tracking-[0.15em] border-b border-[#5A3922]/40 w-24">
+                      {t('INDEX', 'सूचकांक')}
+                    </th>
+                    <th className="py-2.5 px-3.5 font-mono text-[10px] uppercase tracking-[0.15em] border-b border-[#5A3922]/40">
+                      {t('VERIFIED EMPIRICAL / TEXTUAL FINDING', 'प्रमाणित प्रायोगिक एवं शास्त्रीय निष्कर्ष')}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#5A3922]/20 bg-[#EFE0C6]">
+                  {keyFindingsList.map((item, i) => (
+                    <tr
+                      key={i}
+                      className={i % 2 === 0 ? 'bg-[#EFE0C6]' : 'bg-[#E6D4B6]/80'}
+                    >
+                      <td className="py-2.5 px-3.5 font-mono text-[11px] font-bold text-[#5A3922] align-top">
+                        FND-0{i + 1}
+                      </td>
+                      <td className="py-2.5 px-3.5 text-xs sm:text-[13.5px] font-serif text-[#17100C] leading-relaxed align-top">
+                        {item}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
 
-        {/* Primary Scriptural & Field Sources Footer */}
+        {/* ====================================================================
+            PART II (BELOW TABLES): STRUCTURED SUB-POINT ARTICLE ANALYSIS
+            Renders Executive Synthesis & All Sections in Structured Sub-Points
+           ==================================================================== */}
+        <div className="mt-8 pt-6 border-t-2 border-[#3A281B]/25 space-y-6">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#5A3922] font-bold block">
+                {t('PART II · STRUCTURED MONOGRAPH ANALYSIS & SUB-POINTS', 'भाग २ · संरचित शोध-प्रबंध विश्लेषण एवं उप-बिंदु')}
+              </span>
+              <h2 className="text-lg sm:text-xl font-serif text-[#17100C] font-bold mt-0.5">
+                {t(
+                  'Analytical Breakdown by Structured Sub-Points',
+                  'संरचित उप-बिंदुओं के माध्यम से विस्तृत शास्त्रीय एवं वैज्ञानिक विश्लेषण'
+                )}
+              </h2>
+            </div>
+            <span className="font-mono text-[9.5px] uppercase tracking-[0.18em] px-2.5 py-1 rounded bg-[#2B1F17] text-[#D3AD55]">
+              {article.sections.length} {t('STRUCTURED SECTIONS', 'संरचित अनुभाग')}
+            </span>
+          </div>
+
+          {/* Executive Research Abstract broken into structured sub-points */}
+          <div className="p-4 sm:p-5 rounded-xl bg-[#E6D6BC]/85 border border-[#5A3922]/30 space-y-3">
+            <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-[#5A3922]/20">
+              <h3 className="font-mono text-[10.5px] uppercase tracking-[0.22em] text-[#5A3922] font-bold">
+                {t('00 · EXECUTIVE RESEARCH ABSTRACT (CORE THESIS POINTS)', '०० · कार्यकारी शोध सारांश (मुख्य सिद्धांत बिंदु)')}
+              </h3>
+              <span className="font-mono text-[9px] uppercase tracking-widest text-[#5A3922]">
+                {article.code} · {t('ABSTRACT', 'सारांश')}
+              </span>
+            </div>
+            <div className="grid grid-cols-1 gap-2.5">
+              {parseStructuredSubPoints(t(article.summaryEn, article.summaryHi)).map(
+                (pt, pIdx) => (
+                  <div
+                    key={pIdx}
+                    className="flex items-start gap-3 p-3 rounded-lg bg-[#F2E6D2]/90 border border-[#5A3922]/20"
+                  >
+                    <span className="px-2 py-0.5 rounded bg-[#2B1F17] text-[#D3AD55] font-mono text-[10px] font-bold shrink-0 mt-0.5">
+                      {pt.code}
+                    </span>
+                    <div className="text-sm sm:text-[15px] font-serif text-[#241912] leading-relaxed">
+                      {pt.label && (
+                        <strong className="text-[#17100C] font-bold mr-1.5">
+                          {pt.label}:
+                        </strong>
+                      )}
+                      <span>{pt.text}</span>
+                    </div>
+                  </div>
+                )
+              )}
+            </div>
+          </div>
+
+          {/* Deep-Dive Scholarly Sections Rendered in Structured Sub-Point Cards */}
+          <div className="space-y-5">
+            {article.sections.map((sec, idx) => {
+              const rawSectionBody = t(sec.bodyEn, sec.bodyHi);
+              const subPoints = parseStructuredSubPoints(rawSectionBody);
+
+              return (
+                <div
+                  key={idx}
+                  className="p-4 sm:p-5 rounded-xl bg-[#E8D8BE]/75 border border-[#5A3922]/30 space-y-3.5 shadow-sm"
+                >
+                  <div className="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-[#5A3922]/25">
+                    <div className="flex items-center gap-2.5">
+                      <span className="px-2.5 py-1 rounded bg-[#2B1F17] text-[#D3AD55] font-mono text-[10px] font-bold uppercase tracking-[0.16em]">
+                        {t(`SEC 0${idx + 1}`, `खंड ०${idx + 1}`)}
+                      </span>
+                      <h3 className="text-base sm:text-xl font-serif text-[#17100C] font-bold">
+                        {t(sec.headingEn, sec.headingHi)}
+                      </h3>
+                    </div>
+                    <span className="font-mono text-[9.5px] uppercase tracking-[0.16em] text-[#5A3922] bg-[#EFE0C6] px-2.5 py-0.5 rounded border border-[#5A3922]/25">
+                      {subPoints.length} {t('Sub-Points', 'उप-बिंदु')}
+                    </span>
+                  </div>
+
+                  {/* Structured Sub-Points List */}
+                  <div className="grid grid-cols-1 gap-2.5">
+                    {subPoints.map((sp, spIdx) => (
+                      <div
+                        key={spIdx}
+                        className="flex items-start gap-3 p-3 sm:p-3.5 rounded-lg bg-[#F5EAD8] border border-[#5A3922]/20 hover:border-[#B68A32]/60 transition-colors"
+                      >
+                        <span className="px-2 py-0.5 rounded bg-[#3A2618] text-[#D3AD55] font-mono text-[10px] font-bold shrink-0 mt-0.5">
+                          {idx + 1}.{sp.code}
+                        </span>
+                        <div className="text-xs sm:text-[15px] font-serif text-[#261B13] leading-relaxed flex-1">
+                          {sp.label && (
+                            <span className="inline-block font-bold text-[#17100C] bg-[#E5D3B3] px-2 py-0.2 rounded border border-[#5A3922]/25 mr-2 mb-1 text-xs sm:text-[13.5px]">
+                              {sp.label}
+                            </span>
+                          )}
+                          <span>{sp.text}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Primary Scriptural & Field Sources Footer + Exit Monograph Button */}
         <div className="mt-6 pt-4 border-t border-[#3A281B]/20 flex flex-wrap items-center justify-between gap-4">
           <div>
             <span className="block font-mono text-[9px] uppercase tracking-[0.2em] text-[#5A3922]">
@@ -1506,20 +1912,31 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
             </p>
           </div>
 
-          {onLaunchStudioAtNode && (
+          <div className="flex flex-wrap items-center gap-2.5">
+            {onLaunchStudioAtNode && typeof article.interactiveIndex === 'number' && (
+              <button
+                type="button"
+                onClick={() =>
+                  onLaunchStudioAtNode(portal.chapterIndex, article.interactiveIndex)
+                }
+                className="px-4 py-2 rounded-lg bg-[#2B1F17] hover:bg-[#3D2B1F] text-[#D3AD55] font-mono text-[10px] uppercase tracking-[0.16em] inline-flex items-center gap-2 transition-all cursor-pointer"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                <span>
+                  {t('Inspect in Interactive Studio', 'संवादात्मक यंत्र में देखें')}
+                </span>
+              </button>
+            )}
+
             <button
               type="button"
-              onClick={() =>
-                onLaunchStudioAtNode(portal.chapterIndex, article.interactiveIndex)
-              }
-              className="px-4 py-2 rounded-lg bg-[#2B1F17] hover:bg-[#3D2B1F] text-[#D3AD55] font-mono text-[10px] uppercase tracking-[0.16em] inline-flex items-center gap-2 transition-all cursor-pointer"
+              onClick={handleExitMonograph}
+              className="px-4 py-2 rounded-lg border border-[#2B1F17] bg-[#2B1F17] hover:bg-[#3D2B1F] text-[#D3AD55] font-mono text-[10px] font-bold uppercase tracking-[0.16em] inline-flex items-center gap-2 transition-all cursor-pointer"
             >
-              <ExternalLink className="w-3.5 h-3.5" />
-              <span>
-                {t('Inspect in Interactive Studio', 'संवादात्मक यंत्र में देखें')}
-              </span>
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>{exitLabel}</span>
             </button>
-          )}
+          </div>
         </div>
       </article>
       </div>
