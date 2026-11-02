@@ -242,61 +242,155 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
     {
       id: 'table-ashta-prahar-24h-schedule',
       articleSlug: 'samaya-ashta-prahar-timekeeping',
-      titleEn: 'Aṣṭa Prahara — Complete 24-Hour (Ahorātra) Cycle (Illustrative 6:00 AM Sunrise Benchmark)',
-      titleHi: 'अष्ट प्रहर — २४ घंटे (अहोरात्र) का संपूर्ण चक्र (सुबह ६:०० बजे सूर्योदय के मानक उदाहरण पर आधारित)',
+      titleEn: 'Aṣṭa Prahara — Complete 24-Hour (Ahorātra) Solar, Liturgical & Rāga-Samaya Cycle',
+      titleHi: 'अष्ट प्रहर — २४ घंटे (अहोरात्र) का संपूर्ण सौर, आनुष्ठानिक एवं राग-समय चक्र',
       captionEn:
-        'Note: The 3-hour clock intervals below assume an equinox sunrise at 6:00 AM and sunset at 6:00 PM. In traditional solar calculation (dinamāna / rātrimāna), the four day-prahars and four night-prahars expand or contract according to local sunrise, sunset, latitude, and season.',
+        'Note: The 3-hour clock intervals below follow the standard 6:00 AM sunrise benchmark across the four Day Prahars (Din Pahar) and four Night Prahars (Raat Pahar).',
       captionHi:
-        'विशेष टिप्पणी: नीचे दी गई ३-३ घंटे की घड़ी-आधारित तालिका सुबह ६:०० बजे सूर्योदय मानकर बनाई गई है। पारंपरिक सूर्य-आधारित गणना में दिन के ४ प्रहर और रात्रि के ४ प्रहर ऋतु तथा स्थानीय सूर्योदय-सूर्यास्त के अनुसार घटते-बढ़ते हैं।',
-      headersEn: ['Prahar Index', 'Sanskrit / Hindi Name', 'Illustrative Clock Window (6 AM Sunrise)', 'Natural & Daily Context', 'Liturgical & Rāga-Samaya Associations'],
-      headersHi: ['प्रहर क्रम', 'संस्कृत / हिंदी नाम', 'मानक घड़ी समय (६ बजे सूर्योदय पर)', 'प्राकृतिक एवं दैनिक संदर्भ', 'धार्मिक अनुष्ठान एवं राग-समय संबद्धता'],
+        'विशेष टिप्पणी: नीचे दी गई ३-३ घंटे की घड़ी-आधारित तालिका सुबह ६:०० बजे सूर्योदय मानकर दिन के ४ पहर और रात के ४ पहरों के अनुसार बनाई गई है।',
+      headersEn: ['Prahar Division', 'Sanskrit / Hindi Name', 'Clock Window (6 AM Base)', 'Natural & Daily Context', 'Liturgical & Rāga-Samaya Associations'],
+      headersHi: ['पहर विभाग', 'संस्कृत / हिंदी नाम', 'मानक घड़ी समय', 'प्राकृतिक एवं दैनिक संदर्भ', 'धार्मिक अनुष्ठान एवं राग-समय संबद्धता'],
       rowsEn: [
-        ['1st Prahar (Day 1)', 'Prathama Prahara · Prātaḥkāla (प्रातःकाल)', '6:00 AM – 9:00 AM', 'Dawn-to-morning transition, rising sunlight, initiation of daily work', 'Prātaḥ-sandhyā, Sūrya arghya, japa · Morning ragas: Rāga Bhairava, Ahir Bhairav, Rāmakalī'],
-        ['2nd Prahar (Day 2)', 'Dvitīya Prahara · Pūrvāhṇa (पूर्वाह्न)', '9:00 AM – 12:00 PM', 'Forenoon before midday; peak social, scholarly, agricultural & craft activity', 'Scriptural study (svādhyāya), temple morning services · Late-morning ragas (e.g., Āsāvarī, Jaunpurī, Toḍī)'],
-        ['3rd Prahar (Day 3)', 'Tṛtīya Prahara · Madhyāhna (मध्याह्न)', '12:00 PM – 3:00 PM', 'Midday solar zenith; midday meal, brief rest & transition of tasks', 'Madhyāhna-sandhyā & midday bhoga/ārati · Afternoon ragas: Bhimpalasi, Sāraṅga, Multānī'],
-        ['4th Prahar (Day 4)', 'Caturtha Prahara · Aparāhṇa (अपराह्न)', '3:00 PM – 6:00 PM', 'Late afternoon; softening sunlight, completion of work & return home', 'Preparation for sunset rites & evening gathering · Late-afternoon ragas (e.g., Paṭadīpa, Pūrvī transition)'],
-        ['5th Prahar (Night 1)', 'Pañcama Prahara · Sandhyākāla / Pradoṣa (संध्याकाल)', '6:00 PM – 9:00 PM', 'Sunset transition into early night; family meal & evening rest', 'Sāyaṃ-sandhyā, dīpa-prajvalana (lamp lighting), sandhyā ārati · Evening ragas: Rāga Yaman (Kalyāṇa), Bhūpālī'],
-        ['6th Prahar (Night 2)', 'Ṣaṣṭha Prahara · Rātri Prathama Bhāga (रात्रि का प्रथम भाग)', '9:00 PM – 12:00 AM', 'Deepening night; cessation of external labor, sacred storytelling & sleep', 'Night liturgical offerings (śayana-ārati), contemplative recitation · Night ragas: Bihāg, Bāgeśrī, खमाज'],
-        ['7th Prahar (Night 3)', 'Saptama Prahara · Ardharātri / Niśītha (अर्धरात्रि)', '12:00 AM – 3:00 AM', 'Midnight axis; profound stillness & deep nocturnal silence', 'Sacred midnight festivals (Kṛṣṇa Janmāṣṭamī, Mahāśivarātri niśītha-pūjā) & specific nocturnal sādhanās · Late-night ragas: Darbārī Kānhaḍā, Mālkauṃs'],
-        ['8th Prahar (Night 4)', 'Aṣṭama Prahara · Antima Rātri / Dawnward (ब्रह्ममुहूर्त की ओर)', '3:00 AM – 6:00 AM', 'Final quarter of night moving toward pre-dawn light (Uṣā) and sunrise', 'Includes Brahma-muhūrta (~96–48 min before sunrise, not the whole 3h prahar); pre-dawn meditation · Pre-dawn ragas: Lalit, Bhairavī, Sohinī']
+        ['Day Prahars (Din Pahar)', 'Purvanha (1st) · पूर्वाह्न', '6:00 AM – 9:00 AM', 'Dawn-to-morning transition, rising sunlight, initiation of daily work', 'Prātaḥ-sandhyā, Sūrya arghya, japa · Morning ragas: Rāga Bhairava, Ahir Bhairav, Rāmakalī'],
+        ['Day Prahars (Din Pahar)', 'Madhyanha (2nd) · मध्याह्न', '9:00 AM – 12:00 PM', 'Forenoon to midday; peak social, scholarly, agricultural & craft activity', 'Scriptural study (svādhyāya), temple services · Late-morning ragas: Āsāvarī, Jaunpurī, Toḍī'],
+        ['Day Prahars (Din Pahar)', 'Aparanha (3rd) · अपराह्न', '12:00 PM – 3:00 PM', 'Solar zenith to afternoon; midday meal, Pitṛ-tarpaṇa & task transition', 'Midday bhoga/ārati & ancestral rites · Afternoon ragas: Bhimpalasi, Sāraṅga, Multānī'],
+        ['Day Prahars (Din Pahar)', 'Sayanha/Sayamkala (4th) · सायंकाल', '3:00 PM – 6:00 PM', 'Late afternoon; softening sunlight, completion of work & return home', 'Preparation for sunset rites & evening gathering · Late-afternoon ragas: Paṭadīpa, Pūrvī'],
+        ['Night Prahars (Raat Pahar)', 'Pradosha (5th) · प्रदोष', '6:00 PM – 9:00 PM', 'Sunset transition into early night; twilight stillness & lamp lighting', 'Śiva-Śakti Pradoṣa-pūjā, dīpa-prajvalana, sandhyā ārati · Evening ragas: Yaman, Bhūpālī'],
+        ['Night Prahars (Raat Pahar)', 'Nishitha (6th) · निशीथ', '9:00 PM – 12:00 AM', 'Deepening night; cessation of external labor, esoteric japa & rest', 'Śayana-ārati, nocturnal mantra recitation · Night ragas: Bihāg, Bāgeśrī, Khamāj'],
+        ['Night Prahars (Raat Pahar)', 'Triyama (7th) · त्रियामा', '12:00 AM – 3:00 AM', 'Dead of night; thinnest veil between physical & astral/spirit realms (Bhūta-Preta active window)', 'Fierce Tantrik Śmaśāna-sādhanā, Aghora/Kālī/Bhairava rites & paranormal entity activity · Deep-night ragas: Darbārī Kānhaḍā, Mālkauṃs'],
+        ['Night Prahars (Raat Pahar)', 'Usha (8th) · उषा (Dawn)', '3:00 AM – 6:00 AM (Dawn)', 'Final watch of night moving into Dawn (Uṣā); dissolution of nocturnal forces', 'Includes Brahma-muhūrta; pre-dawn meditation & prāṇāyāma · Pre-dawn ragas: Lalit, Bhairavī, Sohinī']
       ],
       rowsHi: [
-        ['प्रथम प्रहर (दिन १)', 'प्रातःकाल (प्रथम याम)', 'सुबह 6:00 से 9:00', 'रात्रि से दिन में संक्रमण, सूर्योदय, बढ़ती रोशनी एवं दैनिक कार्यों का आरंभ', 'प्रातःसंध्या, सूर्य अर्घ्य, जप · प्रातःकालीन राग: भैरव, अहिर भैरव, रामकली'],
-        ['द्वितीय प्रहर (दिन २)', 'पूर्वाह्न (दोपहर से पूर्व)', 'सुबह 9:00 से दोपहर 12:00', 'दोपहर से पहले का सक्रिय समय; अध्ययन, कृषि, शिल्प और प्रशासन', 'स्वाध्याय, पाठ एवं नित्य कर्म · पूर्वाह्न राग (जैसे आसावरी, जौनपुरी, तोड़ी)'],
-        ['तृतीय प्रहर (दिन ३)', 'मध्याह्न (दिन का मध्य)', 'दोपहर 12:00 से 3:00', 'सूर्य की उच्च स्थिति; भोजन, विश्राम एवं कार्य-परिवर्तन', 'मध्याह्न-संध्या एवं मध्याह्न पूजा · मध्याह्न राग: भीमपलासी, सारंग, मुलतानी'],
-        ['चतुर्थ प्रहर (दिन ४)', 'अपराह्न (दोपहर के बाद)', 'दोपहर 3:00 से शाम 6:00', 'दिन का उत्तरार्ध; ढलती धूप, कार्यों का समापन एवं संध्या की तैयारी', 'सूर्यास्त-पूर्व तैयारी एवं संध्या-उपासना की ओर संक्रमण · अपराह्न राग'],
-        ['पंचम प्रहर (रात्रि १)', 'संध्याकाल एवं रात्रि का आरंभ', 'शाम 6:00 से रात 9:00', 'दिन से रात्रि में प्रवेश; गोधूलि, भोजन एवं पारिवारिक समय', 'सायंसंध्या, दीप-प्रज्वलन, संध्या आरती · संध्याकालीन राग: राग यमन (कल्याण), भूपाली'],
-        ['षष्ठ प्रहर (रात्रि २)', 'रात्रि का आरंभिक भाग', 'रात 9:00 से 12:00', 'रात्रि का विस्तार; दैनिक गतिविधियों का विराम, कथा-श्रवण एवं विश्राम', 'शयन-आरती, रात्रि जप एवं विश्राम · रात्रि के प्रथम भाग के राग: बिहाग, बागेश्री'],
-        ['सप्तम प्रहर (रात्रि ३)', 'अर्धरात्रि (निशीथ काल)', 'रात 12:00 से सुबह 3:00', 'रात्रि का मध्य भाग; गहन निस्तब्धता एवं शांत वातावरण', 'श्रीकृष्ण जन्माष्टमी व महाशिवरात्रि निशीथ-पूजा तथा विशिष्ट रात्रिकालीन साधना · राग: दरबारी कान्हड़ा, मालकौंस'],
-        ['अष्टम प्रहर (रात्रि ४)', 'अंतिम रात्रि एवं प्रभात की ओर', 'सुबह 3:00 से 6:00', 'रात्रि का अंतिम चरण, भोर (उषाकाल) एवं सूर्योदय की ओर संक्रमण', 'इसी प्रहर के भीतर सूर्योदय से ~96–48 मिनट पूर्व "ब्रह्ममुहूर्त" आता है (पूरा ३ घंटा ब्रह्ममुहूर्त नहीं है) · राग: ललित, भैरवी']
+        ['दिन के पहर (Din Pahar)', 'पूर्वाह्न · Purvanha (1st)', 'सुबह 6:00 से 9:00', 'रात्रि से दिन में संक्रमण, सूर्योदय, बढ़ती रोशनी एवं दैनिक कार्यों का आरंभ', 'प्रातःसंध्या, सूर्य अर्घ्य, जप · प्रातःकालीन राग: भैरव, अहिर भैरव, रामकली'],
+        ['दिन के पहर (Din Pahar)', 'मध्याह्न · Madhyanha (2nd)', 'सुबह 9:00 से दोपहर 12:00', 'सक्रिय समय; अध्ययन, कृषि, शिल्प, व्यापार और प्रशासन', 'स्वाध्याय, पाठ एवं नित्य कर्म · राग: आसावरी, जौनपुरी, तोड़ी'],
+        ['दिन के पहर (Din Pahar)', 'अपराह्न · Aparanha (3rd)', 'दोपहर 12:00 से 3:00', 'दोपहर के बाद का समय; पितृ-तर्पण, विश्राम एवं कार्य-परिवर्तन', 'मध्याह्न भोग-आरती एवं तर्पण · राग: भीमपलासी, सारंग, मुलतानी'],
+        ['दिन के पहर (Din Pahar)', 'सायंकाल · Sayanha/Sayamkala (4th)', 'दोपहर 3:00 से शाम 6:00', 'दिन का अंतिम भाग; ढलती धूप, कार्यों का समापन एवं संध्या की तैयारी', 'सूर्यास्त-पूर्व तैयारी एवं संध्या-उपासना की ओर संक्रमण · राग: पटदीप, पूर्वी'],
+        ['रात के पहर (Raat Pahar)', 'प्रदोष · Pradosha (5th)', 'शाम 6:00 से रात 9:00', 'दिन से रात्रि में प्रवेश; गोधूलि एवं प्रदोष काल', 'शिव-शक्ति प्रदोष पूजा, दीप-प्रज्वलन, संध्या आरती · राग: यमन (कल्याण), भूपाली'],
+        ['रात के पहर (Raat Pahar)', 'निशीथ · Nishitha (6th)', 'रात 9:00 से 12:00', 'रात्रि का विस्तार; बाह्य कोलाहल का विराम एवं गुप्त मंत्र-जप', 'शयन-आरती एवं रात्रिकालीन उपासना · राग: बिहाग, बागेश्री'],
+        ['रात के पहर (Raat Pahar)', 'त्रियामा · Triyama (7th)', 'रात 12:00 से सुबह 3:00', 'गहन अर्धरात्रि; तांत्रिक साधना एवं भूत-प्रेत/इतर योनियों की सर्वाधिक सक्रियता का काल', 'श्मशान-साधना, अघोर/काली/भैरव अनुष्ठान एवं पारलौकिक अन्वेषण · राग: दरबारी कान्हड़ा, मालकौंस'],
+        ['रात के पहर (Raat Pahar)', 'उषा · Usha (8th — Dawn)', 'सुबह 3:00 से 6:00 (भोर)', 'रात्रि का अंतिम चरण, भोर (उषाकाल) एवं सूर्योदय की ओर संक्रमण', 'ब्रह्ममुहूर्त ध्यान, योग एवं आत्म-चिंतन · भोर के राग: ललित, भैरवी']
       ]
     },
     {
-      id: 'table-time-units-comparison',
+      id: 'table-eight-prahars-characteristics',
       articleSlug: 'samaya-ashta-prahar-timekeeping',
-      titleEn: 'Terminology Comparison: Prahara, Yāma, Muhūrta, Sandhyā, Brahma-Muhūrta & Ahorātra',
-      titleHi: 'भारतीय कालगणना की प्रमुख इकाइयों का अंतर: प्रहर, याम, मुहूर्त, संध्या, ब्रह्ममुहूर्त एवं अहोरात्र',
+      titleEn: 'Day Prahars (Din Pahar) & Night Prahars (Raat Pahar) — The 8 Prahars & Their Characteristics',
+      titleHi: 'दिन के पहर (Din Pahar) एवं रात के पहर (Raat Pahar) — ८ प्रहरों का समय-चक्र एवं प्रमुख विशेषताएँ',
       captionEn:
-        'Essential distinctions between traditional Sanskrit time units often conflated in popular writing.',
+        'Complete classification of the four Day Prahars (Din Pahar: Purvanha, Madhyanha, Aparanha, Sayanha/Sayamkala) and four Night Prahars (Raat Pahar: Pradosha, Nishitha, Triyama, Usha), detailing their energetic, ritual, and paranormal characteristics—especially Triyama (12:00 AM – 3:00 AM) as the prime nocturnal window for Tantrik sādhanā and ghost/spirit activity.',
       captionHi:
-        'पारंपरिक भारतीय कालगणना के उन शब्दों का स्पष्ट अंतर जिन्हें प्रायः एक-दूसरे का पर्यायवाची मान लिया जाता है।',
-      headersEn: ['Sanskrit / Hindi Term', 'Core Meaning', 'Standard Duration / Definition', 'Key Methodological Distinction'],
-      headersHi: ['शब्द (संस्कृत / हिंदी)', 'मूल अर्थ', 'सामान्य अवधि / संदर्भ', 'महत्त्वपूर्ण शास्त्रीय अंतर'],
+        'चार दिन के पहर (पूर्वाह्न, मध्याह्न, अपराह्न, सायंकाल) और चार रात के पहर (प्रदोष, निशीथ, त्रियामा, उषा) का पूर्ण विवरण एवं उनकी आध्यात्मिक, तांत्रिक व पारलौकिक विशेषताएँ—विशेषतः ७वें पहर "त्रियामा" (रात १२:०० से ३:०० बजे) का तांत्रिक साधना और भूत-प्रेत/सूक्ष्म सत्ताओं की सक्रियता में विशेष महत्त्व।',
+      headersEn: [
+        'Division (Pahar Group)',
+        'Prahar Name & Order',
+        'Time Window',
+        'Defining Characteristics, Tantrik & Paranormal Significance'
+      ],
+      headersHi: [
+        'विभाग (पहर वर्ग)',
+        'प्रहर का नाम एवं क्रम',
+        'समय अवधि',
+        'प्रमुख विशेषताएँ, तांत्रिक एवं पारलौकिक महत्त्व'
+      ],
       rowsEn: [
-        ['Prahara / Pahar (प्रहर / पहर)', 'One-eighth division of the day-night cycle', '~3 hours in fixed clock reckoning (4 day + 4 night = 8 prahars)', 'Varies seasonally when calculated from actual local sunrise and sunset'],
-        ['Yāma (याम)', 'Traditional watch or period of day/night', 'Often synonymous with Prahara (1/4th of day or night = ~3 hours)', 'Used frequently in Vedic, Epic, and poetic literature (e.g., tri-yāmā for night)'],
-        ['Muhūrta (मुहूर्त)', '1/30th division of a 24-hour Ahorātra', '48 minutes in standard reckoning (30 muhūrtas = 24 hours; 2 ghaṭikās = 1 muhūrta)', 'Distinct from a 3-hour Prahara; 1 Prahara contains 3.75 Muhūrtas'],
-        ['Sandhyā (संध्या)', 'Juncture / twilight transition; also the liturgical prayer performed at junctions', 'Dawn (prātaḥ), midday (madhyāhna), and dusk (sāyaṃ) junctions', 'A brief transitional threshold—does not last for an entire 3-hour Prahara'],
-        ['Brahma-Muhūrta (ब्रह्ममुहूर्त)', 'The auspicious pre-dawn Muhūrta dedicated to wisdom/study', 'Traditionally the penultimate (14th of 15) nocturnal muhūrta: ~96 to 48 minutes before sunrise', 'Occurs inside the 8th Prahar, but must NOT be equated with the entire 3-hour 8th Prahar'],
-        ['Ahorātra (अहोरात्र)', 'One complete solar day and night (Ahan + Rātri)', '24 hours (8 Prahars = 30 Muhūrtas = 60 Ghaṭikās)', 'In Hindu panchāṅga, a civil ahorātra traditionally begins at local sunrise']
+        [
+          'Day Prahars (Din Pahar)',
+          'Purvanha (1st)',
+          '6:00 AM – 9:00 AM',
+          'First watch of the day governed by rising solar prāṇa and Sattva-guṇa. Characterized by atmospheric purity, awakening of vital forces, Vedic sandhyā, Sūrya-arghya, auspicious beginnings, and mental clarity.'
+        ],
+        [
+          'Day Prahars (Din Pahar)',
+          'Madhyanha (2nd)',
+          '9:00 AM – 12:00 PM',
+          'Second watch of the day marked by ascending Rajasic energy and expanding solar heat. Characterized by peak worldly execution, intellectual rigor, administrative/material enterprises, and active ritual worship.'
+        ],
+        [
+          'Day Prahars (Din Pahar)',
+          'Aparanha (3rd)',
+          '12:00 PM – 3:00 PM',
+          'Third watch of the day beginning at solar zenith and shifting toward afternoon descent. Associated with steady endurance, ancestral (Pitṛ-tarpaṇa) observances in traditional calendars, and consolidation of daily labor.'
+        ],
+        [
+          'Day Prahars (Din Pahar)',
+          'Sayanha/Sayamkala (4th)',
+          '3:00 PM – 6:00 PM',
+          'Fourth and final watch of the daytime cycle leading to sunset. Characterized by cooling solar rays, winding down of physical tasks, inward withdrawal of dispersed senses, and preparation for the twilight threshold.'
+        ],
+        [
+          'Night Prahars (Raat Pahar)',
+          'Pradosha (5th)',
+          '6:00 PM – 9:00 PM',
+          'First watch of the night inaugurating the nocturnal cycle at dusk. Sacred to Lord Śiva and Śakti (Pradoṣa-kāla); a transitional twilight zone where daytime human vibrations recede and subtle astral currents begin to awaken.'
+        ],
+        [
+          'Night Prahars (Raat Pahar)',
+          'Nishitha (6th)',
+          '9:00 PM – 12:00 AM',
+          'Second watch of the night leading up to midnight. Marked by enveloping darkness, cessation of mundane noise, deepening Tamas/stillness, and the initiation of esoteric nocturnal mantra-japa and गुप्त (secret) upāsanā.'
+        ],
+        [
+          'Night Prahars (Raat Pahar)',
+          'Triyama (7th)',
+          '12:00 AM – 3:00 AM',
+          'THE TANTRIK & PARANORMAL WATCH (Dead of Night): The 7th Prahar is the deepest, most potent nocturnal window when the veil between the physical plane (Bhūloka) and subtle/astral realms (Preta-loka / Bhhuvar-loka) is thinnest. In Tantrik tradition, Triyama is the supreme hour for fierce Śmaśāna-sādhanā (cremation-ground rites), Aghora and Kāpālika rituals, Mahāvidyā (Kālī, Tārā, Chinnamastā, Dhūmāvatī) and Ugra-Bhairava invocations, and Vāmācāra prayogas. In paranormal field investigation and occult lore, this exact 12:00 AM – 3:00 AM window marks the peak manifestation and roaming period of ghosts and discarnate entities—including Bhūta, Preta, Piśāca, Vetāla, Brahmārākṣasa, and Dākinī/Śākinī forces—accompanied by sudden temperature drops, electromagnetic anomalies, and heightened psychic phenomena.'
+        ],
+        [
+          'Night Prahars (Raat Pahar)',
+          'Usha (8th)',
+          '3:00 AM – 6:00 AM (Dawn)',
+          'Fourth and final watch of the night transitioning into Dawn (Uṣā-kāla). Nocturnal ghost/entity activity and Tamasic currents dissolve as Sattvic pre-dawn light approaches; encompasses Brahma-muhūrta, ideal for pure meditation, prāṇāyāma, and spiritual awakening.'
+        ]
       ],
       rowsHi: [
-        ['पहर / प्रहर (Prahara)', 'दिन-रात का आठवाँ भाग', 'मानक गणना में लगभग ३ घंटे (दिन के ४ + रात के ४ = ८ प्रहर)', 'सूर्योदय-सूर्यास्त आधारित गणना में ऋतु के अनुसार इसकी अवधि बदलती है'],
-        ['याम (Yāma)', 'समय का पारंपरिक खंड या पहरा', 'अनेक संदर्भों में प्रहर के समान (~३ घंटे)', 'काव्य और शास्त्रों में रात्रि के प्रहरों के लिए "याम" या "त्रियामा" शब्द बहुधा आता है'],
-        ['मुहूर्त (Muhūrta)', 'अहोरात्र का तीसवाँ (1/30) भाग', 'मानक गणना में ४८ मिनट (३० मुहूर्त = २४ घंटे; २ घटिका = १ मुहूर्त)', 'यह ३ घंटे के प्रहर से भिन्न है; एक प्रहर में ३.७५ (पौने चार) मुहूर्त होते हैं'],
-        ['संध्या (Sandhyā)', 'दिन और रात का संधिकाल; संधिकाल की उपासना', 'प्रातः, मध्याह्न और सायंकाल के तीन संधिकाल', 'संध्या एक संक्षिप्त संक्रमण-काल है; यह पूरे तीन घंटे के प्रहर के बराबर नहीं होती'],
-        ['ब्रह्ममुहूर्त (Brahma-muhūrta)', 'सूर्योदय से पूर्व का विशेष प्रातःकालीन मुहूर्त', 'प्रचलित गणना में सूर्योदय से लगभग ९६ से ४८ मिनट पहले (४८ मिनट की अवधि)', 'यह अष्टम प्रहर के भीतर आता है, किन्तु पूरे ३ घंटे के अष्टम प्रहर को ब्रह्ममुहूर्त मानना अशुद्ध है'],
-        ['अहोरात्र (Ahorātra)', 'एक पूरा दिन और रात (अहन् + रात्रि)', '२४ घंटे (८ प्रहर = ३० मुहूर्त = ६० घटिका)', 'भारतीय पंचांग परंपरा में अहोरात्र की गणना सूर्योदय से अगले सूर्योदय तक की जाती है']
+        [
+          'दिन के पहर (Din Pahar)',
+          'पूर्वाह्न · Purvanha (1st)',
+          '6:00 AM – 9:00 AM',
+          'दिन का प्रथम पहर, जिसमें उगते सूर्य की प्राण-ऊर्जा और सत्त्वगुण की प्रधानता होती है। यह वातावरण की पवित्रता, प्रातःसंध्या, सूर्य-अर्घ्य, सात्त्विक मंत्र-जप और शुभ कार्यों के आरंभ का समय है।'
+        ],
+        [
+          'दिन के पहर (Din Pahar)',
+          'मध्याह्न · Madhyanha (2nd)',
+          '9:00 AM – 12:00 PM',
+          'दिन का दूसरा पहर, जिसमें रजोगुण और सूर्य का तेज पूर्ण रूप से सक्रिय होता है। यह बौद्धिक कार्य, व्यापार, प्रशासन, अध्ययन और सक्रिय सांसारिक कर्मों की सिद्धि का प्रमुख समय है।'
+        ],
+        [
+          'दिन के पहर (Din Pahar)',
+          'अपराह्न · Aparanha (3rd)',
+          '12:00 PM – 3:00 PM',
+          'दिन का तीसरा पहर, जो दोपहर के चरम बिंदु से आगे बढ़ता है। शास्त्रीय विधान में यह समय पितृ-तर्पण, श्राद्ध-कर्म तथा दैनिक कार्यों के स्थायित्व और विश्राम-परिवर्तन से जुड़ा है।'
+        ],
+        [
+          'दिन के पहर (Din Pahar)',
+          'सायंकाल · Sayanha/Sayamkala (4th)',
+          '3:00 PM – 6:00 PM',
+          'दिन का चौथा और अंतिम पहर, जो सूर्यास्त की ओर ले जाता है। इसमें सूर्य की तपन शांत होती है, बाह्य कार्यों का समापन होता है और संध्या-वंदन व दीप-प्रज्वलन की तैयारी होती है।'
+        ],
+        [
+          'रात के पहर (Raat Pahar)',
+          'प्रदोष · Pradosha (5th)',
+          '6:00 PM – 9:00 PM',
+          'रात्रि का प्रथम पहर (५वाँ प्रहर), जो सूर्यास्त के संधिकाल से प्रारंभ होता है। यह भगवान् शिव और शक्ति की प्रदोष-उपासना का पावन समय है, जहाँ दिन की मानवीय हलचल शांत होकर रात्रि की सूक्ष्म तरंगें जाग्रत होने लगती हैं।'
+        ],
+        [
+          'रात के पहर (Raat Pahar)',
+          'निशीथ · Nishitha (6th)',
+          '9:00 PM – 12:00 AM',
+          'रात्रि का दूसरा पहर (६वाँ प्रहर), जो मध्यरात्रि तक चलता है। बाह्य जगत के कोलाहल के शांत होने और गहन निस्तब्धता के साथ यह गुप्त मंत्र-जप, रात्रि-पूजा और तांत्रिक पुरश्चरण की भूमिका तैयार करता है।'
+        ],
+        [
+          'रात के पहर (Raat Pahar)',
+          'त्रियामा · Triyama (7th)',
+          '12:00 AM – 3:00 AM',
+          'तांत्रिक साधना एवं भूत-प्रेत सक्रियता का मुख्य पहर: ७वाँ प्रहर "त्रियामा" (मध्यरात्रि १२:०० से ३:०० बजे) रात्रि का सबसे गूढ़, रहस्यमय और शक्तिशाली समय है, जब भौतिक लोक और सूक्ष्म/प्रेत लोक के बीच का आवरण सबसे पतला होता है। तांत्रिक परम्परा में यह श्मशान-साधना, अघोर व कापालिक क्रियाओं, दशमहाविद्या (काली, तारा, छिन्नमस्ता, धूमावती) और उग्र भैरव आवाहन तथा षट्कर्म/वामाचार प्रयोगों का सर्वोच्च काल है। परामनोवैज्ञानिक (Paranormal) अन्वेषण और तंत्र-शास्त्र के अनुसार इसी १२ से ३ बजे की त्रियामा बेला में भूत, प्रेत, पिशाच, वेताल, ब्रह्मराक्षस और डाकिनी-शाकिनी जैसी सूक्ष्म व इतर योनियों की सक्रियता अपने चरम पर होती है तथा तापमान में अचानक गिरावट व असामान्य ऊर्जा-संकेत सर्वाधिक अनुभव किए जाते हैं।'
+        ],
+        [
+          'रात के पहर (Raat Pahar)',
+          'उषा · Usha (8th)',
+          '3:00 AM – 6:00 AM (Dawn)',
+          'रात्रि का चौथा और अंतिम पहर (८वाँ प्रहर — भोर/उषाकाल)। इस पहर में तामसिक व निशाचर/प्रेत शक्तियों का प्रभाव समाप्त होने लगता है और ब्रह्ममुहूर्त के सात्त्विक प्रकाश के साथ ध्यान, प्राणायाम व आत्म-जागरण का संचार होता है।'
+        ]
       ]
     }
   ],
