@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Landmark, Menu, X, Languages } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Landmark, Menu, X, Languages, Volume2, VolumeX } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 
@@ -18,10 +18,69 @@ import TransparentLineScrollbar from './components/TransparentLineScrollbar';
 
 function AppContent() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const userMutedRef = useRef(false);
   const { lang, toggleLang, t } = useLanguage();
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    audio.volume = 0.5;
+    audio.muted = false;
+
+    const tryPlay = () => {
+      if (!audioRef.current || userMutedRef.current) return;
+      audioRef.current.play().catch(() => {
+        // Browser blocked autoplay until first user gesture
+      });
+    };
+
+    tryPlay();
+
+    const handleFirstInteraction = () => {
+      if (!audioRef.current || userMutedRef.current) return;
+      if (audioRef.current.paused) {
+        audioRef.current.play().catch(() => {});
+      }
+    };
+
+    window.addEventListener('pointerdown', handleFirstInteraction, { passive: true });
+    window.addEventListener('keydown', handleFirstInteraction, { passive: true });
+    window.addEventListener('touchstart', handleFirstInteraction, { passive: true });
+
+    return () => {
+      window.removeEventListener('pointerdown', handleFirstInteraction);
+      window.removeEventListener('keydown', handleFirstInteraction);
+      window.removeEventListener('touchstart', handleFirstInteraction);
+    };
+  }, []);
+
+  const toggleMute = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    const audio = audioRef.current;
+    const nextMuted = !isMuted;
+    userMutedRef.current = nextMuted;
+    setIsMuted(nextMuted);
+
+    if (audio) {
+      audio.muted = nextMuted;
+      if (!nextMuted && audio.paused) {
+        audio.play().catch(() => {});
+      }
+    }
+  };
 
   return (
     <div className="min-h-screen w-full bg-[#1a1512] text-ancient-beige font-sans selection:bg-gold-warm selection:text-ancient-dark overflow-x-hidden vintage-scrollbar">
+      <audio
+        ref={audioRef}
+        src="/assets/aistudio/Bhootnath_astakham_623209da.mp3"
+        loop
+        autoPlay
+        preload="auto"
+      />
       <TransparentLineScrollbar variant="window" />
       
       {/* Sticky Antique Navigation Ledger */}
@@ -226,12 +285,27 @@ function AppContent() {
         </div>
       </footer>
 
+      {/* Sticky Bottom-Right Background Music Mute / Unmute Button (Above Language Button) */}
+      <button
+        type="button"
+        onClick={toggleMute}
+        aria-label={isMuted ? 'Unmute background music' : 'Mute background music'}
+        title={isMuted ? t('Unmute Music', 'संगीत चालू करें') : t('Mute Music', 'संगीत बंद करें')}
+        className="fixed bottom-16 right-4 sm:bottom-20 sm:right-6 z-[140] flex items-center justify-center p-2.5 sm:p-3 rounded-lg bg-[#140f0c]/95 hover:bg-[#221913] border-2 border-gold-warm/80 hover:border-gold-warm text-gold-warm shadow-[0_10px_30px_rgba(0,0,0,0.85),0_0_15px_rgba(212,175,55,0.25)] backdrop-blur-md transition-all duration-300 cursor-pointer group active:scale-95"
+      >
+        {isMuted ? (
+          <VolumeX className="w-5 h-5 text-gold-warm transition-transform duration-300 group-hover:scale-110" />
+        ) : (
+          <Volume2 className="w-5 h-5 text-gold-warm transition-transform duration-300 group-hover:scale-110" />
+        )}
+      </button>
+
       {/* Sticky Bottom-Right Language Switcher Button (English <-> Hindi only, Sanskrit untouched) */}
       <button
         type="button"
         onClick={toggleLang}
         aria-label={lang === 'en' ? 'Switch website language to Hindi' : 'Switch website language to English'}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[90] flex items-center gap-2 sm:gap-2.5 px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-lg bg-[#140f0c]/95 hover:bg-[#221913] border-2 border-gold-warm/80 hover:border-gold-warm text-gold-warm shadow-[0_10px_30px_rgba(0,0,0,0.85),0_0_15px_rgba(212,175,55,0.25)] backdrop-blur-md transition-all duration-300 cursor-pointer group active:scale-95"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[140] flex items-center gap-2 sm:gap-2.5 px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-lg bg-[#140f0c]/95 hover:bg-[#221913] border-2 border-gold-warm/80 hover:border-gold-warm text-gold-warm shadow-[0_10px_30px_rgba(0,0,0,0.85),0_0_15px_rgba(212,175,55,0.25)] backdrop-blur-md transition-all duration-300 cursor-pointer group active:scale-95"
       >
         <Languages className="w-4 h-4 text-gold-warm group-hover:rotate-12 transition-transform duration-300" />
         <span className="font-serif text-xs sm:text-sm font-bold tracking-wider">
