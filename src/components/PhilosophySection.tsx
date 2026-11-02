@@ -1008,8 +1008,63 @@ export default function PhilosophySection() {
               </div>
             </header>
 
+            {/* Full-Viewport Top Hero Image for 14 Lokas (Fills the entire first screen so the article/studio starts on the first scroll below the image) */}
+            {(() => {
+              const resolvedArt =
+                routeState.mode === 'article' &&
+                routeState.categorySlug &&
+                routeState.articleSlug
+                  ? getArticleBySlugs(routeState.categorySlug, routeState.articleSlug)
+                  : null;
+              const activeP =
+                resolvedArt?.portal ||
+                (routeState.categorySlug ? getPortalBySlug(routeState.categorySlug) : null) ||
+                activePortal;
+
+              if (activeP?.slug !== 'the-14-lokas') return null;
+
+              return (
+                <div className="relative z-10 w-full h-[calc(100dvh-58px)] min-h-[480px] overflow-hidden bg-[#080314] border-b-2 border-[#D3AD55]/50 select-none flex items-center justify-center">
+                  {/* Ambient cosmic edge-fill backdrop for ultra-wide or tall screens */}
+                  <img
+                    src="/14-lokas.jpg"
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover scale-105 blur-xl opacity-65 pointer-events-none"
+                  />
+                  {/* Main Full-Viewport 14 Lokas Cosmic Diagram */}
+                  <img
+                    src="/14-lokas.jpg"
+                    alt={t(
+                      '14 Lokas — The Fourteen Worlds of the Universe (Caturdaśa Loka): Ūrdhva Lokas (1–7) and Adhaḥ Lokas (8–14) above Garbodak Mahāsāgar',
+                      '१४ लोक — ब्रह्माण्ड के चतुर्दश भुवन: ऊर्ध्व लोक (१–७) एवं अधो लोक (८–१४) तथा गर्भोदक महासागर'
+                    )}
+                    className="relative z-10 w-full h-full object-contain object-center"
+                  />
+
+                  {/* Subtle bottom gradient & scroll cue to transition into the article below */}
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#17100C] via-[#17100C]/45 to-transparent z-20" />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const contentEl = document.getElementById('loka-main-content-anchor');
+                      if (contentEl) {
+                        contentEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    }}
+                    className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D3AD55]/70 bg-[#120B07]/85 hover:bg-[#26170F] text-[#F5E8CE] font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] shadow-[0_6px_24px_rgba(0,0,0,0.85)] backdrop-blur-md transition-all cursor-pointer"
+                  >
+                    <span>{t('Scroll Down for 14 Lokas Article & Archive ↓', '१४ लोक लेख एवं शोध-संग्रह देखने के लिए नीचे स्क्रॉल करें ↓')}</span>
+                  </button>
+                </div>
+              );
+            })()}
+
             {/* Standalone Research Page Main Content Area */}
-            <div className="relative z-10 max-w-[1480px] w-full mx-auto px-3 sm:px-6 md:px-10 lg:px-14 py-8 sm:py-12 pb-24">
+            <div
+              id="loka-main-content-anchor"
+              className="relative z-10 max-w-[1480px] w-full mx-auto px-3 sm:px-6 md:px-10 lg:px-14 py-8 sm:py-12 pb-24"
+            >
               {(() => {
                 const resolvedArticle =
                   routeState.mode === 'article' &&
