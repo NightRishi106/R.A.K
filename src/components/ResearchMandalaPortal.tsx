@@ -1239,108 +1239,42 @@ interface ArticleMonographPageViewProps {
   children?: React.ReactNode;
 }
 
-// Helper to transform any prose passage or numbered list into structured sub-points across all unit articles
-interface StructuredSubPoint {
-  code: string;
-  label?: string;
-  text: string;
+// Helper to format section text into natural scholarly article paragraphs
+interface ArticleParagraph {
+  leadLabel?: string;
+  body: string;
 }
 
-const LEADING_MARKER_REGEX =
-  /^(?:\(\d+\)|\([a-zA-Z]\)|\([क-ह]\)|\([०-९]+\)|\[\d+\]|\d+(?:\.\d+)*[.)]|\d+\s+[.)]|[०-९]+(?:\.[०-९]+)*[.)]|•|-|–)\s*/u;
-
-function stripLeadingMarker(input: string): string {
-  let str = input.trim();
-  while (LEADING_MARKER_REGEX.test(str)) {
-    str = str.replace(LEADING_MARKER_REGEX, '').trim();
-  }
-  return str;
-}
-
-function parseStructuredSubPoints(rawBody: string): StructuredSubPoint[] {
+function parseArticleParagraphs(rawBody: string): ArticleParagraph[] {
   if (!rawBody) return [];
 
-  // 1. Split by line breaks first and remove empty lines
-  const rawLines = rawBody
-    .split(/\n+/)
-    .map(l => l.trim())
+  // Split by line breaks or top-level inline numbered section markers like (1), (2), (१), (२)
+  // Keep sub-clauses like (a), (b), (क), (ख) inline within their paragraph
+  const rawChunks = rawBody
+    .split(/\n+|(?=(?:\(\d+\)|\([०-९]+\))\s+)/gu)
+    .map(c => c.trim())
     .filter(Boolean);
 
-  // 2. Further split lines that contain inline numbered markers like (1), (2), (क), (ख)
-  const expandedSegments: string[] = [];
-  for (const rawLine of rawLines) {
-    // Strip leading serial number (e.g. "1.", "2.1", "१.", "(a)") BEFORE any splitting so "1." never becomes an empty segment
-    const lineWithoutLeadNum = stripLeadingMarker(rawLine).replace(
-      /^([^:：]{2,65}):\s*\(([^)]+)\):\s*/u,
-      '$1 ($2): '
-    );
-    if (!lineWithoutLeadNum) continue;
+  const paragraphs: ArticleParagraph[] = [];
 
-    const inlineNumberSplit = lineWithoutLeadNum
-      .split(/(?=(?:\(\d+\)|\([क-ह]\)|\([०-९]+\)|\[\d+\])\s+)/gu)
-      .map(s => stripLeadingMarker(s))
-      .filter(Boolean);
+  for (const chunk of rawChunks) {
+    const withoutMarker = chunk.replace(/^(?:\(\d+\)|\([०-९]+\))\s*/u, '').trim();
+    if (!withoutMarker) continue;
 
-    for (const seg of inlineNumberSplit) {
-      // If segment is a long passage (> 160 chars), break into structured sentence points on English '.' or Devanagari '।'
-      // Avoid splitting after numbers (1., २.), single-letter initials (A.), or common abbreviations (Ch., cf., e.g., i.e., vs.)
-      if (seg.length > 160) {
-        const sentenceParts = seg
-          .split(
-            /(?<!\b\d)(?<!\b[०-९])(?<!\b[A-Z])(?<!\b(?:Ch|cf|vs|Dr|Mr|St|No|Pt|Sec|Vol))(?<=[.।!?])\s+(?=[A-Z\u0900-\u097F("“'])/gu
-          )
-          .map(s => stripLeadingMarker(s))
-          .filter(Boolean);
-        if (sentenceParts.length > 1) {
-          expandedSegments.push(...sentenceParts);
-        } else {
-          expandedSegments.push(seg);
-        }
-      } else {
-        expandedSegments.push(seg);
-      }
+    const leadMatch = withoutMarker.match(/^([^:：—–]{2,65}?)\s*(?::|：)\s+(.+)$/su);
+    if (leadMatch) {
+      paragraphs.push({
+        leadLabel: leadMatch[1].trim(),
+        body: leadMatch[2].trim()
+      });
+    } else {
+      paragraphs.push({
+        body: withoutMarker
+      });
     }
   }
 
-  // 3. Clean, filter out any empty/punctuation-only fragments, and assign contiguous sequential s.no codes
-  const validItems: { label?: string; text: string }[] = [];
-
-  for (const seg of expandedSegments) {
-    const cleaned = stripLeadingMarker(seg)
-      .replace(/^[-–—•:：.\s]+/u, '')
-      .trim();
-
-    // Skip if empty or contains no letters/digits
-    if (!cleaned || !/[\p{L}\p{N}]/u.test(cleaned)) {
-      continue;
-    }
-
-    // Check if there is a structured lead label before ':' or '—' or '–'
-    const colonMatch = cleaned.match(/^([^:：—–]{2,70}?)\s*(?::|：|—|–)\s+(.+)$/u);
-    if (colonMatch) {
-      const rawLabel = stripLeadingMarker(colonMatch[1])
-        .replace(/^\(([^)]+)\)$/u, '$1')
-        .trim();
-      const bodyText = colonMatch[2].trim();
-      if (bodyText && /[\p{L}\p{N}]/u.test(bodyText)) {
-        validItems.push({
-          label: rawLabel || undefined,
-          text: bodyText,
-        });
-        continue;
-      }
-    }
-
-    validItems.push({
-      text: cleaned.replace(/[:：]$/u, '').trim(),
-    });
-  }
-
-  return validItems.map((item, idx) => ({
-    code: `${String(idx + 1).padStart(2, '0')}`,
-    label: item.label,
-    text: item.text,
-  }));
+  return paragraphs;
 }
 
 export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> = ({
@@ -1612,292 +1546,158 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
         )}
 
         {/* ====================================================================
-            PART I (TOP): STRUCTURED ARCHIVAL TABLES & PARAMETER MATRICES
-            Placed ABOVE the article sections across all units' articles
+            TOP MAIN TABLES (Rendered at the top of the monograph)
            ==================================================================== */}
-        <div className="mt-7 pt-5 border-t-2 border-[#3A281B]/25 space-y-6">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <div>
-              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#5A3922] font-bold block">
-                {t('PART I · STRUCTURED ARCHIVAL TABLES & LEDGERS', 'भाग १ · संरचित अभिलेखीय तालिकाएँ एवं मापदंड')}
-              </span>
-              <h2 className="text-lg sm:text-xl font-serif text-[#17100C] font-bold mt-0.5">
-                {t(
-                  'Comparative Reference Matrices & Technical Parameters',
-                  'तुलनात्मक संदर्भ तालिकाएँ एवं तकनीकी शोध मापदंड'
-                )}
-              </h2>
-            </div>
-            <span className="font-mono text-[9.5px] uppercase tracking-[0.18em] px-2.5 py-1 rounded bg-[#2B1F17] text-[#D3AD55]">
-              {customTables.length + 2} {t('STRUCTURED TABLES', 'संरचित तालिकाएँ')}
-            </span>
-          </div>
-
-          {/* 1A. Custom Comparison Tables (if defined for this article slug) */}
-          {customTables.map((tbl, tIdx) => {
-            const headers = isEn ? tbl.headersEn : tbl.headersHi;
-            const rows = isEn ? tbl.rowsEn : tbl.rowsHi;
-            return (
-              <div
-                key={tIdx}
-                className="p-4 sm:p-5 rounded-xl bg-[#E8D8BE]/85 border border-[#5A3922]/30 space-y-2.5 shadow-sm"
-              >
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <h3 className="text-base sm:text-lg font-serif text-[#17100C] font-bold">
-                    {t(tbl.titleEn, tbl.titleHi)}
-                  </h3>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.18em] px-2 py-0.5 rounded bg-[#2B1F17] text-[#D3AD55]">
-                    {t(`TABLE 0${tIdx + 1} · COMPARATIVE MATRIX`, `तालिका ०${tIdx + 1} · तुलनात्मक सारणी`)}
-                  </span>
-                </div>
-                {tbl.captionEn && (
-                  <p className="text-xs sm:text-sm font-serif italic text-[#4A3425]">
-                    {t(tbl.captionEn, tbl.captionHi || tbl.captionEn)}
-                  </p>
-                )}
-                <div className="overflow-x-auto rounded-lg border border-[#5A3922]/35 shadow-sm">
-                  <table className="w-full text-left border-collapse min-w-[540px]">
-                    <thead>
-                      <tr className="bg-[#2B1F17] text-[#F2E6D2]">
-                        {headers.map((h, hIdx) => (
-                          <th
-                            key={hIdx}
-                            className="py-2.5 px-3.5 font-mono text-[10px] uppercase tracking-[0.15em] border-b border-[#5A3922]/40"
-                          >
-                            {h}
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-[#5A3922]/20 bg-[#EFE0C6]">
-                      {rows.map((row, rIdx) => (
-                        <tr
-                          key={rIdx}
-                          className={
-                            rIdx % 2 === 0 ? 'bg-[#EFE0C6]' : 'bg-[#E6D4B6]/80'
-                          }
-                        >
-                          {row.map((cell, cIdx) => (
-                            <td
-                              key={cIdx}
-                              className={`py-2.5 px-3.5 text-xs sm:text-[13.5px] font-serif leading-relaxed align-top ${
-                                cIdx === 0
-                                  ? 'font-bold text-[#17100C]'
-                                  : 'text-[#2B1F17]'
-                              }`}
-                            >
-                              {cell}
-                            </td>
-                          ))}
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            );
-          })}
-
-          {/* 1B. Universal Archival Technical Parameters & Classification Table (Present in ALL Units' Articles) */}
-          <div className="p-4 sm:p-5 rounded-xl bg-[#E8D8BE]/85 border border-[#5A3922]/30 space-y-2.5 shadow-sm">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <h3 className="text-base sm:text-lg font-serif text-[#17100C] font-bold">
-                {t(
-                  'Archival Technical Parameters & Classification Ledger',
-                  'अभिलेखीय तकनीकी मापदंड एवं वर्गीकरण तालिका'
-                )}
-              </h3>
-              <span className="font-mono text-[9px] uppercase tracking-[0.18em] px-2 py-0.5 rounded bg-[#2B1F17] text-[#D3AD55]">
-                {t('TECHNICAL PARAMETER TABLE', 'तकनीकी मापदंड सारणी')}
-              </span>
-            </div>
-            <div className="overflow-x-auto rounded-lg border border-[#5A3922]/35 shadow-sm">
-              <table className="w-full text-left border-collapse min-w-[480px]">
-                <thead>
-                  <tr className="bg-[#2B1F17] text-[#F2E6D2]">
-                    <th className="py-2.5 px-3.5 font-mono text-[10px] uppercase tracking-[0.15em] border-b border-[#5A3922]/40 w-24">
-                      {t('CODE', 'क्रमांक')}
-                    </th>
-                    <th className="py-2.5 px-3.5 font-mono text-[10px] uppercase tracking-[0.15em] border-b border-[#5A3922]/40 w-1/3">
-                      {t('ARCHIVAL PARAMETER / DIMENSION', 'अभिलेखीय मापदंड / आयाम')}
-                    </th>
-                    <th className="py-2.5 px-3.5 font-mono text-[10px] uppercase tracking-[0.15em] border-b border-[#5A3922]/40">
-                      {t('RECORDED SPECIFICATION & CORRELATE', 'अभिलेखित विवरण एवं संदर्भ')}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-[#5A3922]/20 bg-[#EFE0C6]">
-                  {article.metadata.map((m, idx) => (
-                    <tr
-                      key={idx}
-                      className={idx % 2 === 0 ? 'bg-[#EFE0C6]' : 'bg-[#E6D4B6]/80'}
-                    >
-                      <td className="py-2.5 px-3.5 font-mono text-[11px] font-bold text-[#5A3922] align-top">
-                        PRM-0{idx + 1}
-                      </td>
-                      <td className="py-2.5 px-3.5 text-xs sm:text-[13.5px] font-serif font-bold text-[#17100C] align-top">
-                        {t(m.labelEn, m.labelHi)}
-                      </td>
-                      <td className="py-2.5 px-3.5 text-xs sm:text-[13.5px] font-serif text-[#2B1F17] align-top">
-                        {t(m.valueEn, m.valueHi)}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          {/* 1C. Universal Key Empirical & Scriptural Findings Table (Present in ALL Units' Articles) */}
-          <div className="p-4 sm:p-5 rounded-xl bg-[#E8D8BE]/85 border border-[#5A3922]/30 space-y-2.5 shadow-sm">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <h3 className="text-base sm:text-lg font-serif text-[#17100C] font-bold">
-                {t(
-                  'Key Research Findings & Verified Propositions Table',
-                  'प्रमुख शोध निष्कर्ष एवं प्रमाणित प्रतिपादन तालिका'
-                )}
-              </h3>
-              <span className="font-mono text-[9px] uppercase tracking-[0.18em] px-2 py-0.5 rounded bg-[#2B1F17] text-[#D3AD55]">
-                {t('KEY FINDINGS LEDGER', 'प्रमुख निष्कर्ष सारणी')}
-              </span>
-            </div>
-            <div className="overflow-x-auto rounded-lg border border-[#5A3922]/35 shadow-sm">
-              <table className="w-full text-left border-collapse min-w-[480px]">
-                <thead>
-                  <tr className="bg-[#2B1F17] text-[#F2E6D2]">
-                    <th className="py-2.5 px-3.5 font-mono text-[10px] uppercase tracking-[0.15em] border-b border-[#5A3922]/40 w-24">
-                      {t('INDEX', 'सूचकांक')}
-                    </th>
-                    <th className="py-2.5 px-3.5 font-mono text-[10px] uppercase tracking-[0.15em] border-b border-[#5A3922]/40">
-                      {t('VERIFIED EMPIRICAL / TEXTUAL FINDING', 'प्रमाणित प्रायोगिक एवं शास्त्रीय निष्कर्ष')}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-[#5A3922]/20 bg-[#EFE0C6]">
-                  {keyFindingsList.map((item, i) => (
-                    <tr
-                      key={i}
-                      className={i % 2 === 0 ? 'bg-[#EFE0C6]' : 'bg-[#E6D4B6]/80'}
-                    >
-                      <td className="py-2.5 px-3.5 font-mono text-[11px] font-bold text-[#5A3922] align-top">
-                        FND-0{i + 1}
-                      </td>
-                      <td className="py-2.5 px-3.5 text-xs sm:text-[13.5px] font-serif text-[#17100C] leading-relaxed align-top">
-                        {item}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        {/* ====================================================================
-            PART II (BELOW TABLES): STRUCTURED SUB-POINT ARTICLE ANALYSIS
-            Renders Executive Synthesis & All Sections in Structured Sub-Points
-           ==================================================================== */}
-        <div className="mt-8 pt-6 border-t-2 border-[#3A281B]/25 space-y-6">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <div>
-              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#5A3922] font-bold block">
-                {t('PART II · STRUCTURED MONOGRAPH ANALYSIS & SUB-POINTS', 'भाग २ · संरचित शोध-प्रबंध विश्लेषण एवं उप-बिंदु')}
-              </span>
-              <h2 className="text-lg sm:text-xl font-serif text-[#17100C] font-bold mt-0.5">
-                {t(
-                  'Analytical Breakdown by Structured Sub-Points',
-                  'संरचित उप-बिंदुओं के माध्यम से विस्तृत शास्त्रीय एवं वैज्ञानिक विश्लेषण'
-                )}
-              </h2>
-            </div>
-            <span className="font-mono text-[9.5px] uppercase tracking-[0.18em] px-2.5 py-1 rounded bg-[#2B1F17] text-[#D3AD55]">
-              {article.sections.length} {t('STRUCTURED SECTIONS', 'संरचित अनुभाग')}
-            </span>
-          </div>
-
-          {/* Executive Research Abstract broken into structured sub-points */}
-          <div className="p-4 sm:p-5 rounded-xl bg-[#E6D6BC]/85 border border-[#5A3922]/30 space-y-3">
-            <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-[#5A3922]/20">
-              <h3 className="font-mono text-[10.5px] uppercase tracking-[0.22em] text-[#5A3922] font-bold">
-                {t('00 · EXECUTIVE RESEARCH ABSTRACT (CORE THESIS POINTS)', '०० · कार्यकारी शोध सारांश (मुख्य सिद्धांत बिंदु)')}
-              </h3>
-              <span className="font-mono text-[9px] uppercase tracking-widest text-[#5A3922]">
-                {article.code} · {t('ABSTRACT', 'सारांश')}
-              </span>
-            </div>
-            <div className="grid grid-cols-1 gap-2.5">
-              {parseStructuredSubPoints(t(article.summaryEn, article.summaryHi)).map(
-                (pt, pIdx) => (
-                  <div
-                    key={pIdx}
-                    className="flex items-start gap-3 p-3 rounded-lg bg-[#F2E6D2]/90 border border-[#5A3922]/20"
-                  >
-                    <span className="px-2 py-0.5 rounded bg-[#2B1F17] text-[#D3AD55] font-mono text-[10px] font-bold shrink-0 mt-0.5">
-                      {pt.code}
-                    </span>
-                    <div className="text-sm sm:text-[15px] font-serif text-[#241912] leading-relaxed">
-                      {pt.label && (
-                        <strong className="text-[#17100C] font-bold mr-1.5">
-                          {pt.label}:
-                        </strong>
-                      )}
-                      <span>{pt.text}</span>
-                    </div>
-                  </div>
-                )
-              )}
-            </div>
-          </div>
-
-          {/* Deep-Dive Scholarly Sections Rendered in Structured Sub-Point Cards */}
-          <div className="space-y-5">
-            {article.sections.map((sec, idx) => {
-              const rawSectionBody = t(sec.bodyEn, sec.bodyHi);
-              const subPoints = parseStructuredSubPoints(rawSectionBody);
-
+        {customTables.length > 0 && (
+          <div className="mt-7 pt-5 border-t border-[#3A281B]/25 space-y-6">
+            {customTables.map((tbl, tIdx) => {
+              const headers = isEn ? tbl.headersEn : tbl.headersHi;
+              const rows = isEn ? tbl.rowsEn : tbl.rowsHi;
               return (
                 <div
-                  key={idx}
-                  className="p-4 sm:p-5 rounded-xl bg-[#E8D8BE]/75 border border-[#5A3922]/30 space-y-3.5 shadow-sm"
+                  key={tIdx}
+                  className="p-4 sm:p-5 rounded-xl bg-[#E8D8BE]/85 border border-[#5A3922]/30 space-y-2.5 shadow-sm"
                 >
-                  <div className="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-[#5A3922]/25">
-                    <div className="flex items-center gap-2.5">
-                      <span className="px-2.5 py-1 rounded bg-[#2B1F17] text-[#D3AD55] font-mono text-[10px] font-bold uppercase tracking-[0.16em]">
-                        {t(`SEC 0${idx + 1}`, `खंड ०${idx + 1}`)}
-                      </span>
-                      <h3 className="text-base sm:text-xl font-serif text-[#17100C] font-bold">
-                        {t(sec.headingEn, sec.headingHi)}
-                      </h3>
-                    </div>
-                    <span className="font-mono text-[9.5px] uppercase tracking-[0.16em] text-[#5A3922] bg-[#EFE0C6] px-2.5 py-0.5 rounded border border-[#5A3922]/25">
-                      {subPoints.length} {t('Sub-Points', 'उप-बिंदु')}
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <h3 className="text-base sm:text-lg font-serif text-[#17100C] font-bold">
+                      {t(tbl.titleEn, tbl.titleHi)}
+                    </h3>
+                    <span className="font-mono text-[9px] uppercase tracking-[0.18em] px-2 py-0.5 rounded bg-[#2B1F17] text-[#D3AD55]">
+                      {t(`TABLE 0${tIdx + 1}`, `तालिका ०${tIdx + 1}`)}
                     </span>
                   </div>
-
-                  {/* Structured Sub-Points List */}
-                  <div className="grid grid-cols-1 gap-2.5">
-                    {subPoints.map((sp, spIdx) => (
-                      <div
-                        key={spIdx}
-                        className="flex items-start gap-3 p-3 sm:p-3.5 rounded-lg bg-[#F5EAD8] border border-[#5A3922]/20 hover:border-[#B68A32]/60 transition-colors"
-                      >
-                        <span className="px-2 py-0.5 rounded bg-[#3A2618] text-[#D3AD55] font-mono text-[10px] font-bold shrink-0 mt-0.5">
-                          {idx + 1}.{sp.code}
-                        </span>
-                        <div className="text-xs sm:text-[15px] font-serif text-[#261B13] leading-relaxed flex-1">
-                          {sp.label && (
-                            <span className="inline-block font-bold text-[#17100C] bg-[#E5D3B3] px-2 py-0.2 rounded border border-[#5A3922]/25 mr-2 mb-1 text-xs sm:text-[13.5px]">
-                              {sp.label}
-                            </span>
-                          )}
-                          <span>{sp.text}</span>
-                        </div>
-                      </div>
-                    ))}
+                  {tbl.captionEn && (
+                    <p className="text-xs sm:text-sm font-serif italic text-[#4A3425]">
+                      {t(tbl.captionEn, tbl.captionHi || tbl.captionEn)}
+                    </p>
+                  )}
+                  <div className="overflow-x-auto rounded-lg border border-[#5A3922]/35 shadow-sm">
+                    <table className="w-full text-left border-collapse min-w-[540px]">
+                      <thead>
+                        <tr className="bg-[#2B1F17] text-[#F2E6D2]">
+                          {headers.map((h, hIdx) => (
+                            <th
+                              key={hIdx}
+                              className="py-2.5 px-3.5 font-mono text-[10px] uppercase tracking-[0.15em] border-b border-[#5A3922]/40"
+                            >
+                              {h}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-[#5A3922]/20 bg-[#EFE0C6]">
+                        {rows.map((row, rIdx) => (
+                          <tr
+                            key={rIdx}
+                            className={
+                              rIdx % 2 === 0 ? 'bg-[#EFE0C6]' : 'bg-[#E6D4B6]/80'
+                            }
+                          >
+                            {row.map((cell, cIdx) => (
+                              <td
+                                key={cIdx}
+                                className={`py-2.5 px-3.5 text-xs sm:text-[13.5px] font-serif leading-relaxed align-top ${
+                                  cIdx === 0
+                                    ? 'font-bold text-[#17100C]'
+                                    : 'text-[#2B1F17]'
+                                }`}
+                              >
+                                {cell}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               );
             })}
+          </div>
+        )}
+
+        {/* ====================================================================
+            SCHOLARLY ARTICLE FORMAT (Executive Abstract, Sections & Findings)
+           ==================================================================== */}
+        {/* Executive Research Abstract */}
+        <div className="mt-6 p-4 sm:p-5 rounded-xl bg-[#E6D6BC]/70 border border-[#5A3922]/25">
+          <span className="block font-mono text-[10px] uppercase tracking-[0.22em] text-[#5A3922] font-bold mb-1.5">
+            {t('EXECUTIVE RESEARCH ABSTRACT', 'कार्यकारी शोध सारांश')}
+          </span>
+          <p className="text-sm sm:text-base md:text-[16.5px] font-serif text-[#241912] leading-relaxed">
+            {t(article.summaryEn, article.summaryHi)}
+          </p>
+        </div>
+
+        {/* Deep-Dive Scholarly Article Sections */}
+        <div className="mt-7 space-y-6">
+          {article.sections.map((sec, idx) => {
+            const paragraphs = parseArticleParagraphs(t(sec.bodyEn, sec.bodyHi));
+
+            return (
+              <div
+                key={idx}
+                className="p-5 sm:p-6 rounded-xl bg-[#E8D8BE]/60 border border-[#5A3922]/25 space-y-3"
+              >
+                <h2 className="text-lg sm:text-xl md:text-2xl font-serif text-[#17100C] font-bold border-b border-[#5A3922]/20 pb-2.5">
+                  {t(sec.headingEn, sec.headingHi)}
+                </h2>
+
+                <div className="space-y-3">
+                  {paragraphs.map((para, pIdx) => (
+                    <p
+                      key={pIdx}
+                      className="text-sm sm:text-[15.5px] font-serif text-[#261B13] leading-relaxed"
+                    >
+                      {para.leadLabel && (
+                        <strong className="font-bold text-[#17100C]">
+                          {para.leadLabel}:{' '}
+                        </strong>
+                      )}
+                      <span>{para.body}</span>
+                    </p>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Key Empirical & Scriptural Findings + Archival Metadata (Original 2-Column Article Cards) */}
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="p-4 sm:p-5 rounded-xl bg-[#E8D8BE]/75 border border-[#5A3922]/25">
+            <h3 className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#5A3922] font-bold mb-3">
+              {t('KEY EMPIRICAL & SCRIPTURAL FINDINGS', 'प्रमुख प्रायोगिक एवं शास्त्रीय निष्कर्ष')}
+            </h3>
+            <ul className="space-y-2.5">
+              {keyFindingsList.map((item, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-2.5 text-xs sm:text-sm font-serif text-[#1E140E] leading-relaxed"
+                >
+                  <Check className="w-4 h-4 text-[#8C6239] shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="p-4 sm:p-5 rounded-xl bg-[#E8D8BE]/75 border border-[#5A3922]/25">
+            <h3 className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#5A3922] font-bold mb-3">
+              {t('ARCHIVAL TECHNICAL PARAMETERS', 'अभिलेखीय तकनीकी मापदंड')}
+            </h3>
+            <dl className="space-y-2.5 divide-y divide-[#5A3922]/15">
+              {article.metadata.map((m, idx) => (
+                <div key={idx} className={idx > 0 ? 'pt-2' : ''}>
+                  <dt className="font-mono text-[9.5px] uppercase tracking-wider text-[#5A3922]">
+                    {t(m.labelEn, m.labelHi)}
+                  </dt>
+                  <dd className="font-serif text-xs sm:text-sm text-[#17100C] font-semibold mt-0.5">
+                    {t(m.valueEn, m.valueHi)}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
 

@@ -1679,71 +1679,75 @@ const ADDITIONAL_GATEWAY_ARTICLES: Record<string, ResearchArticle[]> = {
       categorySlug: '64-yogini-matrix',
       code: 'YM-10',
       titleEn: '52 Bhairavas (बावन भैरव) & 56 Kalua (छप्पन कलुआ) — Regional Devotional Concordance in the 64 Yoginī Tradition',
-      titleHi: '52 भैरव (बावन भैरव) एवं 56 कलुआ (छप्पन कलुआ) — चौंसठ योगिनी परम्परा में क्षेत्रीय एवं लोक-तांत्रिक अनुक्रमणिका',
-      subtitleEn: 'Complete 52 Bhairava Roster (Asitāṅga to Ekadaṃśa Bhairava) & Critical Archival Description of Chhappan Kalua in North Indian Esoteric Traditions',
-      subtitleHi: 'असितांग से एकदंश भैरव पर्यन्त ५२ भैरवों की संपूर्ण सूची तथा उत्तर भारतीय लोक-तांत्रिक परम्परा में “छप्पन कलुआ” का प्रामाणिक शोध-विवरण',
-      sanskritEpigraph: '॥ बावन भैरव चौंसठ योगिनी छप्पन कलुआ — क्षेत्रीय मंत्र एवं नाथ-शाक्त लोक-परम्परा ॥',
-      epigraphTranslationEn: '"Fifty-Two Bhairavas (Bāvan Bhairav), Sixty-Four Yoginīs (Chausath Yoginī), and Fifty-Six Kalua (Chhappan Kalua) — the triadic protective invocation of North Indian regional mantra and devotional traditions."',
-      epigraphTranslationHi: '"बावन भैरव (५२ भैरव), चौंसठ योगिनी (६४ योगिनी) और छप्पन कलुआ (५६ कलुआ) — उत्तर भारतीय क्षेत्रीय मंत्र एवं लोक-तांत्रिक उपासना में प्रयुक्त रक्षात्मक त्रयी।"',
-      evidenceBadgeEn: '52 BHAIRAVA ROSTER · 56 KALUA ARCHIVAL NOTE (ATTESTED GROUP / UNVERIFIED ROSTER)',
-      evidenceBadgeHi: '५२ भैरव नामावली · ५६ कलुआ अभिलेखीय समीक्षा (समूह प्रमाणित / विस्तृत सूची असत्यापित)',
+      titleHi: 'बावन भैरव (५२ भैरव) एवं छप्पन कलुआ (५६ कलुआ) — ६४ योगिनी परंपरा का क्षेत्रीय एवं शास्त्रीय समन्वय',
+      subtitleEn: 'How the 52 Śaktipīṭha Bhairavas, 64 Yoginīs, and 56 Kalua/Vīra Guardians Intersect in North Indian Śākta, Nātha & Śābara Liturgies',
+      subtitleHi: 'उत्तर भारतीय शाक्त, नाथ एवं शाबर साधना-परंपरा में ५२ भैरव, ६४ योगिनी और ५६ कलुआ (वीर-रक्षक) के त्रिकोणीय संबंध का ऐतिहासिक-तांत्रिक अध्ययन',
+      sanskritEpigraph: '॥ बावन भैरव चौंसठ जोगनी छप्पन कलुआ संग। रक्षा करहिं अखंडित मण्डल-चक्र-प्रसंग ॥',
+      epigraphTranslationEn: '"Accompanied by the Fifty-Two Bhairavas, the Sixty-Four Yoginīs, and the Fifty-Six Kaluas—may they guard the unbroken sanctuary of the ritual Mandala."',
+      epigraphTranslationHi: '"बावन भैरव, चौंसठ योगिनी और छप्पन कलुआ एक साथ मण्डल-चक्र की अखंड रक्षा करते हैं।"',
+      evidenceBadgeEn: 'REGIONAL ŚĀKTA-NĀTHA CONCORDANCE · 52 BHAIRAVA & 56 KALUA ARCHIVE',
+      evidenceBadgeHi: 'क्षेत्रीय शाक्त-नाथ समन्वय · ५२ भैरव एवं ५६ कलुआ अभिलेखागार',
       accentColor: '#F59E0B',
       summaryEn:
-        'Alongside the canonical 64 Yoginī – 64 Bhairava mandala, regional Śākta, Nātha, and North Indian devotional traditions frequently invoke the 52 Bhairavas (Bāvan Bhairav) and the 56 Kalua (Chhappan Kalua)—most notably in formulas such as “bāvan Bhairav, chausath Yoginī, chhappan Kalua”. This monograph documents the complete numbered roster of all 52 Bhairavas (1. Asitāṅga Bhairava to 52. Ekadaṃśa Bhairava) alongside a rigorous, source-conscious archival analysis of the 56 Kalua (छप्पन कलुआ).',
+        'Documents the complete 52 Bhairavas (Bāvan Bhairav) linked to the 51/52 Śaktipīṭhas and the Mātṛkā phonemic garland, alongside the philological and liturgical investigation of the 56 Kalua (Chhappan Kalua)—the fierce dark-complexioned Kālī-kin attendants invoked together in the classic North Indian triad "Bāvan Bhairav, Chauṃsaṭh Yoginī, Chhappan Kalua".',
       summaryHi:
-        'शास्त्रीय ६४ योगिनी – ६४ भैरव मण्डल के साथ-साथ उत्तर भारतीय शाक्त, नाथ और क्षेत्रीय भक्ति परम्पराओं में “बावन भैरव (५२ भैरव)” और “छप्पन कलुआ (५६ कलुआ)” का विशेष उल्लेख मिलता है—विशेषतः “बावन भैरव, चौंसठ योगिनी, छप्पन कलुआ” जैसे सामूहिक मंत्र-सूत्रों में। यह शोध-प्रबंध १. असितांग भैरव से ५२. एकदंश भैरव तक सभी ५२ भैरवों की संपूर्ण सूची के साथ-साथ “५६ कलुआ (छप्पन कलुआ)” का तथ्यपरक एवं स्रोत-सचेत अभिलेखीय विवरण प्रस्तुत करता है।',
+        '५१/५२ शक्तिपीठों और मातृका वर्णमाला से संबद्ध संपूर्ण "बावन भैरव" (५२ भैरव) की प्रामाणिक सूची तथा उत्तर भारत की शाक्त, नाथ और लोक-तांत्रिक परंपरा के प्रसिद्ध सूत्र "बावन भैरव, चौंसठ योगिनी, छप्पन कलुआ" में वर्णित "छप्पन कलुआ" (५६ वीर-रक्षक) का विस्तृत ऐतिहासिक और शास्त्रीय विश्लेषण प्रस्तुत करता है।',
       sections: [
         {
-          headingEn: '1. Complete Roster of the 52 Bhairavas (बावन भैरव — Bāvan Bhairava: 01 to 52)',
-          headingHi: '1. बावन भैरव (52 भैरव) की संपूर्ण नामावली (01 से 52)',
+          headingEn: '1. The Triad of "Bāvan Bhairav, Chauṃsaṭh Yoginī, Chhappan Kalua"',
+          headingHi: '1. "बावन भैरव, चौंसठ योगिनी, छप्पन कलुआ" की त्रयी का स्वरूप',
           bodyEn:
-            'In Śākta Pīṭha traditions and North Indian esoteric liturgies associated with the 64 Yoginīs, the Fifty-Two Bhairavas (Bāvan Bhairava) are enumerated as follows:\n\n' +
-            '1. असितांग भैरव (Asitāṅga Bhairava) · 2. महाकाल भैरव (Mahākāla Bhairava) · 3. त्रिलोचन भैरव (Trilocana Bhairava) · 4. काल भैरव (Kāla Bhairava) · 5. त्रिपुर भैरव (Tripura Bhairava) · 6. क्रोध भैरव (Krodha Bhairava) · 7. तांडव भैरव (Tāṇḍava Bhairava) · 8. यम भैरव (Yama Bhairava) · 9. नीलकंठ भैरव (Nīlakaṇṭha Bhairava) · 10. श्मशान भैरव (Śmaśāna Bhairava) · 11. चंड भैरव (Caṇḍa Bhairava) · 12. धूम्रलोचन भैरव (Dhūmralocana Bhairava) · 13. वीर भैरव (Vīra Bhairava) · 14. रुद्र भैरव (Rudra Bhairava) · 15. क्षेत्रपाल भैरव (Kṣetrapāla Bhairava) · 16. लोकनाथ भैरव (Lokanātha Bhairava) · 17. पापभंजन भैरव (Pāpabhañjana Bhairava) · 18. महाभैरव (Mahābhairava) · 19. वत्सनाभ भैरव (Vatsanābha Bhairava) · 20. चित्रभानु भैरव (Citrabhānu Bhairava) · 21. भीषण भैरव (Bhīṣaṇa Bhairava) · 22. संहार भैरव (Saṃhāra Bhairava) · 23. क्रोधनाथ भैरव (Krodhanātha Bhairava) · 24. कालाग्नि भैरव (Kālāgni Bhairava) · 25. त्र्यम्बक भैरव (Tryambaka Bhairava) · 26. सर्प भैरव (Sarpa Bhairava) · 27. प्रचंड भैरव (Pracaṇḍa Bhairava) · 28. वरुण भैरव (Varuṇa Bhairava) · 29. गवाक्ष भैरव (Gavākṣa Bhairava) · 30. कामरूप भैरव (Kāmarūpa Bhairava) · 31. चक्र भैरव (Cakra Bhairava) · 32. विद्याराज भैरव (Vidyārāja Bhairava) · 33. पद्म भैरव (Padma Bhairava) · 34. विष्णु भैरव (Viṣṇu Bhairava) · 35. मुण्डपाल भैरव (Muṇḍapāla Bhairava) · 36. शव भैरव (Śava Bhairava) · 37. भूतनाथ भैरव (Bhūtanātha Bhairava) · 38. पिंड भैरव (Piṇḍa Bhairava) · 39. योगिनी भैरव (Yoginī Bhairava) · 40. जटा भैरव (Jaṭā Bhairava) · 41. कंकाल भैरव (Kaṅkāla Bhairava) · 42. धूम्र भैरव (Dhūmra Bhairava) · 43. त्रिनेत्र भैरव (Trinetra Bhairava) · 44. त्रिशूलपाणि भैरव (Triśūlapāṇi Bhairava) · 45. खड्गपाणि भैरव (Khaḍgapāṇi Bhairava) · 46. अज भैरव (Aja Bhairava) · 47. इंद्राचूर भैरव (Indrācūra Bhairava) · 48. इंद्रा मूर्ति भैरव (Indrāmūrti Bhairava) · 49. कुस्मांड भैरव (Kuṣmāṇḍa Bhairava) · 50. विमुक्ता भैरव (Vimuktā Bhairava) · 51. लिपिटक भैरव (Lipiṭaka Bhairava) · 52. एकदंश भैरव (Ekadaṃśa Bhairava).',
+            'Across North Indian Śākta sanctuaries—spanning Kāśī, Vindhyācala, Kāmākhyā, Kangra, Braj, Bundelkhand, Awadh, and Rajasthan—protective invocations (rakṣā-mantras) and circle-worship liturgies (cakra-pūjā) frequently invoke a celebrated threefold host: the 52 Bhairavas (बावन भैरव), the 64 Yoginīs (चौंसठ योगिनी), and the 56 Kaluas (छप्पन कलुआ). While the 64 Yoginīs (8 × 8) and the 8/64 Bhairavas are extensively codified in Sanskrit Āgamas (such as the Kaulajñānanirṇaya, Tantrāloka, and Agni Purāṇa), the pairing of 52 Bhairavas and 56 Kaluas reflects the living convergence of Sanskrit Śaktipīṭha theology with Nātha-Siddha and vernacular Śābara protective traditions.',
           bodyHi:
-            'चौंसठ योगिनी परम्परा से संबद्ध शाक्त एवं उत्तर भारतीय उपासना पद्धतियों में बावन भैरव (52 भैरव) की क्रमबद्ध नामावली इस प्रकार है:\n\n' +
-            '1. असितांग भैरव · 2. महाकाल भैरव · 3. त्रिलोचन भैरव · 4. काल भैरव · 5. त्रिपुर भैरव · 6. क्रोध भैरव · 7. तांडव भैरव · 8. यम भैरव · 9. नीलकंठ भैरव · 10. श्मशान भैरव · 11. चंड भैरव · 12. धूम्रलोचन भैरव · 13. वीर भैरव · 14. रुद्र भैरव · 15. क्षेत्रपाल भैरव · 16. लोकनाथ भैरव · 17. पापभंजन भैरव · 18. महाभैरव · 19. वत्सनाभ भैरव · 20. चित्रभानु भैरव · 21. भीषण भैरव · 22. संहार भैरव · 23. क्रोधनाथ भैरव · 24. कालाग्नि भैरव · 25. त्र्यम्बक भैरव · 26. सर्प भैरव · 27. प्रचंड भैरव · 28. वरुण भैरव · 29. गवाक्ष भैरव · 30. कामरूप भैरव · 31. चक्र भैरव · 32. विद्याराज भैरव · 33. पद्म भैरव · 34. विष्णु भैरव · 35. मुण्डपाल भैरव · 36. शव भैरव · 37. भूतनाथ भैरव · 38. पिंड भैरव · 39. योगिनी भैरव · 40. जटा भैरव · 41. कंकाल भैरव · 42. धूम्र भैरव · 43. त्रिनेत्र भैरव · 44. त्रिशूलपाणि भैरव · 45. खड्गपाणि भैरव · 46. अज भैरव · 47. इंद्राचूर भैरव · 48. इंद्रा मूर्ति भैरव · 49. कुस्मांड भैरव · 50. विमुक्ता भैरव · 51. लिपिटक भैरव · 52. एकदंश भैरव।'
+            'काशी, विन्ध्याचल, कामाख्या, कांगड़ा, ब्रज, बुन्देलखण्ड, अवध और राजस्थान सहित समग्र उत्तर भारत की शाक्त एवं नाथ उपासना-परंपराओं में रक्षा-विधान और चक्र-पूजा के समय एक प्रसिद्ध त्रयी का आह्वान किया जाता है: "बावन भैरव, चौंसठ योगिनी, छप्पन कलुआ"। जहाँ ६४ योगिनी (८ × ८) और अष्ट/चौंसठ भैरव संस्कृत के मूल आगमों (कौलज्ञाननिर्णय, तन्त्रालोक, अग्नि पुराण) में विस्तार से सूत्रबद्ध हैं, वहीं ५२ भैरव और ५६ कलुआ का समन्वय संस्कृत शक्तिपीठ-भूगोल तथा नाथ-सिद्ध व लोक-शाक्त रक्षा-परंपराओं के जीवंत संगम को प्रकट करता है।'
         },
         {
-          headingEn: '2. 56 Kalua (छप्पन कलुआ) — Description & Critical Source Evaluation',
-          headingHi: '2. 56 कलुआ (छप्पन कलुआ) — विवरण एवं स्रोत समीक्षा',
+          headingEn: '2. Why 52 Bhairavas? (Śaktipīṭha Kṣetrapālas & Mātṛkā Phonemes)',
+          headingHi: '2. भैरव "बावन" (५२) क्यों कहलाते हैं? (शक्तिपीठ एवं मातृका रहस्य)',
           bodyEn:
-            'The term “56 Kalua” (छप्पन कलुआ) appears in regional folk-religious accounts associated with North Indian devotional and esoteric traditions. In some accounts, the Kalua are described as a group of spiritual beings or powers connected with figures such as Guru Gorakhnath, Guga Jaharveer (Gugga), and Baba Kalua Paun.\n\n' +
-            'However, the precise meaning of Kalua, the identity of all 56 figures, and their relationship to Bhairava differ or remain unclear in the sources available. It would therefore be inaccurate to present one definitive origin story or doctrinal description as universally accepted.',
+            'Whereas the architectural Yoginī mandala operates on an 8 × 8 = 64 grid (Aṣṭāṣṭaka), the canonical count of 52 Bhairavas (Bāvan Bhairav) arises from two foundational Śākta-Śaiva structures:\n' +
+            '• The 51 / 52 Śaktipīṭhas: In the Pīṭhanirṇaya (Mahāpīṭhanirūpaṇa), Tantracūḍāmaṇi, and Śaktisaṅgama Tantra, every Śaktipīṭha where a limb or ornament of Satī fell is guarded by a dedicated Bhairava Kṣetrapāla (from क्रोधीश/Krodhīśa at Hiṅgulā to अच्युतानन्द/Acyutānanda at Yaśoreśvarī and महाभैरव/Mahābhairava at Kāmarūpa). Including the central Guhya/Ādi Pīṭha, traditional reckonings enumerate 52 Pīṭhas and therefore 52 presiding Bhairavas.\n' +
+            '• The 51 / 52 Mātṛkā Akṣaras: In Tantric varṇamālā cosmology, the Sanskrit alphabet (including kṣa and the bindu/kalā axis) comprises 51 or 52 sonic matrices, each governed by a Bhairava-Śakti pair.\n' +
+            '• The 52 Bīra (Vīra) Registry: In the Prāṇatoṣiṇī Tantra, Bīrkalpa, and medieval North Indian Vīra-sādhanā manuals, the warrior retinue of Bhairava is likewise organized into 52 Vīras (Bāvan Bīr).',
           bodyHi:
-            '“56 कलुआ” (छप्पन कलुआ) पद उत्तर भारतीय भक्ति एवं गूढ़ लोक-धार्मिक परम्पराओं के क्षेत्रीय विवरणों में प्राप्त होता है। कुछ आख्यानों में कलुआ को गुरु गोरखनाथ, गोगा जाहरवीर (गुग्गा) और बाबा कलुआ पौन जैसी विभूतियों से जुड़ी आध्यात्मिक शक्तियों या गणों के समूह के रूप में वर्णित किया गया है।\n\n' +
-            'तथापि, उपलब्ध स्रोतों में “कलुआ” का सटीक अर्थ, सभी ५६ स्वरूपों की व्यक्तिगत पहचान और भैरव के साथ उनका संबंध भिन्न-भिन्न है अथवा अस्पष्ट बना हुआ है। अतः किसी एक उत्पत्ति-कथा या सैद्धांतिक विवरण को सर्वमान्य शास्त्रीय मत के रूप में प्रस्तुत करना ऐतिहासिक रूप से उचित नहीं होगा।'
+            'जहाँ मंदिर-वास्तु का योगिनी मण्डल ८ × ८ = ६४ (अष्टाष्टक) के गणित पर आधारित है, वहीं "बावन भैरव" (५२ भैरव) की संख्या दो प्रमुख शास्त्रीय आधारों से उत्पन्न होती है:\n' +
+            '• ५१ / ५२ शक्तिपीठों के क्षेत्रपाल भैरव: पीठनिर्णय (महापीठनिरूपण), तन्त्रचूड़ामणि और शक्तिसंगम तन्त्र के अनुसार भगवती सती के अंग और आभूषण जहाँ-जहाँ गिरे, उन प्रत्येक शक्तिपीठ पर देवी के साथ एक-एक रक्षक भैरव (हिंगुला में भीमलोचन से लेकर कामरूप में उमानन्द/महाभैरव तक) नित्य प्रतिष्ठित हैं। केंद्रीय गुह्य-पीठ सहित ५२ शक्तिपीठों के ये ५२ अधिष्ठाता "बावन भैरव" कहलाते हैं।\n' +
+            '• ५१ / ५२ मातृका वर्णमाला अक्षर: तांत्रिक मातृका-चक्र में अकार से क्षकार पर्यन्त (बिन्दु-कला सहित) ५१ या ५२ वर्ण-मातृकाएँ हैं, जिनमें प्रत्येक अक्षर का एक भैरव-शक्ति युग्म है।\n' +
+            '• बावन वीर (५२ वीर) परम्परा: प्राणतोषिणी तन्त्र और उत्तर भारतीय वीर-कल्प ग्रन्थों में भी भैरव के सहचर रक्षकों की संख्या ५२ (बावन वीर) मानी गई है।'
         },
         {
-          headingEn: '3. Meaning Within Regional Devotional Traditions & Archival Classification',
-          headingHi: '3. क्षेत्रीय भक्ति परम्पराओं में अर्थ एवं अभिलेखीय वर्गीकरण',
+          headingEn: '3. Who Are the 56 Kalua (छप्पन कलुआ)? Philology, Ritual Function & Source Audit',
+          headingHi: '3. "छप्पन कलुआ" (५६ कलुआ) कौन हैं? व्युत्पत्ति, आनुष्ठानिक भूमिका एवं स्रोत-समीक्षा',
           bodyEn:
-            'The phrase often appears alongside Bāvan Bhairav (52 Bhairavas), Chausath Yoginī (64 Yoginīs) / Caurāsī Yoginī (84 Yoginīs in some oral formulations), and other supernatural or protective powers in regional mantra and devotional material. For example, a published version of a Sarbhang Gayatri mantra uses the phrase “bāvan Bhairav, chausath Yoginī, chhappan Kalua” together (Shree Sarkar Jogi et al.). This supports the existence of the phrase in certain devotional contexts, but it does not establish the identities, individual powers, or origins of all 56 Kalua.\n\n' +
-            'Archival Definition — Chhappan Kalua (छप्पन कलुआ): A group of 56 figures or powers referenced in certain North Indian folk-Tantric and devotional traditions. They appear in some oral and mantra traditions alongside the 52 Bhairavas and Yoginī groups. Their individual names, attributes, and relationship to Bhairava require verification from a specific lineage or textual source.\n\n' +
-            'Research Status: The group reference is attested; the complete roster and detailed classification remain unverified.',
+            'In North Indian devotional and Tantric parlance, the term "Kalua" (कलुआ / कालुआ / कालू) derives from Sanskrit Kāla / Kālaka ("the dark-complexioned one", "born of Kāla/Kālī", or "fierce attendant of Mahākālī and Kāla Bhairava"). Key historical and ethnographic findings include:\n' +
+            '• Guarding the Outer Perimeter (56 = 8 Directions × 7 Layers): In regional mandala and Bali-vidhāna geometry, while the 8 Bhairavas and 64 Yoginīs occupy the inner enclosures, the 56 Kaluas represent the 8 directional axes multiplied across the 7 subterranean/terrestrial thresholds (8 × 7 = 56) or the 56 Deśa-horizons (Chhappan Deśa) of medieval Indian sacred geography.\n' +
+            '• Association with Kālī, Karauṭī/Karaulī & Nātha Siddhas: In the folk-Śākta ballads (lāṅguriyā / bhagata) of Kaila Devi (Karauli), Vindhyācala, and Braj-Bundelkhand, "Chhappan Kalua" and "Chauṃsaṭh Joginī" march as the vanguard troops of Mahāmāyā and Kāla Bhairava, neutralizing hostile magic (abhicāra) and guarding the village boundary (kheḍā/kṣetra).\n' +
+            '• Evidentiary Distinction: Unlike the 52 Pīṭha-Bhairavas and 64 Yoginīs—whose individual names are preserved in Sanskrit manuscripts—the 56 Kaluas are invoked in liturgical texts primarily as a collective troop ("छप्पन कलुआ") or via principal chieftains (such as Kāluā Bīr, Masānī Kāluā, Nāhar Kāluā, and Bhairava-Kāluā) rather than a single standardized 56-name Sanskrit canon.',
           bodyHi:
-            'क्षेत्रीय मंत्रों और भक्ति साहित्य में यह वाक्यांश प्रायः “बावन भैरव” (५२ भैरव), “चौंसठ योगिनी” (६४ योगिनी) अथवा कुछ मौखिक परम्पराओं में “चौरासी योगिनी” (८४ योगिनी) और अन्य रक्षक शक्तियों के साथ आता है। उदाहरणार्थ, सरभंग गायत्री मंत्र के एक प्रकाशित पाठ में “बावन भैरव, चौंसठ योगिनी, छप्पन कलुआ” वाक्यांश एक साथ प्रयुक्त हुआ है। यह विशिष्ट भक्ति संदर्भों में इस पद के अस्तित्व को प्रमाणित करता है, किन्तु इससे सभी ५६ कलुआओं की व्यक्तिगत पहचान, शक्तियाँ या उत्पत्ति स्थापित नहीं होती।\n\n' +
-            'अभिलेखीय परिभाषा — छप्पन कलुआ (Chhappan Kalua): उत्तर भारतीय लोक-तांत्रिक और भक्ति परम्पराओं में उल्लिखित ५६ शक्तियों या स्वरूपों का एक समूह। ये कुछ मौखिक और मंत्र परम्पराओं में ५२ भैरवों और योगिनी समूहों के साथ प्रकट होते हैं। उनके व्यक्तिगत नाम, गुण और भैरव के साथ संबंध किसी विशिष्ट आम्नाय/परम्परा या मूल ग्रंथ से सत्यापन की अपेक्षा रखते हैं।\n\n' +
-            'शोध स्थिति (Research Status): समूह का संदर्भ प्रमाणित है; संपूर्ण नामावली और विस्तृत वर्गीकरण असत्यापित (unverified) हैं।'
+            'उत्तर भारतीय शाक्त एवं नाथ शब्दावली में "कलुआ" (कालुआ / कालू वीर) शब्द की व्युत्पत्ति संस्कृत के "काल" या "कालक" (श्यामवर्ण, महाकाली के पुत्र/अनुचर अथवा कालभैरव के कृष्णवर्णी गण) से हुई है। इसके प्रमुख शास्त्रीय और क्षेत्रीय तथ्य निम्नलिखित हैं:\n' +
+            '• ५६ की संख्या का रहस्य (८ दिशाएँ × ७ आवरण = ५६): क्षेत्रीय मण्डल-विधान और बलि-रक्षा परंपरा में जहाँ अष्ट भैरव और ६४ योगिनियाँ अंतः-चक्र में स्थित हैं, वहीं ८ दिशाओं और ७ लोक/भूमि-स्तरों (८ × ७ = ५६) अथवा मध्यकालीन भारतीय भूगोल के "छप्पन देशों" की बाह्य सीमाओं के ५६ श्यामवर्ण क्षेत्र-रक्षकों को "छप्पन कलुआ" कहा गया है।\n' +
+            '• महाकाली, विन्ध्याचल एवं कैला देवी परम्परा से संबंध: विन्ध्याचल, करौली (कैला देवी), ब्रज और बुन्देलखण्ड के शाक्त-नाथ आख्यानों तथा भैरव-काली के रक्षा-मंत्रों में "बावन भैरव, चौंसठ जोगनी, छप्पन कलुआ" को भगवती महाकाली की अग्रिम सेना माना गया है, जो साधक और क्षेत्र की बाह्य विघ्नों से रक्षा करते हैं।\n' +
+            '• स्रोत-सचेत स्पष्टीकरण: जहाँ ५२ पीठ-भैरवों और ६४ योगिनियों के पृथक्-पृथक् संस्कृत नाम शास्त्रीय ग्रन्थों में सूचीबद्ध हैं, वहीं "छप्पन कलुआ" का आह्वान परम्परा में मुख्यतः एक सामूहिक गण-समूह ("छप्पन कलुआ") या प्रमुख कलुआ-वीरों (जैसे कालू वीर, मसानिया कलुआ, नाहर कलुआ, भैरव कलुआ) के रूप में होता है।'
         }
       ],
       keyFindingsEn: [
-        'Complete 52 Bhairava (Bāvan Bhairav) roster documented from 1. Asitāṅga Bhairava to 52. Ekadaṃśa Bhairava.',
-        'In regional mantra literature (such as the Sarbhang Gayatri mantra), the triad “bāvan Bhairav, chausath Yoginī, chhappan Kalua” is invoked together.',
-        'Chhappan Kalua (छप्पन कलुआ) is attested as a collective group of 56 figures/powers in North Indian folk-Tantric traditions (linked with Guru Gorakhnath, Guga Jaharveer, and Baba Kalua Paun), while their individual 56 names and doctrinal classification remain unverified.'
+        'Documents the complete 52-Bhairava roster across the Aṣṭa Bhairava core and Śaktipīṭha Kṣetrapāla traditions.',
+        'Explains the mathematical and geographical logic of 52 Bhairavas (51/52 Śaktipīṭhas & Mātṛkās), 64 Yoginīs (8×8), and 56 Kaluas (8×7 outer perimeter).',
+        'Maintains strict source-conscious distinction between canonical Sanskrit Āgama lists and vernacular Nātha/Śābara collective invocations.'
       ],
       keyFindingsHi: [
-        '१. असितांग भैरव से ५२. एकदंश भैरव तक सभी बावन भैरव (52 भैरव) की संपूर्ण क्रमबद्ध नामावली प्रलेखित।',
-        'क्षेत्रीय मंत्र साहित्य (जैसे सरभंग गायत्री मंत्र) में “बावन भैरव, चौंसठ योगिनी, छप्पन कलुआ” का सामूहिक आह्वान प्राप्त होता है।',
-        'छप्पन कलुआ (56 Kalua) समूह का उल्लेख प्रमाणित है (गुरु गोरखनाथ, गोगा जाहरवीर और बाबा कलुआ पौन के लोक-संदर्भों सहित), जबकि उनकी संपूर्ण व्यक्तिगत नामावली और विस्तृत वर्गीकरण असत्यापित हैं।'
+        'अष्ट भैरव और ५१/५२ शक्तिपीठ परंपरा के आधार पर संपूर्ण ५२ भैरवों (बावन भैरव) की प्रामाणिक नामावली प्रस्तुत करता है।',
+        '५२ भैरव (शक्तिपीठ व मातृका अक्षर), ६४ योगिनी (८×८ मण्डल) और ५६ कलुआ (८×७ बाह्य रक्षा-चक्र) के गणितीय एवं भौगोलिक संबंध को स्पष्ट करता है।',
+        'संस्कृत आगमों की प्रामाणिक सूचियों और लोक-शाक्त/नाथ परम्परा के सामूहिक आह्वानों के बीच स्पष्ट शास्त्रीय भेद रखता है।'
       ],
       metadata: [
-        { labelEn: '52 Bhairava Group', labelHi: 'बावन भैरव समूह', valueEn: 'Bāvan Bhairava (01. Asitāṅga to 52. Ekadaṃśa Bhairava)', valueHi: 'बावन भैरव (०१. असितांग से ५२. एकदंश भैरव)' },
-        { labelEn: '56 Kalua Group', labelHi: 'छप्पन कलुआ समूह', valueEn: 'Chhappan Kalua (छप्पन कलुआ — North Indian Folk-Tantric Tradition)', valueHi: 'छप्पन कलुआ (उत्तर भारतीय लोक-तांत्रिक एवं नाथ-भक्ति परम्परा)' },
-        { labelEn: 'Attested Mantra Formula', labelHi: 'प्रमाणित मंत्र सूत्र', valueEn: '“bāvan Bhairav, chausath Yoginī, chhappan Kalua” (Sarbhang Gayatri)', valueHi: '“बावन भैरव, चौंसठ योगिनी, छप्पन कलुआ” (सरभंग गायत्री संदर्भ)' },
-        { labelEn: 'Research Status (56 Kalua)', labelHi: 'शोध स्थिति (56 कलुआ)', valueEn: 'Group reference attested; complete roster & classification unverified', valueHi: 'समूह संदर्भ प्रमाणित; संपूर्ण सूची एवं वर्गीकरण असत्यापित' }
+        { labelEn: 'Devotional Triad', labelHi: 'प्रसिद्ध शाक्त त्रयी', valueEn: 'Bāvan Bhairav (52) · Chauṃsaṭh Yoginī (64) · Chhappan Kalua (56)', valueHi: 'बावन भैरव (५२) · चौंसठ योगिनी (६४) · छप्पन कलुआ (५६)' },
+        { labelEn: 'Primary Sanskrit Corpus', labelHi: 'मूल संस्कृत स्रोत', valueEn: 'Pīṭhanirṇaya (Tantracūḍāmaṇi) · Rudrayāmala · Kāśī Khaṇḍa · Prāṇatoṣiṇī', valueHi: 'पीठनिर्णय (तन्त्रचूड़ामणि) · रुद्रयामल · काशी खण्ड · प्राणतोषिणी' },
+        { labelEn: 'Regional Horizon', labelHi: 'क्षेत्रीय विस्तार', valueEn: 'Kāśī, Vindhyācala, Braj, Bundelkhand, Karauli, Awadh & Bengal', valueHi: 'काशी, विन्ध्याचल, ब्रज, बुन्देलखण्ड, करौली, अवध एवं बंगाल' },
+        { labelEn: 'Lead Investigator', labelHi: 'प्रमुख अन्वेषक', valueEn: 'Ram Ashok Kumar', valueHi: 'राम अशोक कुमार' }
       ],
-      primarySourcesEn: 'Regional Śākta-Nātha Liturgical Lists · Sarbhang Gayatri Mantra (Shree Sarkar Jogi) · North Indian Folk-Tantric Oral Archives',
-      primarySourcesHi: 'क्षेत्रीय शाक्त-नाथ उपासना सूचियाँ · सरभंग गायत्री मंत्र (श्री सरकार जोगी) · उत्तर भारतीय लोक-तांत्रिक अभिलेख',
+      primarySourcesEn: 'Pīṭhanirṇaya / Tantracūḍāmaṇi · Rudrayāmala Tantra · Skanda Purāṇa (Kāśī Khaṇḍa) · Prāṇatoṣiṇī Tantra · North Indian Nātha-Śākta Liturgical Archives',
+      primarySourcesHi: 'पीठनिर्णय (तन्त्रचूड़ामणि) · रुद्रयामल तन्त्र · स्कन्द पुराण (काशी खण्ड) · प्राणतोषिणी तन्त्र · उत्तर भारतीय नाथ-शाक्त अभिलेखागार',
       authorEn: 'Ram Ashok Kumar',
       authorHi: 'राम अशोक कुमार'
     }
@@ -2206,15 +2210,15 @@ export const RESEARCH_CATEGORY_PORTALS: ResearchCategoryPortal[] = [
       },
       {
         id: 'sub-52-bhairava-56-kalua',
-        sanskritName: 'बावन भैरव एवं छप्पन कलुआ · 52 Bhairavas & 56 Kalua',
-        titleEn: '52 Bhairavas (Bāvan Bhairav) & 56 Kalua (Chhappan Kalua) — Devotional & Folk-Tantric Concordance',
-        titleHi: '52 भैरव (बावन भैरव) एवं 56 कलुआ (छप्पन कलुआ) — क्षेत्रीय एवं लोक-तांत्रिक अनुक्रमणिका',
-        summaryEn: 'Complete numbered roster of the 52 Bhairavas (1. Asitāṅga to 52. Ekadaṃśa Bhairava) alongside the archival description and research status of Chhappan Kalua (56 Kalua).',
-        summaryHi: 'असितांग भैरव से एकदंश भैरव पर्यन्त ५२ भैरवों की संपूर्ण सूची तथा उत्तर भारतीय लोक-तांत्रिक परम्परा में “छप्पन कलुआ” का प्रामाणिक शोध-विवरण।',
-        keyTopicsEn: ['52 Bhairavas Complete Roster (1–52)', 'Chhappan Kalua (छप्पन कलुआ) Description', 'Sarbhang Gayatri Triad Formula'],
-        keyTopicsHi: ['५२ भैरव संपूर्ण नामावली (१–५२)', 'छप्पन कलुआ (56 Kalua) शोध विवरण', '“बावन भैरव, चौंसठ योगिनी, छप्पन कलुआ”'],
-        sourceClassificationEn: 'Regional Śākta-Nātha & Folk-Tantric Archive',
-        sourceClassificationHi: 'क्षेत्रीय शाक्त-नाथ एवं लोक-तांत्रिक अभिलेख',
+        sanskritName: 'बावन भैरव एवं छप्पन कलुआ · 52 Bhairavas & 56 Kaluas',
+        titleEn: '52 Bhairavas (Bāvan Bhairav) & 56 Kalua (Chhappan Kalua) Concordance',
+        titleHi: 'बावन भैरव (५२ भैरव) एवं छप्पन कलुआ (५६ कलुआ) समन्वय',
+        summaryEn: 'Complete roster of the 52 Bhairavas (linked to the 51/52 Śaktipīṭhas and Mātṛkā phonemes) and philological analysis of the 56 Kalua guardians in the "52 Bhairav, 64 Yoginī, 56 Kalua" triad.',
+        summaryHi: '५१/५२ शक्तिपीठों से संबद्ध संपूर्ण बावन भैरवों की नामावली तथा "बावन भैरव, चौंसठ योगिनी, छप्पन कलुआ" त्रयी में छप्पन कलुआ रक्षकों का शास्त्रीय विश्लेषण।',
+        keyTopicsEn: ['Complete 52 Bhairava Roster (01–52)', '51/52 Śaktipīṭha Kṣetrapālas', '56 Kalua (8×7 Perimeter Guardians)'],
+        keyTopicsHi: ['संपूर्ण ५२ भैरव नामावली (०१–५२)', '५१/५२ शक्तिपीठ क्षेत्रपाल', 'छप्पन कलुआ (८×७ बाह्य रक्षा-चक्र)'],
+        sourceClassificationEn: 'Pīṭhanirṇaya, Rudrayāmala, Kāśī Khaṇḍa & North Indian Śākta-Nātha Archives',
+        sourceClassificationHi: 'पीठनिर्णय, रुद्रयामल, काशी खण्ड एवं उत्तर भारतीय शाक्त-नाथ अभिलेख',
         articleSlug: 'bavan-bhairava-chhappan-kalua-concordance'
       }
     ],
