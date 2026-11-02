@@ -79,13 +79,14 @@ export default function AboutSection() {
               </div>
             </div>
 
-            {/* Society for Psychical Research Membership Badge */}
+            {/* Society for Psychical Research Membership Badge Card */}
             <a
               href="https://www.spr.ac.uk/"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 max-w-sm w-full block bg-transparent hover:scale-[1.02] transition-all duration-300"
+              className="mt-6 max-w-sm w-full block p-6 bg-ancient-beige text-ancient-dark rounded border border-bronze-dark/30 shadow-md hover:scale-[1.02] transition-all duration-300"
             >
+
               <img
                 src="/assets/aistudio/spr-member-badge_ed941de5.jpg"
                 alt={t('Member of Society for Psychical Research', 'सोसाइटी फॉर साइकिकल रिसर्च के सदस्य')}
