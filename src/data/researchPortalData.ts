@@ -6,6 +6,7 @@ import {
 import { NINE_AVARANAS } from './shriMeruData';
 import { FOURTEEN_LOKAS } from './lokaCosmologyData';
 import { DEEP_SACRED_SEAL_ARTICLES } from './sacredSealsDeepData';
+import { DASHA_DIKPALAS, UNIVERSAL_DIKPALA_NAMASKARA } from './dashaDikpalaData';
 
 export interface ResearchArticleSection {
   headingEn: string;
@@ -833,7 +834,7 @@ const SHRI_MERU_ARTICLES: ResearchArticle[] = NINE_AVARANAS.map((av, idx) => {
 const FOURTEEN_LOKA_ARTICLES: ResearchArticle[] = FOURTEEN_LOKAS.map((loka, idx) => {
   const slug = loka.shortNameEn.toLowerCase().replace(/[^a-z0-9]+/g, '-');
   const code = `LK-${String(loka.number).padStart(2, '0')}`;
-  const isUpper = loka.division === 'urdhva';
+  const isUpper = loka.category === 'urdhva';
   const isEarthPivot = loka.number === 7;
 
   const cosmologicalDistinctionEn = isEarthPivot
@@ -899,6 +900,158 @@ const FOURTEEN_LOKA_ARTICLES: ResearchArticle[] = FOURTEEN_LOKAS.map((loka, idx)
     interactiveIndex: idx
   };
 });
+
+// ============================================================================
+// PORTAL VIII: DAŚA-DIKPĀLA (The Ten Divine Guardians of the Universe)
+// ============================================================================
+const DASHA_DIKPALA_ARTICLES: ResearchArticle[] = [
+  {
+    slug: 'dasha-dikpala-ten-directional-guardians',
+    categorySlug: 'dasha-dikpala-guardians',
+    code: 'DKP-00',
+    titleEn: 'Daśa-Dikpāla — The Ten Divine Guardians of the Universe (दश दिक्पालाः)',
+    titleHi: 'दशदिक्पाल — ब्रह्माण्ड के दस दिव्य दिशा-संरक्षक (दश दिक्पालाः)',
+    subtitleEn: 'Direction • Deity • Goddess • Mantra • Weapon • Vehicle • Divine Domain — Complete 10-Fold Spatial Concordance',
+    subtitleHi: 'दिशा • देवता • देवी • मन्त्र • अस्त्र • वाहन • दिव्य अधिकार — संपूर्ण १० दिशात्मक समन्वय',
+    sanskritEpigraph: '॥ दशदिक्पाल मण्डल संहिता · ॐ सर्वेभ्यो दिक्पालेभ्यो नमः ॥',
+    epigraphTranslationEn: '"Om Sarvebhyo Dikpalebhyo Namah — Salutations to all the divine guardians of the ten directions of cosmic space."',
+    epigraphTranslationHi: '"ॐ सर्वेभ्यो दिक्पालेभ्यो नमः — अंतरिक्ष की दसों दिशाओं के समस्त रक्षक देवों और शक्तियों को सादर नमन।"',
+    evidenceBadgeEn: 'TEN COSMIC GUARDIANS · VĀSTU & VEDIC DIGBANDHANA ARCHIVE',
+    evidenceBadgeHi: 'दश दिक्पाल · वास्तु एवं वैदिक दिग्बन्धन अभिलेखागार',
+    accentColor: '#F59E0B',
+    summaryEn:
+      'The Daśa-Dikpāla (दश दिक्पालाः) are the ten divine guardians who preside over the cardinal, intercardinal, and vertical directions of space in Hindu theology, Vedic Digbandhana liturgies, and Vāstu Śāstra architecture. Together with their divine consorts (Indrāṇī, Svāhā, Yāmī, Nirṛti, Vāruṇī, Bhāratī, Bhadrā/Kauberī, Pārvatī, Sarasvatī, and Lakṣmī), sacred mounts (Airāvata, Ram, Buffalo, Lion/Corpse, Makara, Antelope, Mongoose, Nandī, Haṃsa, and Garuḍa), celestial weapons, and elemental domains, they establish an inviolable perimeter (digbandhana) protecting cosmic order, temples, homes, and human consciousness.',
+    summaryHi:
+      'दशदिक्पाल (दश दिक्पालाः) हिन्दू धर्मशास्त्र, वैदिक दिग्बन्धन अनुष्ठानों और वास्तुशास्त्र में अंतरिक्ष की आठ क्षैतिज तथा दो ऊर्ध्वाधर (ऊर्ध्व-अधः) दिशाओं के अधिष्ठाता रक्षक देव हैं। अपनी सहगामिनी देवियों (इन्द्राणी, स्वाहा, यामी, निरृति, वारुणी, भारती, भद्रा/कौबेरी, पार्वती, सरस्वती, लक्ष्मी), पवित्र वाहनों (ऐरावत, मेष, महिष, सिंह/शव, मकर, मृग, नकुल, नन्दी, हंस, गरुड़), अमोघ आयुधों और तत्त्वगत क्षेत्रों के साथ, वे ब्रह्माण्डीय व्यवस्था, मन्दिरों, गृहों और मानवीय चेतना की रक्षा करने वाला अभेद्य सुरक्षा-घेरा (दिग्बन्धन) स्थापित करते हैं।',
+    sections: [
+      {
+        headingEn: '1. The 10-Fold Spatial Order & Vāstu Puruṣa Maṇḍala',
+        headingHi: '1. दस दिशाओं की ब्रह्माण्डीय व्यवस्था एवं वास्तु-पुरुष मण्डल',
+        bodyEn:
+          'In Hindu cosmography, space is not an empty geometric container but an ordered living field presided over by conscious divine intelligences. The classical system recognizes ten directions (Daśa-Diśā): the four cardinal directions (Pūrva/East, Dakṣiṇa/South, Paścima/West, Uttara/North), the four intermediate diagonal junctures (Āgneya/Southeast, Nairṛtya/Southwest, Vāyavya/Northwest, Īśāna/Northeast), and the two vertical cosmic poles: Ūrdhva (Zenith/Upward) governed by Brahmā, and Adhaḥ (Nadir/Downward) governed by Viṣṇu. In Vāstu Śāstra (Mānasāra, Mayamata, Bṛhat Saṃhitā), every consecrated site—from domestic dwellings to cosmic royal temples—is mapped as a Vāstu Puruṣa Maṇḍala where each direction must be harmonized according to its presiding guardian’s elemental potency.',
+        bodyHi:
+          'हिन्दू ब्रह्माण्ड-विज्ञान में दिक् (अंतरिक्ष) कोई शून्य या जड़ ज्यामितीय विस्तार नहीं है, अपितु दिव्य चेतन शक्तियों द्वारा अधिष्ठित एक जीवंत क्षेत्र है। शास्त्रीय व्यवस्था में दस दिशाओं (दश-दिशा) की मान्यता है: चार मुख्य दिशाएँ (पूर्व, दक्षिण, पश्चिम, उत्तर), चार उप-दिशाएँ या विदिशाएँ (आग्नेय, नैऋत्य, वायव्य, ईशान), तथा दो ऊर्ध्वाधर ध्रुव: ऊर्ध्व (आकाश/ब्रह्मलोक) जिसके अधिष्ठाता ब्रह्मा हैं, और अधः (पाताल/भूमि-गर्त) जिसके अधिष्ठाता भगवान् विष्णु हैं। वास्तुशास्त्र (मानसार, मयमत, बृहत्संहिता) में प्रत्येक पवित्र स्थल—चाहे वह गृह हो या विशाल देवालय—वास्तु-पुरुष मण्डल के रूप में प्रतिष्ठित होता है जहाँ प्रत्येक दिशा को उसके संबंधित दिक्पाल के तत्त्व और ऊर्जा के अनुसार संतुलित किया जाता है।'
+      },
+      {
+        headingEn: '2. Directional Concordance: Deity, Consort, Weapon, Vāhana & Domain',
+        headingHi: '2. दिशात्मक समन्वय: देव, देवी, आयुध, वाहन एवं संप्रभु अधिकार',
+        bodyEn:
+          'Each of the ten guardians operates through a unified matrix of divine attributes:\n• 1. East (Pūrva): Indra | Goddess: Indrāṇī / Śacī | Vehicle: Airāvata (Elephant) | Weapon: Vajra (Thunderbolt) | Domain: Rain, storms, kingship, sovereign authority.\n• 2. Southeast (Āgneya): Agni | Goddess: Svāhā | Vehicle: Ram (Meṣa) | Weapon: Śakti / Spear | Domain: Fire, sacrificial transformation, digestive and energetic purification.\n• 3. South (Dakṣiṇa): Yama | Goddess: Yāmī | Vehicle: Buffalo (Mahiṣa) | Weapon: Daṇḍa (Staff of Justice) | Domain: Death, karmic retribution, righteousness, ancestral transition.\n• 4. Southwest (Nairṛtya): Nirṛti | Goddess: Nirṛti herself | Vehicle: Corpse / Man / Lion | Weapon: Khaḍga (Sword) | Domain: Dissolution, decay, entropy, transformation of disorder.\n• 5. West (Paścima): Varuṇa | Goddess: Vāruṇī | Vehicle: Makara (Aquatic Creature) | Weapon: Pāśa (Noose of Cosmic Law) | Domain: Cosmic waters, Ṛta (moral order), oceans, subconscious depths.\n• 6. Northwest (Vāyavya): Vāyu | Goddess: Bhāratī (in textual lists) | Vehicle: Deer / Antelope (Mṛga) | Weapon: Aṅkuśa (Goad) | Domain: Winds, movement, atmospheric speed, Prāṇa vitality.\n• 7. North (Uttara): Kubera | Goddess: Bhadrā / Kauberī | Vehicle: Mongoose / Man | Weapon: Gadā (Mace) | Domain: Material and spiritual treasures, Yakṣa realms, northern prosperity.\n• 8. Northeast (Īśāna): Īśāna (Śiva) | Goddess: Pārvatī | Vehicle: Nandī (Bull) | Weapon: Triśūla (Trident) | Domain: Supreme consciousness, spiritual wisdom, sacred sanctum orientation.\n• 9. Zenith (Ūrdhva): Brahmā | Goddess: Sarasvatī | Vehicle: Haṃsa (Swan) | Weapon: Vedas, Lotus, Kamaṇḍalu | Domain: Cosmic creation, Vedic knowledge, upward manifestation.\n• 10. Nadir (Adhaḥ): Viṣṇu | Goddess: Lakṣmī | Vehicle: Garuḍa / Ananta-Śeṣa | Weapon: Sudarśana Cakra | Domain: Cosmic preservation, universal grounding stability, foundational protection.',
+        bodyHi:
+          'दसों दिक्पालों का प्रामाणिक समन्वय इस प्रकार है:\n• १. पूर्व: इन्द्र | देवी: इन्द्राणी / शची | वाहन: ऐरावत (हाथी) | अस्त्र: वज्र | अधिकार: वर्षा, तूफान, राजसत्ता, संप्रभु शक्ति।\n• २. आग्नेय: अग्नि | देवी: स्वाहा | वाहन: मेष (बकरा) | अस्त्र: शक्ति / त्रिशूल-भाला | अधिकार: अग्नि, यज्ञ-आहुति, शुद्धि, रूपांतकारी ऊर्जा।\n• ३. दक्षिण: यम | देवी: यामी | वाहन: महिष (भैंसा) | अस्त्र: कालदण्ड | अधिकार: मृत्यु, धर्म, कर्म-न्याय, पितृ-लोक।\n• ४. नैऋत्य: निरृति | देवी: स्वयं निरृति | वाहन: शव / नर / सिंह | अस्त्र: खड्ग (तलवार) | अधिकार: लय, क्षय, व्यवस्था-विघटन, संकट-निवारण।\n• ५. पश्चिम: वरुण | देवी: वारुणी | वाहन: मकर (जल-जन्तु) | अस्त्र: पाश (वरुण-पाश) | अधिकार: समुद्र, जल-तत्त्व, ऋत (परम सत्य व नियम)।\n• ६. वायव्य: वायु | देवी: भारती | वाहन: मृग / हरिण | अस्त्र: अंकुश | अधिकार: पवन, गति, प्राण-शक्ति, वातावरण।\n• ७. उत्तर: कुबेर | देवी: भद्रा / कौबेरी | वाहन: नकुल (नेवला) / नर | अस्त्र: गदा | अधिकार: धन-वैभव, निधियाँ, समृद्धि, यक्ष-साम्राज्य।\n• ८. ईशान: ईशान (सदाशिव) | देवी: पार्वती | वाहन: नन्दी (वृषभ) | अस्त्र: त्रिशूल | अधिकार: आत्म-ज्ञान, शुद्ध चेतना, पावन आध्यात्मिक ऊर्जा।\n• ९. ऊर्ध्व (आकाश): ब्रह्मा | देवी: सरस्वती | वाहन: हंस | अस्त्र: वेद, कमल, कमण्डलु | अधिकार: सृष्टि, ज्ञान-विज्ञान, वैतरणी एवं ऊर्ध्व-अभिव्यक्ति।\n• १०. अधः (पाताल): भगवान् विष्णु | देवी: लक्ष्मी | वाहन: गरुड़ एवं अनन्त-शेष | अस्त्र: सुदर्शन चक्र | अधिकार: ब्रह्माण्डीय स्थिति, आधारभूत स्थिरता, रक्षण।'
+      },
+      {
+        headingEn: '3. The Vertical Axis (Ūrdhvādhaḥ) & 3-Dimensional Cosmic Enclosure',
+        headingHi: '3. ऊर्ध्वाधः अक्ष एवं त्रि-आयामी ब्रह्माण्डीय दिग्बन्धन',
+        bodyEn:
+          'While the 8 horizontal directions protect the earthly perimeter, the inclusion of Brahmā (Zenith) and Viṣṇu (Nadir) expands planar protection into a total 3D spherical dome of protection. This spatial completion is celebrated in temple Mahābhiṣekas and Vedic Digbandhana ceremonies where holy waters and mantra vibrations are projected into the ten directions to dissolve evil influences from all angles.',
+        bodyHi:
+          'आठ क्षैतिज दिशाएँ भू-तल की रक्षा करती हैं, किंतु ऊर्ध्व में ब्रह्मा और अधः में भगवान् विष्णु के समावेश से यह रक्षा-कवच त्रि-आयामी (३D) ब्रह्माण्डीय मण्डल का रूप ले लेता है। मन्दिर महाभिषेक और वैदिक दिग्बन्धन में पवित्र जल और मन्त्रों को दसों दिशाओं में प्रक्षिप्त किया जाता है ताकि समस्त दिशाओं से आने वाली विघ्नकारी ऊर्जाओं का शमन हो सके।'
+      },
+      {
+        headingEn: '4. Consecrated Bīja Mantras & Universal Namaskāra',
+        headingHi: '4. प्रतिष्ठित बीज मन्त्र एवं सार्वभौमिक नमस्कार',
+        bodyEn:
+          'Each guardian commands a dedicated Bīja mantra that attunes subtle prāṇic space:\n• East: Om Lam Indraya Namah\n• Southeast: Om Ram Agnaye Namah\n• South: Om Mam Yamaya Namah\n• Southwest: Om Ksham Nairityaya Namah\n• West: Om Vam Varunaya Namah\n• Northwest: Om Yam Vayave Namah\n• North: Om Sham Kuberaya Namah\n• Northeast: Om Ham Ishanaya Namah\n• Zenith: Om Hrim Brahmane Namah\n• Nadir: Om Klim Vishnave Namah\nUniversal Invocation: "Om Sarvebhyo Dikpalebhyo Namah" (ॐ सर्वेभ्यो दिक्पालेभ्यो नमः) — recited to evoke collective spatial peace and cosmic equilibrium.',
+        bodyHi:
+          'प्रत्येक दिक्पाल का एक विशिष्ट एकाक्षरी बीज मन्त्र है जो अंतरिक्षीय ऊर्जा को जागृत करता है:\n• पूर्व: ॐ लं इन्द्राय नमः\n• आग्नेय: ॐ रं अग्नये नमः\n• दक्षिण: ॐ मं यमाय नमः\n• नैऋत्य: ॐ क्षं नैऋत्याय नमः\n• पश्चिम: ॐ वं वरुणाय नमः\n• वायव्य: ॐ यं वायवे नमः\n• उत्तर: ॐ शं कुबेराय नमः\n• ईशान: ॐ हं ईशानाय नमः\n• ऊर्ध्व: ॐ ह्रीं ब्रह्मणे नमः\n• अधः: ॐ क्लीं विष्णवे नमः\nसार्वभौमिक दिग्पाल मन्त्र: "ॐ सर्वेभ्यो दिक्पालेभ्यो नमः" — सामूहिक शांति और ब्रह्माण्डीय संतुलन हेतु उच्चरित किया जाता है।'
+      }
+    ],
+    keyFindingsEn: [
+      'Complete 10-Fold Spatial Geometry: 8 horizontal horizon directions plus 2 vertical poles (Brahmā above, Viṣṇu below).',
+      'Vāstu Integration: Crucial for temple orientation, altar placement, water/fire allocation, and spatial energy balance.',
+      'Sovereignty Pairs: Every Male Guardian is paired with an active Śakti Consort (Indrāṇī, Svāhā, Yāmī, etc.).',
+      'Acoustic Resonance: Ten resonant Bījas (Laṃ, Raṃ, Maṃ, Kṣaṃ, Vaṃ, Yaṃ, Śaṃ, Haṃ, Hrīṃ, Klīṃ) anchoring cosmic space.'
+    ],
+    keyFindingsHi: [
+      '१० दिशाओं की पूर्ण ज्यामिति: ८ क्षैतिज दिशाएँ एवं २ ऊर्ध्वाधर ध्रुव (ऊर्ध्व में ब्रह्मा, अधः में विष्णु)।',
+      'वास्तुशास्त्र में अनिवार्य: मन्दिर निर्माण, देवस्थान, जल-अग्नि स्थापन और गृह के ऊर्जा संतुलन हेतु परमावश्यक।',
+      'दिव्य शक्ति-युग्म: प्रत्येक दिक्पाल अपनी सहगामिनी देवी (इन्द्राणी, स्वाहा, यामी आदि) के साथ संयुक्त है।',
+      'नाद-बीज सामंजस्य: दस पावन बीज मन्त्र (लं, रं, मं, क्षं, वं, यं, शं, हं, ह्रीं, क्लीं) जो अंतरिक्ष को ऊर्जावान बनाते हैं।'
+    ],
+    metadata: [
+      { labelEn: 'Directional Guardians', labelHi: 'संरक्षक देव', valueEn: '10 Cosmic Lords (Daśa-Dikpāla)', valueHi: '१० ब्रह्माण्डीय दिक्पाल' },
+      { labelEn: 'Spatial Dimensions', labelHi: 'दिक्-विस्तार', valueEn: '8 Compass Directions + 2 Vertical (Zenith & Nadir)', valueHi: '८ क्षैतिज दिशाएँ + २ ऊर्ध्वाधर (ऊर्ध्व व अधः)' },
+      { labelEn: 'Universal Namaskāra', labelHi: 'सार्वभौमिक मन्त्र', valueEn: UNIVERSAL_DIKPALA_NAMASKARA.translit, valueHi: UNIVERSAL_DIKPALA_NAMASKARA.sanskrit },
+      { labelEn: 'Primary Source Literature', labelHi: 'मूल ग्रन्थ', valueEn: 'Taittirīya Samhitā · Mānasāra · Agni Purāṇa', valueHi: 'तैत्तिरीय संहिता · मानसार · अग्नि पुराण' }
+    ],
+    primarySourcesEn: 'Yajurveda (Taittirīya Samhitā) · Mānasāra Vāstu Śāstra · Agni Purāṇa (Ch. 51) · Matsya Purāṇa · Śatapatha Brāhmaṇa',
+    primarySourcesHi: 'यजुर्वेद (तैत्तिरीय संहिता) · मानसार वास्तुशास्त्र · अग्नि पुराण (अ. ५१) · मत्स्य पुराण · शतपथ ब्राह्मण',
+    authorEn: 'Ram Ashok Kumar',
+    authorHi: 'राम अशोक कुमार',
+    interactiveIndex: 0
+  },
+  ...DASHA_DIKPALAS.map((dikpala, idx) => {
+    const code = `DKP-${String(dikpala.number).padStart(2, '0')}`;
+    const dirTypeHi =
+      dikpala.directionType === 'cardinal'
+        ? 'प्रधान दिशा'
+        : dikpala.directionType === 'intercardinal'
+        ? 'विदिशा'
+        : 'ऊर्ध्वाधः अक्ष';
+
+    return {
+      slug: dikpala.slug,
+      categorySlug: 'dasha-dikpala-guardians',
+      code,
+      titleEn: `${dikpala.number}. ${dikpala.directionEn} — ${dikpala.nameEn}`,
+      titleHi: `${dikpala.number}. ${dikpala.directionHi} — ${dikpala.nameHi}`,
+      subtitleEn: `Goddess: ${dikpala.goddessEn} · Weapon: ${dikpala.weaponEn} · Mount: ${dikpala.vehicleEn} · Domain: ${dikpala.domainEn}`,
+      subtitleHi: `देवी: ${dikpala.goddessHi} · अस्त्र: ${dikpala.weaponHi} · वाहन: ${dikpala.vehicleHi} · अधिकार: ${dikpala.domainHi}`,
+      sanskritEpigraph: `॥ दशदिक्पाल मन्त्र संहिता · ${dikpala.directionHi} — ${dikpala.bijaMantra} ॥`,
+      epigraphTranslationEn: `"${dikpala.mantraTranslit} — Consecrated directional invocation of ${dikpala.nameEn}."`,
+      epigraphTranslationHi: `"${dikpala.bijaMantra} — ${dikpala.nameHi} का प्रतिष्ठित दिशा-संरक्षक मन्त्र।"`,
+      evidenceBadgeEn: `DIKPĀLA ${String(dikpala.number).padStart(2, '0')} OF 10 · ${dikpala.directionEn.toUpperCase()}`,
+      evidenceBadgeHi: `दिक्पाल ०${dikpala.number} / १० · ${dikpala.directionHi}`,
+      accentColor: dikpala.accentColor,
+      summaryEn: dikpala.detailedAnalysisEn,
+      summaryHi: dikpala.detailedAnalysisHi,
+      sections: [
+        {
+          headingEn: '1. Directional Alignment & Sovereign Domain',
+          headingHi: '1. दिशात्मक संरेखण एवं संप्रभु अधिकार क्षेत्र',
+          bodyEn: `${dikpala.nameEn} is the eternal sovereign of the ${dikpala.directionEn}, presiding at azimuth ${dikpala.angleDegrees}° (${dikpala.directionType}). Cosmic Sovereign Domain: ${dikpala.domainEn}.\nElemental Association: ${dikpala.elementEn}.\n${dikpala.detailedAnalysisEn}`,
+          bodyHi: `${dikpala.nameHi} ${dikpala.directionHi} के शाश्वत अधिष्ठाता हैं (${dikpala.angleDegrees}° दिगंश, ${dirTypeHi})। दिव्य संप्रभु अधिकार: ${dikpala.domainHi}।\nमूल तत्त्व: ${dikpala.elementHi}।\n${dikpala.detailedAnalysisHi}`
+        },
+        {
+          headingEn: '2. Divine Consort, Mount (Vāhana) & Weapon (Āyudha)',
+          headingHi: '2. सहगामिनी देवी, पवित्र वाहन एवं दिव्य आयुध',
+          bodyEn: `Divine Consort / Goddess: ${dikpala.goddessEn}.\nCelestial Mount (Vāhana): ${dikpala.vehicleEn}.\nSacred Weapon (Āyudha): ${dikpala.weaponEn}.\nIconographic Symbolism: ${dikpala.iconSymbol} ${dikpala.elementEn}.`,
+          bodyHi: `सहगामिनी देवी: ${dikpala.goddessHi}।\nपवित्र वाहन: ${dikpala.vehicleHi}।\nदिव्य आयुध: ${dikpala.weaponHi}।\nप्रतिमाशास्त्रीय प्रतीक: ${dikpala.iconSymbol} ${dikpala.elementHi}।`
+        },
+        {
+          headingEn: '3. Consecrated Bīja Mantra & Chanting Liturgy',
+          headingHi: '3. प्रतिष्ठित बीज मन्त्र एवं जप विधान',
+          bodyEn: `Sacred Sanskrit Mantra: ${dikpala.bijaMantra}\nPhonetic Chanting: ${dikpala.mantraTranslit}\n${dikpala.mantraNoteEn ? `Traditional Note: ${dikpala.mantraNoteEn}\n` : ''}Liturgy Application: Recited during boundary defense (digbandhana), temple flag hoisting (dhvajārohaṇa), and ritual purification to channel the guardian's protective energy.`,
+          bodyHi: `मूल संस्कृत मन्त्र: ${dikpala.bijaMantra}\nउच्चारण: ${dikpala.mantraTranslit}\n${dikpala.mantraNoteHi ? `शास्त्रीय टिप्पणी: ${dikpala.mantraNoteHi}\n` : ''}पूजा विधान: दिग्बन्धन, मन्दिर ध्वजारोहण और वास्तु पूजन में इस मन्त्र का उच्चारण संबंधित दिशा की बाधाओं को दूर कर दिव्य सुरक्षा स्थापित करता है।`
+        }
+      ],
+      keyFindingsEn: [
+        `Direction: ${dikpala.directionEn} at ${dikpala.angleDegrees}°.`,
+        `Consort & Mount: Goddess ${dikpala.goddessEn} · Mount ${dikpala.vehicleEn}.`,
+        `Weapon & Power: Weapon ${dikpala.weaponEn} · Domain of ${dikpala.domainEn}.`,
+        `Mantra & Translit: ${dikpala.mantraTranslit} (${dikpala.bijaMantra}).`
+      ],
+      keyFindingsHi: [
+        `दिशा: ${dikpala.directionHi} — ${dikpala.angleDegrees}° दिगंश।`,
+        `देवी एवं वाहन: देवी ${dikpala.goddessHi} · वाहन ${dikpala.vehicleHi}।`,
+        `अस्त्र एवं अधिकार: अस्त्र ${dikpala.weaponHi} · कार्य-क्षेत्र: ${dikpala.domainHi}।`,
+        `मन्त्र एवं बीज: ${dikpala.bijaMantra} (${dikpala.mantraTranslit})।`
+      ],
+      metadata: [
+        { labelEn: 'Direction', labelHi: 'दिशा', valueEn: `${dikpala.directionEn} (${dikpala.directionType})`, valueHi: `${dikpala.directionHi} (${dirTypeHi})` },
+        { labelEn: 'Presiding Deity', labelHi: 'अधिष्ठाता देव', valueEn: dikpala.nameEn, valueHi: dikpala.nameHi },
+        { labelEn: 'Divine Goddess', labelHi: 'सहगामिनी देवी', valueEn: dikpala.goddessEn, valueHi: dikpala.goddessHi },
+        { labelEn: 'Vāhana & Weapon', labelHi: 'वाहन एवं अस्त्र', valueEn: `${dikpala.vehicleEn} · ${dikpala.weaponEn}`, valueHi: `${dikpala.vehicleHi} · ${dikpala.weaponHi}` }
+      ],
+      primarySourcesEn: dikpala.scripturalContextEn,
+      primarySourcesHi: dikpala.scripturalContextHi,
+      authorEn: 'Ram Ashok Kumar',
+      authorHi: 'राम अशोक कुमार',
+      interactiveIndex: idx
+    };
+  })
+];
 
 // ============================================================================
 // EXPANDED SACRED GATEWAY MONOGRAPHS (SHAKTA, SHAIVA, VAISHNAVA & AGAMIC ARCHIVE)
@@ -3172,6 +3325,83 @@ export const RESEARCH_CATEGORY_PORTALS: ResearchCategoryPortal[] = [
     ],
     crossLinks: [],
     articles: [...FOURTEEN_LOKA_ARTICLES]
+  },
+  {
+    chapterIndex: 7,
+    slug: 'dasha-dikpala-guardians',
+    aliasSlugs: ['dashadikpala', 'dasha-dikpala', 'ten-directional-guardians', 'dikpalas', 'dikpala'],
+    roman: 'VIII',
+    gatewayBadgeEn: 'SACRED GATEWAY VIII · DAŚA-DIKPĀLA & DIRECTIONAL GUARDIANS',
+    gatewayBadgeHi: 'पवित्र ज्ञान-द्वार VIII · दशदिक्पाल एवं दिशा-संरक्षक विज्ञान',
+    shortTitleEn: 'Daśa Dikpāla',
+    shortTitleHi: 'दश दिक्पाल (10 दिक्पाल)',
+    titleEn: 'VIII · Daśa-Dikpāla — The Ten Divine Guardians of the Universe (दशदिक्पाल)',
+    titleHi: 'VIII · दशदिक्पाल — ब्रह्माण्ड के दस दिव्य दिशा-संरक्षक (दश दिक्पालाः)',
+    sanskritSeal: 'दशदिक्पाल मण्डल · अष्टदिक्पाल एवं ऊर्ध्वाधः संरक्षणम्',
+    subtitleEn: 'The Ten Directional Deities, Consorts, Vāhanas, Weapons, Bīja Mantras & Cosmic Sovereign Domains',
+    subtitleHi: 'दस दिशाओं के अधिष्ठाता देव, देवियाँ, वाहन, आयुध, बीज मन्त्र एवं ब्रह्माण्डीय संप्रभु क्षेत्र',
+    epigraphEn: '“Indra (East), Agni (Southeast), Yama (South), Nirṛti (Southwest), Varuṇa (West), Vāyu (Northwest), Kubera (North), Īśāna (Northeast), Brahmā (Zenith), Viṣṇu (Nadir) — Salutations to all divine guardians of cosmic space.”',
+    epigraphHi: '“पूर्व में इन्द्र, आग्नेय में अग्नि, दक्षिण में यम, नैऋत्य में निरृति, पश्चिम में वरुण, वायव्य में वायु, उत्तर में कुबेर, ईशान में ईशान, ऊर्ध्व में ब्रह्मा एवं अधः में विष्णु — समस्त दिक्पालों को नमन।”',
+    overviewEn:
+      'Gateway VIII explores the Daśa-Dikpāla (the Ten Guardians of the Directions) who preserve the structural and spiritual integrity of the manifest cosmos: the eight cardinal and intercardinal compass directions plus the vertical axis of the Zenith (Ūrdhva / Brahmā) and Nadir (Adhaḥ / Viṣṇu). Rooted in Vedic litanies, Purāṇic cosmologies, and Vāstu Śāstra consecrations, each guardian commands a distinct elemental force, divine consort, sacred mount, cosmic weapon, and transformative bīja mantra.',
+    overviewHi:
+      'अष्टम ज्ञान-द्वार दशदिक्पालों (दस दिशाओं के संरक्षकों) का समग्र अध्ययन प्रस्तुत करता है जो ब्रह्माण्डीय व्यवस्था और वास्तु-मण्डल की रक्षा करते हैं: आठ क्षैतिज दिशाएँ तथा ऊर्ध्व (ब्रह्मा) व अधः (विष्णु) के दो ऊर्ध्वाधर ध्रुव। वैदिक संहिताओं, पौराणिक आख्यानों और वास्तुशास्त्र के विधानों में प्रत्येक दिक्पाल एक विशिष्ट तत्त्व, देवी, वाहन, आयुध और बीज मन्त्र का अधिष्ठाता है।',
+    editorialFramingEn:
+      'Editorial Note: While early Vedic lists frequently focus on the Aṣṭa-Dikpāla (eight horizontal horizon guardians), classical Tantric, Vāstu Śāstra (Mānasāra, Mayamata), and Agamic temple architecture expand the system into the Daśa-Dikpāla by incorporating Brahmā (Zenith) and Viṣṇu/Ananta (Nadir), thereby completing the three-dimensional cosmic enclosure (Digbandhana).',
+    editorialFramingHi:
+      'संपादकीय टिप्पणी: यद्यपि प्रारंभिक वैदिक सूत्रों में आठ क्षैतिज अष्टदिक्पालों का उल्लेख मिलता है, तांत्रिक, आगमिक एवं वास्तुशास्त्रीय परम्पराओं (मानसार, मयमत) में ऊर्ध्व में ब्रह्मा और अधः में विष्णु/अनंत को सम्मिलित कर इसे त्रि-आयामी "दशदिक्पाल" व्यवस्था के रूप में पूर्ण किया गया है।',
+    methodologyEn: 'Directional Vastu alignment · Vedic Digbandhana liturgies · Iconographic weapon & vahana taxonomy · Bīja acoustic resonant mapping',
+    methodologyHi: 'दिशात्मक वास्तु संरेखण · वैदिक दिग्बन्धन मन्त्र-पद्धति · आयुध एवं वाहन प्रतिमाशास्त्र · बीजाक्षर नाद विज्ञान',
+    accentColor: '#F59E0B',
+    secondaryColor: '#B45309',
+    mandalaAngle: 257.14,
+    domainTagEn: 'DIRECTIONAL COSMOGRAPHY & VĀSTU',
+    domainTagHi: 'दिक्-ब्रह्माण्ड विज्ञान एवं वास्तुशास्त्र',
+    sourceRegisterEn: 'Yajurveda (Taittirīya Samhitā) · Mānasāra Vāstu Śāstra · Agni Purāṇa (Ch. 51) · Matsya Purāṇa · Śatapatha Brāhmaṇa',
+    sourceRegisterHi: 'यजुर्वेद (तैत्तिरीय संहिता) · मानसार वास्तुशास्त्र · अग्नि पुराण (अ. ५१) · मत्स्य पुराण · शतपथ ब्राह्मण',
+    subcategories: [
+      {
+        id: 'sub-ashta-dikpala-horizon',
+        sanskritName: 'अष्टदिक्पाल क्षितिज · Eight Horizon Guardians',
+        titleEn: 'The Eight Compass Guardians (Indra, Agni, Yama, Nirṛti, Varuṇa, Vāyu, Kubera, Īśāna)',
+        titleHi: 'आठ दिशाओं के दिक्पाल (इन्द्र, अग्नि, यम, निरृति, वरुण, वायु, कुबेर, ईशान)',
+        summaryEn: 'The eight cardinal and intermediate directional guardians presiding over the terrestrial and atmospheric horizons in temple mandalas and Vāstu Puruṣa layouts.',
+        summaryHi: 'वास्तु-पुरुष मण्डल और देवालयों के आठ क्षैतिज कोणों के अधिष्ठाता देव, उनके आयुध, वाहन और वैदिक बीज मन्त्र।',
+        keyTopicsEn: ['Indra (East) & Agni (SE)', 'Yama (South) & Nirṛti (SW)', 'Varuṇa (West) & Vāyu (NW)', 'Kubera (North) & Īśāna (NE)'],
+        keyTopicsHi: ['इन्द्र (पूर्व) एवं अग्नि (आग्नेय)', 'यम (दक्षिण) एवं निरृति (नैऋत्य)', 'वरुण (पश्चिम) एवं वायु (वायव्य)', 'कुबेर (उत्तर) एवं ईशान (ईशान)'],
+        sourceClassificationEn: 'Mānasāra & Taittirīya Samhitā',
+        sourceClassificationHi: 'मानसार एवं तैत्तिरीय संहिता',
+        articleSlug: 'indra-east-purva'
+      },
+      {
+        id: 'sub-urdhva-adhah-vertical',
+        sanskritName: 'ऊर्ध्वाधः अक्ष · Zenith & Nadir Vertical Axis',
+        titleEn: 'Brahmā (Zenith / Upward) & Viṣṇu (Nadir / Downward)',
+        titleHi: 'ब्रह्मा (ऊर्ध्व दिशा) एवं विष्णु (अधः दिशा) — ब्रह्माण्ड का ऊर्ध्वाधर मेरु-दण्ड',
+        summaryEn: 'The vertical cosmic axis completing the ten directions (Daśa-Diśā): Brahmā presiding over cosmic manifestation above and Viṣṇu preserving structural stability below.',
+        summaryHi: 'दशों दिशाओं को पूर्ण करने वाला ऊर्ध्वाधर अक्ष: ऊपर सृष्टि और ज्ञान के प्रतीक ब्रह्मा तथा नीचे स्थिरता और संरक्षण के आधार भगवान् विष्णु।',
+        keyTopicsEn: ['Brahmā & Saraswatī (Ūrdhva)', 'Viṣṇu & Lakṣmī (Adhaḥ)', 'Digbandhana Boundary Enclosure Rite'],
+        keyTopicsHi: ['ब्रह्मा एवं सरस्वती (ऊर्ध्व लोक)', 'विष्णु एवं लक्ष्मी (अधः पाताल/अनंत)', 'दिग्बन्धन एवं रक्षा-विधान'],
+        sourceClassificationEn: 'Agni Purāṇa & Vastu Śāstra',
+        sourceClassificationHi: 'अग्नि पुराण एवं वास्तुशास्त्र',
+        articleSlug: 'brahma-zenith-urdhva'
+      },
+      {
+        id: 'sub-dikpala-bija-mantras',
+        sanskritName: 'दिक्पाल बीज मन्त्र एवं पूजा विधान · Bīja Mantras & Liturgy',
+        titleEn: 'Sacred Bīja Mantras, Weapons & Divine Consorts of the Ten Guardians',
+        titleHi: 'दस दिक्पालों के बीज मन्त्र, आयुध, देवियाँ एवं सार्वभौमिक नमस्कार',
+        summaryEn: 'The acoustic seed syllables (Laṃ, Raṃ, Maṃ, Kṣaṃ, Vaṃ, Yaṃ, Śaṃ, Haṃ, Hrīṃ, Klīṃ) and universal peace namaskāra for cosmic spatial harmonization.',
+        summaryHi: 'दस दिशाओं के बीजाक्षर (लं, रं, मं, क्षं, वं, यं, शं, हं, ह्रीं, क्लीं) तथा सर्व-दिक्पाल नमस्कार मन्त्र का गूढ़ विज्ञान।',
+        keyTopicsEn: ['10 Directional Bīja Syllables', 'Consort Dyads (Indrāṇī, Svāhā, Yāmī, etc.)', 'Universal Dikpāla Namaskāra'],
+        keyTopicsHi: ['१० दिशात्मक बीजाक्षर', 'दिक्पाल शक्ति-युग्म (इन्द्राणी, स्वाहा आदि)', 'ॐ सर्वेभ्यो दिक्पालेभ्यो नमः'],
+        sourceClassificationEn: 'Tantric & Vedic Mantra-Śāstra',
+        sourceClassificationHi: 'तांत्रिक एवं वैदिक मन्त्र-शास्त्र',
+        articleSlug: 'dasha-dikpala-ten-directional-guardians'
+      }
+    ],
+    crossLinks: [],
+    articles: [...DASHA_DIKPALA_ARTICLES]
   }
 ];
 

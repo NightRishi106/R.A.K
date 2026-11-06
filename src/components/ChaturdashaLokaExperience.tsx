@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import {
   FOURTEEN_LOKAS,
   THREE_IMPORTANT_DISTINCTIONS,
-  LokaRecord,
+  LokaProfile,
   LokaCategory
 } from '../data/lokaCosmologyData';
 import { useLanguage } from '../context/LanguageContext';
@@ -36,7 +36,7 @@ export const ChaturdashaLokaExperience: React.FC<ChaturdashaLokaExperienceProps>
     }
   }, [initialLokaIndex]);
 
-  const selectedLoka: LokaRecord = useMemo(() => {
+  const selectedLoka: LokaProfile = useMemo(() => {
     return FOURTEEN_LOKAS.find((l) => l.number === selectedNumber) || FOURTEEN_LOKAS[0];
   }, [selectedNumber]);
 
@@ -376,10 +376,10 @@ export const ChaturdashaLokaExperience: React.FC<ChaturdashaLokaExperienceProps>
                           : 'bg-teal-500/15 text-teal-300 border-teal-400/35'
                       }`}
                     >
-                      {t(selectedLoka.categoryLabelEn, selectedLoka.categoryLabelHi)}
+                      {t(selectedLoka.divisionLabelEn, selectedLoka.divisionLabelHi)}
                     </span>
                     <span className="text-[11px] sm:text-xs font-mono text-stone-400">
-                      {t(selectedLoka.altNameEn, selectedLoka.altNameHi)}
+                      {t(selectedLoka.subtitleEn, selectedLoka.subtitleHi)}
                     </span>
                   </div>
                   <h4 className="text-xl sm:text-2xl md:text-3xl font-serif font-bold text-white mt-1 leading-snug">

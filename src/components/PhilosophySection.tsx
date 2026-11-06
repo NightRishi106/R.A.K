@@ -25,6 +25,7 @@ import Matrix64Chapter from './Matrix64Chapter';
 import MatrikaExperience from './MatrikaExperience';
 import ShriMeruExperience from './ShriMeruExperience';
 import { ChaturdashaLokaExperience } from './ChaturdashaLokaExperience';
+import DashaDikpalaExperience from './DashaDikpalaExperience';
 import TransparentLineScrollbar from './TransparentLineScrollbar';
 import { useLanguage } from '../context/LanguageContext';
 import {
@@ -603,6 +604,7 @@ export default function PhilosophySection() {
   const [focusedMatrikaProfileIdx, setFocusedMatrikaProfileIdx] = useState<number>(0);
   const [focusedAvaranaIdx, setFocusedAvaranaIdx] = useState<number | undefined>(undefined);
   const [focusedLokaIdx, setFocusedLokaIdx] = useState<number | undefined>(undefined);
+  const [focusedDikpalaIdx, setFocusedDikpalaIdx] = useState<number | undefined>(undefined);
   const [focusedMatrixCell, setFocusedMatrixCell] = useState<{ row: number; col: number }>({
     row: 0,
     col: 0
@@ -670,6 +672,8 @@ export default function PhilosophySection() {
       if (portal) {
         if (portal.chapterIndex === 5) {
           setFocusedAvaranaIdx(undefined);
+        } else if (portal.chapterIndex === 7) {
+          setFocusedDikpalaIdx(undefined);
         }
         setViewState(prev => ({
           index: portal.chapterIndex,
@@ -721,6 +725,8 @@ export default function PhilosophySection() {
           setFocusedAvaranaIdx(intIdx);
         } else if (chIdx === 6 && typeof intIdx === 'number') {
           setFocusedLokaIdx(intIdx);
+        } else if (chIdx === 7 && typeof intIdx === 'number') {
+          setFocusedDikpalaIdx(intIdx);
         }
         setViewState(prev => ({
           index: chIdx,
@@ -783,6 +789,7 @@ export default function PhilosophySection() {
   const isMatrikaView = viewState.index === 4;
   const isShriMeruView = viewState.index === 5;
   const isLokaView = viewState.index === 6;
+  const isDikpalaView = viewState.index === 7;
 
   const activePortal = getPortalByChapterIndex(viewState.index);
 
@@ -830,6 +837,8 @@ export default function PhilosophySection() {
       setFocusedAvaranaIdx(interactiveIndex);
     } else if (chapterIndex === 6 && typeof interactiveIndex === 'number') {
       setFocusedLokaIdx(interactiveIndex);
+    } else if (chapterIndex === 7 && typeof interactiveIndex === 'number') {
+      setFocusedDikpalaIdx(interactiveIndex);
     }
     if (routeState.mode === 'article') {
       setViewState(prev => ({
@@ -924,6 +933,11 @@ export default function PhilosophySection() {
                             '“Fourteen Lokas across the vertical axis of the Brahmanda — seven higher realms (Urdhva Lokas) and seven subterranean kingdoms (Adho Lokas / Patala) pivoted around Bhuloka.”',
                             '“ब्रह्माण्ड के ऊर्ध्वाधर अक्ष पर चौदह लोक — भूर्लोक (पृथ्वी) की धुरी से विभाजित सात उच्च लोक (ऊर्ध्व लोक) और सात भूमिगत लोक (अधो लोक / पाताल)।”'
                           )
+                        : isDikpalaView
+                          ? t(
+                              '“Ten divine guardians commanding the cardinal, intercardinal, and vertical axes of cosmic space — their weapons, mounts, consorts, and consecrated bīja mantras.”',
+                              '“दसों दिशाओं के अधिष्ठाता देव — आठ क्षैतिज दिशाएँ एवं ऊर्ध्व-अधः अक्ष, उनके अमोघ आयुध, पवित्र वाहन, सहगामिनी देवियाँ और प्रतिष्ठित बीज मन्त्र।”'
+                            )
                         : isBhairavView
                           ? t(
                               '“We do not approach Bhairav through fear alone. We investigate the traditions, symbols, histories, and evidence through which Bhairav is understood.”',
@@ -1427,6 +1441,22 @@ export default function PhilosophySection() {
                 >
                   <ChaturdashaLokaExperience
                     initialLokaIndex={focusedLokaIdx}
+                  />
+                </motion.div>
+              ) : studioChapterIndex === 7 ? (
+                /* VIEW 8: CHAPTER VIII — DASHA DIKPALA (THE TEN DIVINE GUARDIANS) */
+                <motion.div
+                  key="view-dasha-dikpala"
+                  custom={viewState.direction}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: shouldReduceMotion ? 0 : 0.38, ease: 'easeInOut' }}
+                  className="w-full"
+                >
+                  <DashaDikpalaExperience
+                    initialDirectionIndex={focusedDikpalaIdx}
                   />
                 </motion.div>
               ) : (

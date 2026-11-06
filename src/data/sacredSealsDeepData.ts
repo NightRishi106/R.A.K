@@ -2214,5 +2214,314 @@ const FOURTEEN_LOKAS_HIERARCHY_TABLES: ResearchComparisonTable[] = [
   ARTICLE_COMPARISON_TABLES[lokaSlug] = FOURTEEN_LOKAS_HIERARCHY_TABLES;
 });
 
+// ============================================================================
+// STRUCTURED TABLES FOR GATEWAY VIII: DASHA DIKPALA (THE TEN DIRECTIONAL GUARDIANS)
+// ============================================================================
+export const DASHA_DIKPALA_TABLES: ResearchComparisonTable[] = [
+  {
+    id: 'table-dasha-dikpala-complete-concordance',
+    articleSlug: 'dasha-dikpala-ten-directional-guardians',
+    titleEn: 'The Ten Guardians of the Directions (दश दिक्पालाः) · Complete Roster & Attributes',
+    titleHi: 'दश दिक्पाल (दश दिक्पालाः) · संपूर्ण १० दिशा-रक्षक देवता, शक्ति, मन्त्र, अस्त्र एवं वाहन',
+    captionEn:
+      'Direction • Deity • Goddess • Mantra • Weapon • Vehicle • Divine Domain — Universal Invocatory Namaskāra: ॐ सर्वेभ्यो दिक्पालेभ्यो नमः॥ (Om Sarvebhyo Dikpalebhyo Namah).',
+    captionHi:
+      'दिशा • देवता • शक्ति (देवी) • मूल-मंत्र • अस्त्र • वाहन • दिव्य अधिकार-क्षेत्र — सार्वभौमिक नमस्कार: ॐ सर्वेभ्यो दिक्पालेभ्यो नमः॥',
+    headersEn: [
+      '#',
+      'Direction & Type',
+      'Deity (दिक्पाल)',
+      'Goddess / Śakti',
+      'Consecrated Weapon',
+      'Vehicle (Vāhana)',
+      'Bīja Mantra',
+      'Cosmic Domain & Power'
+    ],
+    headersHi: [
+      'क्र.',
+      'दिशा एवं प्रकार',
+      'देवता (दिक्पाल)',
+      'सहचरी शक्ति / देवी',
+      'दिव्य अस्त्र',
+      'पवित्र वाहन',
+      'बीज-मन्त्र',
+      'दिव्य अधिकार-क्षेत्र'
+    ],
+    rowsEn: [
+      [
+        '01',
+        'East (पूर्व दिशा) · Cardinal',
+        'Indra (इन्द्र)',
+        'Indrāṇī / Śacī',
+        'Vajra (Thunderbolt)',
+        'Airāvata (Elephant)',
+        'ॐ लं इन्द्राय नमः॥ (Om Lam Indraya Namah)',
+        'Rain, storms, kingship, celestial power & royal sovereignty'
+      ],
+      [
+        '02',
+        'Southeast (आग्नेय दिशा) · Intercardinal',
+        'Agni (अग्नि)',
+        'Svāhā',
+        'Śakti / Spear',
+        'Ram (Meṣa)',
+        'ॐ रं अग्नये नमः॥ (Om Ram Agnaye Namah)',
+        'Fire, sacrifice, purification, digestion & metabolic transformation'
+      ],
+      [
+        '03',
+        'South (दक्षिण दिशा) · Cardinal',
+        'Yama (यम)',
+        'Yamī',
+        'Daṇḍa (Staff of Justice)',
+        'Buffalo (Mahiṣa)',
+        'ॐ मं यमाय नमः॥ (Om Mam Yamaya Namah)',
+        'Death, justice, karma, moral order & dharma'
+      ],
+      [
+        '04',
+        'Southwest (नैऋत्य दिशा) · Intercardinal',
+        'Nirṛti (निरृति)',
+        'Nirṛti herself in goddess traditions',
+        'Khaḍga (Sword)',
+        'Varies (Nara/Corpse, Lion)',
+        'ॐ क्षं नैऋत्याय नमः॥ (Om Ksham Nairityaya Namah)',
+        'Dissolution, decay, disorder, destruction & transition'
+      ],
+      [
+        '05',
+        'West (पश्चिम दिशा) · Cardinal',
+        'Varuṇa (वरुण)',
+        'Vāruṇī',
+        'Pāśa (Golden Noose)',
+        'Makara (Sea-Monster)',
+        'ॐ वं वरुणाय नमः॥ (Om Vam Varunaya Namah)',
+        'Oceans, waters, cosmic law (Ṛta) & moral truth'
+      ],
+      [
+        '06',
+        'Northwest (वायव्य दिशा) · Intercardinal',
+        'Vāyu (वायु)',
+        'Bhāratī (in iconographic registers)',
+        'Aṅkuśa (Goad)',
+        'Deer / Antelope (Mṛga)',
+        'ॐ यं वायवे नमः॥ (Om Yam Vayave Namah)',
+        'Wind, air, swift movement, Prāṇa & vital breath'
+      ],
+      [
+        '07',
+        'North (उत्तर दिशा) · Cardinal',
+        'Kubera (कुबेर)',
+        'Bhadrā / Kauberī',
+        'Gadā (Golden Mace)',
+        'Mongoose (Nakula) or Man',
+        'ॐ शं कुबेराय नमः॥ (Om Sham Kuberaya Namah)',
+        'Wealth, treasures, prosperity, Yakṣas & abundance'
+      ],
+      [
+        '08',
+        'Northeast (ईशान दिशा) · Intercardinal',
+        'Īśāna (ईशान)',
+        'Pārvatī / Īśānī',
+        'Triśūla (Trident)',
+        'Nandī (Bull)',
+        'ॐ हं ईशानाय नमः॥ (Om Ham Ishanaya Namah)',
+        'Spiritual wisdom, pure consciousness, sacred space & mokṣa'
+      ],
+      [
+        '09',
+        'Upward / Zenith (ऊर्ध्व दिशा) · Vertical',
+        'Brahmā (ब्रह्मा)',
+        'Sarasvatī',
+        'Vedas, Lotus & Kamaṇḍalu',
+        'Haṃsa (Swan)',
+        'ॐ ह्रीं ब्रह्मणे नमः॥ (Om Hrim Brahmane Namah)',
+        'Creation, knowledge, intellect (Buddhi) & cosmic manifestation'
+      ],
+      [
+        '10',
+        'Downward / Nadir (अधः दिशा) · Vertical',
+        'Viṣṇu (विष्णु)',
+        'Lakṣmī',
+        'Sudarśana Cakra',
+        'Garuḍa & Ananta Śeṣa',
+        'ॐ क्लीं विष्णवे नमः॥ (Om Klim Vishnave Namah)',
+        'Preservation, cosmic stability, protection & subterranean foundation'
+      ]
+    ],
+    rowsHi: [
+      [
+        '०१',
+        'पूर्व दिशा (East) · मुख्य दिशा',
+        'इन्द्र (Indra)',
+        'इन्द्राणी / शची',
+        'वज्र (Vajra)',
+        'ऐरावत (श्वेत गजराज)',
+        'ॐ लं इन्द्राय नमः॥',
+        'वर्षा, तूफान, देव-साम्राज्य, संप्रभुता एवं पराक्रम'
+      ],
+      [
+        '०२',
+        'आग्नेय दिशा (Southeast) · उपदिशा',
+        'अग्नि (Agni)',
+        'स्वाहा',
+        'शक्ति / भाला',
+        'मेष (बकरा / भेंड़)',
+        'ॐ रं अग्नये नमः॥',
+        'अग्नि, यज्ञ-हवि, पावनता, जठराग्नि एवं रूपांतरीकरण'
+      ],
+      [
+        '०३',
+        'दक्षिण दिशा (South) · मुख्य दिशा',
+        'यम (Yama)',
+        'यमी',
+        'दण्ड (काल-दण्ड)',
+        'महिष (काला भैंसा)',
+        'ॐ मं यमाय नमः॥',
+        'मृत्यु, न्याय, कर्म-फल, धर्म एवं पितृ-साम्राज्य'
+      ],
+      [
+        '०४',
+        'नैऋत्य दिशा (Southwest) · उपदिशा',
+        'निरृति (Nirriti)',
+        'निरृति (स्वयं देवी / राक्षसी)',
+        'खड्ग (तलवार)',
+        'नर (शव) अथवा सिंह',
+        'ॐ क्षं नैऋत्याय नमः॥',
+        'क्षय, लय, विनाश, अव्यवस्था एवं पुराने रूपों का अंत'
+      ],
+      [
+        '०५',
+        'पश्चिम दिशा (West) · मुख्य दिशा',
+        'वरुण (Varuna)',
+        'वारुणी',
+        'पाश (वरुण-पाश)',
+        'मकर (जल-जंतु)',
+        'ॐ वं वरुणाय नमः॥',
+        'महासागर, जल-तत्त्व, ऋत (सार्वभौमिक नियम) एवं सत्य'
+      ],
+      [
+        '०६',
+        'वायव्य दिशा (Northwest) · उपदिशा',
+        'वायु (Vayu)',
+        'भारती (प्रतिमाशास्त्र में)',
+        'अंकुश (Goad)',
+        'हरिण / मृग (Antelope)',
+        'ॐ यं वायवे नमः॥',
+        'वायु, पवन, गतिशीलता, प्राण-शक्ति एवं श्वास'
+      ],
+      [
+        '०७',
+        'उत्तर दिशा (North) · मुख्य दिशा',
+        'कुबेर (Kubera)',
+        'भद्रा / कौबेरी',
+        'गदा (स्वर्ण-गदा)',
+        'नकुल (नेवला) अथवा नर',
+        'ॐ शं कुबेराय नमः॥',
+        'धन, स्वर्ण-कोष, नव-निधियाँ, समृद्धि एवं यक्ष-अधिपत्य'
+      ],
+      [
+        '०८',
+        'ईशान दिशा (Northeast) · उपदिशा',
+        'ईशान (Ishana)',
+        'पार्वती / ईशानी',
+        'त्रिशूल (Trishula)',
+        'नन्दी (श्वेत वृषभ)',
+        'ॐ हं ईशानाय नमः॥',
+        'आध्यात्मिक ज्ञान, परा-चेतना, मोक्ष एवं पवित्र देव-स्थान'
+      ],
+      [
+        '०९',
+        'ऊर्ध्व दिशा (Zenith) · ऊर्ध्वाधर',
+        'ब्रह्मा (Brahma)',
+        'सरस्वती',
+        'वेद, कमल एवं कमण्डलु',
+        'हंस (राजहंस)',
+        'ॐ ह्रीं ब्रह्मणे नमः॥',
+        'सृष्टि-रचना, वेदों का ज्ञान, बुद्धि एवं ब्रह्माण्ड-अभिव्यक्ति'
+      ],
+      [
+        '१०',
+        'अधः दिशा (Nadir) · ऊर्ध्वाधर',
+        'विष्णु (Vishnu)',
+        'लक्ष्मी',
+        'सुदर्शन चक्र',
+        'गरुड़ एवं अनन्त शेषनाग',
+        'ॐ क्लीं विष्णवे नमः॥',
+        'पालन, स्थिरता, सार्वभौमिक संरक्षण एवं आधार-शिला'
+      ]
+    ]
+  },
+  {
+    id: 'table-dasha-dikpala-triad-axes',
+    articleSlug: 'dasha-dikpala-ten-directional-guardians',
+    titleEn: 'Cosmological Architecture of the Ten Directions: 4 Cardinal + 4 Intercardinal + 2 Vertical',
+    titleHi: 'दश-दिशाओं की ब्रह्माण्डीय संरचना: ४ मुख्य दिशाएँ + ४ उप-दिशाएँ (विदिशा) + २ ऊर्ध्वाधर अक्ष',
+    captionEn:
+      'How the ten directions form a complete isotropic spherical cage enclosing manifested creation and human temples.',
+    captionHi:
+      'दस दिशाएँ मिलकर किस प्रकार व्यक्त सृष्टि और मन्दिर-परिसर को चारों ओर से रक्षित रखने वाले सम्पूर्ण ब्रह्माण्डीय मण्डल का निर्माण करती हैं।',
+    headersEn: ['Axis Category', 'Count & Directions', 'Presiding Deities', 'Vāstu & Metaphysical Significance'],
+    headersHi: ['अक्ष वर्ग', 'संख्या एवं दिशाएँ', 'अधिष्ठाता देवता', 'वास्तु एवं तात्त्विक महत्त्व'],
+    rowsEn: [
+      [
+        'Pradhāna Diśā (Cardinal)',
+        '4: East, South, West, North',
+        'Indra, Yama, Varuṇa, Kubera',
+        'Primary orientation axes governing solar cycle, mortality, cosmic waters, and magnetic wealth.'
+      ],
+      [
+        'Vidiśā / Koṇa (Intercardinal)',
+        '4: Southeast, Southwest, Northwest, Northeast',
+        'Agni, Nirṛti, Vāyu, Īśāna',
+        'Diagonal junction points governing fire/kitchen, heavy grounding, ventilation, and meditation/temple altar.'
+      ],
+      [
+        'Ūrdhvādhaḥ (Vertical Axis)',
+        '2: Upward (Zenith) & Downward (Nadir)',
+        'Brahmā (Zenith) & Viṣṇu (Nadir)',
+        'The cosmic vertical pillar (axis mundi) linking celestial creation above with subterranean grounding stability below.'
+      ]
+    ],
+    rowsHi: [
+      [
+        'प्रधान दिशा (Cardinal)',
+        '४: पूर्व, दक्षिण, पश्चिम, उत्तर',
+        'इन्द्र, यम, वरुण, कुबेर',
+        'मुख्य दिशात्मक धुरियाँ जो सौर-चक्र, कर्म-न्याय, जल-तत्त्व और चुंबकीय समृद्धि को नियंत्रित करती हैं।'
+      ],
+      [
+        'विदिशा / कोण (Intercardinal)',
+        '४: आग्नेय, नैऋत्य, वायव्य, ईशान',
+        'अग्नि, निरृति, वायु, ईशान',
+        'संधि-कोण जो अग्नि/पाकशाला, भारी भार-धारण, वायु-प्रवाह तथा देव-पूजा वेदी के लिए विशिष्ट हैं।'
+      ],
+      [
+        'ऊर्ध्वाधः अक्ष (Vertical Axis)',
+        '२: ऊर्ध्व (आकाश) एवं अधः (पाताल)',
+        'ब्रह्मा (ऊर्ध्व) एवं विष्णु (अधः)',
+        'ब्रह्माण्डीय ऊर्ध्वाधर स्तम्भ (Axis Mundi) जो ऊपर की सृष्टि-चेतना को नीचे की आधारभूत स्थिरता से जोड़ता है।'
+      ]
+    ]
+  }
+];
+
+[
+  'dasha-dikpala-ten-directional-guardians',
+  'indra-east-purva',
+  'agni-southeast-agneya',
+  'yama-south-dakshina',
+  'nirriti-southwest-nairritya',
+  'varuna-west-pashchima',
+  'vayu-northwest-vayavya',
+  'kubera-north-uttara',
+  'ishana-northeast-ishana',
+  'brahma-zenith-urdhva',
+  'vishnu-nadir-adha'
+].forEach((slug) => {
+  ARTICLE_COMPARISON_TABLES[slug] = DASHA_DIKPALA_TABLES;
+});
+
+
 
 

@@ -42,7 +42,8 @@ const PORTAL_ICONS: React.ComponentType<any>[] = [
   Grid,       // IV · 64 Yogini (8 × 8)
   Sparkles,   // V · Eight Matrikas
   Layers,     // VI · Shri Meru Chakra
-  Mountain    // VII · The 14 Lokas
+  Mountain,   // VII · The 14 Lokas
+  Compass     // VIII · Daśa Dikpāla (10 Directional Guardians)
 ];
 
 const SealGeometricMotif: React.FC<{
@@ -403,6 +404,32 @@ const GatewaySealMotif: React.FC<{
           <circle cx="60" cy="60" r="3" fill={accentColor} />
         </g>
       )}
+
+      {chapterIndex === 7 && (
+        <g stroke={accentColor} fill="none" strokeWidth="1.05" opacity="0.85">
+          {/* Gateway VIII: Daśa Dikpāla 10 Directional Rays & Cosmic Axis */}
+          <circle cx="60" cy="60" r="28" />
+          <circle cx="60" cy="60" r="16" strokeDasharray="2 2" />
+          {/* 8 Horizontal Compass Directions */}
+          {Array.from({ length: 8 }).map((_, i) => {
+            const a = (i * Math.PI) / 4;
+            return (
+              <line
+                key={i}
+                x1={60 + Math.cos(a) * 8}
+                y1={60 + Math.sin(a) * 8}
+                x2={60 + Math.cos(a) * 34}
+                y2={60 + Math.sin(a) * 34}
+              />
+            );
+          })}
+          {/* Vertical Zenith / Nadir axis */}
+          <line x1="60" y1="18" x2="60" y2="102" strokeWidth="1.4" />
+          <polygon points="60,14 63,20 57,20" fill={accentColor} />
+          <polygon points="60,106 63,100 57,100" fill={accentColor} />
+          <circle cx="60" cy="60" r="3.5" fill={accentColor} />
+        </g>
+      )}
     </svg>
   );
 };
@@ -446,32 +473,32 @@ export const CircularMandalaNavigation: React.FC<CircularMandalaNavProps> = ({
         }}
       />
 
-      {/* Section Header: The Seven Sacred Gateways */}
+      {/* Section Header: The Eight Sacred Gateways */}
       <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#D3AD55]/35 bg-[#23160E]/90 mb-2.5">
           <Compass className="w-3.5 h-3.5 text-[#D3AD55]" />
           <span className="font-mono text-[9.5px] sm:text-[10px] uppercase tracking-[0.24em] text-[#D3AD55]">
             {t(
-              'SAPTA-DVĀRA · SEVEN SACRED GATEWAYS OF KNOWLEDGE',
-              'सप्त ज्ञान-द्वार · ७ पवित्र शोध द्वार'
+              'AṢṬA-DVĀRA · EIGHT SACRED GATEWAYS OF KNOWLEDGE',
+              'अष्ट ज्ञान-द्वार · ८ पवित्र शोध द्वार'
             )}
           </span>
         </div>
         <h3 className="text-xl sm:text-2xl md:text-3xl font-serif text-[#F2E5C9] tracking-wide">
           {t(
-            'The Seven Sacred Gateways — Engraved Portal Seals',
-            'सप्त ज्ञान-द्वार — ७ समर्पित वृत्ताकार शोध-द्वार'
+            'The Eight Sacred Gateways — Engraved Portal Seals',
+            'अष्ट ज्ञान-द्वार — ८ समर्पित वृत्ताकार शोध-द्वार'
           )}
         </h3>
         <p className="mt-1.5 text-xs sm:text-sm text-[#C8B69E]/80 font-serif max-w-2xl mx-auto leading-relaxed">
           {t(
-            'Select any of the seven Sacred Gateway boxes below to open its dedicated Category Landing Page, subcategory traditions, source-conscious monographs, and interactive research studio.',
+            'Select any of the eight Sacred Gateway boxes below to open its dedicated Category Landing Page, subcategory traditions, source-conscious monographs, and interactive research studio.',
             'किसी भी ज्ञान-द्वार बॉक्स पर क्लिक करके उसका समर्पित श्रेणी पृष्ठ, उप-परंपराएँ, मूल-स्रोत शोध-लेख एवं संवादात्मक अध्ययन कक्ष खोलें।'
           )}
         </p>
       </div>
 
-      {/* The 7 Sacred Gateways Grid — Box Cards with Engraved Circular Seals */}
+      {/* The 8 Sacred Gateways Grid — Box Cards with Engraved Circular Seals */}
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 px-1 sm:px-2">
           {RESEARCH_CATEGORY_PORTALS.map((portal, idx) => {

@@ -120,7 +120,7 @@ export const TransparentLineScrollbar: React.FC<TransparentLineScrollbarProps> =
       if (containerRef?.current) {
         resizeObserver.observe(containerRef.current);
         Array.from(containerRef.current.children).forEach((child) => {
-          resizeObserver?.observe(child);
+          resizeObserver?.observe(child as Element);
         });
       } else if (document.body) {
         resizeObserver.observe(document.body);
