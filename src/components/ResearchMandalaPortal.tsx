@@ -1294,7 +1294,6 @@ interface ArticleMonographPageViewProps {
   onBackToOverview: () => void;
   onOpenArticle: (categorySlug: string, articleSlug: string) => void;
   onLaunchStudioAtNode?: (chapterIndex: number, interactiveIndex?: number) => void;
-  children?: React.ReactNode;
 }
 
 // Helper to format section text into natural scholarly article paragraphs
@@ -1342,8 +1341,7 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
   onBackToCategory,
   onBackToOverview,
   onOpenArticle,
-  onLaunchStudioAtNode,
-  children
+  onLaunchStudioAtNode
 }) => {
   const { t } = useLanguage();
   const [copiedUrl, setCopiedUrl] = useState(false);
@@ -1387,11 +1385,6 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
     setTimeout(() => setCopiedUrl(false), 2000);
   };
 
-  const hasDedicatedInteractiveStudio =
-    !isStandaloneSealArticle &&
-    Boolean(children) &&
-    typeof article.interactiveIndex === 'number';
-
   const isEn = t('en', 'hi') === 'en';
   const customTables = ARTICLE_COMPARISON_TABLES[article.slug] || [];
   const keyFindingsList = isEn ? article.keyFindingsEn : article.keyFindingsHi;
@@ -1410,36 +1403,21 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
         </button>
 
         <div className="flex flex-wrap items-center gap-2">
+          {onLaunchStudioAtNode && typeof article.interactiveIndex === 'number' && (
+            <button
+              type="button"
+              onClick={() => onLaunchStudioAtNode(portal.chapterIndex, article.interactiveIndex)}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#D3AD55]/60 bg-[#26170F] hover:bg-[#362014] text-[#E8D4A8] font-mono text-[10px] uppercase tracking-wider transition-colors cursor-pointer shadow-sm active:scale-95"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-[#D3AD55]" />
+              <span>{t('Unit Interactive Studio', 'इकाई संवादात्मक कक्ष')}</span>
+            </button>
+          )}
           <span className="font-mono text-[9.5px] sm:text-[10px] uppercase tracking-[0.18em] px-2.5 py-1 rounded border border-[#D3AD55]/40 bg-[#23160E] text-[#D3AD55]">
             {article.code} · {unitLabel}
           </span>
         </div>
       </div>
-
-      {/* Live Interactive Studio Placed at the Very Top ONLY for Units With Their Own Interactive Studio */}
-      {hasDedicatedInteractiveStudio && (
-        <div className="rounded-2xl border border-[#D3AD55]/45 bg-[#120B07]/95 p-4 sm:p-6 space-y-4 shadow-[0_20px_50px_rgba(0,0,0,0.75)]">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#5A3922]/50 pb-3">
-            <div>
-              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-[#D3AD55]">
-                {t('INTERACTIVE RESEARCH APPARATUS', 'संवादात्मक शोध यंत्र एवं मानचित्रण')}
-              </span>
-              <h2 className="text-lg sm:text-2xl font-serif text-[#F5E8CE] mt-0.5">
-                {t(
-                  `${portal.shortTitleEn} — Live Interactive Studio`,
-                  `${portal.shortTitleHi} — संवादात्मक अध्ययन कक्ष`
-                )}
-              </h2>
-            </div>
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="font-mono text-[9.5px] uppercase tracking-[0.16em] px-2.5 py-1 rounded border border-[#D3AD55]/45 bg-[#23160E] text-[#D3AD55]">
-                {article.code} · {t(article.titleEn, article.titleHi)}
-              </span>
-            </div>
-          </div>
-          {children}
-        </div>
-      )}
 
       <div className="w-full max-w-6xl mx-auto space-y-6">
       {/* Main Archival Monograph Folio */}
@@ -2085,6 +2063,10 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
               kulaEn: 'Kālīkula Sovereign · 1st Mahāvidyā',
               kulaHi: 'कालीकुल अधिष्ठात्री · प्रथम महाविद्या',
               bija: 'क्रीं (Krīṃ)',
+              mulaMantra: {
+                sanskrit: 'ॐ कालीकायै नमः॥',
+                phonetic: 'Om Kalikayai Namah'
+              },
               img: '/assets/aistudio/image_6cc0fa29.png',
               altImg: '/assets/aistudio/mahavidya_01_kali.jpg',
               attributesEn: [
@@ -2113,6 +2095,10 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
               kulaEn: 'Kālīkula Nexus · 2nd Mahāvidyā',
               kulaHi: 'कालीकुल की द्वितीय महाविद्या · तारिणी शक्ति',
               bija: 'ह्रीं स्त्रीं हुं फट् (Hrīṃ Strīṃ Huṃ Phaṭ)',
+              mulaMantra: {
+                sanskrit: 'ॐ तारायै नमः॥',
+                phonetic: 'Om Tarayai Namah'
+              },
               img: '/assets/aistudio/mahavidya_02_tara.jpg',
               attributesEn: [
                 'Kartrī (Sacrificial Shears)',
@@ -2140,6 +2126,10 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
               kulaEn: 'Śrīkula Sovereign · 3rd Mahāvidyā',
               kulaHi: 'श्रीकुल अधिष्ठात्री · तृतीय महाविद्या',
               bija: 'श्रीं ह्रीं क्लीं ऐं सौः (Śrīṃ Hrīṃ Klīṃ Aiṃ Sauḥ)',
+              mulaMantra: {
+                sanskrit: 'ॐ त्रिपुरसुन्दर्यै नमः॥',
+                phonetic: 'Om Tripura Sundaryai Namah'
+              },
               img: '/assets/aistudio/image_a583fd6e.png',
               attributesEn: [
                 'Ikṣukodaṇḍa (Sugarcane Bow · Mind)',
@@ -2167,6 +2157,10 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
               kulaEn: 'Cosmic Mahākāśa · 4th Mahāvidyā',
               kulaHi: 'महाकाश-स्वरूपिणी · चतुर्थ महाविद्या',
               bija: 'ह्रीं (Hrīṃ — Māyā-Bīja)',
+              mulaMantra: {
+                sanskrit: 'ॐ भुवनेश्वर्यै नमः॥',
+                phonetic: 'Om Bhuvaneshvaryai Namah'
+              },
               img: '/assets/aistudio/mahavidya_04_bhuvaneshvari.jpg',
               attributesEn: [
                 'Pāśa (Noose of Cosmic Cohesion)',
@@ -2194,6 +2188,10 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
               kulaEn: 'Tapas & Kuṇḍalinī Agni · 5th Mahāvidyā',
               kulaHi: 'तपः-तेज एवं कुण्डलिनी शक्ति · पंचम महाविद्या',
               bija: 'हसैँ हसकरीं हसैँ (Hasaiṃ Hasakarīṃ Hasaiṃ)',
+              mulaMantra: {
+                sanskrit: 'ॐ भैरव्यै नमः॥',
+                phonetic: 'Om Bhairavyai Namah'
+              },
               img: '/assets/aistudio/mahavidya_05_bhairavi.jpg',
               attributesEn: [
                 'Japa-Mālā (Rosary of Mantric Letters)',
@@ -2221,6 +2219,10 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
               kulaEn: 'Vajra-Prāṇa Sacrifice · 6th Mahāvidyā',
               kulaHi: 'प्राण-यज्ञ एवं वज्र-योग · षष्ठ महाविद्या',
               bija: 'श्रीं ह्रीं क्लीं ऐं वज्रवैरोचनीये हुं हुं फट् स्वाहा',
+              mulaMantra: {
+                sanskrit: 'ॐ छिन्नमस्तायै नमः॥',
+                phonetic: 'Om Chhinnamastayai Namah'
+              },
               img: '/assets/aistudio/mahavidya_06_chhinnamasta.jpg',
               attributesEn: [
                 'Self-Severed Head Held in Left Hand',
@@ -2248,6 +2250,10 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
               kulaEn: 'Mahāpralaya Smoke · 7th Mahāvidyā',
               kulaHi: 'महाप्रलय-धूम्र एवं परम वैराग्य · सप्तम महाविद्या',
               bija: 'धूं धूं धूमावती ठः ठः (Dhūṃ Dhūṃ Dhūmāvatī Ṭhaḥ Ṭhaḥ)',
+              mulaMantra: {
+                sanskrit: 'ॐ धूमावत्यै नमः॥',
+                phonetic: 'Om Dhumavatyai Namah'
+              },
               img: '/assets/aistudio/mahavidya_07_dhumavati.jpg',
               attributesEn: [
                 'Śūrpa (Winnowing Basket of Viveka)',
@@ -2275,6 +2281,10 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
               kulaEn: 'Stambhana Vidyā · 8th Mahāvidyā',
               kulaHi: 'स्तम्भन-विद्या अधिष्ठात्री · अष्टम महाविद्या',
               bija: 'ह्लीं (Hlīṃ)',
+              mulaMantra: {
+                sanskrit: 'ॐ बगलामुख्यै नमः॥',
+                phonetic: 'Om Bagalamukhyai Namah'
+              },
               img: '/assets/aistudio/mahavidya_08_bagalamukhi.jpg',
               attributesEn: [
                 'Seizing the Adversary’s Tongue (Jihvā-Grahaṇa)',
@@ -2302,6 +2312,10 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
               kulaEn: 'Tantric Vāk & Sangīta · 9th Mahāvidyā',
               kulaHi: 'परा-वाक् एवं संगीत-कला · नवम महाविद्या',
               bija: 'ऐं ह्रीं श्रीं नमो भगवति उच्छिष्टचाण्डालि श्रीमातङ्गेश्वरि सर्वजनवशङ्करि स्वाहा',
+              mulaMantra: {
+                sanskrit: 'ॐ मातङ्ग्यै नमः॥',
+                phonetic: 'Om Matangyai Namah'
+              },
               img: '/assets/aistudio/mahavidya_09_matangi.jpg',
               attributesEn: [
                 'Emerald/Dark Complexion & Crimson-Gold Robes',
@@ -2329,6 +2343,10 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
               kulaEn: 'Śrī-Sampadā & Grace · 10th Mahāvidyā',
               kulaHi: 'श्री-सम्पदा एवं पूर्णत्व · दशम महाविद्या',
               bija: 'ऐं ह्रीं श्रीं क्लीं हसौः जगत्प्रसूत्यै नमः',
+              mulaMantra: {
+                sanskrit: 'ॐ कमलायै नमः॥',
+                phonetic: 'Om Kamalayai Namah'
+              },
               img: '/assets/aistudio/mahavidya_10_kamala.jpg',
               attributesEn: [
                 'Seated on a Blooming Cosmic Lotus (Padmāsana)',
@@ -2370,6 +2388,39 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
                   <span className="px-3 py-1 rounded border border-[#D3AD55]/50 bg-[#2C1810] text-[#D3AD55] font-mono text-[9px] font-bold uppercase tracking-[0.16em]">
                     {t('10 PLATES · KĀLĪ TO KAMALĀ', '१० फलक · काली से कमला तक')}
                   </span>
+                </div>
+
+                {/* ॥ दशमहाविद्या ॥ Dossier Header & Samarpana Mantra Banner */}
+                <div className="rounded-xl border-2 border-[#D3AD55]/55 bg-gradient-to-r from-[#28150B] via-[#1B0E07] to-[#28150B] p-4 sm:p-5 text-center space-y-2.5 shadow-md">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#D3AD55]/45 bg-[#140904]">
+                    <Sparkles className="w-3.5 h-3.5 text-[#D3AD55]" />
+                    <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.24em] text-[#D3AD55] font-bold">
+                      ॥ दशमहाविद्या ॥ · The Ten Great Wisdom Goddesses
+                    </span>
+                  </div>
+                  <div className="font-serif text-xs sm:text-sm text-[#F5E8CE]/90 tracking-wider font-medium">
+                    {t(
+                      'DEITY • MANIFESTATION FORM • SACRED ROOT NAME MANTRA',
+                      'देवी • स्वरूप • मूल नाम मंत्र'
+                    )}
+                  </div>
+                  <div className="pt-2.5 border-t border-[#5A3922]/60 flex flex-col items-center justify-center gap-1">
+                    <span className="font-mono text-[9px] sm:text-[9.5px] uppercase tracking-[0.2em] text-[#E06D53] font-bold">
+                      {t('SAMARPAṆA MANTRA · UNIVERSAL DEDICATION', 'समर्पण मंत्र · सार्वभौमिक समर्पण')}
+                    </span>
+                    <div className="font-serif text-base sm:text-lg md:text-xl font-bold text-[#FFD700] tracking-wide">
+                      ॥ ॐ दशमहाविद्याभ्यो नमः ॥
+                    </div>
+                    <div className="font-mono text-xs sm:text-sm text-[#E0B86C] font-semibold">
+                      Om Dashamahavidyabhyo Namah
+                    </div>
+                    <div className="font-serif text-xs text-[#C8B69E] italic">
+                      {t(
+                        'Salutations to the Ten Great Wisdom Goddesses.',
+                        'दशों महान् ज्ञान-स्वरूपिणी भगवती महाविद्याओं को हमारा सादर नमन।'
+                      )}
+                    </div>
+                  </div>
                 </div>
 
                 {/* Quick Jump Strip 01 to 10 */}
@@ -2423,9 +2474,26 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
                             </p>
                           </div>
 
+                          {/* Mūla Nāma Mantra Container */}
+                          <div className="p-2.5 rounded-lg bg-gradient-to-r from-[#1A0E08] via-[#2A150B] to-[#1A0E08] border border-[#D3AD55]/45 shadow-sm space-y-1">
+                            <div className="flex items-center justify-between text-[9px] font-mono uppercase tracking-wider text-[#D3AD55]">
+                              <span className="font-bold flex items-center gap-1">
+                                <Sparkles className="w-3 h-3 text-[#D3AD55]" />
+                                {t('Mūla Nāma Mantra', 'मूल नाम मंत्र')}
+                              </span>
+                              <span className="text-[#C8B69E]/70 font-serif text-[10px]">॥ मूल नाम मंत्र ॥</span>
+                            </div>
+                            <div className="font-serif text-sm sm:text-base font-bold text-[#FFDF80] tracking-wide">
+                              {mp.mulaMantra.sanskrit}
+                            </div>
+                            <div className="font-mono text-xs text-[#E0B86C]/90">
+                              {mp.mulaMantra.phonetic}
+                            </div>
+                          </div>
+
                           <div className="px-2.5 py-1 rounded bg-[#170E09]/90 border border-[#5A3922]/60 flex items-center justify-between gap-2">
                             <span className="font-mono text-[8.5px] uppercase tracking-wider text-[#C8B69E]">
-                              {t('Bīja / Mantra Formula', 'बीज / मन्त्र-सूत्र')}
+                              {t('Bīja Formula', 'बीज सूत्र')}
                             </span>
                             <span className="font-serif text-xs text-[#F5E8CE] font-semibold">
                               {mp.bija}
@@ -2469,6 +2537,10 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
               titleHi: 'नवदुर्गा का प्रथम स्वरूप — स्थिरता, दृढ़ संकल्प एवं आद्या प्राकट्य',
               dayBadgeEn: 'Day 01 · Pratipadā',
               dayBadgeHi: 'प्रथम दिवस · प्रतिपदा',
+              mulaMantra: {
+                sanskrit: 'ॐ देवी शैलपुत्र्यै नमः॥',
+                phonetic: 'Om Devi Shailaputryai Namah'
+              },
               dhyana: 'वन्दे वाञ्छितलाभाय चन्द्रार्धकृतशेखराम्। वृषारूढां शूलधरां शैलपुत्रीं यशस्विनीम्॥',
               img: '/assets/aistudio/image_99dd74af.png',
               attributesEn: [
@@ -2496,6 +2568,10 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
               titleHi: 'नवदुर्गा का द्वितीय स्वरूप — कठोर तपस्या, संयम एवं एकनिष्ठ साधना',
               dayBadgeEn: 'Day 02 · Dvitīyā',
               dayBadgeHi: 'द्वितीय दिवस · द्वितीया',
+              mulaMantra: {
+                sanskrit: 'ॐ देवी ब्रह्मचारिण्यै नमः॥',
+                phonetic: 'Om Devi Brahmacharinyai Namah'
+              },
               dhyana: 'दधाना करपद्माभ्यामक्षमालाकमण्डलू। देवी प्रसीदतु मयि ब्रह्मचारिण्यनुत्तमा॥',
               img: '/assets/aistudio/image_9f03925e.png',
               attributesEn: [
@@ -2523,6 +2599,10 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
               titleHi: 'नवदुर्गा का तृतीय स्वरूप — शौर्य, घण्टा-नाद से आसुरी शक्तियों का दमन एवं रक्षण',
               dayBadgeEn: 'Day 03 · Tṛtīyā',
               dayBadgeHi: 'तृतीय दिवस · तृतीया',
+              mulaMantra: {
+                sanskrit: 'ॐ देवी चन्द्रघण्टायै नमः॥',
+                phonetic: 'Om Devi Chandraghantayai Namah'
+              },
               dhyana: 'पिण्डजप्रवरारूढा चण्डकोपास्त्रकैर्युता। प्रसादं तनुते मह्यं चन्द्रघण्टेति विश्रुता॥',
               img: '/assets/aistudio/image_a632b449.png',
               attributesEn: [
@@ -2550,6 +2630,10 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
               titleHi: 'नवदुर्गा का चतुर्थ स्वरूप — सौर प्रभामण्डल, प्राण-ऊष्मा एवं ब्रह्माण्ड-सृजन',
               dayBadgeEn: 'Day 04 · Caturthī',
               dayBadgeHi: 'चतुर्थ दिवस · चतुर्थी',
+              mulaMantra: {
+                sanskrit: 'ॐ देवी कूष्माण्डायै नमः॥',
+                phonetic: 'Om Devi Kushmandayai Namah'
+              },
               dhyana: 'सुरासम्पूर्णकलशं रुधिराप्लुतमेव च। दधाना हस्तपद्माभ्यां कूष्माण्डा शुभदास्तु मे॥',
               img: '/assets/aistudio/image_214d9252.png',
               attributesEn: [
@@ -2577,6 +2661,10 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
               titleHi: 'नवदुर्गा का पञ्चम स्वरूप — वात्सल्यमयी मातृत्व, ज्ञान एवं धर्म-रक्षा',
               dayBadgeEn: 'Day 05 · Pañcamī',
               dayBadgeHi: 'पञ्चम दिवस · पंचमी',
+              mulaMantra: {
+                sanskrit: 'ॐ देवी स्कन्दमातायै नमः॥',
+                phonetic: 'Om Devi Skandamatayai Namah'
+              },
               dhyana: 'सिंहासनगता नित्यं पद्माञ्चितकरद्वया। शुभदास्तु सदा देवी स्कन्दमाता यशस्विनी॥',
               img: '/assets/aistudio/image_ec77b51b.png',
               attributesEn: [
@@ -2604,6 +2692,10 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
               titleHi: 'नवदुर्गा का षष्ठ स्वरूप — महिषासुरमर्दिनी, धर्म-रक्षिका एवं अमोघ योद्धा शक्ति',
               dayBadgeEn: 'Day 06 · Ṣaṣṭhī',
               dayBadgeHi: 'षष्ठ दिवस · षष्ठी',
+              mulaMantra: {
+                sanskrit: 'ॐ देवी कात्यायन्यै नमः॥',
+                phonetic: 'Om Devi Katyayanyai Namah'
+              },
               dhyana: 'चन्द्रहासोज्वलकरा शार्दूलवरवाहना। कात्यायनी शुभं दद्याद्देवी दानवघातिनी॥',
               img: '/assets/aistudio/image_b10c7bff.png',
               attributesEn: [
@@ -2631,6 +2723,10 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
               titleHi: 'नवदुर्गा का सप्तम स्वरूप — अंधकार, भय और आसुरी शक्तियों का संहार करने वाली शुभंकरी',
               dayBadgeEn: 'Day 07 · Mahāsaptamī',
               dayBadgeHi: 'सप्तम दिवस · महासप्तमी',
+              mulaMantra: {
+                sanskrit: 'ॐ देवी कालरात्र्यै नमः॥',
+                phonetic: 'Om Devi Kalaratryai Namah'
+              },
               dhyana: 'एकवेणी जपाकर्णपूरा नग्ना खरास्थिता। लम्बोष्ठी कर्णिकाकर्णी तैलाभ्यक्तशरीरिणी॥',
               img: '/assets/aistudio/image_996e55e6.png',
               attributesEn: [
@@ -2658,6 +2754,10 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
               titleHi: 'नवदुर्गा का अष्टम स्वरूप — पवित्रता, निर्मल आभा, प्रशांति एवं अमोघ कृपा',
               dayBadgeEn: 'Day 08 · Mahāṣṭamī',
               dayBadgeHi: 'अष्टम दिवस · महाष्टमी',
+              mulaMantra: {
+                sanskrit: 'ॐ देवी महागौर्यै नमः॥',
+                phonetic: 'Om Devi Mahagauryai Namah'
+              },
               dhyana: 'श्वेते वृषे समारूढा श्वेताम्बरधरा शुचिः। महागौरी शुभं दद्यान्महादेवप्रमोददा॥',
               img: '/assets/aistudio/image_6bffd444.png',
               attributesEn: [
@@ -2685,6 +2785,10 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
               titleHi: 'नवदुर्गा का नवम स्वरूप — अष्ट-सिद्धि दात्री, साधना की पूर्णता एवं परम साक्षात्कार',
               dayBadgeEn: 'Day 09 · Mahānavamī',
               dayBadgeHi: 'नवम दिवस · महानवमी',
+              mulaMantra: {
+                sanskrit: 'ॐ देवी सिद्धिदात्र्यै नमः॥',
+                phonetic: 'Om Devi Siddhidatryai Namah'
+              },
               dhyana: 'सिद्धगन्धर्वयक्षाद्यैरसुरैरमरैरपि। सेव्यमाना सदा भूयात् सिद्धिदा सिद्धिदायिनी॥',
               img: '/assets/aistudio/image_96818680.png',
               attributesEn: [
@@ -2727,6 +2831,39 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
                   <span className="px-3 py-1 rounded border border-[#D3AD55]/50 bg-[#2C1810] text-[#D3AD55] font-mono text-[9px] font-bold uppercase tracking-[0.16em]">
                     {t('9 PLATES · ŚAILAPUTRĪ TO SIDDHIDĀTRĪ', '९ फलक · शैलपुत्री से सिद्धिदात्री तक')}
                   </span>
+                </div>
+
+                {/* ॥ श्री नवदुर्गाभ्यो नमः ॥ Dossier Header & Samarpana Mantra Banner */}
+                <div className="rounded-xl border-2 border-[#D3AD55]/55 bg-gradient-to-r from-[#28150B] via-[#1B0E07] to-[#28150B] p-4 sm:p-5 text-center space-y-2.5 shadow-md">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#D3AD55]/45 bg-[#140904]">
+                    <Sparkles className="w-3.5 h-3.5 text-[#D3AD55]" />
+                    <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.24em] text-[#D3AD55] font-bold">
+                      ॥ श्री नवदुर्गाभ्यो नमः ॥ · Nine Divine Manifestations of Maa Durga
+                    </span>
+                  </div>
+                  <div className="font-serif text-xs sm:text-sm text-[#F5E8CE]/90 tracking-wider font-medium">
+                    {t(
+                      'DEITY • MANIFESTATION FORM • SACRED ROOT NAME MANTRA',
+                      'देवी • स्वरूप • मूल नाम मंत्र'
+                    )}
+                  </div>
+                  <div className="pt-2.5 border-t border-[#5A3922]/60 flex flex-col items-center justify-center gap-1">
+                    <span className="font-mono text-[9px] sm:text-[9.5px] uppercase tracking-[0.2em] text-[#E06D53] font-bold">
+                      {t('NAVADURGĀ SAMARPAṆA MANTRA · UNIVERSAL INVOCATION', '॥ नवदुर्गा समर्पण मंत्र ॥ · सार्वभौमिक समर्पण')}
+                    </span>
+                    <div className="font-serif text-base sm:text-lg md:text-xl font-bold text-[#FFD700] tracking-wide">
+                      ॐ ऐं ह्रीं क्लीं चामुण्डायै विच्चे॥
+                    </div>
+                    <div className="font-mono text-xs sm:text-sm text-[#E0B86C] font-semibold">
+                      Om Aim Hreem Kleem Chamundayai Vichche
+                    </div>
+                    <div className="font-serif text-xs text-[#C8B69E] italic">
+                      {t(
+                        'A widely used Navadurga and Chamunda invocation.',
+                        'व्यापक रूप से प्रयुक्त नवदुर्गा एवं चामुण्डा समर्पण मंत्र।'
+                      )}
+                    </div>
+                  </div>
                 </div>
 
                 {/* Quick Jump Strip 01 to 09 */}
@@ -2783,6 +2920,23 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
                             <p className="font-serif text-xs text-[#D3AD55] italic mt-0.5">
                               {t(np.titleEn, np.titleHi)}
                             </p>
+                          </div>
+
+                          {/* Mūla Nāma Mantra Container */}
+                          <div className="p-2.5 rounded-lg bg-gradient-to-r from-[#1A0E08] via-[#2A150B] to-[#1A0E08] border border-[#D3AD55]/45 shadow-sm space-y-1">
+                            <div className="flex items-center justify-between text-[9px] font-mono uppercase tracking-wider text-[#D3AD55]">
+                              <span className="font-bold flex items-center gap-1">
+                                <Sparkles className="w-3 h-3 text-[#D3AD55]" />
+                                {t('Mūla Nāma Mantra', 'मूल नाम मंत्र')}
+                              </span>
+                              <span className="text-[#C8B69E]/70 font-serif text-[10px]">॥ मूल नाम मंत्र ॥</span>
+                            </div>
+                            <div className="font-serif text-sm sm:text-base font-bold text-[#FFDF80] tracking-wide">
+                              {np.mulaMantra.sanskrit}
+                            </div>
+                            <div className="font-mono text-xs text-[#E0B86C]/90">
+                              {np.mulaMantra.phonetic}
+                            </div>
                           </div>
 
                           <div className="px-2.5 py-1.5 rounded bg-[#170E09]/90 border border-[#5A3922]/60 space-y-0.5">

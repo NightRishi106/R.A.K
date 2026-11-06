@@ -404,12 +404,13 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         'A comparative interpretive framework across the ten Great Wisdom Goddesses (Daśa Mahāvidyā). Note: Recurring associations and symbolic themes vary across individual Tantric scriptures, regional lineages, and iconographic forms (cf. David Kinsley; Jae-Eun Shin).',
       captionHi:
         'दस महाविद्याओं (दशमहाविद्या) की तुलनात्मक दार्शनिक एवं प्रतिमाशास्त्रीय रूपरेखा। विशेष टिप्पणी: विभिन्न तांत्रिक ग्रन्थों, आम्नायों और क्षेत्रीय परम्पराओं में इनके क्रम और प्रतीकात्मक अर्थों में विविधता मिलती है।',
-      headersEn: ['#', 'Mahāvidyā (Devanāgarī & IAST)', 'Core Associations & Familiar Iconography', 'Central Theme', 'Question for Philosophical Research'],
-      headersHi: ['क्र.', 'महाविद्या (देवनागरी एवं IAST)', 'मुख्य संबद्धता एवं प्रमुख प्रतिमाशास्त्रीय लक्षण', 'केंद्रीय विषय', 'दार्शनिक शोध हेतु मुख्य प्रश्न'],
+      headersEn: ['#', 'Mahāvidyā (Devanāgarī & IAST)', 'Mūla Nāma Mantra', 'Core Associations & Familiar Iconography', 'Central Theme', 'Question for Philosophical Research'],
+      headersHi: ['क्र.', 'महाविद्या (देवनागरी एवं IAST)', 'मूल नाम मंत्र', 'मुख्य संबद्धता एवं प्रमुख प्रतिमाशास्त्रीय लक्षण', 'केंद्रीय विषय', 'दार्शनिक शोध हेतु मुख्य प्रश्न'],
       rowsEn: [
         [
           '1',
           'काली · Kālī (Kālikā) — The Power of Time',
+          'ॐ कालीकायै नमः॥\n(Om Kalikayai Namah)',
           'Time, death, transformation, dissolution of limiting identities & maternal liberation; dark/black complexion, disheveled hair, garland of skulls, standing upon Śiva',
           'Time and dissolution',
           'What happens to identity when all forms are impermanent?'
@@ -417,6 +418,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         [
           '2',
           'तारा · Tārā — The Saviouress',
+          'ॐ तारायै नमः॥\n(Om Tarayai Namah)',
           'Protection, deliverance across danger, and liberating speech; blue/dark coloration, fierce expression, weapons/ritual implements, cremation-ground imagery (distinct from yet historically studied alongside Buddhist Tārā)',
           'Deliverance and protection',
           'What does it mean to cross beyond danger or suffering?'
@@ -424,6 +426,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         [
           '3',
           'त्रिपुरसुन्दरी · Tripurasundarī (Ṣoḍaśī · Lalitā) — Beauty of the Three Worlds',
+          'ॐ त्रिपुरसुन्दर्यै नमः॥\n(Om Tripura Sundaryai Namah)',
           'Central to Śrīvidyā & Śrīcakra; youthful radiant form, red garments, jeweled crown, four arms holding sugarcane bow, five flowery arrows, noose (pāśa), and goad (aṅkuśa)',
           'Beauty and sovereignty',
           'How can the manifested universe express divine harmony?'
@@ -431,6 +434,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         [
           '4',
           'भुवनेश्वरी · Bhuvaneśvarī — The Queen of the Worlds',
+          'ॐ भुवनेश्वर्यै नमः॥\n(Om Bhuvaneshvaryai Namah)',
           'Cosmos as the spatial expanse in which manifestation unfolds; regal radiant Goddess with elaborate ornaments, holding noose and goad with gestures of abhaya (reassurance) and varada (blessing)',
           'Cosmic expanse',
           'How is the universe understood as a domain of divine power?'
@@ -438,6 +442,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         [
           '5',
           'त्रिपुरभैरवी · Tripurā Bhairavī — The Fierce Radiance',
+          'ॐ भैरव्यै नमः॥\n(Om Bhairavyai Namah)',
           'Fierce divine power, tapas, discipline, and transformative energy; red/fiery coloration, crown, multiple arms with weapons or ritual implements, combining royal and ascetic intensity',
           'Intensity and transformation',
           'What is the role of discipline and formidable energy?'
@@ -445,6 +450,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         [
           '6',
           'छिन्नमस्ता · Chhinnamastā — The Self-Decapitated Goddess',
+          'ॐ छिन्नमस्तायै नमः॥\n(Om Chhinnamastayai Namah)',
           'Self-sacrifice, circulation of vital life-force, and the paradox of selfhood; stands holding her own severed head while three streams of blood nourish her head and two attendant figures',
           'Sacrifice and life force',
           'How are giving, nourishment, and destruction interconnected?'
@@ -452,6 +458,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         [
           '7',
           'धूमावती · Dhūmāvatī — The Smoky Goddess',
+          'ॐ धूमावत्यै नमः॥\n(Om Dhumavatyai Namah)',
           'Smoke (dhūma), absence, deprivation, old age, and widowhood; elderly woman with disheveled hair, worn clothing, winnowing basket (śūrpa), and crow-associated austerity',
           'Absence and impermanence',
           'Can the sacred be recognized in loss and deprivation?'
@@ -459,6 +466,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         [
           '8',
           'बगलामुखी · Bagalāmukhī (Bagalā) — The Power of Arresting',
+          'ॐ बगलामुख्यै नमः॥\n(Om Bagalamukhyai Namah)',
           'Arresting, restraining, or immobilizing hostile speech and action; yellow/golden coloration, yellow garments, seated on a throne, restraining an adversary’s tongue with a club raised',
           'Arrest and restraint',
           'What does it mean to interrupt harmful action or speech?'
@@ -466,6 +474,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         [
           '9',
           'मातङ्गी · Mātaṅgī — The Goddess of Speech and Art',
+          'ॐ मातङ्ग्यै नमः॥\n(Om Matangyai Namah)',
           'Spoken language, music, learning, artistic expression, and knowledge challenging social boundaries; dark/emerald-greenish hue, royal throne, veena (lute), and affinities with yet distinct from Sarasvatī',
           'Speech and expression',
           'How are knowledge, language, art, and authority related?'
@@ -473,6 +482,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         [
           '10',
           'कमला · Kamalā (Kamalātmikā) — The Lotus Goddess',
+          'ॐ कमलायै नमः॥\n(Om Kamalayai Namah)',
           'Prosperity, fertility, auspiciousness, beauty, and flourishing; golden complexion, seated on a lotus, holding lotuses while elephants pour lustral water over her (closely identified with Lakṣmī)',
           'Prosperity and auspiciousness',
           'How should abundance and spiritual life be understood together?'
@@ -482,6 +492,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         [
           '१',
           'काली · Kālī (कालिका) — काल की अधिष्ठात्री शक्ति',
+          'ॐ कालीकायै नमः॥\n(Om Kalikayai Namah)',
           'काल, मृत्यु, रूपांतरण, सीमित अहं का लय एवं मातृवत् करुणा; श्यामल/कृष्ण वर्ण, मुक्त केश, मुण्डमाला, खड्ग एवं शिव के वक्ष पर स्थित मुद्रा',
           'काल एवं लय (Time & Dissolution)',
           'जब समस्त रूप अनित्य हैं, तब अस्मिता (Identity) का स्वरूप क्या रहता है?'
@@ -489,6 +500,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         [
           '२',
           'तारा · Tārā — तारिणी एवं संकट-मोचनी शक्ति',
+          'ॐ तारायै नमः॥\n(Om Tarayai Namah)',
           'रक्षा, भव-संकट से पार लगाना एवं वाक्-शक्ति; नील/श्यामल वर्ण, उग्र मुद्रा, कर्तरी-खड्ग-पद्म एवं श्मशान-वास (हिन्दू एवं बौद्ध तारा परंपराओं का तुलनात्मक ऐतिहासिक संदर्भ)',
           'उद्धार एवं संरक्षण (Deliverance & Protection)',
           'भय, संकट या दुःख के पार जाने (तरण) का वास्तविक दार्शनिक अर्थ क्या है?'
@@ -496,6 +508,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         [
           '३',
           'त्रिपुरसुन्दरी · Tripurasundarī (षोडशी · ललिता) — त्रैलोक्य-सुन्दरी',
+          'ॐ त्रिपुरसुन्दर्यै नमः॥\n(Om Tripura Sundaryai Namah)',
           'श्रीविद्या एवं श्रीचक्र की अधिष्ठात्री; अरुण आभा, रत्नजटित मुकुट, चतुर्भुज रूप में इक्षु-धनुष, पंच-पुष्पबाण, पाश और अंकुश धारिणी',
           'सौन्दर्य एवं ऐश्वर्य-सम्पन्न संप्रभुता',
           'प्रकट ब्रह्माण्ड दिव्य सामरस्य और सौन्दर्य की अभिव्यक्ति कैसे बनता है?'
@@ -503,6 +516,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         [
           '४',
           'भुवनेश्वरी · Bhuvaneśvarī — भुवनों की अधीश्वरी',
+          'ॐ भुवनेश्वर्यै नमः॥\n(Om Bhuvaneshvaryai Namah)',
           'ब्रह्माण्डीय आकाश एवं सृष्टि के विस्तार की स्वामिनी; सौम्य राजकीय तेज, पाश, अंकुश तथा अभय एवं वरद मुद्रा से युक्त',
           'ब्रह्माण्डीय विस्तार (Cosmic Expanse)',
           'संपूर्ण विश्व को पराशक्ति के चिन्मय क्षेत्र (Domain) के रूप में कैसे समझा जाए?'
@@ -510,6 +524,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         [
           '५',
           'त्रिपुरभैरवी · Tripurā Bhairavī — प्रचण्ड तेज एवं तपःशक्ति',
+          'ॐ भैरव्यै नमः॥\n(Om Bhairavyai Namah)',
           'उग्र दिव्य शक्ति, अनुशासन, तप एवं रूपांतरणकारी ऊर्जा; रक्त/अग्निवर्ण आभा, मुकुट, बहुभुजाओं में शस्त्र अथवा जपमाला-पुस्तक',
           'तीव्रता एवं रूपांतरण (Intensity & Transformation)',
           'साधना में कठोर अनुशासन और प्रचण्ड ऊर्जा की क्या भूमिका है?'
@@ -517,6 +532,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         [
           '६',
           'छिन्नमस्ता · Chhinnamastā — स्व-शीर्षच्छेदिनी महाविद्या',
+          'ॐ छिन्नमस्तायै नमः॥\n(Om Chhinnamastayai Namah)',
           'आत्म-त्याग, प्राण-शक्ति का संचरण, जीवन-मृत्यु का अंतर्संबंध एवं अहं का विखंडन; स्व-कटे मस्तक को हाथ में धारण किए तीन रक्त-धाराओं से स्वयं व दो सहचरियों का पोषण',
           'त्याग एवं प्राण-शक्ति (Sacrifice & Life Force)',
           'उत्सर्ग (त्याग), पोषण और संहार एक-दूसरे से किस प्रकार जुड़े हैं?'
@@ -524,6 +540,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         [
           '७',
           'धूमावती · Dhūmāvatī — धूम्र-रूपा एवं अभाव में निहित सत्य',
+          'ॐ धूमावत्यै नमः॥\n(Om Dhumavatyai Namah)',
           'धूम (धुआँ), अभाव, वृद्धावस्था, वैधव्य एवं लौकिक समृद्धि से बहिष्कृत यथार्थ; वृद्धा स्वरूप, शूर्प (सूप) और काक-ध्वज रथ से संबद्ध',
           'अभाव एवं अनित्यता (Absence & Impermanence)',
           'क्या हानि, रिक्तता और अभाव में भी पवित्र सत्ता का साक्षात्कार संभव है?'
@@ -531,6 +548,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         [
           '८',
           'बगलामुखी · Bagalāmukhī (बगला) — स्तम्भन शक्ति',
+          'ॐ बगलामुख्यै नमः॥\n(Om Bagalamukhyai Namah)',
           'शत्रुतापूर्ण वाणी, गति और आक्रामक क्रियाओं का स्तम्भन (रोकना); पीत (पीला/स्वर्ण) वर्ण, पीताम्बर, सिंहासन पर आसीन होकर विरोधी की जिह्वा को नियंत्रित करती हुईं',
           'स्तम्भन एवं नियंत्रण (Arrest & Restraint)',
           'हानिकारक वाणी या आक्रामक क्रिया को बाधित/स्तम्भित करने का क्या तात्पर्य है?'
@@ -538,6 +556,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         [
           '९',
           'मातङ्गी · Mātaṅgī — वाक्, संगीत एवं कला की अधिष्ठात्री',
+          'ॐ मातङ्ग्यै नमः॥\n(Om Matangyai Namah)',
           'वाणी, संगीत, विद्या, कलात्मक अभिव्यक्ति एवं सामाजिक सीमाओं का अतिक्रमण करने वाला ज्ञान; मरकत-श्यामल वर्ण, वीणा-धारिणी, सरस्वती के सदृश किंतु विशिष्ट तांत्रिक स्वरूप',
           'वाणी एवं अभिव्यक्ति (Speech & Expression)',
           'ज्ञान, भाषा, कला और सामाजिक अधिकार परस्पर किस प्रकार संबद्ध हैं?'
@@ -545,6 +564,7 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         [
           '१०',
           'कमला · Kamalā (कमलात्मिका) — पद्म-वासिनी ऐश्वर्य शक्ति',
+          'ॐ कमलायै नमः॥\n(Om Kamalayai Namah)',
           'समृद्धि, उर्वरता, मांगल्य, सौन्दर्य एवं प्रचुरता; स्वर्ण आभा, पद्मासन, कर-कमलों में पद्म एवं गजों द्वारा अभिषेक (लक्ष्मी से प्रगाढ़ तादात्म्य)',
           'समृद्धि एवं मांगल्य (Prosperity & Auspiciousness)',
           'भौतिक प्रचुरता और आध्यात्मिक जीवन को एक साथ कैसे समझा जाना चाहिए?'
@@ -982,60 +1002,69 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         'The Navadurgā are commonly worshipped in sequence over the nine nights of Navarātri. This familiar order is documented in the Devī Kavaca, a protective hymn traditionally associated with the Devī Māhātmya. Precise observances, colors, offerings, and local narratives vary by region and community.',
       captionHi:
         'नवरात्रि की नौ रात्रियों में नवदुर्गा की क्रमिक उपासना की जाती है। यह प्रसिद्ध क्रम दुर्गा सप्तशती (देवी माहात्म्य) से संबद्ध रक्षा-स्तोत्र "देवी कवच" में प्रलेखित है।',
-      headersEn: ['Navarātri Day', 'Goddess (IAST & Devanāgarī)', 'Meaning & Traditional Mount / Attributes', 'Main Traditional Association'],
-      headersHi: ['नवरात्रि दिवस', 'देवी (संस्कृत एवं IAST)', 'शाब्दिक अर्थ एवं वाहन / प्रमुख प्रतीक', 'मुख्य पारंपरिक संबंध एवं आध्यात्मिक भाव'],
+      headersEn: ['Navarātri Day', 'Goddess (IAST & Devanāgarī)', 'Mūla Nāma Mantra', 'Meaning & Traditional Mount / Attributes', 'Main Traditional Association'],
+      headersHi: ['नवरात्रि दिवस', 'देवी (संस्कृत एवं IAST)', 'मूल नाम मंत्र', 'शाब्दिक अर्थ एवं वाहन / प्रमुख प्रतीक', 'मुख्य पारंपरिक संबंध एवं आध्यात्मिक भाव'],
       rowsEn: [
         [
           '1',
           'Śailaputrī (शैलपुत्री)',
+          'ॐ देवी शैलपुत्र्यै नमः॥\n(Om Devi Shailaputryai Namah)',
           'Daughter of the Mountain · Mount: Bull (Nandī) · Trident & Lotus',
           'Mountains, beginnings, grounding, and the Goddess as daughter of Himālaya (Pārvatī reborn after Satī)'
         ],
         [
           '2',
           'Brahmacāriṇī (ब्रह्मचारिणी)',
+          'ॐ देवी ब्रह्मचारिण्यै नमः॥\n(Om Devi Brahmacharinyai Namah)',
           'She Who Practices Brahmacarya · Attributes: Rosary (akṣamālā) & Water Pot (kamaṇḍalu)',
           'Penance (tapasyā), devotion, self-restraint, and disciplined spiritual practice'
         ],
         [
           '3',
           'Candraghaṇṭā (चन्द्रघण्टा)',
+          'ॐ देवी चन्द्रघण्टायै नमः॥\n(Om Devi Chandraghantayai Namah)',
           'Crescent Moon Like a Bell · Mount: Tiger or Lion · Multi-armed with weapons & bell',
           'Courage, protection, and martial readiness'
         ],
         [
           '4',
           'Kūṣmāṇḍā (कूष्माण्डा)',
+          'ॐ देवी कूष्माण्डायै नमः॥\n(Om Devi Kushmandayai Namah)',
           'Cosmic Warmth & Radiance · Mount: Lion · Eight arms with weapons, rosary & nectar jar',
           'Creative radiance, solar illumination, and cosmic manifestation (brahmāṇḍa)'
         ],
         [
           '5',
           'Skandamātā (स्कन्दमाता)',
+          'ॐ देवी स्कन्दमातायै नमः॥\n(Om Devi Skandamatayai Namah)',
           'Mother of Skanda (Kārttikeya) · Mount: Lotus / Lion · Holding child Skanda & lotuses',
           'Motherhood, nurture, auspiciousness, and divine protection'
         ],
         [
           '6',
           'Kātyāyanī (कात्यायनी)',
+          'ॐ देवी कात्यायन्यै नमः॥\n(Om Devi Katyayanyai Namah)',
           'Manifested in Sage Kātyāyana’s Hermitage · Mount: Lion · Sword, lotus, abhaya & varada',
           'Warrior power, defense of cosmic order, and the defeat of demonic forces'
         ],
         [
           '7',
           'Kālarātrī (कालरात्रि)',
+          'ॐ देवी कालरात्र्यै नमः॥\n(Om Devi Kalaratryai Namah)',
           'The Dark Night or Night of Time · Mount: Donkey (gardabha) · Fierce protective form (Śubhaṅkarī)',
           'Fierce protection, confrontation with danger, and the destruction of fear'
         ],
         [
           '8',
           'Mahāgaurī (महागौरी)',
+          'ॐ देवी महागौर्यै नमः॥\n(Om Devi Mahagauryai Namah)',
           'The Great Radiant or Fair One · Mount: White Bull · Trident, drum (ḍamaru), white garments',
           'Purity, serenity, luminous grace, and auspiciousness'
         ],
         [
           '9',
           'Siddhidātrī (सिद्धिदात्री)',
+          'ॐ देवी सिद्धिदात्र्यै नमः॥\n(Om Devi Siddhidatryai Namah)',
           'Bestower of Siddhis · Seat/Mount: Lotus or Lion · Conch, discus, mace & lotus',
           'Spiritual accomplishments, fulfillment, and the bestowal of siddhis'
         ]
@@ -1044,54 +1073,63 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
         [
           '१',
           'शैलपुत्री (Śailaputrī)',
+          'ॐ देवी शैलपुत्र्यै नमः॥\n(Om Devi Shailaputryai Namah)',
           'पर्वतराज हिमालय की पुत्री · वाहन: वृषभ (नन्दी) · त्रिशूल एवं कमल',
           'पर्वत, आध्यात्मिक आरंभ, स्थिरता और हिमालय-पुत्री पार्वती के रूप में देवी का प्राकट्य'
         ],
         [
           '२',
           'ब्रह्मचारिणी (Brahmacāriṇī)',
+          'ॐ देवी ब्रह्मचारिण्यै नमः॥\n(Om Devi Brahmacharinyai Namah)',
           'ब्रह्मचर्य और तपस्या का आचरण करने वाली · प्रतीक: अक्षमाला एवं कमण्डलु',
           'तपस्या, निष्ठा, आत्म-संयम और अनुशासित आध्यात्मिक साधना'
         ],
         [
           '३',
-          'चन्द्रघण्टा (Candraghaण्टा)',
+          'चन्द्रघण्टा (Candraghaṇṭā)',
+          'ॐ देवी चन्द्रघण्टायै नमः॥\n(Om Devi Chandraghantayai Namah)',
           'मस्तक पर घण्टे के आकार का अर्धचन्द्र · वाहन: बाघ या सिंह · दशभुजा आयुधधारी रूप',
           'साहस, भक्तों की रक्षा और आसुरी शक्तियों के विरुद्ध सामरिक तत्परता'
         ],
         [
           '४',
-          'कूष्माण्डा (Kūṣmāṇḍा)',
+          'कूष्माण्डा (Kūṣmāṇḍā)',
+          'ॐ देवी कूष्माण्डायै नमः॥\n(Om Devi Kushmandayai Namah)',
           'ब्रह्माण्डीय ऊष्मा एवं तेज · वाहन: सिंह · अष्टभुजा, कमण्डलु, धनुष, बाण, कमल व जपमाला',
           'सृजनात्मक तेज, सूर्य-समान प्रकाश और ब्रह्माण्ड की अभिव्यक्ति'
         ],
         [
           '५',
           'स्कन्दमाता (Skandamātā)',
+          'ॐ देवी स्कन्दमातायै नमः॥\n(Om Devi Skandamatayai Namah)',
           'भगवान् स्कन्द (कार्तिकेय) की माता · आसन/वाहन: पद्मासना / सिंह · गोद में बालक स्कन्द',
           'मातृत्व, वात्सल्य, पोषण और दिव्य संरक्षण'
         ],
         [
           '६',
           'कात्यायनी (Kātyāyanī)',
+          'ॐ देवी कात्यायन्यै नमः॥\n(Om Devi Katyayanyai Namah)',
           'महर्षि कात्यायन के आश्रम में प्रकट · वाहन: सिंह · खड्ग, कमल, अभय एवं वरद मुद्रा',
           'योद्धा शक्ति, धर्म की रक्षा और आसुरी शक्तियों का विनाश'
         ],
         [
           '७',
           'कालरात्रि (Kālarātrī)',
+          'ॐ देवी कालरात्र्यै नमः॥\n(Om Devi Kalaratryai Namah)',
           'महाकाल की रात्रि · वाहन: गर्दभ (गधा) · उग्र रक्षिका एवं शुभंकरी स्वरूप',
           'उग्र संरक्षण, संकट का निर्भय सामना और भय का पूर्ण विनाश'
         ],
         [
           '८',
           'महागौरी (Mahāgaurī)',
+          'ॐ देवी महागौर्यै नमः॥\n(Om Devi Mahagauryai Namah)',
           'परम उज्ज्वल एवं गौर वर्ण वाली · वाहन: श्वेत वृषभ · त्रिशूल, डमरू एवं श्वेत वस्त्र',
           'पवित्रता, प्रशांति, निर्मल आभा और मांगल्य'
         ],
         [
           '९',
           'सिद्धिदात्री (Siddhidātrī)',
+          'ॐ देवी सिद्धिदात्र्यै नमः॥\n(Om Devi Siddhidatryai Namah)',
           'सिद्धियों को प्रदान करने वाली · आसन/वाहन: कमल या सिंह · शंख, चक्र, गदा एवं पद्म',
           'आध्यात्मिक पूर्णता, साधना की सिद्धि और अष्ट-सिद्धियों का वरदान'
         ]

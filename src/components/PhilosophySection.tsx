@@ -840,14 +840,6 @@ export default function PhilosophySection() {
     } else if (chapterIndex === 7 && typeof interactiveIndex === 'number') {
       setFocusedDikpalaIdx(interactiveIndex);
     }
-    if (routeState.mode === 'article') {
-      setViewState(prev => ({
-        index: chapterIndex,
-        direction: chapterIndex >= prev.index ? 1 : -1
-      }));
-      scrollDedicatedPageToTop();
-      return;
-    }
     const targetPortal = getPortalByChapterIndex(chapterIndex);
     handleOpenCategoryPortal(targetPortal.slug);
   };
@@ -1839,9 +1831,7 @@ export default function PhilosophySection() {
                         onLaunchStudioAtNode={
                           hasDedicatedInteractiveStudio ? handleLaunchStudioAtNode : undefined
                         }
-                      >
-                        {hasDedicatedInteractiveStudio ? interactiveStudioNode : null}
-                      </ArticleMonographPageView>
+                      />
                     </div>
                   );
                 }
