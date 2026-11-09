@@ -3,11 +3,12 @@ import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { ChevronLeft, ChevronRight, Compass, Sparkles, Grid } from 'lucide-react';
 import {
   ASHTA_BHAIRAVA_PROFILES,
+  ASHTA_BHAIRAVA_SAMARPANA_MANTRA,
   AshtaBhairavaProfile
 } from '../data/ashtaResearchData';
 import { useLanguage } from '../context/LanguageContext';
 
-export { ASHTA_BHAIRAVA_PROFILES };
+export { ASHTA_BHAIRAVA_PROFILES, ASHTA_BHAIRAVA_SAMARPANA_MANTRA };
 export type { AshtaBhairavaProfile };
 
 const COMPASS_DIRECTIONS: Array<{
@@ -229,6 +230,28 @@ export default function AshtaBhairavaExperience({
                 )
               : t(activeProfile.controlsLine, activeProfile.controlsLineHi)}
           </p>
+
+          {/* ॥ श्री अष्टभैरवाय नमः ॥ & ॥ अष्टभैरव समर्पण मंत्र ॥ Universal Inscription Banner */}
+          <div className="mt-3.5 max-w-2xl mx-auto w-full rounded-xl border border-[#FFBF38]/45 bg-[#070A16]/90 p-3 sm:p-3.5 text-center space-y-1.5 shadow-md">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border border-[#FFBF38]/40 bg-[#161208]">
+              <Sparkles className="w-3 h-3 text-[#FFBF38]" />
+              <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-[#FFBF38] font-bold">
+                ॥ श्री अष्टभैरवाय नमः ॥ · Eight Manifestations and Guardians of Lord Shiva
+              </span>
+            </div>
+            <div className="font-serif text-sm sm:text-base md:text-lg font-bold text-[#FFD700] tracking-wide">
+              {ASHTA_BHAIRAVA_SAMARPANA_MANTRA.sanskrit}
+            </div>
+            <div className="font-mono text-xs text-[#E8D4A8]/90 font-medium">
+              {ASHTA_BHAIRAVA_SAMARPANA_MANTRA.phonetic}
+            </div>
+            <div className="font-serif text-[11px] text-[#A6AFBF] italic">
+              {t(
+                ASHTA_BHAIRAVA_SAMARPANA_MANTRA.meaningEn,
+                ASHTA_BHAIRAVA_SAMARPANA_MANTRA.meaningHi
+              )}
+            </div>
+          </div>
         </div>
 
         {/* Main View Area: Individual Profile (1/8 - 8/8) vs Eight-Form Mandala Summary */}
@@ -572,6 +595,29 @@ export default function AshtaBhairavaExperience({
                   <p className="mt-2 text-[11px] font-mono text-[#A6AFBF]/85 leading-snug">
                     {t(activeProfile.sourceReference, activeProfile.sourceReferenceHi)}
                   </p>
+
+                  {/* Mūla Nāma Mantra Container */}
+                  <div
+                    className="mt-3.5 p-3 rounded-lg border shadow-sm space-y-1 bg-gradient-to-r from-[#070A16]/95 via-[#181126]/90 to-[#070A16]/95 text-left"
+                    style={{ borderColor: `${activeProfile.accentColor}70` }}
+                  >
+                    <div className="flex items-center justify-between text-[9px] font-mono uppercase tracking-wider text-[#F7D57A]">
+                      <span className="font-bold flex items-center gap-1">
+                        <Sparkles className="w-3 h-3 text-[#F7D57A]" />
+                        {t('Mūla Nāma Mantra', 'मूल नाम मंत्र')}
+                      </span>
+                      <span className="text-[#C8B69E]/80 font-serif text-[10px]">॥ मूल नाम मंत्र ॥</span>
+                    </div>
+                    <div
+                      className="font-serif text-base sm:text-lg font-bold tracking-wide"
+                      style={{ color: activeProfile.accentColor }}
+                    >
+                      {activeProfile.mulaMantra.sanskrit}
+                    </div>
+                    <div className="font-mono text-xs text-[#E8D4A8]/90 font-medium">
+                      {activeProfile.mulaMantra.phonetic}
+                    </div>
+                  </div>
                 </div>
 
                 {/* Four Metadata Cards in 2-Column Grid */}

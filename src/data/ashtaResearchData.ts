@@ -27,7 +27,19 @@ export interface AshtaBhairavaProfile {
   waveCycles: number;
   sourceReference: string;
   sourceReferenceHi: string;
+  mulaMantra: {
+    sanskrit: string;
+    phonetic: string;
+  };
 }
+
+export const ASHTA_BHAIRAVA_SAMARPANA_MANTRA = {
+  header: '॥ अष्टभैरव समर्पण मंत्र ॥',
+  sanskrit: 'ॐ श्री अष्टभैरवेभ्यो नमः॥',
+  phonetic: 'Om Shri Ashtabhairavebhyo Namah',
+  meaningEn: 'Salutations to the eight manifestations of Lord Bhairava.',
+  meaningHi: 'भगवान् भैरव के आठों प्राकट्य रूपों एवं अष्ट-दिशात्मक रक्षकों को सादर नमन।'
+};
 
 export type MatrikaVisualizationType =
   | 'genesis-spiral'
@@ -140,7 +152,11 @@ export const ASHTA_BHAIRAVA_PROFILES: AshtaBhairavaProfile[] = [
     sourceReference:
       'Rudrayamala Tantra · Kashi & Tamil temple traditions · Tone: Cousto, Cosmic Octave (1978)',
     sourceReferenceHi:
-      'रुद्रयामल तन्त्र · काशी एवं तमिल मंदिर परम्पराएँ · स्वर: हंस कूस्तो, कॉस्मिक ऑक्टेव (1978)'
+      'रुद्रयामल तन्त्र · काशी एवं तमिल मंदिर परम्पराएँ · स्वर: हंस कूस्तो, कॉस्मिक ऑक्टेव (1978)',
+    mulaMantra: {
+      sanskrit: 'ॐ असिताङ्गभैरवाय नमः॥',
+      phonetic: 'Om Asitanga Bhairavaya Namah'
+    }
   },
   {
     id: 'bh-02-ruru',
@@ -172,7 +188,11 @@ export const ASHTA_BHAIRAVA_PROFILES: AshtaBhairavaProfile[] = [
     sourceReference:
       'Rudrayamala Tantra · Kashi & Tamil temple traditions · Tone: Cousto, Cosmic Octave (1978)',
     sourceReferenceHi:
-      'रुद्रयामल तन्त्र · काशी एवं तमिल मंदिर परम्पराएँ · स्वर: हंस कूस्तो, कॉस्मिक ऑक्टेव (1978)'
+      'रुद्रयामल तन्त्र · काशी एवं तमिल मंदिर परम्पराएँ · स्वर: हंस कूस्तो, कॉस्मिक ऑक्टेव (1978)',
+    mulaMantra: {
+      sanskrit: 'ॐ रुरुभैरवाय नमः॥',
+      phonetic: 'Om Ruru Bhairavaya Namah'
+    }
   },
   {
     id: 'bh-03-chanda',
@@ -204,7 +224,11 @@ export const ASHTA_BHAIRAVA_PROFILES: AshtaBhairavaProfile[] = [
     sourceReference:
       'Rudrayamala Tantra · Kashi & Tamil temple traditions · Tone: Cousto, Cosmic Octave (1978)',
     sourceReferenceHi:
-      'रुद्रयामल तन्त्र · काशी एवं तमिल मंदिर परम्पराएँ · स्वर: हंस कूस्तो, कॉस्मिक ऑक्टेव (1978)'
+      'रुद्रयामल तन्त्र · काशी एवं तमिल मंदिर परम्पराएँ · स्वर: हंस कूस्तो, कॉस्मिक ऑक्टेव (1978)',
+    mulaMantra: {
+      sanskrit: 'ॐ चण्डभैरवाय नमः॥',
+      phonetic: 'Om Chanda Bhairavaya Namah'
+    }
   },
   {
     id: 'bh-04-krodha',
@@ -236,7 +260,11 @@ export const ASHTA_BHAIRAVA_PROFILES: AshtaBhairavaProfile[] = [
     sourceReference:
       'Rudrayamala Tantra · Kashi & Tamil temple traditions · Tone: Cousto, Cosmic Octave (1978)',
     sourceReferenceHi:
-      'रुद्रयामल तन्त्र · काशी एवं तमिल मंदिर परम्पराएँ · स्वर: हंस कूस्तो, कॉस्मिक ऑक्टेव (1978)'
+      'रुद्रयामल तन्त्र · काशी एवं तमिल मंदिर परम्पराएँ · स्वर: हंस कूस्तो, कॉस्मिक ऑक्टेव (1978)',
+    mulaMantra: {
+      sanskrit: 'ॐ क्रोधभैरवाय नमः॥',
+      phonetic: 'Om Krodha Bhairavaya Namah'
+    }
   },
   {
     id: 'bh-05-unmatta',
@@ -268,7 +296,11 @@ export const ASHTA_BHAIRAVA_PROFILES: AshtaBhairavaProfile[] = [
     sourceReference:
       'Rudrayamala Tantra · Kashi & Tamil temple traditions · Tone: Cousto, Cosmic Octave (1978)',
     sourceReferenceHi:
-      'रुद्रयामल तन्त्र · काशी एवं तमिल मंदिर परम्पराएँ · स्वर: हंस कूस्तो, कॉस्मिक ऑक्टेव (1978)'
+      'रुद्रयामल तन्त्र · काशी एवं तमिल मंदिर परम्पराएँ · स्वर: हंस कूस्तो, कॉस्मिक ऑक्टेव (1978)',
+    mulaMantra: {
+      sanskrit: 'ॐ उन्मत्तभैरवाय नमः॥',
+      phonetic: 'Om Unmatta Bhairavaya Namah'
+    }
   },
   {
     id: 'bh-06-kapala',
@@ -300,7 +332,11 @@ export const ASHTA_BHAIRAVA_PROFILES: AshtaBhairavaProfile[] = [
     sourceReference:
       'Rudrayamala Tantra · Kashi & Tamil temple traditions · Tone: Cousto, Cosmic Octave (1978)',
     sourceReferenceHi:
-      'रुद्रयामल तन्त्र · काशी एवं तमिल मंदिर परम्पराएँ · स्वर: हंस कूस्तो, कॉस्मिक ऑक्टेव (1978)'
+      'रुद्रयामल तन्त्र · काशी एवं तमिल मंदिर परम्पराएँ · स्वर: हंस कूस्तो, कॉस्मिक ऑक्टेव (1978)',
+    mulaMantra: {
+      sanskrit: 'ॐ कपालभैरवाय नमः॥',
+      phonetic: 'Om Kapala Bhairavaya Namah'
+    }
   },
   {
     id: 'bh-07-bhishana',
@@ -332,7 +368,11 @@ export const ASHTA_BHAIRAVA_PROFILES: AshtaBhairavaProfile[] = [
     sourceReference:
       'Rudrayamala Tantra · Kashi & Tamil temple traditions · Tone: Cousto, Cosmic Octave (1978)',
     sourceReferenceHi:
-      'रुद्रयामल तन्त्र · काशी एवं तमिल मंदिर परम्पराएँ · स्वर: हंस कूस्तो, कॉस्मिक ऑक्टेव (1978)'
+      'रुद्रयामल तन्त्र · काशी एवं तमिल मंदिर परम्पराएँ · स्वर: हंस कूस्तो, कॉस्मिक ऑक्टेव (1978)',
+    mulaMantra: {
+      sanskrit: 'ॐ भीषणभैरवाय नमः॥',
+      phonetic: 'Om Bhishana Bhairavaya Namah'
+    }
   },
   {
     id: 'bh-08-samhara',
@@ -364,7 +404,11 @@ export const ASHTA_BHAIRAVA_PROFILES: AshtaBhairavaProfile[] = [
     sourceReference:
       'Rudrayamala Tantra · Kashi & Tamil temple traditions · Tone: Cousto, Cosmic Octave (1978)',
     sourceReferenceHi:
-      'रुद्रयामल तन्त्र · काशी एवं तमिल मंदिर परम्पराएँ · स्वर: हंस कूस्तो, कॉस्मिक ऑक्टेव (1978)'
+      'रुद्रयामल तन्त्र · काशी एवं तमिल मंदिर परम्पराएँ · स्वर: हंस कूस्तो, कॉस्मिक ऑक्टेव (1978)',
+    mulaMantra: {
+      sanskrit: 'ॐ संहारभैरवाय नमः॥',
+      phonetic: 'Om Samhara Bhairavaya Namah'
+    }
   }
 ];
 

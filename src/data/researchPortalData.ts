@@ -1,3 +1,4 @@
+import { BAVAN_BHAIRAVA_SECTIONS } from './bavanBhairava52Data';
 import {
    ASHTA_BHAIRAVA_PROFILES,
   ASHTA_MATRIKA_PROFILES,
@@ -1831,768 +1832,43 @@ const ADDITIONAL_GATEWAY_ARTICLES: Record<string, ResearchArticle[]> = {
       slug: 'bavan-bhairava-chhappan-kalua-concordance',
       categorySlug: '64-yogini-matrix',
       code: 'YM-10',
-      titleEn: '52 Bhairavas (बावन भैरव — 1. Asitāṅga Bhairava to 52. Svacchanda Bhairava): Complete Canonical Monograph',
-      titleHi: 'बावन भैरव (52 भैरव — 1. असितांग भैरव से 52. स्वछंद भैरव): संपूर्ण शास्त्रीय शोध-प्रबंध',
-      subtitleEn: 'Comprehensive Philological, Āgamic, Purāṇic, Iconographic, and Yogic Monograph on All Fifty-Two Bhairavas (1 to 52)',
-      subtitleHi: '1. असितांग भैरव से 52. स्वछंद भैरव पर्यन्त सभी बावन भैरवों का विस्तृत व्युत्पत्तिमूलक, आगमिक, पौराणिक, प्रतिमाशास्त्रीय एवं यौगिक विवेचन',
-      sanskritEpigraph: '॥ विश्वं बिभर्ति पूरयति रवयति इति भैरवः। असिताङ्गादि-स्वच्छन्दान्ताः द्विपञ्चाशद्-भैरवाः ॥',
-      epigraphTranslationEn: '"He who supports (bharaṇa), nourishes, and sounds forth (ravaṇa) the universe is Bhairava (Tantrāloka 1.96); from Asitāṅga Bhairava to Svacchanda Bhairava stand the Fifty-Two Bhairavas."',
-      epigraphTranslationHi: '"जो विश्व का भरण-पोषण, रमण और संहार/नाद करते हैं, वे भैरव हैं (तन्त्रालोक १.९६); १. असितांग भैरव से ५२. स्वछंद भैरव पर्यन्त बावन भैरव प्रतिष्ठित हैं।"',
-      evidenceBadgeEn: 'ŚAIVA-ŚĀKTA ĀGAMA · COMPLETE 52 BHAIRAVA MONOGRAPH (01–52)',
-      evidenceBadgeHi: 'शैव-शाक्त आगम · संपूर्ण बावन भैरव शोध-प्रबंध (01–52)',
+      titleEn: 'BHAIRAV · 52 BHAIRAVAS – THE GUARDIANS OF THE 52 SHAKTI PEETHAS',
+      titleHi: 'भैरव · ॥ श्री बावन भैरव संग्रह ॥ · ५२ शक्तिपीठ रक्षक भैरव',
+      subtitleEn: 'Guardian manifestations of Lord Shiva associated with the traditional 52 Shakti Peethas, rather than the separate 64 Bhairava system',
+      subtitleHi: 'पारंपरिक ५२ शक्तिपीठों से संबद्ध भगवान् शिव के रक्षक बावन भैरव स्वरूप (६४ भैरव व्यवस्था से पृथक्)',
+      sanskritEpigraph: '॥ श्रीं भैरवाय नमः। ॐ श्री बावन भैरवेभ्यो नमः। शक्तिपीठ-रक्षकाः द्विपञ्चाशद्-भैरवाः ॥',
+      epigraphTranslationEn: '"Om Shreem Bhairavaya Namah. Om Shri Bavan Bhairavebhyo Namah. Salutations to the fifty-two manifestations of Bhairava, guardians of the sacred Shakti Peethas."',
+      epigraphTranslationHi: '"ॐ श्रीं भैरवाय नमः। ॐ श्री बावन भैरवेभ्यो नमः। ५२ शक्तिपीठों के शाश्वत रक्षक बावन भैरव स्वरूपों को कोटिशः नमन।"',
+      evidenceBadgeEn: 'ŚAIVA-ŚĀKTA CANON · ॥ श्री बावन भैरव संग्रह ॥ (01–52)',
+      evidenceBadgeHi: 'शैव-शाक्त आम्नाय · ॥ श्री बावन भैरव संग्रह ॥ (०१–५२)',
       accentColor: '#F59E0B',
       summaryEn:
-        'In Śaiva-Śākta Tantric cosmology, Śaktipīṭha topography, Kāśī Kṣetrapāla traditions, and the 64 Yoginī mandala, the Fifty-Two Bhairavas (Bāvan Bhairava — बावन भैरव) constitute the complete protective and metaphysical retinue of Supreme Bhairava consciousness. Corresponding to the 51/52 Śaktipīṭhas and the Mātṛkā phonemic matrix, these fifty-two forms span the gentle creative current of Asitāṅga Bhairava, the temporal sovereignty of Mahākāla and Kāla Bhairava, the fierce protective interventions of Caṇḍa, Bhīṣaṇa, and Vikarāla Bhairava, the compassionate rescue of Baṭuka and Svarṇākarṣaṇa Bhairava, and the supreme five-faced autonomy of Svacchanda Bhairava. Below is a dedicated 8-to-10-line scholarly monograph section on each of the 52 Bhairavas in exact canonical sequence.',
+        'BHAIRAV · ॥ श्री बावन भैरव संग्रह ॥ · 52 BHAIRAVAS – THE GUARDIANS OF THE 52 SHAKTI PEETHAS (amazingbharat.com | Shiva, Tantra art, Mantras). This monograph interprets the 52 Bhairavas strictly as the guardian manifestations of Lord Shiva associated with the traditional 52 Shakti Peethas, rather than the separate 64 Bhairava system. Below is the complete structured dossier: 1. Understanding the 52 Bhairavas, 2. Complete List: 52 Bhairava Names and Devotional Mantras (01. Bhimalochana to 52. Sadashiva), 3. Collective 52 Bhairava Prayer (Samarpaṇa Mantra), 4. Important Source Articles and References, 5. Three Systems Comparison, 6. Origin & Mythology, 7. Critical 51-Peetha Reference Table (Pīṭhanirṇaya / D.C. Sircar), 8. The 52nd Entry (Danteshwari Peetha), 9. 8-Field Documentation Framework, 10. Crucial Mantra Correction Note, and 11. Editorial Structure.',
       summaryHi:
-        'शैव-शाक्त तांत्रिक ब्रह्माण्ड-विज्ञान, शक्तिपीठ भूगोल, काशी क्षेत्रपाल परम्परा और चौंसठ योगिनी मण्डल में "बावन भैरव" (52 भैरव) परम भैरव चेतना के संपूर्ण रक्षात्मक एवं तात्त्विक व्यूह का निर्माण करते हैं। ५१/५२ शक्तिपीठों और मातृका वर्णमाला के अक्षरों से संबद्ध ये बावन स्वरूप १. असितांग भैरव की सृजनात्मक स्पन्द-शक्ति से आरंभ होकर महाकाल व काल भैरव के काल-शासन, चंड, भीषण व विकराल भैरव के उग्र रक्षण, बटुक व स्वर्णाकर्षण भैरव की करुणा तथा ५२. स्वछंद भैरव की परम स्वतंत्र पञ्चमुखी चेतना तक विस्तृत हैं। नीचे क्रमबद्ध रूप से प्रत्येक भैरव पर विस्तृत शास्त्रीय लेख प्रस्तुत है।',
-      sections: [
-        {
-          headingEn: '1. असितांग भैरव (Asitāṅga Bhairava)',
-          headingHi: '1. असितांग भैरव (Asitāṅga Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Asitāṅga Bhairava (from Sanskrit asita meaning "dark, unconditioned, or deep sapphire-black" and aṅga meaning "limbs or embodied form") stands first among both the classical Aṣṭa Bhairavas (Eight Directional Bhairavas) and the Fifty-Two Bhairavas.\n' +
-            'Scriptural & Directional Context: In the Tantrāloka of Abhinavagupta, the Rudrayāmala, and the Kāśī Khaṇḍa of the Skanda Purāṇa, Asitāṅga presides over the Eastern quarter (Pūrva-dik) and initiates the first octad of the 64 Yoginī mandala alongside his Mātṛkā consort Brahmāṇī (Brāhmī). In Kāśī’s sacred geography, his shrine anchors the eastern protective circuit of the Aṣṭa Bhairava pilgrimage.\n' +
-            'Iconography & Attributes: Classical dhyāna verses depict him with a golden or dark-luminous complexion, wearing a garland of skulls (muṇḍamālā), mounted upon a swan (haṃsa), and holding the rosary (akṣamālā), ascetic water-vessel (kamaṇḍalu), trident (triśūla), and skull-cup (kapāla).\n' +
-            'Philosophical & Yogic Significance: Metaphysically, Asitāṅga embodies Sṛṣṭi-śakti—the primal creative impulse (spanda) through which unmanifest Śiva-consciousness projects the universe and awakens poetic speech, mantra-siddhi, and vital prāṇa at the dawn of spiritual practice.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "असितांग" शब्द संस्कृत के "असित" (श्याम, नीलवर्ण अथवा बन्धन-रहित) और "अंग" (देह/स्वरूप) के संयोग से बना है, जिसका अर्थ है—श्याम अथवा असीम चिदाकाश रूपी अंगों वाले भैरव। वे शास्त्रीय अष्ट भैरवों तथा बावन भैरवों दोनों ही सूचियों में प्रथम स्थान पर प्रतिष्ठित हैं।\n' +
-            'शास्त्रीय एवं दिशात्मक संदर्भ: आचार्य अभिनवगुप्त के तन्त्रालोक, रुद्रयामल और स्कन्द पुराण के काशी खण्ड में असितांग भैरव पूर्व दिशा के अधिपति हैं तथा मातृका ब्राह्मी के साथ चौंसठ योगिनी चक्र के प्रथम अष्टक का संचालन करते हैं। काशी की अष्ट-भैरव यात्रा में उनका प्राचीन मंदिर पूर्वी रक्षा-कवच का केंद्र है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: ध्यान-मन्त्रों में उन्हें स्वर्णिम या श्याम-तेजस्वी वर्ण, हंस वाहन तथा चतुर्भुज रूप में अक्षमाला, कमण्डलु, त्रिशूल और कपाल धारण किए हुए वर्णित किया गया है।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: तात्त्विक दृष्टि से असितांग भैरव "सृष्टि-शक्ति" और आद्य स्पन्द के प्रतीक हैं, जिनकी उपासना से साधक में सृजनात्मक मेधा, वाक्-सिद्धि, प्राण-ऊर्जा का जागरण और साधना के प्रारंभिक विघ्नों का निवारण होता है।'
-        },
-        {
-          headingEn: '2. महाकाल भैरव (Mahākāla Bhairava)',
-          headingHi: '2. महाकाल भैरव (Mahākāla Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Mahākāla Bhairava ("Lord of Great or Transcendent Time") represents the absolute macrocosmic dimension of Śiva-Bhairava that devours ordinary sequential time (khaṇḍa-kāla) while remaining eternally beyond birth and decay.\n' +
-            'Scriptural & Sacred Geography: Celebrated across the Śiva Purāṇa, Skanda Purāṇa (Avanti Khaṇḍa), Mahākāla Saṃhitā, and Kālīkula Tantras, Mahākāla is the sovereign presiding deity of Ujjayinī (Avantikā) and the supreme consort of Dakṣiṇakālī / Mahākālī in the Daśa Mahāvidyā system.\n' +
-            'Iconography & Attributes: He is envisioned as vast and dark as the collyrium of dissolution clouds, three-eyed, digambara or clad in tiger-skin, encircled by serpents, and wielding the trident (triśūla), ḍamaru, khaḍga (sword), and kapāla drenched in the nectar of immortality.\n' +
-            'Philosophical & Yogic Significance: In Trika and Krama non-dualism, Mahākāla is the unchanging witness-substratum upon whose chest Mahākālī dances; in yogic sadhana, his grace dissolves the fear of death (kāla-bhaya), halts karmic oscillation between past and future, and establishes the practitioner in timeless awareness (akāla-sthiti).',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "महाकाल भैरव" (महा + काल) वह सर्वोच्च परात्पर सत्ता हैं जो खण्ड-काल (भूत, वर्तमान और भविष्य) को अपने भीतर लीन कर लेते हैं और स्वयं काल की सीमाओं से परे अखंड रूप में विराजमान रहते हैं।\n' +
-            'शास्त्रीय एवं तीर्थ संदर्भ: शिव पुराण, स्कन्द पुराण (अवन्ती खण्ड), महाकाल संहिता और कालीकुल के आगमों में महाकाल भैरव उज्जयिनी (अवन्तिका) के अधिपति तथा दशमहाविद्या में आद्या महाविद्या दक्षिणाकाली/महाकाली के भैरव के रूप में पूजित हैं।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: इनका स्वरूप प्रलयकालीन मेघ या अंजन के समान गहन श्याम, त्रिनेत्रधारी, व्याघ्रचर्म व नाग-यज्ञोपवीत से सुशोभित तथा हाथों में त्रिशूल, डमरू, खड्ग और खप्पर (कपाल) धारण करने वाला है।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: तांत्रिक अद्वैत दर्शन में महाकाल ही वह निस्पन्द शिव-अधिष्ठान हैं जिनके वक्षःस्थल पर महाकाली की चित्-शक्ति नृत्य करती है; इनकी आराधना से अकाल मृत्यु का भय समाप्त होता है और साधक कालातीत तुरीय चेतना में स्थित होता है।'
-        },
-        {
-          headingEn: '3. त्रिलोचन भैरव (Trilocana Bhairava)',
-          headingHi: '3. त्रिलोचन भैरव (Trilocana Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Trilocana Bhairava (from tri, "three," and locana, "eyes or organs of luminous perception") is the three-eyed aspect of Bhairava who perceives the totality of manifest and unmanifest reality without obstruction.\n' +
-            'Scriptural & Sacred Geography: In the Kāśī Khaṇḍa of the Skanda Purāṇa and Purāṇic tīrtha manuals, Trilocana (also venerated at the ancient Trilocana Mahādeva / Trilocana Ghāṭ precinct in Vārāṇasī) guards the triadic confluence of cosmic currents and grants direct visionary insight.\n' +
-            'Iconography & Attributes: His three eyes correspond to Soma (the moon, cooling grace, left eye), Sūrya (the sun, dynamic illumination, right eye), and Agni (the consuming fire of wisdom, vertical central eye on the forehead), while his four hands bear the trident, noose (pāśa), goad (aṅkuśa), and skull-bowl.\n' +
-            'Philosophical & Yogic Significance: Esoterically, Trilocana Bhairava governs the triads of Pramātṛ (knower), Pramāṇa (means of knowledge), and Prameya (object of knowledge), as well as the three times (past, present, future); meditating upon him unifies the left (Iḍā) and right (Piṅgalā) breaths into the central Suṣumṇā channel.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "त्रिलोचन भैरव" (त्रि = तीन + लोचन = नेत्र) भैरव का वह सर्वद्रष्टा स्वरूप है जो तीन दिव्य नेत्रों से दृश्य और अदृश्य समस्त ब्रह्माण्ड का युगपत् साक्षात्कार करता है।\n' +
-            'शास्त्रीय एवं तीर्थ संदर्भ: स्कन्द पुराण के काशी खण्ड और आगम ग्रन्थों में त्रिलोचन स्वरूप की विशेष महिमा वर्णित है; काशी में त्रिलोचन घाट एवं त्रिलोचन महादेव का क्षेत्र इसी त्रिकालदर्शी भैरव-शिव चेतना का प्राचीन केंद्र माना जाता है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: इनके वाम नेत्र में चन्द्रमा (सोम/करुणा), दक्षिण नेत्र में सूर्य (तेज/क्रिया) और ललाट के मध्य तृतीय नेत्र में ज्ञानाग्नि (अग्नि) का निवास है; वे त्रिशूल, पाश, अंकुश और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: दार्शनिक रूप से त्रिलोचन भैरव प्रमाता (ज्ञाता), प्रमाण (ज्ञान-साधन) और प्रमेय (ज्ञेय) की त्रिपुटी के अधिष्ठाता हैं। योग-साधना में उनकी उपासना इड़ा और पिंगला नाड़ियों का संतुलन कर सुषुम्णा के माध्यम से त्रिकालदर्शी प्रज्ञा जाग्रत करती है।'
-        },
-        {
-          headingEn: '4. काल भैरव (Kāla Bhairava)',
-          headingHi: '4. काल भैरव (Kāla Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Kāla Bhairava is the supreme temporal sovereign and fierce manifestation of Śiva who appeared from the blazing pillar of fire between Brahmā and Viṣṇu to sever the arrogant fifth head of Brahmā.\n' +
-            'Scriptural & Sacred Geography: Extensively chronicled in the Śiva Purāṇa (Śatarudra Saṃhitā), Skanda Purāṇa (Kāśī Khaṇḍa, Ch. 31), and Ādi Śaṅkarācārya’s celebrated Kālabhairavāṣṭakam, Kāla Bhairava was appointed by Śiva as the Kāśī-Kotwāl (Chief Magistrate and Supreme Guardian of Vārāṇasī), where the kapāla of Brahmā finally fell from his hand at Kapālamocana Tīrtha.\n' +
-            'Iconography & Attributes: Dark as a storm-cloud, naked or clad in elephant/tiger hide, accompanied by his black dog mount (śvāna-vāhana—symbolizing dharma and vigilance), he holds the severed head/kapāla, daṇḍa (staff of justice), trident, and ḍamaru.\n' +
-            'Philosophical & Yogic Significance: As Kālabhairavāṣṭakam proclaims (kāśikāpurādhinātha kālabhairavaṃ bhaje), he devours the sins, ego-delusions, and karmic debts of devotees, governing the transition at death in Kāśī so that liberation (tāraka-mokṣa) may be realized without impediment.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "काल भैरव" साक्षात् भगवान् शिव के पूर्ण रौद्र एवं न्यायकारी अवतार हैं, जिनका प्राकट्य ब्रह्मा के पंचम अहंकारी मस्तक का नखाग्र से छेदन करने तथा विश्व में सत्य की मर्यादा स्थापित करने के लिए हुआ था।\n' +
-            'शास्त्रीय एवं तीर्थ संदर्भ: शिव पुराण (शतरुद्र संहिता), स्कन्द पुराण (काशी खण्ड, अध्याय ३१) और आदि शंकराचार्य रचित "कालभैरवाष्टकम्" में उन्हें "काशी का कोतवाल" (काशीपुराधिनाथ) घोषित किया गया है। कपालमोचन तीर्थ में उनके हाथ से ब्रह्मकपाल छूटने के पश्चात् वे सदा के लिए काशी के सर्वोच्च दण्डनायक बने।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: श्वान (कुक्कुर) वाहन पर आरूढ़, मेघ-समान श्याम वर्ण, सर्प-यज्ञोपवीत एवं मुण्डमाला धारी काल भैरव अपने हाथों में त्रिशूल, डमरू, धर्म-दण्ड और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: काल भैरव समय के भ्रम, मृत्यु-भय, ग्रह-पीड़ा और अहंकार-जनित पापों का भक्षण करने वाले हैं। काशी की मोक्ष-परम्परा में उनकी अनुमति और कृपा के बिना आध्यात्मिक सिद्धि पूर्ण नहीं मानी जाती।'
-        },
-        {
-          headingEn: '5. त्रिपुर भैरव (Tripura Bhairava)',
-          headingHi: '5. त्रिपुर भैरव (Tripura Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Tripura Bhairava ("Lord of the Three Cities or Threefold Citadel") is the Śaiva-Śākta counterpart to the Tripurā goddesses (Tripurasundarī and Tripurabhairavī) and the destroyer of the three metallic fortresses (Tripura) of limitation.\n' +
-            'Scriptural & Tantric Context: Revered in Śrīvidyā and Kaula Tantras (including the Vāmakeśvara Tantra, Tantrarāja Tantra, and Rudrayāmala), Tripura Bhairava guards the triadic geometry of the Śrīcakra and serves as the masculine consciousness-axis of the three bīja-kūṭas (Vāgbhava, Kāmarāja, and Śakti).\n' +
-            'Iconography & Attributes: He is depicted with a radiant vermilion or rising-sun complexion, four-armed, adorned with a crescent moon on his matted locks, holding the bow of sugarcane/energy, arrows, noose (pāśa), and goad (aṅkuśa) or trident and kapāla.\n' +
-            'Philosophical & Yogic Significance: The "three cities" (Tripura) represent the gross, subtle, and causal bodies (sthūla, sūkṣma, kāraṇa śarīra), the three guṇas (sattva, rajas, tamas), and the three states of waking, dreaming, and deep sleep; Tripura Bhairava pierces all three with a single arrow of non-dual awareness to reveal the Fourth state (Turīya).',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "त्रिपुर भैरव" (त्रि = तीन + पुर = नगर/दुर्ग) तीनों पुरों के विजेता और अधिपति हैं, जो शाक्त परम्परा में भगवती त्रिपुरसुन्दरी एवं त्रिपुरभैरवी के भैरव-अधिष्ठान से गहन रूप से जुड़े हैं।\n' +
-            'शास्त्रीय एवं तांत्रिक संदर्भ: वामकेश्वर तन्त्र, तन्त्रराज तन्त्र और रुद्रयामल में त्रिपुर भैरव को त्रिकोण-मण्डल का रक्षक तथा पञ्चदशी/षोडशी महाविद्या के तीन कूटों (वाग्भव, कामराज और शक्ति कूट) का चैतन्य-आधार माना गया है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: इन्हें उदीयमान सूर्य या सिन्दूर के समान अरुण-तेजस्वी वर्ण, मस्तक पर अर्धचन्द्र तथा हाथों में पाश, अंकुश, त्रिशूल और कपाल (अथवा धनुष-बाण) धारण किए हुए चित्रित किया जाता है।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: दार्शनिक दृष्टि से "त्रिपुर" जीव के तीन शरीर (स्थूल, सूक्ष्म, कारण), तीन गुण (सत्त्व, रज, तम) और तीन अवस्थाएँ (जाग्रत, स्वप्न, सुषुप्ति) हैं। त्रिपुर भैरव की साधना इन तीनों आवरणों का भेदन कर साधक को चतुर्थ "तुरीय" अवस्था में प्रतिष्ठित करती है।'
-        },
-        {
-          headingEn: '6. क्रोध भैरव (Krodha Bhairava)',
-          headingHi: '6. क्रोध भैरव (Krodha Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Krodha Bhairava (from krodha, "sacred, transformative wrath") is the fourth canonical member of the Aṣṭa Bhairava octad and the sixth of the Fifty-Two Bhairavas.\n' +
-            'Scriptural & Directional Context: In the Tantrāloka, Agni Purāṇa, and Kāśī Khaṇḍa, Krodha Bhairava governs the South-Western quarter (Nairṛtya-dik), leads the fourth octad of the 64 Yoginī matrix alongside his Mātṛkā consort Vaiṣṇavī, and serves as the presiding Bhairava of major Śaktipīṭhas where fierce protection is required.\n' +
-            'Iconography & Attributes: He is smoky-blue or dark purple in hue, mounted upon the celestial eagle Garuḍa (reflecting his pairing with Vaiṣṇavī), with blazing eyes and four arms bearing the discus (cakra), mace (gadā), conch (śaṅkha), and kapāla or sword.\n' +
-            'Philosophical & Yogic Significance: Unlike ordinary human anger born of egoic frustration, Krodha Bhairava’s wrath is pure compassionate energy (kāruṇya-krodha) directed solely against spiritual inertia, demonic tyranny, and deep-seated vāsanās, transmuting reactive passion into unshakeable dharmic protective power.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "क्रोध भैरव" में "क्रोध" सामान्य मानवीय आवेश नहीं, अपितु अधर्म, तमस और अज्ञान के समूल नाश के लिए प्रकट हुई भगवान् शिव की दिव्य रूपांतरणकारी रौद्र-शक्ति है। वे अष्ट भैरवों में चतुर्थ और बावन भैरवों में छठे स्थान पर हैं।\n' +
-            'शास्त्रीय एवं दिशात्मक संदर्भ: तन्त्रालोक, अग्नि पुराण और काशी खण्ड के अनुसार क्रोध भैरव नैऋत्य कोण (दक्षिण-पश्चिम) के अधिपति हैं और मातृका वैष्णवी के साथ चौंसठ योगिनी मण्डल की चतुर्थ पंक्ति का संचालन करते हैं।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: वैष्णवी शक्ति के युग्म होने से इनका वाहन गरुड़ है; ये धूम्र-नील वर्ण के हैं तथा अपनी चार भुजाओं में शंख, चक्र, गदा (अथवा खड्ग) और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: योग और तन्त्र में क्रोध भैरव साधक के भीतर दबे हुए तामसिक आलस्य, भय और वासना-ग्रंथियों को भस्म करने वाले हैं। उनकी उपासना से नकारात्मक क्रोध का रूपांतरण धर्म-रक्षा के सात्त्विक तेज में हो जाता है।'
-        },
-        {
-          headingEn: '7. तांडव भैरव (Tāṇḍava Bhairava)',
-          headingHi: '7. तांडव भैरव (Tāṇḍava Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Tāṇḍava Bhairava ("Lord of the Cosmic Tāṇḍava Dance") embodies the dynamic, rhythmic kineticism of Bhairava as the supreme dancer (Naṭarāja-Bhairava) whose footsteps pulse as the heartbeat of the cosmos.\n' +
-            'Scriptural & Architectural Context: Celebrated in the Śiva Sūtras (nartaka ātmā — "The Self is the Dancer", 3.9), Svacchanda Tantra, and temple sculpture at Chidambaram, Ellora, and Bhubaneswar, Tāṇḍava Bhairava executes both the fierce Rudra/Saṃhāra Tāṇḍava in the cremation ground and the blissful Ānanda Tāṇḍava of cosmic manifestation.\n' +
-            'Iconography & Attributes: Shown in the dynamic ūrdhvajānu or catura dance posture amidst a ring of cosmic flames (prabhāmaṇḍala), with flying locks (jaṭā) and multi-armed symmetry holding the ḍamaru (drum of creation), agni (fire of dissolution), triśūla, kapāla, and abhaya-mudrā.\n' +
-            'Philosophical & Yogic Significance: His dance performs the Pañcakṛtya—the five divine acts of creation (sṛṣṭi), maintenance (sthiti), dissolution (saṃhāra), concealment (tirobhāva), and grace (anugraha)—teaching the yogī to experience every movement of breath and thought as the sacred dance of Supreme Consciousness.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "तांडव भैरव" ब्रह्माण्डीय ताण्डव नृत्य के अधीश्वर हैं, जिनके पद-चाप और डमरू के नाद से सृष्टि के उत्थान और विलय की लय संचालित होती है।\n' +
-            'शास्त्रीय एवं स्थापत्य संदर्भ: वसुगुप्त के शिवसूत्र ("नर्तक आत्मा" — ३.९), स्वच्छन्द तन्त्र तथा एलोरा, चिदम्बरम् और भुवनेश्वर के प्राचीन मंदिर शिल्पों में तांडव भैरव के आनंद-ताण्डव एवं रुद्र/संहार-ताण्डव का भव्य अंकन मिलता है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: प्रभामण्डल की ज्वालाओं के मध्य ऊर्ध्वजानु या चतुर नृत्य-मुद्रा में स्थित, बिखरी हुई जटाओं वाले तांडव भैरव अपने हाथों में सृजन का डमरू, संहार की अग्नि, त्रिशूल, कपाल और अभय मुद्रा धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: उनका ताण्डव भगवान् शिव के "पञ्चकृत्य" (सृष्टि, स्थिति, संहार, तिरोभाव और अनुग्रह) का प्रत्यक्ष नृत्य है। साधक के लिए तांडव भैरव प्राण-स्पन्दन और नाद-अनुसंधान के माध्यम से जड़ता को तोड़कर चैतन्य-आनंद में प्रवेश करने के प्रतीक हैं।'
-        },
-        {
-          headingEn: '8. यम भैरव (Yama Bhairava)',
-          headingHi: '8. यम भैरव (Yama Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Yama Bhairava (from root yam-, "to restrain, govern, or uphold moral law") is the sovereign aspect of Bhairava who rules over Yama (the lord of death and dharma) and presides over the inescapable law of karmic reckoning.\n' +
-            'Scriptural & Directional Context: In Purāṇic and Āgamic cosmography, while Yama Dharmarāja guards the southern direction as a lokapāla, Yama Bhairava stands above him as the supreme Śaiva overlord who can override Yama’s noose (kāla-pāśa) for initiated devotees of Śiva and Śakti.\n' +
-            'Iconography & Attributes: Stern and majestic in appearance, dark-complexioned, associated with the buffalo or hound mount, he holds the kāla-daṇḍa (staff of final judgment), dharma-pāśa (noose of cosmic order), trident, and skull-cup.\n' +
-            'Philosophical & Yogic Significance: On the path of Aṣṭāṅga and Haṭha Yoga, Yama Bhairava personifies supreme self-mastery and ethical restraint (the five Yamas: ahiṃsā, satya, asteya, brahmacarya, aparigraha); his worship frees the aspirant from the terror of Yama’s messengers (yamadūtas) and aligns individual conduct with cosmic Ṛta.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "यम भैरव" (धातु यम् = नियमन करना, संयम रखना) धर्मराज यम के भी नियामक, कर्म-विपाक के सर्वोच्च न्यायाधीश और मृत्यु की सीमा पर शासन करने वाले भैरव हैं।\n' +
-            'शास्त्रीय एवं दिशात्मक संदर्भ: पौराणिक एवं आगमिक परम्परा में दक्षिण दिशा के लोकपाल यमराज स्वयं जिन महाभैरव की आज्ञा के अधीन कार्य करते हैं, वे यम भैरव हैं। काशी और महाश्मशान की परम्परा में यम भैरव अपने भक्तों को यम-पाश और यम-यातना से मुक्त करने वाले माने गए हैं।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: गंभीर एवं तेजोमय श्याम वर्ण वाले यम भैरव अपने हाथों में काल-दण्ड, धर्म-पाश, त्रिशूल और कपाल धारण करते हैं तथा न्याय की अटल दृष्टि रखते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: योगशास्त्र में यम भैरव "अष्टांग योग" के प्रथम अंग "यम" (अहिंसा, सत्य, अस्तेय, ब्रह्मचर्य, अपरिग्रह) और इंद्रिय-संयम के अधिष्ठाता हैं। उनकी आराधना से साधक में अमोघ आत्म-अनुशासन और मृत्यु-भय से पूर्ण अभय जागृत होता है।'
-        },
-        {
-          headingEn: '9. नीलकंठ भैरव (Nīlakaṇṭha Bhairava)',
-          headingHi: '9. नीलकंठ भैरव (Nīlakaṇṭha Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Nīlakaṇṭha Bhairava ("The Blue-Throated Bhairava") commemorates the supreme act of cosmic sacrifice during the churning of the Milky Ocean (Samudra-manthana), when Śiva drank the world-destroying Hālāhala (Kālakūṭa) poison and held it in his throat.\n' +
-            'Scriptural & Tantric Context: Revered across the Mahābhārata, Śiva Purāṇa, Nīlakaṇṭha Stava, and Buddhist-Śaiva Tantric borderlands, Nīlakaṇṭha Bhairava bridges fierce protective power with boundless universal compassion (mahākaruṇā).\n' +
-            'Iconography & Attributes: His body shines like camphor or autumn moonlight while his throat gleams with a deep sapphire-blue ring (held there by Pārvatī as Tārā/Mahāvidyā); he bears the trident, ḍamaru, rosary, and vessel of transmuted nectar.\n' +
-            'Philosophical & Yogic Significance: In subtle-body anatomy, Nīlakaṇṭha Bhairava presides over the Viśuddha Cakra (the sixteen-petaled throat center of purification and ākāśa-tattva); through his grace, the yogī absorbs and neutralizes external hostility, physical toxins, and psychic bitterness without allowing them to descend into the heart or rise to cloud the mind.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "नीलकंठ भैरव" (नील = नीला + कंठ = गला) समुद्र-मंथन से निकले सृष्टि-विनाशक "हालाहल" (कालकूट) विष को लोक-कल्याणार्थ अपने कंठ में धारण करने वाले करुणावतार भैरव हैं।\n' +
-            'शास्त्रीय एवं तांत्रिक संदर्भ: शिव पुराण, महाभारत, नीलकंठ-स्तव तथा शाक्त तन्त्रों (जहाँ भगवती तारा उन्हें स्तनपान कराकर विष-ताप शांत करती हैं) में नीलकंठ भैरव को संकट-मोचन और विष-निवारण का सर्वोच्च देवता माना गया है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: कर्पूर के समान गौर देह और नीलमणि के समान गहरे नीले कंठ वाले नीलकंठ भैरव जटाजूट में चन्द्रमा तथा हाथों में त्रिशूल, डमरू, अक्षमाला और अमृत-कलश धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: कुण्डलिनी योग में नीलकंठ भैरव सोलह दलों वाले "विशुद्ध चक्र" (कंठ-चक्र) के अधिष्ठाता हैं। उनकी साधना से शारीरिक-मानसिक विषों का शमन होता है और साधक संसार के कटु अनुभवों को कंठ में ही पचाकर हृदय की निर्मलता सुरक्षित रखता है।'
-        },
-        {
-          headingEn: '10. श्मशान भैरव (Śmaśāna Bhairava)',
-          headingHi: '10. श्मशान भैरव (Śmaśāna Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Śmaśāna Bhairava ("Lord of the Cremation Ground") is the sovereign of the Mahāśmaśāna—both the physical cremation ground (such as Maṇikarṇikā and Hariścandra Ghāṭs in Kāśī) and the inner cremation ground of consciousness where all finite constructs are burned to ash.\n' +
-            'Scriptural & Tantric Context: Central to the Kālīkula, Kāpālika, and Aghora streams, as well as the Vijñāna Bhairava Tantra and Karpūrādi Stotra, Śmaśāna Bhairava is the constant companion of Śmaśāna-Kālī and Tārā.\n' +
-            'Iconography & Attributes: Smeared with fresh funeral ashes (citā-bhasma), garlanded with skulls, standing or seated amidst funeral pyres accompanied by jackals, yoginīs, and bhūtagaṇas, he wields the khaṭvāṅga (skull-topped staff), kapāla, kartrī (flaying knife), and ḍamaru.\n' +
-            'Philosophical & Yogic Significance: As Abhinavagupta explains in Tantrāloka, the true śmaśāna is the empty sky of pure Consciousness (cid-ākāśa) into which all phenomena dissolve; worshipping Śmaśāna Bhairava strips away social pretension, body-identification (dehādhyāsa), and existential dread, awakening supreme non-attachment (parā-vairāgya).',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "श्मशान भैरव" महाश्मशान के अधीश्वर हैं—वह पवित्र भूमि जहाँ पंचतत्त्वों से निर्मित नश्वर देह और सांसारिक अहंकार दोनों भस्म में परिणत होकर शुद्ध शिव-तत्त्व में लीन हो जाते हैं।\n' +
-            'शास्त्रीय एवं तांत्रिक संदर्भ: कालीकुल, कापालिक, अघोर आम्नाय, कर्पूरादि-स्तोत्र तथा काशी की मणिकर्णिका व हरिश्चन्द्र घाट परम्परा में श्मशान भैरव भगवती श्मशान-काली और तारा के नित्य सहचर के रूप में पूजित हैं।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: चिता-भस्म से चर्चित अंग, मुण्डमाला और नागों से अलंकृत, प्रज्वलित चिताओं के मध्य योगिनी व भूतगणों से घिरे श्मशान भैरव अपने हाथों में खट्वांग, कपाल, कर्तरी (छुरिका) और डमरू धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: आचार्य अभिनवगुप्त के तन्त्रालोक के अनुसार वास्तविक "श्मशान" वह शून्य चिदाकाश है जहाँ समस्त कल्पित विकल्पों का दाह हो जाता है। श्मशान भैरव की उपासना देहाध्यास, लोक-भय और मोह को भस्म कर परम वैराग्य एवं आत्म-साक्षात्कार प्रदान करती है।'
-        },
-        {
-          headingEn: '11. चंड भैरव (Caṇḍa Bhairava)',
-          headingHi: '11. चंड भैरव (Caṇḍa Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Caṇḍa Bhairava (from caṇḍa, "fierce, impetuous, blazing, or incandescent") is the third canonical member of the Aṣṭa Bhairavas and the eleventh of the Fifty-Two Bhairavas.\n' +
-            'Scriptural & Directional Context: In the Tantrāloka, Rudrayāmala, and Kāśī Khaṇḍa, Caṇḍa Bhairava governs the Southern direction (Dakṣiṇa-dik), leads the third octad of the 64 Yoginī mandala alongside his Mātṛkā consort Kaumārī, and guards key Śaktipīṭha sanctuaries.\n' +
-            'Iconography & Attributes: Radiant white or blazing coral-red in complexion, riding the peacock (mayūra-vāhana, shared with Kaumārī/Skanda), he carries the spear (śakti/vel), bow (dhanuṣa), arrow (bāṇa), and skull-cup (kapāla).\n' +
-            'Philosophical & Yogic Significance: Caṇḍa Bhairava embodies the concentrated martial velocity of spiritual resolve (saṅkalpa-vega) that cuts through procrastination, cowardice, and adversarial obstacles (śatru-bādhā), channeling the fiery tejas of the Maṇipūra solar plexus upward along the central yogic axis.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "चंड भैरव" (संस्कृत "चण्ड" = प्रचण्ड, उग्र, उद्दाम तेजस्वी) अष्ट भैरवों के शास्त्रीय क्रम में तृतीय तथा बावन भैरवों की नामावली में ग्यारहवें स्थान पर प्रतिष्ठित हैं।\n' +
-            'शास्त्रीय एवं दिशात्मक संदर्भ: तन्त्रालोक, रुद्रयामल और काशी खण्ड के अनुसार चंड भैरव दक्षिण दिशा के स्वामी हैं तथा मातृका कौमारी के साथ चौंसठ योगिनी मण्डल के तृतीय अष्टक का अधिष्ठान करते हैं।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: मयूर (मोर) वाहन पर आरूढ़, श्वेत अथवा प्रवाल-रक्त वर्ण वाले चंड भैरव अपनी चार भुजाओं में शक्ति (भाला), धनुष, बाण तथा कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: चंड भैरव अदम्य आध्यात्मिक शौर्य, एकाग्र संकल्प और मणिपूर चक्र की तेजस्विता के प्रतीक हैं। उनकी उपासना से साधक के भीतर का संशय, भीरुता और शत्रु-बाधाएँ नष्ट होती हैं तथा साधना के पथ पर अपराजेय आत्मबल प्राप्त होता है।'
-        },
-        {
-          headingEn: '12. धूम्रलोचन भैरव (Dhūmralocana Bhairava)',
-          headingHi: '12. धूम्रलोचन भैरव (Dhūmralocana Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Dhūmralocana Bhairava ("The Smoke-Eyed Bhairava", from dhūmra, "smoke-colored or twilight-hued," and locana, "eyes") is the guardian of the threshold between manifest fire and unmanifest ether.\n' +
-            'Scriptural & Tantric Context: Distinct from the Purāṇic demon of the same epithet, in Śaiva-Śākta Tantric manuals and Kṣetrapāla lists Dhūmralocana Bhairava is a protective Bhairava associated with the smoky-hued goddess Dhūmāvatī and the twilight rituals (sandhyā-kāla) of the Yoginī circle.\n' +
-            'Iconography & Attributes: Clad in smoky-grey garments, surrounded by a veil of sacred homa-smoke, with piercing tawny-grey eyes, he holds the winnowing basket or staff, trident, noose, and skull-bowl filled with consecrated ash.\n' +
-            'Philosophical & Yogic Significance: In yogic phenomenology, dhūmra (smoke) is the very first internal visionary sign (pūrvarūpa) seen when prāṇa enters the Suṣumṇā (as taught in Śvetāśvatara Upaniṣad 2.11: nīhāra-dhūmārkānilānalānām); Dhūmralocana Bhairava guides the meditator safely through the obscurity of cosmic illusion (māyā-dhūma) into the clear flame of self-knowledge.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "धूम्रलोचन भैरव" (धूम्र = धुएँ के वर्ण का / संध्या-वर्णी + लोचन = नेत्र) भैरव का वह रहस्यमय स्वरूप है जो व्यक्त अग्नि और अव्यक्त आकाश के संधि-स्थल पर पहरा देता है।\n' +
-            'शास्त्रीय एवं तांत्रिक संदर्भ: पौराणिक दैत्य से सर्वथा भिन्न, शैव-शाक्त आगमों और क्षेत्रपाल सूचियों में धूम्रलोचन भैरव चौंसठ योगिनी मण्डल के एक सजग प्रहरी हैं, जिनका तात्त्विक संबंध महाविद्या धूमावती और संध्याकालीन होम-साधना से जुड़ता है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: धूम्र-धूसर आभा से युक्त, पवित्र यज्ञ-धूम के आवरण में स्थित ये भैरव अपने हाथों में त्रिशूल, पाश, दण्ड और भस्म-पूर्ण कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: श्वेताश्वतर उपनिषद् (२.११ — "नीहारधूमार्वानिलानलानाम्") के अनुसार जब प्राण सुषुम्णा में प्रवेश करता है, तब साधक को सर्वप्रथम "धूम" (धुएँ) की आंतरिक ज्योतिर्मयी प्रतीति होती है। धूम्रलोचन भैरव माया के धुंधले आवरण को भेदकर साधक को शुद्ध ज्ञानाग्नि तक पहुँचाते हैं।'
-        },
-        {
-          headingEn: '13. वीर भैरव (Vīra Bhairava)',
-          headingHi: '13. वीर भैरव (Vīra Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Vīra Bhairava ("The Heroic Bhairava") is the quintessential archetype of the spiritual warrior (vīra) and overlaps closely with Vīrabhadra, the fierce emanation of Śiva who dismantled Dakṣa’s ritualistic arrogance.\n' +
-            'Scriptural & Tantric Context: Prominently invoked in the Kulārṇava Tantra, Rudrayāmala, and Kaula Vīrācāra manuals, Vīra Bhairava is the patron deity of the vīra-sādhaka—the practitioner who has risen above herd-like bound consciousness (paśu-bhāva) to confront dualistic fear head-on.\n' +
-            'Iconography & Attributes: Towering and muscular, blazing like molten gold or crimson fire, wearing a garland of severed heads and weapons of war, he wields the great sword (mahākhaḍga), shield (kheṭaka), trident, and kapāla.\n' +
-            'Philosophical & Yogic Significance: In Tantric sadhana, Vīra Bhairava bestows vīrya (spiritual virility, fearlessness, and unwavering mindfulness), enabling the practitioner to cut through the eight fetters (aṣṭa-pāśa: hatred, shame, fear, doubt, pedigree-pride, etc.) and ascend directly from Vīra-bhāva to Divya-bhāva.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "वीर भैरव" आध्यात्मिक पराक्रम और निर्भयता के सर्वोच्च आदर्श हैं, जिनका स्वरूप दक्ष-यज्ञ के विध्वंसक वीरभद्र और तांत्रिक "वीराचार" के अधिष्ठाता देव से एकाकार है।\n' +
-            'शास्त्रीय एवं तांत्रिक संदर्भ: कुलार्णव तन्त्र, रुद्रयामल और कौल आगमों में वीर भैरव को "वीर-साधक" का इष्ट और रक्षक माना गया है—वह साधक जो "पशु-भाव" के अज्ञान और भय से ऊपर उठकर सत्य का साक्षात्कार करने का साहस रखता है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: तप्त स्वर्ण या सिन्दूर के समान तेजस्वी, विशालकाय और युद्ध-मुद्रा में तत्पर वीर भैरव अपने हाथों में महाखड्ग, खेटक (ढाल), त्रिशूल और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: तन्त्र-दर्शन में वीर भैरव साधक को "अष्ट-पाश" (घृणा, लज्जा, भय, शंका, जुगुप्सा, कुल, शील और जाति के अहंकार) का छेदन करने का आत्मबल प्रदान करते हैं और उसे वीर-भाव से दिव्य-भाव की ओर अग्रसर करते हैं।'
-        },
-        {
-          headingEn: '14. रुद्र भैरव (Rudra Bhairava)',
-          headingHi: '14. रुद्र भैरव (Rudra Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Rudra Bhairava unites the ancient Vedic storm-and-healing deity Rudra (from root rud-, "to roar" or "he who drives away suffering, rujam drāvayati") with the Tantric fullness of Bhairava.\n' +
-            'Scriptural & Directional Context: In the Śrī Rudram (Taittirīya Saṃhitā 4.5), Śiva Purāṇa, and Tantric Aṣṭa Bhairava lists (where Ruru/Rudra Bhairava often presides over the South-Eastern Āgneya quarter alongside Māheśvarī), Rudra Bhairava bridges Nigama (Veda) and Āgama (Tantra).\n' +
-            'Iconography & Attributes: Coppery-red or camphor-white in complexion, mounted upon the bull (vṛṣabha-vāhana), adorned with coiled serpents and rudrākṣa beads, he holds the Pināka bow, trident, ḍamaru, and kapāla.\n' +
-            'Philosophical & Yogic Significance: As the roaring vital breath (prāṇa-rudra) within the body and the purifying tempest in nature, Rudra Bhairava burns away the triple afflictions (ādhyātmika, ādhibhautika, ādhidaivika tāpa) and reveals the auspicious heart of Śiva hidden within the fiercest storm.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "रुद्र भैरव" वैदिक संहिताओं के "रुद्र" ("रुजं द्रावयति इति रुद्रः"—जो दुःख और रोग को भगा देते हैं) तथा आगमिक भैरव तत्त्व का अद्भुत समन्वय हैं।\n' +
-            'शास्त्रीय एवं दिशात्मक संदर्भ: यजुर्वेद के श्रीरुद्रम् (चमक-नमक), शिव पुराण और तन्त्र-शास्त्र (जहाँ रुरु/रुद्र भैरव आग्नेय कोण और मातृका माहेश्वरी से संबद्ध हैं) में रुद्र भैरव निगम और आगम की एकता के सेतु हैं।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: वृषभ (नन्दी) वाहन पर आरूढ़, ताम्र-अरुण अथवा कर्पूर-गौर वर्ण, रुद्राक्ष और सर्पों से अलंकृत रुद्र भैरव पिनाक धनुष, त्रिशूल, डमरू और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: देह के भीतर "प्राण-रुद्र" के रूप में वे नाड़ियों के अवरोधों को दूर करते हैं तथा आध्यात्मिक, आधिभौतिक और आधिदैविक—तीनों प्रकार के तापों का नाश कर साधक को शिवत्व का बोध कराते हैं।'
-        },
-        {
-          headingEn: '15. क्षेत्रपाल भैरव (Kṣetrapāla Bhairava)',
-          headingHi: '15. क्षेत्रपाल भैरव (Kṣetrapāla Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Kṣetrapāla Bhairava ("Guardian of the Sacred Field") is the supreme custodian of every consecrated temple precinct, pilgrimage city (tīrtha-kṣetra), Śaktipīṭha, and ritual mandala.\n' +
-            'Scriptural & Architectural Context: Across the Mayamata, Kāmikāgama, Agni Purāṇa, and Skanda Purāṇa, no Śaiva, Śākta, or even major Vaiṣṇava/Jaina temple ritual is complete without offering bali and homage to Kṣetrapāla Bhairava, whose shrine is canonically positioned in the North-Eastern (Īśāna) or threshold sector of the temple.\n' +
-            'Iconography & Attributes: Depicted standing in samabhaṅga or tribhaṅga posture, naked (digambara) with flame-like upright hair, accompanied by his faithful hound, holding the ghantā (ritual bell), trident, kapāla, and club (gadā/daṇḍa).\n' +
-            'Philosophical & Yogic Significance: As the Bhagavad Gītā (13.1) states, the human body itself is the Kṣetra (field) and Consciousness is the Kṣetrajña (knower of the field); Kṣetrapāla Bhairava guards the sanctity of both the external pilgrimage sanctuary and the yogī’s physical-subtle body against intrusive or fragmented forces.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "क्षेत्रपाल भैरव" (क्षेत्र = पवित्र भू-भाग/देह + पाल = रक्षक) प्रत्येक तीर्थ-क्षेत्र, शक्तिपीठ, देवालय और तांत्रिक पूजा-मण्डल के सर्वोच्च प्रहरी एवं संरक्षक हैं।\n' +
-            'शास्त्रीय एवं स्थापत्य संदर्भ: मयमतम्, कामिकागम, अग्नि पुराण और स्कन्द पुराण के वास्तु-विधान के अनुसार देवालय के ईशान कोण या द्वार-परिसर में क्षेत्रपाल भैरव की स्थापना अनिवार्य है, और उनकी आज्ञा व बलि-पूजा के बिना कोई भी महापूजा या अनुष्ठान पूर्ण नहीं होता।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: ऊर्ध्व-केश, दिगम्बर अथवा व्याघ्रचर्म धारी, श्वान (कुक्कुर) के साथ तत्पर खड़े क्षेत्रपाल भैरव अपने हाथों में घण्टा, त्रिशूल, कपाल और गदा/दण्ड धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: गीता और आगम दर्शन में मानव देह को भी "क्षेत्र" और आत्मा को "क्षेत्रज्ञ" कहा गया है। अतः क्षेत्रपाल भैरव बाह्य तीर्थ-भूमि की रक्षा करने के साथ-साथ साधक के सूक्ष्म शरीर और प्राण-मण्डल को बाह्य नकारात्मक अतिक्रमणों से सुरक्षित रखते हैं।'
-        },
-        {
-          headingEn: '16. लोकनाथ भैरव (Lokanātha Bhairava)',
-          headingHi: '16. लोकनाथ भैरव (Lokanātha Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Lokanātha Bhairava ("Lord and Protector of the Worlds") represents the sovereign, pastoral, and universally accessible face of Bhairava who sustains the fourteen worlds (caturdaśa-bhuvana).\n' +
-            'Scriptural & Regional Context: Attested in Śaiva Purāṇas, Nātha Siddha lineages, and eastern Indian temple traditions (such as Odisha and Bengal, where Lokanātha Śiva-Bhairava is deeply venerated alongside the Yoginīs), he bridges ascetic renunciation with civic and cosmic welfare (lokasaṅgraha).\n' +
-            'Iconography & Attributes: Serene yet commanding, five-faced or single-faced with a third eye, adorned with the crescent moon and flowing Gaṅgā, he extends the varada (boon-giving) and abhaya (fear-not) mudrās while holding the trident and rosary.\n' +
-            'Philosophical & Yogic Significance: Lokanātha Bhairava reminds the Tantric practitioner that the world (loka) is not a dualistic illusion to be despised, but the living body of Śiva-Śakti (viśvamaya-bhairava), cultivating universal compassion and responsible stewardship alongside inner liberation.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "लोकनाथ भैरव" (लोक = चतुर्दश भुवन/जनमानस + नाथ = स्वामी एवं रक्षक) भैरव का वह लोक-कल्याणकारी और सर्वसुलभ स्वरूप है जो संपूर्ण चराचर जगत का भरण-पोषण और रक्षण करता है।\n' +
-            'शास्त्रीय एवं क्षेत्रीय संदर्भ: शैव पुराणों, नाथ-सिद्ध परम्परा तथा पूर्वी भारत (विशेषतः ओडिशा और बंगाल की लोकनाथ-शैव परम्परा) में लोकनाथ भैरव की गहरी प्रतिष्ठा है, जहाँ वे योगिनी-मण्डल और जन-समाज के बीच करुणा के सेतु हैं।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: शांत किंतु तेजोमय मुखमण्डल, जटाजूट में गंगा और अर्धचन्द्र धारण किए लोकनाथ भैरव अपने हाथों से वरद और अभय मुद्रा प्रदान करते हैं तथा त्रिशूल व अक्षमाला धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: आगम दर्शन में "भैरव" शब्द का भ-कार "भरण" (विश्व का पोषण) का प्रतीक है। लोकनाथ भैरव यह बोध कराते हैं कि यह समग्र जगत शिव और शक्ति की ही चिन्मय अभिव्यक्ति है, अतः आत्म-मुक्ति के साथ लोक-मंगल की भावना अविभाज्य है।'
-        },
-        {
-          headingEn: '17. पापभंजन भैरव (Pāpabhañjana Bhairava)',
-          headingHi: '17. पापभंजन भैरव (Pāpabhañjana Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Pāpabhañjana Bhairava (from pāpa, "karmic transgression, sin, or moral constriction," and bhañjana, "shattering, pulverizing, or dissolving") is the great absolver of karmic bondage.\n' +
-            'Scriptural & Liturgical Context: In the Kāśī Khaṇḍa and Purāṇic prāyaścitta (expiation) traditions, Bhairava is celebrated as Pāpabhakṣaṇa and Pāpabhañjana—the deity who consumes the accumulated sins (sañcita-pāpa) of those who enter his sanctuary with sincere repentance and awareness.\n' +
-            'Iconography & Attributes: Blazing like purifying fire, four-armed, he wields the vajra or iron club (mudgara) that shatters karmic chains, the noose-cutting sword (khaḍga), the trident, and the skull-cup in which karmic residues are incinerated.\n' +
-            'Philosophical & Yogic Significance: In Kashmir Śaivism and Śākta Tantra, the ultimate "sin" (pāpa) is āṇava-mala—the primal self-contraction whereby infinite Consciousness mistakes itself for a helpless, guilty finite creature; Pāpabhañjana Bhairava shatters this constriction and restores the innate purity of the Self.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "पापभंजन भैरव" (पाप = अशुभ कर्म-संस्कार/पाश + भंजन = चूर-चूर करना या नष्ट करना) जीव के संचित पापों, अपराध-बोध और कर्म-बन्धनों को भस्म करने वाले मोचक भैरव हैं।\n' +
-            'शास्त्रीय एवं उपासना संदर्भ: स्कन्द पुराण के काशी खण्ड और कालभैरवाष्टकम् ("भानुकोटिभास्वरं भवाब्धितारकं परं... पापभक्षणम्") में भैरव को पापों का भक्षण और भंजन करने वाला सर्वोच्च देवता कहा गया है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: प्रज्वलित अग्नि के समान तेजस्वी पापभंजन भैरव अपने हाथों में कर्म-बेड़ियों को तोड़ने वाला मुद्गर/वज्र, अज्ञान-छेदक खड्ग, त्रिशूल और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: अद्वैत शैव दर्शन के अनुसार जीव का सबसे मूल पाप "आणव मल" (स्वयं की अनन्त शिव-चेतना को भूलकर अपने को क्षुद्र एवं पापी समझना) है। पापभंजन भैरव की कृपा इस आत्म-संकोच की ग्रंथि को तोड़कर आत्मा की मूल निर्मलता प्रकट करती है।'
-        },
-        {
-          headingEn: '18. महाभैरव (Mahābhairava)',
-          headingHi: '18. महाभैरव (Mahābhairava)',
-          bodyEn:
-            'Etymology & Identity: Mahābhairava ("The Great Supreme Bhairava") is the macrocosmic totality of Bhairava consciousness—explained by Jayaratha and Abhinavagupta through the hermeneutic etymology (nirukti) of the three syllables BHAI-RA-VA: Bharaṇa (sustaining the universe), Ravaṇa (withdrawing/resonating all things), and Vamana (projecting/disgorging the cosmos).\n' +
-            'Scriptural & Tantric Context: Revered in the Vijñāna Bhairava Tantra, Mālinīvijayottara Tantra, Tantrāloka, and Kālikā Purāṇa (where Mahābhairava is the supreme Lord of Kāmarūpa and the 64 Yoginīs), he stands above all partial departmental deities.\n' +
-            'Iconography & Attributes: Envisioned in five-faced or ten-armed cosmic majesty, shining with the brilliance of ten million suns, embracing Mahābhairavī, and holding all principal divine weapons—trident, sword, ḍamaru, kapāla, pāśa, aṅkuśa, bow, arrow, shield, and bell.\n' +
-            'Philosophical & Yogic Significance: Mahābhairava is Pūrṇāhantā—the supreme, all-inclusive "I-consciousness" of Paramaśiva in which Śiva and Śakti, transcendent silence and dynamic manifestation, are indivisibly one.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "महाभैरव" समग्र भैरव-चेतना के सर्वोच्च समष्टि रूप हैं। तन्त्रालोक में "भैरव" शब्द की निरुक्ति करते हुए कहा गया है—जो विश्व का "भरण" (धारण), "रवण" (संहरण/नाद) और "वमन" (सृजन) करते हैं, वे परम सत्ता महाभैरव हैं।\n' +
-            'शास्त्रीय एवं तांत्रिक संदर्भ: विज्ञानभैरव तन्त्र, मालिनीविजयोत्तर तन्त्र, तन्त्रालोक तथा कालिका पुराण (जहाँ कामाख्या और कामरूप पीठ में महाभैरव सर्वोच्च अधिपति हैं) में महाभैरव को समस्त ६४ योगिनियों और ३६ तत्त्वों का स्वामी कहा गया है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: कोटि सूर्य के समान भास्वर, पञ्चमुख एवं दशभुज महाभैरव भगवती महाभैरवी के साथ आलिंगित रहते हैं तथा त्रिशूल, खड्ग, डमरू, कपाल, पाश, अंकुश, धनुष, बाण, खेटक और घण्टा धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: दार्शनिक रूप से महाभैरव "पूर्णाहन्ता" (पूर्ण अद्वैत अहं-चेतना) के प्रतीक हैं, जिसमें प्रकाश (शिव) और विमर्श (शक्ति) का कोई भेद नहीं रहता और साधक सर्वत्र एक ही महाभैरव का दर्शन करता है।'
-        },
-        {
-          headingEn: '19. वत्सनाभ भैरव (Vatsanābha Bhairava)',
-          headingHi: '19. वत्सनाभ भैरव (Vatsanābha Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Vatsanābha Bhairava takes his name from Vatsanābha (Aconitum ferox, the sovereign Himalayan tuber poison), signifying the fierce alchemical lord who masters and transmutes the most lethal forces in nature into life-saving medicine.\n' +
-            'Scriptural & Rasāyana Context: In Siddha Rasāyana (Tantric alchemy, such as the Rasārṇava and Rasaratnasamuccaya) and Nātha-Aghora traditions, vatsanābha and mercury (pārada, the seed of Bhairava) are purified through mantra and fire to conquer disease and senility; Vatsanābha Bhairava presides over this perilous alchemical threshold.\n' +
-            'Iconography & Attributes: Deep blue-black like the root of aconite, fierce-eyed, adorned with nāgas and medicinal herbs of the high Himālayas, he holds the mortar/crucible-kapāla, trident, vajra, and alchemical staff.\n' +
-            'Philosophical & Yogic Significance: He embodies the core Tantric principle quoted in the Kulārṇava Tantra: "By that very substance through which bound beings fall, the wise attain liberation when guided by method" (yenaiva patanaṃ dravyaiḥ siddhis tenaiva coditā)—turning poison into nectar (viṣasya amṛtīkaraṇam).',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "वत्सनाभ भैरव" का नाम हिमालय के प्रसिद्ध महाविष "वत्सनाभ" पर आधारित है; वे उस उग्र रसायन-विद्या और भैरव-तेज के अधिपति हैं जो तीव्रतम विष को भी जीवनरक्षक औषधि और अमृत में रूपांतरित कर देता है।\n' +
-            'शास्त्रीय एवं रसायन संदर्भ: रसार्णव, रसरत्नसमुच्चय तथा नाथ-सिद्ध आयुर्वेद और तांत्रिक रसायन परम्परा में पारद (शिव-बीज) और वत्सनाभ के शोधन के अधिष्ठाता के रूप में वत्सनाभ भैरव का स्मरण किया जाता है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: गहरे नील-श्याम वर्ण, उग्र नेत्रों और नाग-आभूषणों से युक्त वत्सनाभ भैरव अपने हाथों में रसायन-कपाल, त्रिशूल, वज्र और औषध-दण्ड धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: कुलार्णव तन्त्र के प्रसिद्ध सूत्र ("येनैव पतनं द्रव्यैः सिद्धिस्तेनैव चोदिता") के अनुरूप वत्सनाभ भैरव यह सिखाते हैं कि जिन विषयों और संकटों से सामान्य जीव का पतन होता है, योग-युक्ति और भैरव-बोध से वे ही मोक्ष और सिद्धि के साधन बन जाते हैं।'
-        },
-        {
-          headingEn: '20. चित्रभानु भैरव (Citrabhānu Bhairava)',
-          headingHi: '20. चित्रभानु भैरव (Citrabhānu Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Citrabhānu Bhairava (from citra, "wondrous, variegated, multicolored," and bhānu, "light, ray, sun, or fire") is the radiant solar-igneous manifestation of Bhairava.\n' +
-            'Scriptural & Vedic-Āgamic Context: In Sanskrit lexicon and Vedic-Purāṇic tradition, Citrabhānu is a sacred name of both Agni (the ritual fire) and Sūrya (the sun), as well as the sixteenth year of the sixty-year Jovian cycle (Saṃvatsara); in Śaiva Āgamas, Citrabhānu Bhairava governs the luminous rays (bhānu) that irradiate the Yoginī mandala.\n' +
-            'Iconography & Attributes: Shining with a spectrum of golden, crimson, and ultraviolet-white flames, three-eyed, wearing a crown of solar rays, he carries the lotus, flaming trident, discus/solar wheel, and kapāla.\n' +
-            'Philosophical & Yogic Significance: Within the subtle body, Citrabhānu Bhairava illuminates the Citriṇī Nāḍī—the innermost luminous filament within the Suṣumṇā channel—banishing mental depression, inner darkness, and perceptual dullness with the variegated splendor of pure Consciousness.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "चित्रभानु भैरव" (चित्र = अद्भुत/बहुवर्णी + भानु = किरण/सूर्य/अग्नि) भैरव का वह परम ज्योतिर्मय स्वरूप है जिसमें सूर्य का तेज और अग्नि की पावनता एक साथ प्रस्फुटित होती है।\n' +
-            'शास्त्रीय एवं आगमिक संदर्भ: संस्कृत वाङ्मय में "चित्रभानु" अग्निदेव, सूर्य तथा साठ संवत्सरों में से सोलहवें संवत्सर का नाम है; शैव-शाक्त आगमों में चित्रभानु भैरव योगिनी-मण्डल को आलोकित करने वाली दिव्य रश्मियों के स्वामी हैं।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: स्वर्ण, सिन्दूर और माणिक्य के समान बहुवर्णी ज्वालाओं से दीप्त, सूर्य-प्रभा मुकुट धारी चित्रभानु भैरव अपने हाथों में पद्म, अग्नि-त्रिशूल, चक्र और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: कुण्डलिनी विज्ञान में सुषुम्णा नाड़ी के भीतर स्थित सूक्ष्म "चित्रिणी नाड़ी" को आलोकित करने वाले देवता चित्रभानु भैरव ही हैं; उनकी उपासना से चित्त का अवसाद, अज्ञान-जनित अंधकार और नेत्र-दोष दूर होकर दिव्य प्रज्ञा का उदय होता है।'
-        },
-        {
-          headingEn: '21. भीषण भैरव (Bhīṣaṇa Bhairava)',
-          headingHi: '21. भीषण भैरव (Bhīṣaṇa Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Bhīṣaṇa Bhairava ("The Terrifying or Awe-Inspiring Bhairava", from root bhī-, "to fear") is the seventh canonical member of the Aṣṭa Bhairavas and the twenty-first of the Fifty-Two Bhairavas.\n' +
-            'Scriptural & Directional Context: In the Tantrāloka, Rudrayāmala, and Kāśī Khaṇḍa, Bhīṣaṇa Bhairava presides over the Northern quarter (Uttara-dik, or in variant lists aligns with the Cāmuṇḍā octad), commanding the seventh row of the 64 Yoginī matrix alongside the fierce Mātṛkā Cāmuṇḍā.\n' +
-            'Iconography & Attributes: Blood-red or midnight-black in complexion, seated upon a corpse or lion/preta-vāhana, with protruding fangs and a reverberating laugh (aṭṭahāsa), he holds the khaṭvāṅga, trident, sword (khaḍga), and skull-cup.\n' +
-            'Philosophical & Yogic Significance: As the Upaniṣads declare of Brahman (bhayānāṃ bhayaṃ bhīṣaṇaṃ bhīṣaṇānām), Bhīṣaṇa Bhairava is terrifying only to the forces of terror, malice, and egoic resistance; to the surrendered devotee, his awe-inspiring presence is an impenetrable fortress of fearlessness.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "भीषण भैरव" (धातु भी = भय उत्पन्न करना; आसुरी शक्तियों के लिए परम भयकारी) अष्ट भैरवों के शास्त्रीय क्रम में सप्तम तथा बावन भैरवों में इक्कीसवें स्थान पर प्रतिष्ठित हैं।\n' +
-            'शास्त्रीय एवं दिशात्मक संदर्भ: तन्त्रालोक, रुद्रयामल और काशी खण्ड में भीषण भैरव उत्तर दिशा के रक्षक हैं तथा सप्तम मातृका चामुण्डा के साथ चौंसठ योगिनी मण्डल के सप्तम अष्टक का संचालन करते हैं।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: प्रेत अथवा सिंह वाहन पर आसीन, रक्त-वर्ण या गहन कृष्ण वर्ण, विकराल दंष्ट्रा और अट्टहास से युक्त भीषण भैरव अपने हाथों में खट्वांग, त्रिशूल, खड्ग और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: उपनिषदों के वचन ("भयानां भयं भीषणं भीषणानाम्") के अनुसार भीषण भैरव स्वयं भय के लिए भी भय हैं। आसुरी वृत्तियों, प्रेत-बाधाओं और अहंकार के लिए वे भीषण हैं, किंतु शरणागत साधक के लिए वे परम अभय-दुर्ग हैं।'
-        },
-        {
-          headingEn: '22. संहार भैरव (Saṃhāra Bhairava)',
-          headingHi: '22. संहार भैरव (Saṃhāra Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Saṃhāra Bhairava (from saṃ-hṛ, "to gather together, withdraw, or reabsorb") is the eighth and culminating member of the canonical Aṣṭa Bhairava octad and the twenty-second of the Fifty-Two Bhairavas.\n' +
-            'Scriptural & Directional Context: In the Tantrāloka, Agni Purāṇa, and Kāśī Khaṇḍa, Saṃhāra Bhairava governs the North-Eastern direction (Īśāna-dik—the sacred portal of Śiva) and presides over the eighth and final octad of the 64 Yoginī matrix alongside Caṇḍikā / Mahālakṣmī.\n' +
-            'Iconography & Attributes: Lightning-hued or glowing like the embers of cosmic dissolution, multi-armed (often ten-armed or four-armed), wearing an elephant hide and serpent ornaments, mounted on a lion, holding the trident, ḍamaru, conch, discus, sword, shield, bow, arrow, pāśa, and kapāla.\n' +
-            'Philosophical & Yogic Significance: In Kashmir Śaiva Krama philosophy, Saṃhāra is not nihilistic destruction, but complete reabsorption (pratyāhāra/laya) of differentiated sensory objects back into the undivided fire of pure Consciousness, granting final liberation (mokṣa) at the completion of the cosmic cycle.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "संहार भैरव" (सम् + हृ = समेटना, पुनः अपने मूल कारण में लीन करना) अष्ट भैरवों में अष्टम (अंतिम) तथा बावन भैरवों की सूची में बाईसवें स्थान पर प्रतिष्ठित हैं।\n' +
-            'शास्त्रीय एवं दिशात्मक संदर्भ: तन्त्रालोक, अग्नि पुराण और काशी खण्ड के अनुसार संहार भैरव पवित्र ईशान कोण (उत्तर-पूर्व) के अधिपति हैं तथा अष्टम मातृका चण्डिका/महालक्ष्मी के साथ चौंसठ योगिनी चक्र के अंतिम अष्टक के नायक हैं।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: सिंह वाहन पर आरूढ़, विद्युत् या प्रलयाग्नि के समान दमकते हुए वर्ण वाले, गजचर्म व नाग-भूषण धारी संहार भैरव त्रिशूल, डमरू, खड्ग, खेटक, पाश, अंकुश और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: काश्मीरी शैव और क्रम दर्शन में "संहार" का अर्थ विनाश नहीं, अपितु बहिर्मुखी इंद्रिय-प्रपंच का पुनः अंतर्मुखी शुद्ध चेतना में पूर्ण "लय" (प्रत्याहार) है। संहार भैरव कर्म-चक्र का उपसंहार कर साधक को कैवल्य-मोक्ष प्रदान करते हैं।'
-        },
-        {
-          headingEn: '23. क्रोधनाथ भैरव (Krodhanātha Bhairava)',
-          headingHi: '23. क्रोधनाथ भैरव (Krodhanātha Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Krodhanātha Bhairava ("Sovereign Master of Wrathful Energies") is distinct from Krodha Bhairava (#6): whereas Krodha Bhairava is the directional force of sacred wrath, Krodhanātha is the transcendent Nātha (Lord) who commands and regulates all wrathful retinues (krodha-gaṇas).\n' +
-            'Scriptural & Tantric Context: Invoked in Nātha-panthī, Kaula, and Śākta Pīṭha protection liturgies (especially in Himalayan and eastern Indian Tantric traditions), Krodhanātha Bhairava stands as the supreme commander over fierce kṣetrapālas and yoginī hosts.\n' +
-            'Iconography & Attributes: Crowned with matted locks and a blazing third eye, dark crimson in complexion, wearing earrings of coiled cobras, he holds the vajra-daṇḍa (thunderbolt staff), flaming trident, hook (aṅkuśa) of mastery, and skull-bowl.\n' +
-            'Philosophical & Yogic Significance: For the advanced practitioner working with intense prāṇic and kundalinī currents, Krodhanātha Bhairava provides sovereign self-command (nāthatva), ensuring that fierce inner energies remain under the absolute governance of witness-consciousness.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "क्रोधनाथ भैरव" (क्रोध + नाथ = उग्र शक्तियों के सर्वोच्च स्वामी) छठे क्रमांक के क्रोध भैरव से इस अर्थ में विशिष्ट हैं कि वे समस्त उग्र गणों, रुद्र-शक्तियों और प्रचण्ड ऊर्जाओं के नियामक "नाथ" हैं।\n' +
-            'शास्त्रीय एवं तांत्रिक संदर्भ: नाथ-सिद्ध परम्परा, कौल मार्ग और शक्तिपीठों के रक्षा-विधानों में क्रोधनाथ भैरव का आह्वान उग्र क्षेत्रपालों और योगिनी-दलों के सेनापति के रूप में किया जाता है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: गहरे रक्त-श्याम वर्ण, नाग-कुण्डल, प्रज्वलित तृतीय नेत्र और जटा-मुकुट से युक्त क्रोधनाथ भैरव अपने हाथों में वज्र-दण्ड, अग्नि-त्रिशूल, नियंत्रण का अंकुश और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: जब साधना में तीव्र कुण्डलिनी या उग्र प्राण-ऊर्जा जाग्रत होती है, तब क्रोधनाथ भैरव उस प्रचण्ड शक्ति पर पूर्ण आध्यात्मिक नियंत्रण ("नाथत्व") प्रदान करते हैं, जिससे साधक का संतुलन कभी भंग नहीं होता।'
-        },
-        {
-          headingEn: '24. कालाग्नि भैरव (Kālāgni Bhairava)',
-          headingHi: '24. कालाग्नि भैरव (Kālāgni Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Kālāgni Bhairava ("The Bhairava of the Fire of Final Time"), identical in essence with Kālāgnirudra, is the cosmic conflagration that rises from the subterranean depths at the end of a kalpa to consume the lower worlds.\n' +
-            'Scriptural & Cosmological Context: Described in the Kālāgnirudra Upaniṣad, Śiva Purāṇa, Mayamata, and Tantrāloka (Ch. 8 on Bhuvana-adhvan), Kālāgni Bhairava abides at the very base of the cosmic egg (brahmāṇḍa) below Pātāla, where his breath ignites the fire of universal dissolution.\n' +
-            'Iconography & Attributes: Blazing like a mountain of smokeless crimson fire, surrounded by tongues of lightning, three-eyed and four-armed, he wields the flaming triśūla, agni-kuṇḍa/kapāla, sword of time, and ḍamaru.\n' +
-            'Philosophical & Yogic Significance: Through the sacred practice of tripuṇḍra-dhāraṇa (applying the three horizontal lines of consecrated bhasma taught in the Kālāgnirudra Upaniṣad) and Mūlādhāra-agni contemplation, Kālāgni Bhairava incinerates the seeds of future rebirth (karma-bīja) in the fire of non-dual jñāna.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "कालाग्नि भैरव" (काल + अग्नि = कल्पान्त की प्रलयाग्नि) साक्षात् "कालाग्निरुद्र" स्वरूप हैं, जिनकी अग्नि महाप्रलय के समय ब्रह्माण्ड के समस्त विकारों और लोकों को भस्म कर शुद्ध तत्त्व में परिवर्तित कर देती है।\n' +
-            'शास्त्रीय एवं ब्रह्माण्डीय संदर्भ: कालाग्निरुद्रोपनिषद्, शिव पुराण और तन्त्रालोक (भुवनाध्व प्रकरण) के अनुसार कालाग्नि भैरव सप्त-पातालों के नीचे ब्रह्माण्ड के मूल आधार पर स्थित रहते हैं और समय पूर्ण होने पर प्रलयाग्नि का उत्सर्जन करते हैं।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: धूम-रहित प्रचण्ड लाल अग्नि-पर्वत के समान दैदीप्यमान, विद्युत्-जिह्वाओं से घिरे कालाग्नि भैरव अपने हाथों में ज्वाला-त्रिशूल, अग्निकुण्ड/कपाल, काल-खड्ग और डमरू धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: कालाग्निरुद्रोपनिषद् में वर्णित पवित्र "भस्म-त्रिपुण्ड्र" विधान और मूलाधार की कुण्डलिनी-अग्नि के माध्यम से कालाग्नि भैरव साधक के संचित कर्म-बीजों को ज्ञानाग्नि में दग्ध कर पुनर्जन्म के चक्र को समाप्त कर देते हैं।'
-        },
-        {
-          headingEn: '25. त्र्यम्बक भैरव (Tryambaka Bhairava)',
-          headingHi: '25. त्र्यम्बक भैरव (Tryambaka Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Tryambaka Bhairava ("The Three-Eyed Father of the Three Worlds" or "Lord of the Three Mother-Śaktis: Ambā, Ambikā, and Ambālikā") is the supreme healing and death-conquering (Mṛtyuñjaya) aspect of Bhairava.\n' +
-            'Scriptural & Vedic-Tantric Context: Rooted in the immortal Rigvedic Mahāmṛtyuñjaya Mantra (tryambakaṃ yajāmahe sugandhiṃ puṣṭivardhanam, RV 7.59.12) and elaborated in the Netra Tantra (Mṛtyuñjaya-bhaṭṭāraka) and Śiva Purāṇa (associated with Tryambakeśvara Jyotirliṅga), Tryambaka Bhairava unites fierce protection with rejuvenating grace.\n' +
-            'Iconography & Attributes: Snow-white or crystalline in radiance, seated upon a white lotus, wearing a crescent moon that drips cooling nectar, he holds the amṛta-kalaśa (nectar-vase), akṣamālā, trident, and mudrā of fearlessness.\n' +
-            'Philosophical & Yogic Significance: Just as a ripened cucumber (urvārukam) is effortlessly detached from its creeping vine when fully mature, Tryambaka Bhairava nourishes the yogī’s prāṇa and ojas (puṣṭivardhanam) while effortlessly severing the knot of mortality (mṛtyor mukṣīya mā’mṛtāt).',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "त्र्यम्बक भैरव" (त्रि = तीन + अम्बक = नेत्र अथवा तीन मातृ-शक्तियों—अम्बा, अम्बिका, अम्बालिका के स्वामी) भैरव का परम आरोग्यकारी, पुष्टि-वर्धक और "महामृत्युंजय" स्वरूप है।\n' +
-            'शास्त्रीय एवं वैदिक-तांत्रिक संदर्भ: ऋग्वेद के अमर महामृत्युंजय मन्त्र ("त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम्" — ७.५९.१२), काश्मीरी शैव परम्परा के "नेत्र तन्त्र" (मृत्युंजय भट्टारक) तथा त्र्यम्बकेश्वर ज्योतिर्लिंग की परम्परा में त्र्यम्बक भैरव सर्वोच्च जीवन-रक्षक हैं।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: स्फटिक या हिम के समान उज्ज्वल, श्वेत पद्म पर आसीन, चंद्र-कला से अमृत-वर्षा करने वाले त्र्यम्बक भैरव अपने हाथों में अमृत-कलश, रुद्राक्ष-माला, त्रिशूल और अभय मुद्रा धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: जैसे पका हुआ ककड़ी का फल ("उर्वारुकमिव बन्धनान्") बिना किसी पीड़ा के डंठल से अलग हो जाता है, वैसे ही त्र्यम्बक भैरव साधक के प्राण और ओज का पोषण करते हुए उसे मृत्यु के बन्धन से सहज ही अमृतत्व (मोक्ष) की ओर ले जाते हैं।'
-        },
-        {
-          headingEn: '26. सर्प भैरव (Sarpa Bhairava)',
-          headingHi: '26. सर्प भैरव (Sarpa Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Sarpa Bhairava ("The Serpent-Adorned Bhairava", from root sṛp-, "to glide or coil in spiral motion") is the sovereign over all serpentine energies, subterranean currents, and the coiled power of Kuṇḍalinī.\n' +
-            'Scriptural & Tantric Context: Revered in Śaiva Āgamas, Garuḍa Tantra (viṣavidyā or toxicological tantra), and Kāśī / Śaktipīṭha guardian lists, Sarpa Bhairava commands the great Nāga kings (Vāsuki, Takṣaka, Karkoṭaka) who serve as his sacred thread (nāga-yajñopavīta), bracelets, and anklets.\n' +
-            'Iconography & Attributes: Dark emerald or smoky-blue in complexion, shaded by a canopy of seven or five cobra hoods, holding a living serpent-noose (nāga-pāśa), trident, ḍamaru, and nectar-filled kapāla.\n' +
-            'Philosophical & Yogic Significance: In Haṭha and Kuṇḍalinī Yoga, the dormant evolutionary energy at the Mūlādhāra is called Bhujagī or Sarpiṇī (coiled three-and-a-half times around the Svayambhū-liṅga); Sarpa Bhairava awakens this coiled serpent-fire safely upward along the spine while neutralizing sarpa-doṣa and Kālasarpa afflictions.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "सर्प भैरव" (धातु सृप् = सर्पिल गति से प्रवाहित होना) समस्त नाग-शक्तियों, भूमिगत प्राण-धाराओं और मूलाधार में कुण्डलित सर्पिणी-शक्ति (कुण्डलिनी) के अधिष्ठाता भैरव हैं।\n' +
-            'शास्त्रीय एवं तांत्रिक संदर्भ: शैव आगमों, गारुड़ तन्त्र (विष-विद्या) और क्षेत्रपाल परम्परा में सर्प भैरव वासुकि, तक्षक और कर्कोटक आदि महानागों को अपने यज्ञोपवीत, केयूर और नूपुर के रूप में धारण करने वाले स्वामी हैं।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: मरकत-श्याम या धूम्र-नील वर्ण, मस्तक पर पंचमुखी या सप्तमुखी नाग-छत्र से सुशोभित सर्प भैरव अपने हाथों में जीवित नाग-पाश, त्रिशूल, डमरू और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: योग-शास्त्र में मूलाधार के स्वयंभू-लिंग को साढ़े तीन वलयों में लपेटकर सोई हुई कुण्डलिनी को "सर्पिणी" कहा गया है। सर्प भैरव की आराधना से कुण्डलिनी का सुरक्षित ऊर्ध्वगमन होता है तथा जन्मपत्रिका के सर्प-दोष व कालसर्प-जनित कष्टों का निवारण होता है।'
-        },
-        {
-          headingEn: '27. अजर भैरव (Ajara Bhairava)',
-          headingHi: '27. अजर भैरव (Ajara Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Ajara Bhairava (from a-jara, "ageless, undecaying, immune to senescence and attrition") represents the eternal, ever-fresh substratum of Bhairava consciousness that never undergoes biological or cosmic aging.\n' +
-            'Scriptural & Siddha Context: Celebrated in the Upaniṣads (vijaro vimṛtyuḥ), Nātha Siddha treatises (such as the Gorakṣa Śataka and Haṭhayogapradīpikā), and Śaiva Āgamas, Ajara Bhairava is the patron lord of kāyā-siddhi (perfection and rejuvenation of the yogic body) and unchanging awareness.\n' +
-            'Iconography & Attributes: Radiant like pure crystal or the rising autumn moon, eternally youthful in form, seated in siddhāsana upon a lotus, he holds the amṛta-kalaśa, rudrākṣa rosary, trident, and abhaya-mudrā.\n' +
-            'Philosophical & Yogic Significance: Whereas all compounded things in Prakṛti are subject to the six modifications of existence (ṣaḍ-bhāva-vikāra: birth, existence, growth, transformation, decay, and death), Ajara Bhairava anchors the yogī in the fifth-and-sixth-free witness state—preserving vital ojas and spiritual vigor across decades of sadhana.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "अजर भैरव" (अ = नहीं + जर = वृद्धावस्था/जीर्णता/क्षय) भैरव-चेतना का वह नित्य-नूतन और अक्षय स्वरूप है जो काल के प्रभाव से कभी जीर्ण या वृद्ध नहीं होता।\n' +
-            'शास्त्रीय एवं सिद्ध संदर्भ: उपनिषदों ("विजरो विमृत्युः"), नाथ-सिद्ध साहित्य (गोरक्षशतक, हठयोगप्रदीपिका) और शैव आगमों में अजर भैरव को "काया-सिद्धि", प्राण-नवीनीकरण और अक्षर-ब्रह्म का अधिष्ठाता माना गया है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: स्फटिक या शरद्-चन्द्र के समान निर्मल आभा वाले, नित्य-तरुण स्वरूप अजर भैरव पद्मासन/सिद्धासन में विराजमान होकर अमृत-कलश, अक्षमाला, त्रिशूल और अभय मुद्रा धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: प्रकृति के समस्त पदार्थ "षड्-भाव-विकार" (जन्म, अस्तित्व, वृद्धि, विपरिणाम, अपक्षय और विनाश) के अधीन हैं, किंतु अजर भैरव अपक्षय से परे कूटस्थ चैतन्य हैं; उनकी साधना से साधक के ओज, तेज और आध्यात्मिक उत्साह का कभी क्षय नहीं होता।'
-        },
-        {
-          headingEn: '28. व्यापक भैरव (Vyāpaka Bhairava)',
-          headingHi: '28. व्यापक भैरव (Vyāpaka Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Vyāpaka Bhairava (from root vy-āp, "to pervade, permeate, or encompass completely") is the omnipresent aspect of Bhairava that saturates every atom of space, time, and the thirty-six tattvas.\n' +
-            'Scriptural & Liturgical Context: In Tantric mantra-śāstra and daily Āgamic worship, vyāpaka-nyāsa is the foundational rite in which the practitioner sweeps consecrated hands over the entire body and aura to realize the all-pervading presence of the deity; Vyāpaka Bhairava is the living deity of this cosmic pervasion.\n' +
-            'Iconography & Attributes: Vast as the unbounded sky (vyoma-rūpa), blue-gold in radiance, facing all directions simultaneously, he holds the discus of space, trident, conch of primordial sound (nāda), and kapāla.\n' +
-            'Philosophical & Yogic Significance: In the Vijñāna Bhairava Tantra, numerous dhāraṇās instruct the yogī to meditate on his own body and the entire universe as simultaneously pervaded by Bhairava-consciousness (sarvaṃ dehaṃ cinmayaṃ hi jagadvā paribhāvayet, v. 63); Vyāpaka Bhairava dissolves the artificial boundary between "inside" and "outside."',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "व्यापक भैरव" (वि + आप् = सर्वत्र व्याप्त होना, कण-कण में ओत-प्रोत रहना) भैरव का वह सर्वव्यापी स्वरूप है जो देश, काल और छत्तीस तत्त्वों के प्रत्येक परमाणु में समान रूप से विद्यमान है।\n' +
-            'शास्त्रीय एवं उपासना संदर्भ: तांत्रिक उपासना पद्धति में "व्यापक-न्यास" के माध्यम से साधक सिर से पैर तक संपूर्ण देह और बाह्य आकाश में मंत्र-चैतन्य का विस्तार करता है; व्यापक भैरव उसी सर्वव्यापकता के अधिष्ठाता देव हैं।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: अनन्त नीलाकाश के समान विस्तृत एवं स्वर्ण-नील आभा से युक्त व्यापक भैरव अपने हाथों में आकाश-चक्र, त्रिशूल, अनाहत नाद का शंख और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: विज्ञानभैरव तन्त्र (श्लोक ६३ — "सर्वं देहं चिन्मयं हि जगद्वा परिभावयेत्") की धारणा के अनुसार जब साधक अपनी देह और संपूर्ण विश्व को एक ही अखंड चित्-तत्त्व से व्याप्त देखता है, तब भीतर और बाहर का भेद मिटकर व्यापक भैरव की अनुभूति होती है।'
-        },
-        {
-          headingEn: '29. इंद्राचौड़ भैरव (Indrācauḍa Bhairava)',
-          headingHi: '29. इंद्राचौड़ भैरव (Indrācauḍa Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Indrācauḍa Bhairava (also rendered Indracūḍa / Indrācūra Bhairava, from Indra, "sovereign lord of the celestial powers/senses," and cauḍa/cūḍā, "crest, crown-jewel, or summit") is the crest-sovereign Bhairava who stands at the zenith of celestial authority.\n' +
-            'Scriptural & Regional Context: Preserved in the 52-Bhairava rosters of North Indian Śākta-Nātha and Kṣetrapāla traditions, Indrācauḍa Bhairava represents the supremacy of Bhairava over the Vedic-Purāṇic heaven of Indra (Svarloka) and the mountain-crest sanctuaries where Indra performed penance to Śiva.\n' +
-            'Iconography & Attributes: Wearing a towering royal jaṭā-mukuṭa (crown of matted locks) blazing with a crest-jewel (cūḍāmaṇi), golden-thunderbolt in hue, he carries the vajra (thunderbolt), trident, royal sceptre/daṇḍa, and kapāla.\n' +
-            'Philosophical & Yogic Significance: In Sanskrit yogic terminology, the indriyas (sensory and motor faculties) take their name from Indra; Indrācauḍa Bhairava crowns the Sahasrāra/Brahmarandhra summit (cūḍā), granting the yogī complete sovereignty over the indriyas and elevating consciousness above transient celestial pleasures.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "इंद्राचौड़ भैरव" (संस्कृत: इन्द्रचूड / इन्द्राचौर—इन्द्र = देवराज/इंद्रियाँ + चौड़/चूड़ा = शिखर, मुकुटमणि या किरीट) भैरव का वह सर्वोच्च मुकुट-स्वरूप है जो देवलोक के ऐश्वर्य के भी शिखर पर विराजमान है।\n' +
-            'शास्त्रीय एवं क्षेत्रीय संदर्भ: उत्तर भारतीय शाक्त-नाथ और बावन भैरव की पारंपरिक सूचियों में इंद्राचौड़ भैरव को स्वर्गपति इन्द्र के दर्प का शमन करने वाले तथा पर्वत-शिखरों (चूड़ा) के रक्षक क्षेत्रपाल के रूप में स्मरण किया जाता है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: मस्तक पर दिव्य चूड़ामणि से युक्त ऊँचा जटा-मुकुट धारण किए, स्वर्ण-वज्र के समान तेजस्वी इंद्राचौड़ भैरव अपने हाथों में वज्र, त्रिशूल, राज-दण्ड और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: योग-दर्शन में "इन्द्र" शब्द जीव की दसों "इंद्रियों" और मन का भी वाचक है तथा "चौड़/चूड़ा" सहस्रार शिखर (ब्रह्मरंध्र) का प्रतीक है। इंद्राचौड़ भैरव साधक को इंद्रियों के शिखर पर पूर्ण स्वामित्व और आत्म-साम्राज्य प्रदान करते हैं।'
-        },
-        {
-          headingEn: '30. इंद्रा मूर्ति भैरव (Indrā Mūrti Bhairava)',
-          headingHi: '30. इंद्रा मूर्ति भैरव (Indrā Mūrti Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Indrā Mūrti Bhairava (from Indrā/Indra, "the sovereign thunderbolt power and Mātṛkā Indrāṇī/Aindrī," and mūrti, "embodied icon or concrete manifestation") is the crystallized form of royal-celestial śakti within the Bhairava retinue.\n' +
-            'Scriptural & Mandala Context: Paired in the broader Yoginī-Mātṛkā architecture with the sixth Mātṛkā Indrāṇī (Aindrī/Vajriṇī), Indrā Mūrti Bhairava embodies the diamond-hard (vajra) protective power that guards the eastern and western thresholds of the Tantric mandala.\n' +
-            'Iconography & Attributes: Ruby-red or flashing golden in complexion, adorned with thousand-eyed spiritual vigilance, riding or flanked by the royal elephant Airāvata, he wields the vajra (diamond thunderbolt), aṅkuśa (elephant-goad), trident, and kapāla.\n' +
-            'Philosophical & Yogic Significance: Whereas ordinary mental states are fragile and easily fractured by sensory distraction, Indrā Mūrti Bhairava forge-hardens the practitioner’s subtle body into a vajra-mūrti (adamantine form), conferring unshakeable spiritual authority, decisive leadership, and immunity to psychic fragmentation.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "इंद्रा मूर्ति भैरव" (इन्द्रा = ऐन्द्री/इन्द्राणी शक्ति अथवा वज्र-ऐश्वर्य + मूर्ति = साकार विग्रह) भैरव-मण्डल में दिव्य राजसी तेज और वज्र-शक्ति के साकार विग्रह हैं।\n' +
-            'शास्त्रीय एवं मण्डल संदर्भ: अष्ट मातृकाओं में छठी मातृका "इन्द्राणी (ऐन्द्री)" और चौंसठ योगिनी चक्र के वज्र-रक्षा विधान से संबद्ध इंद्रा मूर्ति भैरव मण्डल की अभेद्य सुरक्षा-प्राचीर का निर्माण करते हैं।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: माणिक्य-रक्त अथवा तप्त स्वर्ण के समान आभा वाले, गजराज ऐरावत के प्रतीक से युक्त और सहस्र-नेत्रों जैसी सजगता रखने वाले इंद्रा मूर्ति भैरव अपने हाथों में वज्र, अंकुश, त्रिशूल और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: साधना में जब चित्त बाह्य विक्षेपों से विचलित होता है, तब इंद्रा मूर्ति भैरव साधक के संकल्प और सूक्ष्म शरीर को "वज्र-मूर्ति" के समान सुदृढ़ बनाते हैं तथा अमोघ नेतृत्व-क्षमता और आध्यात्मिक तेज प्रदान करते हैं।'
-        },
-        {
-          headingEn: '31. बटुक भैरव (Baṭuka Bhairava)',
-          headingHi: '31. बटुक भैरव (Baṭuka Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Baṭuka Bhairava ("The Ever-Youthful Boy Bhairava", from baṭuka, a young brahmacārin or five-to-eight-year-old divine child) is one of the most universally worshipped and accessible forms of Bhairava across all of India.\n' +
-            'Scriptural & Liturgical Context: Enshrined in the Rudrayāmala Tantra (Viśvasāroddhāra Tantra), Śāradā Tilaka, and the celebrated Āpaduddhāraka Baṭuka Bhairava Stotra, Baṭuka appeared to vanquish the demon Āpad ("Calamity") and is revered as Āpaduddhāraka—the swift rescuer of devotees from acute danger, litigation, illness, and fear.\n' +
-            'Iconography & Attributes: The Śāradā Tilaka and Rudrayāmala prescribe three distinct meditative forms (dhyānas) of Baṭuka according to the three guṇas: (1) Sāttvika Dhyāna (crystal-white, granting longevity, wisdom, and mokṣa), (2) Rājasika Dhyāna (rising-sun red, granting dharma, artha, and kāma), and (3) Tāmasika Dhyāna (blue-black, naked, eight-armed, accompanied by his dog, destroying fierce enemies and black magic).\n' +
-            'Philosophical & Yogic Significance: Especially propitiated in Kaliyuga alongside Hanumān and Kālī, Baṭuka Bhairava’s childlike form signifies pure, unconditioned spontaneity (sahaja-bhāva) combined with instantaneous maternal-paternal protection.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "बटुक भैरव" (बटुक = बाल-ब्रह्मचारी / किशोर स्वरूप) भैरव उपासना परम्परा में सर्वाधिक लोकप्रिय, शीघ्र प्रसन्न होने वाले और "आपदुद्धारक" (संकटों से तत्काल उद्धार करने वाले) भैरव हैं।\n' +
-            'शास्त्रीय एवं उपासना संदर्भ: रुद्रयामल तन्त्र (विश्वसारोद्धार तन्त्र), शारदातिलक और "बटुकभैरवस्तोत्रम्" के अनुसार "आपद्" नामक दैत्य का वध करने और भक्तों को घोर विपत्ति से बचाने के लिए भगवान् शिव ने बाल-रूप में बटुक भैरव का अवतार लिया। काशी के कमच्छा स्थित बटुक भैरव मंदिर इनका प्रमुख सिद्धपीठ है।\n' +
-            'प्रतिमाशास्त्र एवं त्रिविध ध्यान: शास्त्रों में बटुक भैरव के तीन ध्यान वर्णित हैं—(१) सात्त्विक ध्यान (स्फटिक के समान श्वेत वर्ण, चतुर्भुज—आयु, आरोग्य और मोक्ष प्रदाता), (२) राजसिक ध्यान (उदीयमान सूर्य के समान रक्त वर्ण—धर्म, अर्थ व कामनाओं के पूरक), तथा (३) तामसिक ध्यान (नील-मेघ वर्ण, दिगम्बर, अष्टभुज, श्वान-सहित—शत्रु, अभिचार व भूत-बाधा नाशक)।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: कलियुग में बटुक भैरव की साधना तत्काल फलदायी मानी गई है; उनका बाल-स्वरूप निर्मल, निष्कपट "सहज-भाव" और अमोघ रक्षण का प्रतीक है।'
-        },
-        {
-          headingEn: '32. अमृत भैरव (Amṛta Bhairava)',
-          headingHi: '32. अमृत भैरव (Amṛta Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Amṛta Bhairava ("The Nectar-Bestowing Immortal Bhairava", from a-mṛta, "deathless ambrosia") is the supreme lunar-rejuvenating aspect of Bhairava.\n' +
-            'Scriptural & Tantric Context: Prominently featured in the Netra Tantra (where Amṛteśvara / Amṛta Bhairava is the central deity of the Kashmir Śaiva royal and healing liturgy), Svacchanda Tantra, and Kubjikāmata, Amṛta Bhairava presides over the Somacakra and the sixteen digits (kalās) of the divine Moon.\n' +
-            'Iconography & Attributes: Luminous as a mountain of snow bathed in full-moon light, seated upon a white lotus in union with Amṛtalakṣmī / Amṛteśvarī, his four hands hold two golden pots overflowing with soma-amṛta, the rosary, and the mudrā of supreme grace.\n' +
-            'Philosophical & Yogic Significance: In Tantric subtle physiology (amṛta-plāvana), when the yogī’s awareness ascends to the Sahasrāra and unites Śiva and Śakti, a cooling stream of celestial soma-nectar drips from the Bindu/Lalanā cakra, flooding the 72,000 nādīs—a process governed directly by Amṛta Bhairava.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "अमृत भैरव" (अ = नहीं + मृत = मृत्यु; अमरत्व और संजीवनी सुधा के स्वामी) भैरव का परम सौम्य, शीतल और जीवन-प्रदायक स्वरूप है।\n' +
-            'शास्त्रीय एवं तांत्रिक संदर्भ: काश्मीरी शैव आगम "नेत्र तन्त्र" (अमृतेश्वर भैरव), स्वच्छन्द तन्त्र और कुब्जिकामत में अमृत भैरव को चंद्र-मण्डल की सोलह कलाओं का अधिपति तथा असाध्य रोगों और मृत्यु-भय का हरण करने वाला सर्वोच्च देवता माना गया है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: पूर्णिमा के चन्द्रमा और हिम के समान उज्ज्वल, श्वेत कमल पर भगवती अमृतेश्वरी के साथ आसीन अमृत भैरव अपने हाथों में सुधा से छलकता हुआ स्वर्ण-कलश, अक्षमाला, पद्म और वरद-अभय मुद्रा धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: कुण्डलिनी और खेचरी मुद्रा के विज्ञान में जब सहस्रार चक्र के सोम-मण्डल से दिव्य "सोमामृत" का स्राव होता है ("अमृत-प्लावन"), तब अमृत भैरव की कृपा से साधक की बहत्तर हजार नाड़ियाँ संजीवनी ऊर्जा से आप्लावित हो उठती हैं।'
-        },
-        {
-          headingEn: '33. मार्तंड भैरव (Mārtaṇḍa Bhairava)',
-          headingHi: '33. मार्तंड भैरव (Mārtaṇḍa Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Mārtaṇḍa Bhairava (from Mārtaṇḍa, the Vedic solar deity born of the cosmic egg mṛtāṇḍa, united with Bhairava) is the glorious solar-warrior synthesis of Sūrya and Śiva-Bhairava.\n' +
-            'Scriptural & Regional Context: Celebrated in the Mallāri Māhātmya (reported as part of the Brahmāṇḍa / Kṣetra Khaṇḍa Purāṇic corpus) and revered across Maharashtra, Karnataka, and the Deccan as Khaṇḍobā / Malhārī Mārtaṇḍa (particularly at Jejuri), as well as in the great Mārtaṇḍa tradition of Kashmir, he took avatar to vanquish the demons Maṇi and Malla.\n' +
-            'Iconography & Attributes: Radiant gold and turmeric-yellow (bhaṇḍāra) in complexion, mounted upon a white steed (aśva-vāhana) accompanied by his hunting hound, flanked by his consorts Mhāḷsā and Bāṇāī, he wields the giant sword (khaḍga), trident, ḍamaru, and pān-pātra/kapāla.\n' +
-            'Philosophical & Yogic Significance: Mārtaṇḍa Bhairava unites the life-giving solar prāṇa (Sūrya-kalā) with the transcendent consciousness of Bhairava, bestowing radiant health, family protection (kuladaivata grace), and victory over adharmic oppression.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "मार्तंड भैरव" (वैदिक सूर्य "मार्तण्ड" और भगवान् शिव के "भैरव" स्वरूप का संयुक्त विग्रह) सूर्य के प्रखर तेज और भैरव के रक्षण-पराक्रम के अद्वितीय संगम हैं।\n' +
-            'शास्त्रीय एवं क्षेत्रीय संदर्भ: ब्रह्माण्ड पुराण के मल्लारि माहात्म्य तथा दक्कन, महाराष्ट्र और कर्नाटक की लोक-शास्त्रीय परम्परा में वे "मल्हारी मार्तण्ड" या "खण्डोबा" (जेजुरी सिद्धपीठ) के रूप में पूजित हैं, जिन्होंने मणि और मल्ल नामक दैत्यों का संहार कर धर्म की रक्षा की।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: हरिद्रा (हल्दी/भंडारा) और तप्त स्वर्ण के समान पीत-तेजस्वी वर्ण, श्वेत अश्व पर आरूढ़, साथ में स्वामिभक्त श्वान तथा हाथों में विशाल खड्ग (खांडा), त्रिशूल, डमरू और पानपात्र/कपाल धारण किए मार्तंड भैरव अत्यंत भव्य प्रतीत होते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: योग और अध्यात्म में मार्तंड भैरव "सूर्य-कला" (पिंगला नाड़ी के प्राण-तेज) और शिव-चैतन्य के एकीकरण के प्रतीक हैं; उनकी उपासना से आरोग्य, कुल-रक्षा, तेजस्विता और विजय की प्राप्ति होती है।'
-        },
-        {
-          headingEn: '34. विपाक्ष भैरव (Vipākṣa Bhairava)',
-          headingHi: '34. विपाक्ष भैरव (Vipākṣa Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Vipākṣa Bhairava (philologically linked both to vi-pakṣa, "beyond all partiality, partisan sides, or dualistic wings—and conqueror of adversaries," and to the vernacular transmission of Virūpākṣa, "he of uneven/three eyes") is the impartial, all-seeing sovereign of the mandala.\n' +
-            'Scriptural & Philosophical Context: In Nyāya-Tantric epistemology and Kaula Āgamas, while bound minds remain trapped between pakṣa (thesis/attachment) and pratipakṣa (antithesis/aversion), Vipākṣa Bhairava stands in the transcendent center (madhya-dhāma) free from all bias, while simultaneously neutralizing hostile forces (vipakṣa-dalana).\n' +
-            'Iconography & Attributes: Three-eyed (viṣama-netra), smoky-gold in hue, standing in equipoise (samapāda), holding the balance-scale or sword of discrimination, trident, noose, and skull-cup.\n' +
-            'Philosophical & Yogic Significance: Meditating upon Vipākṣa Bhairava dissolves dualistic polarization (dvandva-moha—pleasure/pain, praise/blame, friend/foe) and awakens the central Suṣumṇā path between the two "wings" (pakṣau) of inhalation (prāṇa) and exhalation (apāna).',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "विपाक्ष भैरव" (संस्कृत: विपक्ष-दलन अर्थात् शत्रु-पक्ष का नाश करने वाले, अथवा समस्त द्वैत-पक्षों से परे "निष्पक्ष" साक्षी; तथा आगमिक "विरूपाक्ष" परंपरा से संबद्ध) भैरव का समदर्शी एवं अजेय स्वरूप है।\n' +
-            'शास्त्रीय एवं दार्शनिक संदर्भ: तांत्रिक दर्शन और क्षेत्रपाल परम्परा में जहाँ साधारण जीव "पक्ष" (राग) और "प्रतिपक्ष" (द्वेष) के द्वन्द्व में फँसा रहता है, वहीं विपाक्ष भैरव दोनों ध्रुवों के मध्य स्थित शुद्ध चैतन्य के अधिपति हैं तथा साधक के विरोधी विघ्नों (विपक्ष) का समूल भेदन करते हैं।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: त्रिनेत्रधारी (विषम-लोचन), समपाद मुद्रा में स्थित, धूम्र-स्वर्ण आभा वाले विपाक्ष भैरव अपने हाथों में विवेक-खड्ग, त्रिशूल, पाश और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: प्राण और अपान रूपी दो पक्षों (पंखों) के मध्य जब प्राण सुषुम्णा के शून्य-पथ में स्थिर होता है, तब विपाक्ष भैरव की कृपा से सुख-दुःख, मान-अपमान और शत्रु-मित्र के द्वन्द्व समाप्त होकर समत्व-योग सिद्ध होता है।'
-        },
-        {
-          headingEn: '35. योगेश्वर भैरव (Yogeśvara Bhairava)',
-          headingHi: '35. योगेश्वर भैरव (Yogeśvara Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Yogeśvara Bhairava ("Supreme Lord of Yoga and Master of all Yogīs and Yoginīs") is Bhairava as the Ādinātha—the primordial teacher from whom Mantra Yoga, Haṭha Yoga, Laya Yoga, and Rāja/Śāmbhava Yoga originate.\n' +
-            'Scriptural & Lineage Context: Revered in the Vijñāna Bhairava Tantra, Svacchanda Tantra, Siddhasiddhāntapaddhati, and the Kāśī-Nātha tradition, Yogeśvara Bhairava sits at the center of the Yoginī Cakra as Cakreśvara, imparting the 112 meditative upāyas (gateways to liberation) to Devī.\n' +
-            'Iconography & Attributes: Seated in perfect padmāsana upon a tiger-skin with a yoga-paṭṭa band around his knees, ashes on his limbs, matted locks piled high, eyes half-closed in śāmbhavī-mudrā (inner absorption while looking outward), holding the trident, ḍamaru, akṣamālā, and kapāla.\n' +
-            'Philosophical & Yogic Significance: Yogeśvara Bhairava personifies the state of Nirvikalpa Samādhi and Jagadānanda (bliss in waking action), granting the aspirant mastery over the eight limbs of yoga, the mudrās, bandhas, and the spontaneous unfolding of Śāmbhavopāya.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "योगेश्वर भैरव" (योग + ईश्वर = समस्त योग-विद्याओं, योगियों और चौंसठ योगिनियों के सर्वोच्च स्वामी) साक्षात् आदिनाथ शिव के भैरव-स्वरूप हैं, जिनसे मन्त्र, हठ, लय और राज/शाम्भव योग की उत्पत्ति हुई है।\n' +
-            'शास्त्रीय एवं परम्परा संदर्भ: विज्ञानभैरव तन्त्र (जहाँ भैरव भगवती भैरवी को ११२ ध्यान-धारणाओं का उपदेश देते हैं), स्वच्छन्द तन्त्र और नाथ-सिद्ध परम्परा में योगेश्वर भैरव को योगिनी-चक्र का केंद्रीय गुरु और चक्रेश्वर माना गया है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: व्याघ्रचर्म पर पूर्ण पद्मासन या योग-पट्ट बांधकर आसीन, भस्म-विभूषित, अर्ध-उन्मीलित नेत्रों से "शाम्भवी मुद्रा" में स्थित योगेश्वर भैरव अपने हाथों में त्रिशूल, डमरू, रुद्राक्ष-माला और ज्ञान-कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: योगेश्वर भैरव की उपासना से साधक को आसन, प्राणायाम, मुद्रा, बन्ध और समाधि की सहज सिद्धि प्राप्त होती है तथा वह बाह्य जगत में व्यवहार करते हुए भी आंतरिक "जगदानन्द" में स्थित रहता है।'
-        },
-        {
-          headingEn: '36. त्रिनेत्र भैरव (Trinetra Bhairava)',
-          headingHi: '36. त्रिनेत्र भैरव (Trinetra Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Trinetra Bhairava ("The Bhairava of the Awakened Third Eye", from tri, "three," and netra, "guiding eye", root nī-, "to lead") focuses specifically on the vertical eye of non-dual wisdom (jñāna-netra) at the Ājñā Cakra.\n' +
-            'Scriptural & Tantric Context: While Trilocana Bhairava (#3) emphasizes cosmic triadic vision across the three worlds, Trinetra Bhairava is directly linked to the Netra Tantra (Mṛtyuñjaya Bhaṭṭāraka, "The Tantra of the Supreme Eye") and the fiery third eye that reduced Kāmadeva (blind craving) to ashes.\n' +
-            'Iconography & Attributes: Blazing with a vertical ruby-gold eye in the center of his forehead, four-armed, holding the vajra, trident, lotus of the two-petaled Ājñā center, and skull-cup.\n' +
-            'Philosophical & Yogic Significance: Situated at the bhrūmadhya (the confluence between the eyebrows where Iḍā, Piṅgalā, and Suṣumṇā meet in Mukta-triveṇī), Trinetra Bhairava pierces the Rudra-granthi (the psychic knot of spiritual pride and subtle illusion) and awakens direct intuitive perception (pratibhā-jñāna).',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "त्रिनेत्र भैरव" (त्रि = तीन + नेत्र = मार्गदर्शक चक्षु; धातु नी = ले जाना) भैरव का वह स्वरूप है जो विशेष रूप से ललाट के मध्य स्थित तृतीय "ज्ञान-नेत्र" (आज्ञाचक्र) के जागरण और काम-दहन से संबद्ध है।\n' +
-            'शास्त्रीय एवं तांत्रिक संदर्भ: जहाँ ३. त्रिलोचन भैरव त्रिलोक और त्रिकाल के व्यापक दर्शन के प्रतीक हैं, वहीं ३६. त्रिनेत्र भैरव का सीधा संबंध काश्मीरी शैव आगम "नेत्र तन्त्र" और कामदेव (अंध-वासना) को भस्म करने वाली ऊर्ध्व-ज्योति से है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: भ्रूमध्य में माणिक्य और अग्नि के समान दमकते हुए ऊर्ध्वाधर तृतीय नेत्र से युक्त त्रिनेत्र भैरव अपने हाथों में वज्र, त्रिशूल, द्विदल पद्म और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: कुण्डलिनी योग में भ्रूमध्य (आज्ञाचक्र) इड़ा, पिंगला और सुषुम्णा के संगम ("मुक्त-त्रिवेणी") तथा "रुद्र-ग्रंथि" का स्थान है। त्रिनेत्र भैरव रुद्र-ग्रंथि का भेदन कर साधक में अपरोक्ष प्रातिभ-ज्ञान (अंतर्दृष्टि) जाग्रत करते हैं।'
-        },
-        {
-          headingEn: '37. प्रेतनाथ भैरव (Pretanātha Bhairava)',
-          headingHi: '37. प्रेतनाथ भैरव (Pretanātha Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Pretanātha Bhairava ("Lord of the Pretas or Disembodied Spirits", from pra-ita, "departed or in transit between bodies," and nātha, "compassionate master") governs the liminal realm between physical death and subsequent rebirth or liberation.\n' +
-            'Scriptural & Liturgical Context: In the Garuḍa Purāṇa, Kālīkula Tantras (where Cāmuṇḍā and Dakṣiṇakālī ride or sit upon a preta/śava), and Kāśī’s cremation-ground traditions, Pretanātha Bhairava is the supreme authority who pacifies restless ancestral or wandering spirits (preta-yoni) and grants them sadgati (auspicious release).\n' +
-            'Iconography & Attributes: Standing or seated upon a prostrate preta (corpse) in the cremation ground, smeared with white ashes, surrounded by flickering marsh-lights, holding the khaṭvāṅga, bell (ghaṇṭā), noose (pāśa), and kapāla.\n' +
-            'Philosophical & Yogic Significance: Psychologically, "pretas" also represent hungry, unfulfilled cravings and unprocessed grief clinging to the past; Pretanātha Bhairava liberates both external pitṛ/preta afflictions and internal phantom attachments, restoring peace to the lineage and mind.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "प्रेतनाथ भैरव" (प्रेत = प्र + इत अर्थात् देह त्यागकर अंतराल अवस्था में स्थित प्राण + नाथ = स्वामी/उद्धारक) मृत्यु और पुनर्जन्म के मध्य की सूक्ष्म "प्रेत-योनि" के सर्वोच्च नियामक एवं मुक्तिदाता भैरव हैं।\n' +
-            'शास्त्रीय एवं उपासना संदर्भ: गरुड़ पुराण, कालीकुल के तन्त्रों (जहाँ चामुण्डा और काली प्रेत-आसना हैं) तथा काशी और गया की पितृ-मोक्ष परम्परा में प्रेतनाथ भैरव अतृप्त एवं भटकती हुई आत्माओं को शांत कर उन्हें सद्गति प्रदान करने वाले अधिपति हैं।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: श्मशान भूमि में प्रेत-आसन पर स्थित, भस्म-लेपित, खट्वांग, घण्टा, पाश और कपाल धारण किए प्रेतनाथ भैरव की मुद्रा उग्र होते हुए भी उद्धारक है।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: मनोवैज्ञानिक धरातल पर "प्रेत" मनुष्य के अतीत की अतृप्त तृष्णाओं और शोक-संस्कारों के भी प्रतीक हैं। प्रेतनाथ भैरव की आराधना से बाह्य प्रेत-बाधा और पितृ-दोष के निवारण के साथ-साथ चित्त की अतृप्त वासनाओं को भी पूर्ण शांति मिलती है।'
-        },
-        {
-          headingEn: '38. पिशाचनाथ भैरव (Piśācanātha Bhairava)',
-          headingHi: '38. पिशाचनाथ भैरव (Piśācanātha Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Piśācanātha Bhairava ("Sovereign Master over the Piśācas") rules over the darkest, most volatile elemental and nocturnal entities (piśācas) described in Atharvavedic, Purāṇic, and Tantric lore.\n' +
-            'Scriptural & Sacred Geography: Celebrated in the Kāśī Khaṇḍa of the Skanda Purāṇa (associated with the ancient Piśācamocana Tīrtha in Vārāṇasī, where the spirit Vali/Piśāca was liberated through Bhairava’s grace) and in the Bhūta-ḍāmara and Uḍḍāmareśvara Tantras, Piśācanātha commands absolute obedience from all lower astral forces.\n' +
-            'Iconography & Attributes: Midnight-black, with blazing red eyes and iron-like limbs, holding an iron club (lauha-daṇḍa), flaming torch or trident, iron chain/noose, and kapāla.\n' +
-            'Philosophical & Yogic Significance: In depth psychology and Tantric yoga, the piśāca represents obsessive, self-destructive, and parasitic impulses lurking in the deepest tamasic strata of the subconscious; Piśācanātha Bhairava exposes these shadows to the light of awareness and binds them under the sovereignty of the Self.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "पिशाचनाथ भैरव" (पिशाच = रात्रिचर तामसिक भूत-योनि + नाथ = शासक एवं मोचक) सूक्ष्म जगत की सबसे उग्र एवं तामसिक शक्तियों पर पूर्ण नियंत्रण रखने वाले और उनसे मुक्ति दिलाने वाले भैरव हैं।\n' +
-            'शास्त्रीय एवं तीर्थ संदर्भ: स्कन्द पुराण के काशी खण्ड में वर्णित काशी के प्रसिद्ध "पिशाचमोचन तीर्थ" की कथा तथा उड्डामरेश्वर और भूतडामर तन्त्र में पिशाचनाथ भैरव की महिमा गाई गई है, जिनकी आज्ञा के बिना कोई भी तामसिक शक्ति साधक के निकट नहीं आ सकती।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: गहन रात्रि के समान कृष्ण वर्ण, अग्नि-समान रक्त नेत्रों वाले पिशाचनाथ भैरव अपने हाथों में लौह-दण्ड (मुद्गर), ज्वाला-त्रिशूल, पाश और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: अंतर्मन के विज्ञान में "पिशाच" मनुष्य के अवचेतन में छिपी हुई आत्मघाती, हिंसक और तामसिक वृत्तियों का प्रतीक है। पिशाचनाथ भैरव की उपासना बाह्य अभिचार और पिशाच-बाधा को नष्ट करने के साथ-साथ अवचेतन के गहनतम अंधकार को भी आलोकित करती है।'
-        },
-        {
-          headingEn: '39. दंडपाणि भैरव (Daṇḍapāṇi Bhairava)',
-          headingHi: '39. दंडपाणि भैरव (Daṇḍapāṇi Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Daṇḍapāṇi Bhairava ("He Who Holds the Staff of Sacred Law in His Hand", from daṇḍa, "staff, sceptre, or rod of discipline," and pāṇi, "hand") is the chief executive officer and field commander serving directly alongside Kāla Bhairava in Kāśī.\n' +
-            'Scriptural & Sacred Geography: Extensively narrated in the Kāśī Khaṇḍa of the Skanda Purāṇa (Ch. 32), when Harikeśa Yakṣa performed intense penance in Vārāṇasī, Śiva-Viśvanātha appointed him as Daṇḍapāṇi Kṣetrapāla—making his darśana mandatory along with Kāla Bhairava for every pilgrim in Kāśī.\n' +
-            'Iconography & Attributes: Stern, muscular, and vigilant, standing upright with a massive golden or iron staff (dharma-daṇḍa) held firmly in his right hand, accompanied by a trident, noose, and skull-bowl.\n' +
-            'Philosophical & Yogic Significance: The daṇḍa symbolizes both cosmic moral order (dharmadaṇḍa) and the vertical spinal column (merudaṇḍa) of the human body; Daṇḍapāṇi Bhairava straightens the yogī’s spine, enforces unwavering sadhana discipline, and clears deceit and hypocrisy from the spiritual path.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "दंडपाणि भैरव" (दण्ड = धर्म-दण्ड / न्याय-दण्ड + पाणि = हाथ; जिनके हाथ में अनुशासन का दण्ड है) काशी के कोतवाल काल भैरव के प्रमुख सेनापति और काशी-क्षेत्र के सर्वोच्च व्यवस्थापक हैं।\n' +
-            'शास्त्रीय एवं तीर्थ संदर्भ: स्कन्द पुराण के काशी खण्ड (अध्याय ३२) में हरिकेश यक्ष की घोर तपस्या से प्रसन्न होकर भगवान् विश्वनाथ ने उन्हें "दंडपाणि" पद प्रदान किया। काशी की परम्परा में बाबा विश्वनाथ और काल भैरव के दर्शन के साथ दंडपाणि भैरव का दर्शन अनिवार्य माना जाता है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: सुदृढ़ एवं तेजस्वी देहयष्टि वाले दंडपाणि भैरव अपने दक्षिण हस्त में अमोघ धर्म-दण्ड (गदा/दण्ड) तथा अन्य हाथों में त्रिशूल, पाश और कपाल धारण किए सावधान मुद्रा में खड़े रहते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: योग-शास्त्र में "दण्ड" मानव शरीर के "मेरुदण्ड" (सुषुम्णा स्तंभ) और आत्म-अनुशासन का प्रतीक है। दंडपाणि भैरव साधक के मेरुदण्ड को सीधा व ऊर्ध्वमुखी रखते हैं तथा साधना में प्रमाद, कपट और अनुशासनहीनता का निवारण करते हैं।'
-        },
-        {
-          headingEn: '40. विकराल भैरव (Vikarāla Bhairava)',
-          headingHi: '40. विकराल भैरव (Vikarāla Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Vikarāla Bhairava (from vi-karāla, "formidable, wide-jawed, fang-bearing, and dread-inspiring") is the extreme protective manifestation of Bhairava invoked during severe spiritual or material crises.\n' +
-            'Scriptural & Tantric Context: Found in the Rudrayāmala, Mahākāla Saṃhitā, and protective kavaca hymns (where Kālī and Bhairava are both addressed as Mahāvikarāla), Vikarāla Bhairava stands at the outer perimeter of the Yoginī Cakra to repel hostile sorcery (abhicāra) and demonic intrusion.\n' +
-            'Iconography & Attributes: Towering like a black thunderhead, with gaping jaws gleaming with curved fangs (daṃṣṭrā), three bulging eyes of fire, wearing a garland of freshly severed ego-heads, wielding the battle-axe (paraśu), khaḍga, trident, and kapāla.\n' +
-            'Philosophical & Yogic Significance: Karāla/Vikarāla represents the gaping mouth of Infinite Time that swallows all finite names and forms; by contemplating Vikarāla Bhairava, the practitioner confronts and transcends the primal existential terror of annihilation, emerging with diamond-like equanimity.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "विकराल भैरव" (वि + कराल = प्रचण्ड दंष्ट्रा-युक्त, अति-भयंकराकृति एवं अजेय रक्षक) भैरव का वह अति-उग्र कवच-स्वरूप है जो घोरतम संकट और आसुरी आक्रमणों का क्षणभर में भंजन करता है।\n' +
-            'शास्त्रीय एवं तांत्रिक संदर्भ: रुद्रयामल, महाकाल संहिता और भैरव-कवच स्तोत्रों में विकराल भैरव को चौंसठ योगिनी मण्डल की बाह्य रक्षा-पंक्ति का अजेय प्रहरी तथा उग्र अभिचार-क्रियाओं का नाशक बताया गया है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: प्रलय के काले मेघ के समान विशालकाय, वक्र दंष्ट्राओं से युक्त खुला हुआ मुख, अग्नि के समान तीन नेत्र और मुण्डमाला धारण किए विकराल भैरव अपने हाथों में परशु (फरसा), महाखड्ग, त्रिशूल और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: दार्शनिक रूप से "विकराल मुख" महाकाल का वह अनन्त ग्रास है जिसमें समस्त नाम-रूप समा जाते हैं। विकराल भैरव का ध्यान साधक के भीतर छिपे मृत्यु और विनाश के अंतिम भय को भी निगलकर उसे पूर्ण निर्भयता प्रदान करता है।'
-        },
-        {
-          headingEn: '41. भद्र भैरव (Bhadra Bhairava)',
-          headingHi: '41. भद्र भैरव (Bhadra Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Bhadra Bhairava (from bhadra, "auspicious, blessed, gracious, prosperous, and benign") reveals the gentle, welfare-bestowing heart of Bhairava that balances Vikarāla Bhairava (#40).\n' +
-            'Scriptural & Vedic-Tantric Context: Echoing the Vedic prayer bhadraṃ karṇebhiḥ śṛṇuyāma devāḥ and paired in Śākta tradition with Bhadrakālī ("The Auspicious Kālī"), Bhadra Bhairava demonstrates that the fierce guardian of the cremation ground is simultaneously Śiva ("The Auspicious One") who brings maṅgala (blessing) to household and hermitage alike.\n' +
-            'Iconography & Attributes: Golden-white in complexion, with a serene, smiling countenance alongside his third eye, seated upon a lotus or bull throne (bhadrāsana), extending the varada and abhaya mudrās while holding the trident and lotus/rosary.\n' +
-            'Philosophical & Yogic Significance: In Haṭha Yoga, Bhadrāsana ("The Auspicious Posture") is praised in the Haṭhayogapradīpikā (1.53–54) as the destroyer of all diseases and fatigues; Bhadra Bhairava establishes the practitioner in unshakeable peace, domestic harmony, and auspicious spiritual progress (kalyāṇa-mārga).',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "भद्र भैरव" (भद्र = कल्याणकारी, मंगलमय, सौम्य एवं शुभ) भैरव-तत्त्व के उस परम करुणामय और मंगलकारी हृदय को प्रकट करते हैं जो ४०. विकराल भैरव की उग्रता को संतुलित करता है।\n' +
-            'शास्त्रीय एवं वैदिक-तांत्रिक संदर्भ: वैदिक मंगलाचरण ("भद्रं कर्णेभिः शृणुयाम देवाः") और शाक्त परम्परा की "भद्रकाली" के सहचर के रूप में भद्र भैरव यह सिद्ध करते हैं कि भैरव का रौद्र रूप अंततः भक्तों के परम कल्याण (मंगल) के लिए ही है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: स्वर्ण-गौर वर्ण, प्रसन्न एवं स्मित मुखमण्डल, पद्म या भद्रासन पर विराजमान भद्र भैरव अपने दो हाथों से वरद और अभय मुद्रा प्रदान करते हैं तथा अन्य हाथों में त्रिशूल और कमल/अक्षमाला धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: हठयोगप्रदीपिका (१.५३–५४) में "भद्रासन" को समस्त रोगों और विषों का नाशक कहा गया है। भद्र भैरव की आराधना से साधक के गृहस्थ और आध्यात्मिक जीवन में सुख, शांति, आरोग्य और निर्विघ्न मांगल्य की प्रतिष्ठा होती है।'
-        },
-        {
-          headingEn: '42. भीम भैरव (Bhīma Bhairava)',
-          headingHi: '42. भीम भैरव (Bhīma Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Bhīma Bhairava ("The Tremendous, Formidable, and Colossal Bhairava") is one of the eight canonical names of Rudra-Śiva in the Vedic Aṣṭamūrti system (Śarva, Bhava, Rudra, Ugra, Bhīma, Paśupati, Īśāna, Mahādeva) manifested in full Tantric majesty.\n' +
-            'Scriptural & Purāṇic Context: Attested in the Yajurveda, Śiva Purāṇa (associated with the Bhīmaśaṅkara Jyotirliṅga in the Sahyādri mountains), and Kṣetrapāla Tantras, Bhīma Bhairava embodies the boundless space-element (ākāśa-mūrti) and colossal prāṇic strength that crushes tyrannical forces.\n' +
-            'Iconography & Attributes: Immense in stature, deep indigo or coppery-gold in hue, wearing a lion-skin and serpent ornaments, wielding the heavy mace (gadā), Pināka bow, trident, and kapāla.\n' +
-            'Philosophical & Yogic Significance: Bhīma Bhairava infuses the practitioner’s prāṇamaya-kośa (vital sheath) with inexhaustible stamina, courage, and fortitude (dhṛti), enabling the yogī to bear high-intensity tapas and life challenges without wavering.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "भीम भैरव" (भीम = असीम बलशाली, विशालकाय एवं पराक्रमी) वैदिक और पौराणिक "अष्टमूर्ति शिव" के आठ नामों (शर्व, भव, रुद्र, उग्र, भीम, पशुपति, ईशान, महादेव) में से पंचम मूर्ति का पूर्ण तांत्रिक भैरव-स्वरूप हैं।\n' +
-            'शास्त्रीय एवं पौराणिक संदर्भ: यजुर्वेद, शिव पुराण (सह्याद्रि पर्वत स्थित भीमशंकर ज्योतिर्लिंग की परम्परा) और आगम ग्रन्थों में भीम भैरव को आकाश-तत्त्व का अधिष्ठान तथा राक्षसी अत्याचारों को कुचलने वाले महाबल का स्वामी माना गया है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: पर्वत के समान विशाल देहयष्टि, गहरे नील या ताम्र-स्वर्ण वर्ण, सिंहचर्म एवं नाग-आभूषण धारी भीम भैरव अपने हाथों में भारी गदा, धनुष, त्रिशूल और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: योग-साधना में भीम भैरव साधक के "प्राणमय कोश" को असीम ऊर्जा, धैर्य (धृति) और वज्र-समान सहनशक्ति प्रदान करते हैं, जिससे कठिन से कठिन तपस्या और जीवन-संघर्ष में भी साधक अडिग रहता है।'
-        },
-        {
-          headingEn: '43. दिगंबर भैरव (Digambara Bhairava)',
-          headingHi: '43. दिगंबर भैरव (Digambara Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Digambara Bhairava ("Clad in the Quarters of Space", from dik, "the directions of the sky," and ambara, "garment") is the sky-clad ascetic Bhairava who wears the infinite expanse of the cosmos as his only robe.\n' +
-            'Scriptural & Ascetic Context: Invoked in the Kālabhairavāṣṭakam (digambaraṃ... kālabhairavaṃ bhaje), Avadhūta Gītā, and Kāpālika/Nāga/Aghora ascetic lineages, Digambara Bhairava represents absolute freedom from social convention, shame (lajjā-pāśa), and false persona.\n' +
-            'Iconography & Attributes: Completely unadorned by artificial cloth, smeared only with sacred white vibhūti (ashes), radiant and self-contained, holding the khaṭvāṅga, ḍamaru, trident, and begging skull-bowl (bhikṣā-kapāla).\n' +
-            'Philosophical & Yogic Significance: In Trika metaphysics, the thirty-six tattvas and the māyīya-mala (veil of differentiation) are the "clothes" that conceal the naked luminosity of Consciousness; Digambara Bhairava strips away every conceptual veil (āvaraṇa-bhaṅga) so that the Self stands revealed in its pristine, unconditioned nakedness.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "दिगंबर भैरव" (दिक् = दसों दिशाएँ + अम्बर = वस्त्र; दिशाएँ ही जिनके वस्त्र हैं) भैरव का वह परमहंस, अवधूत और सर्व-आवरण-मुक्त स्वरूप है जिसे किसी कृत्रिम आवरण की आवश्यकता नहीं है।\n' +
-            'शास्त्रीय एवं संन्यास संदर्भ: आदि शंकराचार्य के कालभैरवाष्टकम् ("दिगम्बरं... कालभैरवं भजे"), अवधूत गीता तथा नागा, कापालिक और अघोर संन्यास परम्पराओं में दिगंबर भैरव को परम स्वतंत्रता और निर्द्वन्द्वता का आदर्श माना गया है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: केवल चिता-भस्म (विभूति) से लिप्त देह, दसों दिशाओं के चिदाकाश को ओढ़े हुए, शांत और आत्म-तृप्त दिगंबर भैरव अपने हाथों में खट्वांग, डमरू, त्रिशूल और भिक्षा-कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: तन्त्र-दर्शन में अष्ट-पाशों में "लज्जा" और "मायीय मल" जीव के ऊपर पड़े हुए अज्ञान के वस्त्र हैं। दिगंबर भैरव की उपासना समस्त मानसिक आवरणों और लोक-दिखावे को उतारकर आत्मा के विशुद्ध, निरावरण स्वरूप का साक्षात्कार कराती है।'
-        },
-        {
-          headingEn: '44. नाग भैरव (Nāga Bhairava)',
-          headingHi: '44. नाग भैरव (Nāga Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Nāga Bhairava ("Lord of the Immortal Nāgas") is distinct from Sarpa Bhairava (#26): whereas Sarpa emphasizes the dynamic gliding motion of the serpent-fire, Nāga Bhairava presides over the royal, jewel-crowned Nāga race of Pātāla, sacred water springs (nāga-tīrthas), and earth-treasures (nidhi).\n' +
-            'Scriptural & Sacred Geography: Deeply venerated in the Nīlamata Purāṇa of Kashmir (where every sacred spring is a nāga guarded by Bhairava), the Kāśī Khaṇḍa (Nāga Kūpa / Kārkoṭaka Vāpī), and Himalayan sanctuary traditions, Nāga Bhairava harmonizes subterranean ecological forces with human habitation.\n' +
-            'Iconography & Attributes: Crowned with a blazing nāga-maṇi (serpent jewel) beneath a nine-headed cobra canopy, wearing ornaments of pearls and coral, holding the jewel-vase (ratna-kalaśa), nāga-pāśa, trident, and kapāla.\n' +
-            'Philosophical & Yogic Significance: In Haṭha Yoga’s ten vāyus (five major prāṇas and five minor upaprāṇas), "Nāga" is the first upaprāṇa governing release and subtle clearing; Nāga Bhairava purifies the subtle channels, unlocks hidden spiritual treasures (guhyanidhi), and bestows deep subterranean stability.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "नाग भैरव" २६वें क्रमांक के सर्प भैरव से विशिष्ट हैं—जहाँ सर्प भैरव गतिशील कुण्डलिनी-सृपण के प्रतीक हैं, वहीं नाग भैरव पाताल लोक के मणिधारी नागराजों, पवित्र जल-स्रोतों (नाग-तीर्थों) और भूमिगत निधियों के अधिपति हैं।\n' +
-            'शास्त्रीय एवं तीर्थ संदर्भ: कश्मीर के नीलमत पुराण (जहाँ प्रत्येक पवित्र जल-कुण्ड "नाग" कहलाता है), काशी के नागकूप (कर्कोटक वापी) तथा हिमालयी लोक-तांत्रिक परम्पराओं में नाग भैरव भूमि, जल और वास्तु-दोष के सर्वोच्च रक्षक माने जाते हैं।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: मस्तक पर दिव्य नागमणि और नवमुखी नाग-छत्र से अलंकृत, प्रवाल व मुक्ता आभूषण धारी नाग भैरव अपने हाथों में रत्न-कलश, नाग-पाश, त्रिशूल और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: योग-शास्त्र के दस प्राणों (पञ्च प्राण व पञ्च उपप्राण) में प्रथम उपप्राण का नाम "नाग" है जो देह की शुद्धि से संबद्ध है। नाग भैरव की आराधना से नाड़ियों की शुद्धि, गुप्त आध्यात्मिक निधियों की प्राप्ति और पृथ्वी-तत्त्व की स्थिरता सिद्ध होती है।'
-        },
-        {
-          headingEn: '45. उग्र भैरव (Ugra Bhairava)',
-          headingHi: '45. उग्र भैरव (Ugra Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Ugra Bhairava (from ugra, "intense, formidable, high-voltage, pungent, and overwhelming") is the fourth of the Vedic Aṣṭamūrti Rudras and a supreme Tantric consort of the Mahāvidyā Ugratārā / Ekajaṭā.\n' +
-            'Scriptural & Tantric Context: Celebrated in the Tārā Tantra, Rudrayāmala, Bṛhannīla Tantra, and Śiva Purāṇa (where Ugra corresponds to the Vāyu/wind element that sweeps away all stagnation), Ugra Bhairava acts with lightning-like speed to rescue the practitioner from extreme crisis (ugratārā-sahāya).\n' +
-            'Iconography & Attributes: Blazing blue-black like a storm-charged thundercloud, wearing a tiger-skin and five skulls on his crown, standing in pratyālīḍha posture, holding the kartrī (chopper), khaḍga, blue lotus (nīlotpala) or trident, and kapāla.\n' +
-            'Philosophical & Yogic Significance: In Tantric sadhana, ugratā denotes one-pointed, high-intensity spiritual urgency (tīvra-saṃvega, Yoga Sūtra 1.21—"attainment is near for those of intense urgency"); Ugra Bhairava accelerates the yogī’s breakthrough across the ocean of saṃsāra.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "उग्र भैरव" (उग्र = तीव्र वेगवान, प्रचण्ड तेजस्वी एवं त्वरित फलदायी) वैदिक अष्टमूर्ति शिव की चतुर्थ मूर्ति (वायु-तत्त्व के अधिष्ठाता) तथा दशमहाविद्या में भगवती "उग्रतारा" के प्रमुख भैरव-सहचर हैं।\n' +
-            'शास्त्रीय एवं तांत्रिक संदर्भ: तारा तन्त्र, बृहन्नील तन्त्र, रुद्रयामल और शिव पुराण में उग्र भैरव को घोर संकटों ("उग्र-तारिणी") से विद्युत्-गति से पार लगाने वाला और जड़ता को उड़ा देने वाले महाप्राण-वायु का स्वामी कहा गया है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: सघन मेघ के समान नील-श्याम वर्ण, मस्तक पर पंचमुण्ड-मुकुट, व्याघ्रचर्म धारी और प्रत्यालीढ़ मुद्रा में स्थित उग्र भैरव अपने हाथों में कर्तरी, खड्ग, त्रिशूल (या नीलकमल) और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: पातञ्जल योगसूत्र (१.२१ — "तीव्रसंवेगानामासन्नः") के अनुसार तीव्र आध्यात्मिक संवेग वाले साधकों को समाधि और सिद्धि शीघ्र प्राप्त होती है। उग्र भैरव साधक में वही अदम्य "तीव्र-संवेग" जाग्रत कर भवसागर से पार उतारते हैं।'
-        },
-        {
-          headingEn: '46. भूतनाथ भैरव (Bhūtanātha Bhairava)',
-          headingHi: '46. भूतनाथ भैरव (Bhūtanātha Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Bhūtanātha Bhairava ("Lord of All Beings and Master of the Five Elements") encompasses the dual meaning of bhūta in Sanskrit: (1) the five gross elements (Pañcamahābhūtas: earth, water, fire, air, ether) and all living creatures, and (2) the subtle elemental attendants (bhūtagaṇas) of Śiva’s retinue.\n' +
-            'Scriptural & Purāṇic Context: Extensively praised in the Śiva Purāṇa, Liṅga Purāṇa, and Kālīkula Tantras, Bhūtanātha Bhairava is the hospitable lord who welcomes every creature discarded or feared by polite society into his divine assembly.\n' +
-            'Iconography & Attributes: Surrounded by joyous dancing gaṇas, yakṣas, and yoginīs, wearing a crescent moon and serpent garland, five-hued or ash-white, holding the trident, ḍamaru, horn (śṛṅgī), and skull-bowl.\n' +
-            'Philosophical & Yogic Significance: In Haṭha and Tantric Yoga, Bhūtanātha Bhairava presides over Bhūta-śuddhi—the foundational liturgical and meditative purification of the five elements within the five lower cakras (Mūlādhāra to Viśuddha), granting elemental mastery (bhūtajaya).',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "भूतनाथ भैरव" में "भूत" शब्द के दो गहन शास्त्रीय अर्थ हैं—(१) पृथ्वी, जल, तेज, वायु और आकाश रूपी "पञ्चमहाभूत" तथा समस्त प्राणी-मात्र, और (२) भगवान् शिव के अनुचर "भूतगण"। इन दोनों के परम स्वामी भूतनाथ भैरव हैं।\n' +
-            'शास्त्रीय एवं पौराणिक संदर्भ: शिव पुराण, लिंग पुराण और आगम ग्रन्थों में भूतनाथ भैरव को समदर्शी करुणा का सागर बताया गया है, जो समाज द्वारा उपेक्षित और भयावह समझे जाने वाले प्राणियों को भी अपने गणों के रूप में अपनाते हैं।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: नृत्य करते हुए भूतगणों, यक्षों और योगिनियों से परिवृत, भस्म-विभूषित, चन्द्र-शेखर भूतनाथ भैरव अपने हाथों में त्रिशूल, डमरू, श्रृंगी नाद और कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: तांत्रिक उपासना के मूल आधार "भूत-शुद्धि" (मूलाधार से विशुद्ध चक्र तक पाँचों महाभूतों का शोधन) के अधिष्ठाता देव भूतनाथ भैरव ही हैं, जिनकी कृपा से साधक को "भूत-जय" (पंचतत्त्वों पर विजय) प्राप्त होती है।'
-        },
-        {
-          headingEn: '47. अघोर भैरव (Aghora Bhairava)',
-          headingHi: '47. अघोर भैरव (Aghora Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Aghora Bhairava (from a-ghora, literally "Non-Terrifying, Luminous, and Profoundly Benign", even within the heart of the fiercest reality) is the Southern face of the five-faced Sadāśiva/Svacchanda and the fountainhead of the Aghora spiritual stream.\n' +
-            'Scriptural & Philosophical Context: Rooted in the Yajurvedic Pañcabrahma mantras (aghorébhyo ’tha ghorébhyo ghoraghoratarebhyaḥ, Taittirīya Āraṇyaka 10.20) and expounded in the Svacchanda Tantra, Tantrāloka, and the Kīnārāmī Aghora lineage of Kāśī, Aghora Bhairava reveals that nothing in existence is impure when seen through non-dual eyes.\n' +
-            'Iconography & Attributes: Deep sapphire or midnight-blue in radiance, serene yet fierce, adorned with rudrākṣa and ashes, holding the trident, ḍamaru, kapāla, and sword of wisdom.\n' +
-            'Philosophical & Yogic Significance: In Kashmir Śaivism, the three cosmic powers are Parā (supreme), Parāparā (intermediate), and Aparā (diverse); Aghora represents the dynamic grace that descends into the most contracted, "terrifying" (ghora) realms of saṃsāra and transforms them into pure, non-dual Śiva-light (aghora).',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "अघोर भैरव" (अ = नहीं + घोर = भयानक या कठिन; अर्थात् जो घोरतम स्थिति में भी परम सौम्य, सरल और शिवमय हैं) पञ्चमुख शिव के दक्षिण मुख तथा "अघोर पथ" के सर्वोच्च आराध्य देव हैं।\n' +
-            'शास्त्रीय एवं दार्शनिक संदर्भ: कृष्ण यजुर्वेद के तैत्तिरीय आरण्यक ("अघोरेभ्योऽथ घोरेभ्यो घोरघोरतरेभ्यः" — १०.२०), स्वच्छन्द तन्त्र, तन्त्रालोक और काशी की बाबा कीनाराम अघोर परम्परा में अघोर भैरव को अद्वैत समदृष्टि का सर्वोच्च शिखर माना गया है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: नीलमणि या गहन रात्रि के समान शांत-तेजस्वी वर्ण, भस्म और रुद्राक्ष से अलंकृत अघोर भैरव अपने हाथों में त्रिशूल, डमरू, कपाल और ज्ञान-खड्ग धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: अघोर दर्शन का मूल सिद्धांत है कि सृष्टि में कुछ भी घृणित या त्याज्य नहीं है; जब साधक शुद्ध-अशुद्ध और ग्राह्य-त्याज्य के द्वैत से ऊपर उठकर सर्वत्र शिव का दर्शन करता है, तब वह "अघोर-अवस्था" को प्राप्त करता है।'
-        },
-        {
-          headingEn: '48. स्वर्णाकर्षण भैरव (Svarṇākarṣaṇa Bhairava)',
-          headingHi: '48. स्वर्णाकर्षण भैरव (Svarṇākarṣaṇa Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Svarṇākarṣaṇa Bhairava ("The Golden-Attracting Bhairava", from svarṇa, "pure gold, auric radiance, and auspicious abundance," and ākarṣaṇa, "magnetizing or drawing forth") is the supreme Sāttvika wealth-and-grace-bestowing form of Bhairava.\n' +
-            'Scriptural & Liturgical Context: Extensively detailed in the Rudrayāmala Tantra (Svarṇākarṣaṇa Bhairava Kalpa, Stotra, and Sahasranāma) and connected with the temple traditions of Chidambaram and Kāśī, he is propitiated by householders and yogīs alike to eradicate crushing poverty (dāridrya-nāśa), debt, and scarcity.\n' +
-            'Iconography & Attributes: Unlike the dark cremation-ground forms, Svarṇākarṣaṇa Bhairava is clad in yellow silk (pītāmbara), glowing like molten gold, seated upon a jewelled lion-throne beneath the wish-fulfilling Kalpavṛkṣa tree, embraced by Bhairavī, holding a vessel overflowing with gold and jewels (svarṇa-pātra), a golden trident, ḍamaru, and varada-mudrā.\n' +
-            'Philosophical & Yogic Significance: Esoterically, svarṇa is not merely physical gold, but the incorruptible golden light of spiritual wisdom (hiraṇmaya-jyoti) and vital ojas; Svarṇākarṣaṇa Bhairava magnetizes both outer material sufficiency for dharma and inner golden illumination.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "स्वर्णाकर्षण भैरव" (स्वर्ण = सुवर्ण, समृद्धि एवं हिरण्मय आत्म-तेज + आकर्षण = खींचना/प्रदान करना) भैरव का परम सात्त्विक, ऐश्वर्य-प्रदायक और दारिद्र्य-विनाशक स्वरूप है।\n' +
-            'शास्त्रीय एवं उपासना संदर्भ: रुद्रयामल तन्त्र (स्वर्णाकर्षण भैरव कल्प, स्तोत्र एवं सहस्रनाम) तथा चिदम्बरम् और काशी की उपासना परम्परा में इन्हें गृहस्थों और साधकों के समस्त ऋण, दरिद्रता और अभावों को दूर कर अक्षय लक्ष्मी प्रदान करने वाला देवता माना गया है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: श्मशान-वासी उग्र रूपों से भिन्न, स्वर्णाकर्षण भैरव पीताम्बर धारी, तप्त कांचन के समान स्वर्णिम आभा वाले, कल्पवृक्ष के नीचे रत्न-सिंहासन पर भैरवी के साथ आसीन हैं तथा हाथों में स्वर्ण-रत्न से भरा पात्र, स्वर्ण-त्रिशूल, डमरू और वरद मुद्रा धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: आध्यात्मिक धरातल पर "स्वर्ण" साधक के विशुद्ध ओज और "हिरण्मय ज्योति" (आत्म-ज्ञान) का प्रतीक है। स्वर्णाकर्षण भैरव साधक को बाह्य श्री-समृद्धि के साथ-साथ आंतरिक स्वर्णिम प्रज्ञा से भी संपन्न करते हैं।'
-        },
-        {
-          headingEn: '49. नृसिंह भैरव (Nṛsiṃha Bhairava)',
-          headingHi: '49. नृसिंह भैरव (Nṛsiṃha Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Nṛsiṃha Bhairava ("The Man-Lion Bhairava") represents the powerful Tantric synthesis of the fierce Vaiṣṇava avatāra Narasiṃha and Śaiva-Śākta Bhairava consciousness.\n' +
-            'Scriptural & Tantric Context: Attested in the Śāradā Tilaka, Prapañcasāra Tantra, Nṛsiṃhatāpanīya Upaniṣad, and shared Śākta-Śaiva-Vaiṣṇava mandala traditions (where Nārasimhī is one of the Mātṛkās/Yoginīs in 8/9-mother lists), Nṛsiṃha Bhairava embodies the transcendent threshold that defies all dualistic loopholes.\n' +
-            'Iconography & Attributes: Possessing a blazing lion-face with a mane of flames and a muscular human-divine torso, three-eyed, roaring with the sound of thunder, wielding the discus, trident, kapāla, and lotus while tearing apart demonic obstruction with his claws.\n' +
-            'Philosophical & Yogic Significance: Just as Hiraṇyakaśipu sought immunity from "inside or outside, day or night, man or beast, earth or sky," the ego constructs subtle rationalizations to avoid surrender; Nṛsiṃha Bhairava manifests at the twilight junction (sandhyā / suṣumṇā) to rip open the armoured chest of egoic resistance and reveal the heart of devotion.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "नृसिंह भैरव" (नृ = मानव + सिंह = केसरी; नर-सिंह और भैरव के संयुक्त उग्र तेज का विग्रह) वैष्णव नृसिंह-तत्त्व और शैव-शाक्त भैरव-तत्त्व के अद्भुत तांत्रिक समन्वय के प्रतीक हैं।\n' +
-            'शास्त्रीय एवं तांत्रिक संदर्भ: शारदातिलक, प्रपञ्चसार तन्त्र, नृसिंहतापनीय उपनिषद् तथा योगिनी-मातृका मण्डल (जहाँ "नारसिंही" मातृका शक्ति पूजित हैं) में नृसिंह भैरव को समस्त आसुरी वरदानों और अभेद्य बाधाओं को चीर डालने वाली संधि-शक्ति माना गया है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: प्रज्वलित अग्नि-समान केसर (अयाल) से युक्त सिंह-मुख, त्रिनेत्र, मेघ-गर्जन जैसी दहाड़ तथा हाथों में त्रिशूल, चक्र, कपाल और तीक्ष्ण नख धारण किए नृसिंह भैरव अत्यंत प्रभावशाली हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: जैसे हिरण्यकशिपु न भीतर मर सकता था न बाहर, न दिन में न रात में, वैसे ही सूक्ष्म अहंकार अनेक तर्कों की आड़ में छिपा रहता है। नृसिंह भैरव इड़ा और पिंगला के संधि-काल (सुषुम्णा की गोधूलि) में प्रकट होकर अहंकार का विदारण करते हैं।'
-        },
-        {
-          headingEn: '50. कपाल भैरव (Kapāla Bhairava)',
-          headingHi: '50. कपाल भैरव (Kapāla Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Kapāla Bhairava ("The Skull-Bearing Bhairava", also revered as Kapālī) is the seventh canonical member in several major Aṣṭa Bhairava lists (alternating with Bhīṣaṇa Bhairava) and the fiftieth of the Fifty-Two Bhairavas.\n' +
-            'Scriptural & Lineage Context: Central to the Śiva Purāṇa, Kūrma Purāṇa, Kāśī Khaṇḍa (Kapālabhairava / Lāṭ Bhairava of Vārāṇasī), and the historical Kāpālika ascetic order (Soma-siddhānta), Kapāla Bhairava carries the fifth cranium of Brahmā as his eternal alms-bowl.\n' +
-            'Iconography & Attributes: Glowing yellow or blood-red in complexion, seated or mounted on an elephant/corpse alongside his Mātṛkā consort Indrāṇī or Cāmuṇḍā, garlanded with bones and skulls, holding the vajra, pāśa, trident, and the luminous brahma-kapāla.\n' +
-            'Philosophical & Yogic Significance: In esoteric subtle anatomy, the ultimate kapāla is the cranial vault of the yogī’s own skull enclosing the thousand-petaled Sahasrāra lotus; Kapāla Bhairava fills this inner cranial vessel with the wine of supreme Self-awareness (kulāmṛta / parā-saṃvit).',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "कपाल भैरव" (कपाल = ब्रह्मकपाल अथवा सहस्रार-कपाल को धारण करने वाले "कपाली") अनेक शास्त्रीय अष्ट-भैरव सूचियों में सप्तम भैरव तथा बावन भैरवों की नामावली में पचासवें स्थान पर प्रतिष्ठित हैं।\n' +
-            'शास्त्रीय एवं आम्नाय संदर्भ: शिव पुराण, कूर्म पुराण, काशी खण्ड (काशी के प्राचीन कपाल भैरव / लाट भैरव तीर्थ) तथा ऐतिहासिक "कापालिक" (सोम-सिद्धान्त) परम्परा में कपाल भैरव को ब्रह्मकपाल-पात्र का अधिष्ठाता माना गया है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: पीत अथवा रक्त-प्रभ वर्ण, मुण्डमाला और अस्थि-आभूषणों से युक्त कपाल भैरव अपने हाथों में वज्र, पाश, त्रिशूल और दिव्य ज्योति से पूर्ण ब्रह्म-कपाल धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: गुह्य योग-विज्ञान में वास्तविक "कपाल" साधक के स्वयं के मस्तक का ऊपरी कपाल-कुहर है जिसके भीतर सहस्रार पद्म स्थित है। कपाल भैरव की साधना इस अंतः-कपाल को परा-संवित् के कुलामृत से परिपूर्ण कर देती है।'
-        },
-        {
-          headingEn: '51. चरु भैरव (Caru Bhairava)',
-          headingHi: '51. चरु भैरव (Caru Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Caru Bhairava (from caru, "the consecrated sacrificial oblation of boiled rice, barley, milk, and ghee offered into the sacred fire", as well as cāru, "auspicious and pleasing") is the presiding Bhairava of ritual fire-alchemy (homa-vidhāna) and sacrificial nourishment.\n' +
-            'Scriptural & Ritual Context: Across Vedic Śrauta-Gṛhya rituals, Purāṇic yajñas, and Tantric kuṇḍa-homa manuals (such as the Śāradā Tilaka and Somaśambhupaddhati), the preparation and offering of caru is the climax that feeds the deities and ancestors; in Kaula and Vidyāpīṭha Tantras, caru also designates the consecrated sacramental offering of the Yoginī circle.\n' +
-            'Iconography & Attributes: Shining like clarified butter poured upon smokeless fire, four-armed, holding the golden caru-sthālī (sacrificial vessel), sruk/sruva (sacrificial ladles), trident, and abhaya-mudrā.\n' +
-            'Philosophical & Yogic Significance: In the inner fire-sacrifice (antar-yāga) taught in the Vijñāna Bhairava and Tantrāloka, the yogī offers the oblation (caru) of sense-impressions and dualistic thoughts into the blazing stomach-and-consciousness fire (cid-agni), where Caru Bhairava transmutes every experience into spiritual nourishment.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "चरु भैरव" (संस्कृत "चरु" = यज्ञ और तांत्रिक होम में देवताओं को अर्पित किया जाने वाला पवित्र हविष्यान्न/पायस; तथा "चारु" = मनोहर एवं शुभ) यज्ञीय आहुति, तांत्रिक बलि-विधान और आध्यात्मिक पोषण के अधिष्ठाता भैरव हैं।\n' +
-            'शास्त्रीय एवं आनुष्ठानिक संदर्भ: वैदिक गृह्य-श्रौत सूत्रों से लेकर शारदातिलक, सोमशम्भुपद्धति और कौल आगमों के होम-विधान में "चरु-हवन" अनुष्ठान का प्राण-बिन्दु है, जिसके माध्यम से भैरव और चौंसठ योगिनियों की तृप्ति होती है।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: प्रज्वलित हवनीय अग्नि और घृत के समान स्वर्णिम-तेजस्वी चरु भैरव अपने हाथों में स्वर्णमयी चरु-स्थाली (हविष्य पात्र), स्रुक्-स्रुवा, त्रिशूल और अभय मुद्रा धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: विज्ञानभैरव और तन्त्रालोक के "अन्तर्याग" (आंतरिक हवन) में साधक अपनी इंद्रिय-वृत्तियों और द्वैत-विकल्पों रूपी "चरु" को चिदग्नि (ज्ञानाग्नि) में आहुत करता है; चरु भैरव उस आहुति को स्वीकार कर साधक को पूर्ण आध्यात्मिक तृप्ति प्रदान करते हैं।'
-        },
-        {
-          headingEn: '52. स्वछंद भैरव (Svacchanda Bhairava)',
-          headingHi: '52. स्वछंद भैरव (Svacchanda Bhairava)',
-          bodyEn:
-            'Etymology & Identity: Svacchanda Bhairava (from sva, "one’s own innate Self," and chanda, "free will, sovereign spontaneity, and unconditioned rhythm") crowns the Fifty-Two Bhairavas as the supreme, autonomous Paramaśiva-Bhairava of non-dual Śaivism.\n' +
-            'Scriptural & Philosophical Context: He is the central deity of the monumental Svacchanda Tantra (expounded with Kṣemarāja’s Uddyota commentary)—the foundational scripture of the Dakṣiṇa/Bhairava stream in Kashmir Śaivism—where Svacchanda Bhairava and his consort Aghoreśvarī embody absolute divine freedom (Svātantrya-śakti).\n' +
-            'Iconography & Attributes: Canonically described in the Svacchanda Tantra as snow-white (or five-complexioned), having five faces (Īśāna, Tatpuruṣa, Aghora, Vāmadeva, Sadyojāta—each with three eyes, totaling fifteen eyes) and eighteen arms (aṣṭādaśa-bhuja) wielding all weapons of knowledge and grace while standing upon Kāla and Māyā.\n' +
-            'Philosophical & Yogic Significance: Svacchanda Bhairava is the ultimate culmination of the 52 Bhairavas: he who depends on nothing outside himself, whose playful free will (svacchandatā) manifests, sustains, and reabsorbs the entire universe, and whose realization bestows Jīvanmukti—supreme, unfettered liberation in this very life.',
-          bodyHi:
-            'व्युत्पत्ति एवं स्वरूप: "स्वछंद भैरव" (स्व = निज आत्मा + छन्द = परम स्वतंत्र इच्छा एवं सहज स्पन्द; जो केवल अपनी ही स्वतंत्र इच्छा से लीला करते हैं) बावन भैरवों की श्रृंखला के सर्वोच्च शिखर एवं मुकुटमणि हैं।\n' +
-            'शास्त्रीय एवं दार्शनिक संदर्भ: काश्मीरी शैव दर्शन के विशाल और मूलभूत आगम "स्वच्छन्द तन्त्र" (आचार्य क्षेमराज की "उद्योत" टीका सहित) के केंद्रीय आराध्य देव स्वछंद भैरव और उनकी शक्ति भगवती अघोरेश्वरी ही हैं, जो परब्रह्म की "स्वातंत्र्य-शक्ति" के पूर्ण विग्रह हैं।\n' +
-            'प्रतिमाशास्त्र एवं आयुध: स्वच्छन्द तन्त्र के ध्यान के अनुसार वे कर्पूर-गौर, "पञ्चमुख" (ईशान, तत्पुरुष, अघोर, वामदेव और सद्योजात—प्रत्येक मुख पर तीन नेत्र अर्थात् कुल पंद्रह नेत्र) तथा "अष्टादशभुज" (१८ भुजाओं वाले) हैं, जो काल और माया के ऊपर खड़े होकर १८ दिव्य आयुध व मुद्राएँ धारण करते हैं।\n' +
-            'दार्शनिक एवं यौगिक महत्त्व: १. असितांग भैरव से प्रारंभ हुई बावन भैरवों की यात्रा ५२. स्वछंद भैरव में पूर्णता पाती है—उनकी अनुभूति से साधक समस्त कर्म-पाशों और परतंत्रता से मुक्त होकर इसी जीवन में "जीवन्मुक्ति" और परम आत्म-स्वातंत्र्य ("स्वच्छन्द-पद") प्राप्त करता है।'
-        }
-      ],
+        'भैरव · ॥ श्री बावन भैरव संग्रह ॥ · ५२ शक्तिपीठ रक्षक भैरव (amazingbharat.com | शिव, तन्त्र कला, मन्त्र)। यह शोध-प्रबंध बावन भैरवों को ६४ भैरव प्रणाली से पृथक् करते हुए पारंपरिक ५२ शक्तिपीठों के रक्षक शिव-स्वरूपों के रूप में प्रतिष्ठापित करता है। नीचे दिए गए क्रम में संपूर्ण शोध आलेख प्रस्तुत है: १. ५२ भैरवों का शास्त्रीय स्वरूप, २. ५२ भैरव नामावली एवं मूल नाम मन्त्र (०१. भीमलोचन से ५२. सदाशिव), ३. श्री बावन भैरव समर्पण मन्त्र, ४. प्रमुख शास्त्रीय स्रोत एवं संदर्भ, ५. तीन प्रणालियों की तुलना (८, ६४ एवं ५२), ६. शक्तिपीठ प्राकट्य कथा, ७. पीठनिर्णय / डी.सी. सरकार ५१ शक्तिपीठ सूची, ८. ५२वाँ पीठ (दन्तेश्वरी, बस्तर), ९. ८-स्तरीय प्रलेखन ढांचा, १०. मन्त्र संशोधन सम्बन्धी निर्देश, एवं ११. संपादकीय संरचना।',
+      sections: BAVAN_BHAIRAVA_SECTIONS,
       keyFindingsEn: [
-        'Complete 52 Bhairava (Bāvan Bhairav) monograph from 1. Asitāṅga Bhairava to 52. Svacchanda Bhairava.',
-        'Each of the 52 Bhairavas is documented with Sanskrit etymology, Āgamic/Purāṇic context, iconography, and yogic significance.',
-        'Integrates the canonical Aṣṭa Bhairava octad, Kāśī Kṣetrapāla guardians, Śaktipīṭha consorts, and Svacchanda Tantra metaphysics.'
+        '52 Bhairavas defined strictly as the guardian manifestations of Lord Shiva protecting the traditional 52 Shakti Peethas.',
+        'Complete roster of 52 Bhairava names and devotional salutation mantras (01. Bhimalochana to 52. Sadashiva).',
+        'Inclusion of the Collective 52 Bhairava Prayer: ॥ श्री बावन भैरव समर्पण मंत्र ॥ (ॐ श्री बावन भैरवेभ्यो नमः॥).',
+        'Academic separation of the 3 distinct Bhairava systems: Ashta Bhairava (8), Chatushshashti Bhairava (64), and Shakti Peetha Bhairavas (51/52).',
+        'Complete 51 Peetha critical concordance from Pīṭhanirṇaya / D.C. Sircar plus the 52nd Danteshwari Peetha entry in Bastar.'
       ],
       keyFindingsHi: [
-        '1. असितांग भैरव से 52. स्वछंद भैरव तक सभी बावन भैरव (52 भैरव) पर विस्तृत शास्त्रीय शोध-प्रबंध।',
-        'प्रत्येक भैरव का संस्कृत शब्दार्थ, आगमिक/पौराणिक संदर्भ, प्रतिमाशास्त्र एवं यौगिक रहस्य सविस्तार प्रलेखित।',
-        'अष्ट भैरव, काशी के कोतवाल एवं दण्डपाणि, शक्तिपीठ रक्षक तथा स्वच्छन्द तन्त्र के सर्वोच्च तत्त्वज्ञान का समन्वित संकलन।'
+        'बावन भैरवों को ६४ भैरव प्रणाली से पृथक् करते हुए ५२ शक्तिपीठों के रक्षक शिव-स्वरूपों के रूप में प्रतिष्ठापित किया गया।',
+        '०१. भीमलोचन से ५२. सदाशिव पर्यन्त सभी ५२ भैरव नामों और भक्ति नाम-मन्त्रों की संपूर्ण प्रामाणिक नामावली।',
+        'सामूहिक श्री बावन भैरव समर्पण मन्त्र (॥ ॐ श्री बावन भैरवेभ्यो नमः॥) का समावेश।',
+        'तीन भैरव प्रणालियों (८ अष्ट भैरव, ६४ योगिनी भैरव, एवं ५१/५२ शक्तिपीठ भैरव) का स्पष्ट शास्त्रीय पृथक्करण।',
+        'पीठनिर्णय / डी.सी. सरकार की ५१ शक्तिपीठ सूची के साथ ५२वें दन्तेश्वरी पीठ (बस्तर) का ऐतिहासिक समन्वय।'
       ],
       metadata: [
-        { labelEn: 'Canonical Sequence', labelHi: 'शास्त्रीय क्रम', valueEn: '01. Asitāṅga Bhairava to 52. Svacchanda Bhairava', valueHi: '01. असितांग भैरव से 52. स्वछंद भैरव' },
-        { labelEn: 'Total Forms Profiled', labelHi: 'कुल वर्णित स्वरूप', valueEn: '52 Bhairavas (Full Monograph Entries)', valueHi: '52 भैरव (संपूर्ण विस्तृत लेख)' },
-        { labelEn: 'Primary Sanskrit Corpus', labelHi: 'मूल संस्कृत स्रोत', valueEn: 'Svacchanda Tantra · Tantrāloka · Śiva Purāṇa · Rudrayāmala · Kāśī Khaṇḍa', valueHi: 'स्वच्छन्द तन्त्र · तन्त्रालोक · शिव पुराण · रुद्रयामल · काशी खण्ड' },
+        { labelEn: 'Canonical System', labelHi: 'शास्त्रीय प्रणाली', valueEn: '52 Shakti Peetha Guardians (बावन भैरव संग्रह)', valueHi: '५२ शक्तिपीठ रक्षक (बावन भैरव संग्रह)' },
+        { labelEn: 'Total Forms Catalogued', labelHi: 'कुल संकलित स्वरूप', valueEn: '52 Bhairavas (01. Bhimalochana to 52. Sadashiva)', valueHi: '५२ भैरव (०१. भीमलोचन से ५२. सदाशिव)' },
+        { labelEn: 'Primary Source Corpus', labelHi: 'मूल स्रोत ग्रन्थ', valueEn: 'Pīṭhanirṇaya · Tantrachūḍāmaṇi · Śiva Purāṇa · amazingbharat.com · D.C. Sircar', valueHi: 'पीठनिर्णय · तन्त्रचूड़ामणि · शिव पुराण · अमेजिंग भारत · डी.सी. सरकार' },
         { labelEn: 'Lead Investigator', labelHi: 'प्रमुख अन्वेषक', valueEn: 'Ram Ashok Kumar', valueHi: 'राम अशोक कुमार' }
       ],
-      primarySourcesEn: 'Svacchanda Tantra · Tantrāloka (Abhinavagupta) · Śiva Purāṇa (Śatarudra Saṃhitā) · Rudrayāmala Tantra · Skanda Purāṇa (Kāśī Khaṇḍa)',
-      primarySourcesHi: 'स्वच्छन्द तन्त्र · तन्त्रालोक (अभिनवगुप्त) · शिव पुराण (शतरुद्र संहिता) · रुद्रयामल तन्त्र · स्कन्द पुराण (काशी खण्ड)',
+      primarySourcesEn: 'Pīṭhanirṇaya (D.C. Sircar Critical Edition) · Tantrachūḍāmaṇi · Śiva Purāṇa · amazingbharat.com · French Institute of Pondicherry (IFP)',
+      primarySourcesHi: 'पीठनिर्णय (डी.सी. सरकार समीक्षात्मक संस्करण) · तन्त्रचूड़ामणि · शिव पुराण · amazingbharat.com · फ्रेंच इंस्टीट्यूट ऑफ पॉन्डिचेरी',
       authorEn: 'Ram Ashok Kumar',
       authorHi: 'राम अशोक कुमार'
     }
@@ -2652,6 +1928,55 @@ const ADDITIONAL_GATEWAY_ARTICLES: Record<string, ResearchArticle[]> = {
       ],
       primarySourcesEn: 'Yoginīhṛdaya · Śāradā Tilaka (Lakṣmaṇadeśika) · Ṣaṭ-cakra-nirūpaṇa (Pūrṇānanda) · Bhāvanopaniṣad',
       primarySourcesHi: 'योगिनीहृदय · शारदातिलक (लक्ष्मणदेशिक) · षट्चक्रनिरूपण (पूर्णानन्द) · भावनोपनिषद्',
+      authorEn: 'Ram Ashok Kumar',
+      authorHi: 'राम अशोक कुमार'
+    },
+    {
+      slug: 'sapta-chakra-complete-research-archive',
+      categorySlug: 'shri-meru-chakra',
+      code: 'SEAL-09',
+      titleEn: 'The Seven Chakras — Complete Tantric & Yogic Research Archive (सप्त चक्र)',
+      titleHi: 'सप्त चक्र — सम्पूर्ण तांत्रिक एवं योगिक शोध अभिलेखागार (चक्र विद्या एवं कुण्डलिनी विज्ञान)',
+      subtitleEn: 'Interactive 9-Panel Chakra Studio, 50 Sanskrit Mātṛkā Petal Letters, 5 Mahābhūtas, 3 Principal Nāḍīs, Kuṇḍalinī Śakti & 15 Scholarly Monographs',
+      subtitleHi: '९-पैनल इंटरैक्टिव चक्र स्टूडियो, ५० संस्कृत मातृका अक्षर, पंचमहाभूत, इड़ा-पिंगला-सुषुम्णा, कुण्डलिनी शक्ति एवं १५ शोध-प्रबंध',
+      sanskritEpigraph: '॥ मूलाधारादिषट्चक्रं सहस्रारं च सप्तमम्। सुषुम्णावर्त्मना देवि भिद्यते कुण्डलीबलात् ॥',
+      epigraphTranslationEn: '"From Mūlādhāra through Ājñā stand the six lotuses, crowned by the thousand-petalled Sahasrāra as the seventh—pierced along the central path of Suṣumṇā by the awakened power of Kuṇḍalinī."',
+      epigraphTranslationHi: '"मूलाधार से आज्ञा तक छह चक्र और उनके शिखर पर सातवाँ सहस्रार महापद्म स्थित है, जिनका भेदन सुषुम्णा पथ से जाग्रत कुण्डलिनी शक्ति द्वारा होता है।"',
+      evidenceBadgeEn: 'SEAL 09 · SAPTA-CAKRA DIGITAL RESEARCH STUDIO & 15 MONOGRAPHS',
+      evidenceBadgeHi: 'मुद्रा ०९ · सप्त-चक्र डिजिटल शोध स्टूडियो एवं १५ शोध-प्रबंध',
+      accentColor: '#A855F7',
+      summaryEn:
+        'A comprehensive digital research studio and 15-article scholarly archive on the Seven Chakras (सप्त चक्र) based on Pūrṇānanda Yati’s Ṣaṭ-Cakra-Nirūpaṇa (1577 CE), Kālīcaraṇa’s commentary, the Śiva Saṃhitā, Haṭha Yoga Pradīpikā, and the Yoga Upaniṣads—featuring the 9-panel Interactive Chakra Studio, individual lotus & yantra SVG diagrams, the 50 Mātṛkā petal syllables, the Three Principal Nāḍīs (Iḍā, Piṅgalā, Suṣumṇā), Kuṇḍalinī & the Three Granthis, and a rigorous comparison of classical Sanskrit sources with modern psychological interpretations.',
+      summaryHi:
+        'पूर्णानन्द यति कृत "षट्चक्रनिरूपण" (१५७७ ई.), कालीचरण की टीका, शिव संहिता, हठयोगप्रदीपिका और योग-उपनिषदों पर आधारित सप्त-चक्रों (सप्त चक्र) का संपूर्ण डिजिटल शोध स्टूडियो एवं १५ शोध-प्रबंधों का अभिलेखागार—जिसमें ९-पैनल इंटरैक्टिव चक्र स्टूडियो, ५० संस्कृत मातृका अक्षर, पंचमहाभूत, इड़ा-पिंगला-सुषुम्णा नाड़ियाँ, कुण्डलिनी व तीन ग्रन्थियाँ तथा शास्त्रीय व आधुनिक व्याख्याओं का तुलनात्मक अध्ययन समाहित है।',
+      sections: [
+        {
+          headingEn: '1. Complete Tantric & Yogic Subtle-Body Architecture (Ṣaṭ-Cakra + Sahasrāra)',
+          headingHi: '१. संपूर्ण तांत्रिक एवं योगिक सूक्ष्म-शरीर विज्ञान (षट्चक्र + सहस्रार)',
+          bodyEn:
+            'In classical Śākta and Haṭha-yogic texts, the six axial lotuses—Mūlādhāra (4 petals), Svādhiṣṭhāna (6 petals), Maṇipūra (10 petals), Anāhata (12 petals), Viśuddha (16 petals), and Ājñā (2 petals)—house the 50 Sanskrit Mātṛkā letters (4 + 6 + 10 + 12 + 16 + 2 = 50) and the five cosmic elements (Earth, Water, Fire, Air, Space) plus Manas, culminating in the transcendent thousand-petalled Sahasrāra (50 × 20 = 1,000) at the crown.',
+          bodyHi:
+            'शास्त्रीय शाक्त और हठयोग ग्रंथों में मूलाधार (४ दल), स्वाधिष्ठान (६ दल), मणिपूर (१० दल), अनाहत (१२ दल), विशुद्ध (१६ दल) और आज्ञा (२ दल) चक्रों के कुल ५० दलों में संस्कृत के ५० मातृका अक्षर तथा पंचमहाभूत व मनस् प्रतिष्ठित हैं, जिनके शिखर पर ब्रह्मरन्ध्र में १,००० दलों वाला तत्त्वातीत सहस्रार महापद्म विराजमान है।'
+        }
+      ],
+      keyFindingsEn: [
+        'Includes the 9-Panel Interactive Chakra Studio (01 Introduction, 02 Mūlādhāra, 03 Svādhiṣṭhāna, 04 Maṇipūra, 05 Anāhata, 06 Viśuddha, 07 Ājñā, 08 Sahasrāra, 09 Kuṇḍalinī Studio).',
+        'Includes 15 full scholarly articles across Part I (Chakra Vidya), Part II (7 Individual Chakra Profiles), and Part III (7 Thematic Research Monographs).',
+        'Clearly distinguishes primary Sanskrit textual descriptions (1577 CE Ṣaṭ-Cakra-Nirūpaṇa) from post-1927 Western rainbow-colour and psychological adaptations.'
+      ],
+      keyFindingsHi: [
+        '९-पैनल इंटरैक्टिव चक्र स्टूडियो (०१ परिचय, ०२ मूलाधार से ०८ सहस्रार, एवं ०९ कुण्डलिनी स्टूडियो) से युक्त।',
+        'भाग I (चक्र विद्या), भाग II (७ व्यक्तिगत चक्र लेख) और भाग III (७ विषयगत शोध-प्रबंध) सहित कुल १५ पूर्ण शोध-लेख।',
+        'मूल संस्कृत शास्त्र (षट्चक्रनिरूपण १५७७ ई.) और २०वीं सदी की आधुनिक मनोवैज्ञानिक/इन्द्रधनुषी व्याख्याओं के बीच स्पष्ट शास्त्रीय अंतर।'
+      ],
+      metadata: [
+        { labelEn: 'Archive Seal', labelHi: 'विशेष मुद्रा', valueEn: 'SEAL 09 · The Seven Chakras (सप्त चक्र)', valueHi: 'मुद्रा ०९ · सप्त चक्र (षट्चक्र एवं सहस्रार)' },
+        { labelEn: 'Primary Sanskrit Text', labelHi: 'मूल संस्कृत ग्रंथ', valueEn: 'Pūrṇānanda’s Ṣaṭ-Cakra-Nirūpaṇa (1577 CE) & Pādukā-Pañcaka', valueHi: 'पूर्णानन्द कृत षट्चक्रनिरूपण (१५७७ ई.) एवं पादुकापञ्चक' },
+        { labelEn: 'Interactive Studio', labelHi: 'इंटरैक्टिव स्टूडियो', valueEn: '9 Exploration Panels + 15 Research Monographs', valueHi: '९ अन्वेषण पैनल + १५ शोध-प्रबंध' },
+        { labelEn: 'Lead Investigator', labelHi: 'प्रमुख अन्वेषक', valueEn: 'Ram Ashok Kumar', valueHi: 'राम अशोक कुमार' }
+      ],
+      primarySourcesEn: 'Ṣaṭ-Cakra-Nirūpaṇa (Pūrṇānanda, 1577 CE) · Kālīcaraṇa’s Ṭīkā · Śiva Saṃhitā · Haṭha Yoga Pradīpikā · Yoga-Kuṇḍalinī Upaniṣad · The Serpent Power (Arthur Avalon, 1919)',
+      primarySourcesHi: 'षट्चक्रनिरूपण (पूर्णानन्द, १५७७ ई.) · कालीचरण टीका · शिव संहिता · हठयोगप्रदीपिका · योगकुण्डलिनी उपनिषद् · द सर्पेंट पावर (आर्थर एवलॉन, १९१९)',
       authorEn: 'Ram Ashok Kumar',
       authorHi: 'राम अशोक कुमार'
     }

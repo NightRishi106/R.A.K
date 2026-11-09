@@ -1,3 +1,4 @@
+import { BAVAN_BHAIRAVAS_LIST, THREE_BHAIRAVA_SYSTEMS_COMPARISON } from './bavanBhairava52Data';
 import { ResearchArticle } from './researchPortalData';
 
 export interface ResearchComparisonTable {
@@ -26,7 +27,7 @@ export interface SpecialCircularSeal {
   domainBadgeEn: string;
   domainBadgeHi: string;
   accentColor: string;
-  motifType: 'vaishnava' | 'aghora' | 'ghora11' | 'kapalika5' | 'prahar8' | 'bhairavagana' | 'shakta' | 'mahavidya';
+  motifType: 'vaishnava' | 'aghora' | 'ghora11' | 'kapalika5' | 'prahar8' | 'bhairavagana' | 'shakta' | 'mahavidya' | 'chakra7';
   isPendingVerificationNote?: boolean;
   parentSealId?: string;
   subParts?: SpecialCircularSeal[];
@@ -820,126 +821,52 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
   ],
   'bavan-bhairava-chhappan-kalua-concordance': [
     {
-      id: 'table-52-bhairava-complete-roster',
+      id: 'table-three-bhairava-systems-comparison',
       articleSlug: 'bavan-bhairava-chhappan-kalua-concordance',
-      titleEn: 'Complete Canonical & Śaktipīṭha Concordance of the 52 Bhairavas (बावन भैरव — Bāvan Bhairav: 01–52)',
-      titleHi: 'बावन भैरव (५२ भैरव) की संपूर्ण शास्त्रीय एवं शक्तिपीठ-क्षेत्रपाल नामावली (०१–५२)',
-      captionEn:
-        'In Śākta-Śaiva cosmology, the 52 Bhairavas (Bāvan Bhairav) correspond to the 51/52 Śaktipīṭhas and the 51/52 Mātṛkā phonemes (A–Kṣa), encompassing the core Aṣṭa Bhairava octad and the sovereign Kṣetrapāla Bhairavas who stand guard over every Pīṭha alongside the 64 Yoginīs.',
-      captionHi:
-        'शाक्त-शैव परम्परा में "बावन भैरव" (५२ भैरव) ५१/५२ शक्तिपीठों और मातृका वर्णमाला के अक्षरों (अ–क्ष) के अधिष्ठाता क्षेत्रपाल हैं, जिनमें मूल अष्ट भैरव तथा पीठनिर्णय/तन्त्रचूड़ामणि और रुद्रयामल में वर्णित पीठ-भैरव सम्मिलित हैं।',
-      headersEn: ['#', 'Bhairava Name (Devanāgarī & IAST)', 'Classification / Pīṭha Consort Context', 'Primary Sacred Seat / Liturgical Domain'],
-      headersHi: ['क्र.', 'भैरव नाम (देवनागरी एवं IAST)', 'वर्गीकरण / शक्तिपीठ युग्म संदर्भ', 'प्रमुख पीठ / आनुष्ठानिक क्षेत्र'],
-      rowsEn: [
-        ['01', 'असितांग भैरव · Asitāṅga Bhairava', 'Aṣṭa Bhairava I (East · Brahmāṇī)', 'Kāśī (Vṛddhakāla) & Eastern Mātṛkā Octad'],
-        ['02', 'रुरु भैरव · Ruru Bhairava', 'Aṣṭa Bhairava II (South-East · Māheśvarī)', 'Kāśī (Hanumān Ghāṭ) & Āgneya Octad'],
-        ['03', 'चण्ड भैरव · Caṇḍa Bhairava', 'Aṣṭa Bhairava III (South · Kaumārī)', 'Kāśī (Durgā Kuṇḍa) & Southern Octad'],
-        ['04', 'क्रोध भैरव · Krodha Bhairava', 'Aṣṭa Bhairava IV (South-West · Vaiṣṇavī)', 'Kāśī (Kāmākṣā) & Nairṛtya Octad'],
-        ['05', 'उन्मत्त भैरव · Unmatta Bhairava', 'Aṣṭa Bhairava V (West · Vārāhī)', 'Kāśī (Deउरā) & Western Octad'],
-        ['06', 'कपाल भैरव (कपाली) · Kapāla Bhairava', 'Aṣṭa Bhairava VI (North-West · Indrāṇī)', 'Kāśī (Lāṭ Bhairava) & Vāyavya Octad'],
-        ['07', 'भीषण भैरव · Bhīṣaṇa Bhairava', 'Aṣṭa Bhairava VII (North · Cāmuṇḍā)', 'Kāśī (Bhūtabhairava) & Northern Octad'],
-        ['08', 'संहार भैरव · Saṃhāra Bhairava', 'Aṣṭa Bhairava VIII (North-East · Caṇḍikā)', 'Kāśī (Trilocana) & Īśāna Octad'],
-        ['09', 'काल भैरव · Kāla Bhairava', 'Supreme Kotwāl of Kāśī & Kālamocana', 'Vārāṇasī (Viśveśvara Kṣetrapāla) & Kālapīṭha'],
-        ['10', 'बटुक भैरव (आपदुद्धारक) · Baṭuka Bhairava', 'Sāttvika-Rājasika-Tāmasika Child Protector', 'Kāśī (Kāmākṣā) & Universal Śākta-Śaiva Rakṣā'],
-        ['11', 'स्वर्णाकर्षण भैरव · Svarṇākarṣaṇa Bhairava', 'Rājarājeśvara / Kubera-Tattva Bhairava', 'Rudrayāmala Tantric Wealth & Auspiciousness Stream'],
-        ['12', 'महाकाल भैरव · Mahākāla Bhairava', 'Consort of Mahākālī / Avantī Pīṭha', 'Ujjayinī (Mahākālavana) & Kālīkula Axis'],
-        ['13', 'आनन्द भैरव · Ānanda Bhairava', 'Kaula Cakreśvara & Consort of Ānandabhairavī', 'Kāśī / Kaula Pañcamakāra & Yoginī Cakra Bindu'],
-        ['14', 'स्वच्छन्द भैरव · Svacchanda Bhairava', 'Five-Faced (Pañcavaktra) 18-Armed Sovereign', 'Kashmir Śaiva Svacchanda Tantra & Aghoreśvarī'],
-        ['15', 'मार्तण्ड भैरव (मल्हारी) · Mārtaṇḍa Bhairava', 'Solar-Bhairava Manifestation (Khaṇḍobā)', 'Deccan / Jejuri & Mallāri Māhātmya Tradition'],
-        ['16', 'भीमलोचन भैरव · Bhīmalocana Bhairava', 'Śaktipīṭha Bhairava of Koṭṭarī / Hiṅgulā', 'Hiṅgulā (Hinglaj) — Brahmāṇḍa / Cakra Pīṭha'],
-        ['17', 'चण्डेश भैरव · Caṇḍeśa Bhairava', 'Śaktipīṭha Bhairava of Mahiṣamardinī', 'Śarkarāre (Karavīra / Sukkur) Pīṭha'],
-        ['18', 'तरुण भैरव · Taruṇa Bhairava', 'Śaktipīṭha Bhairava of Nārāyaṇī', 'Śucīndra (Suchindram) Pīṭha'],
-        ['19', 'त्रिसन्ध्येश्वर भैरव · Trisandhyeśvara Bhairava', 'Śaktipīṭha Bhairava of Mahāmāyā', 'Amaranātha (Kashmir) Pīṭha'],
-        ['20', 'उन्पत्त भैरव · Unmatta-Jwālā Bhairava', 'Śaktipīṭha Bhairava of Siddhidā (Ambikā)', 'Jwālāmukhī (Kangra) Pīṭha'],
-        ['21', 'भीषण-जालन्धर भैरव · Bhīṣaṇa-Jālandhara', 'Śaktipīṭha Bhairava of Tripuramālinī', 'Jālandhara (Devi Talab) Pīṭha'],
-        ['22', 'अमर भैरव · Amara Bhairava', 'Śaktipīṭha Bhairava of जयदुर्गा / Vaidyanātha', 'Vaidyanātha (Deoghar) Hṛdaya Pīṭha'],
-        ['23', 'सर्वानन्द भैरव · Sarvānanda Bhairava', 'Śaktipīṭha Bhairava of Mahāmāyā (Guheśvarī)', 'Nepāla (Pashupatinath / Guhyeshwari) Pīṭha'],
-        ['24', 'अमरनाथ (मानस) भैरव · Amaranātha-Mānasa', 'Śaktipīṭha Bhairava of Dākṣāyaṇī', 'Mānasa Sarovara (Tibet/Kailāsa) Pīṭha'],
-        ['25', 'जगन्नाथ भैरव · Jagannātha Bhairava', 'Śaktipīṭha Bhairava of Vimalā Bhairavī', 'Utkala / Purī (Nābhi / Virajā) Pīṭha'],
-        ['26', 'चक्रपाणि भैरव · Cakrapāṇi Bhairava', 'Śaktipīṭha Bhairava of Gaṇḍakī Caṇḍī', 'Gaṇḍakī (Muktinath) कपोल Pīṭha'],
-        ['27', 'भीरुक भैरव · Bhīruka Bhairava', 'Śaktipīṭha Bhairava of Bahulā Devī', 'Bāhulā (Ketugram, Bengal) Pīṭha'],
-        ['28', 'मंगलचण्डिकेश्वर भैरव · Maṅgalacaṇḍikeśvara', 'Śaktipīṭha Bhairava of Maṅgalacaṇḍikā', 'Ujjayinī (Ujani, Bardhaman) Pīṭha'],
-        ['29', 'चन्द्रशेखर भैरव · Candraśekhara Bhairava', 'Śaktipīṭha Bhairava of Bhavānī', 'Caṭṭala (Chittagong / Sitakunda) Pīṭha'],
-        ['30', 'त्रिपुरेश भैरव · Tripureśa Bhairava', 'Śaktipīṭha Bhairava of Tripurasundarī', 'Tripurā (Udaipur Matabari) Pīṭha'],
-        ['31', 'निमिष भैरव · Nimiṣa Bhairava', 'Śaktipīṭha Bhairava of Bhrāmarī Devī', 'Trisrotā (Jalpaiguri) Pīṭha'],
-        ['32', 'उमानन्द (रावण) भैरव · Umānanda Bhairava', 'Śaktipīṭha Bhairava of Kāmākhyā (Mahāmudrā)', 'Kāmarūpa / Kāmākhyā (Nīlācala) Yoni Pīṭha'],
-        ['33', 'अभिरु भैरव · Abhiru Bhairava', 'Śaktipīṭha Bhairava of Bhūtadhātrī', 'Kṣīragrāma (Jogadya, Bengal) Pīṭha'],
-        ['34', 'नकुलीश भैरव · Nakulīśa Bhairava', 'Śaktipīṭha Bhairava of Kālikā', 'Kālīpīṭha (Kalighat, Kolkata) Pīṭha'],
-        ['35', 'भाव-प्रयाग भैरव · Bhava Bhairava', 'Śaktipīṭha Bhairava of Lalitā (Alopī/Kalyāṇī)', 'Prayāga (Triveṇī Saṅgama) Pīṭha'],
-        ['36', 'क्रूर भैरव · Krūra Bhairava', 'Śaktipīṭha Bhairava of Jayantī Devī', 'Jayantī (Nartiang, Jaintia Hills) Pīṭha'],
-        ['37', 'सानन्द भैरव · Sānanda Bhairava', 'Śaktipīṭha Bhairava of Vimalā Devī', 'Kirīṭa (Murshidabad) Pīṭha'],
-        ['38', 'दण्डपाणि भैरव · Daṇḍapāṇi Bhairava', 'Śaktipīṭha Bhairava of Viśālākṣī & Manikarnika', 'Vārāṇasī (Kāśī Maṇikarṇikā) Pīṭha'],
-        ['39', 'रुरु-कन्याश्रम भैरव · Nimīṣa/Ruru Bhairava', 'Śaktipīṭha Bhairava of Śarvāṇī', 'Kanyāśrama (Kanyakumari) Pīṭha'],
-        ['40', 'स्थाणु भैरव · Sthāṇu Bhairava', 'Śaktipīṭha Bhairava of Sāvitrī / Bhadrakālī', 'Kurukṣetra (Sthāṇvīśvara) Pīṭha'],
-        ['41', 'शम्बरानन्द भैरव · Śambarānanda Bhairava', 'Śaktipīṭha Bhairava of Gāyatrī', 'Maṇivedika (Pushkar) Pīṭha'],
-        ['42', 'सुन्दरानन्द भैरव · Sundarānanda Bhairava', 'Śaktipīṭha Bhairava of Mahālakṣmī', 'Śrīśaila / Śrīhaṭṭa (Grīvā) Pīṭha'],
-        ['43', 'असित-कांची भैरव · वेदगर्भ भैरव (Vedagarbha)', 'Śaktipīṭha Bhairava of Devagarbhā (Kankalitala)', 'Kāñcī / Kopāī River (Birbhum) Pīṭha'],
-        ['44', 'लम्बकर्ण भैरव · Lambakarṇa Bhairava', 'Śaktipīṭha Bhairava of Śivānī', 'Rāmagiri (Chitrakoot / Maihar) Pīṭha'],
-        ['45', 'भूतेश भैरव · Bhūteśa Bhairava', 'Śaktipīṭha Bhairava of Umā (Kātyāyanī)', 'Vṛndāvana (Bhūteśvara / Uma Shaktipith)'],
-        ['46', 'संहार-अट्टहास भैरव · Saṃhāra-Phullara', 'Śaktipīṭha Bhairava of Phullarā Devī', 'Aṭṭahāsa (Labhpur, Bengal) Pīṭha'],
-        ['47', 'ईशान भैरव · Īśāna Bhairava', 'Śaktipīṭha Bhairava of नन्दिनी (Nandinī)', 'Nandīpura (Sainthia) Pīṭha'],
-        ['48', 'राक्षसेश्वर भैरव · Rākṣaseśvara Bhairava', 'Śaktipīṭha Bhairava of Indrākṣī', 'Laṅkā / Nainativu Pīṭha'],
-        ['49', 'महाभैरव (गोधरा/विराट) · अमृत भैरव (Amṛta)', 'Śaktipīṭha Bhairava of Ambikā', 'Virāṭa (Bairat, Rajasthan) Pīṭha'],
-        ['50', 'वक्रनाथ भैरव · Vakranātha Bhairava', 'Śaktipīṭha Bhairava of Mahiṣamardinī', 'Vakreśvara (Bakreshwar) Pīṭha'],
-        ['51', 'उमापति / उन्मत्त भैरव · Unmatta-Vibhāṣa', 'Śaktipīṭha Bhairava of Kapālinī (Bhīmarūpā)', 'Vibhāṣa (Tamluk / Bargabhima) Pīṭha'],
-        ['52', 'अच्युतानन्द / क्षेत्रपाल महाभैरव · Acyutānanda', 'Śaktipīṭha Bhairava of Yaśoreśvarī & Guhya Pīṭha', 'Yaśora (Ishwaripur) & Central Bindu Kṣetra']
-      ],
-      rowsHi: [
-        ['०१', 'असितांग भैरव · Asitāṅga Bhairava', 'अष्ट भैरव I (पूर्व · ब्राह्मी शक्ति)', 'काशी (वृद्धकाल) एवं पूर्व मातृका अष्टक'],
-        ['०२', 'रुरु भैरव · Ruru Bhairava', 'अष्ट भैरव II (आग्नेय · माहेश्वरी शक्ति)', 'काशी (हनुमान घाट) एवं आग्नेय अष्टक'],
-        ['०३', 'चण्ड भैरव · Caṇḍa Bhairava', 'अष्ट भैरव III (दक्षिण · कौमारी शक्ति)', 'काशी (दुर्गाकुण्ड) एवं दक्षिण अष्टक'],
-        ['०४', 'क्रोध भैरव · Krodha Bhairava', 'अष्ट भैरव IV (नैऋत्य · वैष्णवी शक्ति)', 'काशी (कामाक्षा) एवं नैऋत्य अष्टक'],
-        ['०५', 'उन्मत्त भैरव · Unmatta Bhairava', 'अष्ट भैरव V (पश्चिम · वाराही शक्ति)', 'काशी (देउरा) एवं पश्चिम अष्टक'],
-        ['०६', 'कपाल भैरव (कपाली) · Kapāla Bhairava', 'अष्ट भैरव VI (वायव्य · इन्द्राणी शक्ति)', 'काशी (लाट भैरव) एवं वायव्य अष्टक'],
-        ['०७', 'भीषण भैरव · Bhīṣaṇa Bhairava', 'अष्ट भैरव VII (उत्तर · चामुण्डा शक्ति)', 'काशी (भूतभैरव) एवं उत्तर अष्टक'],
-        ['०८', 'संहार भैरव · Saṃhāra Bhairava', 'अष्ट भैरव VIII (ईशान · चण्डिका शक्ति)', 'काशी (त्रिलोचन) एवं ईशान अष्टक'],
-        ['०९', 'काल भैरव · Kāla Bhairava', 'काशी के सर्वोच्च कोतवाल एवं कपालमोचन', 'वाराणसी (विश्वेश्वर क्षेत्रपाल) एवं कालपीठ'],
-        ['१०', 'बटुक भैरव (आपदुद्धारक) · Baṭuka Bhairava', 'सात्त्विक-राजसिक-तामसिक बाल-रक्षक स्वरूप', 'काशी (कमच्छा) एवं सार्वभौम शाक्त-शैव रक्षा'],
-        ['११', 'स्वर्णाकर्षण भैरव · Svarṇākarṣaṇa Bhairava', 'राजराजेश्वर / ऐश्वर्य-प्रदायक भैरव', 'रुद्रयामल तन्त्र एवं समृद्धि-रक्षा आम्नाय'],
-        ['१२', 'महाकाल भैरव · Mahākāla Bhairava', 'भगवती महाकाली के भैरव / अवन्ती पीठ', 'उज्जयिनी (महाकालवन) एवं कालीकुल धुरी'],
-        ['१३', 'आनन्द भैरव · Ānanda Bhairava', 'कौल चक्रेश्वर एवं आनन्दभैरवी युग्म', 'काशी / कौल पञ्चमकार एवं योगिनी चक्र बिन्दु'],
-        ['१४', 'स्वच्छन्द भैरव · Svacchanda Bhairava', 'पञ्चमुख अष्टादशभुज स्वच्छन्द तन्त्र अधिपति', 'कश्मीर शैव आम्नाय एवं भगवती अघोरेश्वरी'],
-        ['१५', 'मार्तण्ड भैरव (मल्हारी) · Mārtaṇḍa Bhairava', 'सूर्य-भैरव संयुक्त स्वरूप (खण्डोबा)', 'दक्कन / जेजुरी एवं मल्लारि माहात्म्य परम्परा'],
-        ['१६', 'भीमलोचन भैरव · Bhīmalocana Bhairava', 'हिंगुला (कोट्टरी) शक्तिपीठ के रक्षक भैरव', 'हिंगुलाज (ब्रह्माण्ड रंध्र / प्रथम शक्तिपीठ)'],
-        ['१७', 'चण्डेश भैरव · Caṇḍeśa Bhairava', 'महिषमर्दिनी शक्तिपीठ के रक्षक भैरव', 'शर्करारे / करवीर (सुक्कुर) शक्तिपीठ'],
-        ['१८', 'तरुण भैरव · Taruṇa Bhairava', 'नारायणी शक्तिपीठ के रक्षक भैरव', 'शुचीन्द्रम (कन्याकुमारी-तमिलनाडु) शक्तिपीठ'],
-        ['१९', 'त्रिसन्ध्येश्वर भैरव · Trisandhyeśvara Bhairava', 'महामाया शक्तिपीठ के रक्षक भैरव', 'अमरनाथ (कश्मीर — कण्ठ) शक्तिपीठ'],
-        ['२०', 'उन्मत्त-ज्वाला भैरव · Unmatta-Jwālā Bhairava', 'सिद्धिदा (अम्बिका) शक्तिपीठ के भैरव', 'ज्वालामुखी (कांगड़ा — जिह्वा) शक्तिपीठ'],
-        ['२१', 'भीषण-जालन्धर भैरव · Bhīṣaṇa-Jālandhara', 'त्रिपुरमालिनी शक्तिपीठ के रक्षक भैरव', 'जालन्धर (देवी तालाब — वाम स्तन) शक्तिपीठ'],
-        ['२२', 'अमर भैरव · Amara Bhairava', 'जयदुर्गा शक्तिपीठ के रक्षक भैरव', 'वैद्यनाथ धाम (देवघर — हृदय) शक्तिपीठ'],
-        ['२३', 'सर्वानन्द भैरव · Sarvānanda Bhairava', 'गुह्येश्वरी (महामाया) शक्तिपीठ के भैरव', 'नेपाल (पशुपतिनाथ / गुह्येश्वरी — जानु) पीठ'],
-        ['२४', 'अमरनाथ (मानस) भैरव · Amaranātha-Mānasa', 'दाक्षायणी शक्तिपीठ के रक्षक भैरव', 'मानसरोवर (कैलास — दक्षिण हस्त) शक्तिपीठ'],
-        ['२५', 'जगन्नाथ भैरव · Jagannātha Bhairava', 'विमला भैरवी शक्तिपीठ के रक्षक भैरव', 'उत्कल / पुरी (नाभि / विरजा क्षेत्र) शक्तिपीठ'],
-        ['२६', 'चक्रपाणि भैरव · Cakrapāṇi Bhairava', 'गण्डकी चण्डी शक्तिपीठ के रक्षक भैरव', 'गण्डकी (मुक्तिनाथ — गण्डस्थल) शक्तिपीठ'],
-        ['२७', 'भीरुक भैरव · Bhīruka Bhairava', 'बहुला देवी शक्तिपीठ के रक्षक भैरव', 'बहुला (केतुग्राम, वर्धमान — वाम बाहु) पीठ'],
-        ['२८', 'मंगलचण्डिकेश्वर भैरव · Maṅgalacaṇḍikeśvara', 'मंगलचण्डिका शक्तिपीठ के रक्षक भैरव', 'उज्जयिनी / उजानी (कूर्पर) शक्तिपीठ'],
-        ['२९', 'चन्द्रशेखर भैरव · Candraśekhara Bhairava', 'भवानी शक्तिपीठ के रक्षक भैरव', 'चट्टल (चन्द्रनाथ, सीताकुण्ड — दक्षिण बाहु) पीठ'],
-        ['३०', 'त्रिपुरेश भैरव · Tripureśa Bhairava', 'त्रिपुरसुन्दरी शक्तिपीठ के रक्षक भैरव', 'त्रिपुरा (उदयपुर माताबाड़ी — दक्षिण पाद) पीठ'],
-        ['३१', 'निमिष भैरव · Nimiṣa Bhairava', 'भ्रामरी देवी शक्तिपीठ के रक्षक भैरव', 'त्रिस्रोता (जलपाईगुड़ी — वाम पाद) शक्तिपीठ'],
-        ['३२', 'उमानन्द भैरव · Umānanda Bhairava', 'कामाख्या (महामुद्रा) शक्तिपीठ के भैरव', 'कामरूप / कामाख्या (नीलाचल — योनि) महापीठ'],
-        ['३३', 'अभिरु भैरव · Abhiru Bhairava', 'भूतधात्री (योगाद्या) शक्तिपीठ के भैरव', 'क्षीरग्राम (वर्धमान — दक्ष पादांगुष्ठ) पीठ'],
-        ['३४', 'नकुलीश भैरव · Nakulīśa Bhairava', 'कालिका शक्तिपीठ के रक्षक भैरव', 'कालीपीठ (कालीघाट, कोलकाता) शक्तिपीठ'],
-        ['३५', 'भव भैरव (प्रयाग) · Bhava Bhairava', 'ललिता (अलोपी) शक्तिपीठ के रक्षक भैरव', 'प्रयाग (त्रिवेणी संगम — हस्त-अंगुली) पीठ'],
-        ['३६', 'क्रूर भैरव · Krūra Bhairava', 'जयन्ती देवी शक्तिपीठ के रक्षक भैरव', 'जयन्ती (नर्तियांग, मेघालय — वाम जंघा) पीठ'],
-        ['३७', 'सानन्द भैरव · Sānanda Bhairava', 'विमला (मुकुटेश्वरी) शक्तिपीठ के भैरव', 'किरीटकोण (मुर्शिदाबाद — किरीट) शक्तिपीठ'],
-        ['३८', 'दण्डपाणि भैरव · Daṇḍapāṇi Bhairava', 'विशालाक्षी एवं मणिकर्णिका पीठ के भैरव', 'वाराणसी (काशी मणिकर्णिका — कर्णकुण्डल) पीठ'],
-        ['३९', 'निमिष/रुरु (कन्याश्रम) · Ruru-Kanyāśrama', 'शर्वाणी शक्तिपीठ के रक्षक भैरव', 'कन्याश्रम (कन्याकुमारी — पृष्ठ भाग) पीठ'],
-        ['४०', 'स्थाणु भैरव · Sthāṇu Bhairava', 'सावित्री (भद्रकाली) शक्तिपीठ के भैरव', 'कुरुक्षेत्र (स्थाण्वीश्वर — गुल्फ) शक्तिपीठ'],
-        ['४१', 'शम्बरानन्द भैरव · Śambarānanda Bhairava', 'गायत्री शक्तिपीठ के रक्षक भैरव', 'मणिवेदिक (पुष्कर — मणिबन्ध) शक्तिपीठ'],
-        ['४२', 'सुन्दरानन्द भैरव · Sundarānanda Bhairava', 'महालक्ष्मी शक्तिपीठ के रक्षक भैरव', 'श्रीशैल / श्रीहट्ट (ग्रीवा) शक्तिपीठ'],
-        ['४३', 'वेदगर्भ भैरव · Vedagarbha Bhairava', 'देवगर्भा (कंकालीतला) शक्तिपीठ के भैरव', 'कांची / कोपाई नदी (बीरभूम — अस्थि) पीठ'],
-        ['४४', 'लम्बकर्ण भैरव · Lambakarṇa Bhairava', 'शिवानी शक्तिपीठ के रक्षक भैरव', 'रामगिरि (चित्रकूट / मैहर — दक्षिण स्तन) पीठ'],
-        ['४५', 'भूतेश भैरव · Bhūteśa Bhairava', 'उमा (कात्यायनी) शक्तिपीठ के रक्षक भैरव', 'वृन्दावन (भूतेश्वर — केशपाश) शक्तिपीठ'],
-        ['४६', 'संहार-अट्टहास भैरव · Saṃhāra-Phullara', 'फुल्लरा देवी शक्तिपीठ के रक्षक भैरव', 'अट्टहास (लाभपुर — ओष्ठ) शक्तिपीठ'],
-        ['४७', 'ईशान भैरव · Īśāna Bhairava', 'नन्दिनी शक्तिपीठ के रक्षक भैरव', 'नन्दीपुर (सैंथिया — कण्ठहार) शक्तिपीठ'],
-        ['४८', 'राक्षसेश्वर भैरव · Rākṣaseśvara Bhairava', 'इन्द्राक्षी शक्तिपीठ के रक्षक भैरव', 'लंका (नूपुर) शक्तिपीठ'],
-        ['४९', 'अमृत (विराट) भैरव · Amṛta Bhairava', 'अम्बिका शक्तिपीठ के रक्षक भैरव', 'विराट (बैराठ, राजस्थान — पादांगुली) पीठ'],
-        ['५०', 'वक्रनाथ भैरव · Vakranātha Bhairava', 'महिषमर्दिनी शक्तिपीठ के रक्षक भैरव', 'वक्रेश्वर (बीरभूम — मन/भ्रूमध्य) शक्तिपीठ'],
-        ['५१', 'उन्मत्त-विभाष भैरव · Unmatta-Vibhāṣa', 'कपालिनी (भीमरूपा) शक्तिपीठ के भैरव', 'विभाष (तामलुक — वाम गुल्फ) शक्तिपीठ'],
-        ['५२', 'अच्युतानन्द महाभैरव · Acyutānanda Bhairava', 'यशोरेश्वरी एवं गुह्य-पीठ के रक्षक भैरव', 'यशोर (ईश्वरीपुर — पाणिपद्म) एवं केंद्रीय पीठ']
-      ]
+      titleEn: 'Three Canonical Systems: Aṣṭa Bhairava (8) · Catuḥṣaṣṭi Bhairava (64) · 52 Śaktipīṭha Bhairavas',
+      titleHi: 'तीन शास्त्रीय प्रणालियों में भेद: अष्ट भैरव (८) · चतुःषष्टि भैरव (६४) · ५२ शक्तिपीठ भैरव',
+      captionEn: 'Do Not Confuse These Three Systems: comparative breakdown of count, scriptural authority, role, and iconography.',
+      captionHi: 'इन तीन प्रणालियों को परस्पर मिश्रित न करें: शास्त्रीय संख्या, प्रामाणिक ग्रन्थ, आनुष्ठानिक कार्य एवं प्रतिमाशास्त्र का तुलनात्मक विश्लेषण।',
+      headersEn: ['System & Count', 'Canonical Role & Mandalic Position', 'Member Forms & Classification', 'Primary Sanskrit Corpus & Iconography'],
+      headersHi: ['प्रणाली एवं संख्या', 'शास्त्रीय भूमिका एवं मण्डल स्थिति', 'स्वरूप एवं वर्गीकरण', 'मूल आगमिक ग्रन्थ एवं प्रतिमाशास्त्र'],
+      rowsEn: THREE_BHAIRAVA_SYSTEMS_COMPARISON.map(s => [
+        s.systemNameEn + ' [Count: ' + s.count + ']',
+        s.canonicalRoleEn,
+        s.membersEn,
+        s.primaryTextsEn + ' — ' + s.iconographyEn
+      ]),
+      rowsHi: THREE_BHAIRAVA_SYSTEMS_COMPARISON.map(s => [
+        (s.systemNameHi || s.systemNameEn) + ' [संख्या: ' + s.count + ']',
+        s.canonicalRoleHi,
+        s.membersHi,
+        s.primaryTextsHi + ' — ' + s.iconographyHi
+      ])
     },
     {
+      id: 'table-52-bhairava-complete-roster',
+      articleSlug: 'bavan-bhairava-chhappan-kalua-concordance',
+      titleEn: 'Complete Canonical Roster: 52 Bhairavas & Devotional Mantras (01. Bhīmalocana to 52. Sadāśiva)',
+      titleHi: 'संपूर्ण शास्त्रीय नामावली: ५२ भैरव एवं भक्ति नाम-मन्त्र (०१. भीमलोचन से ५२. सदाशिव)',
+      captionEn:
+        '52 BHAIRAVAS – THE GUARDIANS OF THE 52 SHAKTI PEETHAS (01–52) with Devanagari & IAST names, devotional salutation mantras, associated Shakti Peethas, sacred limbs, and locations.',
+      captionHi:
+        '५२ शक्तिपीठ रक्षक भैरव नामावली (०१–५२): देवनागरी एवं IAST नाम, भक्ति-प्रणाम मन्त्र, संबद्ध शक्तिपीठ, सती के पावन अंग एवं तीर्थ अवस्थिति।',
+      headersEn: ['#', 'Bhairava Name & Devotional Mantra', 'Associated Goddess & Sacred Relic', 'Shakti Peetha & Geographical Seat'],
+      headersHi: ['क्र.', 'भैरव नाम एवं भक्ति नाम-मन्त्र', 'संबद्ध देवी एवं सती का अंग', 'शक्तिपीठ एवं तीर्थ अवस्थिति'],
+      rowsEn: BAVAN_BHAIRAVAS_LIST.map(b => [
+        String(b.index).padStart(2, '0'),
+        b.nameHi + ' · ' + b.nameEn + '\n' + b.devotionalMantra + ' (' + b.devotionalMantraPhonetic + ')',
+        b.goddessEn + ' · ' + b.bodyPartEn,
+        b.peethaEn + ' (' + b.locationEn + ')'
+      ]),
+      rowsHi: BAVAN_BHAIRAVAS_LIST.map(b => [
+        String(b.index).padStart(2, '0'),
+        b.nameHi + ' · ' + b.nameEn + '\n' + b.devotionalMantra,
+        b.goddessHi + ' · ' + b.bodyPartHi,
+        b.peethaHi + ' (' + b.locationHi + ')'
+      ])
+    },
+{
       id: 'table-52-bhairav-64-yogini-56-kalua-triad',
       articleSlug: 'bavan-bhairava-chhappan-kalua-concordance',
       titleEn: 'Structural Concordance: 52 Bhairavas · 64 Yoginīs · 56 Kaluas (The Threefold Mandala Retinue)',
@@ -1794,6 +1721,21 @@ export const SPECIAL_CIRCULAR_SEALS: SpecialCircularSeal[] = [
     domainBadgeHi: 'शक्ति तत्त्व · ५१ शक्तिपीठ',
     accentColor: '#E879F9',
     motifType: 'mahavidya'
+  },
+  {
+    id: 'seal-sapta-chakra-archive',
+    sealNumber: 'SEAL 09',
+    categorySlug: 'shri-meru-chakra',
+    articleSlug: 'sapta-chakra-complete-research-archive',
+    sanskritSeal: 'सप्त चक्र · षट्चक्रनिरूपण एवं कुण्डलिनी',
+    shortTitleEn: 'The Seven Chakras — सप्त चक्र',
+    shortTitleHi: 'सप्त चक्र — सम्पूर्ण चक्र एवं कुण्डलिनी विज्ञान',
+    subtitleEn: 'Interactive 9-Panel Chakra Studio, 50 Mātṛkā Petal Letters, 5 Mahābhūtas, 3 Nāḍīs, Kuṇḍalinī & 15 Research Monographs',
+    subtitleHi: '९-पैनल इंटरैक्टिव चक्र स्टूडियो, ५० मातृका अक्षर, पंचमहाभूत, इड़ा-पिंगला-सुषुम्णा, कुण्डलिनी एवं १५ शोध-प्रबंध',
+    domainBadgeEn: 'CAKRA VIDYĀ · SUBTLE BODY ARCHIVE',
+    domainBadgeHi: 'चक्र विद्या · सूक्ष्म शरीर अभिलेखागार',
+    accentColor: '#A855F7',
+    motifType: 'chakra7'
   }
 ];
 
@@ -2560,6 +2502,37 @@ export const DASHA_DIKPALA_TABLES: ResearchComparisonTable[] = [
   ARTICLE_COMPARISON_TABLES[slug] = DASHA_DIKPALA_TABLES;
 });
 
+const SAPTA_CHAKRA_TABLES: ResearchComparisonTable[] = [
+  {
+    id: 'table-sapta-chakra-classical-concordance',
+    articleSlug: 'sapta-chakra-complete-research-archive',
+    titleEn: 'Complete Concordance of the Seven Centres (Six Chakras + Sahasrāra) in Ṣaṭ-Cakra-Nirūpaṇa (1577 CE)',
+    titleHi: 'षट्चक्रनिरूपण (१५७७ ई.) के अनुसार सप्त-चक्रों (६ चक्र + सहस्रार) की संपूर्ण शास्त्रीय सारणी',
+    captionEn:
+      'Classical Sanskrit taxonomy showing the exact petal counts (4+6+10+12+16+2 = 50 Mātṛkā phonemes), inner elemental yantras, seed syllables, vehicles, and presiding Deva–Yoginī pairs.',
+    captionHi:
+      'मूल संस्कृत ग्रंथों के अनुसार दलों की संख्या (४+६+१०+१२+१६+२ = ५० मातृका अक्षर), तत्त्व-यंत्र, बीज मंत्र, वाहन तथा अधिष्ठाता देव-शक्ति युग्म।',
+    headersEn: ['#', 'Chakra Name', 'Subtle Locus', 'Petals & Sanskrit Letters', 'Element & Yantra', 'Bīja & Mount', 'Presiding Deity & Śakti'],
+    headersHi: ['क्र.', 'चक्र का नाम', 'सूक्ष्म स्थान', 'दल एवं संस्कृत अक्षर', 'तत्त्व एवं यंत्र', 'बीज एवं वाहन', 'अधिष्ठाता देव एवं शक्ति'],
+    rowsEn: [
+      ['01', 'Mūlādhāra (मूलाधार)', 'Perineal Base (Yoni-sthāna)', '4 Petals (वं शं षं सं)', 'Pṛthvī (Earth) · Yellow Square', 'Laṃ (लं) · Airāvata Elephant', 'Bāla-Brahmā & Ḍākinī Śakti'],
+      ['02', 'Svādhiṣṭhāna (स्वाधिष्ठान)', 'Root of Genitals (Liṅga-mūla)', '6 Petals (बं भं मं यं रं लं)', 'Āpas (Water) · White Crescent', 'Vaṃ (वं) · Makara', 'Mahāviṣṇu & Rākiṇī Śakti'],
+      ['03', 'Maṇipūra (मणिपूर)', 'Navel Centre (Nābhi-mūla)', '10 Petals (डं ढं णं तं थं दं धं नं पं फं)', 'Agni (Fire) · Red Triangle', 'Raṃ (रं) · Meṣa (Ram)', 'Vṛddha Rudra & Lākinī Śakti'],
+      ['04', 'Anāhata (अनाहत)', 'Heart Centre (Hṛdaya)', '12 Petals (कं खं गं घं ङं चं छं जं झं ञं टं ठं)', 'Vāyu (Air) · Smoky Hexagram', 'Yaṃ (यं) · Black Antelope', 'Īśāna Rudra & Kākinī Śakti'],
+      ['05', 'Viśuddha (विशुद्ध)', 'Throat Base (Kaṇṭha-mūla)', '16 Petals (अं से अः — 16 Vowels)', 'Ākāśa (Space) · White Circle', 'Haṃ (हं) · White Elephant', 'Ardhanārīśvara & Śākinī Śakti'],
+      ['06', 'Ājñā (आज्ञा)', 'Eyebrow Centre (Bhrū-madhya)', '2 Petals (हं क्षं)', 'Manas (Subtle Mind) · Itara Liṅga', 'Oṃ (ॐ) · Nāda-Bindu', 'Paramaśiva & Hākinī Śakti'],
+      ['07', 'Sahasrāra (सहस्रार)', 'Crown (Brahmarandhra)', '1,000 Petals (50 Letters × 20)', 'Tattvātīta (Beyond Elements)', 'Para-Bindu / Visarga · Haṃsa', 'Paramaśiva & Mahā-Kuṇḍalinī']
+    ],
+    rowsHi: [
+      ['०१', 'मूलाधार चक्र', 'गुदा व जननेन्द्रिय के मध्य', '४ दल (वं शं षं सं)', 'पृथ्वी तत्त्व · पीत चतुष्कोण', 'लं · ऐरावत गज', 'चतुर्मुख ब्रह्मा एवं डाकिनी शक्ति'],
+      ['०२', 'स्वाधिष्ठान चक्र', 'जननेन्द्रिय का मूल (पेडू)', '६ दल (बं भं मं यं रं लं)', 'जल तत्त्व · श्वेत अर्धचन्द्र', 'वं · मकर', 'भगवान् विष्णु एवं राकिनी शक्ति'],
+      ['०३', 'मणिपूर चक्र', 'नाभि-मूल', '१० दल (डं ढं णं तं थं दं धं नं पं फं)', 'अग्नि तत्त्व · रक्त त्रिकोण', 'रं · मेष (मेंढा)', 'वृद्ध रुद्र एवं लाकिनी शक्ति'],
+      ['०४', 'अनाहत चक्र', 'हृदय-स्थल', '१२ दल (कं से ठं तक १२ व्यंजन)', 'वायु तत्त्व · धूम्र षट्कोण', 'यं · कृष्णसार मृग', 'ईशान रुद्र एवं काकिनी शक्ति'],
+      ['०५', 'विशुद्ध चक्र', 'कण्ठ-मूल', '१६ दल (अं से अः तक १६ स्वर)', 'आकाश तत्त्व · श्वेत वृत्त', 'हं · श्वेत गज', 'अर्धनारीश्वर सदाशिव एवं शाकिनी शक्ति'],
+      ['०६', 'आज्ञा चक्र', 'भ्रूमध्य (दोनों भौंहों के बीच)', '२ दल (हं क्षं)', 'मनस् तत्त्व · इतर लिंग एवं त्रिकोण', 'ॐ · नाद एवं बिन्दु', 'परमशिव एवं हाकिनी शक्ति'],
+      ['०७', 'सहस्रार महापद्म', 'ब्रह्मरन्ध्र (मस्तक शिखर)', '१,००० दल (५० अक्षर × २०)', 'तत्त्वातीत परब्रह्म', 'परबिन्दु / विसर्ग · परमहंस', 'परमशिव एवं महाकुण्डलिनी']
+    ]
+  }
+];
 
-
-
+ARTICLE_COMPARISON_TABLES['sapta-chakra-complete-research-archive'] = SAPTA_CHAKRA_TABLES;

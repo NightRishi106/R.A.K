@@ -25,6 +25,7 @@ import {
 } from '../data/researchPortalData';
 import {
   ASHTA_BHAIRAVA_PROFILES,
+  ASHTA_BHAIRAVA_SAMARPANA_MANTRA,
   ASHTA_MATRIKA_PROFILES,
   getMatrixIntersection
 } from '../data/ashtaResearchData';
@@ -34,6 +35,8 @@ import {
   ARTICLE_COMPARISON_TABLES,
   SpecialCircularSeal
 } from '../data/sacredSealsDeepData';
+import { BavanBhairava52PortalView } from './BavanBhairava52PortalView';
+import { SaptaChakraArchiveExperience } from './SaptaChakraArchiveExperience';
 
 const PORTAL_ICONS: React.ComponentType<any>[] = [
   Radio,      // I · CAGS Field Archive
@@ -231,6 +234,44 @@ const SealGeometricMotif: React.FC<{
           })}
           <circle cx="60" cy="60" r="12" />
           <circle cx="60" cy="60" r="3" fill={accentColor} />
+        </g>
+      )}
+
+      {motifType === 'chakra7' && (
+        <g stroke={accentColor} fill="none" strokeWidth="1.05" opacity="0.9">
+          {/* Central Suṣumṇā Axis + Iḍā & Piṅgalā Serpentine Nāḍīs + 7 Chakra Nodes */}
+          <line x1="60" y1="20" x2="60" y2="100" strokeWidth="1.4" />
+          <path
+            d="M 60 94 C 42 82, 78 70, 60 58 C 42 46, 78 34, 60 24"
+            stroke="#38BDF8"
+            strokeWidth="1"
+            opacity="0.85"
+          />
+          <path
+            d="M 60 94 C 78 82, 42 70, 60 58 C 78 46, 42 34, 60 24"
+            stroke="#F59E0B"
+            strokeWidth="1"
+            opacity="0.85"
+          />
+          {[
+            { y: 24, c: '#C084FC', r: 3.4 },
+            { y: 35, c: '#6366F1', r: 2.8 },
+            { y: 47, c: '#38BDF8', r: 2.8 },
+            { y: 59, c: '#22C55E', r: 3.1 },
+            { y: 71, c: '#EAB308', r: 2.8 },
+            { y: 83, c: '#F97316', r: 2.8 },
+            { y: 95, c: '#EF4444', r: 3.4 }
+          ].map((node, idx) => (
+            <circle
+              key={idx}
+              cx="60"
+              cy={node.y}
+              r={node.r}
+              fill={node.c}
+              stroke="#120B07"
+              strokeWidth="0.7"
+            />
+          ))}
         </g>
       )}
     </svg>
@@ -622,20 +663,21 @@ export const CircularMandalaNavigation: React.FC<CircularMandalaNavProps> = ({
           </h4>
           <p className="mt-1 text-xs sm:text-sm text-[#C8B69E]/80 font-serif max-w-2xl mx-auto leading-relaxed">
             {t(
-              'Click any engraved circular seal below to open its full standalone monograph page — covering Jaya & Vijaya, Aghora Sampradāya (including its two sub-parts: Ghora Sampradāya 11/12 Bhedas & Kāpālika Sampradāya 5 Bhedas), Samaya & the 8 Prahars, Bhairavagaṇa, Kālīkula–Śrīkula, and Daśa Mahāvidyā & Navadurgā.',
-              'जय–विजय, अघोर सम्प्रदाय (इसके २ उप-भागों—घोर सम्प्रदाय ११/१२ भेद तथा कापालिक सम्प्रदाय ५ भेद—सहित), समय और अष्ट प्रहर (८ पहर), भैरवगण, कालीकुल–श्रीकुल तथा दशमहाविद्या–नवदुर्गा के विस्तृत स्वतंत्र शोध-पृष्ठ खोलने हेतु किसी भी वृत्ताकार मुद्रा पर क्लिक करें।'
+              'Click any engraved circular seal below to open its full standalone monograph page — covering Jaya & Vijaya, Aghora Sampradāya (including Ghora 11/12 Bhedas & Kāpālika 5 Bhedas), Samaya & the 8 Prahars, Bhairavagaṇa, Kālīkula–Śrīkula, Daśa Mahāvidyā, Navadurgā, 51 Śakti Pīṭhas, and Seal 09: The Seven Chakras (सप्त चक्र) Interactive Research Archive.',
+              'जय–विजय, अघोर सम्प्रदाय, समय और अष्ट प्रहर, भैरवगण, कालीकुल–श्रीकुल, दशमहाविद्या, नवदुर्गा, ५१ शक्तिपीठ तथा मुद्रा ०९: सप्त चक्र (चक्र विद्या एवं कुण्डलिनी शोध अभिलेखागार) के विस्तृत स्वतंत्र शोध-पृष्ठ खोलने हेतु किसी भी वृत्ताकार मुद्रा पर क्लिक करें।'
             )}
           </p>
         </div>
 
-        {/* Responsive Circular Medallion Grid: 1 col mobile, 2 cols tablet, 3 cols desktop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-1 sm:px-2">
-          {SPECIAL_CIRCULAR_SEALS.map(seal => {
+        {/* Responsive Circular Medallion Grid: 2 cols mobile/tablet (with 9th seal centered in the middle below the 7th & 8th seals), 3 cols desktop */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 px-1 sm:px-2">
+          {SPECIAL_CIRCULAR_SEALS.map((seal, idx) => {
             const linkedPortal = RESEARCH_CATEGORY_PORTALS.find(
               p => p.slug === seal.categorySlug
             );
             const gatewayRoman = linkedPortal ? linkedPortal.roman : 'I';
             const centerLabel = (seal.sanskritSeal || '').split('·')[0].trim();
+            const isNinthCenteredMobile = idx === 8;
 
             return (
               <div
@@ -653,7 +695,11 @@ export const CircularMandalaNavigation: React.FC<CircularMandalaNavProps> = ({
                   `${seal.sealNumber}: ${seal.shortTitleEn} — Open Detailed Research Monograph`,
                   `${seal.sealNumber}: ${seal.shortTitleHi} — विस्तृत शोध-प्रबंध खोलें`
                 )}
-                className="group relative rounded-2xl border border-[#5A3922]/75 bg-gradient-to-b from-[#22150D]/95 via-[#160D08]/95 to-[#0E0805]/95 p-4 sm:p-5 flex flex-col items-center justify-between text-center transition-all duration-300 hover:border-[#D3AD55] hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(211,173,85,0.22)] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D3AD55]"
+                className={`group relative rounded-2xl border border-[#5A3922]/75 bg-gradient-to-b from-[#22150D]/95 via-[#160D08]/95 to-[#0E0805]/95 p-3.5 sm:p-5 flex flex-col items-center justify-between text-center transition-all duration-300 hover:border-[#D3AD55] hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(211,173,85,0.22)] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D3AD55] ${
+                  isNinthCenteredMobile
+                    ? 'col-span-2 w-[calc(50%-0.375rem)] sm:w-[calc(50%-0.75rem)] mx-auto lg:col-span-1 lg:w-full'
+                    : ''
+                }`}
               >
                 <div className="w-full flex flex-col items-center">
                   {/* Top Seal Number & Gateway Badge */}
@@ -1077,6 +1123,41 @@ export const CategoryLandingPageView: React.FC<CategoryLandingPageViewProps> = (
             </div>
           </div>
 
+          {/* ॥ श्री अष्टभैरवाय नमः ॥ Dossier Header & Samarpana Mantra Banner */}
+          {portal.slug === 'ashta-bhairava' && (
+            <div className="rounded-xl border-2 border-[#D3AD55]/55 bg-gradient-to-r from-[#28150B] via-[#1B0E07] to-[#28150B] p-4 sm:p-5 text-center space-y-2.5 shadow-md">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#D3AD55]/45 bg-[#140904]">
+                <Sparkles className="w-3.5 h-3.5 text-[#D3AD55]" />
+                <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.24em] text-[#D3AD55] font-bold">
+                  ॥ श्री अष्टभैरवाय नमः ॥ · Eight Manifestations & Guardians of Lord Shiva
+                </span>
+              </div>
+              <div className="font-serif text-xs sm:text-sm text-[#F5E8CE]/90 tracking-wider font-medium">
+                {t(
+                  'DEITY • EIGHT DIRECTIONAL GUARDIANS • SACRED ROOT NAME MANTRA',
+                  'देवता • अष्ट दिशा-रक्षक स्वरूप • मूल नाम मंत्र'
+                )}
+              </div>
+              <div className="pt-2.5 border-t border-[#5A3922]/60 flex flex-col items-center justify-center gap-1">
+                <span className="font-mono text-[9px] sm:text-[9.5px] uppercase tracking-[0.2em] text-[#E06D53] font-bold">
+                  {t('AṢṬA BHAIRAVA SAMARPAṆA MANTRA · UNIVERSAL DEDICATION', '॥ अष्टभैरव समर्पण मंत्र ॥ · सार्वभौमिक समर्पण')}
+                </span>
+                <div className="font-serif text-base sm:text-lg md:text-xl font-bold text-[#FFD700] tracking-wide">
+                  {ASHTA_BHAIRAVA_SAMARPANA_MANTRA.sanskrit}
+                </div>
+                <div className="font-mono text-xs sm:text-sm text-[#E0B86C] font-semibold">
+                  {ASHTA_BHAIRAVA_SAMARPANA_MANTRA.phonetic}
+                </div>
+                <div className="font-serif text-xs text-[#C8B69E] italic">
+                  {t(
+                    ASHTA_BHAIRAVA_SAMARPANA_MANTRA.meaningEn,
+                    ASHTA_BHAIRAVA_SAMARPANA_MANTRA.meaningHi
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {filteredArticles.map(article => (
               <article
@@ -1107,6 +1188,31 @@ export const CategoryLandingPageView: React.FC<CategoryLandingPageViewProps> = (
                   <p className="mt-1 text-xs font-serif text-[#D3AD55]/85 line-clamp-2">
                     {t(article.subtitleEn, article.subtitleHi)}
                   </p>
+
+                  {/* Ashta Bhairava Mūla Nāma Mantra Snippet */}
+                  {(() => {
+                    const matchedBh = ASHTA_BHAIRAVA_PROFILES.find(
+                      p => p.englishName.toLowerCase().replace(/\s+/g, '-') === article.slug
+                    );
+                    if (!matchedBh) return null;
+                    return (
+                      <div className="my-2.5 p-2 rounded-lg bg-[#140C08] border border-[#D3AD55]/40 space-y-0.5">
+                        <div className="flex items-center justify-between text-[8.5px] font-mono text-[#D3AD55] uppercase tracking-wider">
+                          <span className="font-bold flex items-center gap-1">
+                            <Sparkles className="w-2.5 h-2.5 text-[#D3AD55]" />
+                            {t('Mūla Nāma Mantra', 'मूल नाम मंत्र')}
+                          </span>
+                          <span className="text-[#C8B69E]/70 font-serif text-[9px]">॥ मूल मंत्र ॥</span>
+                        </div>
+                        <div className="font-serif text-xs sm:text-sm font-bold text-[#FFDF80]">
+                          {matchedBh.mulaMantra.sanskrit}
+                        </div>
+                        <div className="font-mono text-[10.5px] text-[#E0B86C]/90">
+                          {matchedBh.mulaMantra.phonetic}
+                        </div>
+                      </div>
+                    );
+                  })()}
 
                   <p className="mt-2.5 text-xs sm:text-[13px] text-[#E6D7BD]/80 font-serif leading-relaxed line-clamp-3">
                     {t(article.summaryEn, article.summaryHi)}
@@ -1466,6 +1572,101 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
             {t(article.epigraphTranslationEn, article.epigraphTranslationHi)}
           </p>
         </div>
+
+        {/* Dedicated Ashta Bhairava Mūla Nāma Mantra & Samarpaṇa Inscription */}
+        {(() => {
+          const matchedBh = ASHTA_BHAIRAVA_PROFILES.find(
+            p => p.englishName.toLowerCase().replace(/\s+/g, '-') === article.slug || p.id === article.slug
+          );
+          if (!matchedBh) return null;
+          return (
+            <div className="mt-6 rounded-xl border-2 border-[#B68A32]/60 bg-gradient-to-r from-[#28150B] via-[#1B0E07] to-[#28150B] p-5 sm:p-6 text-center space-y-3.5 shadow-lg text-[#F5E8CE]">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#5A3922]/60 pb-2.5">
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#D3AD55] font-bold">
+                  {t(
+                    `AṢṬA BHAIRAVA ${matchedBh.index} OF 08 · ${matchedBh.directionFull.toUpperCase()} OCTANT`,
+                    `अष्ट भैरव ०${matchedBh.index} / ०८ · ${matchedBh.directionFullHi} दिशा`
+                  )}
+                </span>
+                <span className="px-2 py-0.5 rounded bg-[#2C1810] border border-[#D3AD55]/40 font-mono text-[9px] uppercase tracking-wider text-[#D3AD55]">
+                  {t(`Consort: ${matchedBh.shakti} · Mount: ${matchedBh.vahana}`, `शक्ति: ${matchedBh.shaktiHi} · वाहन: ${matchedBh.vahanaHi}`)}
+                </span>
+              </div>
+
+              {/* Individual Mūla Nāma Mantra Container */}
+              <div className="p-3.5 rounded-lg bg-gradient-to-r from-[#170E09] via-[#2A150B] to-[#170E09] border border-[#D3AD55]/50 shadow-sm space-y-1">
+                <div className="flex items-center justify-between text-[9px] font-mono uppercase tracking-wider text-[#D3AD55]">
+                  <span className="font-bold flex items-center gap-1">
+                    <Sparkles className="w-3.5 h-3.5 text-[#D3AD55]" />
+                    {t('Mūla Nāma Mantra', 'मूल नाम मंत्र')}
+                  </span>
+                  <span className="text-[#C8B69E]/75 font-serif text-[10px]">॥ मूल नाम मंत्र ॥</span>
+                </div>
+                <div className="font-serif text-lg sm:text-xl md:text-2xl font-bold text-[#FFDF80] tracking-wide">
+                  {matchedBh.mulaMantra.sanskrit}
+                </div>
+                <div className="font-mono text-xs sm:text-sm text-[#E0B86C] font-semibold">
+                  {matchedBh.mulaMantra.phonetic}
+                </div>
+              </div>
+
+              {/* Universal Dedication Samarpaṇa Banner */}
+              <div className="pt-2 border-t border-[#5A3922]/60 flex flex-col items-center justify-center gap-1">
+                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#E06D53] font-bold">
+                  {t('AṢṬA BHAIRAVA SAMARPAṆA MANTRA · UNIVERSAL DEDICATION', '॥ अष्टभैरव समर्पण मंत्र ॥ · सार्वभौमिक समर्पण')}
+                </span>
+                <div className="font-serif text-base sm:text-lg font-bold text-[#FFD700] tracking-wide">
+                  {ASHTA_BHAIRAVA_SAMARPANA_MANTRA.sanskrit}
+                </div>
+                <div className="font-mono text-xs text-[#E0B86C] font-medium">
+                  {ASHTA_BHAIRAVA_SAMARPANA_MANTRA.phonetic}
+                </div>
+                <div className="font-serif text-xs text-[#C8B69E] italic">
+                  {t(
+                    ASHTA_BHAIRAVA_SAMARPANA_MANTRA.meaningEn,
+                    ASHTA_BHAIRAVA_SAMARPANA_MANTRA.meaningHi
+                  )}
+                </div>
+              </div>
+
+              {/* Quick Jump Strip Across all 8 Bhairavas */}
+              <div className="pt-2 border-t border-[#5A3922]/40 flex flex-wrap justify-center gap-1.5">
+                {ASHTA_BHAIRAVA_PROFILES.map((bh) => {
+                  const bhSlug = bh.englishName.toLowerCase().replace(/\s+/g, '-');
+                  const isCurrent = bhSlug === article.slug;
+                  return (
+                    <button
+                      key={bh.id}
+                      type="button"
+                      disabled={isCurrent}
+                      onClick={() => onOpenArticle('ashta-bhairava', bhSlug)}
+                      className={`px-2.5 py-1 rounded font-mono text-[9.5px] transition-colors inline-flex items-center gap-1 cursor-pointer ${
+                        isCurrent
+                          ? 'bg-[#3A2418] border border-[#D3AD55] text-[#FFDF80] font-bold'
+                          : 'bg-[#180E09] hover:bg-[#2C1810] border border-[#5A3922]/60 text-[#C8B69E]'
+                      }`}
+                    >
+                      <span className="text-[#D3AD55]">0{bh.index}.</span>
+                      <span>{t(bh.shortTranslit, bh.shortHindi)}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })()}
+
+        {/* 52 BHAIRAVAS – THE GUARDIANS OF THE 52 SHAKTI PEETHAS (॥ श्री बावन भैरव संग्रह ॥) Dedicated Monograph Interface */}
+        {article.slug === 'bavan-bhairava-chhappan-kalua-concordance' && (
+          <BavanBhairava52PortalView />
+        )}
+
+        {/* SEAL 09: THE SEVEN CHAKRAS — COMPLETE TANTRIC & YOGIC RESEARCH ARCHIVE (सप्त चक्र) */}
+        {article.slug === 'sapta-chakra-complete-research-archive' && (
+          <div className="mt-6">
+            <SaptaChakraArchiveExperience lang={t('en', 'hi') === 'hi' ? 'hi' : 'en'} />
+          </div>
+        )}
 
         {/* Kālīkula & Śrīkula Dedicated Research Collection Switcher & Editorial Synthesis Banner */}
         {(article.slug === 'kalikula-srikula-streams' ||
