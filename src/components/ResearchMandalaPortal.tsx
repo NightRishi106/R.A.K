@@ -37,6 +37,7 @@ import {
 } from '../data/sacredSealsDeepData';
 import { BavanBhairava52PortalView } from './BavanBhairava52PortalView';
 import { SaptaChakraArchiveExperience } from './SaptaChakraArchiveExperience';
+import { DasaMahavidyaInteractiveStudio } from './DasaMahavidyaInteractiveStudio';
 
 const PORTAL_ICONS: React.ComponentType<any>[] = [
   Radio,      // I · CAGS Field Archive
@@ -1526,6 +1527,20 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
       </div>
 
       <div className="w-full max-w-6xl mx-auto space-y-6">
+      {/* SEAL 01: DASA MAHAVIDYA — 10 MAHAVIDYAS INTERACTIVE SACRED GEOMETRY STUDIO PLACED ABOVE THE SELECTED ARTICLE COMPONENT */}
+      {article.slug === 'dasa-mahavidya-ten-wisdom-goddesses' && (
+        <div className="mb-8">
+          <DasaMahavidyaInteractiveStudio lang={t('en', 'hi') === 'hi' ? 'hi' : 'en'} />
+        </div>
+      )}
+
+      {/* SEAL 09: THE SEVEN CHAKRAS — COMPLETE TANTRIC & YOGIC RESEARCH ARCHIVE (सप्त चक्र) PLACED ABOVE THE SELECTED ARTICLE COMPONENT */}
+      {article.slug === 'sapta-chakra-complete-research-archive' && (
+        <div className="mb-8">
+          <SaptaChakraArchiveExperience lang={t('en', 'hi') === 'hi' ? 'hi' : 'en'} />
+        </div>
+      )}
+
       {/* Main Archival Monograph Folio */}
       <article className="rounded-2xl border border-[#B68A32]/45 bg-[#F2E6D2] text-[#2B1F17] p-6 sm:p-8 md:p-11 shadow-[0_24px_60px_rgba(0,0,0,0.8)] paper-grain">
         {/* Header Metadata Ribbon */}
@@ -1659,13 +1674,6 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
         {/* 52 BHAIRAVAS – THE GUARDIANS OF THE 52 SHAKTI PEETHAS (॥ श्री बावन भैरव संग्रह ॥) Dedicated Monograph Interface */}
         {article.slug === 'bavan-bhairava-chhappan-kalua-concordance' && (
           <BavanBhairava52PortalView />
-        )}
-
-        {/* SEAL 09: THE SEVEN CHAKRAS — COMPLETE TANTRIC & YOGIC RESEARCH ARCHIVE (सप्त चक्र) */}
-        {article.slug === 'sapta-chakra-complete-research-archive' && (
-          <div className="mt-6">
-            <SaptaChakraArchiveExperience lang={t('en', 'hi') === 'hi' ? 'hi' : 'en'} />
-          </div>
         )}
 
         {/* Kālīkula & Śrīkula Dedicated Research Collection Switcher & Editorial Synthesis Banner */}

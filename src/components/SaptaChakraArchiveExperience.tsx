@@ -2,19 +2,14 @@ import React, { useState, useMemo } from 'react';
 import {
   Sparkles,
   BookOpen,
-  Compass,
-  Layers,
-  Eye,
   RotateCw,
   Info,
   ArrowUpRight,
   ChevronRight,
   CheckCircle2,
   AlertTriangle,
-  Flame,
-  Activity,
-  FileText,
-  ArrowLeft
+  ArrowLeft,
+  Eye
 } from 'lucide-react';
 import {
   CHAKRA_STUDIO_PANELS,
@@ -27,6 +22,485 @@ import {
 interface SaptaChakraArchiveExperienceProps {
   lang?: 'en' | 'hi';
 }
+
+interface BodyChakraHotspot {
+  id: string;
+  order: number;
+  xPercent: number;
+  yPercent: number;
+  nameEn: string;
+  nameSanskrit: string;
+  commonNameEn: string;
+  commonNameHi: string;
+  bijaDevanagari: string;
+  bijaIAST: string;
+  elementEn: string;
+  elementHi: string;
+  petals: number;
+  imageChakraColor: string;
+  glowRgba: string;
+}
+
+const BODY_CHAKRA_HOTSPOTS: BodyChakraHotspot[] = [
+  {
+    id: 'sahasrara',
+    order: 7,
+    xPercent: 35.5,
+    yPercent: 12.2,
+    nameEn: 'Sahasrāra',
+    nameSanskrit: 'सहस्रार',
+    commonNameEn: 'Crown Chakra · Thousand-Petalled Lotus',
+    commonNameHi: 'सहस्रार महापद्म · ब्रह्मरन्ध्र',
+    bijaDevanagari: 'ॐ',
+    bijaIAST: 'Para-Bindu / Oṃ',
+    elementEn: 'Tattvātīta (Transcendent Consciousness)',
+    elementHi: 'तत्त्वातीत परब्रह्म',
+    petals: 1000,
+    imageChakraColor: '#E879F9',
+    glowRgba: 'rgba(232, 121, 249, 0.75)'
+  },
+  {
+    id: 'ajna',
+    order: 6,
+    xPercent: 35.5,
+    yPercent: 22.8,
+    nameEn: 'Ājñā',
+    nameSanskrit: 'आज्ञा चक्र',
+    commonNameEn: 'Third-Eye Chakra · Command & Inner Perception',
+    commonNameHi: 'भ्रूमध्य · अन्तःप्रज्ञा केंद्र',
+    bijaDevanagari: 'ॐ',
+    bijaIAST: 'Oṃ',
+    elementEn: 'Manas (Subtle Mind)',
+    elementHi: 'मनस् तत्त्व',
+    petals: 2,
+    imageChakraColor: '#818CF8',
+    glowRgba: 'rgba(129, 140, 248, 0.78)'
+  },
+  {
+    id: 'vishuddha',
+    order: 5,
+    xPercent: 35.5,
+    yPercent: 36.6,
+    nameEn: 'Viśuddha',
+    nameSanskrit: 'विशुद्ध चक्र',
+    commonNameEn: 'Throat Chakra · Pure Space & Sacred Speech',
+    commonNameHi: 'कण्ठ पद्म · आकाश तत्त्व',
+    bijaDevanagari: 'हं',
+    bijaIAST: 'Haṃ',
+    elementEn: 'Ākāśa (Space / Ether)',
+    elementHi: 'आकाश तत्त्व',
+    petals: 16,
+    imageChakraColor: '#38BDF8',
+    glowRgba: 'rgba(56, 189, 248, 0.8)'
+  },
+  {
+    id: 'anahata',
+    order: 4,
+    xPercent: 35.5,
+    yPercent: 46.8,
+    nameEn: 'Anāhata',
+    nameSanskrit: 'अनाहत चक्र',
+    commonNameEn: 'Heart Chakra · Unstruck Sound Lotus',
+    commonNameHi: 'हृदय पद्म · वायु तत्त्व एवं अनाहत नाद',
+    bijaDevanagari: 'यं',
+    bijaIAST: 'Yaṃ',
+    elementEn: 'Vāyu (Air)',
+    elementHi: 'वायु तत्त्व',
+    petals: 12,
+    imageChakraColor: '#4ADE80',
+    glowRgba: 'rgba(74, 222, 128, 0.8)'
+  },
+  {
+    id: 'manipura',
+    order: 3,
+    xPercent: 35.5,
+    yPercent: 57.5,
+    nameEn: 'Maṇipūra',
+    nameSanskrit: 'मणिपूर चक्र',
+    commonNameEn: 'Solar Plexus / Navel Chakra · City of Jewels',
+    commonNameHi: 'नाभि पद्म · अग्नि तत्त्व',
+    bijaDevanagari: 'रं',
+    bijaIAST: 'Raṃ',
+    elementEn: 'Agni (Fire)',
+    elementHi: 'अग्नि तत्त्व',
+    petals: 10,
+    imageChakraColor: '#FACC15',
+    glowRgba: 'rgba(250, 204, 21, 0.82)'
+  },
+  {
+    id: 'svadhishthana',
+    order: 2,
+    xPercent: 35.5,
+    yPercent: 66.8,
+    nameEn: 'Svādhiṣṭhāna',
+    nameSanskrit: 'स्वाधिष्ठान चक्र',
+    commonNameEn: 'Sacral Chakra · Abode of Vital Energy',
+    commonNameHi: 'स्वाधिष्ठान पद्म · जल तत्त्व',
+    bijaDevanagari: 'वं',
+    bijaIAST: 'Vaṃ',
+    elementEn: 'Āpas (Water)',
+    elementHi: 'जल तत्त्व',
+    petals: 6,
+    imageChakraColor: '#FB923C',
+    glowRgba: 'rgba(251, 146, 60, 0.82)'
+  },
+  {
+    id: 'muladhara',
+    order: 1,
+    xPercent: 35.5,
+    yPercent: 75.5,
+    nameEn: 'Mūlādhāra',
+    nameSanskrit: 'मूलाधार चक्र',
+    commonNameEn: 'Root Chakra · Foundational Support & Earth',
+    commonNameHi: 'आधार पद्म · पृथ्वी तत्त्व एवं कुण्डलिनी मूल',
+    bijaDevanagari: 'लं',
+    bijaIAST: 'Laṃ',
+    elementEn: 'Pṛthvī (Earth)',
+    elementHi: 'पृथ्वी तत्त्व',
+    petals: 4,
+    imageChakraColor: '#F87171',
+    glowRgba: 'rgba(248, 113, 113, 0.85)'
+  }
+];
+
+/**
+ * Interactive Chakra-in-Body Visualizer using the cleaned cosmic meditating body image
+ * (with right-hand side texts removed). Clicking any chakra on the body triggers
+ * concentric ripple waves and displays the chakra's name in the exact color of the chakra in the image.
+ */
+const InteractiveBodyChakraImage: React.FC<{
+  selectedChakraId: string;
+  onSelectChakra: (chakraId: string) => void;
+  lang?: 'en' | 'hi';
+  showNadiOverlay?: boolean;
+  showIda?: boolean;
+  showPingala?: boolean;
+  showSushumna?: boolean;
+  showGranthis?: boolean;
+}> = ({
+  selectedChakraId,
+  onSelectChakra,
+  lang = 'en',
+  showNadiOverlay = false,
+  showIda = true,
+  showPingala = true,
+  showSushumna = true,
+  showGranthis = false
+}) => {
+  const [rippleBurstCounter, setRippleBurstCounter] = useState<number>(1);
+  const [lastClickedId, setLastClickedId] = useState<string>(selectedChakraId);
+  const [showAllLabels, setShowAllLabels] = useState<boolean>(false);
+
+  const activeHotspot =
+    BODY_CHAKRA_HOTSPOTS.find((h) => h.id === selectedChakraId) || BODY_CHAKRA_HOTSPOTS[6];
+
+  const handleChakraClick = (id: string) => {
+    setLastClickedId(id);
+    setRippleBurstCounter((c) => c + 1);
+    onSelectChakra(id);
+  };
+
+  return (
+    <div className="space-y-3">
+      {/* Keyframe style for multi-ring ripple bursts */}
+      <style>{`
+        @keyframes chakraRippleExpand {
+          0% {
+            transform: translate(-50%, -50%) scale(0.45);
+            opacity: 0.95;
+          }
+          70% {
+            opacity: 0.45;
+          }
+          100% {
+            transform: translate(-50%, -50%) scale(2.9);
+            opacity: 0;
+          }
+        }
+        @keyframes chakraContinuousRipple {
+          0% {
+            transform: translate(-50%, -50%) scale(0.85);
+            opacity: 0.85;
+          }
+          100% {
+            transform: translate(-50%, -50%) scale(2.35);
+            opacity: 0;
+          }
+        }
+      `}</style>
+
+      {/* Top Controls Bar */}
+      <div className="flex flex-wrap items-center justify-between gap-2 px-1">
+        <span className="text-[11px] font-mono text-[#FDE68A]/90 flex items-center gap-1.5">
+          <Sparkles className="w-3.5 h-3.5 text-[#D3AD55]" />
+          {lang === 'hi'
+            ? 'शरीर में किसी भी चक्र पर क्लिक करें (तरंग एवं नाम देखने हेतु)'
+            : 'Click any chakra on the body for ripple effect & colored name'}
+        </span>
+        <button
+          type="button"
+          onClick={() => setShowAllLabels((v) => !v)}
+          className={`px-2.5 py-1 rounded-lg text-[10.5px] font-mono border transition flex items-center gap-1 cursor-pointer ${
+            showAllLabels
+              ? 'border-[#D3AD55] bg-[#D3AD55]/20 text-[#FDE68A]'
+              : 'border-white/15 bg-white/5 text-white/75 hover:border-white/30'
+          }`}
+        >
+          <Eye className="w-3 h-3" />
+          {showAllLabels
+            ? lang === 'hi'
+              ? 'केवल चयनित नाम दिखाएँ'
+              : 'Show Clicked Only'
+            : lang === 'hi'
+            ? 'सभी ७ नाम दिखाएँ'
+            : 'Show All 7 Names'}
+        </button>
+      </div>
+
+      {/* Main Interactive Body Container */}
+      <div className="relative w-full max-w-[460px] mx-auto rounded-2xl overflow-hidden border border-[#D3AD55]/40 bg-[#050816] shadow-[0_0_40px_rgba(0,0,0,0.85)] select-none">
+        <img
+          src="/src/assets/images/chakra_body_clean_1794286549973.jpg"
+          alt="Seven Chakras in the Meditating Subtle Body"
+          referrerPolicy="no-referrer"
+          className="w-full h-auto block pointer-events-none"
+        />
+
+        {/* Optional Subtle Nāḍī & Granthi SVG Overlay for Panel 09 */}
+        {showNadiOverlay && (
+          <svg
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+            className="absolute inset-0 w-full h-full pointer-events-none"
+          >
+            {showSushumna && (
+              <line
+                x1="35.5"
+                y1="12.2"
+                x2="35.5"
+                y2="75.5"
+                stroke="#FEF08A"
+                strokeWidth="0.45"
+                strokeOpacity="0.85"
+              />
+            )}
+            {showIda && (
+              <path
+                d="M 35.5 75.5 C 24 69, 47 62, 35.5 57.5 C 24 51, 47 42, 35.5 36.6 C 25 30, 30 25, 35.5 22.8"
+                fill="none"
+                stroke="#93C5FD"
+                strokeWidth="0.45"
+                strokeDasharray="1.2 0.8"
+              />
+            )}
+            {showPingala && (
+              <path
+                d="M 35.5 75.5 C 47 69, 24 62, 35.5 57.5 C 47 51, 24 42, 35.5 36.6 C 46 30, 41 25, 35.5 22.8"
+                fill="none"
+                stroke="#FDBA74"
+                strokeWidth="0.45"
+                strokeDasharray="1.2 0.8"
+              />
+            )}
+            {showGranthis && (
+              <g>
+                <circle cx="35.5" cy="75.5" r="3.4" fill="none" stroke="#EF4444" strokeWidth="0.35" strokeDasharray="0.8 0.8" />
+                <circle cx="35.5" cy="46.8" r="3.4" fill="none" stroke="#4ADE80" strokeWidth="0.35" strokeDasharray="0.8 0.8" />
+                <circle cx="35.5" cy="22.8" r="3.4" fill="none" stroke="#818CF8" strokeWidth="0.35" strokeDasharray="0.8 0.8" />
+              </g>
+            )}
+          </svg>
+        )}
+
+        {/* Interactive Chakra Nodes, Ripple Waves & Right-Side Colored Name Callouts */}
+        {BODY_CHAKRA_HOTSPOTS.map((node) => {
+          const isSelected = selectedChakraId === node.id;
+          const isVisibleLabel = showAllLabels || isSelected;
+
+          return (
+            <React.Fragment key={node.id}>
+              {/* Clickable Chakra Orb on Body */}
+              <button
+                type="button"
+                onClick={() => handleChakraClick(node.id)}
+                aria-label={`${node.nameEn} (${node.nameSanskrit}) - ${node.commonNameEn}`}
+                style={{
+                  left: `${node.xPercent}%`,
+                  top: `${node.yPercent}%`
+                }}
+                className="absolute -translate-x-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center cursor-pointer group focus:outline-none z-20"
+              >
+                {/* Continuous Ambient Ripple when Selected */}
+                {isSelected && (
+                  <>
+                    <span
+                      className="absolute left-1/2 top-1/2 w-10 h-10 rounded-full pointer-events-none"
+                      style={{
+                        border: `2px solid ${node.imageChakraColor}`,
+                        boxShadow: `0 0 18px ${node.glowRgba}`,
+                        animation: 'chakraContinuousRipple 2s cubic-bezier(0, 0, 0.2, 1) infinite'
+                      }}
+                    />
+                    <span
+                      className="absolute left-1/2 top-1/2 w-10 h-10 rounded-full pointer-events-none"
+                      style={{
+                        border: `1.5px solid ${node.imageChakraColor}`,
+                        animation: 'chakraContinuousRipple 2s cubic-bezier(0, 0, 0.2, 1) 0.7s infinite'
+                      }}
+                    />
+                  </>
+                )}
+
+                {/* Fresh Multi-Ring Click Burst Ripple Effect */}
+                {isSelected && lastClickedId === node.id && (
+                  <span
+                    key={`burst-${node.id}-${rippleBurstCounter}`}
+                    className="absolute inset-0 pointer-events-none"
+                  >
+                    <span
+                      className="absolute left-1/2 top-1/2 w-11 h-11 rounded-full"
+                      style={{
+                        border: `2.5px solid ${node.imageChakraColor}`,
+                        backgroundColor: `${node.imageChakraColor}28`,
+                        boxShadow: `0 0 24px ${node.glowRgba}`,
+                        animation: 'chakraRippleExpand 1.05s ease-out forwards'
+                      }}
+                    />
+                    <span
+                      className="absolute left-1/2 top-1/2 w-11 h-11 rounded-full"
+                      style={{
+                        border: `2px solid ${node.imageChakraColor}`,
+                        animation: 'chakraRippleExpand 1.35s ease-out 0.14s forwards'
+                      }}
+                    />
+                    <span
+                      className="absolute left-1/2 top-1/2 w-11 h-11 rounded-full"
+                      style={{
+                        border: `1.5px solid #FFFFFF`,
+                        animation: 'chakraRippleExpand 1.6s ease-out 0.28s forwards'
+                      }}
+                    />
+                  </span>
+                )}
+
+                {/* Subtle Hover Ring */}
+                <span
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full transition-transform duration-300 group-hover:scale-125"
+                  style={{
+                    border: isSelected
+                      ? `2px solid ${node.imageChakraColor}`
+                      : `1px solid ${node.imageChakraColor}66`,
+                    boxShadow: isSelected
+                      ? `0 0 18px ${node.glowRgba}, inset 0 0 10px ${node.glowRgba}`
+                      : 'none'
+                  }}
+                />
+              </button>
+
+              {/* Right-Side Animated Pointer Line & Colored Chakra Name Callout */}
+              {isVisibleLabel && (
+                <div
+                  onClick={() => handleChakraClick(node.id)}
+                  style={{
+                    top: `${node.yPercent}%`,
+                    left: `${node.xPercent + 4.5}%`,
+                    right: '2.5%'
+                  }}
+                  className="absolute -translate-y-1/2 flex items-center gap-2 z-10 cursor-pointer group"
+                >
+                  {/* Glowing Pointer Line & Dot */}
+                  <div className="flex items-center shrink-0">
+                    <div
+                      className="w-6 sm:w-11 h-[1.5px] transition-all duration-300"
+                      style={{
+                        background: `linear-gradient(90deg, ${node.imageChakraColor}, ${node.imageChakraColor}CC)`,
+                        boxShadow: `0 0 8px ${node.glowRgba}`
+                      }}
+                    />
+                    <span
+                      className="w-2 h-2 rounded-full shrink-0"
+                      style={{
+                        backgroundColor: node.imageChakraColor,
+                        boxShadow: `0 0 10px ${node.imageChakraColor}`
+                      }}
+                    />
+                  </div>
+
+                  {/* Chakra Name Card with Text in Exact Chakra Color */}
+                  <div
+                    className={`px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl backdrop-blur-md transition-all duration-300 ${
+                      isSelected
+                        ? 'bg-[#050818]/90 scale-[1.02]'
+                        : 'bg-[#050818]/75 opacity-90 hover:opacity-100'
+                    }`}
+                    style={{
+                      border: `1px solid ${node.imageChakraColor}${isSelected ? 'AA' : '55'}`,
+                      boxShadow: isSelected ? `0 4px 20px ${node.glowRgba}` : 'none'
+                    }}
+                  >
+                    <div
+                      className="font-serif font-bold text-xs sm:text-sm md:text-[15px] leading-tight tracking-wide"
+                      style={{
+                        color: node.imageChakraColor,
+                        textShadow: `0 0 12px ${node.glowRgba}`
+                      }}
+                    >
+                      {node.nameEn} · {node.nameSanskrit}
+                    </div>
+                    <div
+                      className="text-[9.5px] sm:text-[10.5px] font-medium leading-snug mt-0.5"
+                      style={{
+                        color: node.imageChakraColor,
+                        opacity: 0.9
+                      }}
+                    >
+                      {lang === 'hi' ? node.commonNameHi : node.commonNameEn}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </React.Fragment>
+          );
+        })}
+      </div>
+
+      {/* Active Clicked Chakra Banner Below Image (Text Colored in the Chakra's Image Color) */}
+      <div
+        className="rounded-xl p-3.5 bg-[#090D1E]/95 border transition-all duration-300 flex flex-wrap items-center justify-between gap-2"
+        style={{
+          borderColor: `${activeHotspot.imageChakraColor}88`,
+          boxShadow: `0 0 22px ${activeHotspot.glowRgba.replace('0.8', '0.2')}`
+        }}
+      >
+        <div>
+          <div className="text-[10px] font-mono uppercase tracking-widest text-white/60">
+            {lang === 'hi' ? 'चयनित चक्र (सक्रिय तरंग)' : 'ACTIVE CLICKED CHAKRA IN BODY'} · 0{activeHotspot.order}
+          </div>
+          <div
+            className="text-base sm:text-lg font-serif font-bold mt-0.5"
+            style={{
+              color: activeHotspot.imageChakraColor,
+              textShadow: `0 0 14px ${activeHotspot.glowRgba}`
+            }}
+          >
+            {activeHotspot.nameEn} ({activeHotspot.nameSanskrit}) —{' '}
+            {lang === 'hi' ? activeHotspot.commonNameHi : activeHotspot.commonNameEn}
+          </div>
+        </div>
+        <div
+          className="px-3 py-1 rounded-lg font-serif font-bold text-xs border"
+          style={{
+            color: activeHotspot.imageChakraColor,
+            borderColor: `${activeHotspot.imageChakraColor}66`,
+            backgroundColor: `${activeHotspot.imageChakraColor}18`
+          }}
+        >
+          Bīja: {activeHotspot.bijaDevanagari} ({activeHotspot.bijaIAST}) · {activeHotspot.petals} Petals
+        </div>
+      </div>
+    </div>
+  );
+};
 
 /**
  * Precision Sacred SVG Renderer for an Individual Chakra Lotus & Yantra
@@ -206,7 +680,6 @@ const InteractiveChakraLotusSVG: React.FC<{
       <g className={animateElement ? 'transition-transform duration-700' : ''}>
         {profile.yantraShapeType === 'square' && (
           <g>
-            {/* 8 Golden Spears of Dharā-Maṇḍala */}
             {[0, 45, 90, 135, 180, 225, 270, 315].map((ang) => (
               <line
                 key={ang}
@@ -229,7 +702,6 @@ const InteractiveChakraLotusSVG: React.FC<{
               stroke="#EAB308"
               strokeWidth="2.2"
             />
-            {/* Kāmarūpa Downward Triangle inside Mūlādhāra */}
             <polygon
               points="160,196 128,136 192,136"
               fill="#EF4444"
@@ -251,7 +723,6 @@ const InteractiveChakraLotusSVG: React.FC<{
               stroke="#E2E8F0"
               strokeWidth="1.5"
             />
-            {/* White Crescent Moon of Water */}
             <path
               d="M 116 145 A 48 48 0 1 0 204 145 A 38 36 0 1 1 116 145 Z"
               fill="#F8FAFC"
@@ -264,7 +735,6 @@ const InteractiveChakraLotusSVG: React.FC<{
 
         {profile.yantraShapeType === 'triangle' && (
           <g>
-            {/* Red Inverted Fire Triangle with 3 T-shaped Svastika projections */}
             <polygon
               points="160,210 112,126 208,126"
               fill="#EF4444"
@@ -279,7 +749,6 @@ const InteractiveChakraLotusSVG: React.FC<{
 
         {profile.yantraShapeType === 'hexagram' && (
           <g>
-            {/* Smoky Ṣaṭkoṇa (Intersecting Śiva & Śakti Triangles) */}
             <polygon
               points="160,104 112,188 208,188"
               fill="#94A3B8"
@@ -294,7 +763,6 @@ const InteractiveChakraLotusSVG: React.FC<{
               stroke="#4ADE80"
               strokeWidth="1.8"
             />
-            {/* Inner Golden Triangle of Bāṇa Liṅga */}
             <polygon
               points="160,185 138,145 182,145"
               fill="none"
@@ -306,7 +774,6 @@ const InteractiveChakraLotusSVG: React.FC<{
 
         {profile.yantraShapeType === 'circle' && (
           <g>
-            {/* Pure White Circular Ether Mandala inside Triangle */}
             <polygon
               points="160,206 116,130 204,130"
               fill="none"
@@ -328,7 +795,6 @@ const InteractiveChakraLotusSVG: React.FC<{
 
         {profile.yantraShapeType === 'two-petal-linga' && (
           <g>
-            {/* Inverted Triangle & Crystalline Itara Liṅga of Ājñā */}
             <polygon
               points="160,206 116,128 204,128"
               fill="#6366F1"
@@ -352,7 +818,6 @@ const InteractiveChakraLotusSVG: React.FC<{
 
         {profile.yantraShapeType === 'thousand-lotus' && (
           <g>
-            {/* Full Moon Circle + A-Ka-Tha Triangle + Para-Bindu */}
             <circle
               cx="160"
               cy="160"
@@ -402,222 +867,6 @@ const InteractiveChakraLotusSVG: React.FC<{
   );
 };
 
-/**
- * Interactive Vertical Subtle-Body Axis SVG (7 Chakras + Iḍā, Piṅgalā, Suṣumṇā + 3 Granthis)
- */
-const SubtleBodyAxisSVG: React.FC<{
-  selectedChakraId: string;
-  onSelectChakra: (chakraId: string) => void;
-  showIda: boolean;
-  showPingala: boolean;
-  showSushumna: boolean;
-  showGranthis: boolean;
-  animateKundalini: boolean;
-}> = ({
-  selectedChakraId,
-  onSelectChakra,
-  showIda,
-  showPingala,
-  showSushumna,
-  showGranthis,
-  animateKundalini
-}) => {
-  const chakraCoords: { id: string; y: number; label: string; hi: string; bija: string; color: string; petals: number }[] = [
-    { id: 'sahasrara', y: 48, label: '07. Sahasrāra', hi: 'सहस्रार', bija: 'ॐ', color: '#C084FC', petals: 1000 },
-    { id: 'ajna', y: 98, label: '06. Ājñā', hi: 'आज्ञा', bija: 'ॐ', color: '#6366F1', petals: 2 },
-    { id: 'vishuddha', y: 158, label: '05. Viśuddha', hi: 'विशुद्ध', bija: 'हं', color: '#38BDF8', petals: 16 },
-    { id: 'anahata', y: 224, label: '04. Anāhata', hi: 'अनाहत', bija: 'यं', color: '#22C55E', petals: 12 },
-    { id: 'manipura', y: 290, label: '03. Maṇipūra', hi: 'मणिपूर', bija: 'रं', color: '#EAB308', petals: 10 },
-    { id: 'svadhishthana', y: 352, label: '02. Svādhiṣṭhāna', hi: 'स्वाधिष्ठान', bija: 'वं', color: '#F97316', petals: 6 },
-    { id: 'muladhara', y: 414, label: '01. Mūlādhāra', hi: 'मूलाधार', bija: 'लं', color: '#EF4444', petals: 4 }
-  ];
-
-  return (
-    <svg
-      viewBox="0 0 340 480"
-      className="w-full max-w-[340px] h-auto mx-auto select-none"
-      role="img"
-      aria-label="Subtle Body Seven Chakras, Three Nadis and Granthis Linear Diagram"
-    >
-      <defs>
-        <linearGradient id="sushumna-grad" x1="0" y1="1" x2="0" y2="0">
-          <stop offset="0%" stopColor="#EF4444" />
-          <stop offset="35%" stopColor="#EAB308" />
-          <stop offset="65%" stopColor="#38BDF8" />
-          <stop offset="100%" stopColor="#C084FC" />
-        </linearGradient>
-      </defs>
-
-      {/* Subtle Meditating Yogi Silhouette Outline (Linear Architectural Drawing) */}
-      <g stroke="#D3AD55" strokeOpacity="0.28" strokeWidth="1.2" fill="#130E1E" fillOpacity="0.45">
-        {/* Head & Cranial Dome */}
-        <path d="M 170 52 C 145 52, 136 74, 138 98 C 140 118, 150 132, 156 140 L 156 154 C 122 162, 96 184, 86 226 C 78 262, 62 320, 46 364 C 36 390, 48 424, 92 432 L 248 432 C 292 424, 304 390, 294 364 C 278 320, 262 262, 254 226 C 244 184, 218 162, 184 154 L 184 140 C 190 132, 200 118, 202 98 C 204 74, 195 52, 170 52 Z" />
-        {/* Lotus Seat Base Padmasana */}
-        <path d="M 52 432 Q 170 456 288 432" fill="none" stroke="#D3AD55" strokeOpacity="0.4" strokeWidth="1.5" />
-      </g>
-
-      {/* Iḍā Nāḍī (Left / Lunar / Cooling White-Blue Channel) */}
-      {showIda && (
-        <path
-          d="M 170 414 C 112 382, 228 322, 170 290 C 112 258, 228 190, 170 158 C 118 128, 145 106, 170 98"
-          fill="none"
-          stroke="#93C5FD"
-          strokeWidth="2.4"
-          strokeDasharray="4 2"
-        />
-      )}
-
-      {/* Piṅgalā Nāḍī (Right / Solar / Fiery Amber-Red Channel) */}
-      {showPingala && (
-        <path
-          d="M 170 414 C 228 382, 112 322, 170 290 C 228 258, 112 190, 170 158 C 222 128, 195 106, 170 98"
-          fill="none"
-          stroke="#FDBA74"
-          strokeWidth="2.4"
-          strokeDasharray="4 2"
-        />
-      )}
-
-      {/* Suṣumṇā & Citriṇī Central Axial Pillar */}
-      {showSushumna && (
-        <g>
-          <line
-            x1="170"
-            y1="428"
-            x2="170"
-            y2="42"
-            stroke="url(#sushumna-grad)"
-            strokeWidth="5"
-            strokeOpacity="0.65"
-          />
-          <line
-            x1="170"
-            y1="428"
-            x2="170"
-            y2="42"
-            stroke="#FEF08A"
-            strokeWidth="1.5"
-            className={animateKundalini ? 'animate-pulse' : ''}
-          />
-        </g>
-      )}
-
-      {/* Three Granthis (Psychic Knots) Markers */}
-      {showGranthis && (
-        <g>
-          {/* Brahma Granthi */}
-          <g transform="translate(56, 398)">
-            <rect x="0" y="0" width="76" height="18" rx="4" fill="#450A0A" stroke="#EF4444" strokeWidth="0.9" />
-            <text x="38" y="12" textAnchor="middle" fill="#FCA5A5" fontSize="7.5" fontWeight="700">
-              BRAHMA GRANTHI
-            </text>
-          </g>
-          {/* Viṣṇu Granthi */}
-          <g transform="translate(56, 208)">
-            <rect x="0" y="0" width="76" height="18" rx="4" fill="#052E16" stroke="#22C55E" strokeWidth="0.9" />
-            <text x="38" y="12" textAnchor="middle" fill="#86EFAC" fontSize="7.5" fontWeight="700">
-              VIṢṆU GRANTHI
-            </text>
-          </g>
-          {/* Rudra Granthi */}
-          <g transform="translate(56, 84)">
-            <rect x="0" y="0" width="76" height="18" rx="4" fill="#1E1B4B" stroke="#6366F1" strokeWidth="0.9" />
-            <text x="38" y="12" textAnchor="middle" fill="#A5B4FC" fontSize="7.5" fontWeight="700">
-              RUDRA GRANTHI
-            </text>
-          </g>
-        </g>
-      )}
-
-      {/* Kuṇḍalinī Coiled 3.5 Times at Base + Rising Pulse */}
-      {animateKundalini && (
-        <g>
-          <circle
-            cx="170"
-            cy="414"
-            r="24"
-            fill="none"
-            stroke="#F59E0B"
-            strokeWidth="1.5"
-            className="animate-ping"
-          />
-        </g>
-      )}
-
-      {/* Seven Interactive Chakra Nodes */}
-      {chakraCoords.map((node) => {
-        const isSelected = selectedChakraId === node.id;
-        return (
-          <g
-            key={node.id}
-            onClick={() => onSelectChakra(node.id)}
-            className="cursor-pointer group"
-          >
-            <circle
-              cx="170"
-              cy={node.y}
-              r={isSelected ? 22 : 17}
-              fill="#0D0914"
-              stroke={node.color}
-              strokeWidth={isSelected ? '3' : '1.8'}
-            />
-            <circle
-              cx="170"
-              cy={node.y}
-              r={isSelected ? 26 : 20}
-              fill="none"
-              stroke={node.color}
-              strokeOpacity={isSelected ? '0.75' : '0.25'}
-              strokeWidth="1"
-            />
-            <text
-              x="170"
-              y={node.y + 1}
-              textAnchor="middle"
-              dominantBaseline="central"
-              fill="#FFFFFF"
-              fontSize="12"
-              fontWeight="700"
-              className="font-serif"
-            >
-              {node.bija}
-            </text>
-
-            {/* Right-side Callout Label */}
-            <line
-              x1="194"
-              y1={node.y}
-              x2="214"
-              y2={node.y}
-              stroke={node.color}
-              strokeOpacity="0.6"
-              strokeWidth="1"
-            />
-            <text
-              x="218"
-              y={node.y - 3}
-              fill={isSelected ? '#FDE68A' : '#E2E8F0'}
-              fontSize="9.5"
-              fontWeight={isSelected ? '700' : '600'}
-            >
-              {node.label}
-            </text>
-            <text
-              x="218"
-              y={node.y + 9}
-              fill={node.color}
-              fontSize="8.5"
-              fontWeight="600"
-            >
-              {node.hi} ({node.petals} दल)
-            </text>
-          </g>
-        );
-      })}
-    </svg>
-  );
-};
-
 export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperienceProps> = ({
   lang = 'en'
 }) => {
@@ -636,7 +885,6 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
   const [showPingala, setShowPingala] = useState<boolean>(true);
   const [showSushumna, setShowSushumna] = useState<boolean>(true);
   const [showGranthis, setShowGranthis] = useState<boolean>(true);
-  const [animateKundalini, setAnimateKundalini] = useState<boolean>(true);
 
   // Active full research article reader slug
   const [selectedArticleSlug, setSelectedArticleSlug] = useState<string>('chakra-vidya-subtle-energy-centres');
@@ -687,7 +935,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
   };
 
   return (
-    <div className="space-y-12 text-[#F5EFE6]">
+    <div className="space-y-10 text-[#F5EFE6]">
       {/* =====================================================================
           1. DEDICATED ARCHIVE BANNER & SCHOLARLY DISCLAIMER
          ===================================================================== */}
@@ -726,7 +974,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
           <div className="rounded-xl border border-white/10 bg-black/35 p-3.5">
             <div className="text-[11px] font-mono uppercase tracking-wider text-[#D3AD55]">Interactive Studio</div>
             <div className="text-lg font-serif font-bold text-white mt-0.5">9 Exploration Panels</div>
-            <div className="text-xs text-white/60">SVG Lotuses, Yantras & Nāḍīs</div>
+            <div className="text-xs text-white/60">Body Ripple Map, Lotuses & Nāḍīs</div>
           </div>
           <div className="rounded-xl border border-white/10 bg-black/35 p-3.5">
             <div className="text-[11px] font-mono uppercase tracking-wider text-[#D3AD55]">Research Archive</div>
@@ -765,7 +1013,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
             <button
               type="button"
               onClick={() => setRotateLotus((v) => !v)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-mono border transition flex items-center gap-1.5 ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-mono border transition flex items-center gap-1.5 cursor-pointer ${
                 rotateLotus
                   ? 'border-[#D3AD55] bg-[#D3AD55]/20 text-[#FDE68A]'
                   : 'border-white/15 bg-white/5 text-white/70'
@@ -777,7 +1025,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
             <button
               type="button"
               onClick={() => setShowSanskritLetters((v) => !v)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-mono border transition ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-mono border transition cursor-pointer ${
                 showSanskritLetters
                   ? 'border-[#D3AD55] bg-[#D3AD55]/20 text-[#FDE68A]'
                   : 'border-white/15 bg-white/5 text-white/70'
@@ -788,7 +1036,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
             <button
               type="button"
               onClick={() => setShowPetals((v) => !v)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-mono border transition ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-mono border transition cursor-pointer ${
                 showPetals
                   ? 'border-[#D3AD55] bg-[#D3AD55]/20 text-[#FDE68A]'
                   : 'border-white/15 bg-white/5 text-white/70'
@@ -799,7 +1047,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
             <button
               type="button"
               onClick={() => setAnimateElement((v) => !v)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-mono border transition ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-mono border transition cursor-pointer ${
                 animateElement
                   ? 'border-[#D3AD55] bg-[#D3AD55]/20 text-[#FDE68A]'
                   : 'border-white/15 bg-white/5 text-white/70'
@@ -810,7 +1058,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
             <button
               type="button"
               onClick={() => setUseClassicalPalette((v) => !v)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-mono border transition ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-mono border transition cursor-pointer ${
                 useClassicalPalette
                   ? 'border-emerald-400/60 bg-emerald-950/40 text-emerald-200'
                   : 'border-white/15 bg-white/5 text-white/70'
@@ -830,7 +1078,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
                 key={panel.id}
                 type="button"
                 onClick={() => setActiveStudioPanelId(panel.id)}
-                className={`text-left rounded-xl p-3 border transition-all ${
+                className={`text-left rounded-xl p-3 border transition-all cursor-pointer ${
                   isActive
                     ? 'border-[#D3AD55] bg-gradient-to-b from-[#D3AD55]/25 to-[#D3AD55]/5 shadow-[0_0_20px_rgba(211,173,85,0.25)]'
                     : 'border-white/10 bg-white/[0.03] hover:border-white/25 hover:bg-white/[0.06]'
@@ -861,22 +1109,15 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
         {/* PANEL 01: INTRODUCTION — SUBTLE BODY & CHAKRA SYSTEM */}
         {activePanel.id === 'panel-intro' && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-2">
-            <div className="lg:col-span-5 rounded-2xl border border-white/10 bg-[#120D1D] p-5">
+            <div className="lg:col-span-5 rounded-2xl border border-white/10 bg-[#120D1D] p-4 sm:p-5">
               <div className="text-xs font-mono uppercase tracking-wider text-[#D3AD55] mb-2">
-                PANEL 01 · INTERACTIVE SUBTLE-BODY MAP (CLICK ANY CHAKRA)
+                PANEL 01 · INTERACTIVE CHAKRA-IN-BODY MAP (CLICK ANY CHAKRA)
               </div>
-              <SubtleBodyAxisSVG
+              <InteractiveBodyChakraImage
                 selectedChakraId={activeChakraProfile.id}
                 onSelectChakra={handleSelectChakraFromDiagram}
-                showIda={true}
-                showPingala={true}
-                showSushumna={true}
-                showGranthis={true}
-                animateKundalini={true}
+                lang={lang}
               />
-              <p className="text-xs text-center text-white/60 mt-2">
-                Click any of the 7 lotus nodes along the Suṣumṇā column to inspect its dedicated studio panel (02–08).
-              </p>
             </div>
 
             <div className="lg:col-span-7 space-y-5">
@@ -908,7 +1149,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
                   <button
                     type="button"
                     onClick={() => handleOpenArticleAndScroll('chakra-vidya-subtle-energy-centres')}
-                    className="px-4 py-2 rounded-xl bg-[#D3AD55] text-black font-semibold text-xs flex items-center gap-2 hover:bg-[#e5c168] transition"
+                    className="px-4 py-2 rounded-xl bg-[#D3AD55] text-black font-semibold text-xs flex items-center gap-2 hover:bg-[#e5c168] transition cursor-pointer"
                   >
                     <BookOpen className="w-4 h-4" />
                     Read Introductory Monograph: Chakra Vidya
@@ -916,7 +1157,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
                   <button
                     type="button"
                     onClick={() => setActiveStudioPanelId('panel-muladhara')}
-                    className="px-4 py-2 rounded-xl border border-[#D3AD55]/50 text-[#FDE68A] text-xs font-semibold hover:bg-[#D3AD55]/10 transition"
+                    className="px-4 py-2 rounded-xl border border-[#D3AD55]/50 text-[#FDE68A] text-xs font-semibold hover:bg-[#D3AD55]/10 transition cursor-pointer"
                   >
                     Explore Panel 02: Mūlādhāra →
                   </button>
@@ -947,8 +1188,8 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
                         className="hover:bg-white/5 cursor-pointer transition"
                       >
                         <td className="py-2 pr-2 font-mono text-[#D3AD55]">{c.studioPanelNumber}</td>
-                        <td className="py-2 pr-2 font-semibold">
-                          {c.nameEn} <span className="text-white/60">({c.nameSanskrit})</span>
+                        <td className="py-2 pr-2 font-semibold" style={{ color: c.accentHex }}>
+                          {c.nameEn} <span className="text-white/75">({c.nameSanskrit})</span>
                         </td>
                         <td className="py-2 pr-2 font-mono">{c.petalCount}</td>
                         <td className="py-2 pr-2">{c.elementEn.split('—')[0]}</td>
@@ -970,7 +1211,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
         {/* PANELS 02 TO 08: INDIVIDUAL CHAKRA INTERACTIVE WORKSTATIONS */}
         {activePanel.chakraId && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-2">
-            {/* Left Column: Interactive Lotus SVG + Body Position Mini-Map */}
+            {/* Left Column: Interactive Lotus SVG + Interactive Chakra-in-Body Map */}
             <div className="lg:col-span-5 space-y-5">
               <div className="rounded-2xl border border-white/15 bg-[#120D1D] p-5 relative">
                 <div className="flex items-center justify-between text-xs font-mono text-white/70 mb-2">
@@ -1010,19 +1251,15 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
                 </div>
               </div>
 
-              {/* Subtle Body Axis Locator */}
+              {/* Interactive Body Chakra Placement Map */}
               <div className="rounded-2xl border border-white/10 bg-[#120D1D] p-4">
                 <div className="text-xs font-mono uppercase tracking-wider text-[#D3AD55] mb-2">
-                  SUBTLE-BODY AXIS PLACEMENT (CLICK TO SWITCH CHAKRA)
+                  CHAKRA IN BODY PLACEMENT (CLICK ANY CHAKRA FOR RIPPLE & NAME)
                 </div>
-                <SubtleBodyAxisSVG
+                <InteractiveBodyChakraImage
                   selectedChakraId={activeChakraProfile.id}
                   onSelectChakra={handleSelectChakraFromDiagram}
-                  showIda={true}
-                  showPingala={true}
-                  showSushumna={true}
-                  showGranthis={false}
-                  animateKundalini={false}
+                  lang={lang}
                 />
               </div>
             </div>
@@ -1045,7 +1282,10 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
                   </span>
                 </div>
 
-                <h4 className="text-2xl sm:text-3xl font-serif font-bold text-white">
+                <h4
+                  className="text-2xl sm:text-3xl font-serif font-bold"
+                  style={{ color: activeChakraProfile.accentHex }}
+                >
                   {activeChakraProfile.nameEn}{' '}
                   <span className="text-[#FDE68A]">({activeChakraProfile.nameSanskrit})</span>
                 </h4>
@@ -1146,7 +1386,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
                   <button
                     type="button"
                     onClick={() => handleOpenArticleAndScroll(activeChakraProfile.articleSlug)}
-                    className="px-4 py-2.5 rounded-xl bg-[#D3AD55] text-black font-semibold text-xs flex items-center gap-2 hover:bg-[#e4bf67] transition shadow-lg"
+                    className="px-4 py-2.5 rounded-xl bg-[#D3AD55] text-black font-semibold text-xs flex items-center gap-2 hover:bg-[#e4bf67] transition shadow-lg cursor-pointer"
                   >
                     <BookOpen className="w-4 h-4" />
                     Open Full Chakra Research Article
@@ -1163,7 +1403,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-2">
             <div className="lg:col-span-5 rounded-2xl border border-amber-500/35 bg-[#120D1D] p-5">
               <div className="text-xs font-mono uppercase tracking-wider text-[#FDE68A] mb-3">
-                PANEL 09 · INTERACTIVE NĀḌĪ, GRANTHI & KUṆḌALINĪ SIMULATOR
+                PANEL 09 · INTERACTIVE NĀḌĪ, GRANTHI & KUṆḌALINĪ BODY SIMULATOR
               </div>
 
               {/* Interactive Layer Toggles for Panel 09 */}
@@ -1171,7 +1411,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
                 <button
                   type="button"
                   onClick={() => setShowIda((v) => !v)}
-                  className={`px-2.5 py-1 rounded text-[11px] font-mono border ${
+                  className={`px-2.5 py-1 rounded text-[11px] font-mono border cursor-pointer ${
                     showIda
                       ? 'border-sky-400 bg-sky-950/50 text-sky-200'
                       : 'border-white/15 bg-white/5 text-white/50'
@@ -1182,7 +1422,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
                 <button
                   type="button"
                   onClick={() => setShowPingala((v) => !v)}
-                  className={`px-2.5 py-1 rounded text-[11px] font-mono border ${
+                  className={`px-2.5 py-1 rounded text-[11px] font-mono border cursor-pointer ${
                     showPingala
                       ? 'border-orange-400 bg-orange-950/50 text-orange-200'
                       : 'border-white/15 bg-white/5 text-white/50'
@@ -1193,7 +1433,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
                 <button
                   type="button"
                   onClick={() => setShowSushumna((v) => !v)}
-                  className={`px-2.5 py-1 rounded text-[11px] font-mono border ${
+                  className={`px-2.5 py-1 rounded text-[11px] font-mono border cursor-pointer ${
                     showSushumna
                       ? 'border-yellow-400 bg-yellow-950/50 text-yellow-200'
                       : 'border-white/15 bg-white/5 text-white/50'
@@ -1204,7 +1444,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
                 <button
                   type="button"
                   onClick={() => setShowGranthis((v) => !v)}
-                  className={`px-2.5 py-1 rounded text-[11px] font-mono border ${
+                  className={`px-2.5 py-1 rounded text-[11px] font-mono border cursor-pointer ${
                     showGranthis
                       ? 'border-rose-400 bg-rose-950/50 text-rose-200'
                       : 'border-white/15 bg-white/5 text-white/50'
@@ -1212,27 +1452,17 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
                 >
                   3 Granthis (Knots)
                 </button>
-                <button
-                  type="button"
-                  onClick={() => setAnimateKundalini((v) => !v)}
-                  className={`px-2.5 py-1 rounded text-[11px] font-mono border ${
-                    animateKundalini
-                      ? 'border-amber-400 bg-amber-950/50 text-amber-200'
-                      : 'border-white/15 bg-white/5 text-white/50'
-                  }`}
-                >
-                  Kuṇḍalinī Pulse
-                </button>
               </div>
 
-              <SubtleBodyAxisSVG
+              <InteractiveBodyChakraImage
                 selectedChakraId={activeChakraProfile.id}
                 onSelectChakra={handleSelectChakraFromDiagram}
+                lang={lang}
+                showNadiOverlay={true}
                 showIda={showIda}
                 showPingala={showPingala}
                 showSushumna={showSushumna}
                 showGranthis={showGranthis}
-                animateKundalini={animateKundalini}
               />
             </div>
 
@@ -1296,7 +1526,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
                   <button
                     type="button"
                     onClick={() => handleOpenArticleAndScroll('kundalini-yoga-subtle-anatomy')}
-                    className="px-4 py-2 rounded-xl bg-[#D3AD55] text-black font-semibold text-xs flex items-center gap-2 hover:bg-[#e5c168] transition"
+                    className="px-4 py-2 rounded-xl bg-[#D3AD55] text-black font-semibold text-xs flex items-center gap-2 hover:bg-[#e5c168] transition cursor-pointer"
                   >
                     <BookOpen className="w-4 h-4" />
                     Open Kuṇḍalinī Yoga Research Monograph
@@ -1304,7 +1534,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
                   <button
                     type="button"
                     onClick={() => handleOpenArticleAndScroll('lotus-petals-and-sanskrit-letters')}
-                    className="px-4 py-2 rounded-xl border border-[#D3AD55]/50 text-[#FDE68A] text-xs font-semibold hover:bg-[#D3AD55]/10 transition"
+                    className="px-4 py-2 rounded-xl border border-[#D3AD55]/50 text-[#FDE68A] text-xs font-semibold hover:bg-[#D3AD55]/10 transition cursor-pointer"
                   >
                     Read 50 Mātṛkā Letters Study →
                   </button>
@@ -1316,16 +1546,16 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
       </section>
 
       {/* =====================================================================
-          3. PART 5 — ANATOMICAL & YANTRIC VISUAL PLATES (INCLUDING USER ASSET)
+          3. PART 5 — INTERACTIVE CHAKRA-IN-BODY PLATE & 50 SANSKRIT LETTERS
          ===================================================================== */}
       <section className="rounded-3xl border border-white/15 bg-[#100B1A] p-6 sm:p-8 space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-4">
           <div>
             <div className="text-xs font-mono uppercase tracking-widest text-[#D3AD55]">
-              VISUAL & LINEAR CARTOGRAPHY · सचित्र चक्र-मानचित्र एवं मातृका-चक्र
+              VISUAL & INTERACTIVE CARTOGRAPHY · सचित्र चक्र-मानचित्र एवं मातृका-चक्र
             </div>
             <h3 className="text-xl sm:text-2xl font-serif font-bold text-white mt-1">
-              Subtle-Body Placement Plate & The 50 Sanskrit Mātṛkā Petal Matrix
+              Interactive Chakra-in-Body Plate & The 50 Sanskrit Mātṛkā Petal Matrix
             </h3>
           </div>
           <span className="text-xs font-mono text-white/60">
@@ -1333,64 +1563,78 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
           </span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-          {/* Reference Visual Plate (Uploaded Asset) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          {/* Interactive Chakra-in-Body Plate (Right-hand side texts removed, click for ripple & colored name) */}
           <div className="lg:col-span-5 rounded-2xl border border-[#D3AD55]/35 bg-black/50 p-4">
-            <div className="overflow-hidden rounded-xl border border-white/10">
-              <img
-                src="/assets/aistudio/image_8a540685.png"
-                alt="Seven Chakras along the central Suṣumṇā axis with Sanskrit Bīja syllables Laṃ, Vaṃ, Raṃ, Yaṃ, Haṃ, Oṃ"
-                className="w-full h-auto object-cover"
-              />
-            </div>
-            <div className="mt-3 text-xs text-white/75 leading-relaxed">
-              <strong className="text-[#FDE68A]">Visual Reference Plate:</strong> Axial alignment of the seven lotuses along the central column with their Sanskrit seed syllables—<strong>लं (Laṃ)</strong> at Mūlādhāra, <strong>वं (Vaṃ)</strong> at Svādhiṣṭhāna, <strong>रं (Raṃ)</strong> at Maṇipūra, <strong>यं (Yaṃ)</strong> at Anāhata, <strong>हं (Haṃ)</strong> at Viśuddha, and <strong>ॐ (Oṃ)</strong> at Ājñā/Sahasrāra—surrounded by sacred yantric geometry.
-            </div>
+            <InteractiveBodyChakraImage
+              selectedChakraId={activeChakraProfile.id}
+              onSelectChakra={handleSelectChakraFromDiagram}
+              lang={lang}
+            />
           </div>
 
           {/* Complete 50 Mātṛkā Letters & 5 Mahābhūtas Concordance Chart */}
           <div className="lg:col-span-7 space-y-3">
             <div className="text-xs font-mono uppercase tracking-wider text-[#FDE68A]">
-              COMPLETEDISTRIBUTION OF THE 50 SANSKRIT LETTERS (अ TO क्ष) & 5 ELEMENTS
+              COMPLETE DISTRIBUTION OF THE 50 SANSKRIT LETTERS (अ TO क्ष) & 5 ELEMENTS
             </div>
             {SEVEN_CHAKRA_PROFILES.slice()
               .reverse()
-              .map((c) => (
-                <div
-                  key={c.id}
-                  onClick={() => {
-                    handleSelectChakraFromDiagram(c.id);
-                    scrollToStudio();
-                  }}
-                  className="rounded-xl border border-white/10 bg-white/[0.03] hover:border-[#D3AD55]/50 p-3.5 transition cursor-pointer"
-                >
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <div className="flex items-center gap-2.5">
-                      <span
-                        className="w-7 h-7 rounded-lg flex items-center justify-center font-serif font-bold text-sm text-white"
-                        style={{ backgroundColor: `${c.accentHex}33`, border: `1px solid ${c.accentHex}` }}
-                      >
-                        {c.id === 'sahasrara' ? 'ॐ' : c.bijaMantraDevanagari}
-                      </span>
-                      <div>
-                        <div className="text-sm font-serif font-bold text-white">
-                          0{c.order}. {c.nameEn} <span className="text-[#FDE68A]">({c.nameSanskrit})</span>
-                        </div>
-                        <div className="text-[11px] text-white/65">
-                          {c.petalCountDisplay} · {c.elementEn} · Yantra: {c.yantraGeometryEn.split('(')[0]}
+              .map((c) => {
+                const hotspot = BODY_CHAKRA_HOTSPOTS.find((h) => h.id === c.id);
+                const chakraColor = hotspot ? hotspot.imageChakraColor : c.accentHex;
+                const isSelected = activeChakraProfile.id === c.id;
+                return (
+                  <div
+                    key={c.id}
+                    onClick={() => {
+                      handleSelectChakraFromDiagram(c.id);
+                    }}
+                    className={`rounded-xl border p-3.5 transition cursor-pointer ${
+                      isSelected
+                        ? 'bg-white/[0.08] shadow-lg'
+                        : 'border-white/10 bg-white/[0.03] hover:border-[#D3AD55]/50'
+                    }`}
+                    style={
+                      isSelected
+                        ? { borderColor: chakraColor, boxShadow: `0 0 20px ${chakraColor}33` }
+                        : undefined
+                    }
+                  >
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <div className="flex items-center gap-2.5">
+                        <span
+                          className="w-7 h-7 rounded-lg flex items-center justify-center font-serif font-bold text-sm text-white"
+                          style={{
+                            backgroundColor: `${chakraColor}33`,
+                            border: `1px solid ${chakraColor}`
+                          }}
+                        >
+                          {c.id === 'sahasrara' ? 'ॐ' : c.bijaMantraDevanagari}
+                        </span>
+                        <div>
+                          <div
+                            className="text-sm font-serif font-bold"
+                            style={{ color: chakraColor }}
+                          >
+                            0{c.order}. {c.nameEn} ({c.nameSanskrit})
+                          </div>
+                          <div className="text-[11px] text-white/65">
+                            {c.petalCountDisplay} · {c.elementEn} · Yantra: {c.yantraGeometryEn.split('(')[0]}
+                          </div>
                         </div>
                       </div>
+                      <span className="text-[11px] font-mono text-[#D3AD55]">
+                        Deva: {c.presidingDeityEn.split('(')[0].trim()} & {c.shaktiGoddessEn.split(' ')[0]}
+                      </span>
                     </div>
-                    <span className="text-[11px] font-mono text-[#D3AD55]">
-                      Deva: {c.presidingDeityEn.split('(')[0].trim()} & {c.shaktiGoddessEn.split(' ')[0]}
-                    </span>
+                    <div className="mt-2 pt-2 border-t border-white/5 text-xs font-serif text-[#FDE68A]/90">
+                      <span className="text-white/55 font-sans text-[11px] mr-1.5">Petals:</span>
+                      {c.petalLettersDevanagari.join(' · ')}
+                    </div>
                   </div>
-                  <div className="mt-2 pt-2 border-t border-white/5 text-xs font-serif text-[#FDE68A]/90">
-                    <span className="text-white/55 font-sans text-[11px] mr-1.5">Petals:</span>
-                    {c.petalLettersDevanagari.join(' · ')}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
           </div>
         </div>
       </section>
@@ -1421,7 +1665,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
                 key={tab.id}
                 type="button"
                 onClick={() => setArticleCategoryFilter(tab.id as typeof articleCategoryFilter)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono border transition ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-mono border transition cursor-pointer ${
                   articleCategoryFilter === tab.id
                     ? 'border-[#D3AD55] bg-[#D3AD55] text-black font-bold'
                     : 'border-white/15 bg-white/5 text-white/75 hover:border-white/30'
@@ -1442,7 +1686,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
                 key={art.id}
                 type="button"
                 onClick={() => setSelectedArticleSlug(art.slug)}
-                className={`text-left rounded-2xl p-4 border transition-all flex flex-col justify-between ${
+                className={`text-left rounded-2xl p-4 border transition-all flex flex-col justify-between cursor-pointer ${
                   isSelected
                     ? 'border-[#D3AD55] bg-gradient-to-br from-[#D3AD55]/20 to-[#140E22] shadow-[0_0_25px_rgba(211,173,85,0.2)]'
                     : 'border-white/10 bg-[#110C1B] hover:border-white/25'
@@ -1483,7 +1727,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
         {/* =================================================================
             FULL 16-POINT ARTICLE READER VIEW
            ================================================================= */}
-        <article className="rounded-3xl border border-[#D3AD55]/45 bg-gradient-to-b from-[#140E22] to-[#0B0812] p-6 sm:p-10 space-y-8 shadow-2xl">
+        <div className="rounded-3xl border border-[#D3AD55]/45 bg-gradient-to-b from-[#140E22] to-[#0B0812] p-6 sm:p-10 space-y-8 shadow-2xl">
           {/* Top Navigation Bar inside Article Reader */}
           <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/10">
             <span
@@ -1498,7 +1742,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
             <button
               type="button"
               onClick={scrollToStudio}
-              className="px-3.5 py-1.5 rounded-xl border border-[#D3AD55]/50 bg-[#D3AD55]/10 text-[#FDE68A] text-xs font-mono flex items-center gap-1.5 hover:bg-[#D3AD55]/20 transition"
+              className="px-3.5 py-1.5 rounded-xl border border-[#D3AD55]/50 bg-[#D3AD55]/10 text-[#FDE68A] text-xs font-mono flex items-center gap-1.5 hover:bg-[#D3AD55]/20 transition cursor-pointer"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               Back to Chakra Studio (चक्र अन्वेषण केंद्र)
@@ -1581,10 +1825,10 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
               </div>
             </div>
 
-            {/* 9. Embedded Interactive SVG Diagram for this Article */}
+            {/* 9. Embedded Interactive Diagram for this Article */}
             <div className="lg:col-span-5 rounded-2xl border border-[#D3AD55]/30 bg-[#100B1A] p-5">
               <div className="text-xs font-mono uppercase tracking-wider text-[#FDE68A] mb-3">
-                09 · Interactive Sacred Geometry & Subtle Diagram
+                09 · Interactive Sacred Geometry & Subtle Body Map
               </div>
               {activeArticle.chakraProfileId ? (
                 <InteractiveChakraLotusSVG
@@ -1599,14 +1843,10 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
                   useClassicalPalette={useClassicalPalette}
                 />
               ) : (
-                <SubtleBodyAxisSVG
+                <InteractiveBodyChakraImage
                   selectedChakraId={activeChakraProfile.id}
                   onSelectChakra={handleSelectChakraFromDiagram}
-                  showIda={true}
-                  showPingala={true}
-                  showSushumna={true}
-                  showGranthis={true}
-                  animateKundalini={true}
+                  lang={lang}
                 />
               )}
             </div>
@@ -1709,7 +1949,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
                     key={relSlug}
                     type="button"
                     onClick={() => handleOpenArticleAndScroll(relSlug)}
-                    className="px-3 py-1.5 rounded-lg border border-white/15 bg-white/5 hover:border-[#D3AD55] text-xs text-[#FDE68A] transition"
+                    className="px-3 py-1.5 rounded-lg border border-white/15 bg-white/5 hover:border-[#D3AD55] text-xs text-[#FDE68A] transition cursor-pointer"
                   >
                     → {relArt.titleEn.split('—')[0].trim()}
                   </button>
@@ -1718,14 +1958,14 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
               <button
                 type="button"
                 onClick={scrollToStudio}
-                className="px-4 py-2 rounded-xl bg-[#D3AD55] text-black font-semibold text-xs flex items-center gap-1.5 hover:bg-[#e5c168] transition"
+                className="px-4 py-2 rounded-xl bg-[#D3AD55] text-black font-semibold text-xs flex items-center gap-1.5 hover:bg-[#e5c168] transition cursor-pointer"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
                 Back to Chakra Studio
               </button>
             </div>
           </div>
-        </article>
+        </div>
       </section>
     </div>
   );
