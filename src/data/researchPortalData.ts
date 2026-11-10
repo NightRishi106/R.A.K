@@ -2196,7 +2196,7 @@ export const RESEARCH_CATEGORY_PORTALS: ResearchCategoryPortal[] = [
   {
     chapterIndex: 2,
     slug: 'bhairav-investigation-codex',
-    aliasSlugs: ['kaal-bhairava-kashi-codex', 'kashi-kshetra-codex'],
+    aliasSlugs: ['kaal-bhairava-kashi', 'kaal-bhairava-kashi-codex', 'kashi-kshetra-codex'],
     roman: 'III',
     gatewayBadgeEn: 'SACRED GATEWAY III · KĀLA BHAIRAVA & KĀŚĪ CODEX',
     gatewayBadgeHi: 'पवित्र ज्ञान-द्वार III · काल-भैरव एवं काशी संहिता',
@@ -2729,11 +2729,12 @@ export function getArticleBySlugs(
   articleSlug: string
 ): { portal: ResearchCategoryPortal; article: ResearchArticle } | undefined {
   const portal = getPortalBySlug(categorySlug);
-  if (!portal) return undefined;
 
-  const existing = portal.articles.find(a => a.slug === articleSlug);
-  if (existing) {
-    return { portal, article: existing };
+  if (portal) {
+    const existing = portal.articles.find(a => a.slug === articleSlug);
+    if (existing) {
+      return { portal, article: existing };
+    }
   }
 
   // Fallback search across all portals if an article slug was opened under an alias or cross-gateway link
@@ -2752,8 +2753,15 @@ export function getArticleBySlugs(
       .flat()
       .find(a => a.slug === articleSlug);
   if (standaloneFound) {
-    return { portal, article: standaloneFound };
+    const resolvedPortal =
+      portal ||
+      getPortalBySlug(standaloneFound.categorySlug) ||
+      RESEARCH_CATEGORY_PORTALS[2] ||
+      RESEARCH_CATEGORY_PORTALS[0];
+    return { portal: resolvedPortal, article: standaloneFound };
   }
+
+  if (!portal) return undefined;
 
   // Dynamic support for any of the 64 Yogini matrix cells: bm-01-01 .. bm-08-08
   if (portal.slug === '64-yogini-matrix') {

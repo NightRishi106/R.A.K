@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { Sparkles, Compass, Shield, Clock, Flame, Layers, Orbit } from 'lucide-react';
 import { BAVAN_BHAIRAVA_VIRAS_52, BAVAN_BHAIRAVAS_LIST } from '../data/bavanBhairava52Data';
+import {
+  TithiNityaDeviMoonStudio,
+  Yakshini36MandalaStudio,
+  VetalaTriGunaStudio
+} from './TithiYakshiniVetalaStudios';
 
 interface StudioProps {
   articleSlug: string;
@@ -1316,6 +1321,12 @@ export const SpecializedSealInteractiveStudio: React.FC<StudioProps> = ({ articl
     case 'shakti-pithas-sacred-geography':
     case 'bavan-bhairava-chhappan-kalua-concordance':
       return <BavanBhairavaMandalaStudio lang={lang} />;
+    case 'tithi-nitya-devi-shodasha-archive':
+      return <TithiNityaDeviMoonStudio lang={lang} />;
+    case 'chhatris-yakshini-uddameshwara-tantra-archive':
+      return <Yakshini36MandalaStudio lang={lang} />;
+    case 'vetala-trividha-prakriti-archive':
+      return <VetalaTriGunaStudio lang={lang} />;
     default:
       return null;
   }

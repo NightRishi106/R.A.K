@@ -1,5 +1,13 @@
 import { BAVAN_BHAIRAVAS_LIST, BAVAN_BHAIRAVA_VIRAS_52, BAVAN_BHAIRAVA_SECTIONS, THREE_BHAIRAVA_SYSTEMS_COMPARISON } from './bavanBhairava52Data';
 import { ResearchArticle } from './researchPortalData';
+import {
+  TITHI_NITYA_ARTICLE,
+  TITHI_NITYA_TABLES,
+  YAKSHINI_36_ARTICLE,
+  YAKSHINI_36_TABLES,
+  VETALA_ARTICLE,
+  VETALA_TABLES
+} from './tithiYakshiniVetalaData';
 
 export interface ResearchComparisonTable {
   id: string;
@@ -27,7 +35,7 @@ export interface SpecialCircularSeal {
   domainBadgeEn: string;
   domainBadgeHi: string;
   accentColor: string;
-  motifType: 'vaishnava' | 'aghora' | 'ghora11' | 'kapalika5' | 'prahar8' | 'bhairavagana' | 'shakta' | 'mahavidya' | 'chakra7';
+  motifType: 'vaishnava' | 'aghora' | 'ghora11' | 'kapalika5' | 'prahar8' | 'bhairavagana' | 'shakta' | 'mahavidya' | 'chakra7' | 'tithinitya' | 'yakshini36' | 'vetala3';
   isPendingVerificationNote?: boolean;
   parentSealId?: string;
   subParts?: SpecialCircularSeal[];
@@ -1539,7 +1547,10 @@ export const DEEP_SACRED_SEAL_ARTICLES: ResearchArticle[] = [
     primarySourcesHi: 'तन्त्रालोक · स्वच्छन्द तन्त्र · शिव पुराण · काशी खण्ड',
     authorEn: 'Ram Ashok Kumar',
     authorHi: 'राम अशोक कुमार'
-  }
+  },
+  TITHI_NITYA_ARTICLE,
+  YAKSHINI_36_ARTICLE,
+  VETALA_ARTICLE
 ];
 
 // ============================================================================
@@ -1764,6 +1775,51 @@ export const SPECIAL_CIRCULAR_SEALS: SpecialCircularSeal[] = [
     domainBadgeHi: 'चक्र विद्या · सूक्ष्म शरीर अभिलेखागार',
     accentColor: '#A855F7',
     motifType: 'chakra7'
+  },
+  {
+    id: 'seal-tithi-nitya-devi',
+    sealNumber: 'SEAL 10',
+    categorySlug: 'shri-meru-chakra',
+    articleSlug: 'tithi-nitya-devi-shodasha-archive',
+    sanskritSeal: 'तिथि नित्या देवी · १६ चन्द्र-कला मण्डल',
+    shortTitleEn: 'Tithi Nityā Devī (१६ तिथि नित्या)',
+    shortTitleHi: 'तिथि नित्या देवी — १६ चन्द्र-कला शक्तियाँ',
+    subtitleEn: 'Moon-Phase Progression from No Moon (Amāvāsyā / Pratipadā) to Full Moon (Pūrṇimā): 1. Kāmeśvarī to 15. Citrā & 16th Mahānityā Lalitā',
+    subtitleHi: 'अमावस्या से पूर्णिमा तक चन्द्र-कला क्रमानुसार १५ तिथि नित्याएँ (१. कामेश्वरी से १५. चित्रा) एवं १६वीं महानित्या श्री ललिता त्रिपुरसुन्दरी',
+    domainBadgeEn: 'ŚRĪVIDYĀ · 16 LUNAR KALĀ ARCHIVE',
+    domainBadgeHi: 'श्रीविद्या · १६ चन्द्र-कला अभिलेखागार',
+    accentColor: '#F43F5E',
+    motifType: 'tithinitya'
+  },
+  {
+    id: 'seal-36-yakshinis',
+    sealNumber: 'SEAL 11',
+    categorySlug: '64-yogini-matrix',
+    articleSlug: 'chhatris-yakshini-uddameshwara-tantra-archive',
+    sanskritSeal: '३६ यक्षिणियाँ · उद्दामेश्वर एवं तंत्रराज तंत्र',
+    shortTitleEn: '36 Yakṣiṇīs — ३६ यक्षिणियाँ',
+    shortTitleHi: '३६ यक्षिणियाँ (उद्दामेश्वर तंत्र)',
+    subtitleEn: 'Complete 36 Yakṣiṇī Mantras, Ritual Methods & Siddhis (1. Vicitrā to 36. Ratipriyā) in Uddāmeśvara & Tantrarāja Tantra',
+    subtitleHi: 'उद्दामेश्वर तंत्र एवं तंत्रराज तंत्र में वर्णित ३६ यक्षिणियों (१. विचित्र से ३६. रतिप्रिया) के मंत्र, साधना-विधि एवं सिद्धियाँ',
+    domainBadgeEn: 'UDDĀMEŚVARA TANTRA · 36 YAKṢIṆĪS',
+    domainBadgeHi: 'उद्दामेश्वर तंत्र · ३६ यक्षिणी विधान',
+    accentColor: '#10B981',
+    motifType: 'yakshini36'
+  },
+  {
+    id: 'seal-vetala-three-gunas',
+    sealNumber: 'SEAL 12',
+    categorySlug: 'bhairav-investigation-codex',
+    articleSlug: 'vetala-trividha-prakriti-archive',
+    sanskritSeal: 'वेताल त्रिविध प्रकृति · सात्विक, राजसिक व तामसिक',
+    shortTitleEn: 'Vetāla — Three Guṇas (बेताल)',
+    shortTitleHi: 'बेतालों की त्रिविध प्रकृति (सात्विक, राजसिक, तामसिक)',
+    subtitleEn: 'The Three Guṇas of Vetālas: Sāttvika (16 Types: Gagana, Jala, Bhūmi, Pavana, Jñāna), Rājasika (11 Types) & Tāmasika Vetālas',
+    subtitleHi: '१. सात्विक बेताल (१६ प्रकार: गगन, जल, भूमि, पवन, ज्ञान), २. राजसिक बेताल (११ प्रकार: वीर, राज्य, जय, महावीर, माया) एवं ३. तामसिक बेताल',
+    domainBadgeEn: 'VETĀLA TANTRA · TRI-GUṆA TAXONOMY',
+    domainBadgeHi: 'बेताल तंत्र · त्रिगुण वर्गीकरण',
+    accentColor: '#38BDF8',
+    motifType: 'vetala3'
   }
 ];
 
@@ -2564,3 +2620,7 @@ const SAPTA_CHAKRA_TABLES: ResearchComparisonTable[] = [
 ];
 
 ARTICLE_COMPARISON_TABLES['sapta-chakra-complete-research-archive'] = SAPTA_CHAKRA_TABLES;
+ARTICLE_COMPARISON_TABLES['tithi-nitya-devi-shodasha-archive'] = TITHI_NITYA_TABLES;
+ARTICLE_COMPARISON_TABLES['chhatris-yakshini-uddameshwara-tantra-archive'] = YAKSHINI_36_TABLES;
+ARTICLE_COMPARISON_TABLES['vetala-trividha-prakriti-archive'] = VETALA_TABLES;
+

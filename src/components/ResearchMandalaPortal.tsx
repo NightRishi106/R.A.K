@@ -39,6 +39,10 @@ import { BavanBhairava52PortalView } from './BavanBhairava52PortalView';
 import { SaptaChakraArchiveExperience } from './SaptaChakraArchiveExperience';
 import { DasaMahavidyaInteractiveStudio } from './DasaMahavidyaInteractiveStudio';
 import { SpecializedSealInteractiveStudio } from './SpecializedSealInteractiveStudios';
+import {
+  TITHI_NITYA_DEVI_MOON_SEQUENCE,
+  TITHI_NITYA_MASTER_MANDALA_IMAGE
+} from '../data/tithiYakshiniVetalaData';
 
 const PORTAL_ICONS: React.ComponentType<any>[] = [
   Radio,      // I · CAGS Field Archive
@@ -274,6 +278,60 @@ const SealGeometricMotif: React.FC<{
               strokeWidth="0.7"
             />
           ))}
+        </g>
+      )}
+
+      {motifType === 'tithinitya' && (
+        <g stroke={accentColor} fill="none" strokeWidth="1.05" opacity="0.9">
+          {/* Inverted Kāmakalā Triangle + 15 Lunar Phase Dots + Central Full Moon Bindu */}
+          <polygon points="30,36 90,36 60,92" stroke="#F43F5E" strokeWidth="1.4" />
+          <circle cx="60" cy="56" r="14" fill="#FEF08A" fillOpacity="0.22" stroke="#FDE047" strokeWidth="1.2" />
+          <circle cx="60" cy="56" r="3.2" fill="#F43F5E" />
+          {Array.from({ length: 15 }).map((_, i) => {
+            const a = ((i * 360) / 15 - 90) * (Math.PI / 180);
+            return (
+              <circle
+                key={i}
+                cx={60 + Math.cos(a) * 34}
+                cy={60 + Math.sin(a) * 34}
+                r="1.9"
+                fill={i % 2 === 0 ? '#FDE047' : accentColor}
+              />
+            );
+          })}
+        </g>
+      )}
+
+      {motifType === 'yakshini36' && (
+        <g stroke={accentColor} fill="none" strokeWidth="1" opacity="0.9">
+          {/* 36-Node Uddāmeśvara-Kubera Treasury Ring + Octagram */}
+          <rect x="38" y="38" width="44" height="44" />
+          <rect x="38" y="38" width="44" height="44" transform="rotate(45 60 60)" />
+          <circle cx="60" cy="60" r="16" stroke="#FDE047" />
+          {Array.from({ length: 12 }).map((_, i) => {
+            const a = ((i * 360) / 12) * (Math.PI / 180);
+            return (
+              <circle
+                key={i}
+                cx={60 + Math.cos(a) * 33}
+                cy={60 + Math.sin(a) * 33}
+                r="2"
+                fill="#10B981"
+              />
+            );
+          })}
+          <circle cx="60" cy="60" r="3.5" fill="#FDE047" />
+        </g>
+      )}
+
+      {motifType === 'vetala3' && (
+        <g stroke={accentColor} fill="none" strokeWidth="1.1" opacity="0.9">
+          {/* Concentric Three Guṇas Rings: Sāttvika (16), Rājasika (11), Tāmasika */}
+          <circle cx="60" cy="60" r="34" stroke="#38BDF8" strokeDasharray="3 2" />
+          <circle cx="60" cy="60" r="24" stroke="#F59E0B" />
+          <circle cx="60" cy="60" r="14" stroke="#EF4444" />
+          <polygon points="60,26 89,77 31,77" stroke="#38BDF8" strokeWidth="0.9" opacity="0.7" />
+          <circle cx="60" cy="60" r="3.5" fill="#EF4444" />
         </g>
       )}
     </svg>
@@ -665,21 +723,20 @@ export const CircularMandalaNavigation: React.FC<CircularMandalaNavProps> = ({
           </h4>
           <p className="mt-1 text-xs sm:text-sm text-[#C8B69E]/80 font-serif max-w-2xl mx-auto leading-relaxed">
             {t(
-              'Click any engraved circular seal below to open its full standalone monograph page — covering Jaya & Vijaya, Aghora Sampradāya (including Ghora 11/12 Bhedas & Kāpālika 5 Bhedas), Samaya & the 8 Prahars, Bhairavagaṇa, Kālīkula–Śrīkula, Daśa Mahāvidyā, Navadurgā, 51 Śakti Pīṭhas, and Seal 09: The Seven Chakras (सप्त चक्र) Interactive Research Archive.',
-              'जय–विजय, अघोर सम्प्रदाय, समय और अष्ट प्रहर, भैरवगण, कालीकुल–श्रीकुल, दशमहाविद्या, नवदुर्गा, ५१ शक्तिपीठ तथा मुद्रा ०९: सप्त चक्र (चक्र विद्या एवं कुण्डलिनी शोध अभिलेखागार) के विस्तृत स्वतंत्र शोध-पृष्ठ खोलने हेतु किसी भी वृत्ताकार मुद्रा पर क्लिक करें।'
+              'Click any engraved circular seal below to open its full standalone monograph page — including Jaya & Vijaya, Aghora Sampradāya, Samaya & 8 Prahars, Bhairavagaṇa, Kālīkula–Śrīkula, Daśa Mahāvidyā, Navadurgā, Bāvan Bhairava (52), Sapta Chakra, Tithi Nityā Devī (16 Moon Phases), 36 Yakṣiṇīs (Uddāmeśvara Tantra), and Vetāla (Three Guṇas).',
+              'जय–विजय, अघोर सम्प्रदाय, समय और अष्ट प्रहर, भैरवगण, कालीकुल–श्रीकुल, दशमहाविद्या, नवदुर्गा, बावन भैरव (५२), सप्त चक्र, तिथि नित्या देवी (१६ चन्द्र-कलाएँ), ३६ यक्षिणियाँ (उद्दामेश्वर तंत्र) तथा बेतालों की त्रिविध प्रकृति के विस्तृत स्वतंत्र शोध-पृष्ठ खोलने हेतु किसी भी वृत्ताकार मुद्रा पर क्लिक करें।'
             )}
           </p>
         </div>
 
-        {/* Responsive Circular Medallion Grid: 2 cols mobile/tablet (with 9th seal centered in the middle below the 7th & 8th seals), 3 cols desktop */}
+        {/* Responsive Circular Medallion Grid: 2 cols mobile/tablet (12 seals = 6 full rows), 3 cols desktop (12 seals = 4 full rows) */}
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 px-1 sm:px-2">
-          {SPECIAL_CIRCULAR_SEALS.map((seal, idx) => {
+          {SPECIAL_CIRCULAR_SEALS.map((seal) => {
             const linkedPortal = RESEARCH_CATEGORY_PORTALS.find(
               p => p.slug === seal.categorySlug
             );
             const gatewayRoman = linkedPortal ? linkedPortal.roman : 'I';
             const centerLabel = (seal.sanskritSeal || '').split('·')[0].trim();
-            const isNinthCenteredMobile = idx === 8;
 
             return (
               <div
@@ -697,11 +754,7 @@ export const CircularMandalaNavigation: React.FC<CircularMandalaNavProps> = ({
                   `${seal.sealNumber}: ${seal.shortTitleEn} — Open Detailed Research Monograph`,
                   `${seal.sealNumber}: ${seal.shortTitleHi} — विस्तृत शोध-प्रबंध खोलें`
                 )}
-                className={`group relative rounded-2xl border border-[#5A3922]/75 bg-gradient-to-b from-[#22150D]/95 via-[#160D08]/95 to-[#0E0805]/95 p-3.5 sm:p-5 flex flex-col items-center justify-between text-center transition-all duration-300 hover:border-[#D3AD55] hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(211,173,85,0.22)] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D3AD55] ${
-                  isNinthCenteredMobile
-                    ? 'col-span-2 w-[calc(50%-0.375rem)] sm:w-[calc(50%-0.75rem)] mx-auto lg:col-span-1 lg:w-full'
-                    : ''
-                }`}
+                className="group relative rounded-2xl border border-[#5A3922]/75 bg-gradient-to-b from-[#22150D]/95 via-[#160D08]/95 to-[#0E0805]/95 p-3.5 sm:p-5 flex flex-col items-center justify-between text-center transition-all duration-300 hover:border-[#D3AD55] hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(211,173,85,0.22)] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D3AD55]"
               >
                 <div className="w-full flex flex-col items-center">
                   {/* Top Seal Number & Gateway Badge */}
@@ -3200,6 +3253,123 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
             </div>
           );
         })()}
+
+        {/* ====================================================================
+            TITHI NITYĀ DEVĪ (SEAL 10): 17-PLATE MOON-PHASE ARCHIVE GALLERY
+            Ordered from No Moon / 1st Crescent (1. Kāmeśvarī) to Full Moon (16. Mahānityā)
+           ==================================================================== */}
+        {article.slug === 'tithi-nitya-devi-shodasha-archive' && (
+          <div className="mt-7 pt-5 border-t border-[#3A281B]/30 space-y-6">
+            {/* Master Triangle Mandala Plate */}
+            <div className="p-4 sm:p-6 rounded-2xl bg-[#1A060B] border-2 border-[#D3AD55]/65 text-[#F5E8CE] space-y-4 shadow-xl">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#D3AD55]/35 pb-3">
+                <div>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#FDE047] font-bold block">
+                    {t(
+                      'PLATE 00 · MASTER KĀMAKALĀ TRIANGLE MANDALA (॥ तिथि नित्या देवि ॥)',
+                      'फलक ०० · मूल काम-कला त्रिकोण मण्डल (॥ तिथि नित्या देवि ॥)'
+                    )}
+                  </span>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-serif font-bold text-white mt-0.5">
+                    {t(
+                      'The 15 Tithi Nityās Along the Three Sides of the Triangle & 16th Mahānityā Before the Full Moon',
+                      'त्रिकोण की तीनों भुजाओं पर १५ तिथि नित्याएँ एवं केंद्र में पूर्ण चन्द्रमा के सम्मुख १६वीं महानित्या श्री ललिता त्रिपुरसुन्दरी'
+                    )}
+                  </h3>
+                </div>
+                <span className="px-3 py-1 rounded bg-[#2B0912] border border-[#F43F5E]/50 font-mono text-[9.5px] text-[#FDA4AF] font-bold uppercase">
+                  {t('17 Consecrated Plates · Moon-Phase Order', '१७ मूल चित्र · अमावस्या से पूर्णिमा क्रम')}
+                </span>
+              </div>
+
+              <div className="p-3 bg-[#0B0204] rounded-xl border border-[#D3AD55]/35 flex justify-center">
+                <img
+                  src={TITHI_NITYA_MASTER_MANDALA_IMAGE}
+                  alt="Tithi Nitya Devi Master Triangle Chart"
+                  className="w-full max-w-3xl max-h-[680px] object-contain rounded-lg"
+                />
+              </div>
+
+              {/* 16 Individual Tithi Nitya Plates Ordered Moon-Phase Wise (01 Pratipada -> 16 Purnima) */}
+              <div className="pt-4 border-t border-[#D3AD55]/30 space-y-4">
+                <div className="text-center max-w-2xl mx-auto">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#FDE047] font-bold block">
+                    {t(
+                      'MOON-PHASE WISE PROGRESSION: NO MOON THRESHOLD → 1ST WAXING CRESCENT (01) → HALF MOON (08) → FULL MOON (16)',
+                      'चन्द्र-कला क्रमानुसार दर्शन: अमावस्या/प्रतिपदा (०१) → अष्टमी अर्धचन्द्र (०८) → पूर्णिमा महानित्या (१६)'
+                    )}
+                  </span>
+                  <h4 className="font-serif text-lg sm:text-xl font-bold text-white mt-1">
+                    {t(
+                      'All 16 Tithi Nityā Devīs in Ascending Lunar Illumination Order (01 to 16)',
+                      'अमावस्या से पूर्णिमा तक बढ़ती हुई चन्द्र-कलाओं के क्रम में १६ तिथि नित्या देवियाँ (०१ से १६)'
+                    )}
+                  </h4>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {TITHI_NITYA_DEVI_MOON_SEQUENCE.filter(d => d.tithiIndex >= 1).map(nitya => (
+                    <figure
+                      key={nitya.id}
+                      className="rounded-xl border border-[#D3AD55]/55 bg-[#21080F] overflow-hidden flex flex-col justify-between shadow-md"
+                    >
+                      <div>
+                        <div className="px-3.5 py-2.5 bg-[#130408] border-b border-[#D3AD55]/35 flex items-center justify-between gap-2">
+                          <span className="font-mono text-[9.5px] uppercase tracking-wider text-[#FDE047] font-bold">
+                            {nitya.code}
+                          </span>
+                          <span className="px-2 py-0.5 rounded bg-[#2D0A13] border border-[#F43F5E]/45 font-mono text-[9px] text-[#FDA4AF] font-bold">
+                            {nitya.illuminationPercent}% {t('Moon', 'चन्द्र-कला')}
+                          </span>
+                        </div>
+
+                        <div className="p-3 bg-[#090204] flex items-center justify-center">
+                          <img
+                            src={nitya.imagePath}
+                            alt={t(nitya.nameEn, nitya.nameHi)}
+                            loading="lazy"
+                            className="w-full h-80 object-contain rounded border border-[#D3AD55]/30"
+                          />
+                        </div>
+
+                        <figcaption className="p-4 space-y-2.5">
+                          <div>
+                            <div className="font-serif text-lg font-bold text-[#FDE047]">
+                              {nitya.sanskritTitle} · {t(nitya.nameEn, nitya.nameHi)}
+                            </div>
+                            <div className="font-mono text-[10px] text-[#FDA4AF] mt-0.5">
+                              {t(nitya.moonPhaseStageEn, nitya.moonPhaseStageHi)}
+                            </div>
+                          </div>
+
+                          <div className="p-2.5 rounded-lg bg-[#120407] border border-[#FDE047]/40 space-y-0.5">
+                            <div className="flex items-center justify-between font-mono text-[8.5px] uppercase text-[#FDE047]">
+                              <span>{t('Mūla Mantra', 'मूल मंत्र')}</span>
+                              <span>{nitya.panchadashiSyllableHi}</span>
+                            </div>
+                            <div className="font-serif text-xs sm:text-sm font-bold text-[#FEF08A]">
+                              {nitya.mulaMantraHi}
+                            </div>
+                          </div>
+
+                          <p className="font-serif text-xs text-[#F5E8CE]/90 leading-relaxed">
+                            <strong className="text-[#FDE047]">{t('Iconography:', 'प्रतिमाशास्त्र:')}</strong>{' '}
+                            {t(nitya.iconographyEn, nitya.iconographyHi)}
+                          </p>
+
+                          <p className="font-serif text-xs text-[#FECDD3]/85 leading-relaxed">
+                            <strong className="text-[#FDA4AF]">{t('Significance:', 'तत्त्वज्ञान:')}</strong>{' '}
+                            {t(nitya.significanceEn, nitya.significanceHi)}
+                          </p>
+                        </figcaption>
+                      </div>
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* ====================================================================
             TOP MAIN TABLES (Rendered at the top of the monograph)
