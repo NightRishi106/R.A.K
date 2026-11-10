@@ -260,7 +260,7 @@ const InteractiveBodyChakraImage: React.FC<{
       {/* Main Interactive Body Container */}
       <div className="relative w-full max-w-[460px] mx-auto rounded-2xl overflow-hidden border border-[#D3AD55]/40 bg-[#050816] shadow-[0_0_40px_rgba(0,0,0,0.85)] select-none">
         <img
-          src="/src/assets/images/chakra_body_clean_1794286549973.jpg"
+          src="/chakra_body_clean.jpg"
           alt="Seven Chakras in the Meditating Subtle Body"
           referrerPolicy="no-referrer"
           className="w-full h-auto block pointer-events-none"

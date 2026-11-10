@@ -1,403 +1,487 @@
-import React, { useState } from 'react';
-import { useLanguage } from '../context/LanguageContext';
-import {
-  BAVAN_BHAIRAVAS_LIST,
-  BAVAN_BHAIRAVA_COLLECTIVE_PRAYER,
-  THREE_BHAIRAVA_SYSTEMS_COMPARISON,
-  PRIMARY_RESEARCH_REFERENCES,
-  Bhairava52Item
-} from '../data/bavanBhairava52Data';
-import { Sparkles, Shield, Search, Copy, Check, BookOpen, AlertTriangle, Layers, MapPin } from 'lucide-react';
+import React from 'react';
+import { BAVAN_BHAIRAVA_VIRAS_52 } from '../data/bavanBhairava52Data';
 
 export const BavanBhairava52PortalView: React.FC = () => {
-  const { t } = useLanguage();
-  const [searchTerm, setSearchTerm] = useState('');
-  const [copiedMantra, setCopiedMantra] = useState<string | null>(null);
-  const [copiedCollective, setCopiedCollective] = useState(false);
-  const isEn = t('en', 'hi') === 'en';
-
-  const filteredBhairavas = BAVAN_BHAIRAVAS_LIST.filter((b: Bhairava52Item) => {
-    if (!searchTerm.trim()) return true;
-    const term = searchTerm.toLowerCase();
-    return (
-      b.nameEn.toLowerCase().includes(term) ||
-      b.nameHi.includes(term) ||
-      b.peethaEn.toLowerCase().includes(term) ||
-      b.peethaHi.includes(term) ||
-      b.goddessEn.toLowerCase().includes(term) ||
-      b.goddessHi.includes(term) ||
-      b.locationEn.toLowerCase().includes(term) ||
-      b.locationHi.includes(term) ||
-      b.bodyPartEn.toLowerCase().includes(term) ||
-      b.bodyPartHi.includes(term) ||
-      String(b.index) === term.replace(/^0+/, '')
-    );
-  });
-
-  const handleCopy = (mantra: string, id: string) => {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(mantra).catch(() => {});
-    }
-    setCopiedMantra(id);
-    setTimeout(() => setCopiedMantra(null), 2000);
-  };
-
-  const handleCopyCollective = () => {
-    const text = `${BAVAN_BHAIRAVA_COLLECTIVE_PRAYER.titleHi}\n${BAVAN_BHAIRAVA_COLLECTIVE_PRAYER.primaryBeejaMantra}\n${BAVAN_BHAIRAVA_COLLECTIVE_PRAYER.samarpanaMantra}\n${BAVAN_BHAIRAVA_COLLECTIVE_PRAYER.samarpanaPhonetic}\n"${BAVAN_BHAIRAVA_COLLECTIVE_PRAYER.meaningEn}"`;
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(text).catch(() => {});
-    }
-    setCopiedCollective(true);
-    setTimeout(() => setCopiedCollective(false), 2000);
-  };
-
   return (
-    <div className="mt-7 space-y-8">
-      {/* 1. Dedicated Header Banner */}
-      <div className="rounded-2xl border-2 border-[#D3AD55]/60 bg-gradient-to-br from-[#1E1109] via-[#2A170C] to-[#170E08] p-6 sm:p-8 text-[#F4E8D1] shadow-2xl space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#5A3922]/60 pb-3">
-          <div className="flex items-center gap-2">
-            <span className="px-2.5 py-1 rounded bg-[#D3AD55] text-[#1A1008] font-mono text-[10px] font-bold uppercase tracking-[0.2em]">
-              BHAIRAV · भैरव
-            </span>
-            <span className="px-2.5 py-1 rounded border border-[#D3AD55]/40 bg-[#160D08] font-mono text-[9px] uppercase tracking-wider text-[#D3AD55]">
-              amazingbharat.com · Shiva, Tantra art, Mantras
-            </span>
-          </div>
-          <span className="font-mono text-[9.5px] uppercase tracking-[0.2em] text-[#E0B86C]">
-            {t('52 SHAKTI PEETHA GUARDIANS', '५२ शक्तिपीठ रक्षक भैरव')}
-          </span>
+    <article className="rounded-2xl border border-[#B68A32]/45 bg-[#F2E6D2] text-[#2B1F17] p-6 sm:p-8 md:p-11 shadow-[0_24px_60px_rgba(0,0,0,0.8)] paper-grain space-y-8 font-serif">
+      {/* Main Title & Subtitle */}
+      <header className="border-b-2 border-[#5A3922]/30 pb-6 space-y-2">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#17100C] tracking-wide leading-tight">
+          BĀVAN BHAIRAVA — THE 52 FORMS OF BHAIRAVA
+        </h1>
+        <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-[#5A3922]">
+          बावन भैरव — The Sacred Guardians of the Śakti Pīṭhas
+        </h2>
+      </header>
+
+      {/* Introduction */}
+      <section className="p-5 sm:p-6 rounded-xl bg-[#E8D8BE]/65 border border-[#5A3922]/25 space-y-3.5 text-sm sm:text-base text-[#261B13] leading-relaxed">
+        <h3 className="text-xl sm:text-2xl font-bold text-[#17100C] border-b border-[#5A3922]/20 pb-2">
+          Introduction
+        </h3>
+        <p>
+          Bāvan Bhairava (बावन भैरव) refers to a traditional grouping of fifty-two Bhairava forms associated in certain Śākta traditions with the fifty-two Śakti Pīṭhas.
+        </p>
+        <p>
+          Bhairava is a fierce and protective manifestation of Lord Śiva. He represents divine protection, the destruction of negativity, the guardianship of sacred spaces, and the power of time and transformation.
+        </p>
+        <p>
+          In the Śakti Pīṭha tradition, every sacred seat of the Goddess is associated with a particular form of Śakti and a corresponding Bhairava. The Goddess represents the divine feminine power, while Bhairava represents the accompanying Śaiva presence and guardianship.
+        </p>
+        <p>
+          The Bāvan Bhairava concept therefore expresses the relationship between Śiva and Śakti across a sacred geography of temples, pilgrimage sites, and spiritual centres.
+        </p>
+        <p>
+          It is important to understand that the number fifty-two is not universally accepted across all Śākta traditions. Lists of Śakti Pīṭhas differ, with traditions and texts referring to 4, 18, 51, 52, 64, 108, and other numbers. Consequently, the names and associations of the Bhairavas also vary.
+        </p>
+      </section>
+
+      {/* 1. Who Is Bhairava? */}
+      <section className="p-5 sm:p-6 rounded-xl bg-[#E8D8BE]/65 border border-[#5A3922]/25 space-y-4 text-sm sm:text-base text-[#261B13] leading-relaxed">
+        <h3 className="text-xl sm:text-2xl font-bold text-[#17100C] border-b border-[#5A3922]/20 pb-2">
+          1. Who Is Bhairava?
+        </h3>
+        <p>
+          Bhairava (भैरव) is a powerful manifestation of Lord Śiva worshipped throughout Śaiva and Śākta traditions.
+        </p>
+        <p>
+          The word Bhairava is traditionally associated with divine awe, formidable power, and the destruction of fear. Bhairava is understood through several theological and devotional interpretations.
+        </p>
+
+        <div className="space-y-2 pt-1">
+          <h4 className="text-lg font-bold text-[#17100C]">Principal characteristics</h4>
+          <ul className="list-disc pl-6 space-y-1.5">
+            <li>
+              <strong>Protector:</strong> Guards sacred places, temples, and spiritual territories.
+            </li>
+            <li>
+              <strong>Destroyer:</strong> Represents the destruction of ignorance, arrogance, and negative forces.
+            </li>
+            <li>
+              <strong>Guardian of time:</strong> Particularly in traditions associated with Kālabhairava.
+            </li>
+            <li>
+              <strong>Lord of transformation:</strong> Represents the dissolution of limitations and the transformation of consciousness.
+            </li>
+            <li>
+              <strong>Companion of Śakti:</strong> Appears alongside the Goddess in numerous Śākta traditions.
+            </li>
+            <li>
+              <strong>Guardian of sacred boundaries:</strong> Associated with the protection of temples and sacred regions.
+            </li>
+          </ul>
         </div>
 
-        <div>
-          <div className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-[#FFDF80] tracking-wide">
-            ॥ श्री बावन भैरव संग्रह ॥
-          </div>
-          <h2 className="text-lg sm:text-xl md:text-2xl font-serif text-[#F4E8D1] font-semibold mt-1">
-            52 BHAIRAVAS – THE GUARDIANS OF THE 52 SHAKTI PEETHAS
-          </h2>
-          <p className="mt-2 text-xs sm:text-sm md:text-[15px] font-serif text-[#D6C4A5] leading-relaxed italic">
-            {t(
-              '“I am interpreting 52 Bhairavas as the guardian manifestations of Lord Shiva associated with the traditional 52 Shakti Peethas, rather than the separate 64 Bhairava system.”',
-              '“बावन भैरवों को ६४ भैरव प्रणाली से पृथक् करते हुए पारंपरिक ५२ शक्तिपीठों के रक्षक शिव-स्वरूपों के रूप में प्रतिष्ठापित किया गया है।”'
-            )}
+        <div className="space-y-2 pt-1">
+          <h4 className="text-lg font-bold text-[#17100C]">Bhairava and Śiva</h4>
+          <p>
+            Bhairava is not generally understood as a separate god unrelated to Śiva. He is worshipped as a manifestation or form of Śiva.
+          </p>
+          <p>
+            Different traditions describe his manifestations through different names, attributes, directions, powers, and ritual functions.
+          </p>
+        </div>
+      </section>
+
+      {/* 2. The Meaning of Bāvan Bhairava */}
+      <section className="p-5 sm:p-6 rounded-xl bg-[#E8D8BE]/65 border border-[#5A3922]/25 space-y-3.5 text-sm sm:text-base text-[#261B13] leading-relaxed">
+        <h3 className="text-xl sm:text-2xl font-bold text-[#17100C] border-b border-[#5A3922]/20 pb-2">
+          2. The Meaning of Bāvan Bhairava
+        </h3>
+        <p>
+          The Sanskrit number fifty-two is Dvāpañcāśat (द्वापञ्चाशत्), while Bāvan (बावन) is its familiar Hindi form.
+        </p>
+        <p>
+          Bāvan Bhairava refers to a grouping of fifty-two Bhairavas.
+        </p>
+        <p>
+          In the Śakti Pīṭha-related classification, the number is associated with the sacred seats of the Goddess.
+        </p>
+        <p>Each Pīṭha is traditionally associated with:</p>
+        <ul className="list-disc pl-6 space-y-1.5">
+          <li>A sacred geographical location.</li>
+          <li>A particular manifestation of Śakti.</li>
+          <li>A body part or ornament associated with the Goddess Satī in the traditional origin narrative.</li>
+          <li>A corresponding Bhairava.</li>
+          <li>A local temple tradition and form of worship.</li>
+        </ul>
+        <p>
+          The Bhairava associated with a Pīṭha may have a distinct name, such as Kālabhairava, Viśveśa, Kapālī, Vakranātha, or another traditional form.
+        </p>
+        <p>These names and associations are not identical across all lists.</p>
+      </section>
+
+      {/* 3. The Origin of the Śakti Pīṭhas */}
+      <section className="p-5 sm:p-6 rounded-xl bg-[#E8D8BE]/65 border border-[#5A3922]/25 space-y-4 text-sm sm:text-base text-[#261B13] leading-relaxed">
+        <h3 className="text-xl sm:text-2xl font-bold text-[#17100C] border-b border-[#5A3922]/20 pb-2">
+          3. The Origin of the Śakti Pīṭhas
+        </h3>
+        <p>
+          The traditional origin of the Śakti Pīṭhas is connected with the story of Goddess Satī and Lord Śiva.
+        </p>
+
+        <div className="space-y-2.5">
+          <h4 className="text-lg font-bold text-[#17100C]">The story of Satī</h4>
+          <p>
+            Satī, the daughter of Prajāpati Dakṣa, married Lord Śiva. Dakṣa disapproved of the marriage and organized a great sacrificial ceremony.
+          </p>
+          <p>He invited many divine beings but deliberately excluded Śiva.</p>
+          <p>
+            Despite Śiva&apos;s objections, Satī attended the ceremony. There, she witnessed the disrespect shown toward her husband.
+          </p>
+          <p>
+            Unable to bear the insult, Satī gave up her physical body through yogic fire, according to the traditional narrative.
+          </p>
+          <p>
+            When Śiva learned of her death, he became overwhelmed with grief and carried her body while wandering through the universe.
+          </p>
+          <p>
+            To restore cosmic order, Lord Viṣṇu used his Sudarśana Cakra to divide Satī&apos;s body. The places where her body parts or ornaments are traditionally believed to have fallen became sacred Śakti Pīṭhas.
           </p>
         </div>
 
-        {/* 4 Pillars of Understanding */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2">
-          <div className="p-3 rounded-lg bg-[#190E08]/80 border border-[#5A3922]/50 space-y-1">
-            <div className="flex items-center gap-1.5 text-[#D3AD55] font-mono text-[10px] uppercase font-bold">
-              <Shield className="w-3.5 h-3.5 text-[#D3AD55]" />
-              <span>{t('1. Fierce Protector', '१. उग्र रक्षक स्वरूप')}</span>
-            </div>
-            <p className="text-xs font-serif text-[#CDBCA2]">
-              {t(
-                'Bhairava is the fierce, protective, and fear-dispelling manifestation of Lord Shiva.',
-                'भैरव भगवान् शिव के अत्यंत उग्र, तेजस्वी और रक्षाकारी विग्रह हैं।'
-              )}
-            </p>
-          </div>
-
-          <div className="p-3 rounded-lg bg-[#190E08]/80 border border-[#5A3922]/50 space-y-1">
-            <div className="flex items-center gap-1.5 text-[#D3AD55] font-mono text-[10px] uppercase font-bold">
-              <Sparkles className="w-3.5 h-3.5 text-[#D3AD55]" />
-              <span>{t('2. Inseparable Pair', '२. शक्ति एवं शिव')}</span>
-            </div>
-            <p className="text-xs font-serif text-[#CDBCA2]">
-              {t(
-                'The Goddess represents Shakti, while Bhairava represents Shiva as protector of the seat.',
-                'देवी शक्ति का प्रतिनिधित्व करती हैं और भैरव पीठ के रक्षक के रूप में शिव हैं।'
-              )}
-            </p>
-          </div>
-
-          <div className="p-3 rounded-lg bg-[#190E08]/80 border border-[#5A3922]/50 space-y-1">
-            <div className="flex items-center gap-1.5 text-[#D3AD55] font-mono text-[10px] uppercase font-bold">
-              <MapPin className="w-3.5 h-3.5 text-[#D3AD55]" />
-              <span>{t('3. Kashi Kotwal', '३. काशी के कोतवाल')}</span>
-            </div>
-            <p className="text-xs font-serif text-[#CDBCA2]">
-              {t(
-                'Kaal Bhairava is especially revered as the supreme guardian magistrate of Kashi.',
-                'काशी के सर्वोच्च रक्षक एवं दण्डनायक के रूप में काल भैरव पूजित हैं।'
-              )}
-            </p>
-          </div>
-
-          <div className="p-3 rounded-lg bg-[#190E08]/80 border border-[#5A3922]/50 space-y-1">
-            <div className="flex items-center gap-1.5 text-[#D3AD55] font-mono text-[10px] uppercase font-bold">
-              <BookOpen className="w-3.5 h-3.5 text-[#D3AD55]" />
-              <span>{t('4. 51 or 52 Peethas', '४. ५१ अथवा ५२ पीठ')}</span>
-            </div>
-            <p className="text-xs font-serif text-[#CDBCA2]">
-              {t(
-                'Circulated lists contain 51 or 52 Peethas depending on textual tradition and recension.',
-                'शास्त्रीय परम्परा और पाठ-भेद के अनुसार ५१ अथवा ५२ पीठ माने जाते हैं।'
-              )}
-            </p>
-          </div>
+        <div className="space-y-2.5 pt-1">
+          <h4 className="text-lg font-bold text-[#17100C]">The emergence of the Pīṭha tradition</h4>
+          <p>
+            At these sacred places, the Goddess is worshipped in different manifestations of Śakti.
+          </p>
+          <p>A corresponding Bhairava is also associated with each place.</p>
+          <p>This relationship symbolizes the inseparability of Śiva and Śakti.</p>
+          <p>
+            The Bhairava is understood as the guardian or accompanying divine presence of the Pīṭha, while the Goddess is its presiding Śakti.
+          </p>
+          <p>
+            The specific narrative details and lists differ between textual and regional traditions.
+          </p>
         </div>
-      </div>
+      </section>
 
-      {/* 2. Collective 52 Bhairava Prayer (Samarpaṇa Mantra) */}
-      <div className="rounded-2xl border-2 border-[#D3AD55] bg-gradient-to-r from-[#2B150A] via-[#1B0E06] to-[#2B150A] p-6 sm:p-7 text-[#F5E8CE] shadow-xl text-center space-y-3 relative overflow-hidden">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#180C06] border border-[#D3AD55]/60 font-mono text-[9.5px] uppercase tracking-[0.2em] text-[#D3AD55] font-bold">
-          <Sparkles className="w-3.5 h-3.5 text-[#D3AD55]" />
-          <span>{t('Section 3 · Collective 52 Bhairava Prayer', 'भाग ३ · सामूहिक श्री बावन भैरव समर्पण मंत्र')}</span>
+      {/* 4. The Relationship Between the 52 Śakti Pīṭhas and 52 Bhairavas */}
+      <section className="p-5 sm:p-6 rounded-xl bg-[#E8D8BE]/65 border border-[#5A3922]/25 space-y-4 text-sm sm:text-base text-[#261B13] leading-relaxed">
+        <h3 className="text-xl sm:text-2xl font-bold text-[#17100C] border-b border-[#5A3922]/20 pb-2">
+          4. The Relationship Between the 52 Śakti Pīṭhas and 52 Bhairavas
+        </h3>
+        <p>
+          The Bāvan Bhairava classification is best understood through the relationship between the Goddess and Bhairava at each sacred Pīṭha.
+        </p>
+        <p>A traditional Pīṭha entry may contain:</p>
+
+        <div className="overflow-x-auto rounded-lg border border-[#5A3922]/35">
+          <table className="w-full text-left border-collapse text-sm">
+            <thead>
+              <tr className="bg-[#2B1F17] text-[#F5E8CE]">
+                <th className="py-2.5 px-4 font-mono text-xs uppercase tracking-wider">Component</th>
+                <th className="py-2.5 px-4 font-mono text-xs uppercase tracking-wider">Description</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[#5A3922]/20 bg-[#F6EDE0]">
+              <tr>
+                <td className="py-2.5 px-4 font-bold text-[#17100C]">Pīṭha</td>
+                <td className="py-2.5 px-4">Sacred geographical location</td>
+              </tr>
+              <tr>
+                <td className="py-2.5 px-4 font-bold text-[#17100C]">Śakti</td>
+                <td className="py-2.5 px-4">Goddess worshipped at the location</td>
+              </tr>
+              <tr>
+                <td className="py-2.5 px-4 font-bold text-[#17100C]">Bhairava</td>
+                <td className="py-2.5 px-4">Corresponding manifestation of Śiva</td>
+              </tr>
+              <tr>
+                <td className="py-2.5 px-4 font-bold text-[#17100C]">Satī association</td>
+                <td className="py-2.5 px-4">Body part or ornament associated with the location</td>
+              </tr>
+              <tr>
+                <td className="py-2.5 px-4 font-bold text-[#17100C]">Sacred tradition</td>
+                <td className="py-2.5 px-4">Local history, worship, and pilgrimage</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <div className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-[#FFD700] tracking-wide">
-          {BAVAN_BHAIRAVA_COLLECTIVE_PRAYER.titleHi}
+        <p>For example, certain traditional lists associate:</p>
+        <ul className="list-disc pl-6 space-y-1.5">
+          <li>Kāmakṣī with Kālabhairava.</li>
+          <li>Avanti with Lambakarṇa.</li>
+          <li>Mahāmāyā with Trisaṃdhyēśvara.</li>
+          <li>Phullarā with Viśveśa.</li>
+          <li>Mahālakṣmī of Śrīśaila with Śambarananda.</li>
+        </ul>
+        <p>
+          These are examples from particular compilations, not a universal list applicable to every Pīṭha enumeration.
+        </p>
+        <p>
+          The name of a Bhairava can vary depending on the source, regional tradition, and identification of the sacred location.
+        </p>
+      </section>
+
+      {/* 5. Why Are There Different Numbers of Śakti Pīṭhas? */}
+      <section className="p-5 sm:p-6 rounded-xl bg-[#E8D8BE]/65 border border-[#5A3922]/25 space-y-4 text-sm sm:text-base text-[#261B13] leading-relaxed">
+        <h3 className="text-xl sm:text-2xl font-bold text-[#17100C] border-b border-[#5A3922]/20 pb-2">
+          5. Why Are There Different Numbers of Śakti Pīṭhas?
+        </h3>
+        <p>There is no single universally accepted enumeration of Śakti Pīṭhas.</p>
+        <p>
+          Different scriptures, Tantric traditions, regional accounts, and pilgrimage compilations preserve different numbers.
+        </p>
+        <p>Commonly encountered enumerations include:</p>
+
+        <div className="overflow-x-auto rounded-lg border border-[#5A3922]/35">
+          <table className="w-full text-left border-collapse text-sm">
+            <thead>
+              <tr className="bg-[#2B1F17] text-[#F5E8CE]">
+                <th className="py-2.5 px-4 font-mono text-xs uppercase tracking-wider w-32">Number</th>
+                <th className="py-2.5 px-4 font-mono text-xs uppercase tracking-wider">Traditional grouping</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[#5A3922]/20 bg-[#F6EDE0]">
+              <tr>
+                <td className="py-2.5 px-4 font-bold text-[#17100C]">4</td>
+                <td className="py-2.5 px-4">Ādi Śakti Pīṭhas</td>
+              </tr>
+              <tr>
+                <td className="py-2.5 px-4 font-bold text-[#17100C]">18</td>
+                <td className="py-2.5 px-4">Aṣṭādaśa Mahā Pīṭhas</td>
+              </tr>
+              <tr>
+                <td className="py-2.5 px-4 font-bold text-[#17100C]">51</td>
+                <td className="py-2.5 px-4">A widely circulated Tantric Pīṭha enumeration</td>
+              </tr>
+              <tr>
+                <td className="py-2.5 px-4 font-bold text-[#17100C]">52</td>
+                <td className="py-2.5 px-4">A variant enumeration found in some compilations</td>
+              </tr>
+              <tr>
+                <td className="py-2.5 px-4 font-bold text-[#17100C]">64</td>
+                <td className="py-2.5 px-4">A separate Pīṭha enumeration in certain traditions</td>
+              </tr>
+              <tr>
+                <td className="py-2.5 px-4 font-bold text-[#17100C]">108</td>
+                <td className="py-2.5 px-4">An expanded sacred enumeration</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <div className="space-y-1.5 py-1">
-          <div className="font-serif text-lg sm:text-xl md:text-2xl font-bold text-[#FFDF80]">
-            {BAVAN_BHAIRAVA_COLLECTIVE_PRAYER.primaryBeejaMantra}
-          </div>
-          <div className="font-mono text-xs sm:text-sm text-[#E0B86C]">
-            {BAVAN_BHAIRAVA_COLLECTIVE_PRAYER.primaryBeejaPhonetic}
-          </div>
-          <div className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-[#FFD700] pt-1">
-            {BAVAN_BHAIRAVA_COLLECTIVE_PRAYER.samarpanaMantra}
-          </div>
-          <div className="font-mono text-sm sm:text-base text-[#FFE599] font-semibold">
-            {BAVAN_BHAIRAVA_COLLECTIVE_PRAYER.samarpanaPhonetic}
-          </div>
-          <p className="font-serif text-sm sm:text-base text-[#D4C3A3] italic pt-1 max-w-2xl mx-auto">
-            {t(
-              `"${BAVAN_BHAIRAVA_COLLECTIVE_PRAYER.meaningEn}"`,
-              `"${BAVAN_BHAIRAVA_COLLECTIVE_PRAYER.meaningHi}"`
-            )}
+        <p>
+          The Pīṭhanirṇaya and related compilations are important sources for studying the names, locations, Śaktis, and Bhairavas associated with the Pīṭhas.
+        </p>
+        <p>
+          A scholarly discussion of Pīṭha enumerations also documents how lists of fifty-one and fifty-two emerged through different compilations and variations.
+        </p>
+        <p>
+          Therefore, the Bāvan Bhairava tradition should be studied within its specific textual and regional context.
+        </p>
+      </section>
+
+      {/* 6. The Difference Between Aṣṭa, 52, and 64 Bhairavas */}
+      <section className="p-5 sm:p-6 rounded-xl bg-[#E8D8BE]/65 border border-[#5A3922]/25 space-y-4 text-sm sm:text-base text-[#261B13] leading-relaxed">
+        <h3 className="text-xl sm:text-2xl font-bold text-[#17100C] border-b border-[#5A3922]/20 pb-2">
+          6. The Difference Between Aṣṭa, 52, and 64 Bhairavas
+        </h3>
+        <p>
+          Bhairava appears in several numerical classifications. These classifications should not be confused with one another.
+        </p>
+
+        <div className="space-y-2">
+          <h4 className="text-lg font-bold text-[#17100C]">Aṣṭa Bhairava — 8 Bhairavas</h4>
+          <p>
+            The Aṣṭa Bhairavas are eight prominent forms of Bhairava, commonly associated with the eight directions.
+          </p>
+          <p>They are:</p>
+          <ul className="list-disc pl-6 grid grid-cols-2 sm:grid-cols-4 gap-1.5 font-semibold">
+            <li>Asitāṅga</li>
+            <li>Ruru</li>
+            <li>Caṇḍa</li>
+            <li>Krodha</li>
+            <li>Unmatta</li>
+            <li>Kapāla</li>
+            <li>Bhīṣaṇa</li>
+            <li>Saṃhāra</li>
+          </ul>
+          <p>
+            The exact names, directional assignments, and associated goddesses vary by tradition.
           </p>
         </div>
 
-        <div className="pt-2">
-          <button
-            type="button"
-            onClick={handleCopyCollective}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#3D1E0E] hover:bg-[#522914] border border-[#D3AD55] text-[#FFDF80] font-mono text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md active:scale-95"
-          >
-            {copiedCollective ? (
-              <>
-                <Check className="w-4 h-4 text-emerald-400" />
-                <span>{t('Copied to Clipboard!', 'मन्त्र कॉपी हो गया!')}</span>
-              </>
-            ) : (
-              <>
-                <Copy className="w-4 h-4 text-[#D3AD55]" />
-                <span>{t('Copy Collective Samarpaṇa Prayer', 'सामूहिक समर्पण मन्त्र कॉपी करें')}</span>
-              </>
-            )}
-          </button>
+        <div className="space-y-1.5 pt-1">
+          <h4 className="text-lg font-bold text-[#17100C]">Bāvan Bhairava — 52 Bhairavas</h4>
+          <p>A grouping associated in some traditions with the fifty-two Śakti Pīṭhas.</p>
+          <p>
+            Its focus is the relationship between the Goddess, the sacred location, and the corresponding Bhairava.
+          </p>
         </div>
-      </div>
 
-      {/* 3. Do Not Confuse These Three Systems */}
-      <div className="rounded-xl border-2 border-[#5A3922]/50 bg-[#E8DAC2] p-5 sm:p-6 text-[#24170E] space-y-4 shadow-md">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#5A3922]/30 pb-3">
-          <div className="flex items-center gap-2">
-            <span className="p-1.5 rounded bg-[#2B1F17] text-[#D3AD55]">
-              <Layers className="w-4 h-4" />
-            </span>
-            <h3 className="font-serif text-lg sm:text-xl font-bold text-[#17100C]">
-              {t('5. Do Not Confuse These Three Systems', '५. तीन भैरव प्रणालियों में भेद: इन्हें परस्पर मिश्रित न करें')}
-            </h3>
+        <div className="space-y-1.5 pt-1">
+          <h4 className="text-lg font-bold text-[#17100C]">Catuḥṣaṣṭi Bhairava — 64 Bhairavas</h4>
+          <p>
+            Some Tantric classifications describe sixty-four Bhairavas, often organized through eight groups of eight.
+          </p>
+          <p>
+            These represent a separate classification and should not automatically be equated with the fifty-two Bhairavas associated with Śakti Pīṭhas.
+          </p>
+        </div>
+      </section>
+
+      {/* 7. Spiritual and Symbolic Significance */}
+      <section className="p-5 sm:p-6 rounded-xl bg-[#E8D8BE]/65 border border-[#5A3922]/25 space-y-4 text-sm sm:text-base text-[#261B13] leading-relaxed">
+        <h3 className="text-xl sm:text-2xl font-bold text-[#17100C] border-b border-[#5A3922]/20 pb-2">
+          7. Spiritual and Symbolic Significance
+        </h3>
+        <p>
+          The Bāvan Bhairava tradition represents the distribution of Śiva&apos;s protective presence across sacred geography.
+        </p>
+        <p>Its symbolism can be explored through several themes.</p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 pt-1">
+          <div className="p-4 rounded-lg bg-[#F6EDE0] border border-[#5A3922]/25 space-y-1">
+            <h4 className="font-bold text-[#17100C]">7.1 Protection of Śakti</h4>
+            <p className="text-sm">
+              The Bhairava is associated with the protection of the Goddess&apos;s sacred seat.
+            </p>
           </div>
-          <span className="px-2.5 py-0.5 rounded bg-[#2B1F17] text-[#D3AD55] font-mono text-[9px] uppercase tracking-wider font-bold">
-            {t('CRUCIAL TEXTUAL DISTINCTION', 'अनिवार्य शास्त्रीय भेद')}
-          </span>
+          <div className="p-4 rounded-lg bg-[#F6EDE0] border border-[#5A3922]/25 space-y-1">
+            <h4 className="font-bold text-[#17100C]">7.2 Unity of Śiva and Śakti</h4>
+            <p className="text-sm">
+              The paired presence of Śakti and Bhairava expresses the relationship between consciousness and divine power in Śaiva-Śākta thought.
+            </p>
+          </div>
+          <div className="p-4 rounded-lg bg-[#F6EDE0] border border-[#5A3922]/25 space-y-1">
+            <h4 className="font-bold text-[#17100C]">7.3 Sacred geography</h4>
+            <p className="text-sm">
+              The Pīṭhas connect religious mythology with actual geographical locations, pilgrimage routes, and regional worship traditions.
+            </p>
+          </div>
+          <div className="p-4 rounded-lg bg-[#F6EDE0] border border-[#5A3922]/25 space-y-1">
+            <h4 className="font-bold text-[#17100C]">7.4 Diversity of divine manifestations</h4>
+            <p className="text-sm">
+              The different names of Bhairava express the diversity of Śiva&apos;s manifestations across different sacred traditions.
+            </p>
+          </div>
+          <div className="p-4 rounded-lg bg-[#F6EDE0] border border-[#5A3922]/25 space-y-1 md:col-span-2">
+            <h4 className="font-bold text-[#17100C]">7.5 Destruction and protection</h4>
+            <p className="text-sm">
+              Bhairava represents both formidable divine power and the protection of devotees and sacred spaces.
+            </p>
+          </div>
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {THREE_BHAIRAVA_SYSTEMS_COMPARISON.map((sys, idx) => (
-            <div
-              key={idx}
-              className="p-4 rounded-xl border border-[#5A3922]/35 bg-[#F4E8D1] space-y-2.5 flex flex-col justify-between"
+      {/* 8. Worship and Devotional Traditions */}
+      <section className="p-5 sm:p-6 rounded-xl bg-[#E8D8BE]/65 border border-[#5A3922]/25 space-y-3.5 text-sm sm:text-base text-[#261B13] leading-relaxed">
+        <h3 className="text-xl sm:text-2xl font-bold text-[#17100C] border-b border-[#5A3922]/20 pb-2">
+          8. Worship and Devotional Traditions
+        </h3>
+        <p>Bhairava worship differs between regions and lineages.</p>
+        <p>Common devotional practices in Bhairava traditions may include:</p>
+        <ul className="list-disc pl-6 space-y-1.5">
+          <li>Recitation of Bhairava mantras.</li>
+          <li>Worship of Bhairava images and icons.</li>
+          <li>Offerings according to local temple customs.</li>
+          <li>Observance of Kālabhairava Aṣṭamī.</li>
+          <li>Pilgrimage to Bhairava-associated temples.</li>
+          <li>Worship of the presiding Goddess and her corresponding Bhairava.</li>
+        </ul>
+        <p>
+          Not every practice applies to every Pīṭha or every Bhairava form. Ritual procedures should be described according to the particular temple or lineage rather than generalized.
+        </p>
+      </section>
+
+      {/* 9. Important Distinctions */}
+      <section className="p-5 sm:p-6 rounded-xl bg-[#E8D8BE]/65 border border-[#5A3922]/25 space-y-3.5 text-sm sm:text-base text-[#261B13] leading-relaxed">
+        <h3 className="text-xl sm:text-2xl font-bold text-[#17100C] border-b border-[#5A3922]/20 pb-2">
+          9. Important Distinctions
+        </h3>
+        <p>The following distinctions are essential for accurate research:</p>
+        <ol className="list-decimal pl-6 space-y-1.5">
+          <li>
+            The fifty-two Bhairavas associated with Śakti Pīṭhas are not the same classification as the sixty-four Bhairavas.
+          </li>
+          <li>Aṣṭa Bhairava is a separate group of eight forms.</li>
+          <li>The number of Śakti Pīṭhas varies across texts and traditions.</li>
+          <li>The names of the Bhairavas can differ between Pīṭha lists.</li>
+          <li>
+            Not every Bhairava name represents an entirely separate theological form of Śiva.
+          </li>
+          <li>
+            The association of a Bhairava with a Pīṭha should be supported by a specific source.
+          </li>
+          <li>
+            Regional devotional traditions should not automatically be presented as universally accepted scriptural classifications.
+          </li>
+        </ol>
+      </section>
+
+      {/* 10. Conclusion */}
+      <section className="p-5 sm:p-6 rounded-xl bg-[#E8D8BE]/65 border border-[#5A3922]/25 space-y-3.5 text-sm sm:text-base text-[#261B13] leading-relaxed">
+        <h3 className="text-xl sm:text-2xl font-bold text-[#17100C] border-b border-[#5A3922]/20 pb-2">
+          10. Conclusion
+        </h3>
+        <p>
+          The Bāvan Bhairava tradition provides an important way to understand the relationship between Bhairava and the sacred geography of Śākta worship.
+        </p>
+        <p>
+          Through the fifty-two Pīṭha-associated Bhairava forms, the tradition expresses the presence of Śiva alongside the many manifestations of the Divine Mother.
+        </p>
+        <p>
+          Each Pīṭha carries its own history, Goddess manifestation, Bhairava association, and regional devotional identity.
+        </p>
+        <p>
+          Rather than viewing the fifty-two Bhairavas as a completely uniform list, they should be understood through the particular Tantric, scriptural, and regional traditions that preserve their names and associations.
+        </p>
+        <p>
+          The Bāvan Bhairava tradition thus represents a sacred network connecting Śiva, Śakti, temples, pilgrimage, and the spiritual geography of India and the wider Indic religious world.
+        </p>
+      </section>
+
+      {/* Research References and Further Reading */}
+      <section className="p-5 sm:p-6 rounded-xl bg-[#E8D8BE]/65 border border-[#5A3922]/25 space-y-3.5 text-sm sm:text-base text-[#261B13] leading-relaxed">
+        <h3 className="text-xl sm:text-2xl font-bold text-[#17100C] border-b border-[#5A3922]/20 pb-2">
+          Research References and Further Reading
+        </h3>
+        <ul className="list-disc pl-6 space-y-1.5">
+          <li>
+            <strong>Pīṭhanirṇaya / Mahāpīṭhanirūpaṇa</strong> — an important textual tradition for studying Śakti Pīṭha names and their associated Śaktis and Bhairavas.
+          </li>
+          <li>
+            <strong>Tantra Cūḍāmaṇi</strong> — a text associated with widely circulated Pīṭha enumerations.
+          </li>
+          <li>
+            <strong>Devī Bhāgavata Purāṇa</strong> — relevant to the broader Śākta understanding of the Goddess and sacred Pīṭhas.
+          </li>
+          <li>
+            <strong>D. C. Sircar — The Śākta Pīṭhas</strong> — historical and textual research on the Śakti Pīṭha tradition.
+          </li>
+          <li>
+            Scholarly research on the historical development and varying enumerations of Śakti Pīṭhas.
+          </li>
+        </ul>
+        <p className="p-3.5 rounded-lg bg-[#F6EDE0] border-l-4 border-[#B68A32] text-sm">
+          <strong>Research classification:</strong> Traditional and regional groupings; the exact 52-name Bhairava roster and its one-to-one Pīṭha associations must be verified against the specific enumeration being followed.
+        </p>
+      </section>
+
+      {/* 52 Bhairav Vīras — बावन भैरव वीर */}
+      <section className="p-5 sm:p-6 rounded-xl bg-[#E8D8BE]/65 border border-[#5A3922]/25 space-y-4">
+        <h3 className="text-xl sm:text-2xl font-bold text-[#17100C] border-b border-[#5A3922]/20 pb-2">
+          52 Bhairav Vīras — बावन भैरव वीर
+        </h3>
+        <ol className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 text-sm sm:text-base text-[#17100C]">
+          {BAVAN_BHAIRAVA_VIRAS_52.map((vira) => (
+            <li
+              key={vira.index}
+              className="px-3.5 py-2.5 rounded-lg bg-[#F6EDE0] border border-[#5A3922]/25 flex items-center gap-2"
             >
-              <div>
-                <div className="flex items-center justify-between gap-2 border-b border-[#5A3922]/20 pb-2">
-                  <span className="font-serif text-base font-bold text-[#17100C]">
-                    {t(sys.systemNameEn, sys.systemNameHi)}
-                  </span>
-                  <span className="px-2 py-0.5 rounded bg-[#2B1F17] text-[#D3AD55] font-mono text-[10px] font-bold">
-                    {sys.count} {t('Forms', 'स्वरूप')}
-                  </span>
-                </div>
-                <div className="pt-2 text-xs font-serif text-[#4A3222] leading-relaxed">
-                  <strong>{t('Role:', 'भूमिका:')}</strong> {t(sys.canonicalRoleEn, sys.canonicalRoleHi)}
-                </div>
-                <div className="pt-1.5 text-xs font-mono text-[#5A3922] leading-relaxed">
-                  <strong>{t('Members:', 'स्वरूप:')}</strong> {t(sys.membersEn, sys.membersHi)}
-                </div>
-              </div>
-              <div className="pt-2 border-t border-[#5A3922]/20 text-[11px] font-serif text-[#6B4B32] italic">
-                {t(sys.primaryTextsEn, sys.primaryTextsHi)}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* 4. Complete List: 52 Bhairava Names and Devotional Mantras Directory */}
-      <div className="space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#8C6239] font-bold">
-                {t('SECTION 2 · CANONICAL CATALOGUE', 'भाग २ · संपूर्ण शास्त्रीय नामावली')}
+              <span className="font-mono text-xs font-bold text-[#8C6239] w-6 shrink-0">
+                {String(vira.index).padStart(2, '0')}.
               </span>
-              <span className="px-2 py-0.5 rounded bg-[#2B1F17] text-[#D3AD55] font-mono text-[9px] font-bold">
-                01–52
+              <span className="font-semibold">
+                {vira.nameIAST} ({vira.nameDevanagari})
               </span>
-            </div>
-            <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#17100C] mt-0.5">
-              {t(
-                'Complete List: 52 Bhairava Names and Devotional Mantras',
-                'संपूर्ण नामावली: ५२ भैरव नाम एवं भक्ति नाम-मन्त्र'
-              )}
-            </h3>
-          </div>
-
-          {/* Search Box */}
-          <div className="relative w-full sm:w-72">
-            <Search className="w-4 h-4 text-[#8C6239] absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
-            <input
-              type="text"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder={t('Search 52 Bhairavas or Peethas...', 'भैरव, शक्तिपीठ अथवा स्थान खोजें...')}
-              className="w-full pl-9 pr-3.5 py-2 rounded-lg bg-[#EFE0C6] border border-[#5A3922]/40 text-xs font-serif text-[#17100C] placeholder-[#8C6239] focus:outline-none focus:border-[#2B1F17] focus:ring-1 focus:ring-[#2B1F17]"
-            />
-          </div>
-        </div>
-
-        {/* Mantra Notice Box */}
-        <div className="p-3.5 rounded-lg bg-[#EAE0CD] border-l-4 border-[#D3AD55] text-xs font-serif text-[#3D2B1F] flex items-start gap-2.5">
-          <AlertTriangle className="w-4 h-4 text-[#D3AD55] shrink-0 mt-0.5" />
-          <div>
-            <strong>{t('Mantra Transparency Notice:', 'मन्त्र पारदर्शिता सूचना:')}</strong>{' '}
-            {t(
-              'The following is a devotional reference list. The mantras are simple name-based salutations formed for each Bhairava, not claimed to be independently attested Tantric Mula Mantras.',
-              'यह एक भक्ति संदर्भ सूची है। ये मन्त्र प्रत्येक भैरव के नाम पर आधारित सरल भक्ति-प्रणाम मन्त्र हैं, जिन्हें स्वतंत्र शास्त्रीय तांत्रिक मूल मन्त्र होने का दावा नहीं किया गया है।'
-            )}
-          </div>
-        </div>
-
-        {/* Grid of 52 Bhairavas */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
-          {filteredBhairavas.map((b: Bhairava52Item) => {
-            const isCopied = copiedMantra === b.id;
-            return (
-              <div
-                key={b.id}
-                className="rounded-xl border border-[#5A3922]/35 bg-[#F6EDE0] p-4 flex flex-col justify-between hover:border-[#D3AD55] hover:shadow-md transition-all space-y-3"
-              >
-                <div>
-                  {/* Top Bar: Index & Name */}
-                  <div className="flex items-start justify-between gap-2 border-b border-[#5A3922]/20 pb-2">
-                    <div>
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-[#8C6239] font-bold">
-                        #{String(b.index).padStart(2, '0')}
-                      </span>
-                      <h4 className="font-serif text-lg font-bold text-[#17100C] leading-snug">
-                        {b.nameHi} · {b.nameEn}
-                      </h4>
-                    </div>
-                    <span className="px-2 py-0.5 rounded bg-[#2B1F17] text-[#D3AD55] font-mono text-[9px] font-semibold shrink-0">
-                      {t(b.peethaEn, b.peethaHi)}
-                    </span>
-                  </div>
-
-                  {/* Devotional Mantra Card */}
-                  <div className="mt-2.5 p-2.5 rounded-lg bg-[#24150D] text-[#F5E8CE] border border-[#D3AD55]/40 space-y-1 relative group">
-                    <div className="flex items-center justify-between text-[8.5px] font-mono uppercase tracking-wider text-[#D3AD55]">
-                      <span>{t('Devotional Mantra', 'भक्ति-प्रणाम मन्त्र')}</span>
-                      <button
-                        type="button"
-                        onClick={() => handleCopy(b.devotionalMantra, b.id)}
-                        className="hover:text-[#FFDF80] transition-colors p-0.5 cursor-pointer"
-                        title={t('Copy Mantra', 'मन्त्र कॉपी करें')}
-                      >
-                        {isCopied ? (
-                          <Check className="w-3 h-3 text-emerald-400" />
-                        ) : (
-                          <Copy className="w-3 h-3" />
-                        )}
-                      </button>
-                    </div>
-                    <div className="font-serif text-sm sm:text-[14.5px] font-bold text-[#FFDF80]">
-                      {b.devotionalMantra}
-                    </div>
-                    <div className="font-mono text-[10.5px] text-[#D6C4A5] truncate">
-                      {b.devotionalMantraPhonetic}
-                    </div>
-                  </div>
-
-                  {/* Peetha & Anatomical Relic Details */}
-                  <div className="mt-2.5 space-y-1 text-xs font-serif text-[#3D2B1F]">
-                    <div>
-                      <strong className="text-[#17100C]">{t('Presiding Devi:', 'अधिष्ठात्री देवी:')}</strong>{' '}
-                      {t(b.goddessEn, b.goddessHi)}
-                    </div>
-                    <div>
-                      <strong className="text-[#17100C]">{t('Sacred Limb:', 'सती का अंग:')}</strong>{' '}
-                      {t(b.bodyPartEn, b.bodyPartHi)}
-                    </div>
-                    <div className="text-[11.5px] font-mono text-[#5A3922] flex items-center gap-1 pt-0.5">
-                      <MapPin className="w-3 h-3 text-[#8C6239] shrink-0" />
-                      <span className="truncate">{t(b.locationEn, b.locationHi)}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bottom Status Ribbon */}
-                <div className="pt-2 border-t border-[#5A3922]/15 flex items-center justify-between text-[10px] font-mono text-[#7A5B42]">
-                  <span>{t(`Peetha Guardian #${b.index}`, `पीठ रक्षक #${b.index}`)}</span>
-                  <span className="text-[#8C6239]">amazingbharat.com</span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {filteredBhairavas.length === 0 && (
-          <div className="p-8 text-center rounded-xl bg-[#EFE0C6] border border-[#5A3922]/30 text-sm font-serif text-[#5A3922]">
-            {t(
-              `No Bhairavas matched the query "${searchTerm}". Try searching by English or Devanagari name.`,
-              `खोज परिणाम शून्य हैं। कृपया देवनागरी अथवा अंग्रेजी नाम से पुनः प्रयास करें।`
-            )}
-          </div>
-        )}
-      </div>
-
-      {/* 5. Sources & Bibliography Section */}
-      <div className="rounded-xl border border-[#5A3922]/30 bg-[#EFE0C6]/80 p-5 space-y-3">
-        <div className="flex items-center gap-2 border-b border-[#5A3922]/25 pb-2">
-          <BookOpen className="w-4 h-4 text-[#8C6239]" />
-          <h4 className="font-serif text-base font-bold text-[#17100C]">
-            {t('4. Important Source Articles and References', '४. प्रमुख शास्त्रीय स्रोत एवं संदर्भ ग्रन्थ')}
-          </h4>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {PRIMARY_RESEARCH_REFERENCES.map((ref, idx) => (
-            <div
-              key={idx}
-              className="p-3 rounded-lg bg-[#F7EFE4] border border-[#5A3922]/20 space-y-1"
-            >
-              <div className="font-serif text-xs font-bold text-[#17100C]">
-                {ref.title}
-              </div>
-              <div className="font-mono text-[10px] text-[#8C6239]">
-                {ref.source}
-              </div>
-              <div className="text-[11px] font-serif text-[#5A3922] italic">
-                {ref.topic}
-              </div>
-            </div>
+            </li>
           ))}
-        </div>
-      </div>
-    </div>
+        </ol>
+      </section>
+    </article>
   );
 };

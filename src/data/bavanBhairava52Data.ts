@@ -944,343 +944,299 @@ export const PRIMARY_RESEARCH_REFERENCES = [
   }
 ];
 
+export interface BhairavViraItem {
+  index: number;
+  nameIAST: string;
+  nameDevanagari: string;
+  mantraSanskrit: string;
+  mantraPhonetic: string;
+}
+
+export const BAVAN_BHAIRAVA_VIRAS_52: BhairavViraItem[] = [
+  { index: 1, nameIAST: 'Kṣetrapāl Vīr', nameDevanagari: 'क्षेत्रपाल वीर', mantraSanskrit: 'ॐ श्री क्षेत्रपाल वीराय नमः॥', mantraPhonetic: 'Om Shri Kshetrapala Viraya Namah' },
+  { index: 2, nameIAST: 'Kapil Vīr', nameDevanagari: 'कपिल वीर', mantraSanskrit: 'ॐ श्री कपिल वीराय नमः॥', mantraPhonetic: 'Om Shri Kapila Viraya Namah' },
+  { index: 3, nameIAST: 'Baṭuk Vīr', nameDevanagari: 'बटुक वीर', mantraSanskrit: 'ॐ श्री बटुक वीराय नमः॥', mantraPhonetic: 'Om Shri Batuka Viraya Namah' },
+  { index: 4, nameIAST: 'Nṛsiṃha Vīr', nameDevanagari: 'नृसिंह वीर', mantraSanskrit: 'ॐ श्री नृसिंह वीराय नमः॥', mantraPhonetic: 'Om Shri Nrisimha Viraya Namah' },
+  { index: 5, nameIAST: 'Gopāl Vīr', nameDevanagari: 'गोपाल वीर', mantraSanskrit: 'ॐ श्री गोपाल वीराय नमः॥', mantraPhonetic: 'Om Shri Gopala Viraya Namah' },
+  { index: 6, nameIAST: 'Bhairav Vīr', nameDevanagari: 'भैरव वीर', mantraSanskrit: 'ॐ श्री भैरव वीराय नमः॥', mantraPhonetic: 'Om Shri Bhairava Viraya Namah' },
+  { index: 7, nameIAST: 'Garuḍ Vīr', nameDevanagari: 'गरुड़ वीर', mantraSanskrit: 'ॐ श्री गरुड़ वीराय नमः॥', mantraPhonetic: 'Om Shri Garuda Viraya Namah' },
+  { index: 8, nameIAST: 'Mahākāl Vīr', nameDevanagari: 'महाकाल वीर', mantraSanskrit: 'ॐ श्री महाकाल वीराय नमः॥', mantraPhonetic: 'Om Shri Mahakala Viraya Namah' },
+  { index: 9, nameIAST: 'Kāl Vīr', nameDevanagari: 'काल वीर', mantraSanskrit: 'ॐ श्री काल वीराय नमः॥', mantraPhonetic: 'Om Shri Kala Viraya Namah' },
+  { index: 10, nameIAST: 'Svarṇ Vīr', nameDevanagari: 'स्वर्ण वीर', mantraSanskrit: 'ॐ श्री स्वर्ण वीराय नमः॥', mantraPhonetic: 'Om Shri Svarna Viraya Namah' },
+  { index: 11, nameIAST: 'Rakta-Svarṇ Vīr', nameDevanagari: 'रक्तस्वर्ण वीर', mantraSanskrit: 'ॐ श्री रक्तस्वर्ण वीराय नमः॥', mantraPhonetic: 'Om Shri Rakta-Svarna Viraya Namah' },
+  { index: 12, nameIAST: 'Devasen Vīr', nameDevanagari: 'देवसेन वीर', mantraSanskrit: 'ॐ श्री देवसेन वीराय नमः॥', mantraPhonetic: 'Om Shri Devasena Viraya Namah' },
+  { index: 13, nameIAST: 'Ghaṇṭāpath Vīr', nameDevanagari: 'घंटापथ वीर', mantraSanskrit: 'ॐ श्री घंटापथ वीराय नमः॥', mantraPhonetic: 'Om Shri Ghantapatha Viraya Namah' },
+  { index: 14, nameIAST: 'Rudra Vīr', nameDevanagari: 'रुद्र वीर', mantraSanskrit: 'ॐ श्री रुद्र वीराय नमः॥', mantraPhonetic: 'Om Shri Rudra Viraya Namah' },
+  { index: 15, nameIAST: 'Terāsaṅgh Vīr', nameDevanagari: 'तेरासंघ वीर', mantraSanskrit: 'ॐ श्री तेरासंघ वीराय नमः॥', mantraPhonetic: 'Om Shri Terasangha Viraya Namah' },
+  { index: 16, nameIAST: 'Varuṇ Vīr', nameDevanagari: 'वरुण वीर', mantraSanskrit: 'ॐ श्री वरुण वीराय नमः॥', mantraPhonetic: 'Om Shri Varuna Viraya Namah' },
+  { index: 17, nameIAST: 'Gandharv Vīr', nameDevanagari: 'गंधर्व वीर', mantraSanskrit: 'ॐ श्री गंधर्व वीराय नमः॥', mantraPhonetic: 'Om Shri Gandharva Viraya Namah' },
+  { index: 18, nameIAST: 'Haṃs Vīr', nameDevanagari: 'हंस वीर', mantraSanskrit: 'ॐ श्री हंस वीराय नमः॥', mantraPhonetic: 'Om Shri Hamsa Viraya Namah' },
+  { index: 19, nameIAST: 'Launkḍiyā Vīr', nameDevanagari: 'लौन्कडिया वीर', mantraSanskrit: 'ॐ श्री लौन्कडिया वीराय नमः॥', mantraPhonetic: 'Om Shri Launkdiya Viraya Namah' },
+  { index: 20, nameIAST: 'Vahi Vīr', nameDevanagari: 'वहि वीर', mantraSanskrit: 'ॐ श्री वहि वीराय नमः॥', mantraPhonetic: 'Om Shri Vahi Viraya Namah' },
+  { index: 21, nameIAST: 'Priyamitra Vīr', nameDevanagari: 'प्रियमित्र वीर', mantraSanskrit: 'ॐ श्री प्रियमित्र वीराय नमः॥', mantraPhonetic: 'Om Shri Priyamitra Viraya Namah' },
+  { index: 22, nameIAST: 'Kāru Vīr', nameDevanagari: 'कारु वीर', mantraSanskrit: 'ॐ श्री कारु वीराय नमः॥', mantraPhonetic: 'Om Shri Karu Viraya Namah' },
+  { index: 23, nameIAST: 'Adṛśya Vīr', nameDevanagari: 'अदृश्य वीर', mantraSanskrit: 'ॐ श्री अदृश्य वीराय नमः॥', mantraPhonetic: 'Om Shri Adrishya Viraya Namah' },
+  { index: 24, nameIAST: 'Vallabh Vīr', nameDevanagari: 'वल्लभ वीर', mantraSanskrit: 'ॐ श्री वल्लभ वीराय नमः॥', mantraPhonetic: 'Om Shri Vallabha Viraya Namah' },
+  { index: 25, nameIAST: 'Vajra Vīr', nameDevanagari: 'वज्र वीर', mantraSanskrit: 'ॐ श्री वज्र वीराय नमः॥', mantraPhonetic: 'Om Shri Vajra Viraya Namah' },
+  { index: 26, nameIAST: 'Mahākālī Vīr', nameDevanagari: 'महाकाली वीर', mantraSanskrit: 'ॐ श्री महाकाली वीराय नमः॥', mantraPhonetic: 'Om Shri Mahakali Viraya Namah' },
+  { index: 27, nameIAST: 'Mahālābh Vīr', nameDevanagari: 'महालाभ वीर', mantraSanskrit: 'ॐ श्री महालाभ वीराय नमः॥', mantraPhonetic: 'Om Shri Mahalabha Viraya Namah' },
+  { index: 28, nameIAST: 'Tuṅgabhadr Vīr', nameDevanagari: 'तुंगभद्र वीर', mantraSanskrit: 'ॐ श्री तुंगभद्र वीराय नमः॥', mantraPhonetic: 'Om Shri Tungabhadra Viraya Namah' },
+  { index: 29, nameIAST: 'Vidyādhar Vīr', nameDevanagari: 'विद्याधर वीर', mantraSanskrit: 'ॐ श्री विद्याधर वीराय नमः॥', mantraPhonetic: 'Om Shri Vidyadhara Viraya Namah' },
+  { index: 30, nameIAST: 'Ghaṇṭākarṇ Vīr', nameDevanagari: 'घंटाकर्ण वीर', mantraSanskrit: 'ॐ श्री घंटाकर्ण वीराय नमः॥', mantraPhonetic: 'Om Shri Ghantakarna Viraya Namah' },
+  { index: 31, nameIAST: 'Vaidyanāth Vīr', nameDevanagari: 'बैद्यनाथ वीर', mantraSanskrit: 'ॐ श्री बैद्यनाथ वीराय नमः॥', mantraPhonetic: 'Om Shri Vaidyanatha Viraya Namah' },
+  { index: 32, nameIAST: 'Vibhīṣaṇ Vīr', nameDevanagari: 'विभीषण वीर', mantraSanskrit: 'ॐ श्री विभीषण वीराय नमः॥', mantraPhonetic: 'Om Shri Vibhishana Viraya Namah' },
+  { index: 33, nameIAST: 'Pāhetak Vīr', nameDevanagari: 'फाहेतक वीर', mantraSanskrit: 'ॐ श्री फाहेतक वीराय नमः॥', mantraPhonetic: 'Om Shri Pahetaka Viraya Namah' },
+  { index: 34, nameIAST: 'Pitṛ Vīr', nameDevanagari: 'पितृ वीर', mantraSanskrit: 'ॐ श्री पितृ वीराय नमः॥', mantraPhonetic: 'Om Shri Pitri Viraya Namah' },
+  { index: 35, nameIAST: 'Khaḍga Vīr', nameDevanagari: 'खड्ग वीर', mantraSanskrit: 'ॐ श्री खड्ग वीराय नमः॥', mantraPhonetic: 'Om Shri Khadga Viraya Namah' },
+  { index: 36, nameIAST: 'Nāghasṭ Vīr', nameDevanagari: 'नाघस्ट वीर', mantraSanskrit: 'ॐ श्री नाघस्ट वीराय नमः॥', mantraPhonetic: 'Om Shri Naghasta Viraya Namah' },
+  { index: 37, nameIAST: 'Pradyumna Vīr', nameDevanagari: 'प्रदुम्न वीर', mantraSanskrit: 'ॐ श्री प्रदुम्न वीराय नमः॥', mantraPhonetic: 'Om Shri Pradyumna Viraya Namah' },
+  { index: 38, nameIAST: 'Śmaśān Vīr', nameDevanagari: 'श्मशान वीर', mantraSanskrit: 'ॐ श्री श्मशान वीराय नमः॥', mantraPhonetic: 'Om Shri Shmashana Viraya Namah' },
+  { index: 39, nameIAST: 'Bharudag Vīr', nameDevanagari: 'भरुदग वीर', mantraSanskrit: 'ॐ श्री भरुदग वीराय नमः॥', mantraPhonetic: 'Om Shri Bharudaga Viraya Namah' },
+  { index: 40, nameIAST: 'Kāklekar Vīr', nameDevanagari: 'काकेलेकर वीर', mantraSanskrit: 'ॐ श्री काकेलेकर वीराय नमः॥', mantraPhonetic: 'Om Shri Kaklekara Viraya Namah' },
+  { index: 41, nameIAST: 'Kaṃphilābh Vīr', nameDevanagari: 'कंफिलाभ वीर', mantraSanskrit: 'ॐ श्री कंफिलाभ वीराय नमः॥', mantraPhonetic: 'Om Shri Kamphilabha Viraya Namah' },
+  { index: 42, nameIAST: 'Asthimukh Vīr', nameDevanagari: 'अस्थिमुख वीर', mantraSanskrit: 'ॐ श्री अस्थिमुख वीराय नमः॥', mantraPhonetic: 'Om Shri Asthimukha Viraya Namah' },
+  { index: 43, nameIAST: 'Retovedya Vīr', nameDevanagari: 'रेतोवेद्य वीर', mantraSanskrit: 'ॐ श्री रेतोवेद्य वीराय नमः॥', mantraPhonetic: 'Om Shri Retovedya Viraya Namah' },
+  { index: 44, nameIAST: 'Nakul Vīr', nameDevanagari: 'नकुल वीर', mantraSanskrit: 'ॐ श्री नकुल वीराय नमः॥', mantraPhonetic: 'Om Shri Nakula Viraya Namah' },
+  { index: 45, nameIAST: 'Śaunak Vīr', nameDevanagari: 'शौनक वीर', mantraSanskrit: 'ॐ श्री शौनक वीराय नमः॥', mantraPhonetic: 'Om Shri Shaunaka Viraya Namah' },
+  { index: 46, nameIAST: 'Kālmukh', nameDevanagari: 'कालमुख', mantraSanskrit: 'ॐ श्री कालमुख वीराय नमः॥', mantraPhonetic: 'Om Shri Kalmukha Viraya Namah' },
+  { index: 47, nameIAST: 'Bhūta Bhairav Vīr', nameDevanagari: 'भूतबैरव वीर', mantraSanskrit: 'ॐ श्री भूतभैरव वीराय नमः॥', mantraPhonetic: 'Om Shri Bhuta Bhairava Viraya Namah' },
+  { index: 48, nameIAST: 'Paiśāch Vīr', nameDevanagari: 'पैशाच वीर', mantraSanskrit: 'ॐ श्री पैशाच वीराय नमः॥', mantraPhonetic: 'Om Shri Paishacha Viraya Namah' },
+  { index: 49, nameIAST: 'Trimukh Vīr', nameDevanagari: 'त्रिमुख वीर', mantraSanskrit: 'ॐ श्री त्रिमुख वीराय नमः॥', mantraPhonetic: 'Om Shri Trimukha Viraya Namah' },
+  { index: 50, nameIAST: 'Ḍachak Vīr', nameDevanagari: 'डचक वीर', mantraSanskrit: 'ॐ श्री डचक वीराय नमः॥', mantraPhonetic: 'Om Shri Dachaka Viraya Namah' },
+  { index: 51, nameIAST: 'Aṭṭalād Vīr', nameDevanagari: 'अट्टलाद वीर', mantraSanskrit: 'ॐ श्री अट्टलाद वीराय नमः॥', mantraPhonetic: 'Om Shri Attalada Viraya Namah' },
+  { index: 52, nameIAST: 'Vāsamitra Vīr', nameDevanagari: 'वासमित्र वीर', mantraSanskrit: 'ॐ श्री वासमित्र वीराय नमः॥', mantraPhonetic: 'Om Shri Vasamitra Viraya Namah' }
+];
+
+export const PEETHA_COMPONENT_STRUCTURE_TABLE = [
+  { componentEn: 'Pīṭha', componentHi: 'पीठ (Pīṭha)', descriptionEn: 'Sacred geographical location', descriptionHi: 'पवित्र भौगोलिक स्थान' },
+  { componentEn: 'Śakti', componentHi: 'शक्ति (Śakti)', descriptionEn: 'Goddess worshipped at the location', descriptionHi: 'उस स्थान पर पूजित अधिष्ठात्री देवी' },
+  { componentEn: 'Bhairava', componentHi: 'भैरव (Bhairava)', descriptionEn: 'Corresponding manifestation of Śiva', descriptionHi: 'संबद्ध शिव-भैरव स्वरूप' },
+  { componentEn: 'Satī association', componentHi: 'सती संबद्धता', descriptionEn: 'Body part or ornament associated with the location', descriptionHi: 'उस स्थान से जुड़ा देवी सती का अंग अथवा आभूषण' },
+  { componentEn: 'Sacred tradition', componentHi: 'पवित्र परम्परा', descriptionEn: 'Local history, worship, and pilgrimage', descriptionHi: 'स्थानीय इतिहास, उपासना पद्धति एवं तीर्थयात्रा' }
+];
+
+export const PEETHA_ENUMERATION_NUMBERS_TABLE = [
+  { number: '4', groupingEn: 'Ādi Śakti Pīṭhas', groupingHi: 'आदि शक्तिपीठ (चतुष्पीठ)' },
+  { number: '18', groupingEn: 'Aṣṭādaśa Mahā Pīṭhas', groupingHi: 'अष्टादश महापीठ (१८ महापीठ)' },
+  { number: '51', groupingEn: 'A widely circulated Tantric Pīṭha enumeration', groupingHi: 'व्यापक रूप से प्रचलित तांत्रिक ५१ शक्तिपीठ गणना' },
+  { number: '52', groupingEn: 'A variant enumeration found in some compilations', groupingHi: 'कुछ संकलनों में प्राप्त ५२ शक्तिपीठ गणना' },
+  { number: '64', groupingEn: 'A separate Pīṭha enumeration in certain traditions', groupingHi: 'विशिष्ट तांत्रिक परम्पराओं में ६४ पीठ गणना' },
+  { number: '108', groupingEn: 'An expanded sacred enumeration', groupingHi: 'विस्तृत १०८ शक्तिपीठ गणना' }
+];
+
 export const BAVAN_BHAIRAVA_SECTIONS = [
   {
-    headingEn: '1. Understanding the 52 Bhairavas',
-    headingHi: '१. ५२ भैरवों का शास्त्रीय स्वरूप (Understanding the 52 Bhairavas)',
+    headingEn: 'Introduction — Bāvan Bhairava (बावन भैरव): The Sacred Guardians of the Śakti Pīṭhas',
+    headingHi: 'प्रस्तावना — बावन भैरव: शक्तिपीठों के पवित्र रक्षक',
     bodyEn:
-      '• Bhairava is a fierce and protective manifestation of Lord Shiva.\n' +
-      '• Each Shakti Peetha is traditionally associated with a guardian Bhairava.\n' +
-      '• The Goddess represents Shakti, while Bhairava represents Shiva as the protector of the sacred seat.\n' +
-      '• Kaal Bhairava is especially revered as the guardian of Kashi (Varanasi).\n' +
-      '• Important textual distinction: The commonly circulated lists contain 51 or 52 Peethas depending on the tradition and recension. The names below follow one published 52-Peetha listing, not a universally fixed canonical roster.\n' +
-      '• Source Context: Published via amazingbharat.com (Shiva, Tantra art, Mantras), Tantra Vidya (+2 related recensions), and classical Shakta pilgrimage manuals, this formulation interprets the 52 Bhairavas specifically as the regional protectors of the Shakti Peethas.',
+      'Bāvan Bhairava (बावन भैरव) refers to a traditional grouping of fifty-two Bhairava forms associated in certain Śākta traditions with the fifty-two Śakti Pīṭhas.\n\n' +
+      'Bhairava is a fierce and protective manifestation of Lord Śiva. He represents divine protection, the destruction of negativity, the guardianship of sacred spaces, and the power of time and transformation.\n\n' +
+      'In the Śakti Pīṭha tradition, every sacred seat of the Goddess is associated with a particular form of Śakti and a corresponding Bhairava. The Goddess represents the divine feminine power, while Bhairava represents the accompanying Śaiva presence and guardianship.\n\n' +
+      'The Bāvan Bhairava concept therefore expresses the relationship between Śiva and Śakti across a sacred geography of temples, pilgrimage sites, and spiritual centres.\n\n' +
+      'It is important to understand that the number fifty-two is not universally accepted across all Śākta traditions. Lists of Śakti Pīṭhas differ, with traditions and texts referring to 4, 18, 51, 52, 64, 108, and other numbers. Consequently, the names and associations of the Bhairavas also vary.',
     bodyHi:
-      '• भैरव भगवान् शिव के अत्यंत उग्र, तेजस्वी और रक्षाकारी स्वरूप हैं।\n' +
-      '• प्रत्येक शक्तिपीठ पारंपरिक रूप से एक रक्षक भैरव से संबंद्ध है।\n' +
-      '• देवी उस पवित्र पीठ की "शक्ति" का प्रतिनिधित्व करती हैं, जबकि भैरव उस पीठ के रक्षक के रूप में "शिव" का प्रतिनिधित्व करते हैं।\n' +
-      '• काशी (वाराणसी) के रक्षक के रूप में काल भैरव को विशेष रूप से काशी का कोतवाल माना जाता है।\n' +
-      '• महत्त्वपूर्ण शास्त्रीय भेद: जनसामान्य में प्रचलित सूचियों में परम्परा और पाठ-भेद के अनुसार ५१ अथवा ५२ पीठ माने जाते हैं। नीचे दी गई नामावली प्रकाशित ५२-पीठ परम्परा का अनुसरण करती है, जो सर्वमान्य स्थिर एकाश्मीय सूची नहीं अपितु बहु-शास्त्रीय पाठ-परम्परा है।'
+      'बावन भैरव (Bāvan Bhairava) कतिपय शाक्त परम्पराओं में बावन शक्तिपीठों से संबद्ध भगवान् भैरव के बावन स्वरूपों के पारंपरिक समूह को संदर्भित करता है।\n\n' +
+      'भैरव भगवान् शिव के उग्र और रक्षाकारी स्वरूप हैं। वे दैवी संरक्षण, नकारात्मकता के विनाश, पवित्र स्थानों के क्षेत्रपाल-रक्षण तथा काल और रूपांतरण की शक्ति का प्रतिनिधित्व करते हैं।\n\n' +
+      'शक्तिपीठ परम्परा में देवी का प्रत्येक पवित्र पीठ शक्ति के एक विशिष्ट स्वरूप और एक संबद्ध भैरव से जुड़ा होता है। देवी दिव्य स्त्री-शक्ति का प्रतिनिधित्व करती हैं, जबकि भैरव सहगामी शैव उपस्थिति और संरक्षकत्व का प्रतिनिधित्व करते हैं।\n\n' +
+      'यह समझना महत्त्वपूर्ण है कि बावन (५२) की संख्या सभी शाक्त परम्पराओं में सार्वभौमिक रूप से एकसमान नहीं है। ग्रंथों और परम्पराओं में ४, १८, ५१, ५२, ६४, १०८ आदि संख्याओं का उल्लेख मिलता है, जिसके परिणामस्वरूप भैरवों के नाम और संबंध भी भिन्न होते हैं।'
   },
   {
-    headingEn: '2. Complete List: 52 Bhairava Names and Devotional Mantras',
-    headingHi: '२. संपूर्ण नामावली: ५२ भैरव नाम एवं भक्ति नाम-मन्त्र (01–52)',
+    headingEn: '1. Who Is Bhairava?',
+    headingHi: '१. भैरव कौन हैं? (Who Is Bhairava?)',
     bodyEn:
-      'The following is a devotional reference list. The mantras are simple name-based salutations formed for each Bhairava, not claimed to be independently attested Tantric Mula Mantras.\n\n' +
-      '01. भीमलोचन - Bhimalochana\nॐ श्री भीमलोचन भैरवाय नमः॥\nOm Shri Bhimalochana Bhairavaya Namah\n\n' +
-      '02. क्रोधीश - Krodhisha\nॐ श्री क्रोधीश भैरवाय नमः॥\nOm Shri Krodhisha Bhairavaya Namah\n\n' +
-      '03. त्र्यम्बक - Tryambaka\nॐ श्री त्र्यम्बक भैरवाय नमः॥\nOm Shri Tryambaka Bhairavaya Namah\n\n' +
-      '04. त्रिसन्ध्येश्वर - Trisandhyeshwara\nॐ श्री त्रिसन्ध्येश्वर भैरवाय नमः॥\nOm Shri Trisandhyeshwara Bhairavaya Namah\n\n' +
-      '05. उन्मत्त - Unmatta\nॐ श्री उन्मत्त भैरवाय नमः॥\nOm Shri Unmatta Bhairavaya Namah\n\n' +
-      '06. भीषण - Bhishana\nॐ श्री भीषण भैरवाय नमः॥\nOm Shri Bhishana Bhairavaya Namah\n\n' +
-      '07. वैद्यनाथ - Vaidyanatha\nॐ श्री वैद्यनाथ भैरवाय नमः॥\nOm Shri Vaidyanatha Bhairavaya Namah\n\n' +
-      '08. कपाली - Kapali\nॐ श्री कपाली भैरवाय नमः॥\nOm Shri Kapali Bhairavaya Namah\n\n' +
-      '09. अमर - Amara\nॐ श्री अमर भैरवाय नमः॥\nOm Shri Amara Bhairavaya Namah\n\n' +
-      '10. जगन्नाथ - Jagannatha\nॐ श्री जगन्नाथ भैरवाय नमः॥\nOm Shri Jagannatha Bhairavaya Namah\n\n' +
-      '11. चक्रपाणि - Chakrapani\nॐ श्री चक्रपाणि भैरवाय नमः॥\nOm Shri Chakrapani Bhairavaya Namah\n\n' +
-      '12. भीरुक - Bhiruka\nॐ श्री भीरुक भैरवाय नमः॥\nOm Shri Bhiruka Bhairavaya Namah\n\n' +
-      '13. मङ्गलचण्डिकेश - Mangalachandikesha\nॐ श्री मङ्गलचण्डिकेश भैरवाय नमः॥\nOm Shri Mangalachandikesha Bhairavaya Namah\n\n' +
-      '14. चन्द्रशेखर - Chandrashekhara\nॐ श्री चन्द्रशेखर भैरवाय नमः॥\nOm Shri Chandrashekhara Bhairavaya Namah\n\n' +
-      '15. त्रिपुरेश - Tripuresha\nॐ श्री त्रिपुरेश भैरवाय नमः॥\nOm Shri Tripuresha Bhairavaya Namah\n\n' +
-      '16. निमिष - Nimisha\nॐ श्री निमिष भैरवाय नमः॥\nOm Shri Nimisha Bhairavaya Namah\n\n' +
-      '17. उमानन्द - Umananda\nॐ श्री उमानन्द भैरवाय नमः॥\nOm Shri Umananda Bhairavaya Namah\n\n' +
-      '18. अभिरु - Abhiru\nॐ श्री अभिरु भैरवाय नमः॥\nOm Shri Abhiru Bhairavaya Namah\n\n' +
-      '19. नकुलीश - Nakulisha\nॐ श्री नकुलीश भैरवाय नमः॥\nOm Shri Nakulisha Bhairavaya Namah\n\n' +
-      '20. भव - Bhava\nॐ श्री भव भैरवाय नमः॥\nOm Shri Bhava Bhairavaya Namah\n\n' +
-      '21. क्रूर - Krura\nॐ श्री क्रूर भैरवाय नमः॥\nOm Shri Krura Bhairavaya Namah\n\n' +
-      '22. सानन्द - Sananda\nॐ श्री सानन्द भैरवाय नमः॥\nOm Shri Sananda Bhairavaya Namah\n\n' +
-      '23. दण्डपाणि - Dandapani\nॐ श्री दण्डपाणि भैरवाय नमः॥\nOm Shri Dandapani Bhairavaya Namah\n\n' +
-      '24. रुरु - Ruru\nॐ श्री रुरु भैरवाय नमः॥\nOm Shri Ruru Bhairavaya Namah\n\n' +
-      '25. स्थाणु - Sthanu\nॐ श्री स्थाणु भैरवाय नमः॥\nOm Shri Sthanu Bhairavaya Namah\n\n' +
-      '26. शम्बरानन्द - Shambarananda\nॐ श्री शम्बरानन्द भैरवाय नमः॥\nOm Shri Shambarananda Bhairavaya Namah\n\n' +
-      '27. सुन्दरानन्द - Sundarananda\nॐ श्री सुन्दरानन्द भैरवाय नमः॥\nOm Shri Sundarananda Bhairavaya Namah\n\n' +
-      '28. वेदगर्भ - Vedagarbha\nॐ श्री वेदगर्भ भैरवाय नमः॥\nOm Shri Vedagarbha Bhairavaya Namah\n\n' +
-      '29. लम्बकर्ण - Lambakarna\nॐ श्री लम्बकर्ण भैरवाय नमः॥\nOm Shri Lambakarna Bhairavaya Namah\n\n' +
-      '30. भूतेश - Bhutesha\nॐ श्री भूतेश भैरवाय नमः॥\nOm Shri Bhutesha Bhairavaya Namah\n\n' +
-      '31. संहार - Samhara\nॐ श्री संहार भैरवाय नमः॥\nOm Shri Samhara Bhairavaya Namah\n\n' +
-      '32. ईशान - Ishana\nॐ श्री ईशान भैरवाय नमः॥\nOm Shri Ishana Bhairavaya Namah\n\n' +
-      '33. अमरेश - Amaresha\nॐ श्री अमरेश भैरवाय नमः॥\nOm Shri Amaresha Bhairavaya Namah\n\n' +
-      '34. महाभैरव - Mahabhairava\nॐ श्री महाभैरवाय नमः॥\nOm Shri Mahabhairavaya Namah\n\n' +
-      '35. वक्रनाथ - Vakranatha\nॐ श्री वक्रनाथ भैरवाय नमः॥\nOm Shri Vakranatha Bhairavaya Namah\n\n' +
-      '36. विजय - Vijaya\nॐ श्री विजय भैरवाय नमः॥\nOm Shri Vijaya Bhairavaya Namah\n\n' +
-      '37. अच्युत - Achyuta\nॐ श्री अच्युत भैरवाय नमः॥\nOm Shri Achyuta Bhairavaya Namah\n\n' +
-      '38. सर्वानन्द - Sarvananda\nॐ श्री सर्वानन्द भैरवाय नमः॥\nOm Shri Sarvananda Bhairavaya Namah\n\n' +
-      '39. कपालभृत् - Kapalabhrut\nॐ श्री कपालभृत् भैरवाय नमः॥\nOm Shri Kapalabhrut Bhairavaya Namah\n\n' +
-      '40. शम्भु - Shambhu\nॐ श्री शम्भु भैरवाय नमः॥\nOm Shri Shambhu Bhairavaya Namah\n\n' +
-      '41. काल - Kala\nॐ श्री काल भैरवाय नमः॥\nOm Shri Kala Bhairavaya Namah\n\n' +
-      '42. महाकाल - Mahakala\nॐ श्री महाकाल भैरवाय नमः॥\nOm Shri Mahakala Bhairavaya Namah\n\n' +
-      '43. बटुक - Batuka\nॐ श्री बटुक भैरवाय नमः॥\nOm Shri Batuka Bhairavaya Namah\n\n' +
-      '44. त्रिलोचन - Trilocana\nॐ श्री त्रिलोचन भैरवाय नमः॥\nOm Shri Trilocana Bhairavaya Namah\n\n' +
-      '45. सुषेण - Sushena\nॐ श्री सुषेण भैरवाय नमः॥\nOm Shri Sushena Bhairavaya Namah\n\n' +
-      '46. भीषणक - Bhishanaka\nॐ श्री भीषणक भैरवाय नमः॥\nOm Shri Bhishanaka Bhairavaya Namah\n\n' +
-      '47. अज - Aja\nॐ श्री अज भैरवाय नमः॥\nOm Shri Aja Bhairavaya Namah\n\n' +
-      '48. हर - Hara\nॐ श्री हर भैरवाय नमः॥\nOm Shri Hara Bhairavaya Namah\n\n' +
-      '49. शूली - Shuli\nॐ श्री शूली भैरवाय नमः॥\nOm Shri Shuli Bhairavaya Namah\n\n' +
-      '50. मुण्डी - Mundi\nॐ श्री मुण्डी भैरवाय नमः॥\nOm Shri Mundi Bhairavaya Namah\n\n' +
-      '51. राक्षसेश्वर - Rakshaseshwara\nॐ श्री राक्षसेश्वर भैरवाय नमः॥\nOm Shri Rakshaseshwara Bhairavaya Namah\n\n' +
-      '52. सदाशिव - Sadashiva\nॐ श्री सदाशिव भैरवाय नमः॥\nOm Shri Sadashiva Bhairavaya Namah',
+      'Bhairava (भैरव) is a powerful manifestation of Lord Śiva worshipped throughout Śaiva and Śākta traditions.\n' +
+      'The word Bhairava is traditionally associated with divine awe, formidable power, and the destruction of fear. Bhairava is understood through several theological and devotional interpretations.\n\n' +
+      '(1) Protector: Guards sacred places, temples, and spiritual territories.\n' +
+      '(2) Destroyer: Represents the destruction of ignorance, arrogance, and negative forces.\n' +
+      '(3) Guardian of time: Particularly in traditions associated with Kālabhairava.\n' +
+      '(4) Lord of transformation: Represents the dissolution of limitations and the transformation of consciousness.\n' +
+      '(5) Companion of Śakti: Appears alongside the Goddess in numerous Śākta traditions.\n' +
+      '(6) Guardian of sacred boundaries: Associated with the protection of temples and sacred regions.\n\n' +
+      'Bhairava and Śiva: Bhairava is not generally understood as a separate god unrelated to Śiva. He is worshipped as a manifestation or form of Śiva. Different traditions describe his manifestations through different names, attributes, directions, powers, and ritual functions.',
     bodyHi:
-      'यह एक भक्ति संदर्भ सूची है। ये मन्त्र प्रत्येक भैरव के नाम पर आधारित सरल भक्ति-प्रणाम मन्त्र हैं, जिन्हें स्वतंत्र शास्त्रीय तांत्रिक मूल मन्त्र होने का दावा नहीं किया गया है।\n\n' +
-      '०१. भीमलोचन — ॐ श्री भीमलोचन भैरवाय नमः॥\n' +
-      '०२. क्रोधीश — ॐ श्री क्रोधीश भैरवाय नमः॥\n' +
-      '०३. त्र्यम्बक — ॐ श्री त्र्यम्बक भैरवाय नमः॥\n' +
-      '०४. त्रिसन्ध्येश्वर — ॐ श्री त्रिसन्ध्येश्वर भैरवाय नमः॥\n' +
-      '०५. उन्मत्त — ॐ श्री उन्मत्त भैरवाय नमः॥\n' +
-      '०६. भीषण — ॐ श्री भीषण भैरवाय नमः॥\n' +
-      '०७. वैद्यनाथ — ॐ श्री वैद्यनाथ भैरवाय नमः॥\n' +
-      '०८. कपाली — ॐ श्री कपाली भैरवाय नमः॥\n' +
-      '०९. अमर — ॐ श्री अमर भैरवाय नमः॥\n' +
-      '१०. जगन्नाथ — ॐ श्री जगन्नाथ भैरवाय नमः॥\n' +
-      '११. चक्रपाणि — ॐ श्री चक्रपाणि भैरवाय नमः॥\n' +
-      '१२. भीरुक — ॐ श्री भीरुक भैरवाय नमः॥\n' +
-      '१३. मङ्गलचण्डिकेश — ॐ श्री मङ्गलचण्डिकेश भैरवाय नमः॥\n' +
-      '१४. चन्द्रशेखर — ॐ श्री चन्द्रशेखर भैरवाय नमः॥\n' +
-      '१५. त्रिपुरेश — ॐ श्री त्रिपुरेश भैरवाय नमः॥\n' +
-      '१६. निमिष — ॐ श्री निमिष भैरवाय नमः॥\n' +
-      '१७. उमानन्द — ॐ श्री उमानन्द भैरवाय नमः॥\n' +
-      '१८. अभिरु — ॐ श्री अभिरु भैरवाय नमः॥\n' +
-      '१९. नकुलीश — ॐ श्री नकुलीश भैरवाय नमः॥\n' +
-      '२०. भव — ॐ श्री भव भैरवाय नमः॥\n' +
-      '२१. क्रूर — ॐ श्री क्रूर भैरवाय नमः॥\n' +
-      '२२. सानन्द — ॐ श्री सानन्द भैरवाय नमः॥\n' +
-      '२३. दण्डपाणि — ॐ श्री दण्डपाणि भैरवाय नमः॥\n' +
-      '२४. रुरु — ॐ श्री रुरु भैरवाय नमः॥\n' +
-      '२५. स्थाणु — ॐ श्री स्थाणु भैरवाय नमः॥\n' +
-      '२६. शम्बरानन्द — ॐ श्री शम्बरानन्द भैरवाय नमः॥\n' +
-      '२७. सुन्दरानन्द — ॐ श्री सुन्दरानन्द भैरवाय नमः॥\n' +
-      '२८. वेदगर्भ — ॐ श्री वेदगर्भ भैरवाय नमः॥\n' +
-      '२९. लम्बकर्ण — ॐ श्री लम्बकर्ण भैरवाय नमः॥\n' +
-      '३०. भूतेश — ॐ श्री भूतेश भैरवाय नमः॥\n' +
-      '३१. संहार — ॐ श्री संहार भैरवाय नमः॥\n' +
-      '३२. ईशान — ॐ श्री ईशान भैरवाय नमः॥\n' +
-      '३३. अमरेश — ॐ श्री अमरेश भैरवाय नमः॥\n' +
-      '३४. महाभैरव — ॐ श्री महाभैरवाय नमः॥\n' +
-      '३५. वक्रनाथ — ॐ श्री वक्रनाथ भैरवाय नमः॥\n' +
-      '३६. विजय — ॐ श्री विजय भैरवाय नमः॥\n' +
-      '३७. अच्युत — ॐ श्री अच्युत भैरवाय नमः॥\n' +
-      '३८. सर्वानन्द — ॐ श्री सर्वानन्द भैरवाय नमः॥\n' +
-      '३९. कपालभृत् — ॐ श्री कपालभृत् भैरवाय नमः॥\n' +
-      '४०. शम्भु — ॐ श्री शम्भु भैरवाय नमः॥\n' +
-      '४१. काल — ॐ श्री काल भैरवाय नमः॥\n' +
-      '४२. महाकाल — ॐ श्री महाकाल भैरवाय नमः॥\n' +
-      '४३. बटुक — ॐ श्री बटुक भैरवाय नमः॥\n' +
-      '४४. त्रिलोचन — ॐ श्री त्रिलोचन भैरवाय नमः॥\n' +
-      '४५. सुषेण — ॐ श्री सुषेण भैरवाय नमः॥\n' +
-      '४६. भीषणक — ॐ श्री भीषणक भैरवाय नमः॥\n' +
-      '४७. अज — ॐ श्री अज भैरवाय नमः॥\n' +
-      '४८. हर — ॐ श्री हर भैरवाय नमः॥\n' +
-      '४९. शूली — ॐ श्री शूली भैरवाय नमः॥\n' +
-      '५०. मुण्डी — ॐ श्री मुण्डी भैरवाय नमः॥\n' +
-      '५१. राक्षसेश्वर — ॐ श्री राक्षसेश्वर भैरवाय नमः॥\n' +
-      '५२. सदाशिव — ॐ श्री सदाशिव भैरवाय नमः॥'
+      'भैरव (Bhairava) भगवान् शिव के एक अत्यंत शक्तिशाली विग्रह हैं जिनकी आराधना शैव और शाक्त दोनों परम्पराओं में की जाती है।\n' +
+      '(१) रक्षक (Protector): पवित्र तीर्थों, मंदिरों और आध्यात्मिक क्षेत्रों की रक्षा करते हैं।\n' +
+      '(२) संहारक (Destroyer): अज्ञान, अहंकार और आसुरी शक्तियों के विनाश का प्रतिनिधित्व करते हैं।\n' +
+      '(३) काल के अधिपति (Guardian of Time): विशेषतः कालभैरव से जुड़ी परम्पराओं में।\n' +
+      '(४) रूपांतरण के स्वामी (Lord of Transformation): सीमाओं के विलय और चेतना के ऊर्ध्व रूपांतरण के प्रतीक।\n' +
+      '(५) शक्ति के सहचर (Companion of Śakti): अनेक शाक्त परम्पराओं में भगवती के साथ युग्मित रूप में प्रतिष्ठित।\n' +
+      '(६) पवित्र सीमाओं के क्षेत्रपाल (Guardian of Sacred Boundaries): मंदिरों और तीर्थ-क्षेत्रों की रक्षा से संबद्ध।\n\n' +
+      'भैरव और शिव: भैरव को शिव से पृथक् कोई अन्य देवता नहीं माना जाता, अपितु वे भगवान् शिव के ही पूर्ण एवं उग्र रक्षक स्वरूप हैं।'
   },
   {
-    headingEn: '3. Collective 52 Bhairava Prayer',
-    headingHi: '३. सामूहिक श्री बावन भैरव समर्पण मंत्र',
+    headingEn: '2. The Meaning of Bāvan Bhairava',
+    headingHi: '२. बावन भैरव का अर्थ (The Meaning of Bāvan Bhairava)',
     bodyEn:
-      '॥ श्री बावन भैरव समर्पण मंत्र ॥\n\n' +
-      'ॐ श्रीं भैरवाय नमः॥\n' +
-      'Om Shreem Bhairavaya Namah\n\n' +
-      'ॐ श्री बावन भैरवेभ्यो नमः॥\n' +
-      'Om Shri Bavan Bhairavebhyo Namah\n\n' +
-      '"Salutations to the fifty-two manifestations of Bhairava."\n\n' +
-      'This collective prayer invokes the supreme light of Shiva-Bhairava to protect the body, mind, prana, and pilgrim environment across all sacred quarters.',
+      'The Sanskrit number fifty-two is Dvāpañcāśat (द्वापञ्चाशत्), while Bāvan (बावन) is its familiar Hindi form.\n' +
+      'Bāvan Bhairava refers to a grouping of fifty-two Bhairavas.\n' +
+      'In the Śakti Pīṭha-related classification, the number is associated with the sacred seats of the Goddess.\n\n' +
+      'Each Pīṭha is traditionally associated with:\n' +
+      '(1) Sacred Geographical Location: A consecrated pilgrimage site.\n' +
+      '(2) Manifestation of Śakti: A particular form of the Goddess worshipped there.\n' +
+      '(3) Satī Relic Association: A body part or ornament associated with the Goddess Satī in the traditional origin narrative.\n' +
+      '(4) Corresponding Bhairava: The accompanying Śaiva guardian manifestation.\n' +
+      '(5) Local Temple Tradition: Specific regional customs, history, and forms of worship.\n\n' +
+      'The Bhairava associated with a Pīṭha may have a distinct name, such as Kālabhairava, Viśveśa, Kapālī, Vakranātha, or another traditional form. These names and associations are not identical across all lists.',
     bodyHi:
-      '॥ श्री बावन भैरव समर्पण मंत्र ॥\n\n' +
-      'ॐ श्रीं भैरवाय नमः॥\n' +
-      'Om Shreem Bhairavaya Namah\n\n' +
-      'ॐ श्री बावन भैरवेभ्यो नमः॥\n' +
-      'Om Shri Bavan Bhairavebhyo Namah\n\n' +
-      '"बावन भैरव स्वरूपों को सादर नमन।"\n\n' +
-      'यह सामूहिक समर्पण मन्त्र समस्त ५२ शक्तिपीठों की रक्षक ऊर्जा को एकाग्र कर साधक के अंतःकरण में आध्यात्मिक अभय-कवच प्रतिष्ठित करता है।'
+      'संस्कृत में बावन की संख्या को "द्वापञ्चाशत्" कहा जाता है और "बावन" इसका प्रचलित हिंदी रूप है।\n' +
+      'प्रत्येक शक्तिपीठ पारंपरिक रूप से ५ तत्त्वों से जुड़ा होता है:\n' +
+      '(१) पवित्र भौगोलिक स्थान\n' +
+      '(२) शक्ति का विशिष्ट स्वरूप\n' +
+      '(३) देवी सती का पतित अंग अथवा आभूषण\n' +
+      '(४) संबद्ध रक्षक भैरव (जैसे कालभैरव, विश्वेश, कपाली, वक्रनाथ आदि)\n' +
+      '(५) स्थानीय मंदिर परम्परा एवं उपासना पद्धति।'
   },
   {
-    headingEn: '4. Important Source Articles and References',
-    headingHi: '४. प्रमुख शास्त्रीय स्रोत एवं संदर्भ ग्रन्थ',
+    headingEn: '3. The Origin of the Śakti Pīṭhas',
+    headingHi: '३. शक्तिपीठों की उत्पत्ति (The Origin of the Śakti Pīṭhas)',
     bodyEn:
-      '1. amazingbharat.com — "52 Shakti Peethas & their Bhairavas" (Shiva, Tantra art, Mantras & traditional concordance).\n' +
-      '2. India For You — Sanatan Bodh & Pavitra Granth listings of traditional Shakta Peethas and guardian Bhairavas.\n' +
-      '3. Tantra Vidya (tantravidya.org) — Bhairava Sadhana methodologies and protective mandala structures.\n' +
-      '4. French Institute of Pondicherry (IFP) — Indological Manuscript Collections on Shaiva-Shakta iconography and Matrika-Bhairava alignments.\n' +
-      '5. Bhairava Chatushshashti Namavali — The 64 Bhairava canonical texts (Rudrayamala and Kashmir Shaivism) used for comparative differentiation.\n' +
-      '6. D.C. Sircar — The Śākta Pīṭhas (Motilal Banarsidass / Asiatic Society), the landmark critical edition of the Sanskrit Pīṭhanirṇaya.',
+      'The traditional origin of the Śakti Pīṭhas is connected with the story of Goddess Satī and Lord Śiva.\n\n' +
+      'The story of Satī: Satī, the daughter of Prajāpati Dakṣa, married Lord Śiva. Dakṣa disapproved of the marriage and organized a great sacrificial ceremony. He invited many divine beings but deliberately excluded Śiva. Despite Śiva’s objections, Satī attended the ceremony. There, she witnessed the disrespect shown toward her husband. Unable to bear the insult, Satī gave up her physical body through yogic fire, according to the traditional narrative.\n\n' +
+      'When Śiva learned of her death, he became overwhelmed with grief and carried her body while wandering through the universe. To restore cosmic order, Lord Viṣṇu used his Sudarśana Cakra to divide Satī’s body. The places where her body parts or ornaments are traditionally believed to have fallen became sacred Śakti Pīṭhas.\n\n' +
+      'The emergence of the Pīṭha tradition: At these sacred places, the Goddess is worshipped in different manifestations of Śakti. A corresponding Bhairava is also associated with each place. This relationship symbolizes the inseparability of Śiva and Śakti. The Bhairava is understood as the guardian or accompanying divine presence of the Pīṭha, while the Goddess is its presiding Śakti. The specific narrative details and lists differ between textual and regional traditions.',
     bodyHi:
-      '१. amazingbharat.com — "52 Shakti Peethas & their Bhairavas" (शिव, तन्त्र कला, मन्त्र एवं शक्तिपीठ भैरव विवरण)।\n' +
-      '२. India For You — सनातन बोध एवं पवित्र ग्रन्थ संकलन (शक्तिपीठ एवं क्षेत्रपाल भैरव परम्परा)।\n' +
-      '३. Tantra Vidya — भैरव साधना एवं रक्षा-मण्डल विन्यास।\n' +
-      '४. फ्रेंच इंस्टीट्यूट ऑफ पॉन्डिचेरी (IFP) — शैव-शाक्त प्रतिमाशास्त्र एवं हस्तलिखित ग्रन्थ अभिलेखागार।\n' +
-      '५. भैरव चतुःषष्टि नामावली — ६४ भैरव तुलनात्मक शास्त्रीय ग्रन्थ (रुद्रयामल एवं काश्मीर शैव दर्शन)।\n' +
-      '६. डॉ. डी.सी. सरकार — "द शाक्त पीठस" (एशियाटिक सोसाइटी / मोतीलाल बनारसीदास), संस्कृत पीठनिर्णय ग्रन्थ का प्रामाणिक समीक्षात्मक संस्करण।'
+      'शक्तिपीठों की पारंपरिक उत्पत्ति देवी सती और भगवान् शिव की कथा से जुड़ी है।\n\n' +
+      'सती की कथा: प्रजापति दक्ष की पुत्री सती ने भगवान् शिव से विवाह किया। दक्ष ने एक विशाल यज्ञ का आयोजन किया और जानबूझकर शिव को आमंत्रित नहीं किया। पति के प्रति अपमान सहन न कर पाने के कारण सती ने योगाग्नि द्वारा अपनी पार्थिव देह का त्याग कर दिया। शोकाकुल शिव सती के पार्थिव शरीर को लेकर ब्रह्माण्ड में भ्रमण करने लगे। सृष्टि-व्यवस्था के संतुलन हेतु भगवान् विष्णु ने अपने सुदर्शन चक्र से सती की देह को विभक्त किया। जहाँ-जहाँ सती के अंग या आभूषण गिरे, वे स्थान पवित्र शक्तिपीठ बन गए।\n\n' +
+      'पीठ परम्परा का उदय: इन पवित्र स्थानों पर देवी की विभिन्न शक्ति-स्वरूपों में पूजा होती है और प्रत्येक स्थान के साथ एक संबद्ध भैरव प्रतिष्ठित हैं, जो शिव और शक्ति की अभिन्नता के प्रतीक हैं।'
   },
   {
-    headingEn: '5. Do Not Confuse These Three Systems',
-    headingHi: '५. तीन भैरव प्रणालियों में भेद: इन्हें परस्पर मिश्रित न करें',
+    headingEn: '4. The Relationship Between the 52 Śakti Pīṭhas and 52 Bhairavas',
+    headingHi: '४. ५२ शक्तिपीठों और ५२ भैरवों का पारस्परिक संबंध',
     bodyEn:
-      'A crucial requirement of academic and tantric rigor is distinguishing between the three distinct numerical systems of Bhairava:\n\n' +
-      '1. AṢṬA BHAIRAVA (Eight Bhairavas):\n' +
-      '• Count: 8 forms.\n' +
-      '• Function: Preside over the eight directions (East to North-East) and serve as consorts to the Eight Matrikas (Brahmani to Chandika).\n' +
-      '• Names: Asitanga, Ruru, Chanda, Krodha, Unmatta, Kapala, Bhishana, Samhara.\n' +
-      '• Context: Primary directional guardians of temple complexes and the sacred territory of Kashi.\n\n' +
-      '2. CHATUḤṢAṢṬI BHAIRAVA (Sixty-Four Bhairavas):\n' +
-      '• Count: 64 forms.\n' +
-      '• Function: Represents the complete 8 × 8 octad expansion corresponding to the 64 Yoginis in hypaethral temples.\n' +
-      '• Context: Expounded in the Rudrayamala, Tantraloka, and Srimatottara Tantra. Encodes all 64 arts (Kalas) and Sanskrit sonic phonemes.\n\n' +
-      '3. SHAKTI PEETHA BHAIRAVAS (Fifty-One or Fifty-Two Bhairavas):\n' +
-      '• Count: 51 or 52 forms.\n' +
-      '• Function: Stationed as guardian protectors (Kshetrapalas) at every geological Shakti Peetha where a relic of Sati fell.\n' +
-      '• Names: Bhimalochana, Krodhisha, Tryambaka, Trisandhyeshwara, Unmatta, Vaidyanatha, etc., culminating in Sadashiva.\n' +
-      '• Context: Rooted in the Pithanirnaya, Tantrachudamani, and regional Shakta pilgrimage itineraries.',
+      'The Bāvan Bhairava classification is best understood through the relationship between the Goddess and Bhairava at each sacred Pīṭha.\n\n' +
+      'A traditional Pīṭha entry contains five core components: Pīṭha (Sacred geographical location), Śakti (Goddess worshipped at the location), Bhairava (Corresponding manifestation of Śiva), Satī association (Body part or ornament associated with the location), and Sacred tradition (Local history, worship, and pilgrimage).\n\n' +
+      'For example, certain traditional lists associate:\n' +
+      '• Kāmakṣī with Kālabhairava.\n' +
+      '• Avanti with Lambakarṇa.\n' +
+      '• Mahāmāyā with Trisaṃdhyēśvara.\n' +
+      '• Phullarā with Viśveśa.\n' +
+      '• Mahālakṣmī of Śrīśaila with Śambarananda.\n\n' +
+      'These are examples from particular compilations, not a universal list applicable to every Pīṭha enumeration. The name of a Bhairava can vary depending on the source, regional tradition, and identification of the sacred location.',
     bodyHi:
-      'शास्त्रीय दृष्टि से भैरव के तीन विशिष्ट संख्यात्मक प्रणालियों को परस्पर अलग समझना अनिवार्य है:\n\n' +
-      '१. अष्ट भैरव (८ भैरव): आठों दिशाओं के दिक्पाल तथा अष्टमातृकाओं के भैरव-सहचर (असितांग, रुरु, चण्ड, क्रोध, उन्मत्त, कपाल, भीषण, संहार)।\n' +
-      '२. चतुःषष्टि भैरव (६४ भैरव): चौंसठ योगिनी मण्डल का ६४ पुरुष-चैतन्य विस्तार (८ अष्टकों में विभक्त, ६४ कलाओं के अधिष्ठाता)।\n' +
-      '३. शक्तिपीठ भैरव (५१ अथवा ५२ भैरव): जहाँ-जहाँ सती के पावन अंग गिरे, उन शक्तिपीठों के क्षेत्रपाल और रक्षक के रूप में प्रतिष्ठित शिव-स्वरूप (भीमलोचन से आरंभ होकर सदाशिव पर्यन्त)।'
+      'बावन भैरव वर्गीकरण को प्रत्येक पवित्र पीठ पर देवी और भैरव के संबंध के माध्यम से सबसे अच्छी तरह समझा जा सकता है।\n\n' +
+      'उदाहरण के लिए, कुछ पारंपरिक सूचियों में निम्नलिखित युग्म मिलते हैं:\n' +
+      '• कामाक्षी के साथ कालभैरव।\n' +
+      '• अवन्ती के साथ लम्बकर्ण।\n' +
+      '• महामाया के साथ त्रिसन्ध्येश्वर।\n' +
+      '• फुल्लरा के साथ विश्वेश।\n' +
+      '• श्रीशैल की महालक्ष्मी के साथ शम्बरानन्द।\n\n' +
+      'ये विशिष्ट संकलनों के उदाहरण हैं; स्रोत, क्षेत्रीय परम्परा और तीर्थ की पहचान के आधार पर भैरव का नाम भिन्न हो सकता है।'
   },
   {
-    headingEn: '6. Origin and Mythology of the 51/52 Shakti Peethas & Bhairava Guardians',
-    headingHi: '६. शक्तिपीठों एवं भैरव क्षेत्रपालों की प्राकट्य-कथा',
+    headingEn: '5. Why Are There Different Numbers of Śakti Pīṭhas?',
+    headingHi: '५. शक्तिपीठों की विभिन्न संख्याएँ क्यों हैं? (4, 18, 51, 52, 64, 108)',
     bodyEn:
-      'The theological foundation of the Shakti Peetha Bhairavas is rooted in the Mahābhāgavata Purāṇa, Kālikā Purāṇa, and Śiva Purāṇa:\n\n' +
-      '1. Daksha’s Yajna & Sati’s Sacrifice: Prajapati Daksha organized a grand Vedic sacrifice but deliberately insulted Lord Shiva. Unable to tolerate the disrespect towards Mahadeva, Sati immolated her physical form in Yogagni.\n\n' +
-      '2. The Cosmic Grief & Tandava: Stricken with grief and fury, Shiva manifested Virabhadra to destroy the sacrifice. Bearing Sati’s lifeless body upon his shoulders, Shiva performed the cosmic Pralaya Tandava, shaking the universe.\n\n' +
-      '3. The Sudarshana Disintegration: To preserve cosmic equilibrium, Lord Vishnu released his Sudarshana Chakra, severing Sati’s body into fragments that consecrated sacred Peethas across the subcontinent.\n\n' +
-      '4. Installation of the Guardian Bhairavas: Shiva pledged that wherever an organ, limb, or ornament of Sati fell, he would forever manifest as a guardian Bhairava to protect the Goddess and her pilgrims. Thus, every Shakti Peetha is incomplete without its Bhairava.',
+      'There is no single universally accepted enumeration of Śakti Pīṭhas. Different scriptures, Tantric traditions, regional accounts, and pilgrimage compilations preserve different numbers.\n\n' +
+      'Commonly encountered enumerations include:\n' +
+      '• 4 — Ādi Śakti Pīṭhas\n' +
+      '• 18 — Aṣṭādaśa Mahā Pīṭhas\n' +
+      '• 51 — A widely circulated Tantric Pīṭha enumeration\n' +
+      '• 52 — A variant enumeration found in some compilations\n' +
+      '• 64 — A separate Pīṭha enumeration in certain traditions\n' +
+      '• 108 — An expanded sacred enumeration\n\n' +
+      'The Pīṭhanirṇaya and related compilations are important sources for studying the names, locations, Śaktis, and Bhairavas associated with the Pīṭhas. A scholarly discussion of Pīṭha enumerations also documents how lists of fifty-one and fifty-two emerged through different compilations and variations. Therefore, the Bāvan Bhairava tradition should be studied within its specific textual and regional context.',
     bodyHi:
-      'शक्तिपीठों और उनके रक्षक भैरवों का उद्भव शिव पुराण, कालिका पुराण और महाभागवत पुराण की सुप्रसिद्ध आख्यायिका पर आधारित है:\n\n' +
-      '१. दक्ष प्रजापति का यज्ञ एवं सती का आत्मत्याग: सती ने पति महादेव के अपमान पर योगाग्नि में अपने प्राण त्याग दिए।\n' +
-      '२. शिव का महाशोक एवं ताण्डव: सती के पार्थिव देह को कंधे पर उठाकर भगवान् शिव ने प्रलयंकारी ताण्डव आरंभ किया।\n' +
-      '३. सुदर्शन चक्र द्वारा अंग-छेदन: भगवान् विष्णु ने सुदर्शन चक्र से सती के शरीर को खंडित किया, जिससे पावन शक्तिपीठों का प्राकट्य हुआ।\n' +
-      '४. क्षेत्रपाल भैरवों की स्थापना: भगवान् शिव ने प्रतिज्ञा की कि जिस स्थान पर सती का जो भी अंग गिरा है, वहाँ वे स्वयं एक विशिष्ट भैरव रूप में विराजमान होकर शक्ति की सदा रक्षा करेंगे।'
+      'शक्तिपीठों की कोई एक सर्वमान्य स्थिर संख्या नहीं है। विभिन्न शास्त्रों, तांत्रिक परम्पराओं और क्षेत्रीय विवरणों में अलग-अलग संख्याएँ सुरक्षित हैं:\n' +
+      '• ४ — आदि शक्तिपीठ\n' +
+      '• १८ — अष्टादश महापीठ\n' +
+      '• ५१ — व्यापक रूप से प्रचलित तांत्रिक पीठ गणना\n' +
+      '• ५२ — कुछ संकलनों में प्राप्त पाठान्तर गणना\n' +
+      '• ६४ — कतिपय परम्पराओं में पृथक् पीठ गणना\n' +
+      '• १०८ — विस्तृत पवित्र पीठ गणना\n\n' +
+      'पीठनिर्णय और संबंधित ग्रन्थ इन नामों, स्थानों, शक्तियों और भैरवों के अध्ययन के प्रमुख स्रोत हैं।'
   },
   {
-    headingEn: '7. Complete Peetha & Bhairava Reference Table (Pīṭhanirṇaya / D.C. Sircar)',
-    headingHi: '७. पीठनिर्णय / डी.सी. सरकार की प्रामाणिक ५१ शक्तिपीठ एवं भैरव तालिका',
+    headingEn: '6. The Difference Between Aṣṭa, 52, and 64 Bhairavas',
+    headingHi: '६. अष्ट (८), बावन (५२) और चौंसठ (६४) भैरवों में शास्त्रीय अंतर',
     bodyEn:
-      'Based on the academic critical edition of the Pīṭhanirṇaya established by epigraphist Dr. D.C. Sircar (The Śākta Pīṭhas), the 51 canonical seats and their paired guardians are:\n\n' +
-      '1. Hiṅgulā (Balochistan) — Devi: Koṭṭarī · Bhairava: Bhīmalocana · Limb: Brahmandharandhra\n' +
-      '2. Śarkarāre (Sindh) — Devi: Mahiṣamardinī · Bhairava: Krodhīśa / Candra · Limb: Three Eyes\n' +
-      '3. Sugandhā (Barisal) — Devi: Sunandā · Bhairava: Tryambaka · Limb: Nose\n' +
-      '4. Kaśmīra (Amarnath) — Devi: Mahāmāyā · Bhairava: Trisandhyeśvara · Limb: Neck\n' +
-      '5. Jvālāmukhī (Kangra) — Devi: Siddhidā / Ambikā · Bhairava: Unmatta · Limb: Tongue\n' +
-      '6. Jālandhara (Punjab) — Devi: Tripuramālinī · Bhairava: Bhīṣaṇa · Limb: Left Breast\n' +
-      '7. Vaidyanātha (Deoghar) — Devi: Jayadurgā · Bhairava: Vaidyanātha · Limb: Heart\n' +
-      '8. Nepāla (Kathmandu) — Devi: Mahāmāyā / Guhyeśvarī · Bhairava: Kapālī · Limb: Knees\n' +
-      '9. Mānasa (Tibet) — Devi: Dākṣāyaṇī · Bhairava: Amara · Limb: Right Hand\n' +
-      '10. Utkala / Virajā (Puri) — Devi: Vimalā · Bhairava: Jagannātha · Limb: Navel\n' +
-      '11. Gaṇḍakī (Muktinath) — Devi: Gaṇḍakī Caṇḍī · Bhairava: Cakrapāṇi · Limb: Cheeks / Forehead\n' +
-      '12. Bahulā (Burdwan) — Devi: Bahulā · Bhairava: Bhīruka · Limb: Left Arm\n' +
-      '13. Ujjayinī (Ujani) — Devi: Maṅgalacaṇḍikā · Bhairava: Maṅgalacaṇḍikeśa · Limb: Elbow\n' +
-      '14. Caṭṭala (Chittagong) — Devi: Bhavānī · Bhairava: Candraśekhara · Limb: Right Arm\n' +
-      '15. Tripurā (Matabari) — Devi: Tripurasundarī · Bhairava: Tripureśa · Limb: Right Foot\n' +
-      '16. Trisrotā (Jalpaiguri) — Devi: Bhrāmarī · Bhairava: Nimiṣa · Limb: Left Foot\n' +
-      '17. Kāmarūpa (Guwahati) — Devi: Kāmākhyā · Bhairava: Umānanda · Limb: Yoni Mahamudra\n' +
-      '18. Kṣīragrāma (Burdwan) — Devi: Yugādyā · Bhairava: Abhiru · Limb: Right Big Toe\n' +
-      '19. Kālīghāṭ (Kolkata) — Devi: Kālikā · Bhairava: Nakulīśa · Limb: Right Toes\n' +
-      '20. Prayāga (Prayagraj) — Devi: Lalitā / Alopī · Bhairava: Bhava · Limb: Hand Fingers\n' +
-      '21. Jayantī (Meghalaya) — Devi: Jayantī · Bhairava: Krūra · Limb: Left Thigh\n' +
-      '22. Kirīṭakoṇā (Murshidabad) — Devi: Vimalā / Kirīṭeśvarī · Bhairava: Sānanda · Limb: Crown\n' +
-      '23. Vārāṇasī (Kashi) — Devi: Viśālākṣī · Bhairava: Kāla Bhairava / Daṇḍapāṇi · Limb: Ear-rings\n' +
-      '24. Kanyāśrama (Kanyakumari) — Devi: Śarvāṇī · Bhairava: Nimīṣa / Ruru · Limb: Back\n' +
-      '25. Kurukṣetra (Haryana) — Devi: Sāvitrī / Bhadrakālī · Bhairava: Sthāṇu · Limb: Ankle Bone\n' +
-      '26. Maṇivedikā (Pushkar) — Devi: Gāyatrī · Bhairava: Śambarānanda · Limb: Two Wrists\n' +
-      '27. Śrīśaila / Śrīhaṭṭa (Sylhet) — Devi: Mahālakṣmī · Bhairava: Sundarānanda · Limb: Neck\n' +
-      '28. Kāñcī / Kopāī (Birbhum) — Devi: Devagarbhā / Kaṅkālī · Bhairava: Vedagarbha · Limb: Skeleton\n' +
-      '29. Rāmagiri (Chitrakoot) — Devi: Śivānī · Bhairava: Lambakarṇa · Limb: Right Breast\n' +
-      '30. Vṛndāvana (Mathura) — Devi: Umā · Bhairava: Bhūteśa · Limb: Hair Ringlets\n' +
-      '31. Śucīndra (Suchindram) — Devi: Nārāyaṇī · Bhairava: Saṃhāra · Limb: Upper Teeth\n' +
-      '32. Pañcasāgara — Devi: Vārāhī · Bhairava: Īśāna · Limb: Lower Teeth\n' +
-      '33. Karatoyā (Bogra) — Devi: Aparṇā · Bhairava: Amareśa · Limb: Left Talus\n' +
-      '34. Śrīparvata (Srisailam) — Devi: Śrīsundarī · Bhairava: Sundarānanda / Mahābhairava · Limb: Right Ankle\n' +
-      '35. Vibhāṣa (Tamluk) — Devi: Kapālinī · Bhairava: Sarvānanda / Unmatta · Limb: Left Ankle\n' +
-      '36. Prabhāsa (Somnath) — Devi: Candrabhāgā · Bhairava: Vakranātha · Limb: Stomach\n' +
-      '37. Bhairavaparvata (Ujjain) — Devi: Avantī · Bhairava: Vijaya · Limb: Upper Lip\n' +
-      '38. Janasthāna (Nashik) — Devi: Bhrāmarī · Bhairava: Acyuta · Limb: Chin\n' +
-      '39. Godāvarītīra (Rajahmundry) — Devi: Viśveśī · Bhairava: Daṇḍapāṇi / Hara · Limb: Left Cheek\n' +
-      '40. Ratnāvalī (Hooghly) — Devi: Kumārī · Bhairava: Śiva / Śūlī · Limb: Right Shoulder\n' +
-      '41. Mithilā (Janakpur) — Devi: Umā · Bhairava: Mahodara / Kapālabhṛt · Limb: Left Shoulder\n' +
-      '42. Nalahāṭī (Birbhum) — Devi: Kālikā · Bhairava: Yogeśa / Śambhu · Limb: Tubular Bone\n' +
-      '43. Karṇāṭa — Devi: Jayadurgā · Bhairava: Abhiru / Kāla · Limb: Both Ears\n' +
-      '44. Vakreśvara (Birbhum) — Devi: Mahiṣamardinī · Bhairava: Vakranātha / Mahākāla · Limb: Mind/Brow\n' +
-      '45. Yaśora (Ishwaripur) — Devi: Yaśoreśvarī · Bhairava: Caṇḍa / Baṭuka · Limb: Hands & Feet\n' +
-      '46. Aṭṭahāsa (Birbhum) — Devi: Phullarā · Bhairava: Viśveśa / Trilocana · Limb: Lips\n' +
-      '47. Nandīpura (Sainthia) — Devi: Nandinī · Bhairava: Nandikeśvara / Suṣeṇa · Limb: Necklace\n' +
-      '48. Laṅkā (Nainativu) — Devi: Indrākṣī · Bhairava: Rākṣaseśvara / Bhīṣaṇaka · Limb: Anklet\n' +
-      '49. Virāṭa (Bairat) — Devi: Ambikā · Bhairava: Amṛta / Aja · Limb: Left Toes\n' +
-      '50. Magadha (Patna) — Devi: Sarvānandakarī · Bhairava: Sarvānanda · Limb: Right Thigh\n' +
-      '51. Kālīghāṭ Anguli Branch (Bengal) — Devi: Kālikā · Bhairava: Śūlī / Muṇḍī · Limb: Finger',
+      'Bhairava appears in several numerical classifications. These classifications should not be confused with one another.\n\n' +
+      '(1) Aṣṭa Bhairava — 8 Bhairavas: The Aṣṭa Bhairavas are eight prominent forms of Bhairava, commonly associated with the eight directions. They are: 1. Asitāṅga, 2. Ruru, 3. Caṇḍa, 4. Krodha, 5. Unmatta, 6. Kapāla, 7. Bhīṣaṇa, and 8. Saṃhāra. The exact names, directional assignments, and associated goddesses vary by tradition.\n\n' +
+      '(2) Bāvan Bhairava — 52 Bhairavas: A grouping associated in some traditions with the fifty-two Śakti Pīṭhas. Its focus is the relationship between the Goddess, the sacred location, and the corresponding Bhairava.\n\n' +
+      '(3) Catuḥṣaṣṭi Bhairava — 64 Bhairavas: Some Tantric classifications describe sixty-four Bhairavas, often organized through eight groups of eight. These represent a separate classification and should not automatically be equated with the fifty-two Bhairavas associated with Śakti Pīṭhas.',
     bodyHi:
-      'पीठनिर्णय के अनुसार ५१ प्रामाणिक शक्तिपीठ, उनकी देवी, भैरव एवं पतित अंग:\n' +
-      'हिंगुला (कोट्टरी-भीमलोचन), शर्करारे (महिषमर्दिनी-क्रोधीश), सुगन्धा (सुनन्दा-त्र्यम्बक), कश्मीर (महामाया-त्रिसन्ध्येश्वर), ज्वालामुखी (सिद्धिदा-उन्मत्त), जालन्धर (त्रिपुरमालिनी-भीषण), वैद्यनाथ (जयदुर्गा-वैद्यनाथ), नेपाल (गुह्येश्वरी-कपाली), मानसरोवर (दाक्षायणी-अमर), उत्कल (विमला-जगन्नाथ), गण्डकी (गण्डकी चण्डी-चक्रपाणि), बहुला (बहुला-भीरुक), उज्जयिनी (मंगलचण्डिका-मङ्गलचण्डिकेश), चट्टल (भवानी-चन्द्रशेखर), त्रिपुरा (त्रिपुरसुन्दरी-त्रिपुरेश), त्रिस्रोता (भ्रामरी-निमिष), कामरूप (कामाख्या-उमानन्द), क्षीरग्राम (योगाद्या-अभिरु), कालीघाट (कालिका-नकुलीश), प्रयाग (ललिता-भव), जयन्ती (जयन्ती-क्रूर), किरीटकोणा (विमला-सानन्द), वाराणसी (विशालाक्षी-कालभैरव/दण्डपाणि), कन्याश्रम (शर्वाणी-रुरु), कुरुक्षेत्र (सावित्री-स्थाणु), मणिवेदिका (गायत्री-शम्बरानन्द), श्रीशैल (महालक्ष्मी-सुन्दरानन्द), कांची (देवगर्भा-वेदगर्भ), रामगिरि (शिवानी-लम्बकर्ण), वृन्दावन (उमा-भूतेश), शुचीन्द्रम (नारायणी-संहार), पञ्चसागर (वाराही-ईशान), करतोया (अपर्णा-अमरेश), श्रीपर्वत (श्रीसुन्दरी-महाभैरव), विभाष (कपालिनी-राक्षसेश्वर), प्रभास (चन्द्रभागा-मुण्डी), भैरवपर्वत (अवन्ती-विजय), जनस्थान (भ्रामरी-अच्युत), गोदावरी (विश्वेशी-हर), रत्नावली (कुमारी-शूली), मिथिला (उमा-कपालभृत्), नलहाटी (कालिका-शम्भु), कर्णाट (जयदुर्गा-काल), वक्रेश्वर (महिषमर्दिनी-महाकाल), यशोर (यशोरेश्वरी-बटुक), अट्टहास (फुल्लरा-त्रिलोचन), नन्दीपुर (नन्दिनी-सुषेण), लंका (इन्द्राक्षी-भीषणक), विराट (अम्बिका-अज), मगध (सर्वानन्दकरी-सर्वानन्द), कालीघाट अंगुली (कालिका-शूली)।'
+      'भैरव कई संख्यात्मक वर्गीकरणों में प्रकट होते हैं। इन्हें एक-दूसरे के साथ मिश्रित नहीं किया जाना चाहिए:\n\n' +
+      '(१) अष्ट भैरव (८ भैरव): आठ दिशाओं से संबद्ध भैरव के आठ प्रमुख रूप—१. असितांग, २. रुरु, ३. चण्ड, ४. क्रोध, ५. उन्मत्त, ६. कपाल, ७. भीषण और ८. संहार।\n' +
+      '(२) बावन भैरव (५२ भैरव): कतिपय परम्पराओं में बावन शक्तिपीठों से संबद्ध समूह, जिसका केंद्र देवी, तीर्थ-स्थान और रक्षक भैरव का संबंध है।\n' +
+      '(३) चतुःषष्टि भैरव (६४ भैरव): तांत्रिक वर्गीकरणों में आठ-आठ के आठ समूहों (८×८) में वर्णित ६४ भैरव, जो ५२ भैरवों से पृथक् वर्गीकरण हैं।'
   },
   {
-    headingEn: '8. The 52nd Additional Entry: Danteshwari Peetha',
-    headingHi: '८. ५२वाँ अतिरिक्त पीठ: दन्तेश्वरी पीठ (बस्तर, छत्तीसगढ़)',
+    headingEn: '7. Spiritual and Symbolic Significance',
+    headingHi: '७. आध्यात्मिक एवं प्रतीकात्मक महत्त्व (Spiritual and Symbolic Significance)',
     bodyEn:
-      'While the classical Pīṭhanirṇaya enumerates 51 Peethas, regional central-Indian traditions and historical royal archives of the Bastar kingdom recognize the 52nd Peetha:\n\n' +
-      '• Sacred Seat: Danteshwari Peetha, situated at the confluence of the sacred Shankhini and Dankini rivers in Dantewada, Bastar, Chhattisgarh.\n' +
-      '• Relic of Sati: Sacred Tooth (Danta / दन्त) of Devi Sati.\n' +
-      '• Presiding Goddess: Maa Danteshwari (Danteshwari Mai), the tutelary sovereign deity of the Bastar region and the presiding spirit of the 75-day Bastar Dussehra festival.\n' +
-      '• Guardian Bhairava: Sadāśiva Bhairava (also worshipped locally as Bhairamdeo / Kapala Bhairava).\n' +
-      '• Dedicated Devotional Mantra: ॐ श्री सदाशिव भैरवाय नमः॥ (Om Shri Sadashiva Bhairavaya Namah).\n' +
-      '• Signification: This 52nd inclusion completes the popular "Bāvan Shakti Peetha" geography of central India, anchoring the tribal, royal, and Agamic synthesis of Chhattisgarh.',
+      'The Bāvan Bhairava tradition represents the distribution of Śiva’s protective presence across sacred geography. Its symbolism can be explored through five key themes:\n\n' +
+      '(1) 7.1 Protection of Śakti: The Bhairava is associated with the protection of the Goddess’s sacred seat.\n' +
+      '(2) 7.2 Unity of Śiva and Śakti: The paired presence of Śakti and Bhairava expresses the relationship between consciousness and divine power in Śaiva-Śākta thought.\n' +
+      '(3) 7.3 Sacred Geography: The Pīṭhas connect religious mythology with actual geographical locations, pilgrimage routes, and regional worship traditions.\n' +
+      '(4) 7.4 Diversity of Divine Manifestations: The different names of Bhairava express the diversity of Śiva’s manifestations across different sacred traditions.\n' +
+      '(5) 7.5 Destruction and Protection: Bhairava represents both formidable divine power and the protection of devotees and sacred spaces.',
     bodyHi:
-      'मध्य भारत की परम्परा और बस्तर रियासत के अभिलेख ५२वें पीठ को अत्यंत श्रद्धा से स्वीकार करते हैं:\n\n' +
-      '• तीर्थ स्थल: दन्तेश्वरी शक्तिपीठ, शंखिनी एवं डंकिनी नदियों के पावन संगम पर स्थित (दन्तेवाड़ा, बस्तर, छत्तीसगढ़)।\n' +
-      '• सती का पतित अंग: सती का पावन दाँत (दन्त)।\n' +
-      '• अधिष्ठात्री देवी: माँ दन्तेश्वरी (दन्तेश्वरी माई), बस्तर की कुलदेवी।\n' +
-      '• रक्षक भैरव: ५२. सदाशिव भैरव (स्थानीय रूप से भैरमदेव / कपाल भैरव के रूप में पूजित)।\n' +
-      '• भक्ति मन्त्र: ॐ श्री सदाशिव भैरवाय नमः॥ (Om Shri Sadashiva Bhairavaya Namah)।\n' +
-      '• महत्त्व: यह ५२वाँ समावेश मध्य भारत को शक्तिपीठ-भूगोल से जोड़कर बावन शक्तिपीठ परम्परा को पूर्ण करता है।'
+      'बावन भैरव परम्परा पवित्र भूगोल में भगवान् शिव की रक्षात्मक उपस्थिति के विस्तार को दर्शाती है:\n\n' +
+      '(१) ७.१ शक्ति का संरक्षण: भैरव देवी के पवित्र पीठ की रक्षा से संबद्ध हैं।\n' +
+      '(२) ७.२ शिव और शक्ति की एकता: शक्ति और भैरव की युगल उपस्थिति चेतना (प्रकाश) और दिव्य शक्ति (विमर्श) के संबंध को व्यक्त करती है।\n' +
+      '(३) ७.३ पवित्र भूगोल: शक्तिपीठ पौराणिक कथाओं को वास्तविक भौगोलिक तीर्थों और यात्रा-मार्गों से जोड़ते हैं।\n' +
+      '(४) ७.४ दिव्य अभिव्यक्तियों की विविधता: भैरव के विभिन्न नाम शिव की अनन्त अभिव्यक्तियों को दर्शाते हैं।\n' +
+      '(५) ७.५ संहार और संरक्षण: भैरव प्रचण्ड दैवी शक्ति और भक्तों व तीर्थों की रक्षा दोनों का प्रतिनिधित्व करते हैं।'
   },
   {
-    headingEn: '9. Standard 8-Field Documentation Framework per Bhairava',
-    headingHi: '९. प्रत्येक भैरव का ८-स्तरीय प्रामाणिक प्रलेखन ढांचा',
+    headingEn: '8. Worship and Devotional Traditions',
+    headingHi: '८. उपासना एवं भक्ति परम्पराएँ (Worship and Devotional Traditions)',
     bodyEn:
-      'To maintain uniform scholarship across all 52 Bhairava entries, each monograph entry is structured around 8 core parameters:\n\n' +
-      '1. Bhairava Name (भैरव नाम): Classical Sanskrit title and regional appellation.\n' +
-      '2. Associated Peetha (संबद्ध शक्तिपीठ): Name and historical identity of the sacred seat.\n' +
-      '3. Presiding Goddess (शक्तिपीठ देवी): The manifested Shakti whom the Bhairava accompanies and protects.\n' +
-      '4. Sacred Relic (सती का पतित अंग): The specific anatomical limb, organ, or ornament of Sati.\n' +
-      '5. Geographic Location (भौगोलिक अवस्थिति): Contemporary town, district, state/province, and river confluence.\n' +
-      '6. Iconography & Mount (प्रतिमाशास्त्र एवं वाहन): Complexion, arms, weapons (ayudhas), posture, and animal vahana.\n' +
-      '7. Devotional Mantra & Seed (भक्ति मन्त्र एवं बीज): The salutation formula and associated sonic resonance.\n' +
-      '8. Spiritual & Protective Role (आध्यात्मिक एवं रक्षात्मक प्रभाव): Metaphysical significance for sadhana and pilgrim security.',
+      'Bhairava worship differs between regions and lineages. Common devotional practices in Bhairava traditions may include:\n\n' +
+      '• Recitation of Bhairava mantras.\n' +
+      '• Worship of Bhairava images and icons.\n' +
+      '• Offerings according to local temple customs.\n' +
+      '• Observance of Kālabhairava Aṣṭamī.\n' +
+      '• Pilgrimage to Bhairava-associated temples.\n' +
+      '• Worship of the presiding Goddess and her corresponding Bhairava.\n\n' +
+      'Not every practice applies to every Pīṭha or every Bhairava form. Ritual procedures should be described according to the particular temple or lineage rather than generalized.',
     bodyHi:
-      'सभी ५२ भैरव स्वरूपों के शास्त्रीय विवेचन के लिए निम्नलिखित ८ प्रामाणिक पैमानों का पालन किया जाता है:\n' +
-      '१. भैरव नाम, २. संबद्ध शक्तिपीठ, ३. अधिष्ठात्री देवी, ४. सती का अंग/आभूषण, ५. भौगोलिक अवस्थिति, ६. प्रतिमाशास्त्र एवं वाहन, ७. भक्ति मन्त्र एवं बीज, ८. आध्यात्मिक एवं रक्षात्मक प्रभाव।'
+      'भैरव उपासना विभिन्न क्षेत्रों और परम्पराओं में भिन्न होती है। सामान्य भक्ति पद्धतियों में सम्मिलित हैं:\n' +
+      '• भैरव मन्त्रों का जप और पाठ।\n' +
+      '• भैरव प्रतिमाओं एवं विग्रहों का पूजन।\n' +
+      '• स्थानीय मंदिर रीति के अनुसार नैवेद्य और अर्पण।\n' +
+      '• कालभैरव अष्टमी का पर्व-पालन।\n' +
+      '• भैरव-संबद्ध मंदिरों और शक्तिपीठों की तीर्थयात्रा।\n' +
+      '• अधिष्ठात्री देवी और उनके संबद्ध भैरव की संयुक्त आराधना।'
   },
   {
-    headingEn: '10. Crucial Mantra Correction Note',
-    headingHi: '१०. मन्त्र-शुद्धि एवं प्रयोग सम्बन्धी अनिवार्य निर्देश',
+    headingEn: '9. Important Distinctions & 10. Conclusion',
+    headingHi: '९. महत्त्वपूर्ण शोध-भेद एवं १०. निष्कर्ष',
     bodyEn:
-      '• Academic Transparency: The simple devotional mantras listed above (e.g., ॐ श्री भीमलोचन भैरवाय नमः॥) are standard devotional namavalis designed for reverence and accessible japa by devotees and pilgrims.\n' +
-      '• Distinction from Tantric Mūla Mantras: These devotional salutations must not be conflated with independently attested esoteric Tantric Mula Mantras (which contain intricate beeja syllables such as भ्रं, ह्रीं, क्लीं, फ्रों, and nyasa sequences), found in specialized texts such as the Tantrachūḍāmaṇi, Śāradā Tilaka, and Rudrayāmala.\n' +
-      '• Devotional Utility: For regular prayer, circumambulation (parikrama), and pilgrim salutations at each respective Shakti Peetha, these 52 devotional formulas provide a pure and spiritually harmonious medium of worship.',
+      '9. Important Distinctions — The following distinctions are essential for accurate research:\n' +
+      '(1) The fifty-two Bhairavas associated with Śakti Pīṭhas are not the same classification as the sixty-four Bhairavas.\n' +
+      '(2) Aṣṭa Bhairava is a separate group of eight forms.\n' +
+      '(3) The number of Śakti Pīṭhas varies across texts and traditions.\n' +
+      '(4) The names of the Bhairavas can differ between Pīṭha lists.\n' +
+      '(5) Not every Bhairava name represents an entirely separate theological form of Śiva.\n' +
+      '(6) The association of a Bhairava with a Pīṭha should be supported by a specific source.\n' +
+      '(7) Regional devotional traditions should not automatically be presented as universally accepted scriptural classifications.\n\n' +
+      '10. Conclusion: The Bāvan Bhairava tradition provides an important way to understand the relationship between Bhairava and the sacred geography of Śākta worship. Through the fifty-two Pīṭha-associated Bhairava forms, the tradition expresses the presence of Śiva alongside the many manifestations of the Divine Mother. Rather than viewing the fifty-two Bhairavas as a completely uniform list, they should be understood through the particular Tantric, scriptural, and regional traditions that preserve their names and associations.\n\n' +
+      'Research References and Further Reading:\n' +
+      '1. Pīṭhanirṇaya / Mahāpīṭhanirūpaṇa — an important textual tradition for studying Śakti Pīṭha names and their associated Śaktis and Bhairavas.\n' +
+      '2. Tantra Cūḍāmaṇi — a text associated with widely circulated Pīṭha enumerations.\n' +
+      '3. Devī Bhāgavata Purāṇa — relevant to the broader Śākta understanding of the Goddess and sacred Pīṭhas.\n' +
+      '4. D. C. Sircar — The Śākta Pīṭhas — historical and textual research on the Śakti Pīṭha tradition.\n' +
+      '5. Scholarly research on the historical development and varying enumerations of Śakti Pīṭhas.\n' +
+      'Research classification: Traditional and regional groupings; the exact 52-name Bhairava roster and its one-to-one Pīṭha associations must be verified against the specific enumeration being followed.',
     bodyHi:
-      '• शास्त्रीय पारदर्शिता: ऊपर दी गई नामावली में उद्धृत मन्त्र (उदा. "ॐ श्री भीमलोचन भैरवाय नमः॥") सरल भक्ति-प्रणाम मन्त्र हैं, जो श्रद्धालुओं और तीर्थयात्रियों के नित्य स्मरण हेतु अत्यंत सुगम हैं।\n' +
-      '• आगमिक मूल मन्त्रों से भेद: इन्हें तन्त्रचूड़ामणि अथवा रुद्रयामल के दीक्षा-सापेक्ष बीजात्मक मूल मन्त्रों का विकल्प नहीं मानना चाहिए।\n' +
-      '• उपासना में उपयोग: शक्तिपीठ यात्रा, परिक्रमा और सामान्य भक्ति-अर्चना में इन ५२ नाम-मन्त्रों का जप पूर्ण फलदायी और दोष-रहित माना जाता है।'
+      '९. महत्त्वपूर्ण शोध-भेद:\n' +
+      '(१) शक्तिपीठों से जुड़े ५२ भैरव और ६४ भैरव एक ही वर्गीकरण नहीं हैं।\n' +
+      '(२) अष्ट भैरव आठ रूपों का एक पृथक् समूह है।\n' +
+      '(३) शक्तिपीठों की संख्या ग्रंथों और परम्पराओं में भिन्न होती है।\n' +
+      '(४) विभिन्न पीठ-सूचियों में भैरवों के नाम भिन्न हो सकते हैं।\n' +
+      '(५) प्रत्येक भैरव नाम शिव का पूर्णतः अलग दार्शनिक तत्त्व नहीं है।\n' +
+      '(६) किसी पीठ के साथ भैरव के संबंध को विशिष्ट स्रोत द्वारा समर्थित होना चाहिए।\n' +
+      '(७) क्षेत्रीय भक्ति परम्पराओं को स्वतः सर्वमान्य शास्त्रीय वर्गीकरण के रूप में प्रस्तुत नहीं किया जाना चाहिए।\n\n' +
+      '१०. निष्कर्ष एवं प्रमुख शोध संदर्भ:\n' +
+      '१. पीठनिर्णय / महापीठनिरूपण, २. तन्त्रचूड़ामणि, ३. देवी भागवत पुराण, ४. डॉ. डी.सी. सरकार — द शाक्त पीठस, ५. शक्तिपीठों के ऐतिहासिक विकास पर अकादमिक शोध।'
   },
   {
-    headingEn: '11. Recommended 12-Point Editorial Structure for Individual Monographs',
-    headingHi: '११. व्यक्तिगत लेखों हेतु अनुशंसित १२-सूत्रीय संपादकीय संरचना',
+    headingEn: '11. 52 Bhairav Vīras — बावन भैरव वीर (Complete 01–52 Roster)',
+    headingHi: '११. ५२ भैरव वीर — बावन भैरव वीर (संपूर्ण ०१–५२ नामावली)',
     bodyEn:
-      'When compiling separate dedicated chapters for each of the 52 Bhairavas, authors and researchers should follow this 12-point sequence:\n' +
-      '1. Sanskrit Title Banner with Devanagari & IAST transliteration\n' +
-      '2. Epigraphical citation from Pīṭhanirṇaya or Śiva Purāṇa\n' +
-      '3. Etymological and Philological derivation of the Bhairava’s name\n' +
-      '4. Geographical and Archaeological description of the Peetha shrine\n' +
-      '5. Detailed iconographical analysis of the deity’s murti and vahana\n' +
-      '6. Relationship with the resident Shakti / Goddess of that Peetha\n' +
-      '7. Devotional Name Mantra with Sanskrit Devanagari & Roman phonetic\n' +
-      '8. Attested Tantric Beeja resonances and liturgical offerings (bhoga/bali)\n' +
-      '9. Historical temple lineage, inscriptions, and priest traditions\n' +
-      '10. Local folkloric legends, annual melas, and pilgrim rituals\n' +
-      '11. Yogic and internal meditative correlation (Cakra and Nadi alignment)\n' +
-      '12. Bibliography of Primary Manuscripts, Epigraphia Indica, and Field Reports.',
+      '1. Kṣetrapāl Vīr (क्षेत्रपाल वीर) · 2. Kapil Vīr (कपिल वीर) · 3. Baṭuk Vīr (बटुक वीर) · 4. Nṛsiṃha Vīr (नृसिंह वीर) · 5. Gopāl Vīr (गोपाल वीर) · 6. Bhairav Vīr (भैरव वीर) · 7. Garuḍ Vīr (गरुड़ वीर) · 8. Mahākāl Vīr (महाकाल वीर) · 9. Kāl Vīr (काल वीर) · 10. Svarṇ Vīr (स्वर्ण वीर) · 11. Rakta-Svarṇ Vīr (रक्तस्वर्ण वीर) · 12. Devasen Vīr (देवसेन वीर) · 13. Ghaṇṭāpath Vīr (घंटापथ वीर) · 14. Rudra Vīr (रुद्र वीर) · 15. Terāsaṅgh Vīr (तेरासंघ वीर) · 16. Varuṇ Vīr (वरुण वीर) · 17. Gandharv Vīr (गंधर्व वीर) · 18. Haṃs Vīr (हंस वीर) · 19. Launkḍiyā Vīr (लौन्कडिया वीर) · 20. Vahi Vīr (वहि वीर) · 21. Priyamitra Vīr (प्रियमित्र वीर) · 22. Kāru Vīr (कारु वीर) · 23. Adṛśya Vīr (अदृश्य वीर) · 24. Vallabh Vīr (वल्लभ वीर) · 25. Vajra Vīr (वज्र वीर) · 26. Mahākālī Vīr (महाकाली वीर) · 27. Mahālābh Vīr (महालाभ वीर) · 28. Tuṅgabhadr Vīr (तुंगभद्र वीर) · 29. Vidyādhar Vīr (विद्याधर वीर) · 30. Ghaṇṭākarṇ Vīr (घंटाकर्ण वीर) · 31. Vaidyanāth Vīr (बैद्यनाथ वीर) · 32. Vibhīṣaṇ Vīr (विभीषण वीर) · 33. Pāhetak Vīr (फाहेतक वीर) · 34. Pitṛ Vīr (पितृ वीर) · 35. Khaḍga Vīr (खड्ग वीर) · 36. Nāghasṭ Vīr (नाघस्ट वीर) · 37. Pradyumna Vīr (प्रदुम्न वीर) · 38. Śmaśān Vīr (श्मशान वीर) · 39. Bharudag Vīr (भरुदग वीर) · 40. Kāklekar Vīr (काकेलेकर वीर) · 41. Kaṃphilābh Vīr (कंफिलाभ वीर) · 42. Asthimukh Vīr (अस्थिमुख वीर) · 43. Retovedya Vīr (रेतोवेद्य वीर) · 44. Nakul Vīr (नकुल वीर) · 45. Śaunak Vīr (शौनक वीर) · 46. Kālmukh (कालमुख) · 47. Bhūta Bhairav Vīr (भूतबैरव वीर) · 48. Paiśāch Vīr (पैशाच वीर) · 49. Trimukh Vīr (त्रिमुख वीर) · 50. Ḍachak Vīr (डचक वीर) · 51. Aṭṭalād Vīr (अट्टलाद वीर) · 52. Vāsamitra Vīr (वासमित्र वीर)',
     bodyHi:
-      'भविष्य में प्रत्येक भैरव पर स्वतंत्र शोध-अध्याय तैयार करते समय विद्वानों को निम्नलिखित १२-सूत्रीय क्रम का पालन करने की अनुशंसा की जाती है:\n' +
-      '१. संस्कृत शीर्षक, २. मूल श्लोक उद्धरण, ३. नाम-व्युत्पत्ति, ४. तीर्थ का भौगोलिक-पुरातात्विक विवरण, ५. प्रतिमाशास्त्र एवं वाहन, ६. पीठ की देवी से संबंध, ७. भक्ति-प्रणाम मन्त्र, ८. बीज-मन्त्र एवं भोग विधान, ९. मंदिर इतिहास एवं शिलालेख, १०. लोक-आख्यान एवं मेले, ११. योग साधना में चक्र-नाड़ी संबंध, १२. संदर्भ सूची।'
+      '१. क्षेत्रपाल वीर (Kṣetrapāl Vīr) · २. कपिल वीर (Kapil Vīr) · ३. बटुक वीर (Baṭuk Vīr) · ४. नृसिंह वीर (Nṛsiṃha Vīr) · ५. गोपाल वीर (Gopāl Vīr) · ६. भैरव वीर (Bhairav Vīr) · ७. गरुड़ वीर (Garuḍ Vīr) · ८. महाकाल वीर (Mahākāl Vīr) · ९. काल वीर (Kāl Vīr) · १०. स्वर्ण वीर (Svarṇ Vīr) · ११. रक्तस्वर्ण वीर (Rakta-Svarṇ Vīr) · १२. देवसेन वीर (Devasen Vīr) · १३. घंटापथ वीर (Ghaṇṭāpath Vīr) · १४. रुद्र वीर (Rudra Vīr) · १५. तेरासंघ वीर (Terāsaṅgh Vīr) · १६. वरुण वीर (Varuṇ Vīr) · १७. गंधर्व वीर (Gandharv Vīr) · १८. हंस वीर (Haṃs Vīr) · १९. लौन्कडिया वीर (Launkḍiyā Vīr) · २०. वहि वीर (Vahi Vīr) · २१. प्रियमित्र वीर (Priyamitra Vīr) · २२. कारु वीर (Kāru Vīr) · २३. अदृश्य वीर (Adṛśya Vīr) · २४. वल्लभ वीर (Vallabh Vīr) · २५. वज्र वीर (Vajra Vīr) · २६. महाकाली वीर (Mahākālī Vīr) · २७. महालाभ वीर (Mahālābh Vīr) · २८. तुंगभद्र वीर (Tuṅgabhadr Vīr) · २९. विद्याधर वीर (Vidyādhar Vīr) · ३०. घंटाकर्ण वीर (Ghaṇṭākarṇ Vīr) · ३१. बैद्यनाथ वीर (Vaidyanāth Vīr) · ३२. विभीषण वीर (Vibhīṣaṇ Vīr) · ३३. फाहेतक वीर (Pāhetak Vīr) · ३४. पितृ वीर (Pitṛ Vīr) · ३५. खड्ग वीर (Khaḍga Vīr) · ३६. नाघस्ट वीर (Nāghasṭ Vīr) · ३७. प्रदुम्न वीर (Pradyumna Vīr) · ३८. श्मशान वीर (Śmaśān Vīr) · ३९. भरुदग वीर (Bharudag Vīr) · ४०. काकेलेकर वीर (Kāklekar Vīr) · ४१. कंफिलाभ वीर (Kaṃphilābh Vīr) · ४२. अस्थिमुख वीर (Asthimukh Vīr) · ४३. रेतोवेद्य वीर (Retovedya Vīr) · ४४. नकुल वीर (Nakul Vīr) · ४५. शौनक वीर (Śaunak Vīr) · ४६. कालमुख (Kālmukh) · ४७. भूतबैरव वीर (Bhūta Bhairav Vīr) · ४८. पैशाच वीर (Paiśāch Vīr) · ४९. त्रिमुख वीर (Trimukh Vīr) · ५०. डचक वीर (Ḍachak Vīr) · ५१. अट्टलाद वीर (Aṭṭalād Vīr) · ५२. वासमित्र वीर (Vāsamitra Vīr)'
   }
 ];
+

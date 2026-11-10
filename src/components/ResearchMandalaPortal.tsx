@@ -38,6 +38,7 @@ import {
 import { BavanBhairava52PortalView } from './BavanBhairava52PortalView';
 import { SaptaChakraArchiveExperience } from './SaptaChakraArchiveExperience';
 import { DasaMahavidyaInteractiveStudio } from './DasaMahavidyaInteractiveStudio';
+import { SpecializedSealInteractiveStudio } from './SpecializedSealInteractiveStudios';
 
 const PORTAL_ICONS: React.ComponentType<any>[] = [
   Radio,      // I · CAGS Field Archive
@@ -959,6 +960,10 @@ export const CategoryLandingPageView: React.FC<CategoryLandingPageViewProps> = (
         </div>
       )}
 
+      {portal.slug === 'bhairav-investigation-codex' ? (
+        <BavanBhairava52PortalView />
+      ) : (
+        <>
       {/* Category Landing Page Hero Banner */}
       <div className="relative rounded-2xl border border-[#D3AD55]/45 bg-gradient-to-br from-[#26170F] via-[#180F0A] to-[#110A07] p-6 sm:p-8 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.75)] overflow-hidden">
         <div
@@ -1386,6 +1391,8 @@ export const CategoryLandingPageView: React.FC<CategoryLandingPageViewProps> = (
             </div>
           </div>
         )}
+        </>
+      )}
     </div>
   );
 };
@@ -1527,7 +1534,7 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
       </div>
 
       <div className="w-full max-w-6xl mx-auto space-y-6">
-      {/* SEAL 01: DASA MAHAVIDYA — 10 MAHAVIDYAS INTERACTIVE SACRED GEOMETRY STUDIO PLACED ABOVE THE SELECTED ARTICLE COMPONENT */}
+      {/* SEAL 06: DASA MAHAVIDYA — 10 MAHAVIDYAS INTERACTIVE SACRED GEOMETRY STUDIO PLACED ABOVE THE SELECTED ARTICLE COMPONENT */}
       {article.slug === 'dasa-mahavidya-ten-wisdom-goddesses' && (
         <div className="mb-8">
           <DasaMahavidyaInteractiveStudio lang={t('en', 'hi') === 'hi' ? 'hi' : 'en'} />
@@ -1541,7 +1548,17 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
         </div>
       )}
 
-      {/* Main Archival Monograph Folio */}
+      {/* LIVE INTERACTIVE STUDIOS FOR SPECIALIZED CIRCULAR SEAL UNITS (SEALS 01, 02, 03, 04, 05, 07, 08) */}
+      <SpecializedSealInteractiveStudio
+        articleSlug={article.slug}
+        lang={t('en', 'hi') === 'hi' ? 'hi' : 'en'}
+      />
+
+      {article.slug === 'bavan-bhairava-chhappan-kalua-concordance' ||
+      article.slug === 'bhairavagana-taxonomy-kshetrapalas' ? (
+        <BavanBhairava52PortalView />
+      ) : (
+      /* Main Archival Monograph Folio */
       <article className="rounded-2xl border border-[#B68A32]/45 bg-[#F2E6D2] text-[#2B1F17] p-6 sm:p-8 md:p-11 shadow-[0_24px_60px_rgba(0,0,0,0.8)] paper-grain">
         {/* Header Metadata Ribbon */}
         <div className="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-[#3A281B]/20">
@@ -1671,8 +1688,9 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
           );
         })()}
 
-        {/* 52 BHAIRAVAS – THE GUARDIANS OF THE 52 SHAKTI PEETHAS (॥ श्री बावन भैरव संग्रह ॥) Dedicated Monograph Interface */}
-        {article.slug === 'bavan-bhairava-chhappan-kalua-concordance' && (
+        {/* BĀVAN BHAIRAVA — THE 52 FORMS OF BHAIRAVA (बावन भैरव — The Sacred Guardians of the Śakti Pīṭhas & 52 Bhairav Vīras) Dedicated Monograph Interface */}
+        {(article.slug === 'bavan-bhairava-chhappan-kalua-concordance' ||
+          article.slug === 'bhairavagana-taxonomy-kshetrapalas') && (
           <BavanBhairava52PortalView />
         )}
 
@@ -3632,6 +3650,7 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
           </div>
         </div>
       </article>
+      )}
       </div>
     </div>
   );

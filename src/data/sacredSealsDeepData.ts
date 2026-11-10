@@ -1,4 +1,4 @@
-import { BAVAN_BHAIRAVAS_LIST, THREE_BHAIRAVA_SYSTEMS_COMPARISON } from './bavanBhairava52Data';
+import { BAVAN_BHAIRAVAS_LIST, BAVAN_BHAIRAVA_VIRAS_52, BAVAN_BHAIRAVA_SECTIONS, THREE_BHAIRAVA_SYSTEMS_COMPARISON } from './bavanBhairava52Data';
 import { ResearchArticle } from './researchPortalData';
 
 export interface ResearchComparisonTable {
@@ -701,122 +701,26 @@ export const ARTICLE_COMPARISON_TABLES: Record<string, ResearchComparisonTable[]
     {
       id: 'table-52-bhairava-canonical-list',
       articleSlug: 'bhairavagana-taxonomy-kshetrapalas',
-      titleEn: 'Complete Roster of the 52 Bhairavas (बावन भैरव — Bāvan Bhairava: 01 to 52)',
-      titleHi: 'बावन भैरव (52 भैरव) की संपूर्ण प्रामाणिक नामावली (क्रमांक 01 से 52)',
+      titleEn: '52 Bhairav Vīras — बावन भैरव वीर (1. Kṣetrapāl Vīr to 52. Vāsamitra Vīr)',
+      titleHi: '५२ भैरव वीर — बावन भैरव वीर की संपूर्ण प्रामाणिक नामावली (क्रमांक १ से ५२)',
       captionEn:
-        'Canonical concordance of the 52 Bhairavas (1. असितांग भैरव to 52. स्वछंद भैरव) revered across Śaiva-Śākta Āgamas, Kāśī Kṣetrapāla traditions, Śaktipīṭha sanctuaries, and the 64 Yoginī mandala.',
+        'Complete traditional enumeration of the 52 Bhairav Vīras (बावन भैरव वीर) associated with the Bāvan Bhairava & Śakti Pīṭha guardian tradition (1. Kṣetrapāl Vīr to 52. Vāsamitra Vīr).',
       captionHi:
-        'शैव-शाक्त आगमों, काशी क्षेत्रपाल परम्परा, शक्तिपीठों एवं चौंसठ योगिनी मण्डल में पूजित बावन भैरव (१. असितांग भैरव से ५२. स्वछंद भैरव) की क्रमबद्ध सारणी।',
-      headersEn: ['No.', 'Devanāgarī Name (हिंदी नाम)', 'Transliteration (IAST)', 'Primary Theological & Liturgical Domain'],
-      headersHi: ['क्र.', 'भैरव नाम (देवनागरी)', 'लिप्यंतरण (IAST)', 'प्रमुख तात्त्विक एवं उपासनात्मक अधिष्ठान'],
-      rowsEn: [
-        ['1', 'असितांग भैरव', 'Asitāṅga Bhairava', 'First of the Aṣṭa Bhairavas · Eastern axis, Brahmāṇī consort & creative spanda'],
-        ['2', 'महाकाल भैरव', 'Mahākāla Bhairava', 'Supreme Lord of Transcendent Time (Mahākāla), Ujjayinī & Mahākālī consort'],
-        ['3', 'त्रिलोचन भैरव', 'Trilocana Bhairava', 'Three-eyed sovereign of solar, lunar, and fire vision across the three times'],
-        ['4', 'काल भैरव', 'Kāla Bhairava', 'Kotwal (Chief Magistrate) of Kāśī, Brahmakapāla liberator & master of Kāla'],
-        ['5', 'त्रिपुर भैरव', 'Tripura Bhairava', 'Guardian of the triad of cities, bodies, and states of consciousness'],
-        ['6', 'क्रोध भैरव', 'Krodha Bhairava', 'Aṣṭa Bhairava of fierce transformative wrath & Vaiṣṇavī consort'],
-        ['7', 'तांडव भैरव', 'Tāṇḍava Bhairava', 'Cosmic dancer of the five divine acts (Pañcakṛtya) & rhythmic dissolution'],
-        ['8', 'यम भैरव', 'Yama Bhairava', 'Ordainer of cosmic law (Dharma), yogic restraint, and the threshold of mortality'],
-        ['9', 'नीलकंठ भैरव', 'Nīlakaṇṭha Bhairava', 'Blue-throated absorber of cosmic poison (Hālāhala) & compassionate protector'],
-        ['10', 'श्मशान भैरव', 'Śmaśāna Bhairava', 'Dweller of the cremation ground (Mahāśmaśāna) & awakener of radical non-attachment'],
-        ['11', 'चंड भैरव', 'Caṇḍa Bhairava', 'Southern Aṣṭa Bhairava of blazing martial energy & Kaumārī consort'],
-        ['12', 'धूम्रलोचन भैरव', 'Dhūmralocana Bhairava', 'Smoke-eyed guardian of twilight veils, dhūmra-agni & subtle dissolution'],
-        ['13', 'वीर भैरव', 'Vīra Bhairava', 'Heroic sovereign of Vīrācāra sadhana & fearless mandala defense'],
-        ['14', 'रुद्र भैरव', 'Rudra Bhairava', 'Vedic-Āgamic roaring tempest who dissolves affliction and ignorance'],
-        ['15', 'क्षेत्रपाल भैरव', 'Kṣetrapāla Bhairava', 'Protector of sacred geography (Kṣetra), temples, and inner bodily sanctity'],
-        ['16', 'लोकनाथ भैरव', 'Lokanātha Bhairava', 'Compassionate sovereign and guardian of the fourteen worlds (Bhuvanas)'],
-        ['17', 'पापभंजन भैरव', 'Pāpabhañjana Bhairava', 'Shatterer of karmic transgressions, moral fetters (pāśa), and inner guilt'],
-        ['18', 'महाभैरव', 'Mahābhairava', 'Macrocosmic plenitude (Pūrṇatā) supporting the entire Śākta-Śaiva cosmos'],
-        ['19', 'वत्सनाभ भैरव', 'Vatsanābha Bhairava', 'Alchemical transmuter of lethal poison into spiritual nectar (Rasāyana)'],
-        ['20', 'चित्रभानु भैरव', 'Citrabhānu Bhairava', 'Multicolored solar-fire effulgence illuminating the subtle nādīs'],
-        ['21', 'भीषण भैरव', 'Bhīṣaṇa Bhairava', 'Northern Aṣṭa Bhairava & Cāmuṇḍā consort who terrifies demonic ego'],
-        ['22', 'संहार भैरव', 'Saṃhāra Bhairava', 'North-Eastern Aṣṭa Bhairava & Caṇḍikā consort of final cosmic reabsorption'],
-        ['23', 'क्रोधनाथ भैरव', 'Krodhanātha Bhairava', 'Sovereign master over wrathful protective forces and obstacle-removal'],
-        ['24', 'कालाग्नि भैरव', 'Kālāgni Bhairava', 'Kālāgnirudra—the subterranean fire of cosmic dissolution at the end of kalpas'],
-        ['25', 'त्र्यम्बक भैरव', 'Tryambaka Bhairava', 'Mṛtyuñjaya healer, father of the three worlds, and bestower of immortality'],
-        ['26', 'सर्प भैरव', 'Sarpa Bhairava', 'Nāga-crowned lord of coiled Kuṇḍalinī śakti and subterranean treasures'],
-        ['27', 'अजर भैरव', 'Ajara Bhairava', 'Ageless, undecaying eternal witness untouched by biological or cosmic time'],
-        ['28', 'व्यापक भैरव', 'Vyāpaka Bhairava', 'All-pervading omnipresent consciousness permeating every atom and tattva'],
-        ['29', 'इंद्राचौड़ भैरव', 'Indrācauḍa Bhairava', 'Crest-sovereign of celestial dominion crowning the zenith of divine authority'],
-        ['30', 'इंद्रा मूर्ति भैरव', 'Indrā Mūrti Bhairava', 'Embodied vajra-sovereignty uniting royal thunderbolt power with Śiva-tattva'],
-        ['31', 'बटुक भैरव', 'Baṭuka Bhairava', 'Ever-youthful Āpaduddhāraka (Rescuer from Peril) revered in Sattva, Rajas & Tamas'],
-        ['32', 'अमृत भैरव', 'Amṛta Bhairava', 'Lunar-nectar lord of Somacakra who showers rejuvenating soma-amṛta'],
-        ['33', 'मार्तंड भैरव', 'Mārtaṇḍa Bhairava', 'Solar-Bhairava synthesis (Khaṇḍobā / Mārtaṇḍa) of radiant heroic splendor'],
-        ['34', 'विपाक्ष भैरव', 'Vipākṣa Bhairava', 'Impartial transcendent witness (Virūpākṣa/Vipākṣa) beyond all dualistic polarities'],
-        ['35', 'योगेश्वर भैरव', 'Yogeśvara Bhairava', 'Supreme master of Haṭha, Laya, Mantra, and Śāmbhava yoga'],
-        ['36', 'त्रिनेत्र भैरव', 'Trinetra Bhairava', 'Awakener of the Ājñā third eye uniting Iḍā, Piṅgalā, and Suṣumṇā'],
-        ['37', 'प्रेतनाथ भैरव', 'Pretanātha Bhairava', 'Lord of liminal spirits (pretas), guiding disembodied prāṇa to liberation'],
-        ['38', 'पिशाचनाथ भैरव', 'Piśācanātha Bhairava', 'Master of nocturnal shadow-beings and tamasic subconscious impulses'],
-        ['39', 'दंडपाणि भैरव', 'Daṇḍapāṇi Bhairava', 'Staff-wielding chief enforcer of Kāśī’s sacred law and karmic discipline'],
-        ['40', 'विकराल भैरव', 'Vikarāla Bhairava', 'Formidable fang-bearing guardian whose awe-inspiring form shatters dark sorcery'],
-        ['41', 'भद्र भैरव', 'Bhadra Bhairava', 'Auspicious, benign, and welfare-bestowing protective aspect of Bhairava'],
-        ['42', 'भीम भैरव', 'Bhīma Bhairava', 'Tremendous, awe-inspiring colossus of prāṇic strength and unshakeable resolve'],
-        ['43', 'दिगंबर भैरव', 'Digambara Bhairava', 'Sky-clad ascetic stripped of all worldly conditioning and illusory veils'],
-        ['44', 'नाग भैरव', 'Nāga Bhairava', 'Guardian of Pātāla, serpent wisdom, sacred water-springs, and subtle prāṇa'],
-        ['45', 'उग्र भैरव', 'Ugra Bhairava', 'Fierce, high-voltage transformative current (consort of Tārā / Ugratārā)'],
-        ['46', 'भूतनाथ भैरव', 'Bhūtanātha Bhairava', 'Sovereign of the five gross elements (Pañcamahābhūtas) and all living beings'],
-        ['47', 'अघोर भैरव', 'Aghora Bhairava', 'Non-terrifying luminous grace at the heart of the fiercest cremation-ground praxis'],
-        ['48', 'स्वर्णाकर्षण भैरव', 'Svarṇākarṣaṇa Bhairava', 'Golden-complexioned bestower of spiritual auric radiance and material abundance'],
-        ['49', 'नृसिंह भैरव', 'Nṛsiṃha Bhairava', 'Man-Lion Tantric synthesis tearing apart the demon of entrenched ego'],
-        ['50', 'कपाल भैरव', 'Kapāla Bhairava', 'Skull-bowl bearer of the Kāpālika stream & Northern Aṣṭa Bhairava variant'],
-        ['51', 'चरु भैरव', 'Caru Bhairava', 'Lord of the sacred oblation (caru-homa) and ritual alchemy of the fire-altar'],
-        ['52', 'स्वछंद भैरव', 'Svacchanda Bhairava', 'Five-faced, eighteen-armed supreme autonomous Reality of the Svacchanda Tantra']
-      ],
-      rowsHi: [
-        ['1', 'असितांग भैरव', 'Asitāṅga Bhairava', 'अष्ट भैरवों में प्रथम · पूर्व दिशा, ब्राह्मी शक्ति युग्म एवं सृजनात्मक स्पन्द'],
-        ['2', 'महाकाल भैरव', 'Mahākāla Bhairava', 'महाकालेश्वर · कालों के भी काल, उज्जयिनी अधिपति एवं महाकाली के भैरव'],
-        ['3', 'त्रिलोचन भैरव', 'Trilocana Bhairava', 'सूर्य, चन्द्र और अग्नि रूपी तीन नेत्रों से त्रिकाल को देखने वाले भैरव'],
-        ['4', 'काल भैरव', 'Kāla Bhairava', 'काशी के सर्वोच्च कोतवाल, ब्रह्मकपाल मोचक एवं काल-चक्र के शासक'],
-        ['5', 'त्रिपुर भैरव', 'Tripura Bhairava', 'तीनों पुरों (स्थूल-सूक्ष्म-कारण) एवं जाग्रत-स्वप्न-सुषुप्ति के अधिष्ठाता'],
-        ['6', 'क्रोध भैरव', 'Krodha Bhairava', 'अष्ट भैरव (वैष्णवी युग्म) · अज्ञान और अधर्म का नाश करने वाला दिव्य क्रोध'],
-        ['7', 'तांडव भैरव', 'Tāṇḍava Bhairava', 'पञ्चकृत्य (सृष्टि, स्थिति, संहार, तिरोभाव, अनुग्रह) के ताण्डव नर्तक'],
-        ['8', 'यम भैरव', 'Yama Bhairava', 'धर्म-नियम, योग-संयम एवं मृत्यु-सीमा के सर्वोच्च नियामक'],
-        ['9', 'नीलकंठ भैरव', 'Nīlakaṇṭha Bhairava', 'हालाहल विष को कंठ में धारण कर लोक-रक्षा करने वाले करुणामय भैरव'],
-        ['10', 'श्मशान भैरव', 'Śmaśāna Bhairava', 'महाश्मशान के अधिपति एवं अहंकार-भस्म के पश्चात् जाग्रत शुद्ध वैराग्य'],
-        ['11', 'चंड भैरव', 'Caṇḍa Bhairava', 'दक्षिण दिशा के अष्ट भैरव (कौमारी युग्म) · प्रचण्ड शौर्य एवं तेज के स्वामी'],
-        ['12', 'धूम्रलोचन भैरव', 'Dhūmralocana Bhairava', 'धूम्र-नेत्र धारी संध्या-आवरण एवं सूक्ष्म लय के सजग प्रहरी'],
-        ['13', 'वीर भैरव', 'Vīra Bhairava', 'वीराचार साधना के आदर्श एवं मण्डल के अजेय रक्षक'],
-        ['14', 'रुद्र भैरव', 'Rudra Bhairava', 'वैदिक-आगमिक रौद्र तेज जो दुःख, रोग और अज्ञान को दग्ध करता है'],
-        ['15', 'क्षेत्रपाल भैरव', 'Kṣetrapāla Bhairava', 'तीर्थों, शक्तिपीठों, देवालयों एवं साधक की देह-भूमि के रक्षक'],
-        ['16', 'लोकनाथ भैरव', 'Lokanātha Bhairava', 'चतुर्दश भुवनों के करुणामय स्वामी एवं लोक-कल्याणकारी नाथ'],
-        ['17', 'पापभंजन भैरव', 'Pāpabhañjana Bhairava', 'संचित पाप-राशि, कर्म-पाश एवं अपराध-बोध का भंजन करने वाले भैरव'],
-        ['18', 'महाभैरव', 'Mahābhairava', 'समस्त ब्रह्माण्ड को धारण करने वाली पूर्ण परब्रह्म महाभैरव चेतना'],
-        ['19', 'वत्सनाभ भैरव', 'Vatsanābha Bhairava', 'तीव्र विष को भी योग और रसायन से अमृत में बदलने वाले उग्र रक्षक'],
-        ['20', 'चित्रभानु भैरव', 'Citrabhānu Bhairava', 'सूर्य और अग्नि के समान बहु-वर्णी दिव्य प्रकाश के स्वामी'],
-        ['21', 'भीषण भैरव', 'Bhīṣaṇa Bhairava', 'उत्तर दिशा के अष्ट भैरव (चामुण्डा युग्म) · आसुरी वृत्तियों के लिए भयकारी'],
-        ['22', 'संहार भैरव', 'Saṃhāra Bhairava', 'ईशान कोण के अष्ट भैरव (चण्डिका युग्म) · महाप्रलय एवं तात्त्विक लय के स्वामी'],
-        ['23', 'क्रोधनाथ भैरव', 'Krodhanātha Bhairava', 'उग्र रक्षा-शक्तियों के स्वामी एवं अन्याय-दमन के अधिपति'],
-        ['24', 'कालाग्नि भैरव', 'Kālāgni Bhairava', 'कल्पान्त की प्रलयाग्नि (कालाग्निरुद्र) के अधिष्ठाता भैरव'],
-        ['25', 'त्र्यम्बक भैरव', 'Tryambaka Bhairava', 'महामृत्युंजय, तीनों लोकों के पिता एवं अमरत्व-प्रदाता भैरव'],
-        ['26', 'सर्प भैरव', 'Sarpa Bhairava', 'नाग-भूषण एवं मूलाधार स्थित कुण्डलिनी सर्प-शक्ति के नियामक'],
-        ['27', 'अजर भैरव', 'Ajara Bhairava', 'जरा (वृद्धावस्था) और क्षय से रहित नित्य-नूतन शाश्वत साक्षी भैरव'],
-        ['28', 'व्यापक भैरव', 'Vyāpaka Bhairava', 'कण-कण और छत्तीस तत्त्वों में सर्वत्र ओत-प्रोत सर्वव्यापी भैरव'],
-        ['29', 'इंद्राचौड़ भैरव', 'Indrācauḍa Bhairava', 'दिव्य ऐश्वर्य के शिखर-मुकुट (चूड़ामणि) पर विराजमान भैरव'],
-        ['30', 'इंद्रा मूर्ति भैरव', 'Indrā Mūrti Bhairava', 'वज्र-समान अमोघ ऐश्वर्य और शिव-तेज के साकार विग्रह भैरव'],
-        ['31', 'बटुक भैरव', 'Baṭuka Bhairava', 'आपदुद्धारक बाल-स्वरूप भैरव (सात्त्विक, राजसिक एवं तामसिक त्रिविध ध्यान)'],
-        ['32', 'अमृत भैरव', 'Amṛta Bhairava', 'सहस्रार चंद्र-मण्डल से सोमामृत की वर्षा करने वाले संजीवनी भैरव'],
-        ['33', 'मार्तंड भैरव', 'Mārtaṇḍa Bhairava', 'सूर्य और भैरव का संयुक्त तेजस्वी स्वरूप (मार्तण्ड-भैरव / खण्डोबा परम्परा)'],
-        ['34', 'विपाक्ष भैरव', 'Vipākṣa Bhairava', 'द्वैत के समस्त पक्षों से परे निष्पक्ष एवं विषम-नेत्र (विरूपाक्ष/विपाक्ष) साक्षी'],
-        ['35', 'योगेश्वर भैरव', 'Yogeśvara Bhairava', 'हठ, लय, मन्त्र और शाम्भव योग के सर्वोच्च अधीश्वर एवं आदिगुरु'],
-        ['36', 'त्रिनेत्र भैरव', 'Trinetra Bhairava', 'इड़ा-पिंगला-सुषुम्णा के संगम आज्ञाचक्र (तृतीय नेत्र) के प्रकाशक'],
-        ['37', 'प्रेतनाथ भैरव', 'Pretanātha Bhairava', 'अतृप्त एवं देह-मुक्त प्राणों (प्रेत योनि) को सद्गति देने वाले स्वामी'],
-        ['38', 'पिशाचनाथ भैरव', 'Piśācanātha Bhairava', 'रात्रिचर तामसिक शक्तियों और अवचेतन अंधकार को वश में करने वाले नाथ'],
-        ['39', 'दंडपाणि भैरव', 'Daṇḍapāṇi Bhairava', 'काशी में धर्म-दण्ड धारण करने वाले अनुशासन और न्याय के सेनापति'],
-        ['40', 'विकराल भैरव', 'Vikarāla Bhairava', 'प्रचण्ड दंष्ट्रा-युक्त भयानक रूप से अभिचार और आसुरी बाधा मिटाने वाले'],
-        ['41', 'भद्र भैरव', 'Bhadra Bhairava', 'भक्तों का कल्याण, मंगल और अभय सुनिश्चित करने वाले सौम्य-रक्षक भैरव'],
-        ['42', 'भीम भैरव', 'Bhīma Bhairava', 'अतुलनीय प्राण-बल, अडिग संकल्प और महापराक्रम के अधिष्ठाता भैरव'],
-        ['43', 'दिगंबर भैरव', 'Digambara Bhairava', 'दिशाओं को ही वस्त्र बनाने वाले, सर्व-आवरण-मुक्त परमहंस भैरव'],
-        ['44', 'नाग भैरव', 'Nāga Bhairava', 'पाताल, जल-स्रोत, भूमि-निधि और प्राण-वायु के रक्षक नागराजा भैरव'],
-        ['45', 'उग्र भैरव', 'Ugra Bhairava', 'भगवती उग्रतारा के सहचर एवं तीव्र रूपांतरणकारी विद्युत-तेज स्वरूप'],
-        ['46', 'भूतनाथ भैरव', 'Bhūtanātha Bhairava', 'पञ्चमहाभूतों और समस्त प्राणी-जगत एवं भूतगणों के परम स्वामी'],
-        ['47', 'अघोर भैरव', 'Aghora Bhairava', 'घोरतम श्मशान में भी परम अ-घोर (सौम्य, शिव एवं समदर्शी) तत्व'],
-        ['48', 'स्वर्णाकर्षण भैरव', 'Svarṇākarṣaṇa Bhairava', 'स्वर्ण-आभा, दैवी समृद्धि, ऐश्वर्य और दारिद्र्य-नाश के सात्त्विक भैरव'],
-        ['49', 'नृसिंह भैरव', 'Nṛsiṃha Bhairava', 'नृसिंह और भैरव के संयुक्त उग्र तेज से अहंकार-रूपी असुर का विदारण करने वाले'],
-        ['50', 'कपाल भैरव', 'Kapāla Bhairava', 'ब्रह्मकपाल पात्र धारी कापालिक आम्नाय एवं उत्तर-दिशा के अष्ट भैरव'],
-        ['51', 'चरु भैरव', 'Caru Bhairava', 'यज्ञीय चरु-आहुति, अग्नि-रसायन एवं तांत्रिक होम-विधान के अधिष्ठाता'],
-        ['52', 'स्वछंद भैरव', 'Svacchanda Bhairava', 'स्वच्छन्द तन्त्र के पञ्चमुख, अष्टादशभुज, परम स्वतंत्र परात्पर भैरव']
-      ]
+        'बावन भैरव एवं शक्तिपीठ रक्षक परम्परा में समादृत ५२ भैरव वीरों (१. क्षेत्रपाल वीर से ५२. वासमित्र वीर) की क्रमबद्ध सारणी।',
+      headersEn: ['No.', 'Transliteration (IAST)', 'Devanāgarī Name (हिंदी नाम)', 'Guardian Classification'],
+      headersHi: ['क्र.', 'लिप्यंतरण (IAST)', 'भैरव वीर नाम (देवनागरी)', 'रक्षक वर्गीकरण'],
+      rowsEn: BAVAN_BHAIRAVA_VIRAS_52.map((v) => [
+        String(v.index),
+        v.nameIAST,
+        v.nameDevanagari,
+        `${v.mantraSanskrit} (${v.mantraPhonetic})`
+      ]),
+      rowsHi: BAVAN_BHAIRAVA_VIRAS_52.map((v) => [
+        String(v.index),
+        v.nameIAST,
+        v.nameDevanagari,
+        `${v.mantraSanskrit} (${v.mantraPhonetic})`
+      ])
     }
   ],
   'bavan-bhairava-chhappan-kalua-concordance': [
@@ -1451,64 +1355,41 @@ export const DEEP_SACRED_SEAL_ARTICLES: ResearchArticle[] = [
     slug: 'bhairavagana-taxonomy-kshetrapalas',
     categorySlug: 'ashta-bhairava',
     code: 'SHA-04',
-    titleEn: 'Bhairavagaṇa (भैरवगण): Etymology of Bhairava, Aṣṭa Bhairava, 64 Bhairavas & Kṣetrapāla Retinues',
-    titleHi: 'भैरवगण: भैरव शब्द की निरुक्ति, अष्ट भैरव, ६४ भैरव एवं क्षेत्रपाल परम्परा',
-    subtitleEn: 'Philological, Āgamic, and Purāṇic Study of Supreme Bhairava and His Protective Retinues',
-    subtitleHi: 'परम भैरव तत्त्व तथा उनके रक्षात्मक भैरवगणों का व्युत्पत्तिमूलक, आगमिक एवं पौराणिक अध्ययन',
-    sanskritEpigraph: '॥ विश्वं बिभर्ति पूरयति रवयति इति भैरवः ॥',
-    epigraphTranslationEn: '"He who supports (bharaṇa), nourishes, and sounds forth (ravaṇa) the universe is called Bhairava." — Tantrāloka 1.96',
-    epigraphTranslationHi: '"जो विश्व का भरण-पोषण, रमण और संहार/नाद करते हैं, वे भैरव कहलाते हैं।" — तन्त्रालोक १.९६',
-    evidenceBadgeEn: 'ŚAIVA-ŚĀKTA ĀGAMA · BHAIRAVAGAṆA TAXONOMY',
-    evidenceBadgeHi: 'शैव-शाक्त आगम · भैरवगण वर्गीकरण',
+    titleEn: 'BĀVAN BHAIRAVA — THE 52 FORMS OF BHAIRAVA',
+    titleHi: 'बावन भैरव — शक्तिपीठों के पवित्र रक्षक (Bāvan Bhairava — The 52 Forms of Bhairava)',
+    subtitleEn: 'बावन भैरव — The Sacred Guardians of the Śakti Pīṭhas & the 52 Bhairav Vīras (बावन भैरव वीर)',
+    subtitleHi: 'बावन भैरव — ५२ शक्तिपीठों के रक्षक स्वरूप एवं ५२ भैरव वीर (१. क्षेत्रपाल वीर से ५२. वासमित्र वीर)',
+    sanskritEpigraph: '॥ ॐ श्री बावन भैरवेभ्यो नमः । शक्तिपीठ-रक्षकाः द्विपञ्चाशद्-भैरवाः ॥',
+    epigraphTranslationEn:
+      '"Bāvan Bhairava (बावन भैरव) refers to a traditional grouping of fifty-two Bhairava forms associated in certain Śākta traditions with the fifty-two Śakti Pīṭhas."',
+    epigraphTranslationHi:
+      '"बावन भैरव (५२ भैरव) कतिपय शाक्त परम्पराओं में बावन शक्तिपीठों से संबद्ध भगवान् भैरव के बावन रक्षक स्वरूपों एवं ५२ भैरव वीरों को संदर्भित करता है।"',
+    evidenceBadgeEn: 'ŚAIVA-ŚĀKTA TRADITION · BĀVAN BHAIRAVA (52)',
+    evidenceBadgeHi: 'शैव-शाक्त परम्परा · बावन भैरव (५२)',
     accentColor: '#FFBF38',
     summaryEn:
-      'Investigates the Sanskrit compound Bhairavagaṇa (भैरवगण)—the manifold host or retinue of Bhairava—tracing the hermeneutic nirukti of BHAI-RA-VA in Abhinavagupta’s Tantrāloka and Kṣemarāja’s Uddyota alongside the structural classification of the 8 Directional Bhairavas, the 64 Yoginī-consort Bhairavas, and the Kṣetrapāla guardians of Kāśī and the Śaktipīṭhas.',
+      'Bāvan Bhairava (बावन भैरव) refers to a traditional grouping of fifty-two Bhairava forms associated in certain Śākta traditions with the fifty-two Śakti Pīṭhas. This complete research monograph presents the 10-section doctrinal study (1. Who Is Bhairava?, 2. The Meaning of Bāvan Bhairava, 3. The Origin of the Śakti Pīṭhas, 4. The Relationship Between the 52 Śakti Pīṭhas and 52 Bhairavas, 5. Why Are There Different Numbers of Śakti Pīṭhas?, 6. The Difference Between Aṣṭa, 52, and 64 Bhairavas, 7. Spiritual and Symbolic Significance, 8. Worship and Devotional Traditions, 9. Important Distinctions, 10. Conclusion) together with the complete roster of 52 Bhairav Vīras (बावन भैरव वीर: 1. Kṣetrapāl Vīr to 52. Vāsamitra Vīr).',
     summaryHi:
-      'संस्कृत समस्तपद "भैरवगण" का गहन शास्त्रीय अध्ययन—जिसमें आचार्य अभिनवगुप्त के तन्त्रालोक एवं क्षेमराज की उद्योत टीका के आधार पर "भैरव" (भ + र + व) की तात्त्विक निरुक्ति तथा अष्ट भैरव, ६४ भैरव और काशी व शक्तिपीठों के क्षेत्रपाल भैरवगणों का वर्गीकरण प्रस्तुत है।',
-    sections: [
-      {
-        headingEn: '1. Hermeneutic Etymology (Nirukti) of "Bhairava" & "Bhairavagaṇa"',
-        headingHi: '1. "भैरव" एवं "भैरवगण" की शास्त्रीय निरुक्ति एवं व्युत्पत्ति',
-        bodyEn:
-          'In non-dual Kashmir Śaivism (Trika) and Śākta-Śaiva Āgamas, the name Bhairava is analysed both grammatically (from bhīru, "timid", or bhaya, "fear"—he who roars to terrify fear itself and protects the fearful) and esoterically through its three syllables BHAI (Bharaṇa, supporting and nourishing the cosmos), RA (Ravaṇa, withdrawing or sounding forth all things), and VA (Vamana, projecting or emitting the universe). When joined with gaṇa ("troop, class, assembly, or retinue"), Bhairavagaṇa denotes the pluralized rays and protective emanations of Supreme Bhairava.',
-        bodyHi:
-          'अद्वैत काश्मीरी शैव दर्शन (त्रिक) और शैव-शाक्त आगमों में "भैरव" शब्द की व्याख्या दो स्तरों पर की गई है—व्याकरणिक रूप से जो भीरु (भयभीत) साधकों के भय का हरण करते हैं और स्वयं काल के लिए भी भयकारी हैं; तथा अक्षर-निरुक्ति के अनुसार "भ" से विश्व का भरण (धारण/पोषण), "र" से रवण (संहरण/नाद) और "व" से वमन (सृष्टि का प्रक्षेपण) करने वाले परब्रह्म "भैरव" हैं। "गण" शब्द के जुड़ने से "भैरवगण" का अर्थ महाभैरव की अनन्त रश्मियों, अष्ट/चौंसठ भैरव-समूहों तथा क्षेत्रपाल सेनाओं से है।'
-      },
-      {
-        headingEn: '2. From the Eight Bhairavas (Aṣṭa Bhairava) to the 64 Mandala Consorts',
-        headingHi: '2. अष्ट भैरव से चौंसठ भैरव-योगिनी मण्डल तक का विस्तार',
-        bodyEn:
-          'At the architectural and liturgical core of the Bhairavagaṇa stands the octad of Aṣṭa Bhairavas—Asitāṅga, Ruru, Caṇḍa, Krodha, Unmatta, Kapāla, Bhīṣaṇa, and Saṃhāra—who guard the eight cardinal and intermediate directions and pair with the eight Mother-goddesses (Aṣṭa Mātṛkās). When each of these eight Bhairavas expands into an octad (8 × 8), they form the 64 Bhairavas (Catuḥṣaṣṭi Bhairava) who preside alongside the 64 Yoginīs in the Tantrāloka and Agni Purāṇa mandalas.',
-        bodyHi:
-          'भैरवगण के स्थापत्य और आनुष्ठानिक केंद्र में "अष्ट भैरव" (असितांग, रुरु, चण्ड, क्रोध, उन्मत्त, कपाल, भीषण और संहार) प्रतिष्ठित हैं, जो आठों दिशाओं के स्वामी हैं और अष्ट मातृकाओं के साथ युग्मित हैं। जब इन आठों भैरवों में से प्रत्येक का अष्टक (८ × ८) विस्तारित होता है, तब वे "चौंसठ भैरव" बनते हैं जो तन्त्रालोक और अग्नि पुराण के मण्डलों में ६४ योगिनियों के सहचर हैं।'
-      },
-      {
-        headingEn: '3. Kṣetrapāla Bhairavas & the Kotwāl Jurisdiction of Kāśī',
-        headingHi: '3. क्षेत्रपाल भैरव एवं काशी की कोतवाल-दण्डनायक परम्परा',
-        bodyEn:
-          'Across Purāṇic pilgrimage topography (especially the Kāśī Khaṇḍa of the Skanda Purāṇa) and Āgamic temple architecture (Mayamata, Kāmikāgama), the Bhairavagaṇa operates as Kṣetrapāla—the vigilant protector of the sacred field. Headed by Kāla Bhairava (the Kotwāl of Kāśī), Daṇḍapāṇi, and Āpaduddhāraka Baṭuka Bhairava, these guardians secure the outer perimeter of every Śaktipīṭha and Śaiva sanctuary.',
-        bodyHi:
-          'पौराणिक तीर्थ-भूगोल (विशेषतः स्कन्द पुराण के काशी खण्ड) और आगमिक मंदिर-वास्तु (मयमतम्, कामिकागम) में भैरवगण "क्षेत्रपाल" के रूप में कार्य करते हैं। काशी के कोतवाल काल भैरव, दण्डपाणि और आपदुद्धारक बटुक भैरव के नेतृत्व में ये क्षेत्रपाल प्रत्येक शक्तिपीठ, ज्योतिर्लिंग और साधना-मण्डल की बाह्य सीमा को सुरक्षित रखते हैं।'
-      }
-    ],
+      'बावन भैरव (५२ भैरव) कतिपय शाक्त परम्पराओं में बावन शक्तिपीठों से संबद्ध भगवान् शिव के रक्षक भैरव स्वरूपों का समूह है। इस शोध-प्रबंध में १०-खंडीय शास्त्रीय अध्ययन (१. भैरव कौन हैं?, २. बावन भैरव का अर्थ, ३. शक्तिपीठों की उत्पत्ति, ४. ५२ शक्तिपीठों और ५२ भैरवों का संबंध, ५. शक्तिपीठों की भिन्न संख्याओं का कारण, ६. अष्ट, ५२ और ६४ भैरवों में अंतर, ७. आध्यात्मिक एवं प्रतीकात्मक महत्त्व, ८. उपासना परम्परा, ९. महत्त्वपूर्ण शास्त्रीय भेद, १०. निष्कर्ष) तथा ५२ भैरव वीरों (१. क्षेत्रपाल वीर से ५२. वासमित्र वीर) की संपूर्ण सूची प्रस्तुत है।',
+    sections: BAVAN_BHAIRAVA_SECTIONS,
     keyFindingsEn: [
-      'Analyses the tri-syllabic hermeneutic nirukti of Bhairava (Bharaṇa-Ravaṇa-Vamana) in Tantrāloka 1.96.',
-      'Maps the hierarchical expansion of Bhairavagaṇa from 1 Supreme Svacchanda/Mahābhairava to 8, 52, and 64 Bhairavas.',
-      'Documents the Kṣetrapāla liturgical role in temple architecture and Kāśī pilgrimage traditions.'
+      'Defines Bāvan Bhairava (बावन भैरव) as the 52 protective manifestations of Lord Śiva associated with the 52 Śakti Pīṭhas.',
+      'Provides the complete 10-section scholarly monograph covering Śiva–Śakti unity, Pīṭha origins, numerical variations (4, 18, 51, 52, 64, 108), and distinctions among the 8, 52, and 64 Bhairava systems.',
+      'Catalogues all 52 Bhairav Vīras (बावन भैरव वीर) from 1. Kṣetrapāl Vīr (क्षेत्रपाल वीर) to 52. Vāsamitra Vīr (वासमित्र वीर) alongside the 52 Pīṭha Bhairavas.'
     ],
     keyFindingsHi: [
-      'तन्त्रालोक (१.९६) के अनुसार भैरव की त्रि-अक्षरीय निरुक्ति (भरण-रवण-वमन) का विश्लेषण।',
-      'एक परम स्वच्छन्द/महाभैरव से अष्ट भैरव, बावन भैरव और चौंसठ भैरवगणों के विस्तार का मानचित्रण।',
-      'मंदिर-वास्तु और काशी की कोतवाल परंपरा में क्षेत्रपाल भैरवों की आनुष्ठानिक भूमिका का प्रलेखन।'
+      'बावन भैरव (५२ भैरव) को ५२ शक्तिपीठों से संबद्ध भगवान् शिव के रक्षक स्वरूपों के रूप में परिभाषित करता है।',
+      'शिव-शक्ति एकत्व, शक्तिपीठ उत्पत्ति, संख्यात्मक विविधता (४, १८, ५१, ५२, ६४, १०८) तथा ८, ५२ एवं ६४ भैरव प्रणालियों के भेद का १०-खंडीय शोध अध्ययन।',
+      '१. क्षेत्रपाल वीर से ५२. वासमित्र वीर तक सभी ५२ भैरव वीरों (बावन भैरव वीर) तथा ५२ पीठ भैरवों की संपूर्ण सारणी।'
     ],
     metadata: [
-      { labelEn: 'Sanskrit Term', labelHi: 'संस्कृत संज्ञा', valueEn: 'Bhairavagaṇa (भैरवगण) · Host of Bhairava', valueHi: 'भैरवगण · भैरव का रक्षक समूह' },
-      { labelEn: 'Core Groupings', labelHi: 'प्रमुख समूह', valueEn: 'Aṣṭa Bhairava (8) · Bāvan Bhairava (52) · Yoginī-Bhairavas (64)', valueHi: 'अष्ट भैरव (८) · बावन भैरव (५२) · योगिनी-भैरव (६४)' },
-      { labelEn: 'Primary Sources', labelHi: 'मूल शास्त्रीय स्रोत', valueEn: 'Tantrāloka · Svacchanda Tantra · Śiva Purāṇa · Kāśī Khaṇḍa', valueHi: 'तन्त्रालोक · स्वच्छन्द तन्त्र · शिव पुराण · काशी खण्ड' },
+      { labelEn: 'Tradition', labelHi: 'परम्परा', valueEn: 'Hinduism — Śaiva and Śākta traditions', valueHi: 'हिन्दू धर्म — शैव एवं शाक्त परम्परा' },
+      { labelEn: 'Category', labelHi: 'श्रेणी', valueEn: 'Sacred Geography · Temple Traditions · Tantric Cosmology', valueHi: 'पवित्र भूगोल · मंदिर परम्परा · तांत्रिक ब्रह्माण्ड विज्ञान' },
+      { labelEn: 'Core Groupings', labelHi: 'प्रमुख समूह', valueEn: '52 Śakti Pīṭha Bhairavas · 52 Bhairav Vīras · Aṣṭa (8) & Yoginī (64) Bhairavas', valueHi: '५२ शक्तिपीठ भैरव · ५२ भैरव वीर · अष्ट (८) एवं योगिनी (६४) भैरव' },
       { labelEn: 'Lead Investigator', labelHi: 'प्रमुख अन्वेषक', valueEn: 'Ram Ashok Kumar', valueHi: 'राम अशोक कुमार' }
     ],
-    primarySourcesEn: 'Tantrāloka (Abhinavagupta, Ch. 1) · Svacchanda Tantra · Śiva Purāṇa (Śatarudra Saṃhitā) · Skanda Purāṇa (Kāśī Khaṇḍa)',
-    primarySourcesHi: 'तन्त्रालोक (अभिनवगुप्त, प्रथम आह्निक) · स्वच्छन्द तन्त्र · शिव पुराण (शतरुद्र संहिता) · स्कन्द पुराण (काशी खण्ड)',
+    primarySourcesEn: 'Śiva Purāṇa · Devī Bhāgavata Purāṇa · Kalikā Purāṇa · Pīṭhanirṇaya (Mahāpīṭhanirūpaṇa) · Tantracūḍāmaṇi · Kubjikāmata Tantra · D.C. Sircar (The Śākta Pīṭhas)',
+    primarySourcesHi: 'शिव पुराण · देवी भागवत पुराण · कालिका पुराण · पीठनिर्णय (महापीठनिरूपण) · तन्त्रचूड़ामणि · कुब्जिकामत तन्त्र · डी.सी. सरकार (द शाक्त पीठाज़)',
     authorEn: 'Ram Ashok Kumar',
     authorHi: 'राम अशोक कुमार'
   }
@@ -1618,13 +1499,13 @@ export const SPECIAL_CIRCULAR_SEALS: SpecialCircularSeal[] = [
     sealNumber: 'SEAL 04',
     categorySlug: 'ashta-bhairava',
     articleSlug: 'bhairavagana-taxonomy-kshetrapalas',
-    sanskritSeal: 'भैरवगण · क्षेत्रपाल एवं अष्ट/६४ भैरव',
-    shortTitleEn: 'Bhairavagaṇa',
-    shortTitleHi: 'भैरवगण',
-    subtitleEn: 'Etymology of Bhairava, Aṣṭa Bhairava, 64 Bhairavas & Kṣetrapālas',
-    subtitleHi: 'भैरव निरुक्ति, अष्ट भैरव, ६४ भैरव एवं क्षेत्रपाल परम्परा',
-    domainBadgeEn: 'ŚAIVA RAHASYA · BHAIRAVAGAṆA',
-    domainBadgeHi: 'शैव रहस्य · भैरवगण वर्गीकरण',
+    sanskritSeal: 'बावन भैरव · ५२ शक्तिपीठ रक्षक एवं भैरव वीर',
+    shortTitleEn: 'Bāvan Bhairava (52 Forms)',
+    shortTitleHi: 'बावन भैरव (५२ स्वरूप)',
+    subtitleEn: 'The Sacred Guardians of the Śakti Pīṭhas & the 52 Bhairav Vīras (बावन भैरव वीर)',
+    subtitleHi: 'शक्तिपीठों के पवित्र रक्षक एवं ५२ भैरव वीर (१. क्षेत्रपाल वीर से ५२. वासमित्र वीर)',
+    domainBadgeEn: 'ŚAIVA-ŚĀKTA · BĀVAN BHAIRAVA (52)',
+    domainBadgeHi: 'शैव-शाक्त · बावन भैरव (५२)',
     accentColor: '#FFBF38',
     motifType: 'bhairavagana'
   },

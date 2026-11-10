@@ -1027,7 +1027,12 @@ export default function PhilosophySection() {
                 (routeState.categorySlug ? getPortalBySlug(routeState.categorySlug) : null) ||
                 activePortal;
 
-              if (activeP?.slug !== 'the-14-lokas') return null;
+              if (
+                activeP?.slug !== 'the-14-lokas' ||
+                routeState.articleSlug === 'samaya-ashta-prahar-timekeeping'
+              ) {
+                return null;
+              }
 
               return (
                 <div className="relative z-10 w-full h-[calc(100dvh-58px)] min-h-[480px] overflow-hidden bg-[#080314] border-b-2 border-[#D3AD55]/50 select-none flex items-center justify-center">

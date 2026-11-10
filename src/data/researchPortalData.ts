@@ -1832,43 +1832,41 @@ const ADDITIONAL_GATEWAY_ARTICLES: Record<string, ResearchArticle[]> = {
       slug: 'bavan-bhairava-chhappan-kalua-concordance',
       categorySlug: '64-yogini-matrix',
       code: 'YM-10',
-      titleEn: 'BHAIRAV · 52 BHAIRAVAS – THE GUARDIANS OF THE 52 SHAKTI PEETHAS',
-      titleHi: 'भैरव · ॥ श्री बावन भैरव संग्रह ॥ · ५२ शक्तिपीठ रक्षक भैरव',
-      subtitleEn: 'Guardian manifestations of Lord Shiva associated with the traditional 52 Shakti Peethas, rather than the separate 64 Bhairava system',
-      subtitleHi: 'पारंपरिक ५२ शक्तिपीठों से संबद्ध भगवान् शिव के रक्षक बावन भैरव स्वरूप (६४ भैरव व्यवस्था से पृथक्)',
-      sanskritEpigraph: '॥ श्रीं भैरवाय नमः। ॐ श्री बावन भैरवेभ्यो नमः। शक्तिपीठ-रक्षकाः द्विपञ्चाशद्-भैरवाः ॥',
-      epigraphTranslationEn: '"Om Shreem Bhairavaya Namah. Om Shri Bavan Bhairavebhyo Namah. Salutations to the fifty-two manifestations of Bhairava, guardians of the sacred Shakti Peethas."',
-      epigraphTranslationHi: '"ॐ श्रीं भैरवाय नमः। ॐ श्री बावन भैरवेभ्यो नमः। ५२ शक्तिपीठों के शाश्वत रक्षक बावन भैरव स्वरूपों को कोटिशः नमन।"',
-      evidenceBadgeEn: 'ŚAIVA-ŚĀKTA CANON · ॥ श्री बावन भैरव संग्रह ॥ (01–52)',
-      evidenceBadgeHi: 'शैव-शाक्त आम्नाय · ॥ श्री बावन भैरव संग्रह ॥ (०१–५२)',
+      titleEn: 'BĀVAN BHAIRAVA — THE 52 FORMS OF BHAIRAVA',
+      titleHi: 'बावन भैरव — शक्तिपीठों के पवित्र रक्षक (Bāvan Bhairava — The 52 Forms of Bhairava)',
+      subtitleEn: 'बावन भैरव — The Sacred Guardians of the Śakti Pīṭhas & the 52 Bhairav Vīras (बावन भैरव वीर)',
+      subtitleHi: 'बावन भैरव — ५२ शक्तिपीठों के पवित्र रक्षक एवं ५२ भैरव वीर (१. क्षेत्रपाल वीर से ५२. वासमित्र वीर)',
+      sanskritEpigraph: '॥ ॐ श्री बावन भैरवेभ्यो नमः। शक्तिपीठ-रक्षकाः द्विपञ्चाशद्-भैरवाः ॥',
+      epigraphTranslationEn: '"Bāvan Bhairava (बावन भैरव) refers to a traditional grouping of fifty-two Bhairava forms associated in certain Śākta traditions with the fifty-two Śakti Pīṭhas."',
+      epigraphTranslationHi: '"बावन भैरव (५२ भैरव) कतिपय शाक्त परम्पराओं में बावन शक्तिपीठों से संबद्ध भगवान् भैरव के बावन रक्षक स्वरूपों एवं ५२ भैरव वीरों को संदर्भित करता है।"',
+      evidenceBadgeEn: 'ŚAIVA-ŚĀKTA TRADITION · BĀVAN BHAIRAVA (52)',
+      evidenceBadgeHi: 'शैव-शाक्त परम्परा · बावन भैरव (५२)',
       accentColor: '#F59E0B',
       summaryEn:
-        'BHAIRAV · ॥ श्री बावन भैरव संग्रह ॥ · 52 BHAIRAVAS – THE GUARDIANS OF THE 52 SHAKTI PEETHAS (amazingbharat.com | Shiva, Tantra art, Mantras). This monograph interprets the 52 Bhairavas strictly as the guardian manifestations of Lord Shiva associated with the traditional 52 Shakti Peethas, rather than the separate 64 Bhairava system. Below is the complete structured dossier: 1. Understanding the 52 Bhairavas, 2. Complete List: 52 Bhairava Names and Devotional Mantras (01. Bhimalochana to 52. Sadashiva), 3. Collective 52 Bhairava Prayer (Samarpaṇa Mantra), 4. Important Source Articles and References, 5. Three Systems Comparison, 6. Origin & Mythology, 7. Critical 51-Peetha Reference Table (Pīṭhanirṇaya / D.C. Sircar), 8. The 52nd Entry (Danteshwari Peetha), 9. 8-Field Documentation Framework, 10. Crucial Mantra Correction Note, and 11. Editorial Structure.',
+        'Bāvan Bhairava (बावन भैरव) refers to a traditional grouping of fifty-two Bhairava forms associated in certain Śākta traditions with the fifty-two Śakti Pīṭhas. This complete research monograph presents the 10-section doctrinal study (1. Who Is Bhairava?, 2. The Meaning of Bāvan Bhairava, 3. The Origin of the Śakti Pīṭhas, 4. The Relationship Between the 52 Śakti Pīṭhas and 52 Bhairavas, 5. Why Are There Different Numbers of Śakti Pīṭhas?, 6. The Difference Between Aṣṭa, 52, and 64 Bhairavas, 7. Spiritual and Symbolic Significance, 8. Worship and Devotional Traditions, 9. Important Distinctions, 10. Conclusion) together with the complete roster of 52 Bhairav Vīras (बावन भैरव वीर: 1. Kṣetrapāl Vīr to 52. Vāsamitra Vīr).',
       summaryHi:
-        'भैरव · ॥ श्री बावन भैरव संग्रह ॥ · ५२ शक्तिपीठ रक्षक भैरव (amazingbharat.com | शिव, तन्त्र कला, मन्त्र)। यह शोध-प्रबंध बावन भैरवों को ६४ भैरव प्रणाली से पृथक् करते हुए पारंपरिक ५२ शक्तिपीठों के रक्षक शिव-स्वरूपों के रूप में प्रतिष्ठापित करता है। नीचे दिए गए क्रम में संपूर्ण शोध आलेख प्रस्तुत है: १. ५२ भैरवों का शास्त्रीय स्वरूप, २. ५२ भैरव नामावली एवं मूल नाम मन्त्र (०१. भीमलोचन से ५२. सदाशिव), ३. श्री बावन भैरव समर्पण मन्त्र, ४. प्रमुख शास्त्रीय स्रोत एवं संदर्भ, ५. तीन प्रणालियों की तुलना (८, ६४ एवं ५२), ६. शक्तिपीठ प्राकट्य कथा, ७. पीठनिर्णय / डी.सी. सरकार ५१ शक्तिपीठ सूची, ८. ५२वाँ पीठ (दन्तेश्वरी, बस्तर), ९. ८-स्तरीय प्रलेखन ढांचा, १०. मन्त्र संशोधन सम्बन्धी निर्देश, एवं ११. संपादकीय संरचना।',
+        'बावन भैरव (५२ भैरव) कतिपय शाक्त परम्पराओं में बावन शक्तिपीठों से संबद्ध भगवान् शिव के रक्षक भैरव स्वरूपों का समूह है। इस शोध-प्रबंध में १०-खंडीय शास्त्रीय अध्ययन (१. भैरव कौन हैं?, २. बावन भैरव का अर्थ, ३. शक्तिपीठों की उत्पत्ति, ४. ५२ शक्तिपीठों और ५२ भैरवों का संबंध, ५. शक्तिपीठों की भिन्न संख्याओं का कारण, ६. अष्ट, ५२ और ६४ भैरवों में अंतर, ७. आध्यात्मिक एवं प्रतीकात्मक महत्त्व, ८. उपासना परम्परा, ९. महत्त्वपूर्ण शास्त्रीय भेद, १०. निष्कर्ष) तथा ५२ भैरव वीरों (१. क्षेत्रपाल वीर से ५२. वासमित्र वीर) की संपूर्ण सूची प्रस्तुत है।',
       sections: BAVAN_BHAIRAVA_SECTIONS,
       keyFindingsEn: [
-        '52 Bhairavas defined strictly as the guardian manifestations of Lord Shiva protecting the traditional 52 Shakti Peethas.',
-        'Complete roster of 52 Bhairava names and devotional salutation mantras (01. Bhimalochana to 52. Sadashiva).',
-        'Inclusion of the Collective 52 Bhairava Prayer: ॥ श्री बावन भैरव समर्पण मंत्र ॥ (ॐ श्री बावन भैरवेभ्यो नमः॥).',
-        'Academic separation of the 3 distinct Bhairava systems: Ashta Bhairava (8), Chatushshashti Bhairava (64), and Shakti Peetha Bhairavas (51/52).',
-        'Complete 51 Peetha critical concordance from Pīṭhanirṇaya / D.C. Sircar plus the 52nd Danteshwari Peetha entry in Bastar.'
+        'Bāvan Bhairava (बावन भैरव) refers to the 52 protective forms of Lord Śiva associated with the 52 Śakti Pīṭhas.',
+        'Complete 10-section doctrinal monograph covering Who Is Bhairava, Śakti Pīṭha origins, 5-part Pīṭha structure, numerical traditions (4, 18, 51, 52, 64, 108), and the distinction between 8, 52, and 64 Bhairavas.',
+        'Complete enumeration of the 52 Bhairav Vīras (बावन भैरव वीर) from 1. Kṣetrapāl Vīr (क्षेत्रपाल वीर) to 52. Vāsamitra Vīr (वासमित्र वीर).',
+        'Complete devotional concordance of the 52 Pīṭha Bhairavas and collective Bāvan Bhairava Samarpaṇa Mantra.'
       ],
       keyFindingsHi: [
-        'बावन भैरवों को ६४ भैरव प्रणाली से पृथक् करते हुए ५२ शक्तिपीठों के रक्षक शिव-स्वरूपों के रूप में प्रतिष्ठापित किया गया।',
-        '०१. भीमलोचन से ५२. सदाशिव पर्यन्त सभी ५२ भैरव नामों और भक्ति नाम-मन्त्रों की संपूर्ण प्रामाणिक नामावली।',
-        'सामूहिक श्री बावन भैरव समर्पण मन्त्र (॥ ॐ श्री बावन भैरवेभ्यो नमः॥) का समावेश।',
-        'तीन भैरव प्रणालियों (८ अष्ट भैरव, ६४ योगिनी भैरव, एवं ५१/५२ शक्तिपीठ भैरव) का स्पष्ट शास्त्रीय पृथक्करण।',
-        'पीठनिर्णय / डी.सी. सरकार की ५१ शक्तिपीठ सूची के साथ ५२वें दन्तेश्वरी पीठ (बस्तर) का ऐतिहासिक समन्वय।'
+        'बावन भैरव (५२ भैरव) ५२ शक्तिपीठों से संबद्ध भगवान् शिव के बावन रक्षक स्वरूपों को संदर्भित करता है।',
+        'भैरव तत्त्व, शक्तिपीठ उत्पत्ति, ५-स्तरीय पीठ संरचना, संख्यात्मक परम्पराओं (४, १८, ५१, ५२, ६४, १०८) तथा ८, ५२ व ६४ भैरव प्रणालियों के अंतर का १०-खंडीय अध्ययन।',
+        '१. क्षेत्रपाल वीर से ५२. वासमित्र वीर पर्यन्त सभी ५२ भैरव वीरों (बावन भैरव वीर) की संपूर्ण नामावली।',
+        '५२ शक्तिपीठ भैरवों तथा सामूहिक बावन भैरव समर्पण मन्त्र का समन्वय।'
       ],
       metadata: [
-        { labelEn: 'Canonical System', labelHi: 'शास्त्रीय प्रणाली', valueEn: '52 Shakti Peetha Guardians (बावन भैरव संग्रह)', valueHi: '५२ शक्तिपीठ रक्षक (बावन भैरव संग्रह)' },
-        { labelEn: 'Total Forms Catalogued', labelHi: 'कुल संकलित स्वरूप', valueEn: '52 Bhairavas (01. Bhimalochana to 52. Sadashiva)', valueHi: '५२ भैरव (०१. भीमलोचन से ५२. सदाशिव)' },
-        { labelEn: 'Primary Source Corpus', labelHi: 'मूल स्रोत ग्रन्थ', valueEn: 'Pīṭhanirṇaya · Tantrachūḍāmaṇi · Śiva Purāṇa · amazingbharat.com · D.C. Sircar', valueHi: 'पीठनिर्णय · तन्त्रचूड़ामणि · शिव पुराण · अमेजिंग भारत · डी.सी. सरकार' },
+        { labelEn: 'Tradition', labelHi: 'परम्परा', valueEn: 'Hinduism — Śaiva and Śākta traditions', valueHi: 'हिन्दू धर्म — शैव एवं शाक्त परम्परा' },
+        { labelEn: 'Total Forms Catalogued', labelHi: 'कुल संकलित स्वरूप', valueEn: '52 Bhairav Vīras (बावन भैरव वीर) & 52 Pīṭha Bhairavas', valueHi: '५२ भैरव वीर एवं ५२ शक्तिपीठ भैरव' },
+        { labelEn: 'Primary Source Corpus', labelHi: 'मूल स्रोत ग्रन्थ', valueEn: 'Śiva Purāṇa · Devī Bhāgavata Purāṇa · Kalikā Purāṇa · Pīṭhanirṇaya · Tantracūḍāmaṇi · D.C. Sircar', valueHi: 'शिव पुराण · देवी भागवत पुराण · कालिका पुराण · पीठनिर्णय · तन्त्रचूड़ामणि · डी.सी. सरकार' },
         { labelEn: 'Lead Investigator', labelHi: 'प्रमुख अन्वेषक', valueEn: 'Ram Ashok Kumar', valueHi: 'राम अशोक कुमार' }
       ],
-      primarySourcesEn: 'Pīṭhanirṇaya (D.C. Sircar Critical Edition) · Tantrachūḍāmaṇi · Śiva Purāṇa · amazingbharat.com · French Institute of Pondicherry (IFP)',
-      primarySourcesHi: 'पीठनिर्णय (डी.सी. सरकार समीक्षात्मक संस्करण) · तन्त्रचूड़ामणि · शिव पुराण · amazingbharat.com · फ्रेंच इंस्टीट्यूट ऑफ पॉन्डिचेरी',
+      primarySourcesEn: 'Śiva Purāṇa · Devī Bhāgavata Purāṇa · Kalikā Purāṇa · Pīṭhanirṇaya (Mahāpīṭhanirūpaṇa) · Tantracūḍāmaṇi · Kubjikāmata Tantra · D.C. Sircar (The Śākta Pīṭhas)',
+      primarySourcesHi: 'शिव पुराण · देवी भागवत पुराण · कालिका पुराण · पीठनिर्णय (महापीठनिरूपण) · तन्त्रचूड़ामणि · कुब्जिकामत तन्त्र · डी.सी. सरकार (द शाक्त पीठाज़)',
       authorEn: 'Ram Ashok Kumar',
       authorHi: 'राम अशोक कुमार'
     }
