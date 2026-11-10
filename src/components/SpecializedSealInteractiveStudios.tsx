@@ -649,7 +649,7 @@ const SamayaAshtaPraharStudio: React.FC<{ lang: 'en' | 'hi' }> = ({ lang }) => {
 };
 
 // ============================================================================
-// 4. SEAL 04: BĀVAN BHAIRAVA (52 FORMS & 52 BHAIRAV VĪRAS) INTERACTIVE MANDALA
+// 4. SEAL 08: BĀVAN BHAIRAVA (52 FORMS & 52 BHAIRAV VĪRAS) INTERACTIVE MANDALA
 // ============================================================================
 const BavanBhairavaMandalaStudio: React.FC<{ lang: 'en' | 'hi' }> = ({ lang }) => {
   const [selectedNum, setSelectedNum] = useState(1);
@@ -663,7 +663,7 @@ const BavanBhairavaMandalaStudio: React.FC<{ lang: 'en' | 'hi' }> = ({ lang }) =
       <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-[#FFBF38]/25">
         <div>
           <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#FFBF38] font-bold block">
-            {t('SEAL 04 LIVE INTERACTIVE STUDIO · BĀVAN BHAIRAVA (52)', 'मुद्रिका ०४ जीवंत संवादात्मक कक्ष · बावन भैरव (५२)')}
+            {t('SEAL 08 LIVE INTERACTIVE STUDIO · BĀVAN BHAIRAVA (52 FORMS)', 'मुद्रिका ०८ जीवंत संवादात्मक कक्ष · बावन भैरव (५२ स्वरूप)')}
           </span>
           <h3 className="text-xl sm:text-2xl font-serif font-bold text-white mt-0.5">
             {t(
@@ -1117,84 +1117,140 @@ const NavadurgaMandalaStudio: React.FC<{ lang: 'en' | 'hi' }> = ({ lang }) => {
 };
 
 // ============================================================================
-// 7. SEAL 08: ŚAKTI PĪṬHAS (4 ĀDI, 18 MAHĀ & 51/52 PĪṬHAS) SACRED GEOGRAPHY STUDIO
+// 7. SEAL 04: BHAIRAVAGAṆA (भैरवगण · SHA-04) — NIRUKTI, 8, 52 & 64 BHAIRAVAS STUDIO
 // ============================================================================
-const ADI_MAHA_PITHAS = [
-  { id: 'kamakhya', tier: 'ĀDI PĪṬHA 01 · EAST', nameEn: 'Kāmākhyā (Kāmagiri, Assam)', nameHi: 'कामाख्या पीठ (कामगिरि, असम)', angaEn: 'Mahāmudrā / Yoni (Generative Matrix)', angaHi: 'महामुद्रा (योनि-मण्डल)', deviEn: 'Kāmākhyā / Mahāmāyā', bhairavaEn: 'Umānanda (Ravīndranātha)', color: '#F43F5E' },
-  { id: 'vimala', tier: 'ĀDI PĪṬHA 02 · PURI', nameEn: 'Vimalā Pīṭha (Purī, Odisha)', nameHi: 'विमला पीठ (जगन्नाथ पुरी, ओडिशा)', angaEn: 'Pāda / Nābhi (Sacred Feet / Navel)', angaHi: 'पाद / नाभि खण्ड', deviEn: 'Vimalā Bhairavī', bhairavaEn: 'Saṃvarta / Jagannātha', color: '#F59E0B' },
-  { id: 'tarini', tier: 'ĀDI PĪṬHA 03 · ODISHA', nameEn: 'Stana Pīṭha (Tārātāriṇī, Berhampur)', nameHi: 'तारातारिणी स्तन पीठ (ओडिशा)', angaEn: 'Stana-Yugala (Sacred Breasts)', angaHi: 'स्तन-युगल', deviEn: 'Tārātāriṇī Devī', bhairavaEn: 'Tumburu / Bhīmalocana', color: '#38BDF8' },
-  { id: 'kalighat', tier: 'ĀDI PĪṬHA 04 · BENGAL', nameEn: 'Kālīghāṭa (Kolkata, West Bengal)', nameHi: 'कालीघाट पीठ (कोलकाता, बंगाल)', angaEn: 'Dakṣiṇa-Pādāṅgulī (Right Toes / Mukha)', angaHi: 'दक्षिण पादांगुली / मुख खण्ड', deviEn: 'Kālikā Devī', bhairavaEn: 'Nakuleśvara Bhairava', color: '#A855F7' },
-  { id: 'kashi', tier: 'MAHĀPĪṬHA · VĀRĀṆASĪ', nameEn: 'Maṇikarṇikā / Viśālākṣī (Kāśī)', nameHi: 'मणिकर्णिका / विशालाक्षी (काशी)', angaEn: 'Karṇa-Kuṇḍala (Jeweled Earring)', angaHi: 'कर्ण-कुण्डल', deviEn: 'Viśālākṣī & Annapūrṇā', bhairavaEn: 'Kālabhairava (Kotwāl of Kāśī)', color: '#4ADE80' },
-  { id: 'hinglaj', tier: 'MAHĀPĪṬHA · WEST AXIS', nameEn: 'Hiṅgulā (Hinglaj, Balochistan)', nameHi: 'हिंगुला शक्तिपीठ (बलूचिस्तान)', angaEn: 'Brahmarandhra (Crown of the Head)', angaHi: 'ब्रह्मरन्ध्र (मस्तक का अग्रभाग)', deviEn: 'Koṭṭarī / Hiṅgulā Devī', bhairavaEn: 'Bhīmalocana Bhairava (#01)', color: '#FB923C' }
+const BHAIRAVAGANA_NIRUKTI_NODES = [
+  {
+    id: 'bhai',
+    syllableDevanagari: 'भै',
+    syllableIAST: 'BHAI — Bharaṇa (भरण)',
+    roleEn: 'Cosmic Maintenance, Support & Nourishment',
+    roleHi: 'विश्व का धारण, पोषण एवं संरक्षण',
+    descEn: 'In Abhinavagupta’s Tantrāloka (1.96), the first syllable BHAI signifies bharaṇa—he who bears, sustains, and nourishes the entire universe within his consciousness.',
+    descHi: 'तन्त्रालोक (१.९६) के अनुसार प्रथम अक्षर "भै" का अर्थ "भरण" है—जो संपूर्ण विश्व को अपनी चेतना में धारण और पोषित करते हैं।',
+    color: '#F59E0B'
+  },
+  {
+    id: 'ra',
+    syllableDevanagari: 'र',
+    syllableIAST: 'RA — Ravaṇa (रवण)',
+    roleEn: 'Cosmic Sounding Forth (Nāda) & Withdrawal (Saṃhāra)',
+    roleHi: 'नाद-गर्जन एवं संहार / अंतर्लय',
+    descEn: 'The second syllable RA signifies ravaṇa—the primordial roar of mantra-nāda that shatters fear (bhaya) and reabsorbs all differentiated forms.',
+    descHi: 'द्वितीय अक्षर "र" का अर्थ "रवण" है—वह प्रचण्ड नाद जो भय का नाश करता है और प्रलय-काल में सृष्टि का संहार/अंतर्लय करता है।',
+    color: '#EF4444'
+  },
+  {
+    id: 'va',
+    syllableDevanagari: 'व',
+    syllableIAST: 'VA — Vamana (वमन)',
+    roleEn: 'Cosmic Projection & Emission (Sṛṣṭi)',
+    roleHi: 'सृष्टि का प्रक्षेपण एवं उन्मेष',
+    descEn: 'The third syllable VA signifies vamana—projecting or emitting the 36 tattvas and the manifold Bhairavagaṇa retinues into manifestation.',
+    descHi: 'तृतीय अक्षर "व" का अर्थ "वमन" है—जो ३६ तत्त्वों और भैरवगण के बहुआयामी स्वरूपों को सृष्टि में प्रकट करते हैं।',
+    color: '#38BDF8'
+  },
+  {
+    id: 'ashta',
+    syllableDevanagari: '८',
+    syllableIAST: 'Aṣṭa Bhairava (अष्ट भैरव · 8)',
+    roleEn: 'Asitāṅga, Ruru, Caṇḍa, Krodha, Unmatta, Kapāla, Bhīṣaṇa, Saṃhāra',
+    roleHi: 'आठ दिशात्मक भैरव एवं अष्ट मातृका युग्म',
+    descEn: 'The eight directional octad at the core of the Bhairavagaṇa, paired with the Eight Mātṛkās to govern the eight compass octants.',
+    descHi: 'भैरवगण के मूल में स्थित आठ दिशात्मक भैरव, जो अष्ट मातृकाओं के साथ आठों दिशाओं का अधिष्ठान करते हैं।',
+    color: '#A855F7'
+  },
+  {
+    id: 'bavan',
+    syllableDevanagari: '५२',
+    syllableIAST: 'Bāvan Bhairava (1. Asitāṅga to 52. Svacchanda)',
+    roleEn: '52 Canonical Forms from Asitāṅga Bhairava to Svacchanda Bhairava',
+    roleHi: '१. असितांग भैरव से ५२. स्वछंद भैरव तक ५२ स्वरूप',
+    descEn: 'The 52 Bhairavas (Table 01 below) spanning Asitāṅga (#1), Mahākāla (#2), Kāla (#4), Baṭuka (#31), Svarṇākarṣaṇa (#48), Kapāla (#50), to Svacchanda Bhairava (#52).',
+    descHi: 'नीचे तालिका ०१ में सूचीबद्ध १. असितांग भैरव से ५२. स्वछंद भैरव पर्यन्त बावन भैरव स्वरूप।',
+    color: '#10B981'
+  },
+  {
+    id: 'chausath',
+    syllableDevanagari: '६४',
+    syllableIAST: 'Catuḥṣaṣṭi Bhairava (चतुःषष्टि भैरव · 8 × 8 = 64)',
+    roleEn: '64 Mandala Consorts & Kāśī Kṣetrapāla Retinues',
+    roleHi: '६४ योगिनी-सहचर भैरव एवं काशी क्षेत्रपाल गण',
+    descEn: 'When each of the 8 Bhairavas expands into an octad (8 × 8 = 64), they form the 64 Bhairavas presiding with the 64 Yoginīs and Kṣetrapālas of Kāśī.',
+    descHi: 'अष्ट भैरवों के ८ × ८ = ६४ विस्तार से निर्मित चतुःषष्टि भैरव एवं काशी के कोतवाल काल भैरव के क्षेत्रपाल गण।',
+    color: '#F43F5E'
+  }
 ];
 
-const ShaktiPithasGeographyStudio: React.FC<{ lang: 'en' | 'hi' }> = ({ lang }) => {
+const BhairavaganaTaxonomyStudio: React.FC<{ lang: 'en' | 'hi' }> = ({ lang }) => {
   const [selectedIdx, setSelectedIdx] = useState(0);
-  const current = ADI_MAHA_PITHAS[selectedIdx];
+  const current = BHAIRAVAGANA_NIRUKTI_NODES[selectedIdx];
   const t = (en: string, hi: string) => (lang === 'hi' ? hi : en);
 
   return (
-    <div className="rounded-2xl border-2 border-[#F43F5E]/45 bg-[#13080C] text-[#F5E8CE] p-5 sm:p-7 shadow-[0_24px_60px_rgba(0,0,0,0.85)]">
-      <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-[#F4335E]/25">
+    <div className="rounded-2xl border-2 border-[#FFBF38]/50 bg-[#130C06] text-[#F5E8CE] p-5 sm:p-7 shadow-[0_24px_60px_rgba(0,0,0,0.85)]">
+      <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-[#FFBF38]/25">
         <div>
-          <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#FB7185] font-bold block">
-            {t('SEAL 08 LIVE INTERACTIVE STUDIO · ŚAKTI PĪṬHA SACRED GEOGRAPHY', 'मुद्रिका ०८ जीवंत संवादात्मक कक्ष · शक्तिपीठ पवित्र भूगोल')}
+          <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#FFBF38] font-bold block">
+            {t('SEAL 04 LIVE INTERACTIVE STUDIO · BHAIRAVAGAṆA (SHA-04)', 'मुद्रिका ०४ जीवंत संवादात्मक कक्ष · भैरवगण (SHA-04)')}
           </span>
           <h3 className="text-xl sm:text-2xl font-serif font-bold text-white mt-0.5">
             {t(
-              '4 Ādi Pīṭhas, 18 Mahāśaktipīṭhas & 51/52 Pīṭha-Maṇḍala Interactive Atlas',
-              '४ आदि शक्तिपीठ, १८ महाशक्तिपीठ एवं ५१/५२ पीठ-मण्डल संवादात्मक मानचित्र'
+              'Bhairavagaṇa (भैरवगण): BHAI-RA-VA Nirukti & 1 → 8 → 52 → 64 Retinue Expansion',
+              'भैरवगण: भै-र-व निरुक्ति (भरण-रवण-वमन) एवं १ → ८ → ५२ → ६४ भैरव मण्डल विस्तार'
             )}
           </h3>
         </div>
+        <span className="px-3 py-1 rounded-full bg-[#FFBF38]/15 border border-[#FFBF38]/40 font-mono text-[10px] text-[#FFBF38] uppercase">
+          {t('Tantrāloka 1.96 · CAGS SHA-04', 'तन्त्रालोक १.९६ · CAGS SHA-04')}
+        </span>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6 items-center">
         <div className="lg:col-span-5 flex flex-col items-center">
-          <div className="w-full max-w-[350px] aspect-square rounded-2xl border border-[#F43F5E]/30 bg-[#0B0407] p-3">
+          <div className="w-full max-w-[350px] aspect-square rounded-2xl border border-[#FFBF38]/30 bg-[#0A0603] p-3">
             <svg viewBox="0 0 360 360" className="w-full h-full">
-              {/* Concentric Rings representing 4 -> 18 -> 51/52 -> 108 */}
-              <circle cx="180" cy="180" r="156" fill="none" stroke="#F43F5E" strokeWidth="1" strokeDasharray="3 3" opacity="0.4" />
-              <circle cx="180" cy="180" r="122" fill="none" stroke="#F59E0B" strokeWidth="1.4" opacity="0.5" />
-              <circle cx="180" cy="180" r="82" fill="none" stroke="#38BDF8" strokeWidth="1.2" opacity="0.4" />
+              <circle cx="180" cy="180" r="154" fill="none" stroke="#FFBF38" strokeWidth="1" strokeDasharray="4 4" opacity="0.4" />
+              <circle cx="180" cy="180" r="118" fill="none" stroke="#F59E0B" strokeWidth="1.5" opacity="0.5" />
+              <polygon points="180,68 277,236 83,236" fill="none" stroke="#FFBF38" strokeWidth="1.5" opacity="0.45" />
+              <polygon points="180,292 277,124 83,124" fill="none" stroke="#EF4444" strokeWidth="1.5" opacity="0.45" />
 
-              {ADI_MAHA_PITHAS.map((p, idx) => {
+              {BHAIRAVAGANA_NIRUKTI_NODES.map((node, idx) => {
                 const a = ((idx * 60 - 90) * Math.PI) / 180;
-                const nx = 180 + Math.cos(a) * 122;
-                const ny = 180 + Math.sin(a) * 122;
+                const nx = 180 + Math.cos(a) * 118;
+                const ny = 180 + Math.sin(a) * 118;
                 const active = selectedIdx === idx;
                 return (
-                  <g key={p.id} className="cursor-pointer" onClick={() => setSelectedIdx(idx)}>
-                    <line x1="180" y1="180" x2={nx} y2={ny} stroke={p.color} strokeWidth={active ? 2.2 : 1} opacity={active ? 0.9 : 0.35} />
+                  <g key={node.id} className="cursor-pointer" onClick={() => setSelectedIdx(idx)}>
+                    <line x1="180" y1="180" x2={nx} y2={ny} stroke={node.color} strokeWidth={active ? 2.4 : 1} opacity={active ? 0.9 : 0.35} />
                     <circle
                       cx={nx}
                       cy={ny}
-                      r={active ? 22 : 16}
-                      fill={active ? p.color : '#220912'}
-                      stroke={p.color}
+                      r={active ? 24 : 18}
+                      fill={active ? node.color : '#1F1209'}
+                      stroke={node.color}
                       strokeWidth="2"
                     />
                     <text
                       x={nx}
                       y={ny + 4}
                       textAnchor="middle"
-                      fill={active ? '#0B0407' : '#FFE4E6'}
-                      fontSize="9.5"
+                      fill={active ? '#0A0603' : '#FDE68A'}
+                      fontSize="11"
                       fontWeight="bold"
-                      fontFamily="monospace"
                     >
-                      {`P0${idx + 1}`}
+                      {node.syllableDevanagari}
                     </text>
                   </g>
                 );
               })}
 
-              <circle cx="180" cy="180" r="38" fill="#220912" stroke={current.color} strokeWidth="2.5" />
-              <text x="180" y="177" textAnchor="middle" fill="#FDE047" fontSize="11" fontWeight="bold">
-                शक्तिपीठ
+              <circle cx="180" cy="180" r="42" fill="#1C1008" stroke={current.color} strokeWidth="2.5" />
+              <text x="180" y="176" textAnchor="middle" fill="#FDE047" fontSize="12" fontWeight="bold">
+                भैरवगण
               </text>
-              <text x="180" y="191" textAnchor="middle" fill="#FDA4AF" fontSize="8" fontFamily="monospace">
-                4 · 18 · 51 · 52
+              <text x="180" y="192" textAnchor="middle" fill="#FDBA74" fontSize="8.5" fontFamily="monospace">
+                SHA-04
               </text>
             </svg>
           </div>
@@ -1202,44 +1258,33 @@ const ShaktiPithasGeographyStudio: React.FC<{ lang: 'en' | 'hi' }> = ({ lang }) 
 
         <div className="lg:col-span-7 space-y-4">
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-            {ADI_MAHA_PITHAS.map((p, idx) => (
+            {BHAIRAVAGANA_NIRUKTI_NODES.map((node, idx) => (
               <button
-                key={p.id}
+                key={node.id}
                 type="button"
                 onClick={() => setSelectedIdx(idx)}
                 className={`p-2.5 rounded-lg border text-left transition-all cursor-pointer ${
                   selectedIdx === idx
-                    ? 'bg-[#2C0C18] border-[#F43F5E] text-white shadow'
-                    : 'bg-[#19070E] border-white/10 text-[#FECDD3]/80 hover:border-[#F43F5E]/50'
+                    ? 'bg-[#2C1A0C] border-[#FFBF38] text-white shadow'
+                    : 'bg-[#190F07] border-white/10 text-[#FDE68A]/80 hover:border-[#FFBF38]/50'
                 }`}
               >
-                <div className="font-mono text-[9px] font-bold" style={{ color: p.color }}>
-                  {p.tier}
+                <div className="font-mono text-[10px] font-bold" style={{ color: node.color }}>
+                  {node.syllableDevanagari} · {node.syllableIAST.split('—')[0]}
                 </div>
-                <div className="font-serif text-xs font-bold truncate mt-0.5">{t(p.nameEn, p.nameHi)}</div>
+                <div className="font-serif text-xs font-bold truncate mt-0.5">{t(node.roleEn, node.roleHi)}</div>
               </button>
             ))}
           </div>
 
-          <div className="p-5 rounded-xl border border-[#F43F5E]/40 bg-[#1F0912] space-y-3">
-            <span className="px-2.5 py-0.5 rounded bg-[#F43F5E]/20 text-[#FDA4AF] font-mono text-[10px] font-bold uppercase">
-              {current.tier}
+          <div className="p-5 rounded-xl border border-[#FFBF38]/45 bg-[#1D1209] space-y-2.5">
+            <span className="px-2.5 py-0.5 rounded bg-[#FFBF38]/20 text-[#FDE047] font-mono text-[10px] font-bold uppercase">
+              {current.syllableIAST}
             </span>
-            <h4 className="text-xl font-serif font-bold text-white">{t(current.nameEn, current.nameHi)}</h4>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-              <div className="p-2.5 rounded bg-[#120409] border border-white/10">
-                <div className="font-mono text-[9px] uppercase text-[#FB7185]">{t('Satī Aṅga / Nipāta', 'सती अंग-निपात')}</div>
-                <div className="font-serif text-xs font-bold text-white mt-0.5">{t(current.angaEn, current.angaHi)}</div>
-              </div>
-              <div className="p-2.5 rounded bg-[#120409] border border-white/10">
-                <div className="font-mono text-[9px] uppercase text-[#FB7185]">{t('Pīṭha Devī (Śakti)', 'अधिष्ठात्री देवी')}</div>
-                <div className="font-serif text-xs font-bold text-[#FDE047] mt-0.5">{current.deviEn}</div>
-              </div>
-              <div className="p-2.5 rounded bg-[#120409] border border-white/10">
-                <div className="font-mono text-[9px] uppercase text-[#FB7185]">{t('Guardian Bhairava', 'रक्षक भैरव')}</div>
-                <div className="font-serif text-xs font-bold text-[#7DD3FC] mt-0.5">{current.bhairavaEn}</div>
-              </div>
-            </div>
+            <h4 className="text-xl font-serif font-bold text-white">{t(current.roleEn, current.roleHi)}</h4>
+            <p className="text-xs sm:text-sm font-serif text-[#F5E8CE]/90 leading-relaxed">
+              {t(current.descEn, current.descHi)}
+            </p>
           </div>
         </div>
       </div>
@@ -1261,8 +1306,7 @@ export const SpecializedSealInteractiveStudio: React.FC<StudioProps> = ({ articl
     case 'samaya-ashta-prahar-timekeeping':
       return <SamayaAshtaPraharStudio lang={lang} />;
     case 'bhairavagana-taxonomy-kshetrapalas':
-    case 'bavan-bhairava-chhappan-kalua-concordance':
-      return <BavanBhairavaMandalaStudio lang={lang} />;
+      return <BhairavaganaTaxonomyStudio lang={lang} />;
     case 'kalikula-srikula-streams':
     case 'kalikula-archive-tradition':
     case 'srikula-archive-tradition':
@@ -1270,7 +1314,8 @@ export const SpecializedSealInteractiveStudio: React.FC<StudioProps> = ({ articl
     case 'navadurga-nine-forms':
       return <NavadurgaMandalaStudio lang={lang} />;
     case 'shakti-pithas-sacred-geography':
-      return <ShaktiPithasGeographyStudio lang={lang} />;
+    case 'bavan-bhairava-chhappan-kalua-concordance':
+      return <BavanBhairavaMandalaStudio lang={lang} />;
     default:
       return null;
   }

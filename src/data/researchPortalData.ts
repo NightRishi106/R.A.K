@@ -1538,57 +1538,42 @@ const SHAKTI_TATTVA_CORE_ARTICLES: ResearchArticle[] = [
   {
     slug: 'shakti-pithas-sacred-geography',
     categorySlug: 'eight-matrikas',
-    code: 'SKT-04',
-    titleEn: 'Śakti Pīṭhas — Sacred Geography, Catuṣpīṭha & the 51 Embodied Seats of the Goddess',
-    titleHi: 'शक्तिपीठ — भगवती का पवित्र भूगोल, चतुष्पीठ एवं ५१ पीठों का मानचित्रण',
-    subtitleEn: 'From the Early Tantric Four Pīṭhas (Oḍḍiyāna, Jālandhara, Pūrṇagiri, Kāmarūpa) to the Pīṭhanirṇaya 51-Shrine Network',
-    subtitleHi: 'प्राचीन चतुष्पीठ (ओड्डियान, जालन्धर, पूर्णगिरि, कामरूप) से पीठनिर्णय के ५१ शक्तिपीठों और भैरव-युग्मों तक',
-    sanskritEpigraph: '॥ ओड्डियानं प्रथमं पीठं द्वितीयं जालन्धरं तथा। तृतीयं पूर्णगिरिं वन्दे कामरूपं चतुर्थकम् ॥',
-    epigraphTranslationEn: '"First is the seat of Oḍḍiyāna, second Jālandhara, third I bow to Pūrṇagiri, and fourth is Kāmarūpa—the four primordial Tantric Pīṭhas."',
-    epigraphTranslationHi: '"प्रथम पीठ ओड्डियान, द्वितीय जालन्धर, तृतीय पूर्णगिरि और चतुर्थ कामरूप—ये आगम परम्परा के चार आदि पीठ हैं।"',
-    evidenceBadgeEn: 'SACRED GEOGRAPHY · TEXTUAL & EPIGRAPHIC ARCHIVE',
-    evidenceBadgeHi: 'पवित्र भूगोल · ग्रंथीय एवं पुरातात्विक अभिलेख',
-    accentColor: '#10B981',
+    code: 'BVN-52',
+    titleEn: 'BĀVAN BHAIRAVA — THE 52 FORMS OF BHAIRAVA',
+    titleHi: 'बावन भैरव — शक्तिपीठों के पवित्र रक्षक (Bāvan Bhairava — The 52 Forms of Bhairava)',
+    subtitleEn: 'बावन भैरव — The Sacred Guardians of the Śakti Pīṭhas & the 52 Bhairav Vīras (बावन भैरव वीर)',
+    subtitleHi: 'बावन भैरव — ५२ शक्तिपीठों के रक्षक स्वरूप एवं ५२ भैरव वीर (१. क्षेत्रपाल वीर से ५२. वासमित्र वीर)',
+    sanskritEpigraph: '॥ ॐ श्री बावन भैरवेभ्यो नमः । शक्तिपीठ-रक्षकाः द्विपञ्चाशद्-भैरवाः ॥',
+    epigraphTranslationEn:
+      '"Bāvan Bhairava (बावन भैरव) refers to a traditional grouping of fifty-two Bhairava forms associated in certain Śākta traditions with the fifty-two Śakti Pīṭhas."',
+    epigraphTranslationHi:
+      '"बावन भैरव (५२ भैरव) कतिपय शाक्त परम्पराओं में बावन शक्तिपीठों से संबद्ध भगवान् भैरव के बावन रक्षक स्वरूपों एवं ५२ भैरव वीरों को संदर्भित करता है।"',
+    evidenceBadgeEn: 'ŚAIVA-ŚĀKTA TRADITION · BĀVAN BHAIRAVA (52)',
+    evidenceBadgeHi: 'शैव-शाक्त परम्परा · बावन भैरव (५२)',
+    accentColor: '#E879F9',
     summaryEn:
-      'Traces the historical evolution of the Śakti Pīṭha network across the Indian subcontinent—from the earliest fourfold Tantric mandala (Catuṣpīṭha in Hevajra Tantra, Kubjikāmata, and Yoginīhṛdaya) to the 18, 51, and 108 Pīṭha catalogues of the Pīṭhanirṇaya (Mahāpīṭhanirūpaṇa), Devī Bhāgavata Purāṇa, and Kālikā Purāṇa, where every Goddess seat is paired with a guardian Bhairava.',
+      'Bāvan Bhairava (बावन भैरव) refers to a traditional grouping of fifty-two Bhairava forms associated in certain Śākta traditions with the fifty-two Śakti Pīṭhas. This complete research monograph presents the 10-section doctrinal study (1. Who Is Bhairava?, 2. The Meaning of Bāvan Bhairava, 3. The Origin of the Śakti Pīṭhas, 4. The Relationship Between the 52 Śakti Pīṭhas and 52 Bhairavas, 5. Why Are There Different Numbers of Śakti Pīṭhas?, 6. The Difference Between Aṣṭa, 52, and 64 Bhairavas, 7. Spiritual and Symbolic Significance, 8. Worship and Devotional Traditions, 9. Important Distinctions, 10. Conclusion) together with the complete roster of 52 Bhairav Vīras (बावन भैरव वीर: 1. Kṣetrapāl Vīr to 52. Vāsamitra Vīr).',
     summaryHi:
-      'भारतीय उपमहाद्वीप में शक्तिपीठ नेटवर्क के ऐतिहासिक विकास का अध्ययन—कुब्जिकामत और योगिनीहृदय के प्राचीन "चतुष्पीठ" (४ आदि पीठ) से लेकर कालिका पुराण, देवी भागवत और पीठनिर्णय (महापीठनिरूपण) के १८, ५१ और १०८ शक्तिपीठों तक, जहाँ प्रत्येक शक्ति के साथ एक रक्षक भैरव प्रतिष्ठित हैं।',
-    sections: [
-      {
-        headingEn: '1. The Primordial Four Pīṭhas (Catuṣpīṭha) in Early Kaula & Āgamic Literature',
-        headingHi: '1. प्रारंभिक कौल एवं आगम साहित्य में आदि चतुष्पीठ',
-        bodyEn:
-          'Long before the later Purāṇic standardization of 51 Pīṭhas, early Śākta-Śaiva Tantras (such as the Kubjikāmata Tantra, Kaulajñānanirṇaya, and Yoginīhṛdaya) mapped four supreme directional seats (Catuṣpīṭha): Kāmarūpa (Assam), Pūrṇagiri (Western India/Maharashtra or Uttarakhand variants), Oḍḍiyāna (Swat Valley), and Jālandhara (Punjab/Himachal). These four seats were simultaneously geographical pilgrimage centers and subtle-body cakra stations inside the practitioner.',
-        bodyHi:
-          '५१ शक्तिपीठों की परवर्ती पौराणिक सूची से शताब्दियों पूर्व, प्रारंभिक शाक्त-शैव तन्त्रों (कुब्जिकामत तन्त्र, कौलज्ञाननिर्णय और योगिनीहृदय) में चार आदि पीठों (चतुष्पीठ) का वर्णन मिलता है: कामरूप, पूर्णगिरि, ओड्डियान और जालन्धर। ये चारों पीठ बाह्य भौगोलिक तीर्थ होने के साथ-साथ साधक के सूक्ष्म शरीर के आंतरिक चक्र-केंद्र भी माने गए हैं।'
-      },
-      {
-        headingEn: '2. Dakṣa-Yajña Narrative, Mātṛkā-Varṇamālā & the 51 Pīṭhas',
-        headingHi: '2. दक्ष-यज्ञ आख्यान, मातृका वर्णमाला एवं ५१ शक्तिपीठ',
-        bodyEn:
-          'In the Kālikā Purāṇa (Ch. 18), Devī Bhāgavata Purāṇa (7.30), and Kṛṣṇānanda’s Pīṭhanirṇaya (Mahāpīṭhanirūpaṇa), the terrestrial landmass of Bhārata is sanctified as the living body of Satī. The 51 Pīṭhas correspond to the 51 Sanskrit letters (Mātṛkā Varṇamālā from "A" to "Kṣa"), and at every Pīṭha, the Śakti (e.g., Kāmākhyā, Viśālākṣī, Kālīghāṭ, Jvālāmukhī, हिङ्गलाज) is inseparably accompanied by a Bhairava guardian (e.g., Umānanda, Kāla Bhairava, Nakuleśa, Unmatta Bhairava).',
-        bodyHi:
-          'कालिका पुराण, देवी भागवत और पीठनिर्णय (महापीठनिरूपण) में संपूर्ण उपमहाद्वीप को भगवती सती के जीवंत विग्रह के रूप में देखा गया है। ५१ शक्तिपीठ संस्कृत वर्णमाला के ५१ मातृका अक्षरों (अ से क्ष तक) के प्रतीक हैं, और प्रत्येक पीठ पर भगवती शक्ति के साथ एक भैरव रक्षक (जैसे कामाख्या में उमानन्द, काशी में विशालाक्षी के साथ कालभैरव) अनिवार्य रूप से विराजमान हैं।'
-      }
-    ],
+      'बावन भैरव (५२ भैरव) कतिपय शाक्त परम्पराओं में बावन शक्तिपीठों से संबद्ध भगवान् शिव के रक्षक भैरव स्वरूपों का समूह है। इस शोध-प्रबंध में १०-खंडीय शास्त्रीय अध्ययन (१. भैरव कौन हैं?, २. बावन भैरव का अर्थ, ३. शक्तिपीठों की उत्पत्ति, ४. ५२ शक्तिपीठों और ५२ भैरवों का संबंध, ५. शक्तिपीठों की भिन्न संख्याओं का कारण, ६. अष्ट, ५२ और ६४ भैरवों में अंतर, ७. आध्यात्मिक एवं प्रतीकात्मक महत्त्व, ८. उपासना परम्परा, ९. महत्त्वपूर्ण शास्त्रीय भेद, १०. निष्कर्ष) तथा ५२ भैरव वीरों (१. क्षेत्रपाल वीर से ५२. वासमित्र वीर) की संपूर्ण सूची प्रस्तुत है।',
+    sections: BAVAN_BHAIRAVA_SECTIONS,
     keyFindingsEn: [
-      'Early Tantric layer: 4 Pīṭhas (Catuṣpīṭha) in Kubjikāmata & Yoginīhṛdaya; 18 Mahāpīṭhas in Aṣṭādaśa Śaktipīṭha Stotra.',
-      'Classical Śākta synthesis: 51 Pīṭhas in Pīṭhanirṇaya corresponding to the 50/51 Mātṛkā Sanskrit phonemes; 108 Pīṭhas in Devī Bhāgavata (7.30).',
-      'Every Śakti Pīṭha requires dual worship of the presiding Devī (Śakti) and her paired Kṣetrapāla Bhairava.'
+      'Defines Bāvan Bhairava (बावन भैरव) as the 52 protective manifestations of Lord Śiva associated with the 52 Śakti Pīṭhas.',
+      'Provides the complete 10-section scholarly monograph covering Śiva–Śakti unity, Pīṭha origins, numerical variations (4, 18, 51, 52, 64, 108), and distinctions among the 8, 52, and 64 Bhairava systems.',
+      'Catalogues all 52 Bhairav Vīras (बावन भैरव वीर) from 1. Kṣetrapāl Vīr (क्षेत्रपाल वीर) to 52. Vāsamitra Vīr (वासमित्र वीर).'
     ],
     keyFindingsHi: [
-      'प्रारंभिक तांत्रिक स्तर: कुब्जिकामत और योगिनीहृदय में ४ आदि पीठ (चतुष्पीठ); अष्टादश शक्तिपीठ स्तोत्र में १८ महापीठ।',
-      'शास्त्रीय संश्लेषण: पीठनिर्णय में संस्कृत वर्णमाला के अक्षरों के अनुरूप ५१ पीठ; देवी भागवत (७.३०) में १०८ पीठों की नामावली।',
-      'प्रत्येक शक्तिपीठ का विधान अधूरा माना जाता है जब तक वहाँ अधिष्ठात्री देवी के साथ उनके युग्मित भैरव का दर्शन न किया जाए।'
+      'बावन भैरव (५२ भैरव) को ५२ शक्तिपीठों से संबद्ध भगवान् शिव के रक्षक स्वरूपों के रूप में परिभाषित करता है।',
+      'शिव-शक्ति एकत्व, शक्तिपीठ उत्पत्ति, संख्यात्मक विविधता (४, १८, ५१, ५२, ६४, १०८) तथा ८, ५२ एवं ६४ भैरव प्रणालियों के भेद का १०-खंडीय शोध अध्ययन।',
+      '१. क्षेत्रपाल वीर से ५२. वासमित्र वीर तक सभी ५२ भैरव वीरों (बावन भैरव वीर) की संपूर्ण सारणी।'
     ],
     metadata: [
-      { labelEn: 'Sanskrit Term', labelHi: 'संस्कृत संज्ञा', valueEn: 'Śakti Pīṭha & Catuṣpīṭha (शक्तिपीठ · चतुष्पीठ)', valueHi: 'शक्तिपीठ एवं चतुष्पीठ' },
-      { labelEn: 'Primary Textual Sources', labelHi: 'मूल शास्त्रीय स्रोत', valueEn: 'Kubjikāmata Tantra · Kālikā Purāṇa · Devī Bhāgavata · Pīṭhanirṇaya', valueHi: 'कुब्जिकामत तन्त्र · कालिका पुराण · देवी भागवत · पीठनिर्णय' },
-      { labelEn: 'Linguistic Homology', labelHi: 'भाषावैज्ञानिक समरूपता', valueEn: '51 Pīṭhas = 51 Mātṛkā Letters (A–Kṣa)', valueHi: '५१ पीठ = ५१ मातृका अक्षर (अ–क्ष)' },
+      { labelEn: 'Tradition', labelHi: 'परम्परा', valueEn: 'Hinduism — Śaiva and Śākta traditions', valueHi: 'हिन्दू धर्म — शैव एवं शाक्त परम्परा' },
+      { labelEn: 'Category', labelHi: 'श्रेणी', valueEn: 'Sacred Geography · Temple Traditions · Tantric Cosmology', valueHi: 'पवित्र भूगोल · मंदिर परम्परा · तांत्रिक ब्रह्माण्ड विज्ञान' },
+      { labelEn: 'Core Groupings', labelHi: 'प्रमुख समूह', valueEn: '52 Śakti Pīṭha Bhairavas · 52 Bhairav Vīras · Aṣṭa (8) & Yoginī (64) Bhairavas', valueHi: '५२ शक्तिपीठ भैरव · ५२ भैरव वीर · अष्ट (८) एवं योगिनी (६४) भैरव' },
       { labelEn: 'Lead Investigator', labelHi: 'प्रमुख अन्वेषक', valueEn: 'Ram Ashok Kumar', valueHi: 'राम अशोक कुमार' }
     ],
-    primarySourcesEn: 'Kubjikāmata Tantra · Kālikā Purāṇa (Ch. 18) · Devī Bhāgavata Purāṇa (7.30) · Pīṭhanirṇaya',
-    primarySourcesHi: 'कुब्जिकामत तन्त्र · कालिका पुराण (अध्याय १८) · देवी भागवत पुराण (७.३०) · पीठनिर्णय',
+    primarySourcesEn: 'Śiva Purāṇa · Devī Bhāgavata Purāṇa · Kalikā Purāṇa · Pīṭhanirṇaya (Mahāpīṭhanirūpaṇa) · Tantracūḍāmaṇi · Kubjikāmata Tantra · D.C. Sircar (The Śākta Pīṭhas)',
+    primarySourcesHi: 'शिव पुराण · देवी भागवत पुराण · कालिका पुराण · पीठनिर्णय (महापीठनिरूपण) · तन्त्रचूड़ामणि · कुब्जिकामत तन्त्र · डी.सी. सरकार (द शाक्त पीठाज़)',
     authorEn: 'Ram Ashok Kumar',
     authorHi: 'राम अशोक कुमार'
   }

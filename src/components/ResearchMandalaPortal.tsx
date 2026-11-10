@@ -960,10 +960,6 @@ export const CategoryLandingPageView: React.FC<CategoryLandingPageViewProps> = (
         </div>
       )}
 
-      {portal.slug === 'bhairav-investigation-codex' ? (
-        <BavanBhairava52PortalView />
-      ) : (
-        <>
       {/* Category Landing Page Hero Banner */}
       <div className="relative rounded-2xl border border-[#D3AD55]/45 bg-gradient-to-br from-[#26170F] via-[#180F0A] to-[#110A07] p-6 sm:p-8 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.75)] overflow-hidden">
         <div
@@ -1391,8 +1387,6 @@ export const CategoryLandingPageView: React.FC<CategoryLandingPageViewProps> = (
             </div>
           </div>
         )}
-        </>
-      )}
     </div>
   );
 };
@@ -1554,8 +1548,8 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
         lang={t('en', 'hi') === 'hi' ? 'hi' : 'en'}
       />
 
-      {article.slug === 'bavan-bhairava-chhappan-kalua-concordance' ||
-      article.slug === 'bhairavagana-taxonomy-kshetrapalas' ? (
+      {article.slug === 'shakti-pithas-sacred-geography' ||
+      article.slug === 'bavan-bhairava-chhappan-kalua-concordance' ? (
         <BavanBhairava52PortalView />
       ) : (
       /* Main Archival Monograph Folio */
@@ -1687,12 +1681,6 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
             </div>
           );
         })()}
-
-        {/* BĀVAN BHAIRAVA — THE 52 FORMS OF BHAIRAVA (बावन भैरव — The Sacred Guardians of the Śakti Pīṭhas & 52 Bhairav Vīras) Dedicated Monograph Interface */}
-        {(article.slug === 'bavan-bhairava-chhappan-kalua-concordance' ||
-          article.slug === 'bhairavagana-taxonomy-kshetrapalas') && (
-          <BavanBhairava52PortalView />
-        )}
 
         {/* Kālīkula & Śrīkula Dedicated Research Collection Switcher & Editorial Synthesis Banner */}
         {(article.slug === 'kalikula-srikula-streams' ||
