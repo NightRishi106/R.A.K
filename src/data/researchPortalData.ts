@@ -8,6 +8,7 @@ import { NINE_AVARANAS } from './shriMeruData';
 import { FOURTEEN_LOKAS } from './lokaCosmologyData';
 import { DEEP_SACRED_SEAL_ARTICLES } from './sacredSealsDeepData';
 import { DASHA_DIKPALAS, UNIVERSAL_DIKPALA_NAMASKARA } from './dashaDikpalaData';
+import { ALL_VISHNU_DASHAVATARA_ARTICLES } from './vishnuDashavataraData';
 
 export interface ResearchArticleSection {
   headingEn: string;
@@ -2710,6 +2711,83 @@ export const RESEARCH_CATEGORY_PORTALS: ResearchCategoryPortal[] = [
     ],
     crossLinks: [],
     articles: [...DASHA_DIKPALA_ARTICLES]
+  },
+  {
+    chapterIndex: 8,
+    slug: 'vishnu-dashavatara-codex',
+    aliasSlugs: ['dashavatara', 'vishnu-10-avatars', 'vishnu-avatars', 'shri-vishnu-dashavatara'],
+    roman: 'IX',
+    gatewayBadgeEn: 'SACRED GATEWAY IX · BHAGAVĀN ŚRĪ VIṢṆU & THE TEN AVATĀRAS',
+    gatewayBadgeHi: 'पवित्र ज्ञान-द्वार IX · भगवान् श्री विष्णु एवं दशावतार (१० अवतार)',
+    shortTitleEn: 'Śrī Viṣṇu & Daśāvatāra',
+    shortTitleHi: 'श्री विष्णु एवं दशावतार (10 अवतार)',
+    titleEn: 'IX · Bhagavān Śrī Viṣṇu & The Daśāvatāra — The Ten Cosmic Incarnations (भगवान् श्री विष्णु एवं दशावतार)',
+    titleHi: 'IX · भगवान् श्री महाविष्णु एवं दशावतार — क्षीरसागरशायी नारायण तथा १० दिव्य अवतार',
+    sanskritSeal: 'श्री महाविष्णु · दशावतार सुदर्शन मण्डल',
+    subtitleEn: 'Śeṣaśāyī Nārāyaṇa with Mahālakṣmī & The 10 Canonical Avatāras Across Satya, Tretā, Dvāpara & Kali Yugas (01 Matsya to 10 Kalki)',
+    subtitleHi: 'क्षीरसागर में शेषशायी भगवान् विष्णु-लक्ष्मी तथा चारों युगों के १० अवतार: मत्स्य, कूर्म, वराह, नृसिंह, वामन, परशुराम, राम, कृष्ण, बुद्ध एवं कल्कि',
+    epigraphEn: '“Whenever there is a decline of Dharma and an ascendance of Adharma, O Bhārata, then I manifest Myself across age after age to protect the righteous and re-establish Cosmic Order.” — Bhagavad Gītā 4.7–8',
+    epigraphHi: '“यदा यदा हि धर्मस्य ग्लानिर्भवति भारत । अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम् ॥ परित्राणाय साधूनां विनाशाय च दुष्कृताम् । धर्मसंस्थापनार्थाय सम्भवामि युगे युगे ॥” — श्रीमद्भगवद्गीता ४.७–८',
+    overviewEn:
+      'Gateway IX presents the complete iconographic, Purāṇic, and Yuga-cosmological archive of Supreme Lord Śrī Mahāviṣṇu (Śeṣaśāyī Nārāyaṇa reclining upon the seven-hooded Ananta Śeṣa with Goddess Mahālakṣmī) and His Ten Cosmic Incarnations (Daśāvatāra): 1. Matsya, 2. Kūrma, 3. Varāha, 4. Narasiṃha, 5. Vāmana, 6. Paraśurāma, 7. Śrī Rāma, 8. Śrī Kṛṣṇa, 9. Gautama Buddha, and 10. Kalki—illustrated with eleven consecrated parchment plates.',
+    overviewHi:
+      'नवम ज्ञान-द्वार क्षीरसागर में सप्तमुखी अनंत शेषनाग पर विराजमान भगवान् श्री महाविष्णु और महालक्ष्मी तथा चारों युगों (सत्ययुग, त्रेतायुग, द्वापरयुग, कलियुग) में धर्म-संस्थापन हेतु प्रकट उनके दस अवतारों—१. मत्स्य, २. कूर्म, ३. वराह, ४. नृसिंह, ५. वामन, ६. परशुराम, ७. श्री राम, ८. श्री कृष्ण, ९. बुद्ध और १०. कल्कि—का ११ मूल चित्र-फलकों, दशावतार स्तोत्र एवं पुराण-प्रमाणों सहित समग्र अध्ययन प्रस्तुत करता है।',
+    editorialFramingEn:
+      'Editorial Note: Across the Bhāgavata Purāṇa, Viṣṇu Purāṇa, Agni Purāṇa, and Jayadeva’s Gītagovinda, the Daśāvatāra sequence orders Śrī Kṛṣṇa at the 8th position (Dvāpara Yuga Pūrṇāvatāra), Buddha at the 9th position, and Kalki at the 10th position.',
+    editorialFramingHi:
+      'संपादकीय टिप्पणी: श्रीमद्भागवत महापुराण, अग्नि पुराण और गीतगोविन्द की शास्त्रीय परम्परा के अनुसार दशावतार क्रम में ८वें स्थान पर द्वापरयुग के पूर्णावतार श्री कृष्ण, ९वें स्थान पर भगवान् बुद्ध और १०वें स्थान पर कल्कि अवतार प्रतिष्ठित हैं।',
+    methodologyEn: 'Purāṇic Yuga-cycle chronology · Pāñcarātra Āgama iconography · Gītagovinda Daśāvatāra Stotra philology · Evolutionary consciousness mapping',
+    methodologyHi: 'पौराणिक चतुर्युग काल-गणना · पांचरात्र आगम प्रतिमाशास्त्र · गीतगोविन्द दशावतार स्तोत्र विश्लेषण · चेतना-विकास मानचित्रण',
+    accentColor: '#38BDF8',
+    secondaryColor: '#0284C7',
+    mandalaAngle: 320,
+    domainTagEn: 'VAIṢṆAVA PURĀṆA & DAŚĀVATĀRA',
+    domainTagHi: 'वैष्णव पुराण एवं दशावतार विज्ञान',
+    sourceRegisterEn: 'Bhāgavata Purāṇa · Viṣṇu Purāṇa · Agni Purāṇa (Ch. 2–16) · Gītagovinda of Jayadeva · Bhagavad Gītā',
+    sourceRegisterHi: 'श्रीमद्भागवत महापुराण · विष्णु पुराण · अग्नि पुराण (अ. २–१६) · जयदेव कृत गीतगोविन्द · श्रीमद्भगवद्गीता',
+    subcategories: [
+      {
+        id: 'sub-vishnu-mula-satya-yuga',
+        sanskritName: 'क्षीरसागर नारायण एवं सत्ययुग अवतार · Mūla Viṣṇu & Satya Yuga',
+        titleEn: 'Śeṣaśāyī Mahāviṣṇu & Satya Yuga Avatāras (1. Matsya, 2. Kūrma, 3. Varāha, 4. Narasiṃha)',
+        titleHi: 'मूल शेषशायी महाविष्णु एवं सत्ययुग के ४ अवतार (१. मत्स्य, २. कूर्म, ३. वराह, ४. नृसिंह)',
+        summaryEn: 'The transcendent source in Kṣīrasāgara and the four foundational descents of the Golden Age (Kṛta/Satya Yuga) rescuing the Vedas, supporting Mount Mandara, uplifting the Earth, and protecting Prahlāda.',
+        summaryHi: 'क्षीरसागर में अनंत शेष पर विराजमान भगवान् विष्णु तथा सत्ययुग के चार अवतार जिन्होंने वेदों की रक्षा की, मन्दराचल धारण किया, पृथ्वी का उद्धार किया और भक्त प्रह्लाद की रक्षा की।',
+        keyTopicsEn: ['00. Śeṣaśāyī Mahāviṣṇu & Lakṣmī', '01. Matsya & 02. Kūrma', '03. Varāha & 04. Narasiṃha'],
+        keyTopicsHi: ['००. शेषशायी महाविष्णु एवं महालक्ष्मी', '०१. मत्स्य एवं ०२. कूर्म अवतार', '०३. वराह एवं ०४. नृसिंह अवतार'],
+        sourceClassificationEn: 'Bhāgavata, Matsya & Viṣṇu Purāṇas',
+        sourceClassificationHi: 'भागवत, मत्स्य एवं विष्णु पुराण',
+        articleSlug: 'vishnu-dashavatara-ten-avatars-codex'
+      },
+      {
+        id: 'sub-vishnu-treta-yuga',
+        sanskritName: 'त्रेतायुग अवतार त्रयी · Tretā Yuga Incarnations',
+        titleEn: 'Tretā Yuga Avatāras (5. Vāmana / Trivikrama, 6. Paraśurāma & 7. Śrī Rāma)',
+        titleHi: 'त्रेतायुग के ३ अवतार (५. वामन/त्रिविक्रम, ६. परशुराम एवं ७. श्री राम)',
+        summaryEn: 'The three human incarnations of Tretā Yuga measuring the Three Worlds in three strides, restraining tyrannical rulers with Śiva’s axe, and embodying ideal royal Dharma in Ayodhyā.',
+        summaryHi: 'त्रेतायुग के तीन पूर्ण मानव अवतार: तीन पगों में त्रिलोक नापने वाले वामन, परशुधारी चिरंजीवी परशुराम और मर्यादा पुरुषोत्तम श्री राम।',
+        keyTopicsEn: ['05. Vāmana / Trivikrama (3 Strides)', '06. Paraśurāma (Cirañjīvī Sage)', '07. Śrī Rāma & Mātā Sītā'],
+        keyTopicsHi: ['०५. वामन / त्रिविक्रम (तीन पग)', '०६. भार्गव परशुराम', '०७. मर्यादा पुरुषोत्तम श्री राम एवं सीता'],
+        sourceClassificationEn: 'Vālmīki Rāmāyaṇa & Padma Purāṇa',
+        sourceClassificationHi: 'वाल्मीकि रामायण एवं पद्म पुराण',
+        articleSlug: 'avatar-07-shri-rama-incarnation'
+      },
+      {
+        id: 'sub-vishnu-dvapara-kali-yuga',
+        sanskritName: 'द्वापर एवं कलियुग अवतार · Dvāpara & Kali Yuga Incarnations',
+        titleEn: 'Dvāpara & Kali Yuga Avatāras (8. Śrī Kṛṣṇa, 9. Gautama Buddha & 10. Kalki)',
+        titleHi: 'द्वापर एवं कलियुग के अवतार (८. पूर्णावतार श्री कृष्ण, ९. बुद्ध एवं १०. कल्कि)',
+        summaryEn: 'The 16-Kalā Pūrṇāvatāra Śrī Kṛṣṇa in Dvāpara Yuga, the compassionate awakened Buddha under the Bodhi tree in Kali Yuga, and the equestrian renewer Kalki at the close of Kali Yuga.',
+        summaryHi: 'द्वापरयुग में १६ कला पूर्ण श्री कृष्ण (वेणुगोपाल एवं गीता-उपदेशक), कलियुग में बोधि-वृक्ष के नीचे करुणामूर्ति बुद्ध और कलियुग के अंत में श्वेत अश्व देवदत्त पर सवार कल्कि अवतार।',
+        keyTopicsEn: ['08. Śrī Kṛṣṇa (Pūrṇāvatāra)', '09. Gautama Buddha (Bodhi & Karuṇā)', '10. Kalki (Renewal of Satya Yuga)'],
+        keyTopicsHi: ['०८. श्री कृष्ण (षोडश कला पूर्णावतार)', '०९. भगवान् बुद्ध (करुणा एवं बोधि)', '१०. कल्कि अवतार (नूतन सत्ययुग प्रवर्तक)'],
+        sourceClassificationEn: 'Bhāgavata Purāṇa, Gītagovinda & Kalki Purāṇa',
+        sourceClassificationHi: 'श्रीमद्भागवत, गीतगोविन्द एवं कल्कि पुराण',
+        articleSlug: 'avatar-08-shri-krishna-incarnation'
+      }
+    ],
+    crossLinks: [],
+    articles: [...ALL_VISHNU_DASHAVATARA_ARTICLES]
   }
 ];
 

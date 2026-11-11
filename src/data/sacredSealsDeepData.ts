@@ -8,6 +8,7 @@ import {
   VETALA_ARTICLE,
   VETALA_TABLES
 } from './tithiYakshiniVetalaData';
+import { VISHNU_DASHAVATARA_TABLES } from './vishnuDashavataraData';
 
 export interface ResearchComparisonTable {
   id: string;
@@ -2623,4 +2624,6 @@ ARTICLE_COMPARISON_TABLES['sapta-chakra-complete-research-archive'] = SAPTA_CHAK
 ARTICLE_COMPARISON_TABLES['tithi-nitya-devi-shodasha-archive'] = TITHI_NITYA_TABLES;
 ARTICLE_COMPARISON_TABLES['chhatris-yakshini-uddameshwara-tantra-archive'] = YAKSHINI_36_TABLES;
 ARTICLE_COMPARISON_TABLES['vetala-trividha-prakriti-archive'] = VETALA_TABLES;
+ARTICLE_COMPARISON_TABLES['vishnu-dashavatara-ten-avatars-codex'] = VISHNU_DASHAVATARA_TABLES;
+
 

@@ -6,6 +6,8 @@ import {
   Yakshini36MandalaStudio,
   VetalaTriGunaStudio
 } from './TithiYakshiniVetalaStudios';
+import VishnuDashavataraExperience from './VishnuDashavataraExperience';
+import { VISHNU_DASHAVATARA_ENTRIES } from '../data/vishnuDashavataraData';
 
 interface StudioProps {
   articleSlug: string;
@@ -1327,7 +1329,16 @@ export const SpecializedSealInteractiveStudio: React.FC<StudioProps> = ({ articl
       return <Yakshini36MandalaStudio lang={lang} />;
     case 'vetala-trividha-prakriti-archive':
       return <VetalaTriGunaStudio lang={lang} />;
-    default:
+    case 'vishnu-dashavatara-ten-avatars-codex':
+      return <VishnuDashavataraExperience initialAvatarIndex={0} />;
+    default: {
+      const matchedAvatar = VISHNU_DASHAVATARA_ENTRIES.find(
+        (entry) => entry.slug === articleSlug
+      );
+      if (matchedAvatar) {
+        return <VishnuDashavataraExperience initialAvatarIndex={matchedAvatar.index} />;
+      }
       return null;
+    }
   }
 };

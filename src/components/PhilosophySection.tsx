@@ -26,6 +26,7 @@ import MatrikaExperience from './MatrikaExperience';
 import ShriMeruExperience from './ShriMeruExperience';
 import { ChaturdashaLokaExperience } from './ChaturdashaLokaExperience';
 import DashaDikpalaExperience from './DashaDikpalaExperience';
+import VishnuDashavataraExperience from './VishnuDashavataraExperience';
 import TransparentLineScrollbar from './TransparentLineScrollbar';
 import { useLanguage } from '../context/LanguageContext';
 import {
@@ -605,6 +606,7 @@ export default function PhilosophySection() {
   const [focusedAvaranaIdx, setFocusedAvaranaIdx] = useState<number | undefined>(undefined);
   const [focusedLokaIdx, setFocusedLokaIdx] = useState<number | undefined>(undefined);
   const [focusedDikpalaIdx, setFocusedDikpalaIdx] = useState<number | undefined>(undefined);
+  const [focusedAvatarIdx, setFocusedAvatarIdx] = useState<number | undefined>(undefined);
   const [focusedMatrixCell, setFocusedMatrixCell] = useState<{ row: number; col: number }>({
     row: 0,
     col: 0
@@ -674,6 +676,8 @@ export default function PhilosophySection() {
           setFocusedAvaranaIdx(undefined);
         } else if (portal.chapterIndex === 7) {
           setFocusedDikpalaIdx(undefined);
+        } else if (portal.chapterIndex === 8) {
+          setFocusedAvatarIdx(undefined);
         }
         setViewState(prev => ({
           index: portal.chapterIndex,
@@ -727,6 +731,8 @@ export default function PhilosophySection() {
           setFocusedLokaIdx(intIdx);
         } else if (chIdx === 7 && typeof intIdx === 'number') {
           setFocusedDikpalaIdx(intIdx);
+        } else if (chIdx === 8 && typeof intIdx === 'number') {
+          setFocusedAvatarIdx(intIdx);
         }
         setViewState(prev => ({
           index: chIdx,
@@ -790,6 +796,7 @@ export default function PhilosophySection() {
   const isShriMeruView = viewState.index === 5;
   const isLokaView = viewState.index === 6;
   const isDikpalaView = viewState.index === 7;
+  const isDashavataraView = viewState.index === 8;
 
   const activePortal = getPortalByChapterIndex(viewState.index);
 
@@ -839,6 +846,8 @@ export default function PhilosophySection() {
       setFocusedLokaIdx(interactiveIndex);
     } else if (chapterIndex === 7 && typeof interactiveIndex === 'number') {
       setFocusedDikpalaIdx(interactiveIndex);
+    } else if (chapterIndex === 8 && typeof interactiveIndex === 'number') {
+      setFocusedAvatarIdx(interactiveIndex);
     }
     const targetPortal = getPortalByChapterIndex(chapterIndex);
     handleOpenCategoryPortal(targetPortal.slug);
@@ -929,6 +938,11 @@ export default function PhilosophySection() {
                           ? t(
                               '“Ten divine guardians commanding the cardinal, intercardinal, and vertical axes of cosmic space — their weapons, mounts, consorts, and consecrated bīja mantras.”',
                               '“दसों दिशाओं के अधिष्ठाता देव — आठ क्षैतिज दिशाएँ एवं ऊर्ध्व-अधः अक्ष, उनके अमोघ आयुध, पवित्र वाहन, सहगामिनी देवियाँ और प्रतिष्ठित बीज मन्त्र।”'
+                            )
+                        : isDashavataraView
+                          ? t(
+                              '“From the primordial waters of Matsya to the final equestrian sword of Kalki — Supreme Lord Viṣṇu’s ten cosmic descents across the four Yugas.”',
+                              '“प्रलय-जल में मत्स्य अवतार से कलि-अंत में कल्कि अवतार तक — चारों युगों में धर्म-संस्थापनार्थ भगवान् श्रीविष्णु के दस दिव्य प्राकट्य।”'
                             )
                         : isBhairavView
                           ? t(
@@ -1454,6 +1468,23 @@ export default function PhilosophySection() {
                 >
                   <DashaDikpalaExperience
                     initialDirectionIndex={focusedDikpalaIdx}
+                  />
+                </motion.div>
+              ) : studioChapterIndex === 8 ? (
+                /* VIEW 9: CHAPTER IX — SHRI VISHNU & DASHAVATARA (10 COSMIC AVATARS) */
+                <motion.div
+                  key="view-vishnu-dashavatara"
+                  custom={viewState.direction}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: shouldReduceMotion ? 0 : 0.38, ease: 'easeInOut' }}
+                  className="w-full"
+                >
+                  <VishnuDashavataraExperience
+                    initialAvatarIndex={focusedAvatarIdx}
+                    onOpenArticle={handleOpenArticle}
                   />
                 </motion.div>
               ) : (

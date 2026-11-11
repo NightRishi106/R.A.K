@@ -43,6 +43,7 @@ import {
   TITHI_NITYA_DEVI_MOON_SEQUENCE,
   TITHI_NITYA_MASTER_MANDALA_IMAGE
 } from '../data/tithiYakshiniVetalaData';
+import { VISHNU_DASHAVATARA_ENTRIES } from '../data/vishnuDashavataraData';
 
 const PORTAL_ICONS: React.ComponentType<any>[] = [
   Radio,      // I · CAGS Field Archive
@@ -52,7 +53,8 @@ const PORTAL_ICONS: React.ComponentType<any>[] = [
   Sparkles,   // V · Eight Matrikas
   Layers,     // VI · Shri Meru Chakra
   Mountain,   // VII · The 14 Lokas
-  Compass     // VIII · Daśa Dikpāla (10 Directional Guardians)
+  Compass,    // VIII · Daśa Dikpāla (10 Directional Guardians)
+  Sparkles    // IX · Śrī Viṣṇu & Daśāvatāra (10 Avatars)
 ];
 
 const SealGeometricMotif: React.FC<{
@@ -531,6 +533,32 @@ const GatewaySealMotif: React.FC<{
           <circle cx="60" cy="60" r="3.5" fill={accentColor} />
         </g>
       )}
+
+      {chapterIndex === 8 && (
+        <g stroke={accentColor} fill="none" strokeWidth="1.05" opacity="0.88">
+          {/* Gateway IX: Sudarśana Cakra 10-Spoke Wheel & Vaiṣṇava Ūrdhvapuṇḍra */}
+          <circle cx="60" cy="60" r="32" />
+          <circle cx="60" cy="60" r="24" strokeDasharray="2 2" />
+          {Array.from({ length: 10 }).map((_, i) => {
+            const a = (i * Math.PI) / 5 - Math.PI / 2;
+            const x1 = 60 + Math.cos(a) * 11;
+            const y1 = 60 + Math.sin(a) * 11;
+            const x2 = 60 + Math.cos(a) * 32;
+            const y2 = 60 + Math.sin(a) * 32;
+            const tipX = 60 + Math.cos(a) * 36;
+            const tipY = 60 + Math.sin(a) * 36;
+            return (
+              <g key={i}>
+                <line x1={x1} y1={y1} x2={x2} y2={y2} />
+                <circle cx={tipX} cy={tipY} r="1.5" fill={accentColor} />
+              </g>
+            );
+          })}
+          {/* Inner Ūrdhvapuṇḍra Tilaka */}
+          <path d="M 55 52 L 55 64 Q 60 69 65 64 L 65 52" strokeWidth="1.35" />
+          <line x1="60" y1="53" x2="60" y2="65" stroke="#EF4444" strokeWidth="1.2" />
+        </g>
+      )}
     </svg>
   );
 };
@@ -574,35 +602,39 @@ export const CircularMandalaNavigation: React.FC<CircularMandalaNavProps> = ({
         }}
       />
 
-      {/* Section Header: The Eight Sacred Gateways */}
+      {/* Section Header: The Nine Sacred Gateways */}
       <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#D3AD55]/35 bg-[#23160E]/90 mb-2.5">
           <Compass className="w-3.5 h-3.5 text-[#D3AD55]" />
           <span className="font-mono text-[9.5px] sm:text-[10px] uppercase tracking-[0.24em] text-[#D3AD55]">
             {t(
-              'AṢṬA-DVĀRA · EIGHT SACRED GATEWAYS OF KNOWLEDGE',
-              'अष्ट ज्ञान-द्वार · ८ पवित्र शोध द्वार'
+              'NAVA-DVĀRA · NINE SACRED GATEWAYS OF KNOWLEDGE',
+              'नव ज्ञान-द्वार · ९ पवित्र शोध द्वार'
             )}
           </span>
         </div>
         <h3 className="text-xl sm:text-2xl md:text-3xl font-serif text-[#F2E5C9] tracking-wide">
           {t(
-            'The Eight Sacred Gateways — Engraved Portal Seals',
-            'अष्ट ज्ञान-द्वार — ८ समर्पित वृत्ताकार शोध-द्वार'
+            'The Nine Sacred Gateways — Engraved Portal Seals',
+            'नव ज्ञान-द्वार — ९ समर्पित वृत्ताकार शोध-द्वार'
           )}
         </h3>
         <p className="mt-1.5 text-xs sm:text-sm text-[#C8B69E]/80 font-serif max-w-2xl mx-auto leading-relaxed">
           {t(
-            'Select any of the eight Sacred Gateway boxes below to open its dedicated Category Landing Page, subcategory traditions, source-conscious monographs, and interactive research studio.',
+            'Select any of the nine Sacred Gateway boxes below to open its dedicated Category Landing Page, subcategory traditions, source-conscious monographs, and interactive research studio.',
             'किसी भी ज्ञान-द्वार बॉक्स पर क्लिक करके उसका समर्पित श्रेणी पृष्ठ, उप-परंपराएँ, मूल-स्रोत शोध-लेख एवं संवादात्मक अध्ययन कक्ष खोलें।'
           )}
         </p>
       </div>
 
-      {/* The 8 Sacred Gateways Grid — Box Cards with Engraved Circular Seals */}
+      {/* The 9 Sacred Gateways Grid — First 8 in 2x4 Grid, 9th Centered Below the Middle of the 4 Columns */}
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 px-1 sm:px-2">
-          {RESEARCH_CATEGORY_PORTALS.map((portal, idx) => {
+        {(() => {
+          const renderGatewayCard = (
+            portal: ResearchCategoryPortal,
+            idx: number,
+            extraClassName = ''
+          ) => {
             const isSelected = idx === activeChapterIndex;
             const centerLabel = (portal.sanskritSeal || '').split('·')[0].trim();
 
@@ -627,7 +659,7 @@ export const CircularMandalaNavigation: React.FC<CircularMandalaNavProps> = ({
                   isSelected
                     ? 'border-[#D3AD55] shadow-[0_0_26px_rgba(211,173,85,0.25)]'
                     : 'border-[#5A3922]/75'
-                }`}
+                } ${extraClassName}`}
               >
                 {/* Top Gateway Roman Badge & Article Count */}
                 <div className="w-full flex items-center justify-between gap-1 mb-2.5">
@@ -695,8 +727,30 @@ export const CircularMandalaNavigation: React.FC<CircularMandalaNavProps> = ({
                 </div>
               </button>
             );
-          })}
-        </div>
+          };
+
+          const firstEightPortals = RESEARCH_CATEGORY_PORTALS.slice(0, 8);
+          const ninthPortal = RESEARCH_CATEGORY_PORTALS[8];
+
+          return (
+            <>
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 px-1 sm:px-2">
+                {firstEightPortals.map((portal, idx) => renderGatewayCard(portal, idx))}
+              </div>
+
+              {/* 9th Unit Positioned on the Next Line Below the Middle of the 4 Columns */}
+              {ninthPortal && (
+                <div className="mt-4 sm:mt-6 flex justify-center px-1 sm:px-2">
+                  {renderGatewayCard(
+                    ninthPortal,
+                    8,
+                    'w-full max-w-[280px] sm:w-[calc(50%-0.75rem)] sm:max-w-none lg:w-[calc(25%-1.125rem)]'
+                  )}
+                </div>
+              )}
+            </>
+          );
+        })()}
       </div>
 
       {/* ====================================================================
@@ -3370,6 +3424,136 @@ export const ArticleMonographPageView: React.FC<ArticleMonographPageViewProps> =
             </div>
           </div>
         )}
+
+        {/* ====================================================================
+            ŚRĪ VIṢṆU & DAŚĀVATĀRA (GATEWAY IX): 11-PLATE ARCHIVAL GALLERY
+           ==================================================================== */}
+        {article.slug === 'vishnu-dashavatara-ten-avatars-codex' && (
+          <div className="mt-7 pt-5 border-t border-[#3A281B]/30 space-y-6">
+            <div className="p-4 sm:p-6 rounded-2xl bg-[#1A1109] border-2 border-[#D3AD55]/65 text-[#F5E8CE] space-y-5 shadow-xl">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#D3AD55]/35 pb-3">
+                <div>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#FDE047] font-bold block">
+                    {t(
+                      'GATEWAY IX ARCHIVAL PLATES · ŚEṢAŚĀYĪ VIṢṆU & THE 10 AVATĀRAS (00–10)',
+                      'द्वार IX पुरातात्त्विक फलक · शेषशायी भगवान् विष्णु एवं दश अवतार (००–१०)'
+                    )}
+                  </span>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-serif font-bold text-white mt-0.5">
+                    {t(
+                      'Complete Canonical Sequence: Mūla Mahāviṣṇu (00) and Avatāras 01 (Matsya) to 10 (Kalki)',
+                      'सम्पूर्ण प्रामाणिक अनुक्रम: मूल शेषशायी विष्णु (००) तथा अवतार ०१ (मत्स्य) से १० (कल्कि)'
+                    )}
+                  </h3>
+                </div>
+                <span className="px-3 py-1 rounded bg-[#2A1B0E] border border-[#F59E0B]/50 font-mono text-[9.5px] text-[#FDE047] font-bold uppercase">
+                  {t('11 Manuscript Line-Art Plates', '११ मूल पाण्डुलिपि चित्र फलक')}
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {VISHNU_DASHAVATARA_ENTRIES.map((av) => (
+                  <figure
+                    key={av.id}
+                    className="rounded-xl border border-[#D3AD55]/55 bg-[#23160C] overflow-hidden flex flex-col justify-between shadow-md"
+                  >
+                    <div>
+                      <div className="px-3.5 py-2.5 bg-[#140C06] border-b border-[#D3AD55]/35 flex items-center justify-between gap-2">
+                        <span className="font-mono text-[9.5px] uppercase tracking-wider text-[#FDE047] font-bold">
+                          {av.code}
+                        </span>
+                        <span className="px-2 py-0.5 rounded bg-[#2A1B0E] border border-[#D3AD55]/45 font-mono text-[8.5px] text-[#FDE68A]">
+                          {t(av.yugaEn, av.yugaHi)}
+                        </span>
+                      </div>
+
+                      <div className="p-3 bg-[#EBD9BA] flex items-center justify-center">
+                        <img
+                          src={av.imagePath}
+                          alt={t(av.nameEn, av.nameHi)}
+                          loading="lazy"
+                          className="w-full h-80 object-contain rounded border border-[#5A3922]/40"
+                        />
+                      </div>
+
+                      <figcaption className="p-4 space-y-2.5">
+                        <div>
+                          <div className="font-serif text-lg font-bold text-[#FDE047]">
+                            {av.sanskritTitle} · {t(av.nameEn, av.nameHi)}
+                          </div>
+                          <div className="font-mono text-[10px] text-[#E6C77B] mt-0.5">
+                            {t(av.evolutionaryStageEn, av.evolutionaryStageHi)}
+                          </div>
+                        </div>
+
+                        <div className="p-2.5 rounded-lg bg-[#140C06] border border-[#FDE047]/40 space-y-0.5">
+                          <div className="flex items-center justify-between font-mono text-[8.5px] uppercase text-[#FDE047]">
+                            <span>{t('Mūla Mantra', 'मूल मंत्र')}</span>
+                            <span>{av.shortNameHi}</span>
+                          </div>
+                          <div className="font-serif text-xs sm:text-sm font-bold text-[#FEF08A]">
+                            {av.mulaMantraHi}
+                          </div>
+                        </div>
+
+                        <p className="font-serif text-xs text-[#F5E8CE]/90 leading-relaxed">
+                          <strong className="text-[#FDE047]">{t('Iconography:', 'प्रतिमाशास्त्र:')}</strong>{' '}
+                          {t(av.iconographyEn, av.iconographyHi)}
+                        </p>
+                      </figcaption>
+                    </div>
+                  </figure>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Individual Avatar Monograph Plate */}
+        {(() => {
+          const singleAvatar = VISHNU_DASHAVATARA_ENTRIES.find(
+            (entry) => entry.slug === article.slug
+          );
+          if (!singleAvatar) return null;
+          return (
+            <div className="mt-7 pt-5 border-t border-[#3A281B]/30">
+              <div className="p-4 sm:p-6 rounded-2xl bg-[#1A1109] border-2 border-[#D3AD55]/65 text-[#F5E8CE] grid grid-cols-1 lg:grid-cols-12 gap-6 items-center shadow-xl">
+                <div className="lg:col-span-5 p-3 rounded-xl bg-[#EBD9BA] border border-[#5A3922]/50 flex items-center justify-center">
+                  <img
+                    src={singleAvatar.imagePath}
+                    alt={t(singleAvatar.nameEn, singleAvatar.nameHi)}
+                    className="w-full max-h-[460px] object-contain rounded"
+                  />
+                </div>
+                <div className="lg:col-span-7 space-y-3">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#FDE047] font-bold block">
+                    {singleAvatar.code} · {t(singleAvatar.yugaEn, singleAvatar.yugaHi)}
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white">
+                    {singleAvatar.sanskritTitle} — {t(singleAvatar.nameEn, singleAvatar.nameHi)}
+                  </h3>
+                  <p className="font-serif text-sm italic text-[#FDE68A]">
+                    {t(singleAvatar.evolutionaryStageEn, singleAvatar.evolutionaryStageHi)}
+                  </p>
+                  <div className="p-3 rounded-xl bg-[#140C06] border border-[#D3AD55]/45 space-y-1">
+                    <div className="font-mono text-[9px] uppercase tracking-wider text-[#D3AD55]">
+                      {t('Consecrated Mūla Mantra & Daśāvatāra Stotra', 'प्रतिष्ठित मूल मंत्र एवं दशावतार स्तोत्र')}
+                    </div>
+                    <div className="font-serif text-base font-bold text-[#FEF08A]">
+                      {singleAvatar.mulaMantraHi}
+                    </div>
+                    <div className="font-serif text-xs text-[#E5D3B3] pt-1">
+                      {singleAvatar.jayadevaSlokaHi}
+                    </div>
+                  </div>
+                  <p className="font-serif text-xs sm:text-sm text-[#F5E8CE]/90 leading-relaxed">
+                    {t(singleAvatar.iconographyEn, singleAvatar.iconographyHi)}
+                  </p>
+                </div>
+              </div>
+            </div>
+          );
+        })()}
 
         {/* ====================================================================
             TOP MAIN TABLES (Rendered at the top of the monograph)
