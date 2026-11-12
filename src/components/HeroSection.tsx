@@ -1,20 +1,113 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+
+const HERO_SACRED_FRIEZE_IMAGES = [
+  {
+    src: '/assets/aistudio/image_5efa64aa.png',
+    altEn: 'Śakti Gaṇapati Temple Stone Carving',
+    altHi: 'शक्ति गणपति पाषाण शिल्प'
+  },
+  {
+    src: '/assets/aistudio/image_8940494d.png',
+    altEn: 'Śaiva Siddha Tapasvī Before Sacred Dhūnī',
+    altHi: 'पवित्र धूनी के समक्ष शैव सिद्ध तपस्वी'
+  },
+  {
+    src: '/assets/aistudio/image_5c8a73bb.png',
+    altEn: 'Siddha Yogi in Midnight Meditation',
+    altHi: 'निशीथ ध्यान में लीन सिद्ध योगी'
+  },
+  {
+    src: '/assets/aistudio/image_edacf615.png',
+    altEn: 'Avadhūta Master with Triśūla and Four Sacred Dogs',
+    altHi: 'त्रिशूल एवं चार श्वानों सहित अवधूत सिद्ध गुरु'
+  },
+  {
+    src: '/assets/aistudio/image_a627280b.png',
+    altEn: 'Jagadguru Ādi Śaṅkarācārya and the Four Āmnāya Pīṭhas',
+    altHi: 'जगद्गुरु आदि शंकराचार्य एवं चतुराम्नाय पीठ'
+  },
+  {
+    src: '/assets/aistudio/image_e99e5e30.png',
+    altEn: 'Lord Dattātreya Under the Audumbara Tree',
+    altHi: 'औदुम्बर वृक्ष के नीचे भगवान् दत्तात्रेय'
+  },
+  {
+    src: '/assets/aistudio/image_bcb123e7.png',
+    altEn: 'Fierce Four-Armed Mahākāla Bhairava',
+    altHi: 'चतुर्भुज उग्र महाकाल भैरव'
+  },
+  {
+    src: '/assets/aistudio/image_b1c40c57.png',
+    altEn: 'Nāga-Crowned Goddess on Serpent Throne',
+    altHi: 'नाग-छत्र शोभित भगवती'
+  },
+  {
+    src: '/assets/aistudio/image_8109c6a9.png',
+    altEn: 'Flame-Crowned Kāpālika Bhairava on Skull Throne',
+    altHi: 'ज्वाला-मुकुटधारी कापालिक भैरव'
+  },
+  {
+    src: '/assets/aistudio/image_1ea643eb.png',
+    altEn: 'Consecrated Sindūra Meru, Triśūla, Rudrākṣa & Dīpa',
+    altHi: 'सिन्दूर मेरु, त्रिशूल, रुद्राक्ष एवं दीप अर्चन'
+  }
+];
 
 export default function HeroSection() {
   const { t } = useLanguage();
+  const [previewImage, setPreviewImage] = useState<(typeof HERO_SACRED_FRIEZE_IMAGES)[number] | null>(null);
 
   return (
     <>
       {/* Cinematic Full Screen Hero Section */}
-      <section className="relative w-full min-h-[100svh] md:min-h-0 lg:min-h-screen pt-16 sm:pt-20 md:pt-24 pb-4 sm:pb-8 md:pb-12 px-2 sm:px-4 flex flex-col justify-start md:justify-center items-center overflow-hidden paper-grain bg-[#1a1512] bg-[linear-gradient(rgba(15,10,7,0.5),rgba(15,10,7,0.5)),url('/assets/aistudio/golden_bg_6f21ddff.png'),linear-gradient(rgba(15,10,7,0.5),rgba(15,10,7,0.5)),url('/assets/aistudio/ram_background_copy_4fbc3e6e.png')] bg-cover bg-center bg-no-repeat">
+      <section className="relative w-full min-h-[100svh] md:min-h-0 lg:min-h-screen pt-16 sm:pt-20 md:pt-22 pb-4 sm:pb-8 md:pb-12 px-2 sm:px-4 flex flex-col justify-start md:justify-center items-center overflow-hidden paper-grain bg-[#1a1512] bg-[linear-gradient(rgba(15,10,7,0.5),rgba(15,10,7,0.5)),url('/assets/aistudio/golden_bg_6f21ddff.png'),linear-gradient(rgba(15,10,7,0.5),rgba(15,10,7,0.5)),url('/assets/aistudio/ram_background_copy_4fbc3e6e.png')] bg-cover bg-center bg-no-repeat">
         {/* Portrait Image placed between center and right side of section (reduced by 15%) */}
         <img
           src="/assets/aistudio/image_179e2dc4.png"
           alt={t('Ram Ashok Kumar', 'राम अशोक कुमार')}
           className="absolute left-1/2 md:left-[75%] bottom-0 -translate-x-1/2 translate-y-[24%] md:translate-y-[27%] h-[66%] md:h-[68%] w-auto max-w-none object-contain object-bottom pointer-events-none z-20"
         />
+
+        {/* Horizontal Moving Sacred Frieze Directly Above the Video */}
+        <div
+          aria-label={t('Sacred Lineage & Iconographic Frieze', 'पवित्र सिद्ध-परंपरा एवं विग्रह पट्टिका')}
+          className="relative w-full max-w-6xl mx-auto mb-2 sm:mb-2.5 md:mb-3 rounded-lg md:rounded-xl border border-bronze-dark/45 bg-[#110e0d]/85 backdrop-blur-sm shadow-[0_12px_32px_rgba(0,0,0,0.75)] overflow-hidden z-10"
+        >
+          {/* Top & Bottom Subtle Gold Hairlines */}
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-gold-faded/45 to-transparent z-20" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-gold-faded/35 to-transparent z-20" />
+
+          {/* Left & Right Feathered Edge Vignette Masks */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-14 md:w-20 bg-gradient-to-r from-[#110e0d] via-[#110e0d]/75 to-transparent z-20" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-14 md:w-20 bg-gradient-to-l from-[#110e0d] via-[#110e0d]/75 to-transparent z-20" />
+
+          {/* Seamless Infinite Horizontal Track (2x duplicated for continuous loop) */}
+          <div className="py-1.5 sm:py-2">
+            <div className="animate-sacred-frieze gap-2 sm:gap-2.5 md:gap-3 px-1.5">
+              {[...HERO_SACRED_FRIEZE_IMAGES, ...HERO_SACRED_FRIEZE_IMAGES].map((item, idx) => (
+                <button
+                  key={`${item.src}-${idx}`}
+                  type="button"
+                  onClick={() => setPreviewImage(item)}
+                  title={t(item.altEn, item.altHi)}
+                  className="group relative shrink-0 h-16 sm:h-20 md:h-24 lg:h-28 aspect-[4/5] rounded-md overflow-hidden border border-gold-faded/25 hover:border-gold-warm/85 bg-[#0c0908] shadow-[0_4px_14px_rgba(0,0,0,0.7)] transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold-warm"
+                >
+                  <img
+                    src={item.src}
+                    alt={t(item.altEn, item.altHi)}
+                    loading="eager"
+                    className="w-full h-full object-cover object-top brightness-95 contrast-105 group-hover:brightness-110 group-hover:scale-105 transition-all duration-500"
+                  />
+                  {/* Subtle antique vignette overlay on each miniature plate */}
+                  <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-gold-warm/15 bg-gradient-to-t from-black/55 via-transparent to-black/20 opacity-80 group-hover:opacity-40 transition-opacity duration-300" />
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
 
         <div className="relative w-full h-auto aspect-[16/9] max-w-6xl mx-auto rounded-lg md:rounded-xl border border-bronze-dark/30 shadow-2xl flex flex-col justify-center items-center text-center overflow-hidden bg-[#110e0d]">
           {/* Cinematic Background Video */}
@@ -208,6 +301,46 @@ export default function HeroSection() {
           </motion.div>
         </div>
       </section>
+
+      {/* Lightbox Modal for Inspecting Any Frieze Artwork */}
+      <AnimatePresence>
+        {previewImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setPreviewImage(null)}
+            className="fixed inset-0 z-[160] bg-black/85 backdrop-blur-md flex items-center justify-center p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.94, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.94, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-lg w-full rounded-xl border border-gold-warm/60 bg-[#120d0a] p-3 sm:p-4 shadow-[0_24px_60px_rgba(0,0,0,0.95)]"
+            >
+              <button
+                type="button"
+                onClick={() => setPreviewImage(null)}
+                aria-label={t('Close preview', 'पूर्वावलोकन बंद करें')}
+                className="absolute top-5 right-5 z-10 p-1.5 rounded-full bg-black/75 border border-gold-faded/50 text-gold-warm hover:bg-black transition-colors cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+              <img
+                src={previewImage.src}
+                alt={t(previewImage.altEn, previewImage.altHi)}
+                className="w-full max-h-[75vh] object-contain rounded-lg border border-bronze-dark/50 bg-[#0b0806]"
+              />
+              <p className="mt-2.5 text-center font-serif text-xs sm:text-sm text-gold-faded tracking-wider">
+                {t(previewImage.altEn, previewImage.altHi)}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
+
