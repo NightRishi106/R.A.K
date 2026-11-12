@@ -6,7 +6,8 @@ import {
   YAKSHINI_36_INTRO_HI,
   YAKSHINI_36_LIST,
   VETALA_THREE_GUNAS_OVERVIEW,
-  VETALA_PROFILES_LIST
+  VETALA_PROFILES_LIST,
+  VETALA_52_TYPES_LIST
 } from '../data/tithiYakshiniVetalaData';
 
 // ============================================================================
@@ -1344,6 +1345,38 @@ export const VetalaTriGunaStudio: React.FC<{ lang: 'en' | 'hi' }> = ({ lang }) =
           </div>
         </div>
       </div>
+
+      {/* Last Part: Complete List of 52 Types of Vetāla (बावन बेताल) */}
+      <div className="rounded-xl border border-[#38BDF8]/45 bg-[#06121E]/95 p-4 sm:p-5 space-y-4">
+        <div className="border-b border-[#38BDF8]/30 pb-3 space-y-1">
+          <span className="font-mono text-[9.5px] uppercase tracking-[0.2em] text-[#38BDF8] font-bold block">
+            {t('BĀVAN BETĀLA · COMPLETE 52 TYPES ROSTER (01–52)', 'बावन बेताल · ५२ प्रकार के बेतालों की सूची (०१–५२)')}
+          </span>
+          <p className="font-serif text-sm sm:text-base text-[#FDE047] font-semibold leading-relaxed">
+            {t(
+              'According to Tantric tradition, Vetālas have 52 distinct types (तंत्र परम्परा के अनुसार बेताल के कुल 52 प्रकार होते हैं):',
+              'तंत्र परम्परा के अनुसार बेताल के कुल 52 प्रकार होते हैं:'
+            )}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
+          {VETALA_52_TYPES_LIST.map((item) => (
+            <div
+              key={item.index}
+              className="px-3 py-2 rounded-lg bg-[#09192A] border border-[#38BDF8]/25 hover:border-[#FDE047]/65 transition-colors flex items-center gap-2.5"
+            >
+              <span className="shrink-0 w-6 h-6 rounded bg-[#0E263F] border border-[#38BDF8]/40 font-mono text-[10px] font-bold text-[#38BDF8] flex items-center justify-center">
+                {String(item.index).padStart(2, '0')}
+              </span>
+              <span className="font-serif text-xs sm:text-[13px] text-[#F5E8CE] font-medium leading-snug">
+                {item.combined}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
+

@@ -1913,6 +1913,68 @@ export const VETALA_PROFILES_LIST: VetalaProfileEntry[] = [
   }
 ];
 
+export interface Vetala52TypeEntry {
+  index: number;
+  iast: string;
+  hindi: string;
+  combined: string;
+}
+
+export const VETALA_52_TYPES_LIST: Vetala52TypeEntry[] = [
+  { index: 1, iast: 'Vīra Betāla', hindi: 'वीर बेताल', combined: 'Vīra Betāla — वीर बेताल' },
+  { index: 2, iast: 'Mahā Betāla', hindi: 'महा बेताल', combined: 'Mahā Betāla — महा बेताल' },
+  { index: 3, iast: 'Agni Betāla', hindi: 'अग्नि बेताल', combined: 'Agni Betāla — अग्नि बेताल' },
+  { index: 4, iast: 'Gagana Betāla', hindi: 'गगन बेताल', combined: 'Gagana Betāla — गगन बेताल' },
+  { index: 5, iast: 'Bhūmi Betāla (Bhū Betāla)', hindi: 'भूमि बेताल', combined: 'Bhūmi Betāla (Bhū Betāla) — भूमि बेताल' },
+  { index: 6, iast: 'Jala Betāla', hindi: 'जल बेताल', combined: 'Jala Betāla — जल बेताल' },
+  { index: 7, iast: 'Pavana Betāla', hindi: 'पवन बेताल', combined: 'Pavana Betāla — पवन बेताल' },
+  { index: 8, iast: 'Mahāvīra Betāla', hindi: 'महावीर बेताल', combined: 'Mahāvīra Betāla — महावीर बेताल' },
+  { index: 9, iast: 'Rājya Betāla', hindi: 'राज्य बेताल', combined: 'Rājya Betāla — राज्य बेताल' },
+  { index: 10, iast: 'Jaya Betāla', hindi: 'जय बेताल', combined: 'Jaya Betāla — जय बेताल' },
+  { index: 11, iast: 'Brahma Betāla', hindi: 'ब्रह्म बेताल', combined: 'Brahma Betāla — ब्रह्म बेताल' },
+  { index: 12, iast: 'Hanumān Betāla', hindi: 'हनुमान बेताल', combined: 'Hanumān Betāla — हनुमान बेताल' },
+  { index: 13, iast: 'Guhiyā Betāla', hindi: 'गुहिया बेताल', combined: 'Guhiyā Betāla — गुहिया बेताल' },
+  { index: 14, iast: 'Dhana Betāla', hindi: 'धन बेताल', combined: 'Dhana Betāla — धन बेताल' },
+  { index: 15, iast: 'Rākṣasa Betāla', hindi: 'राक्षस बेताल', combined: 'Rākṣasa Betāla — राक्षस बेताल' },
+  { index: 16, iast: 'Karṇa Betāla', hindi: 'कर्ण बेताल', combined: 'Karṇa Betāla — कर्ण बेताल' },
+  { index: 17, iast: 'Śiva Betāla', hindi: 'शिव बेताल', combined: 'Śiva Betāla — शिव बेताल' },
+  { index: 18, iast: 'Trinetra Betāla', hindi: 'त्रिनेत्र बेताल', combined: 'Trinetra Betāla — त्रिनेत्र बेताल' },
+  { index: 19, iast: 'Ghaṭaka Betāla', hindi: 'घटक बेताल', combined: 'Ghaṭaka Betāla — घटक बेताल' },
+  { index: 20, iast: 'Citeśvara Betāla', hindi: 'चितेश्वर बेताल', combined: 'Citeśvara Betāla — चितेश्वर बेताल' },
+  { index: 21, iast: 'Kapālī Betāla', hindi: 'कापाली बेताल', combined: 'Kapālī Betāla — कापाली बेताल' },
+  { index: 22, iast: 'Ghaṇṭākarṇa Betāla', hindi: 'घंटाकर्ण बेताल', combined: 'Ghaṇṭākarṇa Betāla — घंटाकर्ण बेताल' },
+  { index: 23, iast: 'Rudra Betāla', hindi: 'रुद्र बेताल', combined: 'Rudra Betāla — रुद्र बेताल' },
+  { index: 24, iast: 'Budha Betāla', hindi: 'बुध बेताल', combined: 'Budha Betāla — बुध बेताल' },
+  { index: 25, iast: 'Ājñā Betāla', hindi: 'आज्ञा बेताल', combined: 'Ājñā Betāla — आज्ञा बेताल' },
+  { index: 26, iast: 'Jalayāna Betāla', hindi: 'जलयान बेताल', combined: 'Jalayāna Betāla — जलयान बेताल' },
+  { index: 27, iast: 'Kālī Betāla', hindi: 'काली बेताल', combined: 'Kālī Betāla — काली बेताल' },
+  { index: 28, iast: 'Māraṇa Betāla', hindi: 'मारण बेताल', combined: 'Māraṇa Betāla — मारण बेताल' },
+  { index: 29, iast: 'Aichika Betāla', hindi: 'ऐचिक बेताल', combined: 'Aichika Betāla — ऐचिक बेताल' },
+  { index: 30, iast: 'Āgama Betāla', hindi: 'आगम बेताल', combined: 'Āgama Betāla — आगम बेताल' },
+  { index: 31, iast: 'Aghora Betāla', hindi: 'अघोर बेताल', combined: 'Aghora Betāla — अघोर बेताल' },
+  { index: 32, iast: 'Ghāṇṭālā Betāla', hindi: 'घांटाला बेताल', combined: 'Ghāṇṭālā Betāla — घांटाला बेताल' },
+  { index: 33, iast: 'Ghaṭaka Betāla', hindi: 'घटक बेताल', combined: 'Ghaṭaka Betāla — घटक बेताल' },
+  { index: 34, iast: 'Pracaṇḍa Betāla', hindi: 'प्रचण्ड बेताल', combined: 'Pracaṇḍa Betāla — प्रचण्ड बेताल' },
+  { index: 35, iast: 'Bhoṃḍā Betāla', hindi: 'भोंडा बेताल', combined: 'Bhoṃḍā Betāla — भोंडा बेताल' },
+  { index: 36, iast: 'Tāla Betāla', hindi: 'ताल बेताल', combined: 'Tāla Betāla — ताल बेताल' },
+  { index: 37, iast: 'Jogiyā Betāla', hindi: 'जोगिया बेताल', combined: 'Jogiyā Betāla — जोगिया बेताल' },
+  { index: 38, iast: 'Pītama Betāla', hindi: 'पीतम बेताल', combined: 'Pītama Betāla — पीतम बेताल' },
+  { index: 39, iast: 'Śmaśāna Betāla', hindi: 'श्मशान बेताल', combined: 'Śmaśāna Betāla — श्मशान बेताल' },
+  { index: 40, iast: 'Rākṣasa Betāla', hindi: 'राक्षस बेताल', combined: 'Rākṣasa Betāla — राक्षस बेताल' },
+  { index: 41, iast: 'Bhūta Betāla', hindi: 'भूत बेताल', combined: 'Bhūta Betāla — भूत बेताल' },
+  { index: 42, iast: 'Preta Betāla', hindi: 'प्रेत बेताल', combined: 'Preta Betāla — प्रेत बेताल' },
+  { index: 43, iast: 'Piśācha Betāla', hindi: 'पिशाच बेताल', combined: 'Piśācha Betāla — पिशाच बेताल' },
+  { index: 44, iast: 'Nāga Betāla', hindi: 'नाग बेताल', combined: 'Nāga Betāla — नाग बेताल' },
+  { index: 45, iast: 'Brahmarākṣasa Betāla', hindi: 'ब्रह्मराक्षस बेताल', combined: 'Brahmarākṣasa Betāla — ब्रह्मराक्षस बेताल' },
+  { index: 46, iast: 'Kṣetrapāl Betāla', hindi: 'क्षेत्रपाल बेताल', combined: 'Kṣetrapāl Betāla — क्षेत्रपाल बेताल' },
+  { index: 47, iast: 'Mahāvīra Betāla', hindi: 'महावीर बेताल', combined: 'Mahāvīra Betāla — महावीर बेताल' },
+  { index: 48, iast: 'Kālikā Betāla', hindi: 'कालिका बेताल', combined: 'Kālikā Betāla — कालिका बेताल' },
+  { index: 49, iast: 'Haṃḍiyā Betāla', hindi: 'हंडिया बेताल', combined: 'Haṃḍiyā Betāla — हंडिया बेताल' },
+  { index: 50, iast: 'Pañcabhūta Betāla', hindi: 'पंचभूत बेताल', combined: 'Pañcabhūta Betāla — पंचभूत बेताल' },
+  { index: 51, iast: 'Suprabha Betāla', hindi: 'सुप्रभा बेताल', combined: 'Suprabha Betāla — सुप्रभा बेताल' },
+  { index: 52, iast: 'Pañcatattva Betāla', hindi: 'पंचतत्त्व बेताल', combined: 'Pañcatattva Betāla — पंचतत्त्व बेताल' }
+];
+
 export const VETALA_TABLES: ResearchComparisonTable[] = [
   {
     id: 'table-vetala-three-gunas-overview',
@@ -1998,20 +2060,20 @@ export const VETALA_ARTICLE: ResearchArticle = {
   slug: 'vetala-trividha-prakriti-archive',
   categorySlug: 'bhairav-investigation-codex',
   code: 'VTL-03',
-  titleEn: 'बेतालों की त्रिविध प्रकृति — The Three Guṇas of Vetālas: Sāttvika (16), Rājasika (11) & Tāmasika',
-  titleHi: 'बेतालों की त्रिविध प्रकृति (The Three Gunas of Betals): सात्विक (16 प्रकार), राजसिक (11 प्रकार) एवं तामसिक बेताल',
-  subtitleEn: 'Comprehensive Study of Sāttvika Elemental & Wisdom Vetālas (Gagana, Jala, Bhūmi, Pavana, Jñāna), Rājasika Royal Vetālas (Vīra, Rājya, Jaya, Mahāvīra, Māyā), and Tāmasika Cremation Vetālas (Mahā, Pracaṇḍa, Agni/Āgyā, Kaṅkāla, Rakta)',
-  subtitleHi: 'सात्विक (गगन, जल, भूमि, पवन, ज्ञान), राजसिक (वीर, राज्य, जय, महावीर, माया) तथा तामसिक बेतालों (महा, प्रचंड, अग्नि/आग्या, कंकाल, रक्त) का स्वरूप, कार्य एवं पूजा पद्धति',
+  titleEn: 'बेतालों की त्रिविध प्रकृति — The Three Guṇas of Vetālas: Sāttvika (16), Rājasika (11), Tāmasika & the 52 Betālas',
+  titleHi: 'बेतालों की त्रिविध प्रकृति (The Three Gunas of Betals): सात्विक (16), राजसिक (11), तामसिक एवं 52 बेताल',
+  subtitleEn: 'Comprehensive Study of Sāttvika Elemental & Wisdom Vetālas (Gagana, Jala, Bhūmi, Pavana, Jñāna), Rājasika Royal Vetālas (Vīra, Rājya, Jaya, Mahāvīra, Māyā), Tāmasika Cremation Vetālas, and the Complete Roster of 52 Betālas',
+  subtitleHi: 'सात्विक (गगन, जल, भूमि, पवन, ज्ञान), राजसिक (वीर, राज्य, जय, महावीर, माया), तामसिक बेतालों (महा, प्रचंड, अग्नि/आग्या, कंकाल, रक्त) का स्वरूप तथा 52 प्रकार के बेतालों की संपूर्ण सूची',
   sanskritEpigraph: '॥ सात्त्विका राजसाश्चैव तामसाश्चेति त्रिविधाः वेतालाः परिकीर्तिताः ॥',
   epigraphTranslationEn: '"Vetālas are classified into three distinct natures according to the three Guṇas—Sāttvika (16 types of wisdom and elemental guardianship), Rājasika (11 types of royal valor and victory), and Tāmasika (fierce cremation-ground forces)."',
   epigraphTranslationHi: '"तंत्र शास्त्र में बेतालों की प्रकृति तीन गुणों में विभाजित है—१. सात्विक बेताल (१६ प्रकार: शांत, ज्ञानी व न्यायप्रिय), २. राजसिक बेताल (११ प्रकार: शक्तिशाली, वैभवशाली व विजय-प्रदायक), और ३. तामसिक बेताल (उग्र श्मशानिक ऊर्जा)।"',
-  evidenceBadgeEn: 'BHŪTA-VETĀLA TANTRA & FOLKLORE ARCHIVE · TRI-GUṆA TAXONOMY',
-  evidenceBadgeHi: 'वेताल-तंत्र एवं लोक-परम्परा अभिलेखागार · त्रिगुण वर्गीकरण',
+  evidenceBadgeEn: 'BHŪTA-VETĀLA TANTRA & FOLKLORE ARCHIVE · TRI-GUṆA & 52 BETĀLA TAXONOMY',
+  evidenceBadgeHi: 'वेताल-तंत्र एवं लोक-परम्परा अभिलेखागार · त्रिगुण एवं ५२ बेताल वर्गीकरण',
   accentColor: '#38BDF8',
   summaryEn:
-    'In Indian Tantric taxonomy and classical narrative literature (such as the Vetāla Pañcaviṃśati / Baitāl Pachīsī), Vetālas (बेताल) are not a single monolithic class of spirits, but are divided into three distinct natures (त्रिविध प्रकृति — The Three Guṇas of Betals): (1) Sāttvika Vetālas (16 types), serene, wise, and justice-loving spirits governing the elements and scriptures who grant Divya Dṛṣṭi and intuition; (2) Rājasika Vetālas (11 types), majestic, martial, and illusion-wielding powers invoked by kings and warriors for courage, sovereignty, and victory; and (3) Tāmasika Vetālas, fierce and perilous cremation-ground energies associated with midnight rites on Amāvāsyā, Kālī Chaudas, and eclipses.',
+    'In Indian Tantric taxonomy and classical narrative literature (such as the Vetāla Pañcaviṃśati / Baitāl Pachīsī), Vetālas (बेताल) are not a single monolithic class of spirits, but are divided into three distinct natures (त्रिविध प्रकृति — The Three Guṇas of Betals): (1) Sāttvika Vetālas (16 types), serene, wise, and justice-loving spirits governing the elements and scriptures who grant Divya Dṛṣṭi and intuition; (2) Rājasika Vetālas (11 types), majestic, martial, and illusion-wielding powers invoked by kings and warriors for courage, sovereignty, and victory; and (3) Tāmasika Vetālas, fierce and perilous cremation-ground energies associated with midnight rites on Amāvāsyā, Kālī Chaudas, and eclipses, alongside the complete traditional roster of 52 types of Vetāla (Bāvan Betāla).',
   summaryHi:
-    'तंत्र शास्त्र और भारतीय आख्यान परम्परा (जैसे बेताल पच्चीसी) में बेतालों की प्रकृति को तीन प्रमुख गुणों—सात्विक, राजसिक और तामसिक—में विभाजित किया गया है: (1) सात्विक बेताल (16 प्रकार): शांत, ज्ञानी और न्यायप्रिय शक्तियां जो दिव्य दृष्टि, तत्व-रक्षा और आध्यात्मिक अंतर्दृष्टि प्रदान करती हैं; (2) राजसिक बेताल (11 प्रकार): शक्तिशाली, वैभवशाली और मायावी शक्तियां जो राजाओं और योद्धाओं को निर्भयता, राज्य-सत्ता और विजय दिलाती हैं; तथा (3) तामसिक बेताल: श्मशान के सबसे उग्र और विनाशकारी हिस्से में रहने वाली प्रचंड शक्तियां जिनकी साधना अमावस्या, काली चौदह या ग्रहण की मध्यरात्रि (कालरात्रि) में वर्णित है।',
+    'तंत्र शास्त्र और भारतीय आख्यान परम्परा (जैसे बेताल पच्चीसी) में बेतालों की प्रकृति को तीन प्रमुख गुणों—सात्विक, राजसिक और तामसिक—में विभाजित किया गया है: (1) सात्विक बेताल (16 प्रकार): शांत, ज्ञानी और न्यायप्रिय शक्तियां जो दिव्य दृष्टि, तत्व-रक्षा और आध्यात्मिक अंतर्दृष्टि प्रदान करती हैं; (2) राजसिक बेताल (11 प्रकार): शक्तिशाली, वैभवशाली और मायावी शक्तियां जो राजाओं और योद्धाओं को निर्भयता, राज्य-सत्ता और विजय दिलाती हैं; तथा (3) तामसिक बेताल: श्मशान के सबसे उग्र और विनाशकारी हिस्से में रहने वाली प्रचंड शक्तियां, जिनके साथ परम्परा में बेताल के कुल 52 प्रकार (बावन बेताल) भी वर्णित हैं।',
   sections: [
     {
       headingEn: '1. बेतालों की त्रिविध प्रकृति (The Three Gunas of Betals)',
@@ -2052,15 +2114,25 @@ export const VETALA_ARTICLE: ResearchArticle = {
         '1. भोग और नैवेद्य (Offerings): सात्विक और राजसिक बेतालों के विपरीत, तामसिक बेतालों की तृप्ति के लिए मदिरा (शराब), बकरे या मुर्गे की बलि (प्राचीन काल में प्रचलित), और श्मशान की भस्म चढ़ाई जाती है।\n\n2. साधना का समय (Time of Sādhanā): इनकी साधना केवल कृष्ण पक्ष की अमावस्या, काली चौदह (नरक चतुर्दशी), या ग्रहण की रात को मध्यरात्रि (कालरात्रि) के समय की जाती है।\n\n3. साधना स्थल (Locus of Sādhanā): इसके लिए केवल घोर श्मशान घाट, लाशों के पास, या भयंकर तांत्रिक पीठ ही उपयुक्त माने जाते हैं।',
       bodyHi:
         '1. भोग और नैवेद्य: सात्विक और राजसिक बेतालों के विपरीत, तामसिक बेतालों की तृप्ति के लिए मदिरा (शराब), बकरे या मुर्गे की बलि (प्राचीन काल में प्रचलित), और श्मशान की भस्म चढ़ाई जाती है।\n\n2. साधना का समय: इनकी साधना केवल कृष्ण पक्ष की अमावस्या, काली चौदह (नरक चतुर्दशी), या ग्रहण की रात को मध्यरात्रि (कालरात्रि) के समय की जाती है।\n\n3. साधना स्थल: इसके लिए केवल घोर श्मशान घाट, लाशों के पास, या भयंकर तांत्रिक पीठ ही उपयुक्त माने जाते हैं।'
+    },
+    {
+      headingEn: '6. The 52 Types of Vetāla (बावन बेताल — 52 प्रकार के बेताल)',
+      headingHi: '6. बावन बेताल — बेताल के 52 प्रकार (The 52 Types of Betāla)',
+      bodyEn:
+        'According to Tantric tradition, Vetālas have 52 distinct types (तंत्र परम्परा के अनुसार बेताल के कुल 52 प्रकार होते हैं):\n\n' +
+        VETALA_52_TYPES_LIST.map(v => `${v.index}. ${v.combined}`).join('\n'),
+      bodyHi:
+        'तंत्र परम्परा के अनुसार बेताल के कुल 52 प्रकार होते हैं:\n\n' +
+        VETALA_52_TYPES_LIST.map(v => `${v.index}. ${v.combined}`).join('\n')
     }
   ],
   keyFindingsEn: [
-    'Vetālas are classified into three Guṇas: Sāttvika (16 types), Rājasika (11 types), and Tāmasika.',
+    'Vetālas are classified into three Guṇas: Sāttvika (16 types), Rājasika (11 types), and Tāmasika, and Tantric lore enumerates 52 distinct types of Vetālas (Bāvan Betāla) from 1. Vīra Betāla to 52. Pañcatattva Betāla.',
     'The five principal Sāttvika Vetālas—Gagana (Sky), Jala (Water), Bhūmi (Earth), Pavana (Wind), and Jñāna (Scriptural Wisdom, as in Baitāl Pachīsī)—promote intuition, meditation, grounding, vigilance, and dharma.',
     'The five principal Rājasika Vetālas—Vīra, Rājya, Jaya, Mahāvīra, and Māyā—govern courage, royal authority, battlefield/legal victory, leadership, and protective illusion, while the five Tāmasika Vetālas—Mahā, Pracaṇḍa, Agni/Āgyā, Kaṅkāla, and Rakta—represent fierce cremation-ground forces.'
   ],
   keyFindingsHi: [
-    'बेतालों की प्रकृति तीन गुणों में विभाजित है: १. सात्विक बेताल (16 प्रकार), २. राजसिक बेताल (11 प्रकार), और ३. तामसिक बेताल।',
+    'बेतालों की प्रकृति तीन गुणों में विभाजित है: १. सात्विक बेताल (16 प्रकार), २. राजसिक बेताल (11 प्रकार), और ३. तामसिक बेताल; साथ ही तंत्र परम्परा में बेताल के कुल 52 प्रकार (१. वीर बेताल से ५२. पंचतत्त्व बेताल तक) वर्णित हैं।',
     'प्रमुख सात्विक बेताल (गगन, जल, भूमि, पवन और ज्ञान बेताल) पंचतत्वों के संतुलन, ध्यान, न्याय और आध्यात्मिक अंतर्दृष्टि से जुड़े हैं।',
     'प्रमुख राजसिक बेताल (वीर, राज्य, जय, महावीर और माया बेताल) शौर्य, सत्ता और विजय प्रदान करते हैं, जबकि तामसिक बेताल (महा, प्रचंड, अग्नि/आग्या, कंकाल और रक्त बेताल) घोर श्मशानिक क्रियाओं से संबद्ध हैं।'
   ],
@@ -2068,8 +2140,8 @@ export const VETALA_ARTICLE: ResearchArticle = {
     {
       labelEn: 'ARCHIVE CODE & SEAL',
       labelHi: 'अभिलेख कोड एवं मुद्रा',
-      valueEn: 'VTL-03 · SEAL 12 (Tri-Guṇa Vetāla Archive)',
-      valueHi: 'VTL-03 · मुद्रा १२ (त्रिगुण बेताल अभिलेखागार)'
+      valueEn: 'VTL-03 · SEAL 12 (Tri-Guṇa & 52 Vetāla Archive)',
+      valueHi: 'VTL-03 · मुद्रा १२ (त्रिगुण एवं ५२ बेताल अभिलेखागार)'
     },
     {
       labelEn: 'THREEFOLD TAXONOMY',
@@ -2078,10 +2150,10 @@ export const VETALA_ARTICLE: ResearchArticle = {
       valueHi: 'सात्विक (१६ प्रकार) · राजसिक (११ प्रकार) · तामसिक'
     },
     {
-      labelEn: 'PRINCIPAL PROFILES',
-      labelHi: 'प्रमुख बेताल स्वरूप',
-      valueEn: '15 Named Vetālas (5 Sāttvika + 5 Rājasika + 5 Tāmasika)',
-      valueHi: '१५ प्रमुख बेताल (५ सात्विक + ५ राजसिक + ५ तामसिक)'
+      labelEn: 'CANONICAL ROSTER',
+      labelHi: 'संपूर्ण बेताल प्रकार',
+      valueEn: '52 Types of Betāla (1. Vīra Betāla to 52. Pañcatattva Betāla)',
+      valueHi: 'बेताल के ५२ प्रकार (१. वीर बेताल से ५२. पंचतत्त्व बेताल)'
     }
   ],
   primarySourcesEn: 'Vetāla Pañcaviṃśati (Kathāsaritsāgara of Somadeva), Bhūtaḍāmara Tantra, Uddāmeśvara Tantra & Regional Vetāla-Kalpa Traditions.',
