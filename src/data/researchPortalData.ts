@@ -1935,22 +1935,22 @@ const ADDITIONAL_GATEWAY_ARTICLES: Record<string, ResearchArticle[]> = {
         'पूर्णानन्द यति कृत "षट्चक्रनिरूपण" (१५७७ ई.), कालीचरण की टीका, शिव संहिता, हठयोगप्रदीपिका और योग-उपनिषदों पर आधारित सप्त-चक्रों (सप्त चक्र) का संपूर्ण डिजिटल शोध स्टूडियो एवं १५ शोध-प्रबंधों का अभिलेखागार—जिसमें ९-पैनल इंटरैक्टिव चक्र स्टूडियो, ५० संस्कृत मातृका अक्षर, पंचमहाभूत, इड़ा-पिंगला-सुषुम्णा नाड़ियाँ, कुण्डलिनी व तीन ग्रन्थियाँ तथा शास्त्रीय व आधुनिक व्याख्याओं का तुलनात्मक अध्ययन समाहित है।',
       sections: [
         {
-          headingEn: '1. Complete Tantric & Yogic Subtle-Body Architecture (Ṣaṭ-Cakra + Sahasrāra)',
-          headingHi: '१. संपूर्ण तांत्रिक एवं योगिक सूक्ष्म-शरीर विज्ञान (षट्चक्र + सहस्रार)',
+          headingEn: '1. Complete Tantric & Yogic Subtle-Body Architecture (Crown Sahasrāra to Root Mūlādhāra)',
+          headingHi: '१. संपूर्ण तांत्रिक एवं योगिक सूक्ष्म-शरीर विज्ञान (शीर्ष सहस्रार से मूल मूलाधार तक)',
           bodyEn:
-            'In classical Śākta and Haṭha-yogic texts, the six axial lotuses—Mūlādhāra (4 petals), Svādhiṣṭhāna (6 petals), Maṇipūra (10 petals), Anāhata (12 petals), Viśuddha (16 petals), and Ājñā (2 petals)—house the 50 Sanskrit Mātṛkā letters (4 + 6 + 10 + 12 + 16 + 2 = 50) and the five cosmic elements (Earth, Water, Fire, Air, Space) plus Manas, culminating in the transcendent thousand-petalled Sahasrāra (50 × 20 = 1,000) at the crown.',
+            'Aligned with the vertical subtle body from the Crown of the head down to the base of the spine, the seven centres are: (1) Sahasrāra (Crown · 1,000 petals, 50 × 20), (2) Ājñā (Third-Eye · 2 petals), (3) Viśuddha (Throat · 16 petals), (4) Anāhata (Heart · 12 petals), (5) Maṇipūra (Solar Plexus · 10 petals), (6) Svādhiṣṭhāna (Sacral · 6 petals), and (7) Mūlādhāra (Root · 4 petals)—housing the 50 Sanskrit Mātṛkā letters (2 + 16 + 12 + 10 + 6 + 4 = 50), Manas, and the five cosmic elements (Space, Air, Fire, Water, Earth).',
           bodyHi:
-            'शास्त्रीय शाक्त और हठयोग ग्रंथों में मूलाधार (४ दल), स्वाधिष्ठान (६ दल), मणिपूर (१० दल), अनाहत (१२ दल), विशुद्ध (१६ दल) और आज्ञा (२ दल) चक्रों के कुल ५० दलों में संस्कृत के ५० मातृका अक्षर तथा पंचमहाभूत व मनस् प्रतिष्ठित हैं, जिनके शिखर पर ब्रह्मरन्ध्र में १,००० दलों वाला तत्त्वातीत सहस्रार महापद्म विराजमान है।'
+            'सूक्ष्म शरीर में मस्तक के सर्वोच्च शिखर (ब्रह्मरन्ध्र) से लेकर मेरुदण्ड के मूल तक सातों चक्रों का क्रम है—(१) सहस्रार महापद्म (१,००० दल), (२) आज्ञा चक्र (२ दल), (३) विशुद्ध चक्र (१६ दल), (४) अनाहत चक्र (१२ दल), (५) मणिपूर चक्र (१० दल), (६) स्वाधिष्ठान चक्र (६ दल), और (७) मूलाधार चक्र (४ दल)—जिनमें ५० संस्कृत मातृका अक्षर, मनस् और पंचमहाभूत प्रतिष्ठित हैं।'
         }
       ],
       keyFindingsEn: [
-        'Includes the 9-Panel Interactive Chakra Studio (01 Introduction, 02 Mūlādhāra, 03 Svādhiṣṭhāna, 04 Maṇipūra, 05 Anāhata, 06 Viśuddha, 07 Ājñā, 08 Sahasrāra, 09 Kuṇḍalinī Studio).',
-        'Includes 15 full scholarly articles across Part I (Chakra Vidya), Part II (7 Individual Chakra Profiles), and Part III (7 Thematic Research Monographs).',
+        'Includes the 9-Panel Interactive Chakra Studio ordered from top to bottom (01 Introduction, 02 Sahasrāra Crown, 03 Ājñā, 04 Viśuddha, 05 Anāhata, 06 Maṇipūra, 07 Svādhiṣṭhāna, 08 Mūlādhāra Root, 09 Kuṇḍalinī Studio).',
+        'Includes 15 full scholarly articles across Part I (Chakra Vidya), Part II (7 Individual Chakra Profiles from 01 Sahasrāra to 07 Mūlādhāra), and Part III (7 Thematic Research Monographs).',
         'Clearly distinguishes primary Sanskrit textual descriptions (1577 CE Ṣaṭ-Cakra-Nirūpaṇa) from post-1927 Western rainbow-colour and psychological adaptations.'
       ],
       keyFindingsHi: [
-        '९-पैनल इंटरैक्टिव चक्र स्टूडियो (०१ परिचय, ०२ मूलाधार से ०८ सहस्रार, एवं ०९ कुण्डलिनी स्टूडियो) से युक्त।',
-        'भाग I (चक्र विद्या), भाग II (७ व्यक्तिगत चक्र लेख) और भाग III (७ विषयगत शोध-प्रबंध) सहित कुल १५ पूर्ण शोध-लेख।',
+        '९-पैनल इंटरैक्टिव चक्र स्टूडियो (०१ परिचय, ०२ सहस्रार से ०८ मूलाधार तक ऊर्ध्व-अधो क्रम में, एवं ०९ कुण्डलिनी स्टूडियो) से युक्त।',
+        'भाग I (चक्र विद्या), भाग II (०१ सहस्रार से ०७ मूलाधार तक ७ व्यक्तिगत चक्र लेख) और भाग III (७ विषयगत शोध-प्रबंध) सहित कुल १५ पूर्ण शोध-लेख।',
         'मूल संस्कृत शास्त्र (षट्चक्रनिरूपण १५७७ ई.) और २०वीं सदी की आधुनिक मनोवैज्ञानिक/इन्द्रधनुषी व्याख्याओं के बीच स्पष्ट शास्त्रीय अंतर।'
       ],
       metadata: [

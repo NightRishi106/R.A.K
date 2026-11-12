@@ -140,6 +140,66 @@ export const CHAKRA_STUDIO_PANELS: ChakraStudioPanelNav[] = [
   },
   {
     panelNumber: '02',
+    id: 'panel-sahasrara',
+    titleEn: 'Sahasrāra',
+    titleHi: 'सहस्रार',
+    subtitleEn: 'Crown · 1,000-Petal Lotus',
+    subtitleHi: 'शीर्ष · सहस्रदल पद्म',
+    accentColor: '#C084FC',
+    chakraId: 'sahasrara'
+  },
+  {
+    panelNumber: '03',
+    id: 'panel-ajna',
+    titleEn: 'Ājñā',
+    titleHi: 'आज्ञा',
+    subtitleEn: 'Third-Eye · Inner Perception',
+    subtitleHi: 'भ्रूमध्य · अन्तःप्रज्ञा एवं मनस्',
+    accentColor: '#6366F1',
+    chakraId: 'ajna'
+  },
+  {
+    panelNumber: '04',
+    id: 'panel-vishuddha',
+    titleEn: 'Viśuddha',
+    titleHi: 'विशुद्ध',
+    subtitleEn: 'Throat · Space',
+    subtitleHi: 'कण्ठ · आकाश तत्त्व',
+    accentColor: '#38BDF8',
+    chakraId: 'vishuddha'
+  },
+  {
+    panelNumber: '05',
+    id: 'panel-anahata',
+    titleEn: 'Anāhata',
+    titleHi: 'अनाहत',
+    subtitleEn: 'Heart · Air',
+    subtitleHi: 'हृदय · वायु तत्त्व',
+    accentColor: '#22C55E',
+    chakraId: 'anahata'
+  },
+  {
+    panelNumber: '06',
+    id: 'panel-manipura',
+    titleEn: 'Maṇipūra',
+    titleHi: 'मणिपूर',
+    subtitleEn: 'Solar Plexus · Fire',
+    subtitleHi: 'नाभि · अग्नि तत्त्व',
+    accentColor: '#EAB308',
+    chakraId: 'manipura'
+  },
+  {
+    panelNumber: '07',
+    id: 'panel-svadhishthana',
+    titleEn: 'Svādhiṣṭhāna',
+    titleHi: 'स्वाधिष्ठान',
+    subtitleEn: 'Sacral · Water',
+    subtitleHi: 'स्वाधिष्ठान · जल तत्त्व',
+    accentColor: '#F97316',
+    chakraId: 'svadhishthana'
+  },
+  {
+    panelNumber: '08',
     id: 'panel-muladhara',
     titleEn: 'Mūlādhāra',
     titleHi: 'मूलाधार',
@@ -147,66 +207,6 @@ export const CHAKRA_STUDIO_PANELS: ChakraStudioPanelNav[] = [
     subtitleHi: 'मूल · पृथ्वी तत्त्व',
     accentColor: '#EF4444',
     chakraId: 'muladhara'
-  },
-  {
-    panelNumber: '03',
-    id: 'panel-svadhishthana',
-    titleEn: 'Svādhiṣṭhāna',
-    titleHi: 'स्वाधिष्ठान',
-    subtitleEn: 'Water',
-    subtitleHi: 'जल तत्त्व',
-    accentColor: '#F97316',
-    chakraId: 'svadhishthana'
-  },
-  {
-    panelNumber: '04',
-    id: 'panel-manipura',
-    titleEn: 'Maṇipūra',
-    titleHi: 'मणिपूर',
-    subtitleEn: 'Fire',
-    subtitleHi: 'अग्नि तत्त्व',
-    accentColor: '#EAB308',
-    chakraId: 'manipura'
-  },
-  {
-    panelNumber: '05',
-    id: 'panel-anahata',
-    titleEn: 'Anāhata',
-    titleHi: 'अनाहत',
-    subtitleEn: 'Air',
-    subtitleHi: 'वायु तत्त्व',
-    accentColor: '#22C55E',
-    chakraId: 'anahata'
-  },
-  {
-    panelNumber: '06',
-    id: 'panel-vishuddha',
-    titleEn: 'Viśuddha',
-    titleHi: 'विशुद्ध',
-    subtitleEn: 'Space',
-    subtitleHi: 'आकाश तत्त्व',
-    accentColor: '#38BDF8',
-    chakraId: 'vishuddha'
-  },
-  {
-    panelNumber: '07',
-    id: 'panel-ajna',
-    titleEn: 'Ājñā',
-    titleHi: 'आज्ञा',
-    subtitleEn: 'Inner perception',
-    subtitleHi: 'अन्तःप्रज्ञा एवं मनस्',
-    accentColor: '#6366F1',
-    chakraId: 'ajna'
-  },
-  {
-    panelNumber: '08',
-    id: 'panel-sahasrara',
-    titleEn: 'Sahasrāra',
-    titleHi: 'सहस्रार',
-    subtitleEn: 'Crown lotus',
-    subtitleHi: 'सहस्रदल पद्म',
-    accentColor: '#C084FC',
-    chakraId: 'sahasrara'
   },
   {
     panelNumber: '09',
@@ -221,336 +221,174 @@ export const CHAKRA_STUDIO_PANELS: ChakraStudioPanelNav[] = [
 
 export const SEVEN_CHAKRA_PROFILES: IndividualChakraProfile[] = [
   {
-    id: 'muladhara',
-    articleSlug: 'chakra-01-muladhara-root-centre',
+    id: 'sahasrara',
+    articleSlug: 'chakra-01-sahasrara-thousand-petalled-lotus',
     order: 1,
     studioPanelNumber: '02',
-    nameEn: 'Mūlādhāra Chakra',
-    nameSanskrit: 'मूलाधार चक्र',
-    transliteration: 'Mūlādhāra Cakra',
-    commonEnglishDesignation: 'Root Support Centre (Root Chakra)',
-    commonHindiDesignation: 'आधार पद्म / मूलाधार चक्र',
+    nameEn: 'Sahasrāra',
+    nameSanskrit: 'सहस्रार (सहस्रदल पद्म)',
+    transliteration: 'Sahasrāra Padma',
+    commonEnglishDesignation: 'Thousand-Petalled Crown Lotus (Crown Centre)',
+    commonHindiDesignation: 'सहस्रार पद्म / ब्रह्मरन्ध्र महापद्म',
     etymologyEn:
-      'Derived from Sanskrit mūla (मूल, "root, origin, foundation") + ādhāra (आधार, "support, substratum, receptacle"). In Pūrṇānanda’s Ṣaṭ-Cakra-Nirūpaṇa (vv. 4–13), it is the foundational lotus attached to the mouth of the Suṣumṇā channel where Kuṇḍalinī rests.',
+      'From Sanskrit sahasra (सहस्र, "thousand, infinite") + ara (अर, "spoke of a wheel, petal"). Literally "the thousand-spoked or thousand-petalled lotus" situated at the topmost crown (Brahmarandhra) above the six lower chakras.',
     etymologyHi:
-      'संस्कृत "मूल" (जड़, आदि कारण) और "आधार" (अधिष्ठान, आश्रय) के संयोग से बना है। पूर्णानन्द कृत षट्चक्रनिरूपण (श्लोक ४–१३) में यह सुषुम्णा के मुख से संलग्न आधारभूत कमल है जहाँ कुण्डलिनी शक्ति विश्राम करती हैं।',
+      'संस्कृत "सहस्र" (एक हजार / अनंत) + "अर" (चक्र की तीलियाँ / दल) से बना है। यह मस्तक के सर्वोच्च शिखर (ब्रह्मरन्ध्र) में स्थित सहस्रदल महापद्म है।',
     subtleLocationEn:
-      'At the base of the Suṣumṇā column, midway between the root of the reproductive organ and the anus (perineum / yoni-sthāna), below the Kanda.',
+      'At or just above the crown of the head (Brahmarandhra / Kapāla-kuhara), hanging downward like a canopy over the Suṣumṇā column above Mt. Kailāsa / Mahā-śaṅkhinī.',
     subtleLocationHi:
-      'सुषुम्णा के मूल में, गुदा और जननेन्द्रिय के मध्य (सिवनी / योनि-स्थान) में स्थित।',
-    vertebralReferenceEn: 'Coccygeal / Sacral base along the subtle Merudaṇḍa axis',
-    petalCount: 4,
-    petalCountDisplay: '4 Petals (चतुर्दल कमल)',
-    petalColorTraditionalEn: 'Deep crimson red (Śoṇa / सिन्दूर-रक्त वर्ण) in Ṣaṭ-Cakra-Nirūpaṇa; letters in shining gold.',
-    petalColorTraditionalHi: 'षट्चक्रनिरूपण के अनुसार गहरा लाल (शोण/जपाकुसुम सदृश); दलों पर स्वर्णिम अक्षर।',
-    modernRainbowColorEn: 'Red (adopted in post-1920s Western rainbow chakra charts)',
-    accentHex: '#EF4444',
-    secondaryHex: '#EAB308',
-    petalLettersDevanagari: ['वं', 'शं', 'षं', 'सं'],
-    petalLettersIAST: ['vaṃ', 'śaṃ', 'ṣaṃ', 'saṃ'],
-    elementSanskrit: 'पृथ्वी (Pṛthvī / Dharā)',
-    elementEn: 'Pṛthvī — Earth Element',
-    elementHi: 'पृथ्वी तत्त्व (धरा मण्डल)',
-    elementColorTraditionalEn: 'Shining yellow (Pīta-varṇa) square enclosed by eight golden spears (śūla).',
-    bijaMantraDevanagari: 'लं',
-    bijaMantraIAST: 'Laṃ',
-    bijaCarrierDeityEn: 'Indra (four-armed, yellow hue, holding vajra) seated upon the elephant Airāvata',
-    bijaVehicleAnimalEn: 'Airāvata — The Seven-Trunked White Elephant (representing stability and the strength of the Earth tattva)',
-    bijaVehicleAnimalHi: 'ऐरावत गज (सप्त-शुण्ड युक्त श्वेत हाथी — पृथ्वी तत्त्व की दृढ़ता का प्रतीक)',
-    yantraGeometryEn: 'Yellow Square (Caturaśra Dharā-Maṇḍala) flanked by 8 spears, containing the crimson Kāmarūpa Triangle (Traipura Trikoṇa) at its centre.',
-    yantraGeometryHi: 'अष्ट-शूलों से परिवृत पीत वर्ण का चतुष्कोण (पृथ्वी मण्डल), जिसके मध्य में कामरूप त्रिकोण स्थित है।',
-    yantraShapeType: 'square',
-    presidingDeityEn: 'Caturmukha Bāla-Brahmā (Four-faced child Brahmā,holding staff, gourd, rosary, and abhaya mudrā)',
-    presidingDeityHi: 'चतुर्मुख बाल-ब्रह्मा (दण्ड, कमण्डलु, अक्षमाला एवं अभय मुद्रा धारी)',
-    shaktiGoddessEn: 'Ḍākinī Śakti (four-armed, radiant crimson, guardian of the Tvak/skin dhātu)',
-    shaktiGoddessHi: 'डाकिनी शक्ति (चतुर्भुजा, रक्तवर्णा, त्वक्-धातु की अधिष्ठात्री)',
-    lingaAndTriangleEn: 'Svayambhū Liṅga (dark as molten gold/emerald leaf, facing downward) inside the Kāmarūpa Triangle.',
-    lingaAndTriangleHi: 'कामरूप त्रिकोण के भीतर स्थित "स्वयम्भू लिंग", जिस पर कुण्डलिनी साढ़े तीन वलय में लिपटी हैं।',
-    granthiEn: 'Brahma Granthi (Knot of Brahmā — binds consciousness to physical survival, name, and form)',
-    granthiHi: 'ब्रह्म ग्रन्थि (स्थूल देह-भाव एवं भौतिक आसक्ति की प्रथम ग्रन्थि)',
-    tanmatraAndIndriyaEn: 'Gandha (Smell) · Ghrāṇa (Nose) & Pāyu (Excretion)',
-    pranaVayuEn: 'Apāna Vāyu (downward and grounding vital current)',
-    lokaAssociationEn: 'Bhūrloka (Physical / Terrestrial Plane)',
+      'मस्तक के शिखर (ब्रह्मरन्ध्र / कपाल-कुहर) में अधोमुख छत्र के समान अवस्थित, षट्चक्रों के शीर्ष पर।',
+    vertebralReferenceEn: 'Cranial Crown / Fontanelle (Brahmarandhra) at the top of the central axis',
+    petalCount: 1000,
+    petalCountDisplay: '1,000 Petals (सहस्रदल — 50 Letters × 20)',
+    petalColorTraditionalEn: 'Luminous snow-white (शुभ्र / तरुण-रवि-कोटि-तुल्य) tinged with rosy dawn-light; all 50 Sanskrit letters repeated 20 times in radiant light.',
+    petalColorTraditionalHi: 'षट्चक्रनिरूपण के अनुसार पूर्णिमा के चन्द्रमा के समान परम शुभ्र (अरुण आभा से युक्त), जिस पर अ से क्ष तक ५० अक्षर २० आवृत्तियों (५० × २० = १०००) में विराजमान हैं।',
+    modernRainbowColorEn: 'Violet / Crown White-Gold (in modern 7-chakra charts)',
+    accentHex: '#C084FC',
+    secondaryHex: '#FDE047',
+    petalLettersDevanagari: ['अ से क्ष पर्यन्त ५० मातृका अक्षर × २० आवृत्तियाँ = १,००० दल'],
+    petalLettersIAST: ['All 50 Sanskrit phonemes (A to Kṣa) repeated 20 times in 20 concentric rings = 1,000 petals'],
+    elementSanskrit: 'तत्त्वातीत (Tattvātīta — Beyond all 36 Tattvas & Elements)',
+    elementEn: 'Tattvātīta — Transcendent Consciousness (Beyond all cosmic elements and mind)',
+    elementHi: 'तत्त्वातीत परब्रह्म / परम संवित् (समस्त ३६ तत्त्वों एवं प्रकृति से परे)',
+    elementColorTraditionalEn: 'Effulgence of ten million suns and cool moons combined (Koṭi-sūrya-candrābha).',
+    bijaMantraDevanagari: 'विसर्ग / निस्तब्ध प्रणव (अमा-कला एवं निर्वाण-कला)',
+    bijaMantraIAST: 'Para-Bindu / Silence beyond Oṃ (Parā-Vāk)',
+    bijaCarrierDeityEn: 'Paramaśiva (Antarātman / Supreme Non-Dual Consciousness)',
+    bijaVehicleAnimalEn: 'Haṃsa (The Supreme Swan of Parama-Haṃsa Consciousness residing at the Guru-pādukā)',
+    bijaVehicleAnimalHi: 'परमहंस (हंस-पीठ एवं श्रीगुरु-पादुका)',
+    yantraGeometryEn: 'Thousand-Petalled Downward-Facing Lotus enclosing the Full Moon Mandala, the A-Ka-Tha Triangle, the 16th digit of the Moon (Amā-kalā), the 17th digit (Nirvāṇa-kalā), Nirvāṇa-Śakti, and the Supreme Void (Para-Bindu / Śūnya-deśa).',
+    yantraGeometryHi: 'अधोमुख सहस्रदल कमल के भीतर पूर्ण चन्द्रमण्डल, अ-क-थ त्रिकोण, षोडशी "अमा-कला", सप्तदशी "निर्वाण-कला", निर्वाण-शक्ति एवं "परबिन्दु" (परमशिव)।',
+    yantraShapeType: 'thousand-lotus',
+    presidingDeityEn: 'Paramaśiva (Para-Brahman / Supreme Unconditioned Consciousness)',
+    presidingDeityHi: 'परमशिव (सच्चिदानन्द परब्रह्म / गुरु-पादुका तत्त्व)',
+    shaktiGoddessEn: 'Mahā-Kuṇḍalinī / Nirvāṇa-Śakti (in eternal non-dual Samarasa union with Paramaśiva)',
+    shaktiGoddessHi: 'महाकुण्डलिनी / निर्वाण-शक्ति (परमशिव के साथ अद्वैत समरस मिलन में स्थित)',
+    lingaAndTriangleEn: 'Para-Bindu & Guru-Pādukā inside the A-Ka-Tha Trikoṇa (explored in the companion text Pādukā-Pañcaka).',
+    lingaAndTriangleHi: 'अ-क-थ त्रिकोण के भीतर स्थित "परबिन्दु" एवं "श्रीगुरु-पादुका" (पादुकापञ्चक ग्रंथ का मुख्य विषय)।',
+    granthiEn: 'Beyond all three Granthis (Complete untying of Brahma, Viṣṇu, and Rudra knots)',
+    granthiHi: 'तीनों ग्रन्थियों (ब्रह्म, विष्णु, रुद्र) से पूर्णतः मुक्त तुरीयातीत अवस्था',
+    tanmatraAndIndriyaEn: 'Pure Non-Dual Witness Consciousness (Cit / Samvit — beyond senses and mind)',
+    pranaVayuEn: 'Cessation of dualistic breath into Kevala-Kumbhaka / Unmanī-avasthā',
+    lokaAssociationEn: 'Satyaloka (Plane of Absolute Truth & Liberation)',
     traditionalRoleEn:
-      'Serves as the root-anchor of the subtle body where the three principal nāḍīs (Iḍā, Piṅgalā, Suṣumṇā) originate and where Kuṇḍalinī Śakti sleeps coiled 3½ times around the Svayambhū Liṅga, closing the Brahmadvāra (doorway to Brahman).',
+      'In Pūrṇānanda’s Ṣaṭ-Cakra-Nirūpaṇa (vv. 40–49), Sahasrāra crowns the entire subtle-body hierarchy at the apex of the head: the six lower chakras belong to the manifest subtle hierarchy, whereas Sahasrāra is the supreme abode of Paramaśiva where Kuṇḍalinī culminates her ascent and merges in non-dual bliss (Samarasya), raining down a stream of immortal nectar (Sudhā-dhārā) that rejuvenates the entire subtle body.',
     traditionalRoleHi:
-      'सूक्ष्म शरीर का मूल आधार जहाँ से इड़ा, पिंगला और सुषुम्णा नाड़ियाँ निकलती हैं तथा जहाँ कुण्डलिनी शक्ति स्वयम्भू लिंग को साढ़े तीन वलय में लपेटकर ब्रह्मद्वार को आच्छादित किए रहती हैं।',
+      'पूर्णानन्द के षट्चक्रनिरूपण (श्लोक ४०–४९) में सहस्रार मस्तक के सर्वोच्च शिखर पर स्थित परमशिव का धाम है, जहाँ कुण्डलिनी का परमशिव से अद्वैत मिलन (सामरस्य) होता है और वहाँ से झरने वाली अमृत-धारा संपूर्ण सूक्ष्म शरीर को तृप्त करती है।',
     kundaliniSignificanceEn:
-      'Kuṇḍalinī is described in Ṣaṭ-Cakra-Nirūpaṇa (vv. 10–11) as fine as the stalk of a young lotus fibre (bisa-tantu-tanīyasī), shining like ten million lightning flashes, humming like a swarm of love-intoxicated bees, and maintaining the breathing life of all creatures.',
+      'As described in Ṣaṭ-Cakra-Nirūpaṇa (vv. 50–53), Kuṇḍalinī ascends from Mūlādhāra through all six chakras, unites with Paramaśiva in Sahasrāra producing the supreme nectar of bliss (Lākṣā-rasa hue), and then returns along the Suṣumṇā path to Mūlādhāra after bathing every lotus in divine consciousness.',
     kundaliniSignificanceHi:
-      'षट्चक्रनिरूपण (श्लोक १०–११) में कुण्डलिनी को कमल-नाल के सूक्ष्म तंतु के समान पतली, कोटि विद्युत् के समान तेजस्वी, मधुप-गुंजार के समान अव्यक्त नाद करने वाली तथा समस्त जीवों के श्वास-प्रश्वास की जननी कहा गया है।',
+      'षट्चक्रनिरूपण (श्लोक ५०–५३) के अनुसार कुण्डलिनी षट्चक्रों का भेदन कर सहस्रार में परमशिव से मिलती है, और उस शिव-शक्ति मिलन से उत्पन्न लाक्षा-रस सदृश परमामृत से समस्त चक्रों को सींचती हुई पुनः मूलाधार में लौटती है।',
     traditionalSpiritualFruitEn:
-      'According to Ṣaṭ-Cakra-Nirūpaṇa (v. 13), sustained dhyāna on Mūlādhāra makes the practitioner a lord of speech (vāk-pati), free from sickness, cheerful in mind, and possessed of poetic and scriptural mastery.',
+      'Ṣaṭ-Cakra-Nirūpaṇa (vv. 44–49) declares that the yogī who realizes Sahasrāra is liberated from the cycle of rebirth (saṃsāra-bandha), attains Jīvanmukti (liberation while living), and abides in supreme non-dual awareness.',
     traditionalSpiritualFruitHi:
-      'षट्चक्रनिरूपण (श्लोक १३) के अनुसार मूलाधार के ध्यान से साधक वाक्पति (वाणी का स्वामी), रोगमुक्त, नित्य प्रसन्नचित्त और काव्य एवं शास्त्र-ज्ञान में प्रवीण होता है।',
+      'षट्चक्रनिरूपण (श्लोक ४४–४९) के अनुसार सहस्रार का साक्षात्कार करने वाला योगी जन्म-मरण के बन्धन से सदा के लिए मुक्त होकर "जीवन्मुक्ति" और परम अद्वैत आनंद को प्राप्त करता है।',
     modernPsychologicalInterpretationEn:
-      'In 20th-century Western transpersonal psychology (starting with C.G. Jung’s 1932 Kundalini seminars and Anodea Judith’s somatic models), Mūlādhāra is interpreted as the psychological foundation of basic trust, physical safety, financial/shelter security, and somatic grounding.',
+      'In modern transpersonal psychology, Sahasrāra is interpreted as peak unity consciousness, self-transcendence, existential meaning, and cosmic connectedness.',
     modernPsychologicalInterpretationHi:
-      '२०वीं शताब्दी के आधुनिक मनोवैज्ञानिक मॉडलों में मूलाधार को शारीरिक सुरक्षा, आत्म-स्थिरता, बुनियादी विश्वास और जमीनी जुड़ाव (ग्राउंडिंग) के केंद्र के रूप में व्याख्यायित किया जाता है।',
-    modernThemesListEn: ['Physical grounding & stability', 'Survival & existential security', 'Somatic presence', 'Foundational resilience'],
+      'आधुनिक ट्रांसपर्सनल मनोविज्ञान में सहस्रार को अद्वैत चेतना, आत्म-अतिक्रमण (ट्रांसेंडेंस) और वैश्विक एकत्व के अनुभव के रूप में देखा जाता है।',
+    modernThemesListEn: ['Non-dual unity consciousness', 'Spiritual liberation (Mokṣa)', 'Transcendence of ego', 'Luminous silence'],
     traditionalMeditationReferenceEn:
-      'Ṣaṭ-Cakra-Nirūpaṇa vv. 4–13; Śiva Saṃhitā 5.56–64; Yoga-Kuṇḍalinī Upaniṣad Ch. 1 (Mūla-bandha and Apāna-Prāṇa union).',
+      'Ṣaṭ-Cakra-Nirūpaṇa vv. 40–55; Pādukā-Pañcaka vv. 1–7 (Guru-Dhyāna inside Sahasrāra); Śiva Saṃhitā 5.114–131.',
     traditionalMeditationReferenceHi:
-      'षट्चक्रनिरूपण (श्लोक ४–१३); शिव संहिता (५.५६–६४); योगकुण्डलिनी उपनिषद् अध्याय १ (मूलबन्ध एवं प्राण-अपान संयोग)।',
+      'षट्चक्रनिरूपण (श्लोक ४०–५५); पादुकापञ्चक (श्लोक १–७); शिव संहिता (५.११४–१३१)।',
     importantDistinctionsEn: [
-      'Traditional texts describe the Earth square inside Mūlādhāra as yellow (Pīta) and the 4 petals as crimson—whereas modern charts paint the entire chakra uniformly red.',
-      'Mūlādhāra is a subtle-body meditative locus (ādhāra), not the anatomical coccygeal nerve plexus or adrenal gland.'
+      'In the subtle body diagram, Sahasrāra sits at the very top (Crown / Brahmarandhra), above the six spinal and cranial chakras.',
+      'Sahasrāra has no single elemental bīja or animal mount because it transcends all cosmic tattvas.'
     ],
     primaryTextCitations: [
-      'Pūrṇānanda, Ṣaṭ-Cakra-Nirūpaṇa, Verses 4–13',
-      'Śiva Saṃhitā, Chapter 5, Verses 56–64',
-      'Gorakṣaśataka, Verses 14–19'
+      'Pūrṇānanda, Ṣaṭ-Cakra-Nirūpaṇa, Verses 40–55',
+      'Pādukā-Pañcaka, Verses 1–7 (with Kālīcaraṇa’s Ṭīkā)',
+      'Śiva Saṃhitā, Chapter 5, Verses 114–131'
     ]
   },
   {
-    id: 'svadhishthana',
-    articleSlug: 'chakra-02-svadhishthana-water-centre',
+    id: 'ajna',
+    articleSlug: 'chakra-02-ajna-command-centre',
     order: 2,
     studioPanelNumber: '03',
-    nameEn: 'Svādhiṣṭhāna Chakra',
-    nameSanskrit: 'स्वाधिष्ठान चक्र',
-    transliteration: 'Svādhiṣṭhāna Cakra',
-    commonEnglishDesignation: 'One’s Own Abode (Sacral / Pelvic Chakra)',
-    commonHindiDesignation: 'स्वाधिष्ठान पद्म (जल-तत्त्व केंद्र)',
+    nameEn: 'Ājñā Chakra',
+    nameSanskrit: 'आज्ञा चक्र',
+    transliteration: 'Ājñā Cakra (Bhrūmadhya Padma)',
+    commonEnglishDesignation: 'Command & Inner Perception Centre (Third-Eye Chakra)',
+    commonHindiDesignation: 'आज्ञा पद्म / भ्रूमध्य केंद्र (त्रिवेणी संगम)',
     etymologyEn:
-      'From Sanskrit sva (स्व, "one’s own, the Self/Śakti") + adhiṣṭhāna (अधिष्ठान, "standing place, seat, abode"). Literally "the Self’s own seat" or the original abode of vital Prāṇa/Śakti.',
+      'From Sanskrit ājñā (आज्ञा, "command, authority, supreme order, direct perception"). Called Ājñā because here the disciple receives the direct inner command (ājñā) of the Guru (Paramaśiva) and exercises sovereign command over the mind and senses.',
     etymologyHi:
-      'संस्कृत "स्व" (निज आत्मा / शक्ति) और "अधिष्ठान" (निवास स्थान / आश्रय) से निर्मित, जिसका अर्थ है—प्राण या शक्ति का स्व-अधिष्ठान।',
+      'संस्कृत "आज्ञा" (आदेश, शासन, प्रत्यक्ष प्रज्ञा) से निर्मित। यहाँ साधक को परमगुरु (परमशिव) की आंतरिक आज्ञा प्राप्त होती है तथा मन और इन्द्रियों पर पूर्ण शासन स्थापित होता है।',
     subtleLocationEn:
-      'Within the Suṣumṇā column at the root of the generative organ (liṅga-mūla / pelvic region), above Mūlādhāra and below the navel.',
+      'Between the eyebrows (bhrū-madhya), directly below the Crown (Sahasrāra). It is the sacred Mukta-Triveṇī where the three principal nāḍīs—Iḍā (Ganges), Piṅgalā (Yamunā), and Suṣumṇā (Sarasvatī)—converge.',
     subtleLocationHi:
-      'सुषुम्णा के भीतर जननेन्द्रिय के मूल (लिंग-मूल / पेडू क्षेत्र) में, मूलाधार के ऊपर और नाभि के नीचे।',
-    vertebralReferenceEn: 'Sacral / Hypogastric axis along the subtle Merudaṇḍa',
-    petalCount: 6,
-    petalCountDisplay: '6 Petals (षड्दल कमल)',
-    petalColorTraditionalEn: 'Vermilion / bright sindūra red (सिन्दूर-अरुण वर्ण) petals; letters shining like lightning.',
-    petalColorTraditionalHi: 'सिन्दूर के समान उज्ज्वल अरुण-रक्त वर्ण के ६ दल; दलों पर विद्युत्-सदृश अक्षर।',
-    modernRainbowColorEn: 'Orange (in modern Western 20th-century colour-healing systems)',
-    accentHex: '#F97316',
-    secondaryHex: '#38BDF8',
-    petalLettersDevanagari: ['बं', 'भं', 'मं', 'यं', 'रं', 'लं'],
-    petalLettersIAST: ['baṃ', 'bhaṃ', 'maṃ', 'yaṃ', 'raṃ', 'laṃ'],
-    elementSanskrit: 'आपस् / जल (Āpas / Jala)',
-    elementEn: 'Āpas / Jala — Water Element',
-    elementHi: 'जल तत्त्व (अम्बु-मण्डल)',
-    elementColorTraditionalEn: 'Luminous white (Śukla-varṇa) crescent moon shaped like a half-moon (Ardha-candra) of water.',
-    bijaMantraDevanagari: 'वं',
-    bijaMantraIAST: 'Vaṃ',
-    bijaCarrierDeityEn: 'Varuṇa (Lord of Waters, white as the autumn moon, holding the noose/pāśa)',
-    bijaVehicleAnimalEn: 'Makara — Mythic Aquatic Sea-Monster / Crocodile (white, vehicle of Varuṇa and the Water बीज Vaṃ)',
-    bijaVehicleAnimalHi: 'मकर (श्वेत वर्ण का जलीय मकर — वरुण एवं जल-बीज "वं" का वाहन)',
-    yantraGeometryEn: 'White Crescent Moon (Ardha-candra Ambhoja-Maṇḍala) within the pericarp of the six-petalled vermilion lotus.',
-    yantraGeometryHi: 'षड्दल सिन्दूरी कमल की कर्णिका के भीतर श्वेत अर्धचन्द्राकार जल-मण्डल।',
-    yantraShapeType: 'crescent',
-    presidingDeityEn: 'Mahāviṣṇu (Youthful, luminous blue, clad in yellow raiments, four-armed holding conch, discus, mace, lotus)',
-    presidingDeityHi: 'चतुर्भुज भगवान् विष्णु (नीलवर्ण, पीताम्बरधारी, शंख-चक्र-गदा-पद्म युक्त)',
-    shaktiGoddessEn: 'Rākiṇī Śakti (blue-lotus hued, four-armed holding trident, lotus, drum, and axe; presiding over Rakta/blood dhātu)',
-    shaktiGoddessHi: 'राकिनी शक्ति (नीलकमल आभा युक्त, चतुर्भुजा, रक्त-धातु की अधिष्ठात्री)',
-    lingaAndTriangleEn: 'Primordial Water-Seat (Ambhoja-Maṇḍala) supporting the lunar current.',
-    lingaAndTriangleHi: 'श्वेत वरुण-मण्डल एवं अर्धचन्द्राकार जल-तत्त्व।',
-    granthiEn: 'Upper threshold of Brahma Granthi influence',
-    granthiHi: 'ब्रह्म ग्रन्थि के ऊपरी प्रभाव-क्षेत्र से संबद्ध',
-    tanmatraAndIndriyaEn: 'Rasa (Taste) · Rasanā (Tongue) & Upastha (Procreation/Genitals)',
-    pranaVayuEn: 'Vyāna / Apāna coordination (fluid circulation)',
-    lokaAssociationEn: 'Bhuvarloka (Intermediate Vital Plane)',
+      'दोनों भौंहों के मध्य (भ्रूमध्य) में, सहस्रार के ठीक नीचे स्थित। यह "मुक्त-त्रिवेणी" संगम है जहाँ इड़ा (गंगा), पिंगला (यमुना) और सुषुम्णा (सरस्वती) तीनों नाड़ियाँ मिलती हैं।',
+    vertebralReferenceEn: 'Cavernous / Inter-ocular axis between the eyebrows (Bhrūmadhya)',
+    petalCount: 2,
+    petalCountDisplay: '2 Petals (द्विदल कमल)',
+    petalColorTraditionalEn: 'Pure moon-white (चन्द्र-शुभ्र / श्वेत वर्ण) petals shining like autumn moonlight.',
+    petalColorTraditionalHi: 'षट्चक्रनिरूपण के अनुसार शरद पूर्णिमा के चन्द्रमा के समान निर्मल श्वेत २ दल।',
+    modernRainbowColorEn: 'Indigo / Deep Royal Blue (in modern Western rainbow systems)',
+    accentHex: '#6366F1',
+    secondaryHex: '#F8FAFC',
+    petalLettersDevanagari: ['हं', 'क्षं'],
+    petalLettersIAST: ['haṃ', 'kṣaṃ'],
+    elementSanskrit: 'मनस् / सूक्ष्म तत्त्व (Manas Tattva — Beyond the 5 Gross Elements)',
+    elementEn: 'Manas (Subtle Mind / Antaḥkaraṇa — transcends the 5 Mahābhūtas)',
+    elementHi: 'मनस् तत्त्व (पंचमहाभूतों से परे सूक्ष्म अन्तःकरण)',
+    elementColorTraditionalEn: 'Luminous snow-white / crystalline radiance.',
+    bijaMantraDevanagari: 'ॐ',
+    bijaMantraIAST: 'Oṃ (Praṇava)',
+    bijaCarrierDeityEn: 'Paramaśiva / Prakāśa-Vimarśa in the form of Praṇava (Oṃ)',
+    bijaVehicleAnimalEn: 'Nāda and Bindu (No animal mount — transcends elemental vehicles; crowned by Ardhacandra, Bindu, and Nāda)',
+    bijaVehicleAnimalHi: 'नाद एवं बिन्दु (पशु-वाहन से परे — अर्धचन्द्र, बिन्दु एवं नाद रूपी प्रणव कलाएँ)',
+    yantraGeometryEn: 'Two-Petalled White Lotus enclosing a downward-pointing Yonī Triangle and the crystalline Itara Liṅga, surmounted by Oṃ, Ardhacandra, Bindu, and Nāda.',
+    yantraGeometryHi: 'श्वेत द्विदल कमल के मध्य अधोमुख त्रिकोण एवं स्फटिक-सदृश "इतर लिंग", जिसके ऊपर प्रणव (ॐ), अर्धचन्द्र, बिन्दु और नाद स्थित हैं।',
+    yantraShapeType: 'two-petal-linga',
+    presidingDeityEn: 'Paramaśiva / Siddha-Kālī & Ardhanārīśvara in the form of Hākinī-Śiva',
+    presidingDeityHi: 'परमशिव (अर्धनारीश्वर एवं प्रणव-स्वरूप गुरु-तत्त्व)',
+    shaktiGoddessEn: 'Hākinī Śakti (white, six-faced, six-armed holding book/vidyā, skull, drum, rosary, varada, abhaya; presiding over Majjā/marrow dhātu and Manas)',
+    shaktiGoddessHi: 'हाकिनी शक्ति (श्वेतवर्णा, षडानना, षड्भुजा—पुस्तक, कपाल, डमरू, अक्षमाला, वर व अभय मुद्रा धारिणी; मज्जा-धातु एवं मन की अधिष्ठात्री)',
+    lingaAndTriangleEn: 'Itara Liṅga (shining like a streak of lightning inside the triangle; "itara" means "other than the gross", accessed through mental mastery).',
+    lingaAndTriangleHi: 'त्रिकोण के भीतर विद्युत्-रेखा के समान चमकता हुआ "इतर लिंग" एवं प्रणव-ज्योति।',
+    granthiEn: 'Rudra Granthi (Knot of Rudra — final knot of subtle individuality, psychic siddhis, and dualistic perception)',
+    granthiHi: 'रुद्र ग्रन्थि (सूक्ष्म अहंकार, सिद्धियों के मोह और द्वैत-बोध की ग्रन्थि)',
+    tanmatraAndIndriyaEn: 'Manas, Buddhi, Ahaṅkāra & Citta (The Subtle Inner Instrument / Antaḥkaraṇa)',
+    pranaVayuEn: 'Unified Prāṇa in Suṣumṇā (convergence of Iḍā and Piṅgalā)',
+    lokaAssociationEn: 'Tapoloka (Ascetic / Direct Intuitive Illumination Plane)',
     traditionalRoleEn:
-      'Governs the subtle Water element (Āpas) within the microcosm, regulating liquidity, lunar soma-rasa, and the dissolution of the six inner enemies (ṣaḍ-ripu: kāma, krodha, lobha, moha, mada, mātsarya).',
+      'Positioned between the eyebrows directly below Sahasrāra, Ājñā is the highest of the six lotuses along the subtle axis. Here the two petals bearing Haṃ (Śiva) and Kṣaṃ (Śakti) complete the 50 Sanskrit letters (2 + 16 + 12 + 10 + 6 + 4 = 50). It is the seat of the Praṇava (Oṃ), the subtle mind (Manas), and the Rudra Granthi.',
     traditionalRoleHi:
-      'सूक्ष्म शरीर में जल-तत्त्व (आपस्) का संचालन करता है तथा काम, क्रोध, लोभ, मोह, मद और मात्सर्य रूपी षड्रिपुओं के शोधन का केंद्र है।',
+      'सहस्रार के ठीक नीचे भ्रूमध्य में स्थित आज्ञा चक्र षट्चक्रों में सर्वोच्च है। इसके दो दलों पर अंकित "हं" और "क्षं" के साथ संस्कृत वर्णमाला के ५० मातृका अक्षर पूर्ण होते हैं। यह प्रणव (ॐ), सूक्ष्म मन और रुद्र-ग्रन्थि का केंद्र है।',
     kundaliniSignificanceEn:
-      'When Kuṇḍalinī ascends from Mūlādhāra through Svādhiṣṭhāna, the practitioner transcends animalistic instinct and egoic delusion (ahaṅkāra-moha).',
+      'When Kuṇḍalinī pierces the Rudra Granthi at Ājñā, duality between knower and known dissolves into Savikalpa Samādhi, and the path opens through Kāraṇa-rūpā, Nāda, and Bindu toward the thousand-petalled Sahasrāra.',
     kundaliniSignificanceHi:
-      'जब कुण्डलिनी मूलाधार से उठकर स्वाधिष्ठान का भेदन करती है, तब साधक पाशविक वृत्तियों और अज्ञान-जनित मोह से ऊपर उठता है।',
+      'आज्ञा चक्र में रुद्र-ग्रन्थि का भेदन होने पर इड़ा और पिंगला का द्वैत समाप्त हो जाता है और कुण्डलिनी सुषुम्णा के सर्वोच्च पथ से सहस्रार की ओर अग्रसर होती है।',
     traditionalSpiritualFruitEn:
-      'Ṣaṭ-Cakra-Nirūpaṇa (v. 18) states that one who meditates upon Svādhiṣṭhāna becomes free from all six inner enemies (kāma, etc.), conquers fear of water and darkness, and composesnectar-like prose and verse.',
+      'Ṣaṭ-Cakra-Nirūpaṇa (vv. 34–38) states that meditating on Ājñā makes one an Advaita-vādī (realizer of non-duality), grants the fruits of all five lower lotuses simultaneously, and enables the yogī at the time of death to merge their prāṇa into the Supreme Puruṣa.',
     traditionalSpiritualFruitHi:
-      'षट्चक्रनिरूपण (श्लोक १८) के अनुसार स्वाधिष्ठान के ध्यान से साधक काम-क्रोधादि छह शत्रुओं पर विजय पाता है, मोह के अंधकार से मुक्त होता है और उसकी वाणी में अमृतमय प्रवाह आता है।',
+      'षट्चक्रनिरूपण (श्लोक ३४–३८) के अनुसार आज्ञा चक्र के ध्यान से साधक अद्वैत-तत्त्व का साक्षात्कार करता है, नीचे के पाँचों पद्मों के फल स्वतः प्राप्त कर लेता है और अंतकाल में प्रणव में लय होकर परम पुरुष को प्राप्त करता है।',
     modernPsychologicalInterpretationEn:
-      'Modern Western interpretations associate Svādhiṣṭhāna with emotional fluidity, creative expression, sensuality, pleasure, and interpersonal adaptability.',
+      'In modern interpretations, Ājñā is framed around intuition, insight, mental clarity, visualization, concentration, and discernment (viveka).',
     modernPsychologicalInterpretationHi:
-      'आधुनिक मनोवैज्ञानिक व्याख्याओं में स्वाधिष्ठान को भावनात्मक प्रवाह, सृजनात्मकता, कलात्मक अभिव्यक्ति और संवेदनात्मक संतुलन से जोड़ा जाता है।',
-    modernThemesListEn: ['Emotional fluidity & adaptability', 'Creative & artistic impulse', 'Healthy desire & pleasure', 'Relational flow'],
+      'आधुनिक व्याख्याओं में आज्ञा चक्र को अंतर्ज्ञान (इंट्यूशन), एकाग्रता, विवेक-बुद्धि, दूरदृष्टि और मानसिक स्पष्टता का केंद्र माना जाता है।',
+    modernThemesListEn: ['Direct insight & intuition', 'One-pointed concentration (Dhāraṇā)', 'Discernment (Viveka)', 'Integration of dualities'],
     traditionalMeditationReferenceEn:
-      'Ṣaṭ-Cakra-Nirūpaṇa vv. 14–18; Śiva Saṃhitā 5.65–68; Gorakṣaśataka (meditation on the pelvic water-mandala).',
+      'Ṣaṭ-Cakra-Nirūpaṇa vv. 32–39; Bhagavad Gītā 8.10 (fixing prāṇa between the eyebrows); Haṭha Yoga Pradīpikā 4.36 (Śāmbhavī Mudrā).',
     traditionalMeditationReferenceHi:
-      'षट्चक्रनिरूपण (श्लोक १४–१८); शिव संहिता (५.६५–६८); गोरक्षशतक।',
+      'षट्चक्रनिरूपण (श्लोक ३२–३९); श्रीमद्भगवद्गीता (८.१० — भ्रुवोर्मध्ये प्राणमावेश्य); हठयोगप्रदीपिका (शाम्भवी मुद्रा)।',
     importantDistinctionsEn: [
-      'In Sanskrit Tantric texts, Svādhiṣṭhāna’s inner water mandala is pure white (crescent moon) and its petals are vermilion—not the solid orange of modern charts.',
-      'Classical texts emphasize conquering kāma (lust) and moha (delusion) at this centre, whereas modern wellness literature often frames it primarily around indulging or boosting sensuality.'
+      'In Ṣaṭ-Cakra-Nirūpaṇa, Ājñā is snow-white (शुभ्र), not dark indigo.',
+      'Both Haṃ (हं) and Kṣaṃ (क्षं) are the two petal letters of Ājñā, while Oṃ (ॐ) is the central bīja mantra in its pericarp.'
     ],
     primaryTextCitations: [
-      'Pūrṇānanda, Ṣaṭ-Cakra-Nirūpaṇa, Verses 14–18',
-      'Śiva Saṃhitā, Chapter 5, Verses 65–68'
-    ]
-  },
-  {
-    id: 'manipura',
-    articleSlug: 'chakra-03-manipura-fire-centre',
-    order: 3,
-    studioPanelNumber: '04',
-    nameEn: 'Maṇipūra Chakra',
-    nameSanskrit: 'मणिपूर चक्र',
-    transliteration: 'Maṇipūra Cakra (also Nābhi Padma)',
-    commonEnglishDesignation: 'City of Jewels (Navel / Solar Plexus Chakra)',
-    commonHindiDesignation: 'मणिपूर पद्म / नाभि चक्र',
-    etymologyEn:
-      'From Sanskrit maṇi (मणि, "lustrous gem, jewel") + pūra (पूर, "city, fullness, abundance"). Ṣaṭ-Cakra-Nirūpaṇa (v. 21) explains that because it shines like a lustrous gem with the fiery radiance of Rudra and Agni, it is called Maṇipūra.',
-    etymologyHi:
-      'संस्कृत "मणि" (तेजस्वी रत्न) और "पूर" (नगरी या परिपूर्णता) से बना है। अग्नि और रुद्र के तेज से मणि के समान दमकने के कारण इसे मणिपूर (अथवा नाभि-पद्म) कहा गया है।',
-    subtleLocationEn:
-      'Within the Suṣumṇā column at the root of the navel region (nābhi-mūla).',
-    subtleLocationHi:
-      'सुषुम्णा के भीतर नाभि-मूल (नाभि-मण्डल) में स्थित।',
-    vertebralReferenceEn: 'Lumbar / Solar Plexus axis behind the navel',
-    petalCount: 10,
-    petalCountDisplay: '10 Petals (दशदल कमल)',
-    petalColorTraditionalEn: 'Dark rain-cloud blue / smoky purple (जलद-श्याम / मेघवर्ण) petals; letters of blue-black hue.',
-    petalColorTraditionalHi: 'षट्चक्रनिरूपण के अनुसार सघन वर्षा-मेघ (जलद-वर्ण / नील-धूम्र) के समान १० दल।',
-    modernRainbowColorEn: 'Yellow / Golden (derived from the fiery glow of the inner Agni element in modern charts)',
-    accentHex: '#EAB308',
-    secondaryHex: '#EF4444',
-    petalLettersDevanagari: ['डं', 'ढं', 'णं', 'तं', 'थं', 'दं', 'धं', 'नं', 'पं', 'फं'],
-    petalLettersIAST: ['ḍaṃ', 'ḍhaṃ', 'ṇaṃ', 'taṃ', 'thaṃ', 'daṃ', 'dhaṃ', 'naṃ', 'paṃ', 'phaṃ'],
-    elementSanskrit: 'अग्नि / तेजस् (Agni / Tejas)',
-    elementEn: 'Agni / Tejas — Fire Element',
-    elementHi: 'अग्नि / तेजस् तत्त्व (वह्नि-मण्डल)',
-    elementColorTraditionalEn: 'Blazing red (Aruna / Rising-sun red) downward-pointing triangle with three Svastika (T-shaped) projections.',
-    bijaMantraDevanagari: 'रं',
-    bijaMantraIAST: 'Raṃ',
-    bijaCarrierDeityEn: 'Agni / Vahni (four-armed, radiant red, holding rosary and śakti-spear)',
-    bijaVehicleAnimalEn: 'Meṣa — The Fierce Ram (mount of Agni, symbolizing dynamic digestive and transformative fire)',
-    bijaVehicleAnimalHi: 'मेष (मेंढा — अग्नि देव एवं "रं" बीज का वाहन, तेज और क्रियाशीलता का प्रतीक)',
-    yantraGeometryEn: 'Red Inverted Triangle of Fire (Vahni-Maṇḍala Trikoṇa) adorned with three Svastika marks on its outer sides.',
-    yantraGeometryHi: 'तीनों भुजाओं पर तीन स्वस्तिक चिह्नों से युक्त अरुण-रक्त वर्ण का त्रिकोण (अग्नि-मण्डल)।',
-    yantraShapeType: 'triangle',
-    presidingDeityEn: 'Vṛddha Rudra (Three-eyed, vermilion red smeared with white ashes, seated on a bull, granting boons and dispelling fear)',
-    presidingDeityHi: 'वृद्ध रुद्र (सिन्दूर-वर्ण, भस्म-विभूषित, त्रिनेत्र, वरद एवं अभय मुद्रा धारी)',
-    shaktiGoddessEn: 'Lākinī Śakti (four-armed, dark/radiant, holding thunderbolt, śakti, and abhaya/varada; presiding over Māṃsa/flesh dhātu)',
-    shaktiGoddessHi: 'लाकिनी शक्ति (चतुर्भुजा, वज्र व शक्ति धारिणी, मांस-धातु की अधिष्ठात्री)',
-    lingaAndTriangleEn: 'Central Agni-Trikoṇa housing the solar digestive and prāṇic fire (Vaiśvānara / Jāṭharāgni).',
-    lingaAndTriangleHi: 'जठराग्नि एवं वैश्वानर तेज का केंद्रीय अग्नि-त्रिकोण।',
-    granthiEn: 'Lower approach to Viṣṇu Granthi',
-    granthiHi: 'विष्णु ग्रन्थि की निचली सीमा से संबद्ध',
-    tanmatraAndIndriyaEn: 'Rūpa (Sight/Form) · Cakṣu (Eyes) & Pāda (Feet/Locomotion)',
-    pranaVayuEn: 'Samāna Vāyu (assimilating, balancing, and digestive vital current at the navel)',
-    lokaAssociationEn: 'Svarloka (Celestial / Luminosity Plane)',
-    traditionalRoleEn:
-      'Acts as the solar furnace of the subtle body where Samāna Vāyu fans the digestive and alchemical fire (Jāṭharāgni). In Haṭha Yoga, the solar flames at the navel consume the lunar nectar (soma) dripping from the palate unless reversed through Viparītakaraṇī or Khecarī Mudrā.',
-    traditionalRoleHi:
-      'सूक्ष्म शरीर का सौर-अग्नि केंद्र जहाँ समान वायु जठराग्नि को प्रदीप्त रखती है। हठयोग के अनुसार नाभि-स्थित यही सूर्य-मण्डल तालु के चन्द्र-मण्डल से झरने वाले सोमामृत का पान करता है।',
-    kundaliniSignificanceEn:
-      'When Kuṇḍalinī pierces Maṇipūra, she ascends from the realm of water and instinct into the luminous solar fire, transmuting gross vitality into spiritual tapas.',
-    kundaliniSignificanceHi:
-      'जब कुण्डलिनी मणिपूर चक्र में प्रवेश करती है, तब साधक की प्राण-ऊर्जा तपस्या और आध्यात्मिक तेजस् में रूपांतरित हो जाती है।',
-    traditionalSpiritualFruitEn:
-      'Ṣaṭ-Cakra-Nirūpaṇa (v. 21) declares that meditating on Maṇipūra grants the power both to create and to dissolve (saṃhāra-pālana-kṣama), freedom from disease, mastery over speech, and entry into the inner sanctum of wisdom.',
-    traditionalSpiritualFruitHi:
-      'षट्चक्रनिरूपण (श्लोक २१) के अनुसार मणिपूर के ध्यान से साधक संहार और पालन में समर्थ होता है, रोग-शोक से मुक्त होता है और उसके मुखकमल में सरस्वती का निवास होता है।',
-    modernPsychologicalInterpretationEn:
-      'In modern psychological models, Maṇipūra is linked with personal agency, willpower, self-esteem, discipline, autonomy, and purposeful action.',
-    modernPsychologicalInterpretationHi:
-      'आधुनिक मनोवैज्ञानिक व्याख्याओं में मणिपूर को इच्छाशक्ति, आत्मविश्वास, अनुशासन, नेतृत्व और कर्मठता के केंद्र के रूप में देखा जाता है।',
-    modernThemesListEn: ['Willpower & self-discipline', 'Personal agency & confidence', 'Digestive & metabolic vitality', 'Courageous action'],
-    traditionalMeditationReferenceEn:
-      'Ṣaṭ-Cakra-Nirūpaṇa vv. 19–21; Śiva Saṃhitā 5.69–72; Haṭha Yoga Pradīpikā 3.77 (Sūrya-Candra alchemy at the navel).',
-    traditionalMeditationReferenceHi:
-      'षट्चक्रनिरूपण (श्लोक १९–२१); शिव संहिता (५.६९–७२); हठयोगप्रदीपिका (३.७७)।',
-    importantDistinctionsEn: [
-      'In Pūrṇānanda’s text, the 10 petals of Maṇipūra are dark rain-cloud blue (जलद-वर्ण) and the inner Fire triangle is red—whereas modern charts colour the whole lotus bright yellow.',
-      'Traditional texts place Maṇipūra directly at the navel root (nābhi-mūla), while some modern authors shift it upward to the epigastric solar plexus.'
-    ],
-    primaryTextCitations: [
-      'Pūrṇānanda, Ṣaṭ-Cakra-Nirūpaṇa, Verses 19–21',
-      'Śiva Saṃhitā, Chapter 5, Verses 69–72'
-    ]
-  },
-  {
-    id: 'anahata',
-    articleSlug: 'chakra-04-anahata-heart-centre',
-    order: 4,
-    studioPanelNumber: '05',
-    nameEn: 'Anāhata Chakra',
-    nameSanskrit: 'अनाहत चक्र',
-    transliteration: 'Anāhata Cakra (Hṛdaya Padma)',
-    commonEnglishDesignation: 'Unstruck Sound Lotus (Heart Chakra)',
-    commonHindiDesignation: 'अनाहत पद्म / हृदय चक्र',
-    etymologyEn:
-      'From Sanskrit an-āhata (अन् + आहत, "unstruck, unbeaten"). Refers to the primordial cosmic sound (Anāhata Nāda / Śabda-Brahman) that vibrates spontaneously without the collision of two physical objects, heard by yogīs in the silence of the heart.',
-    etymologyHi:
-      'संस्कृत "अन्" (बिना) + "आहत" (आघात/टकराव) से निर्मित। इसका अर्थ है—"बिना किसी बाहरी आघात के स्वतः गूँजने वाला अनाहत नाद" (शब्दब्रह्म), जिसे योगी हृदय-गुहा में सुनते हैं।',
-    subtleLocationEn:
-      'Within the Suṣumṇā column in the region of the heart (hṛdaya-sthāna). Below it shines a smaller eight-petalled red lotus housing the wish-fulfilling Kalpavṛkṣa tree and the Haṃsa (Jīvātman).',
-    subtleLocationHi:
-      'सुषुम्णा के भीतर हृदय-प्रदेश में स्थित। इसके ठीक नीचे अष्टदल लाल कमल (आनन्दकन्द) में कल्पवृक्ष और जीवात्मा रूपी हंस का निवास वर्णित है।',
-    vertebralReferenceEn: 'Thoracic / Cardiac axis along the central column',
-    petalCount: 12,
-    petalCountDisplay: '12 Petals (द्वादशदल कमल)',
-    petalColorTraditionalEn: 'Deep vermilion / bandhūka-flower red (बन्धूक-पुष्प सदृश रक्त वर्ण) petals; letters in vermilion.',
-    petalColorTraditionalHi: 'षट्चक्रनिरूपण के अनुसार दुपहरिया (बन्धूक) फूल के समान सिन्दूरी-लाल १२ दल।',
-    modernRainbowColorEn: 'Green (or Pink; standardized in 20th-century Theosophical and New Age rainbow charts)',
-    accentHex: '#22C55E',
-    secondaryHex: '#F43F5E',
-    petalLettersDevanagari: ['कं', 'खं', 'गं', 'घं', 'ङं', 'चं', 'छं', 'जं', 'झं', 'ञं', 'टं', 'ठं'],
-    petalLettersIAST: ['kaṃ', 'khaṃ', 'gaṃ', 'ghaṃ', 'ṅaṃ', 'caṃ', 'chaṃ', 'jaṃ', 'jhaṃ', 'ñaṃ', 'ṭaṃ', 'ṭhaṃ'],
-    elementSanskrit: 'वायु (Vāyu / Marut)',
-    elementEn: 'Vāyu — Air / Wind Element',
-    elementHi: 'वायु तत्त्व (मरुत्-मण्डल)',
-    elementColorTraditionalEn: 'Smoky grey / dark smoke-hued (Dhūmra-varṇa) six-pointed star (Ṣaṭkoṇa).',
-    bijaMantraDevanagari: 'यं',
-    bijaMantraIAST: 'Yaṃ',
-    bijaCarrierDeityEn: 'Vāyu / Pavana (four-armed, smoky-hued, holding the goad/aṅkuśa)',
-    bijaVehicleAnimalEn: 'Kṛṣṇasāra Mṛga — The Swift Black Antelope (symbolizing the fleetness of the Wind element and mind)',
-    bijaVehicleAnimalHi: 'कृष्णसार मृग (काला हिरण — वायु की तीव्र गति एवं स्फूर्ति का प्रतीक)',
-    yantraGeometryEn: 'Smoky Six-Pointed Star / Intersecting Triangles (Ṣaṭkoṇa Vāyu-Maṇḍala — upward Śiva triangle united with downward Śakti triangle).',
-    yantraGeometryHi: 'धूम्र वर्ण का षट्कोण (वायु-मण्डल — ऊर्ध्वमुख शिव-त्रिकोण एवं अधोमुख शक्ति-त्रिकोण का संयोग)।',
-    yantraShapeType: 'hexagram',
-    presidingDeityEn: 'Īśāna Rudra (Youthful, camphor-white, three-eyed, two-armed granting boons and fearlessness)',
-    presidingDeityHi: 'ईशान रुद्र (कर्पूर-गौर, त्रिनेत्र, वरद एवं अभय मुद्रा धारी)',
-    shaktiGoddessEn: 'Kākinī Śakti (golden-yellow, four-armed holding noose, skull, varada and abhaya; presiding over Medas/fat dhātu)',
-    shaktiGoddessHi: 'काकिनी शक्ति (पीत-स्वर्णिम आभा, चतुर्भुजा पाश-कपाल-वर-अभय धारिणी, मेद-धातु की अधिष्ठात्री)',
-    lingaAndTriangleEn: 'Bāṇa Liṅga (shining like gold, with a crescent moon and half-matrā on its head) inside a luminous triangle.',
-    lingaAndTriangleHi: 'त्रिकोण के मध्य स्थित स्वर्ण-सदृश "बाण लिंग" (जिसके शीर्ष पर अर्धचन्द्र व बिन्दु शोभायमान हैं) तथा लक्ष्मी-सदृश त्रिकोण।',
-    granthiEn: 'Viṣṇu Granthi (Knot of Viṣṇu — governs emotional attachment, preservation, and relational identification)',
-    granthiHi: 'विष्णु ग्रन्थि (भावात्मक ममत्व एवं रक्षण-वृत्ति की मध्य ग्रन्थि)',
-    tanmatraAndIndriyaEn: 'Sparśa (Touch) · Tvak (Skin) & Pāṇi (Hands/Grasping)',
-    pranaVayuEn: 'Prāṇa Vāyu (inward-moving vital breath seated in the heart)',
-    lokaAssociationEn: 'Maharloka (Harmonic / Balance Plane)',
-    traditionalRoleEn:
-      'Bridges the lower three elemental centres with the higher three subtle centres. It is the seat of Prāṇa Vāyu, the Bāṇa Liṅga, the unstruck sound (Anāhata Nāda), and the sub-lotus Ānandakanda where the devotee meditates on their Iṣṭa-devatā upon a jewelled altar beneath the Kalpavṛkṣa.',
-    traditionalRoleHi:
-      'नीचे के तीन भौतिक चक्रों और ऊपर के तीन आध्यात्मिक चक्रों के मध्य सेतु का कार्य करता है। यह प्राण-वायु, बाण-लिंग, अनाहत नाद तथा इष्टदेव के ध्यान (आनन्दकन्द कल्पवृक्ष) का सर्वोच्च केंद्र है।',
-    kundaliniSignificanceEn:
-      'At Anāhata, Kuṇḍalinī unties the Viṣṇu Granthi, awakening the spontaneous perception of the unstruck inner sound (Nāda-anusandhāna) that guides the yogī toward Ājñā and Sahasrāra.',
-    kundaliniSignificanceHi:
-      'अनाहत चक्र में कुण्डलिनी विष्णु-ग्रन्थि का भेदन करती है, जिससे साधक को स्वतःस्फूर्त "अनाहत नाद" सुनाई देने लगता है जो नाद-अनुसंधान द्वारा समाधि की ओर ले जाता है।',
-    traditionalSpiritualFruitEn:
-      'Ṣaṭ-Cakra-Nirūpaṇa (vv. 26–27) states that one who meditates on the Heart Lotus becomes dearer than the dearest to Lakṣmī and wisdom, senses controlled, capable of entering another’s body (para-kāya-praveśa), and devoted to righteous deeds.',
-    traditionalSpiritualFruitHi:
-      'षट्चक्रनिरूपण (श्लोक २६–२७) के अनुसार हृदय-पद्म के ध्यान से साधक जितेन्द्रिय, ज्ञानवान्, परकाय-प्रवेश में समर्थ तथा प्राणिमात्र के प्रति करुणावान् होता है।',
-    modernPsychologicalInterpretationEn:
-      'In modern psychology and contemplative studies, Anāhata is universally associated with unconditional love, empathy, forgiveness, grief-healing, and heart-centered connection.',
-    modernPsychologicalInterpretationHi:
-      'आधुनिक मनोविज्ञान में अनाहत चक्र को निस्वार्थ प्रेम, करुणा, सहानुभूति, क्षमाशीलता और भावात्मक सामंजस्य से जोड़ा जाता है।',
-    modernThemesListEn: ['Compassion & empathy', 'Unconditional love & forgiveness', 'Emotional equilibrium', 'Heart-breath coherence'],
-    traditionalMeditationReferenceEn:
-      'Ṣaṭ-Cakra-Nirūpaṇa vv. 22–27; Śiva Saṃhitā 5.82–89; Haṭha Yoga Pradīpikā 4.65–102 (Nādānusandhāna at the Heart).',
-    traditionalMeditationReferenceHi:
-      'षट्चक्रनिरूपण (श्लोक २२–२७); शिव संहिता (५.८२–८९); हठयोगप्रदीपिका अध्याय ४ (नादानुसंधान)।',
-    importantDistinctionsEn: [
-      'Traditional texts describe Anāhata’s 12 petals as vermilion red (bandhūka flower) and its inner Air hexagram as smoky grey (dhūmra)—whereas modern rainbow systems colour it green.',
-      'The classical name Anāhata refers specifically to the "unstruck sound" (Nāda) of Shabda-Brahman, not merely romantic or interpersonal emotion.'
-    ],
-    primaryTextCitations: [
-      'Pūrṇānanda, Ṣaṭ-Cakra-Nirūpaṇa, Verses 22–27',
-      'Śiva Saṃhitā, Chapter 5, Verses 82–89',
-      'Haṭha Yoga Pradīpikā, Chapter 4, Verses 65–102'
+      'Pūrṇānanda, Ṣaṭ-Cakra-Nirūpaṇa, Verses 32–39',
+      'Bhagavad Gītā, Chapter 8, Verse 10',
+      'Śiva Saṃhitā, Chapter 5, Verses 96–113'
     ]
   },
   {
     id: 'vishuddha',
-    articleSlug: 'chakra-05-vishuddha-space-centre',
-    order: 5,
-    studioPanelNumber: '06',
+    articleSlug: 'chakra-03-vishuddha-space-centre',
+    order: 3,
+    studioPanelNumber: '04',
     nameEn: 'Viśuddha Chakra',
     nameSanskrit: 'विशुद्ध चक्र',
     transliteration: 'Viśuddha Cakra (Kaṇṭha Padma)',
@@ -561,9 +399,9 @@ export const SEVEN_CHAKRA_PROFILES: IndividualChakraProfile[] = [
     etymologyHi:
       'संस्कृत "वि" (विशेष/पूर्ण) + "शुद्ध" (निर्मल/पवित्र) से निर्मित। आकाश-तत्त्व और चन्द्र-अमृत के संस्पर्श से जीव को पूर्णतः निर्मल करने के कारण इसे "विशुद्ध चक्र" कहा जाता है।',
     subtleLocationEn:
-      'Within the Suṣumṇā column at the base of the throat (kaṇṭha-mūla / pharyngeal region). Above it near the palate lies the secret Lalanā / Tālu Chakra.',
+      'Within the Suṣumṇā column at the base of the throat (kaṇṭha-mūla / pharyngeal region), below Ājñā and above Anāhata.',
     subtleLocationHi:
-      'सुषुम्णा के भीतर कण्ठ-मूल में स्थित। इसके ऊपर तालु-मूल में गुप्त ललना (कला) चक्र स्थित है जहाँ से सोमामृत झरता है।',
+      'सुषुम्णा के भीतर कण्ठ-मूल में (आज्ञा चक्र के नीचे और अनाहत चक्र के ऊपर) स्थित।',
     vertebralReferenceEn: 'Cervical / Pharyngeal axis at the throat',
     petalCount: 16,
     petalCountDisplay: '16 Petals (षोडशदल कमल)',
@@ -628,173 +466,348 @@ export const SEVEN_CHAKRA_PROFILES: IndividualChakraProfile[] = [
     ]
   },
   {
-    id: 'ajna',
-    articleSlug: 'chakra-06-ajna-command-centre',
-    order: 6,
-    studioPanelNumber: '07',
-    nameEn: 'Ājñā Chakra',
-    nameSanskrit: 'आज्ञा चक्र',
-    transliteration: 'Ājñā Cakra (Bhrūmadhya Padma)',
-    commonEnglishDesignation: 'Command & Inner Perception Centre (Third-Eye Chakra)',
-    commonHindiDesignation: 'आज्ञा पद्म / भ्रूमध्य केंद्र (त्रिवेणी संगम)',
+    id: 'anahata',
+    articleSlug: 'chakra-04-anahata-heart-centre',
+    order: 4,
+    studioPanelNumber: '05',
+    nameEn: 'Anāhata Chakra',
+    nameSanskrit: 'अनाहत चक्र',
+    transliteration: 'Anāhata Cakra (Hṛdaya Padma)',
+    commonEnglishDesignation: 'Unstruck Sound Lotus (Heart Chakra)',
+    commonHindiDesignation: 'अनाहत पद्म / हृदय चक्र',
     etymologyEn:
-      'From Sanskrit ājñā (आज्ञा, "command, authority, supreme order, direct perception"). Called Ājñā because here the disciple receives the direct inner command (ājñā) of the Guru (Paramaśiva) and exercises sovereign command over the mind and senses.',
+      'From Sanskrit an-āhata (अन् + आहत, "unstruck, unbeaten"). Refers to the primordial cosmic sound (Anāhata Nāda / Śabda-Brahman) that vibrates spontaneously without the collision of two physical objects, heard by yogīs in the silence of the heart.',
     etymologyHi:
-      'संस्कृत "आज्ञा" (आदेश, शासन, प्रत्यक्ष प्रज्ञा) से निर्मित। यहाँ साधक को परमगुरु (परमशिव) की आंतरिक आज्ञा प्राप्त होती है तथा मन और इन्द्रियों पर पूर्ण शासन स्थापित होता है।',
+      'संस्कृत "अन्" (बिना) + "आहत" (आघात/टकराव) से निर्मित। इसका अर्थ है—"बिना किसी बाहरी आघात के स्वतः गूँजने वाला अनाहत नाद" (शब्दब्रह्म), जिसे योगी हृदय-गुहा में सुनते हैं।',
     subtleLocationEn:
-      'Between the eyebrows (bhrū-madhya). It is the sacred Mukta-Triveṇī where the three principal nāḍīs—Iḍā (Ganges), Piṅgalā (Yamunā), and Suṣumṇā (Sarasvatī)—converge before ascending toward Sahasrāra.',
+      'Within the Suṣumṇā column in the region of the heart (hṛdaya-sthāna), at the central midpoint between the upper three and lower three centres.',
     subtleLocationHi:
-      'दोनों भौंहों के मध्य (भ्रूमध्य) में स्थित। यह "मुक्त-त्रिवेणी" संगम है जहाँ इड़ा (गंगा), पिंगला (यमुना) और सुषुम्णा (सरस्वती) तीनों नाड़ियाँ मिलती हैं।',
-    vertebralReferenceEn: 'Cavernous / Inter-ocular axis between the eyebrows (Bhrūmadhya)',
-    petalCount: 2,
-    petalCountDisplay: '2 Petals (द्विदल कमल)',
-    petalColorTraditionalEn: 'Pure moon-white (चन्द्र-शुभ्र / श्वेत वर्ण) petals shining like autumn moonlight.',
-    petalColorTraditionalHi: 'षट्चक्रनिरूपण के अनुसार शरद पूर्णिमा के चन्द्रमा के समान निर्मल श्वेत २ दल।',
-    modernRainbowColorEn: 'Indigo / Deep Royal Blue (in modern Western rainbow systems)',
-    accentHex: '#6366F1',
-    secondaryHex: '#F8FAFC',
-    petalLettersDevanagari: ['हं', 'क्षं'],
-    petalLettersIAST: ['haṃ', 'kṣaṃ'],
-    elementSanskrit: 'मनस् / सूक्ष्म तत्त्व (Manas Tattva — Beyond the 5 Gross Elements)',
-    elementEn: 'Manas (Subtle Mind / Antaḥkaraṇa — transcends the 5 Mahābhūtas)',
-    elementHi: 'मनस् तत्त्व (पंचमहाभूतों से परे सूक्ष्म अन्तःकरण)',
-    elementColorTraditionalEn: 'Luminous snow-white / crystalline radiance.',
-    bijaMantraDevanagari: 'ॐ',
-    bijaMantraIAST: 'Oṃ (Praṇava)',
-    bijaCarrierDeityEn: 'Paramaśiva / Prakāśa-Vimarśa in the form of Praṇava (Oṃ)',
-    bijaVehicleAnimalEn: 'Nāda and Bindu (No animal mount — transcends elemental vehicles; crowned by Ardhacandra, Bindu, and Nāda)',
-    bijaVehicleAnimalHi: 'नाद एवं बिन्दु (पशु-वाहन से परे — अर्धचन्द्र, बिन्दु एवं नाद रूपी प्रणव कलाएँ)',
-    yantraGeometryEn: 'Two-Petalled White Lotus enclosing a downward-pointing Yonī Triangle and the crystalline Itara Liṅga, surmounted by Oṃ, Ardhacandra, Bindu, and Nāda.',
-    yantraGeometryHi: 'श्वेत द्विदल कमल के मध्य अधोमुख त्रिकोण एवं स्फटिक-सदृश "इतर लिंग", जिसके ऊपर प्रणव (ॐ), अर्धचन्द्र, बिन्दु और नाद स्थित हैं।',
-    yantraShapeType: 'two-petal-linga',
-    presidingDeityEn: 'Paramaśiva / Siddha-Kālī & Ardhanārīśvara in the form of Hākinī-Śiva',
-    presidingDeityHi: 'परमशिव (अर्धनारीश्वर एवं प्रणव-स्वरूप गुरु-तत्त्व)',
-    shaktiGoddessEn: 'Hākinī Śakti (white, six-faced, six-armed holding book/vidyā, skull, drum, rosary, varada, abhaya; presiding over Majjā/marrow dhātu and Manas)',
-    shaktiGoddessHi: 'हाकिनी शक्ति (श्वेतवर्णा, षडानना, षड्भुजा—पुस्तक, कपाल, डमरू, अक्षमाला, वर व अभय मुद्रा धारिणी; मज्जा-धातु एवं मन की अधिष्ठात्री)',
-    lingaAndTriangleEn: 'Itara Liṅga (shining like a streak of lightning inside the triangle; "itara" means "other than the gross", accessed through mental mastery).',
-    lingaAndTriangleHi: 'त्रिकोण के भीतर विद्युत्-रेखा के समान चमकता हुआ "इतर लिंग" एवं प्रणव-ज्योति।',
-    granthiEn: 'Rudra Granthi (Knot of Rudra — final knot of subtle individuality, psychic siddhis, and dualistic perception)',
-    granthiHi: 'रुद्र ग्रन्थि (सूक्ष्म अहंकार, सिद्धियों के मोह और द्वैत-बोध की तृतीय एवं अंतिम ग्रन्थि)',
-    tanmatraAndIndriyaEn: 'Manas, Buddhi, Ahaṅkāra & Citta (The Subtle Inner Instrument / Antaḥkaraṇa)',
-    pranaVayuEn: 'Unified Prāṇa in Suṣumṇā (convergence of Iḍā and Piṅgalā)',
-    lokaAssociationEn: 'Tapoloka (Ascetic / Direct Intuitive Illumination Plane)',
+      'सुषुम्णा के भीतर हृदय-प्रदेश में (ऊपरी तीन और निचले तीन चक्रों के मध्य में) स्थित। इसके ठीक नीचे अष्टदल लाल कमल (आनन्दकन्द) में कल्पवृक्ष और जीवात्मा रूपी हंस का निवास वर्णित है।',
+    vertebralReferenceEn: 'Thoracic / Cardiac axis along the central column',
+    petalCount: 12,
+    petalCountDisplay: '12 Petals (द्वादशदल कमल)',
+    petalColorTraditionalEn: 'Deep vermilion / bandhūka-flower red (बन्धूक-पुष्प सदृश रक्त वर्ण) petals; letters in vermilion.',
+    petalColorTraditionalHi: 'षट्चक्रनिरूपण के अनुसार दुपहरिया (बन्धूक) फूल के समान सिन्दूरी-लाल १२ दल।',
+    modernRainbowColorEn: 'Green (or Pink; standardized in 20th-century Theosophical and New Age rainbow charts)',
+    accentHex: '#22C55E',
+    secondaryHex: '#F43F5E',
+    petalLettersDevanagari: ['कं', 'खं', 'गं', 'घं', 'ङं', 'चं', 'छं', 'जं', 'झं', 'ञं', 'टं', 'ठं'],
+    petalLettersIAST: ['kaṃ', 'khaṃ', 'gaṃ', 'ghaṃ', 'ṅaṃ', 'caṃ', 'chaṃ', 'jaṃ', 'jhaṃ', 'ñaṃ', 'ṭaṃ', 'ṭhaṃ'],
+    elementSanskrit: 'वायु (Vāyu / Marut)',
+    elementEn: 'Vāyu — Air / Wind Element',
+    elementHi: 'वायु तत्त्व (मरुत्-मण्डल)',
+    elementColorTraditionalEn: 'Smoky grey / dark smoke-hued (Dhūmra-varṇa) six-pointed star (Ṣaṭkoṇa).',
+    bijaMantraDevanagari: 'यं',
+    bijaMantraIAST: 'Yaṃ',
+    bijaCarrierDeityEn: 'Vāyu / Pavana (four-armed, smoky-hued, holding the goad/aṅkuśa)',
+    bijaVehicleAnimalEn: 'Kṛṣṇasāra Mṛga — The Swift Black Antelope (symbolizing the fleetness of the Wind element and mind)',
+    bijaVehicleAnimalHi: 'कृष्णसार मृग (काला हिरण — वायु की तीव्र गति एवं स्फूर्ति का प्रतीक)',
+    yantraGeometryEn: 'Smoky Six-Pointed Star / Intersecting Triangles (Ṣaṭkoṇa Vāyu-Maṇḍala — upward Śiva triangle united with downward Śakti triangle).',
+    yantraGeometryHi: 'धूम्र वर्ण का षट्कोण (वायु-मण्डल — ऊर्ध्वमुख शिव-त्रिकोण एवं अधोमुख शक्ति-त्रिकोण का संयोग)।',
+    yantraShapeType: 'hexagram',
+    presidingDeityEn: 'Īśāna Rudra (Youthful, camphor-white, three-eyed, two-armed granting boons and fearlessness)',
+    presidingDeityHi: 'ईशान रुद्र (कर्पूर-गौर, त्रिनेत्र, वरद एवं अभय मुद्रा धारी)',
+    shaktiGoddessEn: 'Kākinī Śakti (golden-yellow, four-armed holding noose, skull, varada and abhaya; presiding over Medas/fat dhātu)',
+    shaktiGoddessHi: 'काकिनी शक्ति (पीत-स्वर्णिम आभा, चतुर्भुजा पाश-कपाल-वर-अभय धारिणी, मेद-धातु की अधिष्ठात्री)',
+    lingaAndTriangleEn: 'Bāṇa Liṅga (shining like gold, with a crescent moon and half-matrā on its head) inside a luminous triangle.',
+    lingaAndTriangleHi: 'त्रिकोण के मध्य स्थित स्वर्ण-सदृश "बाण लिंग" (जिसके शीर्ष पर अर्धचन्द्र व बिन्दु शोभायमान हैं) तथा लक्ष्मी-सदृश त्रिकोण।',
+    granthiEn: 'Viṣṇu Granthi (Knot of Viṣṇu — governs emotional attachment, preservation, and relational identification)',
+    granthiHi: 'विष्णु ग्रन्थि (भावात्मक ममत्व एवं रक्षण-वृत्ति की मध्य ग्रन्थि)',
+    tanmatraAndIndriyaEn: 'Sparśa (Touch) · Tvak (Skin) & Pāṇi (Hands/Grasping)',
+    pranaVayuEn: 'Prāṇa Vāyu (inward-moving vital breath seated in the heart)',
+    lokaAssociationEn: 'Maharloka (Harmonic / Balance Plane)',
     traditionalRoleEn:
-      'The sixth and highest of the "Six Chakras" (Ṣaṭ-Cakra). Here the two petals bearing Haṃ (Śiva) and Kṣaṃ (Śakti) complete the 50 Sanskrit letters (4 + 6 + 10 + 12 + 16 + 2 = 50). It is the seat of the Praṇava (Oṃ), the subtle mind (Manas), and the Rudra Granthi.',
+      'Bridges the upper three subtle centres (Sahasrāra, Ājñā, Viśuddha) with the lower three elemental centres (Maṇipūra, Svādhiṣṭhāna, Mūlādhāra). It is the seat of Prāṇa Vāyu, the Bāṇa Liṅga, the unstruck sound (Anāhata Nāda), and the sub-lotus Ānandakanda.',
     traditionalRoleHi:
-      '"षट्चक्र" की श्रृंखला का छठा और सर्वोच्च चक्र। इसके दो दलों पर अंकित "हं" और "क्षं" के साथ संस्कृत वर्णमाला के ५० मातृका अक्षर (४ + ६ + १० + १२ + १६ + २ = ५०) पूर्ण होते हैं। यह प्रणव (ॐ), सूक्ष्म मन और रुद्र-ग्रन्थि का केंद्र है।',
+      'ऊपर के तीन आध्यात्मिक चक्रों और नीचे के तीन भौतिक चक्रों के मध्य सेतु का कार्य करता है। यह प्राण-वायु, बाण-लिंग, अनाहत नाद तथा इष्टदेव के ध्यान (आनन्दकन्द कल्पवृक्ष) का सर्वोच्च केंद्र है।',
     kundaliniSignificanceEn:
-      'When Kuṇḍalinī pierces the Rudra Granthi at Ājñā, duality between knower and known dissolves into Savikalpa Samādhi, and the path opens through Kāraṇa-rūpā, Nāda, and Bindu toward the thousand-petalled Sahasrāra.',
+      'At Anāhata, Kuṇḍalinī unties the Viṣṇu Granthi, awakening the spontaneous perception of the unstruck inner sound (Nāda-anusandhāna) that guides the yogī toward Ājñā and Sahasrāra.',
     kundaliniSignificanceHi:
-      'आज्ञा चक्र में रुद्र-ग्रन्थि का भेदन होने पर इड़ा और पिंगला का द्वैत समाप्त हो जाता है और कुण्डलिनी सुषुम्णा के सर्वोच्च पथ से सहस्रार की ओर अग्रसर होती है।',
+      'अनाहत चक्र में कुण्डलिनी विष्णु-ग्रन्थि का भेदन करती है, जिससे साधक को स्वतःस्फूर्त "अनाहत नाद" सुनाई देने लगता है जो नाद-अनुसंधान द्वारा समाधि की ओर ले जाता है।',
     traditionalSpiritualFruitEn:
-      'Ṣaṭ-Cakra-Nirūpaṇa (vv. 34–38) states that meditating on Ājñā makes one an Advaita-vādī (realizer of non-duality), grants the fruits of all five lower lotuses simultaneously, and enables the yogī at the time of death to merge their prāṇa into the Supreme Puruṣa.',
+      'Ṣaṭ-Cakra-Nirūpaṇa (vv. 26–27) states that one who meditates on the Heart Lotus becomes dearer than the dearest to Lakṣmī and wisdom, senses controlled, capable of entering another’s body (para-kāya-praveśa), and devoted to righteous deeds.',
     traditionalSpiritualFruitHi:
-      'षट्चक्रनिरूपण (श्लोक ३४–३८) के अनुसार आज्ञा चक्र के ध्यान से साधक अद्वैत-तत्त्व का साक्षात्कार करता है, नीचे के पाँचों पद्मों के फल स्वतः प्राप्त कर लेता है और अंतकाल में प्रणव में लय होकर परम पुरुष को प्राप्त करता है।',
+      'षट्चक्रनिरूपण (श्लोक २६–२७) के अनुसार हृदय-पद्म के ध्यान से साधक जितेन्द्रिय, ज्ञानवान्, परकाय-प्रवेश में समर्थ तथा प्राणिमात्र के प्रति करुणावान् होता है।',
     modernPsychologicalInterpretationEn:
-      'In modern interpretations, Ājñā is framed around intuition, insight, mental clarity, visualization, concentration, and discernment (viveka).',
+      'In modern psychology and contemplative studies, Anāhata is universally associated with unconditional love, empathy, forgiveness, grief-healing, and heart-centered connection.',
     modernPsychologicalInterpretationHi:
-      'आधुनिक व्याख्याओं में आज्ञा चक्र को अंतर्ज्ञान (इंट्यूशन), एकाग्रता, विवेक-बुद्धि, दूरदृष्टि और मानसिक स्पष्टता का केंद्र माना जाता है।',
-    modernThemesListEn: ['Direct insight & intuition', 'One-pointed concentration (Dhāraṇā)', 'Discernment (Viveka)', 'Integration of dualities'],
+      'आधुनिक मनोविज्ञान में अनाहत चक्र को निस्वार्थ प्रेम, करुणा, सहानुभूति, क्षमाशीलता और भावात्मक सामंजस्य से जोड़ा जाता है।',
+    modernThemesListEn: ['Compassion & empathy', 'Unconditional love & forgiveness', 'Emotional equilibrium', 'Heart-breath coherence'],
     traditionalMeditationReferenceEn:
-      'Ṣaṭ-Cakra-Nirūpaṇa vv. 32–39; Bhagavad Gītā 8.10 (fixing prāṇa between the eyebrows); Haṭha Yoga Pradīpikā 4.36 (Śāmbhavī Mudrā).',
+      'Ṣaṭ-Cakra-Nirūpaṇa vv. 22–27; Śiva Saṃhitā 5.82–89; Haṭha Yoga Pradīpikā 4.65–102 (Nādānusandhāna at the Heart).',
     traditionalMeditationReferenceHi:
-      'षट्चक्रनिरूपण (श्लोक ३२–३९); श्रीमद्भगवद्गीता (८.१० — भ्रुवोर्मध्ये प्राणमावेश्य); हठयोगप्रदीपिका (शाम्भवी मुद्रा)।',
+      'षट्चक्रनिरूपण (श्लोक २२–२७); शिव संहिता (५.८२–८९); हठयोगप्रदीपिका अध्याय ४ (नादानुसंधान)।',
     importantDistinctionsEn: [
-      'In Ṣaṭ-Cakra-Nirūpaṇa, Ājñā is snow-white (शुभ्र), not dark indigo.',
-      'Both Haṃ (हं) and Kṣaṃ (क्षं) are the two petal letters of Ājñā, while Oṃ (ॐ) is the central bīja mantra in its pericarp.'
+      'Traditional texts describe Anāhata’s 12 petals as vermilion red (bandhūka flower) and its inner Air hexagram as smoky grey (dhūmra)—whereas modern rainbow systems colour it green.',
+      'The classical name Anāhata refers specifically to the "unstruck sound" (Nāda) of Shabda-Brahman, not merely romantic or interpersonal emotion.'
     ],
     primaryTextCitations: [
-      'Pūrṇānanda, Ṣaṭ-Cakra-Nirūpaṇa, Verses 32–39',
-      'Bhagavad Gītā, Chapter 8, Verse 10',
-      'Śiva Saṃhitā, Chapter 5, Verses 96–113'
+      'Pūrṇānanda, Ṣaṭ-Cakra-Nirūpaṇa, Verses 22–27',
+      'Śiva Saṃhitā, Chapter 5, Verses 82–89',
+      'Haṭha Yoga Pradīpikā, Chapter 4, Verses 65–102'
     ]
   },
   {
-    id: 'sahasrara',
-    articleSlug: 'chakra-07-sahasrara-thousand-petalled-lotus',
-    order: 7,
-    studioPanelNumber: '08',
-    nameEn: 'Sahasrāra',
-    nameSanskrit: 'सहस्रार (सहस्रदल पद्म)',
-    transliteration: 'Sahasrāra Padma',
-    commonEnglishDesignation: 'Thousand-Petalled Crown Lotus (Crown Centre)',
-    commonHindiDesignation: 'सहस्रार पद्म / ब्रह्मरन्ध्र महापद्म',
+    id: 'manipura',
+    articleSlug: 'chakra-05-manipura-fire-centre',
+    order: 5,
+    studioPanelNumber: '06',
+    nameEn: 'Maṇipūra Chakra',
+    nameSanskrit: 'मणिपूर चक्र',
+    transliteration: 'Maṇipūra Cakra (also Nābhi Padma)',
+    commonEnglishDesignation: 'City of Jewels (Navel / Solar Plexus Chakra)',
+    commonHindiDesignation: 'मणिपूर पद्म / नाभि चक्र',
     etymologyEn:
-      'From Sanskrit sahasra (सहस्र, "thousand, infinite") + ara (अर, "spoke of a wheel, petal"). Literally "the thousand-spoked or thousand-petalled lotus" situated above all six chakras at the crown (Brahmarandhra).',
+      'From Sanskrit maṇi (मणि, "lustrous gem, jewel") + pūra (पूर, "city, fullness, abundance"). Ṣaṭ-Cakra-Nirūpaṇa (v. 21) explains that because it shines like a lustrous gem with the fiery radiance of Rudra and Agni, it is called Maṇipūra.',
     etymologyHi:
-      'संस्कृत "सहस्र" (एक हजार / अनंत) + "अर" (चक्र की तीलियाँ / दल) से बना है। यह षट्चक्रों से ऊपर ब्रह्मरन्ध्र में स्थित सहस्रदल महापद्म है।',
+      'संस्कृत "मणि" (तेजस्वी रत्न) और "पूर" (नगरी या परिपूर्णता) से बना है। अग्नि और रुद्र के तेज से मणि के समान दमकने के कारण इसे मणिपूर (अथवा नाभि-पद्म) कहा गया है।',
     subtleLocationEn:
-      'At or just above the crown of the head (Brahmarandhra / Kapāla-kuhara), hanging downward like a canopy over the Suṣumṇā column above Mt. Kailāsa / Mahā-śaṅkhinī.',
+      'Within the Suṣumṇā column at the root of the navel region (nābhi-mūla), below Anāhata (Heart) and above Svādhiṣṭhāna (Sacral).',
     subtleLocationHi:
-      'मस्तक के शिखर (ब्रह्मरन्ध्र / कपाल-कुहर) में अधोमुख छत्र के समान अवस्थित, षट्चक्रों की सीमा से परे।',
-    vertebralReferenceEn: 'Cranial Crown / Fontanelle (Brahmarandhra) above the central axis',
-    petalCount: 1000,
-    petalCountDisplay: '1,000 Petals (सहस्रदल — 50 Letters × 20)',
-    petalColorTraditionalEn: 'Luminous snow-white (शुभ्र / तरुण-रवि-कोटि-तुल्य) tinged with rosy dawn-light; all 50 Sanskrit letters repeated 20 times in radiant light.',
-    petalColorTraditionalHi: 'षट्चक्रनिरूपण के अनुसार पूर्णिमा के चन्द्रमा के समान परम शुभ्र (अरुण आभा से युक्त), जिस पर अ से क्ष तक ५० अक्षर २० आवृत्तियों (५० × २० = १०००) में विराजमान हैं।',
-    modernRainbowColorEn: 'Violet / Crown White-Gold (in modern 7-chakra charts)',
-    accentHex: '#C084FC',
-    secondaryHex: '#FDE047',
-    petalLettersDevanagari: ['अ से क्ष पर्यन्त ५० मातृका अक्षर × २० आवृत्तियाँ = १,००० दल'],
-    petalLettersIAST: ['All 50 Sanskrit phonemes (A to Kṣa) repeated 20 times in 20 concentric rings = 1,000 petals'],
-    elementSanskrit: 'तत्त्वातीत (Tattvātīta — Beyond all 36 Tattvas & Elements)',
-    elementEn: 'Tattvātīta — Transcendent Consciousness (Beyond all cosmic elements and mind)',
-    elementHi: 'तत्त्वातीत परब्रह्म / परम संवित् (समस्त ३६ तत्त्वों एवं प्रकृति से परे)',
-    elementColorTraditionalEn: 'Effulgence of ten million suns and cool moons combined (Koṭi-sūrya-candrābha).',
-    bijaMantraDevanagari: 'विसर्ग / निस्तब्ध प्रणव (अमा-कला एवं निर्वाण-कला)',
-    bijaMantraIAST: 'Para-Bindu / Silence beyond Oṃ (Parā-Vāk)',
-    bijaCarrierDeityEn: 'Paramaśiva (Antarātman / Supreme Non-Dual Consciousness)',
-    bijaVehicleAnimalEn: 'Haṃsa (The Supreme Swan of Parama-Haṃsa Consciousness residing at the Guru-pādukā)',
-    bijaVehicleAnimalHi: 'परमहंस (हंस-पीठ एवं श्रीगुरु-पादुका)',
-    yantraGeometryEn: 'Thousand-Petalled Downward-Facing Lotus enclosing the Full Moon Mandala, the A-Ka-Tha Triangle, the 16th digit of the Moon (Amā-kalā), the 17th digit (Nirvāṇa-kalā), Nirvāṇa-Śakti, and the Supreme Void (Para-Bindu / Śūnya-deśa).',
-    yantraGeometryHi: 'अधोमुख सहस्रदल कमल के भीतर पूर्ण चन्द्रमण्डल, अ-क-थ त्रिकोण, षोडशी "अमा-कला", सप्तदशी "निर्वाण-कला", निर्वाण-शक्ति एवं "परबिन्दु" (परमशिव)।',
-    yantraShapeType: 'thousand-lotus',
-    presidingDeityEn: 'Paramaśiva (Para-Brahman / Supreme Unconditioned Consciousness)',
-    presidingDeityHi: 'परमशिव (सच्चिदानन्द परब्रह्म / गुरु-पादुका तत्त्व)',
-    shaktiGoddessEn: 'Mahā-Kuṇḍalinī / Nirvāṇa-Śakti (in eternal non-dual Samarasa union with Paramaśiva)',
-    shaktiGoddessHi: 'महाकुण्डलिनी / निर्वाण-शक्ति (परमशिव के साथ अद्वैत समरस मिलन में स्थित)',
-    lingaAndTriangleEn: 'Para-Bindu & Guru-Pādukā inside the A-Ka-Tha Trikoṇa (explored in the companion text Pādukā-Pañcaka).',
-    lingaAndTriangleHi: 'अ-क-थ त्रिकोण के भीतर स्थित "परबिन्दु" एवं "श्रीगुरु-पादुका" (पादुकापञ्चक ग्रंथ का मुख्य विषय)।',
-    granthiEn: 'Beyond all three Granthis (Complete untying of Brahma, Viṣṇu, and Rudra knots)',
-    granthiHi: 'तीनों ग्रन्थियों (ब्रह्म, विष्णु, रुद्र) से पूर्णतः मुक्त तुरीयातीत अवस्था',
-    tanmatraAndIndriyaEn: 'Pure Non-Dual Witness Consciousness (Cit / Samvit — beyond senses and mind)',
-    pranaVayuEn: 'Cessation of dualistic breath into Kevala-Kumbhaka / Unmanī-avasthā',
-    lokaAssociationEn: 'Satyaloka (Plane of Absolute Truth & Liberation)',
+      'सुषुम्णा के भीतर नाभि-मूल (नाभि-मण्डल) में, अनाहत के नीचे और स्वाधिष्ठान के ऊपर स्थित।',
+    vertebralReferenceEn: 'Lumbar / Solar Plexus axis behind the navel',
+    petalCount: 10,
+    petalCountDisplay: '10 Petals (दशदल कमल)',
+    petalColorTraditionalEn: 'Dark rain-cloud blue / smoky purple (जलद-श्याम / मेघवर्ण) petals; letters of blue-black hue.',
+    petalColorTraditionalHi: 'षट्चक्रनिरूपण के अनुसार सघन वर्षा-मेघ (जलद-वर्ण / नील-धूम्र) के समान १० दल।',
+    modernRainbowColorEn: 'Yellow / Golden (derived from the fiery glow of the inner Agni element in modern charts)',
+    accentHex: '#EAB308',
+    secondaryHex: '#EF4444',
+    petalLettersDevanagari: ['डं', 'ढं', 'णं', 'तं', 'थं', 'दं', 'धं', 'नं', 'पं', 'फं'],
+    petalLettersIAST: ['ḍaṃ', 'ḍhaṃ', 'ṇaṃ', 'taṃ', 'thaṃ', 'daṃ', 'dhaṃ', 'naṃ', 'paṃ', 'phaṃ'],
+    elementSanskrit: 'अग्नि / तेजस् (Agni / Tejas)',
+    elementEn: 'Agni / Tejas — Fire Element',
+    elementHi: 'अग्नि / तेजस् तत्त्व (वह्नि-मण्डल)',
+    elementColorTraditionalEn: 'Blazing red (Aruna / Rising-sun red) downward-pointing triangle with three Svastika (T-shaped) projections.',
+    bijaMantraDevanagari: 'रं',
+    bijaMantraIAST: 'Raṃ',
+    bijaCarrierDeityEn: 'Agni / Vahni (four-armed, radiant red, holding rosary and śakti-spear)',
+    bijaVehicleAnimalEn: 'Meṣa — The Fierce Ram (mount of Agni, symbolizing dynamic digestive and transformative fire)',
+    bijaVehicleAnimalHi: 'मेष (मेंढा — अग्नि देव एवं "रं" बीज का वाहन, तेज और क्रियाशीलता का प्रतीक)',
+    yantraGeometryEn: 'Red Inverted Triangle of Fire (Vahni-Maṇḍala Trikoṇa) adorned with three Svastika marks on its outer sides.',
+    yantraGeometryHi: 'तीनों भुजाओं पर तीन स्वस्तिक चिह्नों से युक्त अरुण-रक्त वर्ण का त्रिकोण (अग्नि-मण्डल)।',
+    yantraShapeType: 'triangle',
+    presidingDeityEn: 'Vṛddha Rudra (Three-eyed, vermilion red smeared with white ashes, seated on a bull, granting boons and dispelling fear)',
+    presidingDeityHi: 'वृद्ध रुद्र (सिन्दूर-वर्ण, भस्म-विभूषित, त्रिनेत्र, वरद एवं अभय मुद्रा धारी)',
+    shaktiGoddessEn: 'Lākinī Śakti (four-armed, dark/radiant, holding thunderbolt, śakti, and abhaya/varada; presiding over Māṃsa/flesh dhātu)',
+    shaktiGoddessHi: 'लाकिनी शक्ति (चतुर्भुजा, वज्र व शक्ति धारिणी, मांस-धातु की अधिष्ठात्री)',
+    lingaAndTriangleEn: 'Central Agni-Trikoṇa housing the solar digestive and prāṇic fire (Vaiśvānara / Jāṭharāgni).',
+    lingaAndTriangleHi: 'जठराग्नि एवं वैश्वानर तेज का केंद्रीय अग्नि-त्रिकोण।',
+    granthiEn: 'Lower approach to Viṣṇu Granthi',
+    granthiHi: 'विष्णु ग्रन्थि की निचली सीमा से संबद्ध',
+    tanmatraAndIndriyaEn: 'Rūpa (Sight/Form) · Cakṣu (Eyes) & Pāda (Feet/Locomotion)',
+    pranaVayuEn: 'Samāna Vāyu (assimilating, balancing, and digestive vital current at the navel)',
+    lokaAssociationEn: 'Svarloka (Celestial / Luminosity Plane)',
     traditionalRoleEn:
-      'In Pūrṇānanda’s Ṣaṭ-Cakra-Nirūpaṇa (vv. 40–49), Sahasrāra is strictly distinguished from the "Six Chakras" (Mūlādhāra to Ājñā): the six chakras belong to the manifest subtle hierarchy, whereas Sahasrāra is the supreme abode of Paramaśiva where Kuṇḍalinī culminates her ascent and merges in non-dual bliss (Samarasya), raining down a stream of immortal nectar (Sudhā-dhārā) that rejuvenates the entire subtle body.',
+      'Acts as the solar furnace of the subtle body where Samāna Vāyu fans the digestive and alchemical fire (Jāṭharāgni). In Haṭha Yoga, the solar flames at the navel consume the lunar nectar (soma) dripping from the palate unless reversed through Viparītakaraṇī or Khecarī Mudrā.',
     traditionalRoleHi:
-      'पूर्णानन्द के षट्चक्रनिरूपण (श्लोक ४०–४९) में सहस्रार को "षट्चक्र" (मूलाधार से आज्ञा तक के ६ चक्रों) से उच्चतर और पृथक् रखा गया है। यह परमशिव का सर्वोच्च धाम है जहाँ कुण्डलिनी का परमशिव से अद्वैत मिलन (सामरस्य) होता है और वहाँ से झरने वाली अमृत-धारा संपूर्ण सूक्ष्म शरीर को तृप्त करती है।',
+      'सूक्ष्म शरीर का सौर-अग्नि केंद्र जहाँ समान वायु जठराग्नि को प्रदीप्त रखती है। हठयोग के अनुसार नाभि-स्थित यही सूर्य-मण्डल तालु के चन्द्र-मण्डल से झरने वाले सोमामृत का पान करता है।',
     kundaliniSignificanceEn:
-      'As described in Ṣaṭ-Cakra-Nirūpaṇa (vv. 50–53), Kuṇḍalinī ascends from Mūlādhāra through all six chakras, unites with Paramaśiva in Sahasrāra producing the supreme nectar of bliss (Lākṣā-rasa hue), and then returns along the Suṣumṇā path to Mūlādhāra after bathing every lotus in divine consciousness.',
+      'When Kuṇḍalinī pierces Maṇipūra, she ascends from the realm of water and instinct into the luminous solar fire, transmuting gross vitality into spiritual tapas.',
     kundaliniSignificanceHi:
-      'षट्चक्रनिरूपण (श्लोक ५०–५३) के अनुसार कुण्डलिनी षट्चक्रों का भेदन कर सहस्रार में परमशिव से मिलती है, और उस शिव-शक्ति मिलन से उत्पन्न लाक्षा-रस सदृश परमामृत से समस्त चक्रों को सींचती हुई पुनः मूलाधार में लौटती है।',
+      'जब कुण्डलिनी मणिपूर चक्र में प्रवेश करती है, तब साधक की प्राण-ऊर्जा तपस्या और आध्यात्मिक तेजस् में रूपांतरित हो जाती है।',
     traditionalSpiritualFruitEn:
-      'Ṣaṭ-Cakra-Nirūpaṇa (vv. 44–49) declares that the yogī who realizes Sahasrāra is liberated from the cycle of rebirth (saṃsāra-bandha), attains Jīvanmukti (liberation while living), and abides in supreme non-dual awareness.',
+      'Ṣaṭ-Cakra-Nirūpaṇa (v. 21) declares that meditating on Maṇipūra grants the power both to create and to dissolve (saṃhāra-pālana-kṣama), freedom from disease, mastery over speech, and entry into the inner sanctum of wisdom.',
     traditionalSpiritualFruitHi:
-      'षट्चक्रनिरूपण (श्लोक ४४–४९) के अनुसार सहस्रार का साक्षात्कार करने वाला योगी जन्म-मरण के बन्धन से सदा के लिए मुक्त होकर "जीवन्मुक्ति" और परम अद्वैत आनंद को प्राप्त करता है।',
+      'षट्चक्रनिरूपण (श्लोक २१) के अनुसार मणिपूर के ध्यान से साधक संहार और पालन में समर्थ होता है, रोग-शोक से मुक्त होता है और उसके मुखकमल में सरस्वती का निवास होता है।',
     modernPsychologicalInterpretationEn:
-      'In modern transpersonal psychology, Sahasrāra is interpreted as peak unity consciousness, self-transcendence, existential meaning, and cosmic connectedness.',
+      'In modern psychological models, Maṇipūra is linked with personal agency, willpower, self-esteem, discipline, autonomy, and purposeful action.',
     modernPsychologicalInterpretationHi:
-      'आधुनिक ट्रांसपर्सनल मनोविज्ञान में सहस्रार को अद्वैत चेतना, आत्म-अतिक्रमण (ट्रांसेंडेंस) और वैश्विक एकत्व के अनुभव के रूप में देखा जाता है।',
-    modernThemesListEn: ['Non-dual unity consciousness', 'Spiritual liberation (Mokṣa)', 'Transcendence of ego', 'Luminous silence'],
+      'आधुनिक मनोवैज्ञानिक व्याख्याओं में मणिपूर को इच्छाशक्ति, आत्मविश्वास, अनुशासन, नेतृत्व और कर्मठता के केंद्र के रूप में देखा जाता है।',
+    modernThemesListEn: ['Willpower & self-discipline', 'Personal agency & confidence', 'Digestive & metabolic vitality', 'Courageous action'],
     traditionalMeditationReferenceEn:
-      'Ṣaṭ-Cakra-Nirūpaṇa vv. 40–55; Pādukā-Pañcaka vv. 1–7 (Guru-Dhyāna inside Sahasrāra); Śiva Saṃhitā 5.114–131.',
+      'Ṣaṭ-Cakra-Nirūpaṇa vv. 19–21; Śiva Saṃhitā 5.69–72; Haṭha Yoga Pradīpikā 3.77 (Sūrya-Candra alchemy at the navel).',
     traditionalMeditationReferenceHi:
-      'षट्चक्रनिरूपण (श्लोक ४०–५५); पादुकापञ्चक (श्लोक १–७); शिव संहिता (५.११४–१३१)।',
+      'षट्चक्रनिरूपण (श्लोक १९–२१); शिव संहिता (५.६९–७२); हठयोगप्रदीपिका (३.७७)।',
     importantDistinctionsEn: [
-      'In Ṣaṭ-Cakra-Nirūpaṇa ("Description of the Six Chakras"), there are six chakras (Mūlādhāra to Ājñā) plus Sahasrāra as the transcendent thousand-petalled lotus above them. The popular phrase "Seven Chakras" combines the six chakras and Sahasrāra into one numerical list.',
-      'Sahasrāra has no single elemental bīja or animal mount because it transcends all cosmic tattvas.'
+      'In Pūrṇānanda’s text, the 10 petals of Maṇipūra are dark rain-cloud blue (जलद-वर्ण) and the inner Fire triangle is red—whereas modern charts colour the whole lotus bright yellow.',
+      'Traditional texts place Maṇipūra directly at the navel root (nābhi-mūla), while some modern authors shift it upward to the epigastric solar plexus.'
     ],
     primaryTextCitations: [
-      'Pūrṇānanda, Ṣaṭ-Cakra-Nirūpaṇa, Verses 40–55',
-      'Pādukā-Pañcaka, Verses 1–7 (with Kālīcaraṇa’s Ṭīkā)',
-      'Śiva Saṃhitā, Chapter 5, Verses 114–131'
+      'Pūrṇānanda, Ṣaṭ-Cakra-Nirūpaṇa, Verses 19–21',
+      'Śiva Saṃhitā, Chapter 5, Verses 69–72'
+    ]
+  },
+  {
+    id: 'svadhishthana',
+    articleSlug: 'chakra-06-svadhishthana-water-centre',
+    order: 6,
+    studioPanelNumber: '07',
+    nameEn: 'Svādhiṣṭhāna Chakra',
+    nameSanskrit: 'स्वाधिष्ठान चक्र',
+    transliteration: 'Svādhiṣṭhāna Cakra',
+    commonEnglishDesignation: 'One’s Own Abode (Sacral / Pelvic Chakra)',
+    commonHindiDesignation: 'स्वाधिष्ठान पद्म (जल-तत्त्व केंद्र)',
+    etymologyEn:
+      'From Sanskrit sva (स्व, "one’s own, the Self/Śakti") + adhiṣṭhāna (अधिष्ठान, "standing place, seat, abode"). Literally "the Self’s own seat" or the original abode of vital Prāṇa/Śakti.',
+    etymologyHi:
+      'संस्कृत "स्व" (निज आत्मा / शक्ति) और "अधिष्ठान" (निवास स्थान / आश्रय) से निर्मित, जिसका अर्थ है—प्राण या शक्ति का स्व-अधिष्ठान।',
+    subtleLocationEn:
+      'Within the Suṣumṇā column at the root of the generative organ (liṅga-mūla / pelvic region), below the navel (Maṇipūra) and above the Root (Mūlādhāra).',
+    subtleLocationHi:
+      'सुषुम्णा के भीतर जननेन्द्रिय के मूल (लिंग-मूल / पेडू क्षेत्र) में, नाभि के नीचे और मूलाधार के ऊपर स्थित।',
+    vertebralReferenceEn: 'Sacral / Hypogastric axis along the subtle Merudaṇḍa',
+    petalCount: 6,
+    petalCountDisplay: '6 Petals (षड्दल कमल)',
+    petalColorTraditionalEn: 'Vermilion / bright sindūra red (सिन्दूर-अरुण वर्ण) petals; letters shining like lightning.',
+    petalColorTraditionalHi: 'सिन्दूर के समान उज्ज्वल अरुण-रक्त वर्ण के ६ दल; दलों पर विद्युत्-सदृश अक्षर।',
+    modernRainbowColorEn: 'Orange (in modern Western 20th-century colour-healing systems)',
+    accentHex: '#F97316',
+    secondaryHex: '#38BDF8',
+    petalLettersDevanagari: ['बं', 'भं', 'मं', 'यं', 'रं', 'लं'],
+    petalLettersIAST: ['baṃ', 'bhaṃ', 'maṃ', 'yaṃ', 'raṃ', 'laṃ'],
+    elementSanskrit: 'आपस् / जल (Āpas / Jala)',
+    elementEn: 'Āpas / Jala — Water Element',
+    elementHi: 'जल तत्त्व (अम्बु-मण्डल)',
+    elementColorTraditionalEn: 'Luminous white (Śukla-varṇa) crescent moon shaped like a half-moon (Ardha-candra) of water.',
+    bijaMantraDevanagari: 'वं',
+    bijaMantraIAST: 'Vaṃ',
+    bijaCarrierDeityEn: 'Varuṇa (Lord of Waters, white as the autumn moon, holding the noose/pāśa)',
+    bijaVehicleAnimalEn: 'Makara — Mythic Aquatic Sea-Monster / Crocodile (white, vehicle of Varuṇa and the Water बीज Vaṃ)',
+    bijaVehicleAnimalHi: 'मकर (श्वेत वर्ण का जलीय मकर — वरुण एवं जल-बीज "वं" का वाहन)',
+    yantraGeometryEn: 'White Crescent Moon (Ardha-candra Ambhoja-Maṇḍala) within the pericarp of the six-petalled vermilion lotus.',
+    yantraGeometryHi: 'षड्दल सिन्दूरी कमल की कर्णिका के भीतर श्वेत अर्धचन्द्राकार जल-मण्डल।',
+    yantraShapeType: 'crescent',
+    presidingDeityEn: 'Mahāviṣṇu (Youthful, luminous blue, clad in yellow raiments, four-armed holding conch, discus, mace, lotus)',
+    presidingDeityHi: 'चतुर्भुज भगवान् विष्णु (नीलवर्ण, पीताम्बरधारी, शंख-चक्र-गदा-पद्म युक्त)',
+    shaktiGoddessEn: 'Rākiṇī Śakti (blue-lotus hued, four-armed holding trident, lotus, drum, and axe; presiding over Rakta/blood dhātu)',
+    shaktiGoddessHi: 'राकिनी शक्ति (नीलकमल आभा युक्त, चतुर्भुजा, रक्त-धातु की अधिष्ठात्री)',
+    lingaAndTriangleEn: 'Primordial Water-Seat (Ambhoja-Maṇḍala) supporting the lunar current.',
+    lingaAndTriangleHi: 'श्वेत वरुण-मण्डल एवं अर्धचन्द्राकार जल-तत्त्व।',
+    granthiEn: 'Upper threshold of Brahma Granthi influence',
+    granthiHi: 'ब्रह्म ग्रन्थि के ऊपरी प्रभाव-क्षेत्र से संबद्ध',
+    tanmatraAndIndriyaEn: 'Rasa (Taste) · Rasanā (Tongue) & Upastha (Procreation/Genitals)',
+    pranaVayuEn: 'Vyāna / Apāna coordination (fluid circulation)',
+    lokaAssociationEn: 'Bhuvarloka (Intermediate Vital Plane)',
+    traditionalRoleEn:
+      'Governs the subtle Water element (Āpas) within the microcosm, regulating liquidity, lunar soma-rasa, and the dissolution of the six inner enemies (ṣaḍ-ripu: kāma, krodha, lobha, moha, mada, mātsarya).',
+    traditionalRoleHi:
+      'सूक्ष्म शरीर में जल-तत्त्व (आपस्) का संचालन करता है तथा काम, क्रोध, लोभ, मोह, मद और मात्सर्य रूपी षड्रिपुओं के शोधन का केंद्र है।',
+    kundaliniSignificanceEn:
+      'When Kuṇḍalinī ascends from Mūlādhāra through Svādhiṣṭhāna, the practitioner transcends animalistic instinct and egoic delusion (ahaṅkāra-moha).',
+    kundaliniSignificanceHi:
+      'जब कुण्डलिनी मूलाधार से उठकर स्वाधिष्ठान का भेदन करती है, तब साधक पाशविक वृत्तियों और अज्ञान-जनित मोह से ऊपर उठता है।',
+    traditionalSpiritualFruitEn:
+      'Ṣaṭ-Cakra-Nirūpaṇa (v. 18) states that one who meditates upon Svādhiṣṭhāna becomes free from all six inner enemies (kāma, etc.), conquers fear of water and darkness, and composes nectar-like prose and verse.',
+    traditionalSpiritualFruitHi:
+      'षट्चक्रनिरूपण (श्लोक १८) के अनुसार स्वाधिष्ठान के ध्यान से साधक काम-क्रोधादि छह शत्रुओं पर विजय पाता है, मोह के अंधकार से मुक्त होता है और उसकी वाणी में अमृतमय प्रवाह आता है।',
+    modernPsychologicalInterpretationEn:
+      'Modern Western interpretations associate Svādhiṣṭhāna with emotional fluidity, creative expression, sensuality, pleasure, and interpersonal adaptability.',
+    modernPsychologicalInterpretationHi:
+      'आधुनिक मनोवैज्ञानिक व्याख्याओं में स्वाधिष्ठान को भावनात्मक प्रवाह, सृजनात्मकता, कलात्मक अभिव्यक्ति और संवेदनात्मक संतुलन से जोड़ा जाता है।',
+    modernThemesListEn: ['Emotional fluidity & adaptability', 'Creative & artistic impulse', 'Healthy desire & pleasure', 'Relational flow'],
+    traditionalMeditationReferenceEn:
+      'Ṣaṭ-Cakra-Nirūpaṇa vv. 14–18; Śiva Saṃhitā 5.65–68; Gorakṣaśataka (meditation on the pelvic water-mandala).',
+    traditionalMeditationReferenceHi:
+      'षट्चक्रनिरूपण (श्लोक १४–१८); शिव संहिता (५.६५–६८); गोरक्षशतक।',
+    importantDistinctionsEn: [
+      'In Sanskrit Tantric texts, Svādhiṣṭhāna’s inner water mandala is pure white (crescent moon) and its petals are vermilion—not the solid orange of modern charts.',
+      'Classical texts emphasize conquering kāma (lust) and moha (delusion) at this centre, whereas modern wellness literature often frames it primarily around indulging or boosting sensuality.'
+    ],
+    primaryTextCitations: [
+      'Pūrṇānanda, Ṣaṭ-Cakra-Nirūpaṇa, Verses 14–18',
+      'Śiva Saṃhitā, Chapter 5, Verses 65–68'
+    ]
+  },
+  {
+    id: 'muladhara',
+    articleSlug: 'chakra-07-muladhara-root-centre',
+    order: 7,
+    studioPanelNumber: '08',
+    nameEn: 'Mūlādhāra Chakra',
+    nameSanskrit: 'मूलाधार चक्र',
+    transliteration: 'Mūlādhāra Cakra',
+    commonEnglishDesignation: 'Root Support Centre (Root Chakra)',
+    commonHindiDesignation: 'आधार पद्म / मूलाधार चक्र',
+    etymologyEn:
+      'Derived from Sanskrit mūla (मूल, "root, origin, foundation") + ādhāra (आधार, "support, substratum, receptacle"). In Pūrṇānanda’s Ṣaṭ-Cakra-Nirūpaṇa (vv. 4–13), it is the foundational lotus at the base of the Suṣumṇā channel where Kuṇḍalinī rests.',
+    etymologyHi:
+      'संस्कृत "मूल" (जड़, आदि कारण) और "आधार" (अधिष्ठान, आश्रय) के संयोग से बना है। पूर्णानन्द कृत षट्चक्रनिरूपण (श्लोक ४–१३) में यह सुषुम्णा के निचले मूल से संलग्न आधारभूत कमल है जहाँ कुण्डलिनी शक्ति विश्राम करती हैं।',
+    subtleLocationEn:
+      'At the lowest base of the Suṣumṇā column, midway between the root of the reproductive organ and the anus (perineum / yoni-sthāna), below Svādhiṣṭhāna.',
+    subtleLocationHi:
+      'सुषुम्णा के सबसे निचले मूल में, गुदा और जननेन्द्रिय के मध्य (सिवनी / योनि-स्थान) में स्थित।',
+    vertebralReferenceEn: 'Coccygeal / Sacral base at the bottom of the subtle Merudaṇḍa axis',
+    petalCount: 4,
+    petalCountDisplay: '4 Petals (चतुर्दल कमल)',
+    petalColorTraditionalEn: 'Deep crimson red (Śoṇa / सिन्दूर-रक्त वर्ण) in Ṣaṭ-Cakra-Nirūpaṇa; letters in shining gold.',
+    petalColorTraditionalHi: 'षट्चक्रनिरूपण के अनुसार गहरा लाल (शोण/जपाकुसुम सदृश); दलों पर स्वर्णिम अक्षर।',
+    modernRainbowColorEn: 'Red (adopted in post-1920s Western rainbow chakra charts)',
+    accentHex: '#EF4444',
+    secondaryHex: '#EAB308',
+    petalLettersDevanagari: ['वं', 'शं', 'षं', 'सं'],
+    petalLettersIAST: ['vaṃ', 'śaṃ', 'ṣaṃ', 'saṃ'],
+    elementSanskrit: 'पृथ्वी (Pṛthvī / Dharā)',
+    elementEn: 'Pṛthvī — Earth Element',
+    elementHi: 'पृथ्वी तत्त्व (धरा मण्डल)',
+    elementColorTraditionalEn: 'Shining yellow (Pīta-varṇa) square enclosed by eight golden spears (śūla).',
+    bijaMantraDevanagari: 'लं',
+    bijaMantraIAST: 'Laṃ',
+    bijaCarrierDeityEn: 'Indra (four-armed, yellow hue, holding vajra) seated upon the elephant Airāvata',
+    bijaVehicleAnimalEn: 'Airāvata — The Seven-Trunked White Elephant (representing stability and the strength of the Earth tattva)',
+    bijaVehicleAnimalHi: 'ऐरावत गज (सप्त-शुण्ड युक्त श्वेत हाथी — पृथ्वी तत्त्व की दृढ़ता का प्रतीक)',
+    yantraGeometryEn: 'Yellow Square (Caturaśra Dharā-Maṇḍala) flanked by 8 spears, containing the crimson Kāmarūpa Triangle (Traipura Trikoṇa) at its centre.',
+    yantraGeometryHi: 'अष्ट-शूलों से परिवृत पीत वर्ण का चतुष्कोण (पृथ्वी मण्डल), जिसके मध्य में कामरूप त्रिकोण स्थित है।',
+    yantraShapeType: 'square',
+    presidingDeityEn: 'Caturmukha Bāla-Brahmā (Four-faced child Brahmā, holding staff, gourd, rosary, and abhaya mudrā)',
+    presidingDeityHi: 'चतुर्मुख बाल-ब्रह्मा (दण्ड, कमण्डलु, अक्षमाला एवं अभय मुद्रा धारी)',
+    shaktiGoddessEn: 'Ḍākinī Śakti (four-armed, radiant crimson, guardian of the Tvak/skin dhātu)',
+    shaktiGoddessHi: 'डाकिनी शक्ति (चतुर्भुजा, रक्तवर्णा, त्वक्-धातु की अधिष्ठात्री)',
+    lingaAndTriangleEn: 'Svayambhū Liṅga (dark as molten gold/emerald leaf, facing downward) inside the Kāmarūpa Triangle.',
+    lingaAndTriangleHi: 'कामरूप त्रिकोण के भीतर स्थित "स्वयम्भू लिंग", जिस पर कुण्डलिनी साढ़े तीन वलय में लिपटी हैं।',
+    granthiEn: 'Brahma Granthi (Knot of Brahmā — binds consciousness to physical survival, name, and form)',
+    granthiHi: 'ब्रह्म ग्रन्थि (स्थूल देह-भाव एवं भौतिक आसक्ति की ग्रन्थि)',
+    tanmatraAndIndriyaEn: 'Gandha (Smell) · Ghrāṇa (Nose) & Pāyu (Excretion)',
+    pranaVayuEn: 'Apāna Vāyu (downward and grounding vital current)',
+    lokaAssociationEn: 'Bhūrloka (Physical / Terrestrial Plane)',
+    traditionalRoleEn:
+      'Serves as the lowest root-anchor at the base of the subtle body where the three principal nāḍīs (Iḍā, Piṅgalā, Suṣumṇā) originate and where Kuṇḍalinī Śakti sleeps coiled 3½ times around the Svayambhū Liṅga, closing the Brahmadvāra (doorway to Brahman).',
+    traditionalRoleHi:
+      'सूक्ष्म शरीर के सबसे निचले मूल आधार में स्थित है जहाँ से इड़ा, पिंगला और सुषुम्णा नाड़ियाँ निकलती हैं तथा जहाँ कुण्डलिनी शक्ति स्वयम्भू लिंग को साढ़े तीन वलय में लपेटकर ब्रह्मद्वार को आच्छादित किए रहती हैं।',
+    kundaliniSignificanceEn:
+      'Kuṇḍalinī is described in Ṣaṭ-Cakra-Nirūpaṇa (vv. 10–11) as fine as the stalk of a young lotus fibre (bisa-tantu-tanīyasī), shining like ten million lightning flashes, humming like a swarm of love-intoxicated bees, and maintaining the breathing life of all creatures.',
+    kundaliniSignificanceHi:
+      'षट्चक्रनिरूपण (श्लोक १०–११) में कुण्डलिनी को कमल-नाल के सूक्ष्म तंतु के समान पतली, कोटि विद्युत् के समान तेजस्वी, मधुप-गुंजार के समान अव्यक्त नाद करने वाली तथा समस्त जीवों के श्वास-प्रश्वास की जननी कहा गया है।',
+    traditionalSpiritualFruitEn:
+      'According to Ṣaṭ-Cakra-Nirūpaṇa (v. 13), sustained dhyāna on Mūlādhāra makes the practitioner a lord of speech (vāk-pati), free from sickness, cheerful in mind, and possessed of poetic and scriptural mastery.',
+    traditionalSpiritualFruitHi:
+      'षट्चक्रनिरूपण (श्लोक १३) के अनुसार मूलाधार के ध्यान से साधक वाक्पति (वाणी का स्वामी), रोगमुक्त, नित्य प्रसन्नचित्त और काव्य एवं शास्त्र-ज्ञान में प्रवीण होता है।',
+    modernPsychologicalInterpretationEn:
+      'In 20th-century Western transpersonal psychology (starting with C.G. Jung’s 1932 Kundalini seminars and Anodea Judith’s somatic models), Mūlādhāra is interpreted as the psychological foundation of basic trust, physical safety, financial/shelter security, and somatic grounding.',
+    modernPsychologicalInterpretationHi:
+      '२०वीं शताब्दी के आधुनिक मनोवैज्ञानिक मॉडलों में मूलाधार को शारीरिक सुरक्षा, आत्म-स्थिरता, बुनियादी विश्वास और जमीनी जुड़ाव (ग्राउंडिंग) के केंद्र के रूप में व्याख्यायित किया जाता है।',
+    modernThemesListEn: ['Physical grounding & stability', 'Survival & existential security', 'Somatic presence', 'Foundational resilience'],
+    traditionalMeditationReferenceEn:
+      'Ṣaṭ-Cakra-Nirūpaṇa vv. 4–13; Śiva Saṃhitā 5.56–64; Yoga-Kuṇḍalinī Upaniṣad Ch. 1 (Mūla-bandha and Apāna-Prāṇa union).',
+    traditionalMeditationReferenceHi:
+      'षट्चक्रनिरूपण (श्लोक ४–१३); शिव संहिता (५.५६–६४); योगकुण्डलिनी उपनिषद् अध्याय १ (मूलबन्ध एवं प्राण-अपान संयोग)।',
+    importantDistinctionsEn: [
+      'Traditional texts describe the Earth square inside Mūlādhāra as yellow (Pīta) and the 4 petals as crimson—whereas modern charts paint the entire chakra uniformly red.',
+      'Mūlādhāra is a subtle-body meditative locus (ādhāra) at the base of the spine, not the anatomical coccygeal nerve plexus or adrenal gland.'
+    ],
+    primaryTextCitations: [
+      'Pūrṇānanda, Ṣaṭ-Cakra-Nirūpaṇa, Verses 4–13',
+      'Śiva Saṃhitā, Chapter 5, Verses 56–64',
+      'Gorakṣaśataka, Verses 14–19'
     ]
   }
 ];
 
 function buildIndividualChakraArticle(profile: IndividualChakraProfile): ChakraArchiveArticle {
   const numStr = String(profile.order).padStart(2, '0');
+  const positionDescriptionEn =
+    profile.id === 'sahasrara'
+      ? 'topmost crown lotus (#1 from the top of the subtle body) crowning the six subtle centres'
+      : profile.id === 'muladhara'
+      ? 'foundational root centre (#7 from the top, at the base of the central Suṣumṇā axis)'
+      : `#${profile.order} subtle centre from the top along the vertical Suṣumṇā axis`;
+  const positionDescriptionHi =
+    profile.id === 'sahasrara'
+      ? 'सूक्ष्म शरीर के सर्वोच्च शिखर (क्रम संख्या ०१ — शीर्ष) पर स्थित सहस्रदल महापद्म'
+      : profile.id === 'muladhara'
+      ? 'सुषुम्णा अक्ष के सबसे निचले मूल (क्रम संख्या ०७ — मूलाधार) में स्थित आधारभूत केंद्र'
+      : `सुषुम्णा अक्ष पर ऊपर से क्रम संख्या ${profile.order} का प्रमुख आध्यात्मिक केंद्र`;
+
   return {
     id: `article-${profile.id}`,
     slug: profile.articleSlug,
@@ -807,8 +820,8 @@ function buildIndividualChakraArticle(profile: IndividualChakraProfile): ChakraA
     subtitleHi: `${profile.commonHindiDesignation} · ${profile.elementHi} · बीज: ${profile.bijaMantraDevanagari}`,
     accentColor: profile.accentHex,
     chakraProfileId: profile.id,
-    introductoryOverviewEn: `${profile.nameEn} (${profile.nameSanskrit}) is the ${profile.order === 7 ? 'supreme crown lotus crowning the six subtle centres' : `#${profile.order} subtle centre along the central Suṣumṇā axis`}. Situated ${profile.subtleLocationEn.toLowerCase()}, it is visualized as a lotus of ${profile.petalCountDisplay} inscribed with the Sanskrit mātṛkā syllables (${profile.petalLettersDevanagari.join(', ')}) and presiding over ${profile.elementEn}.`,
-    introductoryOverviewHi: `${profile.nameSanskrit} (${profile.commonHindiDesignation}) सुषुम्णा अक्ष पर स्थित ${profile.order === 7 ? 'षट्चक्रों से परे सर्वोच्च सहस्रदल महापद्म' : `क्रम संख्या ${profile.order} का प्रमुख आध्यात्मिक केंद्र`} है। ${profile.subtleLocationHi} इसकी कर्णिका में ${profile.elementHi} तथा बीज मंत्र "${profile.bijaMantraDevanagari}" का निवास है।`,
+    introductoryOverviewEn: `${profile.nameEn} (${profile.nameSanskrit}) is the ${positionDescriptionEn}. Situated ${profile.subtleLocationEn.toLowerCase()}, it is visualized as a lotus of ${profile.petalCountDisplay} inscribed with the Sanskrit mātṛkā syllables (${profile.petalLettersDevanagari.join(', ')}) and presiding over ${profile.elementEn}.`,
+    introductoryOverviewHi: `${profile.nameSanskrit} (${profile.commonHindiDesignation}) ${positionDescriptionHi} है। ${profile.subtleLocationHi} इसकी कर्णिका में ${profile.elementHi} तथा बीज मंत्र "${profile.bijaMantraDevanagari}" का निवास है।`,
     historicalBackgroundEn: `In the classical Śākta-Tantric codification of Pūrṇānanda Yati’s Ṣaṭ-Cakra-Nirūpaṇa (1577 CE, Chapter 6 of Śrītattvacintāmaṇi) and the fifth chapter of the Śiva Saṃhitā, ${profile.nameEn} is mapped as a visionary mandala used in antaryāga (inner ritual worship), bhūta-śuddhi (purification of the elements), and Kuṇḍalinī-yoga.`,
     historicalBackgroundHi: `पूर्णानन्द यति विरचित "श्रीतत्त्वचिन्तामणि" के षष्ठ पटल "षट्चक्रनिरूपण" (१५७७ ई.) तथा "शिव संहिता" के पंचम पटल में ${profile.nameSanskrit} का विस्तृत ध्यान-मण्डल वर्णित है, जिसका उपयोग अन्तर्याग, भूत-शुद्धि और कुण्डलिनी-उत्थान में किया जाता है।`,
     traditionalExplanationEn: `${profile.traditionalRoleEn} ${profile.kundaliniSignificanceEn}`,
@@ -1002,24 +1015,24 @@ export const SAPTA_CHAKRA_ARCHIVE_ARTICLES: ChakraArchiveArticle[] = [
         headingEn: '5. Kuṇḍalinī Śakti & the Three Granthis',
         headingHi: '५. कुण्डलिनी शक्ति एवं तीन ग्रन्थियाँ (ब्रह्म, विष्णु, रुद्र)',
         bodyEn:
-          'Kuṇḍalinī is the microcosmic presence of Mahā-Śakti (Parā-Saṃvit). In the ordinary waking state, she sleeps in Mūlādhāra coiled three and a half times (representing the three guṇas—Sattva, Rajas, Tamas—or the three syllables of Oṃ—A, U, M—plus the half-mātrā Ardha-candra) around the Svayambhū Liṅga, covering the mouth of the Brahmadvāra with her face.\n\nWhen awakened through Guru-kṛpā, Prāṇāyāma, Bandhas, and Mantra-dhyāna, she enters the Brahma-nāḍī and pierces three major psychic knots (Granthis):\n1. Brahma Granthi (Mūlādhāra / Svādhiṣṭhāna region): Unties attachment to physical survival, material possessions, and bodily restlessness (Rajas-Tamas).\n2. Viṣṇu Granthi (Anāhata / Heart region): Unties emotional bondage, possessive attachment, and egoic preservation.\n3. Rudra Granthi (Ājñā / Eyebrow centre): Unties subtle intellectual pride, attachment to yogic siddhis, and dualistic subject-object perception.',
+          'Kuṇḍalinī is the microcosmic presence of Mahā-Śakti (Parā-Saṃvit). In the ordinary waking state, she sleeps in Mūlādhāra coiled three and a half times (representing the three guṇas—Sattva, Rajas, Tamas—or the three syllables of Oṃ—A, U, M—plus the half-mātrā Ardha-candra) around the Svayambhū Liṅga, covering the mouth of the Brahmadvāra with her face.\n\nAlong the central Suṣumṇā channel from top to bottom stand three major psychic knots (Granthis) that Kuṇḍalinī unties during her ascent:\n1. Rudra Granthi (Ājñā / Eyebrow centre — Upper Knot): Unties subtle intellectual pride, attachment to yogic siddhis, and dualistic subject-object perception.\n2. Viṣṇu Granthi (Anāhata / Heart region — Middle Knot): Unties emotional bondage, possessive attachment, and egoic preservation.\n3. Brahma Granthi (Mūlādhāra / Svādhiṣṭhāna region — Lower Root Knot): Unties attachment to physical survival, material possessions, and bodily restlessness (Rajas-Tamas).',
         bodyHi:
-          'कुण्डलिनी शक्ति परब्रह्म परमात्मा की परा-चित्-शक्ति है जो व्यष्टि (जीवात्मा) में मूलाधार स्थित स्वयम्भू लिंग को साढ़े तीन वलय (सत्त्व, रज, तम अथवा अ-उ-म और अर्धमात्रा के प्रतीक) में लपेटकर ब्रह्मद्वार को अपने मुख से ढके रहती है।\n\nगुरु-कृपा, प्राणायाम, बन्ध-त्रय और मंत्र-ध्यान से जाग्रत होकर जब कुण्डलिनी ब्रह्मनाड़ी में प्रवेश करती है, तब वह मार्ग की तीन प्रमुख ग्रन्थियों का भेदन (ग्रन्थि-भेदन) करती है:\n१. ब्रह्म ग्रन्थि (मूलाधार क्षेत्र): देहाध्यास और भौतिक इन्द्रिय-आसक्ति की गाँठ।\n२. विष्णु ग्रन्थि (अनाहत क्षेत्र): भावात्मक ममत्व और अहंकारी रक्षण-वृत्ति की गाँठ।\n३. रुद्र ग्रन्थि (आज्ञा चक्र क्षेत्र): सूक्ष्म अस्मिता, सिद्धियों के मोह और द्वैत-भाव की अंतिम गाँठ।'
+          'कुण्डलिनी शक्ति परब्रह्म परमात्मा की परा-चित्-शक्ति है जो व्यष्टि (जीवात्मा) में मूलाधार स्थित स्वयम्भू लिंग को साढ़े तीन वलय (सत्त्व, रज, तम अथवा अ-उ-म और अर्धमात्रा के प्रतीक) में लपेटकर ब्रह्मद्वार को अपने मुख से ढके रहती है।\n\nसुषुम्णा मार्ग में ऊपर से नीचे की ओर तीन प्रमुख ग्रन्थियाँ स्थित हैं जिनका कुण्डलिनी भेदन करती है:\n१. रुद्र ग्रन्थि (आज्ञा चक्र / भ्रूमध्य — ऊपरी ग्रन्थि): सूक्ष्म अस्मिता, सिद्धियों के मोह और द्वैत-भाव की गाँठ।\n२. विष्णु ग्रन्थि (अनाहत / हृदय क्षेत्र — मध्य ग्रन्थि): भावात्मक ममत्व और अहंकारी रक्षण-वृत्ति की गाँठ।\n३. ब्रह्म ग्रन्थि (मूलाधार / स्वाधिष्ठान क्षेत्र — निचली मूल ग्रन्थि): देहाध्यास और भौतिक इन्द्रिय-आसक्ति की गाँठ।'
       },
       {
-        headingEn: '6. Understanding the Seven-Chakra Model (Six Chakras + Sahasrāra)',
-        headingHi: '६. सप्त-चक्र मॉडल का शास्त्रीय रहस्य (षट्चक्र + सहस्रार)',
+        headingEn: '6. Understanding the Seven-Chakra Vertical Hierarchy (Crown to Root)',
+        headingHi: '६. सप्त-चक्र मॉडल का ऊर्ध्व-अधो क्रम (सहस्रार से मूलाधार)',
         bodyEn:
-          'A vital point of scholarly clarity: Pūrṇānanda’s classic treatise is titled Ṣaṭ-Cakra-Nirūpaṇa—"Investigation of the Six Chakras." In strict Tantric taxonomy, there are SIX chakras along the conditioned axis: (1) Mūlādhāra, (2) Svādhiṣṭhāna, (3) Maṇipūra, (4) Anāhata, (5) Viśuddha, and (6) Ājñā. The seventh centre, Sahasrāra (the Thousand-Petalled Lotus at the crown), is classified as Tattvātīta (beyond the cosmic categories)—not merely a seventh wheel on the same level, but the transcendent goal where all six wheels are consummated. In modern pedagogy, these six lotuses plus Sahasrāra are collectively referred to as "The Seven Chakras (सप्त चक्र)".',
+          'Aligned with the human subtle body from the Crown of the head down to the Root of the spine, the seven centres are positioned vertically as follows: (1) Sahasrāra (Crown Lotus — Tattvātīta, beyond the cosmic categories), followed by the six axial chakras (Ṣaṭ-Cakra): (2) Ājñā (Third-Eye / Eyebrow centre), (3) Viśuddha (Throat), (4) Anāhata (Heart), (5) Maṇipūra (Solar Plexus / Navel), (6) Svādhiṣṭhāna (Sacral / Pelvis), and (7) Mūlādhāra (Root base). In Pūrṇānanda’s Ṣaṭ-Cakra-Nirūpaṇa, Kuṇḍalinī awakens at the lowest centre (Mūlādhāra) and ascends through the six chakras to unite with Paramaśiva at the topmost Crown lotus (Sahasrāra).',
         bodyHi:
-          'शास्त्रीय दृष्टि से यह समझना अत्यंत आवश्यक है कि पूर्णानन्द के मूल ग्रंथ का नाम "षट्चक्रनिरूपण" (छह चक्रों का निरूपण) है। तांत्रिक वर्गीकरण में प्रकृति और तत्त्वों की सीमा के भीतर ६ चक्र हैं—(१) मूलाधार, (२) स्वाधिष्ठान, (३) मणिपूर, (४) अनाहत, (५) विशुद्ध और (६) आज्ञा। सातवाँ केंद्र "सहस्रार" इन छहों चक्रों से ऊपर "तत्त्वातीत" (प्रकृति से परे) परमशिव का धाम है। आधुनिक अध्ययन की सुविधा के लिए इन ६ चक्रों और ७वें सहस्रार को मिलाकर "सप्त चक्र" कहा जाता है।'
+          'मानव सूक्ष्म शरीर में मस्तक के शिखर (शीर्ष) से लेकर मेरुदण्ड के मूल (आधार) तक सातों चक्रों की ऊर्ध्व-से-अधो स्थिति इस प्रकार है: (१) सहस्रार (शीर्ष / ब्रह्मरन्ध्र — तत्त्वातीत परमशिव धाम), तथा उसके नीचे क्रमशः षट्चक्र: (२) आज्ञा चक्र (भ्रूमध्य), (३) विशुद्ध चक्र (कण्ठ), (४) अनाहत चक्र (हृदय), (५) मणिपूर चक्र (नाभि), (६) स्वाधिष्ठान चक्र (पेडू/जल केंद्र), और सबसे नीचे (७) मूलाधार चक्र (मूल आधार)। पूर्णानन्द के षट्चक्रनिरूपण में कुण्डलिनी सबसे निचले केंद्र (मूलाधार) से जाग्रत होकर ऊपर उठती हुई सर्वोच्च शिखर (सहस्रार) में परमशिव से मिलती है।'
       }
     ],
     relatedConceptsEn: [
       'Sūkṣma Śarīra (Subtle Body)',
       'Iḍā, Piṅgalā & Suṣumṇā',
       'Kuṇḍalinī Śakti',
-      'Brahma, Viṣṇu & Rudra Granthis',
+      'Rudra, Viṣṇu & Brahma Granthis',
       'Ṣaṭ-Cakra-Nirūpaṇa (1577 CE)',
       'Bhūta-Śuddhi (Elemental Purification)'
     ],
@@ -1056,7 +1069,7 @@ export const SAPTA_CHAKRA_ARCHIVE_ARTICLES: ChakraArchiveArticle[] = [
       'James Mallinson & Mark Singleton, Roots of Yoga (Penguin Classics, 2017)'
     ],
     relatedArticleSlugs: [
-      'chakra-01-muladhara-root-centre',
+      'chakra-01-sahasrara-thousand-petalled-lotus',
       'sat-cakra-nirupana-textual-study',
       'kundalini-yoga-subtle-anatomy',
       'traditional-vs-modern-chakra-interpretations'
@@ -1091,9 +1104,9 @@ export const SAPTA_CHAKRA_ARCHIVE_ARTICLES: ChakraArchiveArticle[] = [
     historicalBackgroundHi:
       'आचार्य पूर्णानन्द पूर्व बंगाल (मैमनसिंह) के निवासी तथा ब्रह्मानन्द के शिष्य थे। १८वीं शताब्दी में विद्वान टीकाकार कालीचरण ने "षट्चक्रनिरूपण" और "पादुकापञ्चक" पर अत्यंत विस्तृत संस्कृत टीका लिखी। १९१३ ई. में सर जॉन वुडरॉफ (आर्थर एवलॉन) ने इसका मूल संस्कृत संस्करण प्रकाशित किया और १९१९ ई. में "द सर्पेंट पावर" (The Serpent Power) के रूप में इसका अंग्रेजी अनुवाद प्रकाशित कर इसे वैश्विक विद्वत्-जगत् तक पहुँचाया।',
     traditionalExplanationEn:
-      'The text is structured as a progressive contemplative ascent (āroha-krama) from the base of the spine to the crown:\n• Verses 1–3: Invocation and anatomy of Merudaṇḍa, Iḍā, Piṅgalā, Suṣumṇā, Vajrā, Citriṇī, and Brahma-nāḍī.\n• Verses 4–13: Mūlādhāra Chakra (4 petals), Dharā-maṇḍala, Brahmā, Ḍākinī, Svayambhū Liṅga, and Kuṇḍalinī Śakti.\n• Verses 14–18: Svādhiṣṭhāna Chakra (6 petals), Ambhoja-maṇḍala, Viṣṇu, and Rākiṇī.\n• Verses 19–21: Maṇipūra Chakra (10 petals), Vahni-maṇḍala, Rudra, and Lākinī.\n• Verses 22–27: Anāhata Chakra (12 petals), Vāyu-maṇḍala, Īśāna, Kākinī, Bāṇa Liṅga, and the 8-petalled Ānandakanda lotus below the heart.\n• Verses 28–31: Viśuddha Chakra (16 petals), Nabho-maṇḍala, Ardhanārīśvara Sadāśiva, and Śākinī.\n• Verses 32–39: Ājñā Chakra (2 petals), Hākinī, Itara Liṅga, Praṇava, and higher sub-centres above Ājñā (Manas, Soma, Kāraṇa-rūpā).\n• Verses 40–49: Sahasrāra Padma (1,000 petals), Amā-kalā, Nirvāṇa-kalā, Nirvāṇa-Śakti, and Paramaśiva.\n• Verses 50–55: Awakening of Kuṇḍalinī, piercing of the six lotuses (Ṣaṭ-cakra-bheda), union with Paramaśiva, and the shower of ambrosial nectar (Sudhā-dhārā).',
+      'Aligned with the vertical subtle body from Crown to Root (with Pūrṇānanda’s verse numbers in Ṣaṭ-Cakra-Nirūpaṇa):\n• Crown (1st from top) — Sahasrāra Padma (1,000 petals, vv. 40–49): Amā-kalā, Nirvāṇa-kalā, Nirvāṇa-Śakti, and Paramaśiva.\n• Brow (2nd) — Ājñā Chakra (2 petals, vv. 32–39): Hākinī, Itara Liṅga, Praṇava, and subtle Manas.\n• Throat (3rd) — Viśuddha Chakra (16 petals, vv. 28–31): Nabho-maṇḍala (Space), Ardhanārīśvara Sadāśiva, and Śākinī.\n• Heart (4th) — Anāhata Chakra (12 petals, vv. 22–27): Vāyu-maṇḍala (Air), Īśāna, Kākinī, Bāṇa Liṅga, and the 8-petalled Ānandakanda lotus.\n• Navel (5th) — Maṇipūra Chakra (10 petals, vv. 19–21): Vahni-maṇḍala (Fire), Rudra, and Lākinī.\n• Sacral (6th) — Svādhiṣṭhāna Chakra (6 petals, vv. 14–18): Ambhoja-maṇḍala (Water), Viṣṇu, and Rākiṇī.\n• Root Base (7th) — Mūlādhāra Chakra (4 petals, vv. 4–13): Dharā-maṇḍala (Earth), Brahmā, Ḍākinī, Svayambhū Liṅga, and Kuṇḍalinī Śakti.\n• Framing Verses: vv. 1–3 (Merudaṇḍa & Nāḍīs) and vv. 50–55 (Kuṇḍalinī ascent & Sudhā-dhārā).',
     traditionalExplanationHi:
-      'इस ग्रंथ के ५५ श्लोकों का संरचनात्मक विभाजन इस प्रकार है:\n• श्लोक १–३: मंगलाचरण तथा मेरुदण्ड, इड़ा, पिंगला, सुषुम्णा, वज्रा, चित्रिणी और ब्रह्मनाड़ी का स्वरूप।\n• श्लोक ४–१३: मूलाधार चक्र (४ दल), पृथ्वी-मण्डल, ब्रह्मा, डाकिनी, स्वयम्भू लिंग एवं कुण्डलिनी का ध्यान।\n• श्लोक १४–१८: स्वाधिष्ठान चक्र (६ दल), जल-मण्डल, विष्णु एवं राकिनी।\n• श्लोक १९–२१: मणिपूर चक्र (१० दल), अग्नि-मण्डल, रुद्र एवं लाकिनी।\n• श्लोक २२–२७: अनाहत चक्र (१२ दल), वायु-मण्डल, ईशान, काकिनी, बाण लिंग एवं हृदय के नीचे स्थित अष्टदल आनन्दकन्द कमल।\n• श्लोक २८–३१: विशुद्ध चक्र (१६ दल), आकाश-मण्डल, अर्धनारीश्वर सदाशिव एवं शाकिनी।\n• श्लोक ३२–३९: आज्ञा चक्र (२ दल), हाकिनी, इतर लिंग, प्रणव तथा कारण-रूपा कलाएँ।\n• श्लोक ४०–४९: सहस्रार महापद्म (१००० दल), अमा-कला, निर्वाण-कला एवं परमशिव।\n• श्लोक ५०–५५: कुण्डलिनी जागरण, षट्चक्र-भेदन, शिव-शक्ति सामरस्य और अमृत-वर्षा।',
+      'सूक्ष्म शरीर के शीर्ष (सहस्रार) से मूल (मूलाधार) तक के क्रम में इस ग्रंथ के ५५ श्लोकों का विवरण:\n• १. सहस्रार महापद्म (शीर्ष · १००० दल, श्लोक ४०–४९): अमा-कला, निर्वाण-कला एवं परमशिव।\n• २. आज्ञा चक्र (भ्रूमध्य · २ दल, श्लोक ३२–३९): हाकिनी, इतर लिंग, प्रणव तथा कारण-रूपा कलाएँ।\n• ३. विशुद्ध चक्र (कण्ठ · १६ दल, श्लोक २८–३१): आकाश-मण्डल, अर्धनारीश्वर सदाशिव एवं शाकिनी।\n• ४. अनाहत चक्र (हृदय · १२ दल, श्लोक २२–२७): वायु-मण्डल, ईशान, काकिनी, बाण लिंग एवं आनन्दकन्द कमल।\n• ५. मणिपूर चक्र (नाभि · १० दल, श्लोक १९–२१): अग्नि-मण्डल, रुद्र एवं लाकिनी।\n• ६. स्वाधिष्ठान चक्र (पेडू · ६ दल, श्लोक १४–१८): जल-मण्डल, विष्णु एवं राकिनी।\n• ७. मूलाधार चक्र (मूल आधार · ४ दल, श्लोक ४–१३): पृथ्वी-मण्डल, ब्रह्मा, डाकिनी, स्वयम्भू लिंग एवं कुण्डलिनी।\n• श्लोक १–३ (मेरुदण्ड व नाड़ियाँ) तथा श्लोक ५०–५५ (कुण्डलिनी उत्थान एवं अमृत-वर्षा)।',
     sanskritTerminology: [
       {
         termDevanagari: 'षट्चक्र-भेदन',
@@ -1342,9 +1355,9 @@ export const SAPTA_CHAKRA_ARCHIVE_ARTICLES: ChakraArchiveArticle[] = [
     historicalBackgroundHi:
       'तैत्तिरीय उपनिषद् (२.१—"तस्माद्वा एतस्मादात्मन आकाशः संभूतः। आकाशाद्वायुः। वायोरग्निः। अग्नेरापः। अद्भ्यः पृथिवी॥") और सांख्य-तंत्र दर्शन पर आधारित यह पंचतत्त्व-क्रम तांत्रिक साधना के "भूत-शुद्धि" विधान का मूल आधार है।',
     traditionalExplanationEn:
-      'Complete Elemental Concordance across the Chakras:\n1. Mūlādhāra — Pṛthvī (Earth): Yellow Square (Caturaśra) · Bīja Laṃ (लं) · Tanmātra: Gandha (Smell) · Mount: Airāvata Elephant.\n2. Svādhiṣṭhāna — Āpas (Water): White Crescent Moon (Ardha-candra) · Bīja Vaṃ (वं) · Tanmātra: Rasa (Taste) · Mount: Makara.\n3. Maṇipūra — Agni (Fire): Red Inverted Triangle (Trikoṇa) · Bīja Raṃ (रं) · Tanmātra: Rūpa (Form/Sight) · Mount: Ram (Meṣa).\n4. Anāhata — Vāyu (Air): Smoky Six-Pointed Star (Ṣaṭkoṇa) · Bīja Yaṃ (यं) · Tanmātra: Sparśa (Touch) · Mount: Black Antelope.\n5. Viśuddha — Ākāśa (Space): Full-Moon White Circle (Vṛtta) · Bīja Haṃ (हं) · Tanmātra: Śabda (Sound) · Mount: White Elephant.\n6. Ājñā — Manas (Subtle Mind): Crystalline Liṅga in Triangle · Bīja Oṃ (ॐ) · Transcends the 5 gross elements.\n7. Sahasrāra — Tattvātīta (Pure Consciousness): Beyond all 36 Tattvas.',
+      'Complete Elemental Concordance across the Seven Centres (from Crown to Root):\n1. Sahasrāra (Crown) — Tattvātīta (Pure Consciousness): Beyond all 36 Tattvas & elements · 1,000 Petals.\n2. Ājñā (Third-Eye) — Manas (Subtle Mind): Crystalline Liṅga in Triangle · Bīja Oṃ (ॐ) · Transcends the 5 gross elements.\n3. Viśuddha (Throat) — Ākāśa (Space): Full-Moon White Circle (Vṛtta) · Bīja Haṃ (हं) · Tanmātra: Śabda (Sound) · Mount: White Elephant.\n4. Anāhata (Heart) — Vāyu (Air): Smoky Six-Pointed Star (Ṣaṭkoṇa) · Bīja Yaṃ (यं) · Tanmātra: Sparśa (Touch) · Mount: Black Antelope.\n5. Maṇipūra (Solar Plexus) — Agni (Fire): Red Inverted Triangle (Trikoṇa) · Bīja Raṃ (रं) · Tanmātra: Rūpa (Form/Sight) · Mount: Ram (Meṣa).\n6. Svādhiṣṭhāna (Sacral) — Āpas (Water): White Crescent Moon (Ardha-candra) · Bīja Vaṃ (वं) · Tanmātra: Rasa (Taste) · Mount: Makara.\n7. Mūlādhāra (Root) — Pṛthvī (Earth): Yellow Square (Caturaśra) · Bīja Laṃ (लं) · Tanmātra: Gandha (Smell) · Mount: Airāvata Elephant.',
     traditionalExplanationHi:
-      'षट्चक्र एवं पंचमहाभूतों का संपूर्ण समन्वय:\n१. मूलाधार — पृथ्वी तत्त्व: पीत चतुष्कोण · बीज "लं" · तन्मात्रा: गन्ध · वाहन: ऐरावत गज।\n२. स्वाधिष्ठान — जल तत्त्व: श्वेत अर्धचन्द्र · बीज "वं" · तन्मात्रा: रस · वाहन: मकर।\n३. मणिपूर — अग्नि तत्त्व: रक्त त्रिकोण · बीज "रं" · तन्मात्रा: रूप · वाहन: मेष।\n४. अनाहत — वायु तत्त्व: धूम्र षट्कोण · बीज "यं" · तन्मात्रा: स्पर्श · वाहन: कृष्णसार मृग।\n५. विशुद्ध — आकाश तत्त्व: श्वेत वृत्त · बीज "हं" · तन्मात्रा: शब्द · वाहन: श्वेत गज।\n६. आज्ञा — मनस् तत्त्व: प्रणव "ॐ" · पंचमहाभूतों से परे सूक्ष्म अन्तःकरण।\n७. सहस्रार — तत्त्वातीत परब्रह्म: समस्त ३६ तत्त्वों का लय-स्थान।',
+      'सप्त-चक्र एवं पंचमहाभूतों का संपूर्ण समन्वय (शीर्ष सहस्रार से मूल मूलाधार तक):\n१. सहस्रार (शीर्ष) — तत्त्वातीत परब्रह्म: समस्त ३६ तत्त्वों से परे · १००० दल।\n२. आज्ञा (भ्रूमध्य) — मनस् तत्त्व: प्रणव "ॐ" · पंचमहाभूतों से परे सूक्ष्म अन्तःकरण।\n३. विशुद्ध (कण्ठ) — आकाश तत्त्व: श्वेत वृत्त · बीज "हं" · तन्मात्रा: शब्द · वाहन: श्वेत गज।\n४. अनाहत (हृदय) — वायु तत्त्व: धूम्र षट्कोण · बीज "यं" · तन्मात्रा: स्पर्श · वाहन: कृष्णसार मृग।\n५. मणिपूर (नाभि) — अग्नि तत्त्व: रक्त त्रिकोण · बीज "रं" · तन्मात्रा: रूप · वाहन: मेष।\n६. स्वाधिष्ठान (पेडू) — जल तत्त्व: श्वेत अर्धचन्द्र · बीज "वं" · तन्मात्रा: रस · वाहन: मकर।\n७. मूलाधार (मूल आधार) — पृथ्वी तत्त्व: पीत चतुष्कोण · बीज "लं" · तन्मात्रा: गन्ध · वाहन: ऐरावत गज।',
     sanskritTerminology: [
       {
         termDevanagari: 'भूत-शुद्धि',
@@ -1416,9 +1429,9 @@ export const SAPTA_CHAKRA_ARCHIVE_ARTICLES: ChakraArchiveArticle[] = [
     historicalBackgroundHi:
       'शारदातिलक तंत्र, कुब्जिकामत तंत्र, अभिनवगुप्त के तंत्रालोक और पूर्णानन्द के षट्चक्रनिरूपण में प्रतिपादित "मातृका-विज्ञान" के अनुसार परा-वाक् (आद्या शक्ति) ५० ध्वनि-कलाओं (मातृकाओं) के रूप में प्रस्फुटित होकर सूक्ष्म शरीर के कमलों के दलों का निर्माण करती है।',
     traditionalExplanationEn:
-      'Complete Distribution of the 50 Sanskrit Letters (Mātṛkās) with Bindu (Anusvāra):\n• Viśuddha (16 Petals — All 16 Vowels / Svaras): अं आं इं ईं उं ऊं ऋं ॠं ऌं ॡं एं ऐं ओं औं अं अः\n• Anāhata (12 Petals — First 12 Consonants, Ka-varga to Ṭha): कं खं गं घं ङं चं छं जं झं ञं टं ठं\n• Maṇipūra (10 Petals — Next 10 Consonants, Ḍa to Pha): डं ढं णं तं थं दं धं नं पं फं\n• Svādhiṣṭhāna (6 Petals — Next 6 Consonants, Ba to La): बं भं मं यं रं लं\n• Mūlādhāra (4 Petals — Next 4 Semivowel/Sibilants, Va to Sa): वं शं षं सं\n• Ājñā (2 Petals — Final 2 Letters, Ha and Kṣa): हं क्षं\n• Sahasrāra (1,000 Petals): All 50 letters repeated in 20 concentric octaves (50 × 20 = 1,000), symbolizing total sonic omniscience.',
+      'Complete Top-to-Bottom Distribution of the 50 Sanskrit Letters (Mātṛkās) with Bindu (Anusvāra):\n• 1. Sahasrāra (Crown · 1,000 Petals): All 50 letters repeated in 20 concentric octaves (50 × 20 = 1,000), symbolizing total sonic omniscience.\n• 2. Ājñā (Third-Eye · 2 Petals — Final 2 Letters, Ha and Kṣa): हं क्षं\n• 3. Viśuddha (Throat · 16 Petals — All 16 Vowels / Svaras): अं आं इं ईं उं ऊं ऋं ॠं ऌं ॡं एं ऐं ओं औं अं अः\n• 4. Anāhata (Heart · 12 Petals — First 12 Consonants, Ka-varga to Ṭha): कं खं गं घं ङं चं छं जं झं ञं टं ठं\n• 5. Maṇipūra (Solar Plexus · 10 Petals — Next 10 Consonants, Ḍa to Pha): डं ढं णं तं थं दं धं नं पं फं\n• 6. Svādhiṣṭhāna (Sacral · 6 Petals — Next 6 Consonants, Ba to La): बं भं मं यं रं लं\n• 7. Mūlādhāra (Root · 4 Petals — Next 4 Semivowel/Sibilants, Va to Sa): वं शं षं सं',
     traditionalExplanationHi:
-      'षट्चक्रों के ५० दलों पर ५० संस्कृत अक्षरों (अनुस्वार सहित) का संपूर्ण वितरण:\n• विशुद्ध चक्र (१६ दल — १६ स्वर): अं आं इं ईं उं ऊं ऋं ॠं ऌं ॡं एं ऐं ओं औं अं अः\n• अनाहत चक्र (१२ दल — क से ठ तक १२ व्यंजन): कं खं गं घं ङं चं छं जं झं ञं टं ठं\n• मणिपूर चक्र (१० दल — ड से फ तक १० व्यंजन): डं ढं णं तं थं दं धं नं पं फं\n• स्वाधिष्ठान चक्र (६ दल — ब से ल तक ६ व्यंजन): बं भं मं यं रं लं\n• मूलाधार चक्र (४ दल — व से स तक ४ वर्ण): वं शं षं सं\n• आज्ञा चक्र (२ दल — अंतिम २ वर्ण): हं क्षं\n• सहस्रार महापद्म (१,००० दल): उपर्युक्त ५० अक्षर × २० आवृत्तियाँ = १,००० दल।',
+      'सप्त-चक्रों के दलों पर ५० संस्कृत अक्षरों (अनुस्वार सहित) का ऊर्ध्व-से-अधो (शीर्ष से मूल तक) वितरण:\n• १. सहस्रार महापद्म (शीर्ष · १,००० दल): अ से क्ष तक ५० अक्षर × २० आवृत्तियाँ = १,००० दल।\n• २. आज्ञा चक्र (भ्रूमध्य · २ दल — ह एवं क्ष): हं क्षं\n• ३. विशुद्ध चक्र (कण्ठ · १६ दल — १६ स्वर): अं आं इं ईं उं ऊं ऋं ॠं ऌं ॡं एं ऐं ओं औं अं अः\n• ४. अनाहत चक्र (हृदय · १२ दल — क से ठ तक १२ व्यंजन): कं खं गं घं ङं चं छं जं झं ञं टं ठं\n• ५. मणिपूर चक्र (नाभि · १० दल — ड से फ तक १० व्यंजन): डं ढं णं तं थं दं धं नं पं फं\n• ६. स्वाधिष्ठान चक्र (पेडू · ६ दल — ब से ल तक ६ व्यंजन): बं भं मं यं रं लं\n• ७. मूलाधार चक्र (मूल आधार · ४ दल — व से स तक ४ वर्ण): वं शं षं सं',
     sanskritTerminology: [
       {
         termDevanagari: 'मातृका',
@@ -1588,12 +1601,12 @@ export const SAPTA_CHAKRA_ARCHIVE_ARTICLES: ChakraArchiveArticle[] = [
     diagramType: 'traditional-vs-modern',
     detailedSections: [
       {
-        headingEn: '1. Summary Matrix: Classical Sanskrit vs. Modern Rainbow System',
-        headingHi: '१. तुलनात्मक सारणी: शास्त्रीय संस्कृत वर्ण बनाम आधुनिक इन्द्रधनुषी रंग',
+        headingEn: '1. Summary Matrix (Top to Bottom): Classical Sanskrit vs. Modern Rainbow System',
+        headingHi: '१. तुलनात्मक सारणी (शीर्ष सहस्रार से मूलाधार तक): शास्त्रीय वर्ण बनाम आधुनिक रंग',
         bodyEn:
-          '• Mūlādhāra: Classical = Crimson-red petals + Yellow Earth Square | Modern = Solid Red\n• Svādhiṣṭhāna: Classical = Vermilion petals + White Water Crescent | Modern = Solid Orange\n• Maṇipūra: Classical = Dark rain-cloud petals + Red Fire Triangle | Modern = Solid Yellow\n• Anāhata: Classical = Bandhūka-red petals + Smoky Grey Air Hexagram | Modern = Solid Green\n• Viśuddha: Classical = Smoky-purple petals + Full-Moon White Ether Circle | Modern = Solid Sky Blue\n• Ājñā: Classical = Autumn-moon White petals + Crystalline Liṅga | Modern = Solid Indigo\n• Sahasrāra: Classical = Luminous White tinged with rosy dawn (1,000 petals) | Modern = Violet / Crown White',
+          '• 1. Sahasrāra (Crown): Classical = Luminous White tinged with rosy dawn (1,000 petals) | Modern = Violet / Crown White\n• 2. Ājñā (Third-Eye): Classical = Autumn-moon White petals + Crystalline Liṅga | Modern = Solid Indigo\n• 3. Viśuddha (Throat): Classical = Smoky-purple petals + Full-Moon White Ether Circle | Modern = Solid Sky Blue\n• 4. Anāhata (Heart): Classical = Bandhūka-red petals + Smoky Grey Air Hexagram | Modern = Solid Green\n• 5. Maṇipūra (Solar Plexus): Classical = Dark rain-cloud petals + Red Fire Triangle | Modern = Solid Yellow\n• 6. Svādhiṣṭhāna (Sacral): Classical = Vermilion petals + White Water Crescent | Modern = Solid Orange\n• 7. Mūlādhāra (Root): Classical = Crimson-red petals + Yellow Earth Square | Modern = Solid Red',
         bodyHi:
-          '• मूलाधार: शास्त्रीय = रक्त-लाल दल + पीला पृथ्वी चतुष्कोण | आधुनिक = पूर्ण लाल\n• स्वाधिष्ठान: शास्त्रीय = सिन्दूरी दल + श्वेत अर्धचन्द्र | आधुनिक = पूर्ण नारंगी\n• मणिपूर: शास्त्रीय = मेघ-श्याम दल + लाल अग्नि त्रिकोण | आधुनिक = पूर्ण पीला\n• अनाहत: शास्त्रीय = बन्धूक-लाल दल + धूम्र वायु षट्कोण | आधुनिक = पूर्ण हरा\n• विशुद्ध: शास्त्रीय = धूम्र-बैंगनी दल + श्वेत आकाश वृत्त | आधुनिक = पूर्ण आसमानी नीला\n• आज्ञा: शास्त्रीय = चन्द्र-धवल श्वेत दल + स्फटिक लिंग | आधुनिक = पूर्ण जामुनी (इण्डिगो)\n• सहस्रार: शास्त्रीय = अरुण-आभा युक्त परम शुभ्र (१००० दल) | आधुनिक = बैंगनी / श्वेत'
+          '• १. सहस्रार (शीर्ष): शास्त्रीय = अरुण-आभा युक्त परम शुभ्र (१००० दल) | आधुनिक = बैंगनी / श्वेत\n• २. आज्ञा (भ्रूमध्य): शास्त्रीय = चन्द्र-धवल श्वेत दल + स्फटिक लिंग | आधुनिक = पूर्ण जामुनी (इण्डिगो)\n• ३. विशुद्ध (कण्ठ): शास्त्रीय = धूम्र-बैंगनी दल + श्वेत आकाश वृत्त | आधुनिक = पूर्ण आसमानी नीला\n• ४. अनाहत (हृदय): शास्त्रीय = बन्धूक-लाल दल + धूम्र वायु षट्कोण | आधुनिक = पूर्ण हरा\n• ५. मणिपूर (नाभि): शास्त्रीय = मेघ-श्याम दल + लाल अग्नि त्रिकोण | आधुनिक = पूर्ण पीला\n• ६. स्वाधिष्ठान (पेडू): शास्त्रीय = सिन्दूरी दल + श्वेत अर्धचन्द्र | आधुनिक = पूर्ण नारंगी\n• ७. मूलाधार (मूल): शास्त्रीय = रक्त-लाल दल + पीला पृथ्वी चतुष्कोण | आधुनिक = पूर्ण लाल'
       }
     ],
     relatedConceptsEn: ['Ṣaṭ-Cakra-Nirūpaṇa', 'Arthur Avalon (1919)', 'C.G. Jung (1932)', 'Kurt Leland (Rainbow Body)', 'Historiography of Yoga'],

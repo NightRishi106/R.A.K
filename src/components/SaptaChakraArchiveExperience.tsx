@@ -44,7 +44,7 @@ interface BodyChakraHotspot {
 const BODY_CHAKRA_HOTSPOTS: BodyChakraHotspot[] = [
   {
     id: 'sahasrara',
-    order: 7,
+    order: 1,
     xPercent: 35.5,
     yPercent: 12.2,
     nameEn: 'Sahasrāra',
@@ -61,7 +61,7 @@ const BODY_CHAKRA_HOTSPOTS: BodyChakraHotspot[] = [
   },
   {
     id: 'ajna',
-    order: 6,
+    order: 2,
     xPercent: 35.5,
     yPercent: 22.8,
     nameEn: 'Ājñā',
@@ -78,7 +78,7 @@ const BODY_CHAKRA_HOTSPOTS: BodyChakraHotspot[] = [
   },
   {
     id: 'vishuddha',
-    order: 5,
+    order: 3,
     xPercent: 35.5,
     yPercent: 36.6,
     nameEn: 'Viśuddha',
@@ -112,7 +112,7 @@ const BODY_CHAKRA_HOTSPOTS: BodyChakraHotspot[] = [
   },
   {
     id: 'manipura',
-    order: 3,
+    order: 5,
     xPercent: 35.5,
     yPercent: 57.5,
     nameEn: 'Maṇipūra',
@@ -129,7 +129,7 @@ const BODY_CHAKRA_HOTSPOTS: BodyChakraHotspot[] = [
   },
   {
     id: 'svadhishthana',
-    order: 2,
+    order: 6,
     xPercent: 35.5,
     yPercent: 66.8,
     nameEn: 'Svādhiṣṭhāna',
@@ -146,7 +146,7 @@ const BODY_CHAKRA_HOTSPOTS: BodyChakraHotspot[] = [
   },
   {
     id: 'muladhara',
-    order: 1,
+    order: 7,
     xPercent: 35.5,
     yPercent: 75.5,
     nameEn: 'Mūlādhāra',
@@ -192,7 +192,7 @@ const InteractiveBodyChakraImage: React.FC<{
   const [showAllLabels, setShowAllLabels] = useState<boolean>(false);
 
   const activeHotspot =
-    BODY_CHAKRA_HOTSPOTS.find((h) => h.id === selectedChakraId) || BODY_CHAKRA_HOTSPOTS[6];
+    BODY_CHAKRA_HOTSPOTS.find((h) => h.id === selectedChakraId) || BODY_CHAKRA_HOTSPOTS[0];
 
   const handleChakraClick = (id: string) => {
     setLastClickedId(id);
@@ -871,7 +871,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
   lang = 'en'
 }) => {
   // Active Studio Panel ('panel-intro' ... 'panel-kundalini-studio')
-  const [activeStudioPanelId, setActiveStudioPanelId] = useState<string>('panel-muladhara');
+  const [activeStudioPanelId, setActiveStudioPanelId] = useState<string>('panel-sahasrara');
 
   // Interactive SVG toggles
   const [rotateLotus, setRotateLotus] = useState<boolean>(true);
@@ -896,7 +896,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
   );
 
   const activeChakraProfile = useMemo(() => {
-    const targetId = activePanel.chakraId || 'muladhara';
+    const targetId = activePanel.chakraId || 'sahasrara';
     return SEVEN_CHAKRA_PROFILES.find((c) => c.id === targetId) || SEVEN_CHAKRA_PROFILES[0];
   }, [activePanel]);
 
@@ -963,8 +963,8 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
           <div className="rounded-xl border border-white/10 bg-black/35 p-3.5">
             <div className="text-[11px] font-mono uppercase tracking-wider text-[#D3AD55]">Subtle Centres</div>
-            <div className="text-lg font-serif font-bold text-white mt-0.5">6 Chakras + Sahasrāra</div>
-            <div className="text-xs text-white/60">Mūlādhāra to Crown Lotus</div>
+            <div className="text-lg font-serif font-bold text-white mt-0.5">Sahasrāra to Mūlādhāra</div>
+            <div className="text-xs text-white/60">Crown Lotus to Root Base (7 Centres)</div>
           </div>
           <div className="rounded-xl border border-white/10 bg-black/35 p-3.5">
             <div className="text-[11px] font-mono uppercase tracking-wider text-[#D3AD55]">Mātṛkā Petals</div>
@@ -1156,10 +1156,10 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
                   </button>
                   <button
                     type="button"
-                    onClick={() => setActiveStudioPanelId('panel-muladhara')}
+                    onClick={() => setActiveStudioPanelId('panel-sahasrara')}
                     className="px-4 py-2 rounded-xl border border-[#D3AD55]/50 text-[#FDE68A] text-xs font-semibold hover:bg-[#D3AD55]/10 transition cursor-pointer"
                   >
-                    Explore Panel 02: Mūlādhāra →
+                    Explore Panel 02: Sahasrāra (Crown) →
                   </button>
                 </div>
               </div>
@@ -1167,7 +1167,7 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
               {/* Quick 7-Chakra Summary Table inside Panel 01 */}
               <div className="rounded-2xl border border-white/10 bg-[#120D1D] p-4 overflow-x-auto">
                 <div className="text-xs font-mono uppercase tracking-wider text-[#D3AD55] mb-3">
-                  CLASSICAL CONCORDANCE OF THE SEVEN CENTRES
+                  CLASSICAL CONCORDANCE OF THE SEVEN CENTRES (TOP TO BOTTOM: CROWN TO ROOT)
                 </div>
                 <table className="w-full text-left border-collapse text-xs">
                   <thead>
@@ -1500,24 +1500,24 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
                   </div>
                 </div>
 
-                {/* Three Granthis Cards */}
+                {/* Three Granthis Cards (Top to Bottom: Rudra, Viṣṇu, Brahma) */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
                   <div className="rounded-xl border border-white/10 bg-black/35 p-3.5">
-                    <div className="font-bold text-rose-300">Brahma Granthi (ब्रह्म ग्रन्थि)</div>
+                    <div className="font-bold text-indigo-300">1. Rudra Granthi (रुद्र ग्रन्थि — Top)</div>
                     <div className="text-white/75 mt-1">
-                      Located at Mūlādhāra/Svādhiṣṭhāna. Binds consciousness to physical survival, bodily identification, and tamasic inertia.
+                      Located at Ājñā (Eyebrow centre). Binds consciousness to subtle intellectual ego, siddhis, and dualistic vision.
                     </div>
                   </div>
                   <div className="rounded-xl border border-white/10 bg-black/35 p-3.5">
-                    <div className="font-bold text-emerald-300">Viṣṇu Granthi (विष्णु ग्रन्थि)</div>
+                    <div className="font-bold text-emerald-300">2. Viṣṇu Granthi (विष्णु ग्रन्थि — Middle)</div>
                     <div className="text-white/75 mt-1">
                       Located at Anāhata (Heart). Binds consciousness to emotional attachment, relational possession, and rajasic preservation.
                     </div>
                   </div>
                   <div className="rounded-xl border border-white/10 bg-black/35 p-3.5">
-                    <div className="font-bold text-indigo-300">Rudra Granthi (रुद्र ग्रन्थि)</div>
+                    <div className="font-bold text-rose-300">3. Brahma Granthi (ब्रह्म ग्रन्थि — Base)</div>
                     <div className="text-white/75 mt-1">
-                      Located at Ājñā (Eyebrow centre). Binds consciousness to subtle intellectual ego, siddhis, and dualistic vision.
+                      Located at Mūlādhāra/Svādhiṣṭhāna. Binds consciousness to physical survival, bodily identification, and tamasic inertia.
                     </div>
                   </div>
                 </div>
@@ -1576,11 +1576,9 @@ export const SaptaChakraArchiveExperience: React.FC<SaptaChakraArchiveExperience
           {/* Complete 50 Mātṛkā Letters & 5 Mahābhūtas Concordance Chart */}
           <div className="lg:col-span-7 space-y-3">
             <div className="text-xs font-mono uppercase tracking-wider text-[#FDE68A]">
-              COMPLETE DISTRIBUTION OF THE 50 SANSKRIT LETTERS (अ TO क्ष) & 5 ELEMENTS
+              COMPLETE TOP-TO-BOTTOM DISTRIBUTION OF THE 7 CHAKRAS (CROWN SAHASRĀRA TO ROOT MŪLĀDHĀRA)
             </div>
-            {SEVEN_CHAKRA_PROFILES.slice()
-              .reverse()
-              .map((c) => {
+            {SEVEN_CHAKRA_PROFILES.map((c) => {
                 const hotspot = BODY_CHAKRA_HOTSPOTS.find((h) => h.id === c.id);
                 const chakraColor = hotspot ? hotspot.imageChakraColor : c.accentHex;
                 const isSelected = activeChakraProfile.id === c.id;
