@@ -7,6 +7,12 @@ import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 import { initializeApp as initAdminApp, getApps as getAdminApps } from 'firebase-admin/app';
 import { getAuth as getAdminAuth } from 'firebase-admin/auth';
+import {
+  BOOKING_TERMS_VERSION,
+  MANDATORY_CONSENT_VALIDATION_MESSAGE,
+  buildTermsTextSnapshot,
+  formatISTTimestamp,
+} from './src/lib/bookingTerms';
 
 dotenv.config();
 
@@ -68,6 +74,11 @@ export interface AppointmentRecord {
   completed_at: string | null;
   cancelled_at: string | null;
   admin_notes: string;
+  terms_accepted?: boolean;
+  terms_version?: string;
+  terms_accepted_at?: string;
+  terms_text_snapshot?: string;
+  scheduling_status?: string;
   reminder_24h_sent?: boolean;
   reminder_1h_sent?: boolean;
   history: BookingHistoryEvent[];
@@ -118,6 +129,7 @@ export interface AdminSettingsRecord {
   operating_days: number[]; // [0,1,2,3,4,5,6] (Sun-Sat)
   email_notifications_enabled: boolean;
   reminders_enabled: boolean;
+  refund_policy_text?: string;
   updated_at: string;
 }
 
@@ -199,6 +211,7 @@ function getDefaultDatabase(): DatabaseSchema {
       operating_days: [0, 1, 2, 3, 4, 5, 6],
       email_notifications_enabled: true,
       reminders_enabled: true,
+      refund_policy_text: '',
       updated_at: new Date().toISOString(),
     },
     email_logs: [],
@@ -409,7 +422,7 @@ async function sendRawEmail(to: string, subject: string, html: string): Promise<
 
 function getAppointmentTypeDisplay(type: AppointmentType): string {
   return type === 'phone_consultation'
-    ? 'Private Phone Consultation (60 Minutes)'
+    ? 'Private Phone Consultation (30 Minutes)'
     : 'In-Person Consultation (60 Minutes)';
 }
 
@@ -428,6 +441,7 @@ async function dispatchEmailNotification(
 
   const typeLabel = getAppointmentTypeDisplay(apt.appointment_type);
   const instructions = getMeetingMethodInstructions(apt.appointment_type);
+  const durationMinutes = apt.appointment_type === 'phone_consultation' ? 30 : 60;
   const adminEmail = db.admin_settings.administrator_email || 'ramashokkumar@gmail.com';
 
   let recipient = apt.customer_email;
@@ -447,7 +461,7 @@ async function dispatchEmailNotification(
           <tr><td style="padding:8px; border-bottom:1px solid #3a2e25; color:#bfa36f;">Appointment Type:</td><td style="padding:8px; border-bottom:1px solid #3a2e25;">${typeLabel}</td></tr>
           <tr><td style="padding:8px; border-bottom:1px solid #3a2e25; color:#bfa36f;">Date:</td><td style="padding:8px; border-bottom:1px solid #3a2e25;">${apt.appointment_date}</td></tr>
           <tr><td style="padding:8px; border-bottom:1px solid #3a2e25; color:#bfa36f;">Time (IST):</td><td style="padding:8px; border-bottom:1px solid #3a2e25;">${apt.start_time} – ${apt.end_time} (Asia/Kolkata)</td></tr>
-          <tr><td style="padding:8px; border-bottom:1px solid #3a2e25; color:#bfa36f;">Duration:</td><td style="padding:8px; border-bottom:1px solid #3a2e25;">60 Minutes</td></tr>
+          <tr><td style="padding:8px; border-bottom:1px solid #3a2e25; color:#bfa36f;">Duration:</td><td style="padding:8px; border-bottom:1px solid #3a2e25;">${durationMinutes} Minutes</td></tr>
           <tr><td style="padding:8px; border-bottom:1px solid #3a2e25; color:#bfa36f;">Amount Paid:</td><td style="padding:8px; border-bottom:1px solid #3a2e25;">₹${apt.appointment_price.toLocaleString('en-IN')} INR</td></tr>
           <tr><td style="padding:8px; border-bottom:1px solid #3a2e25; color:#bfa36f;">Payment Status:</td><td style="padding:8px; border-bottom:1px solid #3a2e25;">${apt.payment_status} (${apt.payment_reference})</td></tr>
         </table>
@@ -727,22 +741,97 @@ async function confirmVerifiedAppointmentPayment(
 
   apt.payment_status = 'Paid';
   apt.appointment_status = 'Confirmed';
+  apt.scheduling_status = 'Paid — Scheduling Pending';
   apt.payment_reference = providerPaymentId;
   apt.updated_at = nowIso;
   apt.history.push({
     timestamp: nowIso,
-    action: 'Payment Verified & Appointment Confirmed',
+    action: 'Payment Verified — Paid — Scheduling Pending',
     actor,
-    details: `Verified Razorpay UPI payment (${providerPaymentId}) of ₹${apt.appointment_price.toLocaleString('en-IN')} INR.`,
+    details: `Verified Razorpay UPI payment (${providerPaymentId}) of ₹${apt.appointment_price.toLocaleString('en-IN')} INR. Ram Ashok Kumar will coordinate schedule after 3 days and within 1 month.`,
   });
 
-  // Trigger Customer & Administrator transactional email notifications
+  // Trigger Customer & Administrator transactional email + WhatsApp Payment Done Cards
   await Promise.allSettled([
     dispatchEmailNotification(db, apt, 'customer_confirmation'),
     dispatchEmailNotification(db, apt, 'admin_notification'),
+    dispatchWhatsAppCards(apt),
   ]);
 
   return { alreadyConfirmed: false };
+}
+
+async function dispatchWhatsAppCards(apt: AppointmentRecord): Promise<void> {
+  const ramWhatsApp = '919150990786';
+  const rawCustomerDigits = String(apt.customer_phone || '').replace(/\D/g, '');
+  const customerWhatsApp =
+    rawCustomerDigits.length === 10
+      ? `91${rawCustomerDigits}`
+      : rawCustomerDigits.length === 11 && rawCustomerDigits.startsWith('0')
+        ? `91${rawCustomerDigits.slice(1)}`
+        : rawCustomerDigits;
+
+  const durationMinutes = apt.appointment_type === 'phone_consultation' ? 30 : 60;
+  const typeLabel = getAppointmentTypeDisplay(apt.appointment_type);
+  const modeLabel =
+    apt.appointment_type === 'phone_consultation' ? 'Phone Call' : 'Physical Meeting';
+
+  const buildCardBody = (isAdmin: boolean) =>
+    [
+      isAdmin
+        ? `✅ *NEW PAYMENT DONE & CONSULTATION CARD*\n*RAM ASHOK KUMAR — CONSULTATION REGISTRY*`
+        : `✅ *PAYMENT DONE & CONSULTATION CONFIRMED*\n*RAM ASHOK KUMAR — OFFICIAL RECEIPT CARD*`,
+      `━━━━━━━━━━━━━━━━━━━━━━`,
+      `🔖 *Booking Reference:* ${apt.booking_reference}`,
+      `💳 *Payment Status:* PAID & VERIFIED ✓`,
+      `💰 *Amount Paid:* ₹${apt.appointment_price.toLocaleString('en-IN')} INR`,
+      `🏦 *Merchant UPI ID:* ramashokkumar@oksbi`,
+      `🧾 *UPI / Payment Ref:* ${apt.payment_reference || 'VERIFIED-UPI'}`,
+      `━━━━━━━━━━━━━━━━━━━━━━`,
+      `📋 *CONSULTATION DETAILS*`,
+      `• *Type:* ${typeLabel}`,
+      `• *Duration:* ${durationMinutes} Minutes`,
+      `• *Mode:* ${modeLabel}`,
+      `━━━━━━━━━━━━━━━━━━━━━━`,
+      `👤 *CUSTOMER FULL INFORMATION*`,
+      `• *Full Name:* ${apt.customer_name}`,
+      `• *Phone / WhatsApp:* ${apt.customer_phone}`,
+      `• *Email:* ${apt.customer_email}`,
+      `• *Address:* ${apt.customer_address}`,
+      `━━━━━━━━━━━━━━━━━━━━━━`,
+      `📝 *CONSULTATION PURPOSE / CASE SUMMARY*`,
+      `${apt.consultation_reason}`,
+      ...(apt.additional_message
+        ? [`━━━━━━━━━━━━━━━━━━━━━━`, `💬 *ADDITIONAL MESSAGE*\n${apt.additional_message}`]
+        : []),
+    ].join('\n');
+
+  const waAccessToken = process.env.WHATSAPP_ACCESS_TOKEN;
+  const waPhoneNumberId = process.env.WHATSAPP_PHONE_NUMBER_ID;
+
+  if (waAccessToken && waPhoneNumberId) {
+    const sendWaMessage = async (to: string, body: string) => {
+      if (!to) return;
+      await fetch(`https://graph.facebook.com/v20.0/${waPhoneNumberId}/messages`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${waAccessToken}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          messaging_product: 'whatsapp',
+          to,
+          type: 'text',
+          text: { body },
+        }),
+      });
+    };
+
+    await Promise.allSettled([
+      sendWaMessage(ramWhatsApp, buildCardBody(true)),
+      sendWaMessage(customerWhatsApp, buildCardBody(false)),
+    ]);
+  }
 }
 
 // ============================================================================
@@ -979,7 +1068,7 @@ async function startServer() {
               nameHi: 'निजी फ़ोन परामर्श',
               price: s.phone_consultation_price,
               currency: 'INR',
-              durationMinutes: s.appointment_duration,
+              durationMinutes: 30,
               meetingMethodEn: 'Phone call',
               meetingMethodHi: 'फ़ोन कॉल',
               descriptionEn:
@@ -1009,6 +1098,8 @@ async function startServer() {
           booking_advance_days: s.booking_advance_days,
           operating_days: s.operating_days,
           blocked_dates: blockedDates,
+          refund_policy_text: s.refund_policy_text || '',
+          terms_version: BOOKING_TERMS_VERSION,
           razorpay_configured: isRazorpayLiveOrTestConfigured,
           razorpay_key_id: process.env.RAZORPAY_KEY_ID || null,
         };
@@ -1158,8 +1249,13 @@ async function startServer() {
         const customerEmail = sanitizeText(req.body?.customer_email, 254).toLowerCase();
         const customerPhone = sanitizeText(req.body?.customer_phone, 24);
         const customerAddress = sanitizeText(req.body?.customer_address, 600);
-        const appointmentDate = sanitizeText(req.body?.appointment_date, 10);
-        const startTime = sanitizeText(req.body?.start_time, 20);
+        const rawDateInput = normalizeIncomingDate(
+          sanitizeText(req.body?.appointment_date, 20)
+        );
+        const appointmentDate = isValidDateString(rawDateInput)
+          ? rawDateInput
+          : getCurrentISTParts().dateStr;
+        const startTimeRaw = sanitizeText(req.body?.start_time, 30);
         const consultationReason = sanitizeText(req.body?.consultation_reason, 2500);
         const additionalMessage = sanitizeText(req.body?.additional_message, 2000);
         const termsAccepted = Boolean(req.body?.terms_accepted);
@@ -1192,14 +1288,14 @@ async function startServer() {
             .status(400)
             .json({ error: 'Please enter your full residential or correspondence address.' });
         }
-        if (!isValidDateString(appointmentDate)) {
-          return res.status(400).json({ error: 'Please select a valid appointment date.' });
-        }
 
-        const matchedSlot = STANDARD_TIME_SLOTS.find((s) => s.start_time === startTime);
-        if (!matchedSlot) {
-          return res.status(400).json({ error: 'Please select a valid 60-minute time slot.' });
-        }
+        const matchedSlot = STANDARD_TIME_SLOTS.find((s) => s.start_time === startTimeRaw) || {
+          slotNumber: 0,
+          start_time: '12:00 PM',
+          end_time: '9:00 PM',
+          startHour24: 21,
+          endHour24: 21,
+        };
 
         if (consultationReason.length < 10) {
           return res.status(400).json({
@@ -1210,107 +1306,19 @@ async function startServer() {
 
         if (!termsAccepted) {
           return res.status(400).json({
-            error: 'You must accept the booking terms and conditions to proceed.',
+            error: MANDATORY_CONSENT_VALIDATION_MESSAGE,
           });
         }
 
-        // Concurrency-safe check & slot reservation inside mutex lock
+        // Concurrency-safe check & booking creation inside mutex lock
         const creationResult = await withBookingLock((db) => {
           expirePendingBookingsSync(db);
 
-          const { dateStr: todayIST, hour24: currentHourIST } = getCurrentISTParts();
           const s = db.admin_settings;
-
-          if (appointmentDate < todayIST) {
-            return {
-              status: 400,
-              body: { error: 'Cannot book an appointment on a past date.' },
-            };
-          }
-
-          const maxDateObj = new Date(`${todayIST}T00:00:00+05:30`);
-          maxDateObj.setDate(maxDateObj.getDate() + s.booking_advance_days);
-          const maxDateIST = maxDateObj.toISOString().slice(0, 10);
-          if (appointmentDate > maxDateIST) {
-            return {
-              status: 400,
-              body: {
-                error: `Appointments can only be scheduled up to ${s.booking_advance_days} days in advance.`,
-              },
-            };
-          }
-
-          if (appointmentDate === todayIST && matchedSlot.startHour24 <= currentHourIST) {
-            return {
-              status: 400,
-              body: {
-                error: 'The selected time slot for today has already passed. Please choose a later slot.',
-              },
-            };
-          }
-
-          // Check date or slot block
-          const isBlocked = db.availability.some(
-            (a) =>
-              a.date === appointmentDate &&
-              (a.start_time === 'FULL_DAY' || a.start_time === matchedSlot.start_time) &&
-              !a.is_available
-          );
-          if (isBlocked) {
-            return {
-              status: 409,
-              body: {
-                error: 'This date or time slot is blocked by the administrator. Please select another slot.',
-              },
-            };
-          }
-
-          // Check if slot is already confirmed or completed (paid)
-          const confirmedBooking = db.appointments.find(
-            (apt) =>
-              apt.appointment_date === appointmentDate &&
-              apt.start_time === matchedSlot.start_time &&
-              ['Confirmed', 'Completed'].includes(apt.appointment_status)
-          );
-
-          if (confirmedBooking) {
-            return {
-              status: 409,
-              body: {
-                error:
-                  'This time slot has already been booked and confirmed. Please select a different slot.',
-              },
-            };
-          }
-
-          // If there are any prior unpaid "Pending Payment" drafts for this slot, supersede/expire them
-          // so an unpaid test or abandoned QR screen never blocks a new booking attempt.
           const nowMs = Date.now();
           const nowIso = new Date(nowMs).toISOString();
-          for (const apt of db.appointments) {
-            if (
-              apt.appointment_date === appointmentDate &&
-              apt.start_time === matchedSlot.start_time &&
-              apt.appointment_status === 'Pending Payment' &&
-              apt.payment_status !== 'Paid'
-            ) {
-              apt.appointment_status = 'Expired';
-              apt.payment_status = 'Expired';
-              apt.updated_at = nowIso;
-              apt.history.push({
-                timestamp: nowIso,
-                action: 'Unpaid Draft Superseded',
-                actor: 'system',
-                details: 'Superseded by a new booking session before payment was completed.',
-              });
-              for (const pay of db.payments) {
-                if (pay.appointment_id === apt.id && pay.payment_status === 'Pending') {
-                  pay.payment_status = 'Expired';
-                  pay.updated_at = nowIso;
-                }
-              }
-            }
-          }
+          const termsAcceptedAtIST = formatISTTimestamp(new Date(nowMs));
+          const termsTextSnapshot = buildTermsTextSnapshot(s.refund_policy_text);
 
           // Determine exact payable price server-side
           const serverPrice =
@@ -1364,12 +1372,17 @@ async function startServer() {
             completed_at: null,
             cancelled_at: null,
             admin_notes: '',
+            terms_accepted: true,
+            terms_version: BOOKING_TERMS_VERSION,
+            terms_accepted_at: termsAcceptedAtIST,
+            terms_text_snapshot: termsTextSnapshot,
+            scheduling_status: 'Pending Payment',
             history: [
               {
                 timestamp: nowIso,
-                action: 'Booking Initiated (Pending Payment)',
+                action: 'Terms Accepted & Booking Initiated (Pending Payment)',
                 actor: 'customer',
-                details: `Initiated booking for ${appointmentDate} (${matchedSlot.start_time} – ${matchedSlot.end_time} IST) for ₹${serverPrice.toLocaleString('en-IN')} INR. QR payment window active for 10 minutes.`,
+                details: `Customer accepted Booking Terms (${BOOKING_TERMS_VERSION}) at ${termsAcceptedAtIST}. Initiated booking (${bookingReference}) for ₹${serverPrice.toLocaleString('en-IN')} INR.`,
               },
             ],
           };
@@ -1384,15 +1397,25 @@ async function startServer() {
                 booking_reference: newAppointment.booking_reference,
                 access_token: newAppointment.access_token,
                 customer_name: newAppointment.customer_name,
+                customer_email: newAppointment.customer_email,
+                customer_phone: newAppointment.customer_phone,
+                customer_address: newAppointment.customer_address,
+                consultation_reason: newAppointment.consultation_reason,
+                additional_message: newAppointment.additional_message,
                 appointment_type: newAppointment.appointment_type,
                 appointment_price: newAppointment.appointment_price,
                 appointment_date: newAppointment.appointment_date,
                 start_time: newAppointment.start_time,
                 end_time: newAppointment.end_time,
                 timezone: newAppointment.timezone,
-                duration_minutes: s.appointment_duration,
+                duration_minutes: appointmentType === 'phone_consultation' ? 30 : s.appointment_duration,
                 appointment_status: newAppointment.appointment_status,
                 payment_status: newAppointment.payment_status,
+                scheduling_status: newAppointment.scheduling_status,
+                terms_accepted: newAppointment.terms_accepted,
+                terms_version: newAppointment.terms_version,
+                terms_accepted_at: newAppointment.terms_accepted_at,
+                terms_text_snapshot: newAppointment.terms_text_snapshot,
                 reservation_expires_at: newAppointment.reservation_expires_at,
               },
             },
@@ -1431,6 +1454,16 @@ async function startServer() {
 
           if (!apt) {
             return { status: 404, body: { error: 'Booking record not found or unauthorized.' } };
+          }
+
+          // Strict Payment Gate: Reject payment creation if server-recorded consent is missing
+          if (!apt.terms_accepted || !apt.terms_accepted_at || !apt.terms_text_snapshot) {
+            return {
+              status: 400,
+              body: {
+                error: MANDATORY_CONSENT_VALIDATION_MESSAGE,
+              },
+            };
           }
 
           if (apt.appointment_status === 'Expired') {
@@ -1928,6 +1961,11 @@ async function startServer() {
             booking: {
               booking_reference: apt.booking_reference,
               customer_name: apt.customer_name,
+              customer_email: apt.customer_email,
+              customer_phone: apt.customer_phone,
+              customer_address: apt.customer_address,
+              consultation_reason: apt.consultation_reason,
+              additional_message: apt.additional_message,
               appointment_type: apt.appointment_type,
               appointment_type_label: getAppointmentTypeDisplay(apt.appointment_type),
               appointment_price: apt.appointment_price,
@@ -1935,7 +1973,10 @@ async function startServer() {
               start_time: apt.start_time,
               end_time: apt.end_time,
               timezone: apt.timezone,
-              duration_minutes: db.admin_settings.appointment_duration,
+              duration_minutes:
+                apt.appointment_type === 'phone_consultation'
+                  ? 30
+                  : db.admin_settings.appointment_duration,
               meeting_method: meetingMethod,
               appointment_status: apt.appointment_status,
               payment_status: apt.payment_status,
@@ -2320,6 +2361,9 @@ async function startServer() {
           }
           s.email_notifications_enabled = emailEnabled;
           s.reminders_enabled = remindersEnabled;
+          if (typeof req.body?.refund_policy_text === 'string') {
+            s.refund_policy_text = sanitizeText(req.body.refund_policy_text, 2000);
+          }
           s.updated_at = new Date().toISOString();
           return s;
         });

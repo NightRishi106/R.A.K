@@ -14,6 +14,12 @@ import {
   RefreshCw,
   QrCode,
   Lock,
+  Download,
+  MessageCircle,
+  Share2,
+  ChevronDown,
+  ChevronUp,
+  FileText,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
@@ -26,6 +32,18 @@ import {
   confirmDomainBookingPayment,
   releaseDomainPendingBooking,
 } from '../lib/domainBookingEngine';
+import {
+  buildRamWhatsAppCardUrl,
+  buildCustomerWhatsAppCardUrl,
+  generatePaymentCardDataUrl,
+  type WhatsAppCardPayload,
+} from '../lib/whatsappCardGenerator';
+import {
+  BOOKING_TERMS_VERSION,
+  MANDATORY_CONSENT_CHECKBOX_LABEL,
+  MANDATORY_CONSENT_VALIDATION_MESSAGE,
+  getBookingTermsClauses,
+} from '../lib/bookingTerms';
 
 type AppointmentTypeId = 'phone_consultation' | 'in_person_consultation';
 
@@ -56,6 +74,11 @@ interface ActiveBooking {
   booking_reference: string;
   access_token: string;
   customer_name: string;
+  customer_email?: string;
+  customer_phone?: string;
+  customer_address?: string;
+  consultation_reason?: string;
+  additional_message?: string;
   appointment_type: AppointmentTypeId;
   appointment_price: number;
   appointment_date: string;
@@ -65,7 +88,12 @@ interface ActiveBooking {
   duration_minutes: number;
   appointment_status: 'Pending Payment' | 'Confirmed' | 'Completed' | 'Cancelled' | 'Expired';
   payment_status: 'Pending' | 'Paid' | 'Failed' | 'Expired' | 'Refunded';
+  scheduling_status?: string;
   payment_reference?: string;
+  terms_accepted?: boolean;
+  terms_version?: string;
+  terms_accepted_at?: string;
+  terms_text_snapshot?: string;
   reservation_expires_at: string;
 }
 
@@ -97,13 +125,13 @@ const DEFAULT_APPOINTMENT_TYPES: AppointmentTypeConfig[] = [
     nameHi: 'निजी फ़ोन परामर्श',
     price: 5100,
     currency: 'INR',
-    durationMinutes: 60,
+    durationMinutes: 30,
     meetingMethodEn: 'Phone call',
     meetingMethodHi: 'फ़ोन कॉल',
     descriptionEn:
-      'Direct one-on-one phone consultation with Ram Ashok Kumar for anomaly analysis, spiritual diagnostics, or field case guidance. Ram will contact you on your provided number at the confirmed appointment time.',
+      'Direct 30-minute one-on-one phone consultation with Ram Ashok Kumar. After verified payment, your consultation schedule will be coordinated within 4:00 PM to 7:00 PM IST (no earlier than 3 days and within 1 month of payment).',
     descriptionHi:
-      'असाधारण घटनाओं के विश्लेषण, आध्यात्मिक परामर्श या क्षेत्रीय मार्गदर्शन हेतु राम अशोक कुमार के साथ सीधा व्यक्तिगत फ़ोन संवाद। निर्धारित समय पर राम जी आपके दिए गए नंबर पर संपर्क करेंगे।',
+      'राम अशोक कुमार के साथ ३०-मिनट का सीधा व्यक्तिगत फ़ोन परामर्श। भुगतान सत्यापित होने के ३ दिन बाद और १ माह के भीतर (शाम ४:०० से ७:०० बजे IST के मध्य) आपके परामर्श का समय समन्वित किया जाएगा।',
   },
   {
     id: 'in_person_consultation',
@@ -113,12 +141,12 @@ const DEFAULT_APPOINTMENT_TYPES: AppointmentTypeConfig[] = [
     price: 11000,
     currency: 'INR',
     durationMinutes: 60,
-    meetingMethodEn: 'Physical meeting',
-    meetingMethodHi: 'प्रत्यक्ष भेंट',
+    meetingMethodEn: 'Physical meeting (Delhi Only)',
+    meetingMethodHi: 'प्रत्यक्ष भेंट (केवल दिल्ली)',
     descriptionEn:
-      'Private, confidential in-person consultation with Ram Ashok Kumar. The exact meeting chamber location will be confirmed individually after your booking is verified.',
+      'Private, confidential face-to-face consultation with Ram Ashok Kumar, available exclusively in Delhi. After verified payment, the mutually agreed meeting date, time, and location will be coordinated (after 3 days and within 1 month).',
     descriptionHi:
-      'राम अशोक कुमार के साथ गोपनीय प्रत्यक्ष व्यक्तिगत परामर्श। आपकी बुकिंग और भुगतान सत्यापित होने के पश्चात् भेंट का सटीक स्थान व्यक्तिगत रूप से साझा किया जाएगा।',
+      'राम अशोक कुमार के साथ गोपनीय प्रत्यक्ष व्यक्तिगत परामर्श (केवल दिल्ली में उपलब्ध)। भुगतान सत्यापित होने के ३ दिन बाद और १ माह के भीतर भेंट की तिथि, समय और स्थान व्यक्तिगत रूप से समन्वित किया जाएगा।',
   },
 ];
 
@@ -156,6 +184,8 @@ export default function AppointmentBookingSection({
   const [consultationReason, setConsultationReason] = useState('');
   const [additionalMessage, setAdditionalMessage] = useState('');
   const [termsAccepted, setTermsAccepted] = useState(false);
+  const [showFullTerms, setShowFullTerms] = useState(true);
+  const [refundPolicyText, setRefundPolicyText] = useState('');
 
   // Availability state (initialized immediately with IST slots so custom domains never show empty slots)
   const [slots, setSlots] = useState<SlotItem[]>(
@@ -180,6 +210,8 @@ export default function AppointmentBookingSection({
   const selectedTypeObj =
     appointmentTypes.find((item) => item.id === selectedTypeId) || appointmentTypes[0];
 
+  const termsClauses = getBookingTermsClauses(refundPolicyText);
+
   // Fetch initial configuration from backend (with automatic domain fallback)
   useEffect(() => {
     let mounted = true;
@@ -188,11 +220,16 @@ export default function AppointmentBookingSection({
       min_date?: string;
       max_date?: string;
       blocked_dates?: string[];
+      refund_policy_text?: string;
     }>('/api/booking-config')
       .then(({ ok, data }) => {
         if (!mounted || !ok || !data) return;
         if (Array.isArray(data.appointment_types) && data.appointment_types.length === 2) {
-          setAppointmentTypes(data.appointment_types);
+          setAppointmentTypes(
+            data.appointment_types.map((item) =>
+              item.id === 'phone_consultation' ? { ...item, durationMinutes: 30 } : item
+            )
+          );
         }
         if (data.min_date) {
           setMinDate(data.min_date);
@@ -200,6 +237,9 @@ export default function AppointmentBookingSection({
         }
         if (data.max_date) setMaxDate(data.max_date);
         if (Array.isArray(data.blocked_dates)) setBlockedDates(data.blocked_dates);
+        if (typeof data.refund_policy_text === 'string') {
+          setRefundPolicyText(data.refund_policy_text);
+        }
       })
       .catch(() => {});
     return () => {
@@ -362,18 +402,6 @@ export default function AppointmentBookingSection({
     if (customerAddress.trim().length < 5) {
       return t('Please enter your complete address.', 'कृपया अपना पूरा पता दर्ज करें।');
     }
-    if (!selectedDate || selectedDate < minDate) {
-      return t('Please select a valid upcoming appointment date.', 'कृपया एक मान्य आगामी तिथि चुनें।');
-    }
-    if (blockedDates.includes(selectedDate)) {
-      return t(
-        'The selected date is unavailable. Please choose another date.',
-        'चयनित तिथि उपलब्ध नहीं है। कृपया अन्य तिथि चुनें।'
-      );
-    }
-    if (!selectedSlot) {
-      return t('Please select an available 60-minute time slot.', 'कृपया एक उपलब्ध समय स्लॉट चुनें।');
-    }
     if (consultationReason.trim().length < 10) {
       return t(
         'Please explain the reason for your consultation (minimum 10 characters).',
@@ -381,10 +409,7 @@ export default function AppointmentBookingSection({
       );
     }
     if (!termsAccepted) {
-      return t(
-        'Please accept the booking terms and conditions to proceed.',
-        'आगे बढ़ने के लिए कृपया बुकिंग नियम एवं शर्तें स्वीकार करें।'
-      );
+      return MANDATORY_CONSENT_VALIDATION_MESSAGE;
     }
     return null;
   };
@@ -446,6 +471,9 @@ export default function AppointmentBookingSection({
             sectionTopRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }, 60);
           return;
+        } else if (payRes.data?.error) {
+          setFormError(payRes.data.error);
+          return;
         }
       } else if (createRes.status >= 400 && createRes.status < 500 && createRes.data?.error) {
         setFormError(createRes.data.error);
@@ -464,6 +492,7 @@ export default function AppointmentBookingSection({
         start_time: selectedSlot,
         consultation_reason: consultationReason.trim(),
         additional_message: additionalMessage.trim(),
+        terms_accepted: termsAccepted,
       });
 
       setActiveBooking(domainResult.booking);
@@ -588,6 +617,70 @@ export default function AppointmentBookingSection({
     setTimeout(() => setCopiedUpi(false), 2000);
   };
 
+  const whatsappCardPayload: WhatsAppCardPayload | null = activeBooking
+    ? {
+        booking_reference: activeBooking.booking_reference,
+        customer_name: activeBooking.customer_name || customerName.trim(),
+        customer_email: activeBooking.customer_email || customerEmail.trim(),
+        customer_phone: activeBooking.customer_phone || customerPhone.trim(),
+        customer_address: activeBooking.customer_address || customerAddress.trim(),
+        appointment_type: activeBooking.appointment_type,
+        appointment_price: activeBooking.appointment_price,
+        duration_minutes:
+          activeBooking.appointment_type === 'phone_consultation'
+            ? 30
+            : activeBooking.duration_minutes,
+        payment_status: activeBooking.payment_status,
+        payment_reference:
+          activeBooking.payment_reference ||
+          utrInput.trim() ||
+          activePayment?.provider_qr_id ||
+          'VERIFIED-UPI',
+        upi_id: activePayment?.upi_id || 'ramashokkumar@oksbi',
+        consultation_reason: activeBooking.consultation_reason || consultationReason.trim(),
+        additional_message: activeBooking.additional_message || additionalMessage.trim(),
+      }
+    : null;
+
+  const paymentCardImageUrl =
+    step === 'confirmed' && whatsappCardPayload
+      ? generatePaymentCardDataUrl(whatsappCardPayload)
+      : '';
+
+  const handleDownloadPaymentCard = () => {
+    if (!paymentCardImageUrl || !activeBooking) return;
+    const link = document.createElement('a');
+    link.href = paymentCardImageUrl;
+    link.download = `${activeBooking.booking_reference}-Payment-Done-Card.png`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleNativeShareCard = async () => {
+    if (!paymentCardImageUrl || !whatsappCardPayload) return;
+    try {
+      const res = await fetch(paymentCardImageUrl);
+      const blob = await res.blob();
+      const file = new File(
+        [blob],
+        `${whatsappCardPayload.booking_reference}-Payment-Done-Card.png`,
+        { type: 'image/png' }
+      );
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          title: `Payment Done Card — ${whatsappCardPayload.booking_reference}`,
+          text: `Payment Done & Consultation Confirmed (${whatsappCardPayload.booking_reference}) — Ram Ashok Kumar`,
+          files: [file],
+        });
+        return;
+      }
+    } catch {
+      // Fall back to downloading the PNG card
+    }
+    handleDownloadPaymentCard();
+  };
+
   const formatCountdown = (totalSeconds: number) => {
     const mins = Math.floor(totalSeconds / 60);
     const secs = totalSeconds % 60;
@@ -631,7 +724,12 @@ export default function AppointmentBookingSection({
             <span aria-hidden="true">·</span>
             <span className="tabular-nums">12:00 PM – 9:00 PM IST (Asia/Kolkata)</span>
             <span aria-hidden="true">·</span>
-            <span>{t('60-Minute Private Session', '६०-मिनट का निजी सत्र')}</span>
+            <span>
+              {t(
+                '30-Min Phone & 60-Min In-Person Sessions',
+                '३०-मिनट फ़ोन एवं ६०-मिनट प्रत्यक्ष सत्र'
+              )}
+            </span>
           </div>
         </div>
 
@@ -712,21 +810,21 @@ export default function AppointmentBookingSection({
                         {isPhone ? (
                           <p>
                             <strong className="text-gold-warm font-medium">
-                              {t('Consultation Protocol:', 'परामर्श प्रक्रिया:')}
+                              {t('Consultation Protocol (4:00 PM – 7:00 PM IST):', 'परामर्श प्रक्रिया (शाम ४:०० – ७:०० IST):')}
                             </strong>{' '}
                             {t(
-                              'Please provide an active phone number. Ram Ashok Kumar will call you directly at your confirmed appointment slot.',
-                              'कृपया अपना सक्रिय फ़ोन नंबर प्रदान करें। राम अशोक कुमार निर्धारित समय स्लॉट पर सीधे आपको कॉल करेंगे।'
+                              'Private phone consultations last 30 minutes and are coordinated within 4:00 PM to 7:00 PM IST (no earlier than 3 days and within 1 month after verified payment).',
+                              'निजी फ़ोन परामर्श ३० मिनट का होता है तथा भुगतान सत्यापित होने के ३ दिन बाद और १ माह के भीतर (शाम ४:०० से ७:०० बजे IST के मध्य) समन्वित किया जाता है।'
                             )}
                           </p>
                         ) : (
                           <p>
                             <strong className="text-gold-warm font-medium">
-                              {t('Location Confidentiality:', 'स्थान गोपनीयता:')}
+                              {t('In-Person Protocol (Delhi Exclusively):', 'प्रत्यक्ष भेंट प्रक्रिया (केवल दिल्ली):')}
                             </strong>{' '}
                             {t(
-                              'For security and privacy, the physical meeting location is confirmed individually after verified booking.',
-                              'सुरक्षा एवं गोपनीयता के दृष्टिगत, बुकिंग सत्यापित होने के पश्चात् प्रत्यक्ष भेंट का स्थान व्यक्तिगत रूप से साझा किया जाएगा।'
+                              'Face-to-face consultations (60 minutes) are available exclusively in Delhi. Ram Ashok Kumar will personally coordinate the mutually agreed meeting date, time, and location after verified payment.',
+                              'प्रत्यक्ष व्यक्तिगत परामर्श (६० मिनट) केवल दिल्ली में उपलब्ध है। भुगतान सत्यापित होने के पश्चात् भेंट की तिथि, समय और स्थान व्यक्तिगत रूप से निर्धारित किया जाएगा।'
                             )}
                           </p>
                         )}
@@ -929,160 +1027,10 @@ export default function AppointmentBookingSection({
                   </div>
                 </div>
 
-                {/* Part B: Date & Time Slot Scheduling */}
-                <div>
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-2 border-b border-bronze-dark/40">
-                    <h4 className="font-serif text-lg text-gold-warm">
-                      {t(
-                        '02. Select Appointment Date & Time Slot (IST)',
-                        '०२. परामर्श तिथि एवं समय स्लॉट चुनें (IST)'
-                      )}
-                    </h4>
-                    <span className="font-mono text-xs text-ancient-beige/65">
-                      {t('Timezone: Asia/Kolkata (12:00 PM – 9:00 PM)', 'समय क्षेत्र: भारतीय मानक समय')}
-                    </span>
-                  </div>
-
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-                    {/* Date Picker Column */}
-                    <div className="lg:col-span-4">
-                      <label
-                        htmlFor="booking-date"
-                        className="block font-mono text-xs uppercase tracking-wider text-ancient-beige/85 mb-2"
-                      >
-                        <Calendar className="w-3.5 h-3.5 inline mr-1.5 text-gold-warm" />
-                        {t('Preferred Date', 'पसंदीदा तिथि')} <span className="text-gold-warm">*</span>
-                      </label>
-                      <input
-                        id="booking-date"
-                        type="date"
-                        required
-                        min={minDate}
-                        max={maxDate || undefined}
-                        value={selectedDate}
-                        onChange={(e) => setSelectedDate(e.target.value)}
-                        className="w-full px-4 py-3 rounded-lg bg-[#120d0a] border border-bronze-dark/70 focus:border-gold-warm focus:outline-none text-ancient-beige font-mono text-sm tabular-nums"
-                      />
-                      <p className="mt-2 text-xs text-ancient-beige/60 leading-relaxed">
-                        {t(
-                          'Select any open date. Each confirmed booking or active payment holds a slot exclusively.',
-                          'कोई भी उपलब्ध तिथि चुनें। प्रत्येक स्लॉट में केवल एक ही परामर्श निर्धारित होता है।'
-                        )}
-                      </p>
-                    </div>
-
-                    {/* Time Slots Grid Column */}
-                    <div className="lg:col-span-8">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="font-mono text-xs uppercase tracking-wider text-ancient-beige/85">
-                          <Clock className="w-3.5 h-3.5 inline mr-1.5 text-gold-warm" />
-                          {t('Available 60-Minute Slots', 'उपलब्ध ६०-मिनट के समय स्लॉट')}{' '}
-                          <span className="text-gold-warm">*</span>
-                        </span>
-                        <button
-                          type="button"
-                          onClick={() => fetchAvailability(selectedDate)}
-                          className="inline-flex items-center gap-1 text-xs font-mono text-gold-faded hover:text-gold-warm cursor-pointer"
-                        >
-                          <RefreshCw className={`w-3 h-3 ${loadingSlots ? 'animate-spin' : ''}`} />
-                          {t('Refresh', 'ताज़ा करें')}
-                        </button>
-                      </div>
-
-                      {dateBlockedReason ? (
-                        <div className="p-5 rounded-lg bg-[#140f0c] border border-amber-700/50 text-amber-200 text-sm flex items-start gap-3">
-                          <AlertCircle className="w-5 h-5 shrink-0 text-amber-400 mt-0.5" />
-                          <div>
-                            <p className="font-medium">{dateBlockedReason}</p>
-                            <p className="text-xs text-ancient-beige/65 mt-1">
-                              {t(
-                                'Please choose another date above to view available time slots.',
-                                'उपलब्ध समय स्लॉट देखने के लिए कृपया ऊपर कोई अन्य तिथि चुनें।'
-                              )}
-                            </p>
-                          </div>
-                        </div>
-                      ) : (
-                        <>
-                          {slots.length > 0 && slots.every((s) => s.status === 'passed') && (
-                            <div className="mb-3 p-3.5 rounded-lg bg-amber-950/40 border border-amber-500/40 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-amber-200">
-                              <span>
-                                {t(
-                                  "Today's consultation hours (12:00 PM – 9:00 PM IST) have concluded.",
-                                  'आज के परामर्श समय (दोपहर १२:०० – रात्रि ९:०० IST) समाप्त हो चुके हैं।'
-                                )}
-                              </span>
-                              <button
-                                type="button"
-                                onClick={() => {
-                                  const nextDate = getDefaultBookingDateIST();
-                                  if (nextDate > selectedDate) {
-                                    setSelectedDate(nextDate);
-                                  } else {
-                                    const d = new Date(`${selectedDate}T12:00:00+05:30`);
-                                    d.setDate(d.getDate() + 1);
-                                    setSelectedDate(d.toISOString().slice(0, 10));
-                                  }
-                                }}
-                                className="px-3 py-1.5 rounded bg-gold-warm text-[#140f0c] font-mono font-bold uppercase tracking-wider cursor-pointer shrink-0"
-                              >
-                                {t('View Tomorrow Slots →', 'कल के स्लॉट देखें →')}
-                              </button>
-                            </div>
-                          )}
-                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                            {slots.map((slot) => {
-                              const isSelected = selectedSlot === slot.start_time;
-                              const isAvailable = slot.available;
-
-                              let statusLabel = t('Available', 'उपलब्ध');
-                              if (slot.status === 'booked') statusLabel = t('Booked', 'बुक हो चुका');
-                              if (slot.status === 'reserved') statusLabel = t('Reserved', 'आरक्षित');
-                              if (slot.status === 'blocked') statusLabel = t('Unavailable', 'अनुपलब्ध');
-                              if (slot.status === 'passed') statusLabel = t('Passed', 'समय समाप्त');
-
-                              return (
-                                <button
-                                  key={slot.slotNumber}
-                                  type="button"
-                                  disabled={!isAvailable}
-                                  onClick={() => setSelectedSlot(slot.start_time)}
-                                  className={`px-3 py-2.5 rounded-lg border text-left transition-all flex flex-col justify-between ${
-                                    !isAvailable
-                                      ? 'bg-[#110d0a]/60 border-bronze-dark/25 text-ancient-beige/35 cursor-not-allowed'
-                                      : isSelected
-                                        ? 'bg-gold-warm/20 border-gold-warm text-gold-warm shadow-[0_0_15px_rgba(212,175,55,0.2)] cursor-pointer'
-                                        : 'bg-[#120d0a] border-bronze-dark/60 hover:border-gold-faded text-ancient-beige cursor-pointer'
-                                  }`}
-                                >
-                                  <span className="font-mono text-xs sm:text-[13px] font-semibold tabular-nums whitespace-nowrap">
-                                    {slot.start_time} – {slot.end_time}
-                                  </span>
-                                  <span
-                                    className={`text-[10px] font-mono uppercase tracking-wider mt-1 ${
-                                      !isAvailable
-                                        ? 'text-ancient-beige/35'
-                                        : isSelected
-                                          ? 'text-gold-warm font-semibold'
-                                          : 'text-emerald-400/90'
-                                    }`}
-                                  >
-                                    {isSelected ? t('Selected ✓', 'चयनित ✓') : statusLabel}
-                                  </span>
-                                </button>
-                              );
-                            })}
-                          </div>
-                        </>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Part C: Consultation Reason & Additional Message */}
+                {/* Part B: Consultation Reason & Additional Message */}
                 <div>
                   <h4 className="font-serif text-lg text-gold-warm mb-4 pb-2 border-b border-bronze-dark/40">
-                    {t('03. Case Summary & Consultation Purpose', '०३. परामर्श का कारण एवं विवरण')}
+                    {t('02. Case Summary & Consultation Purpose', '०२. परामर्श का कारण एवं विवरण')}
                   </h4>
                   <div className="space-y-5">
                     <div>
@@ -1131,25 +1079,109 @@ export default function AppointmentBookingSection({
                   </div>
                 </div>
 
-                {/* Part D: Terms & Consent */}
-                <div className="p-4 sm:p-5 rounded-lg bg-[#140f0c] border border-bronze-dark/60">
-                  <label className="flex items-start gap-3 cursor-pointer select-none">
-                    <input
-                      type="checkbox"
-                      checked={termsAccepted}
-                      onChange={(e) => setTermsAccepted(e.target.checked)}
-                      className="mt-1 w-4 h-4 accent-[#d4af37] rounded cursor-pointer shrink-0"
-                    />
-                    <span className="text-xs sm:text-sm text-ancient-beige/85 leading-relaxed">
-                      <strong className="text-gold-warm">
-                        {t('I accept the Booking Terms & Conditions:', 'मैं बुकिंग नियम एवं शर्तें स्वीकार करता/करती हूँ:')}
-                      </strong>{' '}
-                      {t(
-                        'I understand that my selected 60-minute slot is held for 10 minutes pending verified UPI payment, that appointments are confirmed strictly upon server-verified payment of the exact fee, and that for in-person consultations the meeting location will be communicated individually after confirmation.',
-                        'मैं समझता/समझती हूँ कि चयनित ६०-मिनट का स्लॉट UPI भुगतान हेतु १० मिनट के लिए आरक्षित रहेगा, भुगतान सत्यापित होने पर ही परामर्श की पुष्टि होगी, तथा प्रत्यक्ष परामर्श हेतु भेंट का स्थान पुष्टि के पश्चात् व्यक्तिगत रूप से साझा किया जाएगा।'
+                {/* Part C: Mandatory Booking Terms & Conditions — Pre-Payment Consent */}
+                <div>
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-4 pb-2 border-b border-bronze-dark/40">
+                    <h4 className="font-serif text-lg text-gold-warm">
+                      {t('03. Booking Terms & Consent', '०३. बुकिंग नियम एवं सहमति')}{' '}
+                      <strong className="font-bold text-ancient-beige text-sm sm:text-base">
+                        ({t('Please Read Terms Before Proceeding', 'कृपया आगे बढ़ने से पूर्व नियम पढ़ें')})
+                      </strong>
+                    </h4>
+                    <button
+                      type="button"
+                      onClick={() => setShowFullTerms((prev) => !prev)}
+                      className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-gold-warm hover:text-[#e5c247] underline underline-offset-4 cursor-pointer"
+                    >
+                      <FileText className="w-3.5 h-3.5" />
+                      <span>Read Full Terms & Conditions</span>
+                      {showFullTerms ? (
+                        <ChevronUp className="w-3.5 h-3.5" />
+                      ) : (
+                        <ChevronDown className="w-3.5 h-3.5" />
                       )}
-                    </span>
-                  </label>
+                    </button>
+                  </div>
+
+                  <div className="rounded-xl bg-[#140f0c] border border-gold-faded/45 p-4 sm:p-6 space-y-5">
+                    {/* Clearly Visible Section Title */}
+                    <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-bronze-dark/50">
+                      <div>
+                        <h5 className="font-serif text-base sm:text-lg font-bold text-gold-warm">
+                          Booking Terms & Conditions
+                        </h5>
+                        <p className="font-mono text-[11px] text-ancient-beige/60">
+                          Mandatory Pre-Payment Consent · Version {BOOKING_TERMS_VERSION}
+                        </p>
+                      </div>
+                      <span className="px-2.5 py-1 rounded bg-amber-950/60 border border-amber-500/40 font-mono text-[11px] text-amber-300">
+                        Pre-Payment Requirement
+                      </span>
+                    </div>
+
+                    {/* Essential Scheduling Condition (Always Visible alongside the Checkbox — Never Hidden) */}
+                    <div className="p-3.5 sm:p-4 rounded-lg bg-[#1d1510] border-l-4 border-gold-warm text-xs sm:text-sm text-ancient-beige/90 space-y-1.5 leading-relaxed">
+                      <p className="font-serif font-bold text-gold-warm text-sm sm:text-base">
+                        Important Scheduling & Coordination Notice (3 Days to 1 Month Window):
+                      </p>
+                      <ul className="list-disc pl-5 space-y-1 text-ancient-beige/85">
+                        <li>
+                          <strong>Purchasing a Consultation (No Immediate Slot Reserved):</strong>{' '}
+                          Payment confirms your consultation booking; it does not reserve an immediate appointment date or time.
+                        </li>
+                        <li>
+                          <strong>3 Days to 1 Month Contact Window:</strong> Ram Ashok Kumar or his representative will contact you <strong>no earlier than 3 days and no later than 1 month</strong> after successful payment to mutually coordinate your consultation date and time.
+                        </li>
+                        <li>
+                          <strong>Phone Consultation (30 Minutes):</strong> Coordinated within the available window of <strong>4:00 PM to 7:00 PM IST</strong>.
+                        </li>
+                        <li>
+                          <strong>In-Person Consultation (60 Minutes — Delhi Only):</strong> Available <strong>exclusively in Delhi</strong>, with date, time, and location communicated personally by Ram Ashok Kumar.
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Full 10 Booking Terms & Conditions Clauses */}
+                    {showFullTerms && (
+                      <div className="p-4 sm:p-5 rounded-lg bg-[#100c09] border border-bronze-dark/60 max-h-96 overflow-y-auto space-y-3 text-xs sm:text-sm text-ancient-beige/85 leading-relaxed">
+                        <ol className="space-y-3 list-decimal pl-5">
+                          {termsClauses.map((clause) => (
+                            <li key={clause.number} className="pl-1">
+                              <strong className="text-gold-warm">{clause.title}:</strong>{' '}
+                              <span>{clause.body}</span>
+                            </li>
+                          ))}
+                        </ol>
+                      </div>
+                    )}
+
+                    {/* Mandatory Consent Checkbox */}
+                    <div className="p-4 rounded-lg bg-[#1b1410] border-2 border-gold-warm/50">
+                      <label
+                        htmlFor="mandatory-booking-terms-checkbox"
+                        className="flex items-start gap-3.5 cursor-pointer select-none"
+                      >
+                        <input
+                          id="mandatory-booking-terms-checkbox"
+                          type="checkbox"
+                          checked={termsAccepted}
+                          onChange={(e) => {
+                            setTermsAccepted(e.target.checked);
+                            if (
+                              e.target.checked &&
+                              formError === MANDATORY_CONSENT_VALIDATION_MESSAGE
+                            ) {
+                              setFormError(null);
+                            }
+                          }}
+                          className="mt-1 w-5 h-5 accent-[#d4af37] rounded cursor-pointer shrink-0"
+                        />
+                        <span className="text-xs sm:text-sm text-ancient-beige font-medium leading-relaxed">
+                          {MANDATORY_CONSENT_CHECKBOX_LABEL}
+                        </span>
+                      </label>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Error Announcement */}
@@ -1267,28 +1299,13 @@ export default function AppointmentBookingSection({
 
                     <div className="flex justify-between gap-4 py-1.5 border-b border-bronze-dark/35">
                       <span className="text-ancient-beige/65">
-                        {t('Selected Date', 'चयनित तिथि')}
-                      </span>
-                      <span className="font-mono text-ancient-beige tabular-nums">
-                        {activeBooking.appointment_date}
-                      </span>
-                    </div>
-
-                    <div className="flex justify-between gap-4 py-1.5 border-b border-bronze-dark/35">
-                      <span className="text-ancient-beige/65">
-                        {t('Selected Time (IST)', 'चयनित समय (IST)')}
-                      </span>
-                      <span className="font-mono text-ancient-beige tabular-nums">
-                        {activeBooking.start_time} – {activeBooking.end_time}
-                      </span>
-                    </div>
-
-                    <div className="flex justify-between gap-4 py-1.5 border-b border-bronze-dark/35">
-                      <span className="text-ancient-beige/65">
                         {t('Appointment Duration', 'परामर्श अवधि')}
                       </span>
                       <span className="font-mono text-ancient-beige tabular-nums">
-                        {activeBooking.duration_minutes} {t('Minutes', 'मिनट')}
+                        {activeBooking.appointment_type === 'phone_consultation'
+                          ? 30
+                          : activeBooking.duration_minutes}{' '}
+                        {t('Minutes', 'मिनट')}
                       </span>
                     </div>
 
@@ -1486,47 +1503,221 @@ export default function AppointmentBookingSection({
                 </button>
               </div>
 
-              {/* Confirmed Appointment Details Table */}
-              <div className="mt-8 p-5 sm:p-6 rounded-lg bg-[#140f0c] border border-bronze-dark/60 text-left space-y-3 text-sm max-w-xl mx-auto">
-                <div className="flex justify-between gap-4 py-1.5 border-b border-bronze-dark/35">
-                  <span className="text-ancient-beige/65">
-                    {t('Appointment Type', 'परामर्श प्रकार')}
-                  </span>
-                  <span className="font-serif font-semibold text-gold-warm text-right">
-                    {activeBooking.appointment_type === 'phone_consultation'
-                      ? 'Private Phone Consultation'
-                      : 'In-Person Consultation'}
-                  </span>
-                </div>
+              {/* Official Payment Done & Full Information Card */}
+              {whatsappCardPayload && (
+                <div className="mt-8 p-5 sm:p-6 rounded-xl bg-[#140f0c] border-2 border-gold-warm/60 text-left space-y-4 text-sm max-w-2xl mx-auto shadow-[0_16px_40px_rgba(0,0,0,0.85)]">
+                  <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-gold-faded/30">
+                    <div>
+                      <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold-faded block">
+                        {t('OFFICIAL RECEIPT & CONSULTATION CARD', 'आधिकारिक भुगतान एवं परामर्श कार्ड')}
+                      </span>
+                      <h4 className="font-serif text-lg sm:text-xl font-bold text-gold-warm">
+                        RAM ASHOK KUMAR — CONSULTATION REGISTRY
+                      </h4>
+                    </div>
+                    <span className="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/60 font-mono text-xs font-bold text-emerald-300">
+                      ✓ PAID — SCHEDULING PENDING
+                    </span>
+                  </div>
 
-                <div className="flex justify-between gap-4 py-1.5 border-b border-bronze-dark/35">
-                  <span className="text-ancient-beige/65">
-                    {t('Date & Time (IST)', 'तिथि एवं समय (IST)')}
-                  </span>
-                  <span className="font-mono text-ancient-beige tabular-nums text-right">
-                    {activeBooking.appointment_date} · {activeBooking.start_time} –{' '}
-                    {activeBooking.end_time}
-                  </span>
-                </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-[#1b1410] p-3.5 rounded-lg border border-bronze-dark/50">
+                    <div>
+                      <span className="block font-mono text-[10px] uppercase text-ancient-beige/60">
+                        {t('Booking Reference', 'बुकिंग संदर्भ')}
+                      </span>
+                      <span className="font-mono text-sm font-bold text-gold-warm">
+                        {whatsappCardPayload.booking_reference}
+                      </span>
+                    </div>
+                    <div className="sm:text-right">
+                      <span className="block font-mono text-[10px] uppercase text-ancient-beige/60">
+                        {t('Amount Paid (UPI Verified)', 'भुगतान की गई राशि (UPI सत्यापित)')}
+                      </span>
+                      <span className="font-mono text-base font-bold text-emerald-400 tabular-nums">
+                        ₹{whatsappCardPayload.appointment_price.toLocaleString('en-IN')} INR
+                      </span>
+                    </div>
+                    <div>
+                      <span className="block font-mono text-[10px] uppercase text-ancient-beige/60">
+                        {t('Merchant UPI ID', 'मर्चेंट UPI ID')}
+                      </span>
+                      <span className="font-mono text-xs text-ancient-beige">
+                        {whatsappCardPayload.upi_id}
+                      </span>
+                    </div>
+                    <div className="sm:text-right">
+                      <span className="block font-mono text-[10px] uppercase text-ancient-beige/60">
+                        {t('UPI / Payment Reference', 'UPI / भुगतान संदर्भ')}
+                      </span>
+                      <span className="font-mono text-xs text-ancient-beige">
+                        {whatsappCardPayload.payment_reference}
+                      </span>
+                    </div>
+                  </div>
 
-                <div className="flex justify-between gap-4 py-1.5 border-b border-bronze-dark/35">
-                  <span className="text-ancient-beige/65">{t('Amount Paid', 'भुगतान की गई राशि')}</span>
-                  <span className="font-mono font-bold text-emerald-400 tabular-nums">
-                    ₹{activeBooking.appointment_price.toLocaleString('en-IN')} INR (Verified)
-                  </span>
-                </div>
+                  <div className="space-y-2.5 pt-1">
+                    <div className="flex justify-between gap-4 py-1.5 border-b border-bronze-dark/35">
+                      <span className="text-ancient-beige/65">
+                        {t('Appointment Type', 'परामर्श प्रकार')}
+                      </span>
+                      <span className="font-serif font-semibold text-gold-warm text-right">
+                        {whatsappCardPayload.appointment_type === 'phone_consultation'
+                          ? 'Private Phone Consultation'
+                          : 'In-Person Consultation'}
+                      </span>
+                    </div>
 
-                <div className="flex justify-between gap-4 py-1.5">
-                  <span className="text-ancient-beige/65">
-                    {t('Meeting Method', 'परामर्श माध्यम')}
-                  </span>
-                  <span className="font-medium text-ancient-beige">
-                    {activeBooking.appointment_type === 'phone_consultation'
-                      ? 'Phone call'
-                      : 'Physical meeting'}
-                  </span>
+                    <div className="flex justify-between gap-4 py-1.5 border-b border-bronze-dark/35">
+                      <span className="text-ancient-beige/65">
+                        {t('Duration & Mode', 'अवधि एवं माध्यम')}
+                      </span>
+                      <span className="font-mono text-ancient-beige tabular-nums text-right">
+                        {whatsappCardPayload.duration_minutes} {t('Minutes', 'मिनट')} ·{' '}
+                        {whatsappCardPayload.appointment_type === 'phone_consultation'
+                          ? 'Phone Call'
+                          : 'Physical Meeting'}
+                      </span>
+                    </div>
+
+                    <div className="flex justify-between gap-4 py-1.5 border-b border-bronze-dark/35">
+                      <span className="text-ancient-beige/65">
+                        {t('Customer Full Name', 'ग्राहक का पूरा नाम')}
+                      </span>
+                      <span className="font-medium text-ancient-beige text-right">
+                        {whatsappCardPayload.customer_name}
+                      </span>
+                    </div>
+
+                    <div className="flex justify-between gap-4 py-1.5 border-b border-bronze-dark/35">
+                      <span className="text-ancient-beige/65">
+                        {t('Phone / WhatsApp Number', 'फ़ोन / व्हाट्सएप नंबर')}
+                      </span>
+                      <span className="font-mono text-ancient-beige text-right">
+                        {whatsappCardPayload.customer_phone}
+                      </span>
+                    </div>
+
+                    <div className="flex justify-between gap-4 py-1.5 border-b border-bronze-dark/35">
+                      <span className="text-ancient-beige/65">
+                        {t('Email Address', 'ईमेल पता')}
+                      </span>
+                      <span className="font-mono text-xs text-ancient-beige text-right break-all">
+                        {whatsappCardPayload.customer_email}
+                      </span>
+                    </div>
+
+                    <div className="flex justify-between gap-4 py-1.5 border-b border-bronze-dark/35">
+                      <span className="text-ancient-beige/65">
+                        {t('Full Address', 'पूरा पता')}
+                      </span>
+                      <span className="text-ancient-beige text-right max-w-xs">
+                        {whatsappCardPayload.customer_address}
+                      </span>
+                    </div>
+
+                    <div className="pt-1.5">
+                      <span className="block font-mono text-[11px] uppercase tracking-wider text-gold-faded mb-1">
+                        {t('Consultation Purpose / Case Summary:', 'परामर्श का कारण एवं विवरण:')}
+                      </span>
+                      <p className="p-3 rounded bg-[#1b1410] border border-bronze-dark/40 text-xs sm:text-sm text-ancient-beige/90 leading-relaxed whitespace-pre-wrap">
+                        {whatsappCardPayload.consultation_reason}
+                        {whatsappCardPayload.additional_message
+                          ? `\n\nNote: ${whatsappCardPayload.additional_message}`
+                          : ''}
+                      </p>
+                    </div>
+
+                    <div className="p-3 rounded bg-[#1b1410] border border-bronze-dark/40 text-xs text-ancient-beige/75 font-mono flex flex-wrap items-center justify-between gap-2">
+                      <span>
+                        Terms Accepted: <strong className="text-emerald-400">Yes ({activeBooking.terms_version || BOOKING_TERMS_VERSION})</strong>
+                      </span>
+                      <span>
+                        Accepted At: <strong className="text-ancient-beige">{activeBooking.terms_accepted_at || 'Recorded (Asia/Kolkata IST)'}</strong>
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Visual Payment Done Card Preview & WhatsApp Dispatch Actions */}
+                  <div className="pt-4 border-t border-gold-faded/30 space-y-4">
+                    <div className="text-center">
+                      <p className="font-mono text-xs uppercase tracking-wider text-gold-warm mb-1">
+                        {t(
+                          'WhatsApp Payment Done Card — Send & Save on Both WhatsApp Numbers',
+                          'व्हाट्सएप भुगतान कार्ड — दोनों व्हाट्सएप नंबरों पर भेजें और सुरक्षित करें'
+                        )}
+                      </p>
+                      <p className="text-xs text-ancient-beige/70">
+                        {t(
+                          'Send the complete verified booking & payment card directly to Ram Ashok Kumar (+91 91509 90786) and to your own WhatsApp below:',
+                          'संपूर्ण सत्यापित बुकिंग एवं भुगतान कार्ड सीधे राम अशोक कुमार (+91 91509 90786) और अपने व्हाट्सएप पर भेजें:'
+                        )}
+                      </p>
+                    </div>
+
+                    {paymentCardImageUrl && (
+                      <div className="flex justify-center">
+                        <img
+                          src={paymentCardImageUrl}
+                          alt={`Payment Done Card ${whatsappCardPayload.booking_reference}`}
+                          className="w-full max-w-xs rounded-lg border border-gold-warm/60 shadow-lg"
+                        />
+                      </div>
+                    )}
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <a
+                        href={buildRamWhatsAppCardUrl(whatsappCardPayload)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="py-3 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-serif font-bold text-xs sm:text-sm uppercase tracking-wider transition-all flex items-center justify-center gap-2 text-center shadow-[0_8px_20px_rgba(16,185,129,0.3)]"
+                      >
+                        <MessageCircle className="w-4 h-4 shrink-0" />
+                        <span>
+                          {t(
+                            'Send Card to Ram Ashok Kumar WhatsApp',
+                            'राम अशोक कुमार के व्हाट्सएप पर कार्ड भेजें'
+                          )}
+                        </span>
+                      </a>
+
+                      <a
+                        href={buildCustomerWhatsAppCardUrl(whatsappCardPayload)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="py-3 px-4 rounded-lg bg-[#25D366]/20 hover:bg-[#25D366]/30 border border-[#25D366]/70 text-emerald-300 font-serif font-bold text-xs sm:text-sm uppercase tracking-wider transition-all flex items-center justify-center gap-2 text-center"
+                      >
+                        <MessageCircle className="w-4 h-4 shrink-0" />
+                        <span>
+                          {t(
+                            'Receive Card on Your WhatsApp',
+                            'अपने व्हाट्सएप पर कार्ड प्राप्त करें'
+                          )}
+                        </span>
+                      </a>
+                    </div>
+
+                    <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
+                      <button
+                        type="button"
+                        onClick={handleDownloadPaymentCard}
+                        className="px-4 py-2 rounded-lg bg-[#1f1814] border border-gold-faded/50 hover:border-gold-warm text-xs font-mono text-gold-warm inline-flex items-center gap-2 cursor-pointer transition-colors"
+                      >
+                        <Download className="w-3.5 h-3.5" />
+                        {t('Download Payment Card (PNG)', 'भुगतान कार्ड डाउनलोड करें (PNG)')}
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={handleNativeShareCard}
+                        className="px-4 py-2 rounded-lg bg-[#1f1814] border border-gold-faded/50 hover:border-gold-warm text-xs font-mono text-ancient-beige hover:text-gold-warm inline-flex items-center gap-2 cursor-pointer transition-colors"
+                      >
+                        <Share2 className="w-3.5 h-3.5" />
+                        {t('Share Card Image to WhatsApp', 'कार्ड इमेज व्हाट्सएप पर शेयर करें')}
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Specific Meeting Instructions */}
               <div className="mt-6 p-4 rounded-lg bg-emerald-950/30 border border-emerald-500/40 max-w-xl mx-auto text-sm text-emerald-200 leading-relaxed">

@@ -1,5 +1,11 @@
 import QRCode from 'qrcode';
 import { syncAppointmentToFirestore } from './firebase';
+import {
+  BOOKING_TERMS_VERSION,
+  MANDATORY_CONSENT_VALIDATION_MESSAGE,
+  buildTermsTextSnapshot,
+  formatISTTimestamp,
+} from './bookingTerms';
 
 export type AppointmentTypeId = 'phone_consultation' | 'in_person_consultation';
 export type AppointmentStatus =
@@ -71,6 +77,11 @@ export interface DomainAppointmentRecord {
   completed_at: string | null;
   cancelled_at: string | null;
   admin_notes: string;
+  terms_accepted?: boolean;
+  terms_version?: string;
+  terms_accepted_at?: string;
+  terms_text_snapshot?: string;
+  scheduling_status?: string;
   history: DomainBookingHistoryEvent[];
 }
 
@@ -119,6 +130,7 @@ export interface DomainAdminSettingsRecord {
   operating_days: number[];
   email_notifications_enabled: boolean;
   reminders_enabled: boolean;
+  refund_policy_text?: string;
 }
 
 interface DomainDatabaseSchema {
@@ -446,55 +458,44 @@ export async function createDomainBookingAndPayment(params: {
   customer_email: string;
   customer_phone: string;
   customer_address: string;
-  appointment_date: string;
-  start_time: string;
+  appointment_date?: string;
+  start_time?: string;
   consultation_reason: string;
   additional_message: string;
+  terms_accepted: boolean;
 }): Promise<{
   booking: DomainAppointmentRecord;
   payment: DomainPaymentRecord;
 }> {
+  if (params.terms_accepted !== true) {
+    throw new Error(MANDATORY_CONSENT_VALIDATION_MESSAGE);
+  }
+
   const db = loadDomainDb();
   expireDomainPendingBookings(db);
 
-  const dateStr = normalizeDateString(params.appointment_date);
-  const slotDef =
-    STANDARD_TIME_SLOTS.find((s) => s.start_time === params.start_time) || STANDARD_TIME_SLOTS[0];
+  const dateStr = normalizeDateString(params.appointment_date || getCurrentISTParts().dateStr);
+  const slotDef = STANDARD_TIME_SLOTS.find((s) => s.start_time === params.start_time) || {
+    slotNumber: 0,
+    start_time: '4:00 PM',
+    end_time: '7:00 PM',
+    startHour24: 16,
+    endHour24: 19,
+  };
   const s = db.admin_settings;
-
-  const confirmedConflict = db.appointments.find(
-    (apt) =>
-      apt.appointment_date === dateStr &&
-      apt.start_time === slotDef.start_time &&
-      ['Confirmed', 'Completed'].includes(apt.appointment_status)
-  );
-  if (confirmedConflict) {
-    throw new Error(
-      'This time slot has already been booked and confirmed. Please select a different slot.'
-    );
-  }
 
   const nowMs = Date.now();
   const nowIso = new Date(nowMs).toISOString();
-
-  // Supersede any unpaid Pending Payment drafts for the same slot
-  for (const apt of db.appointments) {
-    if (
-      apt.appointment_date === dateStr &&
-      apt.start_time === slotDef.start_time &&
-      apt.appointment_status === 'Pending Payment' &&
-      apt.payment_status !== 'Paid'
-    ) {
-      apt.appointment_status = 'Expired';
-      apt.payment_status = 'Expired';
-      apt.updated_at = nowIso;
-    }
-  }
+  const termsAcceptedAtIST = formatISTTimestamp(new Date(nowMs));
+  const termsTextSnapshot = buildTermsTextSnapshot(s.refund_policy_text);
 
   const amountInr =
     params.appointment_type === 'phone_consultation'
       ? s.phone_consultation_price
       : s.in_person_consultation_price;
+
+  const durationMinutes =
+    params.appointment_type === 'phone_consultation' ? 30 : s.appointment_duration;
 
   const expiresIso = new Date(nowMs + RESERVATION_DURATION_MS).toISOString();
   const dateCompact = dateStr.replace(/-/g, '');
@@ -531,7 +532,7 @@ export async function createDomainBookingAndPayment(params: {
     start_time: slotDef.start_time,
     end_time: slotDef.end_time,
     timezone: s.business_timezone,
-    duration_minutes: s.appointment_duration,
+    duration_minutes: durationMinutes,
     consultation_reason: params.consultation_reason,
     additional_message: params.additional_message,
     appointment_status: 'Pending Payment',
@@ -543,12 +544,17 @@ export async function createDomainBookingAndPayment(params: {
     completed_at: null,
     cancelled_at: null,
     admin_notes: '',
+    terms_accepted: true,
+    terms_version: BOOKING_TERMS_VERSION,
+    terms_accepted_at: termsAcceptedAtIST,
+    terms_text_snapshot: termsTextSnapshot,
+    scheduling_status: 'Pending Payment',
     history: [
       {
         timestamp: nowIso,
-        action: 'Booking Initiated & UPI QR Generated',
+        action: 'Terms Accepted & Booking Initiated',
         actor: 'customer',
-        details: `Created UPI QR (${providerQrId}) for ${MERCHANT_UPI_ID} — ₹${amountInr.toLocaleString('en-IN')} INR.`,
+        details: `Accepted Booking Terms (${BOOKING_TERMS_VERSION}) at ${termsAcceptedAtIST}. Created UPI QR (${providerQrId}) for ${MERCHANT_UPI_ID} — ₹${amountInr.toLocaleString('en-IN')} INR.`,
       },
     ],
   };
@@ -599,13 +605,14 @@ export function confirmDomainBookingPayment(
 
   apt.appointment_status = 'Confirmed';
   apt.payment_status = 'Paid';
+  apt.scheduling_status = 'Paid — Scheduling Pending';
   apt.payment_reference = paymentRef;
   apt.updated_at = nowIso;
   apt.history.push({
     timestamp: nowIso,
-    action: 'Payment Verified & Appointment Confirmed',
+    action: 'Payment Verified — Paid — Scheduling Pending',
     actor: 'webhook',
-    details: `Verified UPI payment (${paymentRef}) to ${MERCHANT_UPI_ID} for ₹${apt.appointment_price.toLocaleString('en-IN')} INR.`,
+    details: `Verified UPI payment (${paymentRef}) to ${MERCHANT_UPI_ID} for ₹${apt.appointment_price.toLocaleString('en-IN')} INR. Ram Ashok Kumar will coordinate schedule after 3 days and within 1 month.`,
   });
 
   const pay = db.payments.find((p) => p.appointment_id === apt.id);

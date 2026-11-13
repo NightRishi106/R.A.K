@@ -21,6 +21,7 @@ import {
   Plus,
   Save,
   Eye,
+  MessageCircle,
 } from 'lucide-react';
 import { onAuthStateChanged, signInWithPopup, signOut, User } from 'firebase/auth';
 import { auth, googleAuthProvider, syncAppointmentToFirestore } from '../lib/firebase';
@@ -31,6 +32,10 @@ import {
   saveDomainDb,
   STANDARD_TIME_SLOTS,
 } from '../lib/domainBookingEngine';
+import {
+  buildRamWhatsAppCardUrl,
+  buildCustomerWhatsAppCardUrl,
+} from '../lib/whatsappCardGenerator';
 
 interface BookingHistoryEvent {
   timestamp: string;
@@ -63,6 +68,11 @@ interface AdminAppointmentRecord {
   completed_at: string | null;
   cancelled_at: string | null;
   admin_notes: string;
+  terms_accepted?: boolean;
+  terms_version?: string;
+  terms_accepted_at?: string;
+  terms_text_snapshot?: string;
+  scheduling_status?: string;
   history: BookingHistoryEvent[];
 }
 
@@ -103,6 +113,7 @@ interface AdminSettingsRecord {
   operating_end_time: string;
   email_notifications_enabled: boolean;
   reminders_enabled: boolean;
+  refund_policy_text?: string;
 }
 
 interface EmailLogItem {
@@ -1237,6 +1248,24 @@ export default function AdminConsultationDashboard({
                     </label>
                   </div>
 
+                  <div>
+                    <label className="block font-mono text-xs uppercase text-ancient-beige/80 mb-1.5">
+                      Approved Payment & Refund Policy (Displayed in Term #9)
+                    </label>
+                    <textarea
+                      rows={3}
+                      value={settingsForm.refund_policy_text || ''}
+                      onChange={(e) =>
+                        setSettingsForm({
+                          ...settingsForm,
+                          refund_policy_text: e.target.value,
+                        })
+                      }
+                      placeholder="Leave blank to use default notice, or enter the official approved cancellation and refund policy..."
+                      className="w-full px-3.5 py-2.5 rounded bg-[#120d0a] border border-bronze-dark/70 text-xs text-ancient-beige leading-relaxed"
+                    />
+                  </div>
+
                   {settingsSavedMsg && (
                     <p className="text-xs font-mono text-emerald-400">{settingsSavedMsg}</p>
                   )}
@@ -1428,6 +1457,91 @@ export default function AdminConsultationDashboard({
                   </p>
                 </div>
               )}
+            </div>
+
+            {/* Recorded Pre-Payment Terms Consent & WhatsApp Cards */}
+            <div className="p-4 rounded-lg bg-[#120d0a] border border-bronze-dark/50 space-y-3">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <h4 className="font-mono text-xs uppercase tracking-wider text-gold-faded">
+                  Recorded Pre-Payment Consent & WhatsApp Cards
+                </h4>
+                <span className="font-mono text-[11px] text-emerald-400">
+                  {selectedAppointment.terms_accepted ? 'Consent Verified ✓' : 'Recorded'}
+                </span>
+              </div>
+              <div className="text-xs font-mono text-ancient-beige/80 space-y-1">
+                <div>
+                  Version: <strong className="text-gold-warm">{selectedAppointment.terms_version || 'v2026.11.1'}</strong>
+                </div>
+                <div>
+                  Accepted At (IST):{' '}
+                  <strong className="text-ancient-beige">
+                    {selectedAppointment.terms_accepted_at || selectedAppointment.created_at}
+                  </strong>
+                </div>
+              </div>
+              {selectedAppointment.terms_text_snapshot && (
+                <details className="text-xs text-ancient-beige/70">
+                  <summary className="cursor-pointer font-mono text-gold-faded hover:text-gold-warm">
+                    View Accepted Terms Snapshot
+                  </summary>
+                  <pre className="mt-2 p-2.5 rounded bg-[#18120e] border border-bronze-dark/50 whitespace-pre-wrap font-sans text-[11px] max-h-40 overflow-y-auto">
+                    {selectedAppointment.terms_text_snapshot}
+                  </pre>
+                </details>
+              )}
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
+                <a
+                  href={buildCustomerWhatsAppCardUrl({
+                    booking_reference: selectedAppointment.booking_reference,
+                    customer_name: selectedAppointment.customer_name,
+                    customer_email: selectedAppointment.customer_email,
+                    customer_phone: selectedAppointment.customer_phone,
+                    customer_address: selectedAppointment.customer_address,
+                    appointment_type: selectedAppointment.appointment_type,
+                    appointment_price: selectedAppointment.appointment_price,
+                    duration_minutes:
+                      selectedAppointment.appointment_type === 'phone_consultation' ? 30 : 60,
+                    payment_status: selectedAppointment.payment_status,
+                    payment_reference: selectedAppointment.payment_reference || 'VERIFIED-UPI',
+                    upi_id: 'ramashokkumar@oksbi',
+                    consultation_reason: selectedAppointment.consultation_reason,
+                    additional_message: selectedAppointment.additional_message,
+                  })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-2 px-3 rounded bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs uppercase tracking-wider inline-flex items-center justify-center gap-1.5 text-center"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 shrink-0" />
+                  Send Card to Customer WhatsApp
+                </a>
+
+                <a
+                  href={buildRamWhatsAppCardUrl({
+                    booking_reference: selectedAppointment.booking_reference,
+                    customer_name: selectedAppointment.customer_name,
+                    customer_email: selectedAppointment.customer_email,
+                    customer_phone: selectedAppointment.customer_phone,
+                    customer_address: selectedAppointment.customer_address,
+                    appointment_type: selectedAppointment.appointment_type,
+                    appointment_price: selectedAppointment.appointment_price,
+                    duration_minutes:
+                      selectedAppointment.appointment_type === 'phone_consultation' ? 30 : 60,
+                    payment_status: selectedAppointment.payment_status,
+                    payment_reference: selectedAppointment.payment_reference || 'VERIFIED-UPI',
+                    upi_id: 'ramashokkumar@oksbi',
+                    consultation_reason: selectedAppointment.consultation_reason,
+                    additional_message: selectedAppointment.additional_message,
+                  })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-2 px-3 rounded bg-[#18120e] border border-gold-faded/50 hover:border-gold-warm text-gold-warm font-mono text-xs uppercase tracking-wider inline-flex items-center justify-center gap-1.5 text-center"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 shrink-0" />
+                  Send Card to Ram WhatsApp
+                </a>
+              </div>
             </div>
 
             {/* Administrator Status Actions */}
