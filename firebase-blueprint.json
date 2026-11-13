@@ -1,0 +1,382 @@
+{
+  "entities": {
+    "AdminUser": {
+      "title": "AdminUser",
+      "description": "Authorized administrator account record.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Firebase Auth UID of the administrator.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Verified email address of the administrator.",
+          "minLength": 3,
+          "maxLength": 254
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when admin record was created."
+        }
+      },
+      "required": ["uid", "email", "createdAt"]
+    },
+    "AdminSettings": {
+      "title": "AdminSettings",
+      "description": "Configurable scheduling, pricing, and notification parameters for Ram Ashok Kumar consultations.",
+      "type": "object",
+      "properties": {
+        "administrator_email": {
+          "type": "string",
+          "format": "email",
+          "description": "Email address receiving administrator notifications.",
+          "minLength": 3,
+          "maxLength": 254
+        },
+        "business_timezone": {
+          "type": "string",
+          "description": "IANA timezone identifier (Asia/Kolkata).",
+          "minLength": 2,
+          "maxLength": 64
+        },
+        "booking_advance_days": {
+          "type": "integer",
+          "description": "Maximum days in advance a visitor can book."
+        },
+        "phone_consultation_price": {
+          "type": "integer",
+          "description": "Price in INR for Private Phone Consultation (default 5100)."
+        },
+        "in_person_consultation_price": {
+          "type": "integer",
+          "description": "Price in INR for In-Person Consultation (default 11000)."
+        },
+        "appointment_duration": {
+          "type": "integer",
+          "description": "Duration in minutes (default 60)."
+        },
+        "operating_start_time": {
+          "type": "string",
+          "description": "Daily start time in 24h HH:mm format (default 12:00).",
+          "minLength": 4,
+          "maxLength": 10
+        },
+        "operating_end_time": {
+          "type": "string",
+          "description": "Daily end time in 24h HH:mm format (default 21:00).",
+          "minLength": 4,
+          "maxLength": 10
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of last update."
+        }
+      },
+      "required": [
+        "administrator_email",
+        "business_timezone",
+        "booking_advance_days",
+        "phone_consultation_price",
+        "in_person_consultation_price",
+        "appointment_duration",
+        "operating_start_time",
+        "operating_end_time",
+        "updatedAt"
+      ]
+    },
+    "AvailabilitySlot": {
+      "title": "AvailabilitySlot",
+      "description": "Date or time slot availability override managed by the administrator.",
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "description": "Date in YYYY-MM-DD format.",
+          "minLength": 10,
+          "maxLength": 10,
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "start_time": {
+          "type": "string",
+          "description": "Slot start time (e.g., 12:00 PM or FULL_DAY).",
+          "minLength": 4,
+          "maxLength": 20
+        },
+        "end_time": {
+          "type": "string",
+          "description": "Slot end time (e.g., 1:00 PM or FULL_DAY).",
+          "minLength": 4,
+          "maxLength": 20
+        },
+        "is_available": {
+          "type": "boolean",
+          "description": "Whether the slot or date is available for booking."
+        },
+        "block_reason": {
+          "type": "string",
+          "description": "Reason for blocking the date or slot.",
+          "minLength": 0,
+          "maxLength": 500
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp."
+        }
+      },
+      "required": [
+        "date",
+        "start_time",
+        "end_time",
+        "is_available",
+        "block_reason",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "Appointment": {
+      "title": "Appointment",
+      "description": "Consultation appointment booking record.",
+      "type": "object",
+      "properties": {
+        "booking_reference": {
+          "type": "string",
+          "description": "Unique booking reference code.",
+          "minLength": 6,
+          "maxLength": 40,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "customer_name": {
+          "type": "string",
+          "description": "Customer full name.",
+          "minLength": 2,
+          "maxLength": 120
+        },
+        "customer_email": {
+          "type": "string",
+          "format": "email",
+          "description": "Customer email address.",
+          "minLength": 3,
+          "maxLength": 254
+        },
+        "customer_phone": {
+          "type": "string",
+          "description": "Customer phone number.",
+          "minLength": 7,
+          "maxLength": 24
+        },
+        "customer_address": {
+          "type": "string",
+          "description": "Customer full residential/correspondence address.",
+          "minLength": 5,
+          "maxLength": 600
+        },
+        "appointment_type": {
+          "type": "string",
+          "enum": ["phone_consultation", "in_person_consultation"],
+          "description": "Selected consultation category."
+        },
+        "appointment_price": {
+          "type": "integer",
+          "description": "Payable amount in INR determined server-side."
+        },
+        "appointment_date": {
+          "type": "string",
+          "description": "Appointment date in YYYY-MM-DD format.",
+          "minLength": 10,
+          "maxLength": 10,
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "start_time": {
+          "type": "string",
+          "description": "Slot start time label (e.g., 12:00 PM).",
+          "minLength": 4,
+          "maxLength": 20
+        },
+        "end_time": {
+          "type": "string",
+          "description": "Slot end time label (e.g., 1:00 PM).",
+          "minLength": 4,
+          "maxLength": 20
+        },
+        "timezone": {
+          "type": "string",
+          "description": "Appointment timezone (Asia/Kolkata).",
+          "minLength": 2,
+          "maxLength": 64
+        },
+        "consultation_reason": {
+          "type": "string",
+          "description": "Primary reason for requesting consultation.",
+          "minLength": 5,
+          "maxLength": 2500
+        },
+        "additional_message": {
+          "type": "string",
+          "description": "Optional additional notes from customer.",
+          "minLength": 0,
+          "maxLength": 2000
+        },
+        "appointment_status": {
+          "type": "string",
+          "enum": ["Pending Payment", "Confirmed", "Completed", "Cancelled", "Expired"],
+          "description": "Lifecycle status of the appointment."
+        },
+        "payment_status": {
+          "type": "string",
+          "enum": ["Pending", "Paid", "Failed", "Expired", "Refunded"],
+          "description": "Separate verification status of the payment."
+        },
+        "payment_reference": {
+          "type": "string",
+          "description": "Associated payment or QR reference identifier.",
+          "minLength": 0,
+          "maxLength": 128
+        },
+        "admin_notes": {
+          "type": "string",
+          "description": "Internal administrative notes.",
+          "minLength": 0,
+          "maxLength": 4000
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp."
+        }
+      },
+      "required": [
+        "booking_reference",
+        "customer_name",
+        "customer_email",
+        "customer_phone",
+        "customer_address",
+        "appointment_type",
+        "appointment_price",
+        "appointment_date",
+        "start_time",
+        "end_time",
+        "timezone",
+        "consultation_reason",
+        "additional_message",
+        "appointment_status",
+        "payment_status",
+        "payment_reference",
+        "admin_notes",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "PaymentRecord": {
+      "title": "PaymentRecord",
+      "description": "Verified UPI / Razorpay payment ledger entry.",
+      "type": "object",
+      "properties": {
+        "appointment_id": {
+          "type": "string",
+          "description": "ID of the associated appointment document.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "provider": {
+          "type": "string",
+          "enum": ["razorpay"],
+          "description": "Payment gateway provider."
+        },
+        "provider_payment_id": {
+          "type": "string",
+          "description": "Razorpay payment ID once captured.",
+          "minLength": 0,
+          "maxLength": 128
+        },
+        "provider_qr_id": {
+          "type": "string",
+          "description": "Razorpay QR code ID or Order ID.",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "amount": {
+          "type": "integer",
+          "description": "Exact payment amount in INR."
+        },
+        "currency": {
+          "type": "string",
+          "enum": ["INR"],
+          "description": "ISO currency code."
+        },
+        "payment_method": {
+          "type": "string",
+          "enum": ["UPI"],
+          "description": "Payment method used."
+        },
+        "payment_status": {
+          "type": "string",
+          "enum": ["Pending", "Paid", "Failed", "Expired", "Refunded"],
+          "description": "Payment verification status."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp."
+        }
+      },
+      "required": [
+        "appointment_id",
+        "provider",
+        "provider_payment_id",
+        "provider_qr_id",
+        "amount",
+        "currency",
+        "payment_method",
+        "payment_status",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/admins/{adminUid}": {
+      "schema": { "$ref": "#/entities/AdminUser" },
+      "description": "Registry of administrator UIDs."
+    },
+    "/admin_settings/{settingId}": {
+      "schema": { "$ref": "#/entities/AdminSettings" },
+      "description": "Global scheduling and pricing configuration."
+    },
+    "/availability/{slotId}": {
+      "schema": { "$ref": "#/entities/AvailabilitySlot" },
+      "description": "Blocked dates and slot availability overrides."
+    },
+    "/appointments/{appointmentId}": {
+      "schema": { "$ref": "#/entities/Appointment" },
+      "description": "Consultation appointment bookings containing customer PII and status."
+    },
+    "/payments/{paymentId}": {
+      "schema": { "$ref": "#/entities/PaymentRecord" },
+      "description": "UPI QR payment records linked to appointments."
+    }
+  }
+}

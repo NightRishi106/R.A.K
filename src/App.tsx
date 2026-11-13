@@ -12,12 +12,17 @@ import LibrarySection from './components/LibrarySection';
 import MythRealitySection from './components/MythRealitySection';
 import EquipmentSection from './components/EquipmentSection';
 import TimelineSection from './components/TimelineSection';
+import AppointmentBookingSection from './components/AppointmentBookingSection';
+import AdminConsultationDashboard from './components/AdminConsultationDashboard';
 import ContactSection from './components/ContactSection';
 import VisualDivider from './components/VisualDivider';
 import TransparentLineScrollbar from './components/TransparentLineScrollbar';
 
 function AppContent() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [adminDashboardOpen, setAdminDashboardOpen] = useState(
+    () => typeof window !== 'undefined' && window.location.hash === '#admin'
+  );
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const userMutedRef = useRef(false);
@@ -117,6 +122,9 @@ function AppContent() {
           <a href="#timeline" className="text-ancient-beige/70 hover:text-gold-warm transition-colors duration-300">
             {t('Chronology', 'कालक्रम')}
           </a>
+          <a href="#book-consultation" className="text-gold-warm hover:text-[#e5c247] font-semibold transition-colors duration-300">
+            {t('Consultation', 'परामर्श')}
+          </a>
           <a href="#contact" className="text-ancient-beige/70 hover:text-gold-warm transition-colors duration-300">
             {t('Contacts', 'संपर्क')}
           </a>
@@ -163,6 +171,9 @@ function AppContent() {
             </a>
             <a href="#timeline" onClick={() => setMobileMenuOpen(false)} className="text-ancient-beige/70 hover:text-gold-warm transition-colors duration-300">
               {t('Chronology', 'कालक्रम')}
+            </a>
+            <a href="#book-consultation" onClick={() => setMobileMenuOpen(false)} className="text-gold-warm hover:text-[#e5c247] font-semibold transition-colors duration-300">
+              {t('Book Consultation', 'परामर्श बुक करें')}
             </a>
             <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-ancient-beige/70 hover:text-gold-warm transition-colors duration-300">
               {t('Contacts', 'संपर्क')}
@@ -222,10 +233,22 @@ function AppContent() {
         {/* Divider 8 */}
         <VisualDivider variant="bronze-ornate" />
 
-        {/* Section 8: Correspondence desk letter */}
+        {/* Section 8: Private Consultation Appointment Booking & UPI QR System (Directly Above Mailbox/Contact Section) */}
+        <AppointmentBookingSection onOpenAdminDashboard={() => setAdminDashboardOpen(true)} />
+
+        {/* Divider 9 */}
+        <VisualDivider variant="manuscript-scroll" />
+
+        {/* Section 9: Correspondence desk letter */}
         <ContactSection />
 
       </main>
+
+      {/* Secure Administrator Consultation Dashboard Modal */}
+      <AdminConsultationDashboard
+        isOpen={adminDashboardOpen}
+        onClose={() => setAdminDashboardOpen(false)}
+      />
 
       {/* Grand Scholarly Footer */}
       <footer className="bg-[#0b0807] border-t border-bronze-dark/50 pt-14 pb-24 sm:py-16 px-4 md:px-8 text-center relative overflow-hidden paper-grain">
