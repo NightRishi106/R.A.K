@@ -505,9 +505,10 @@ export async function createDomainBookingAndPayment(params: {
   const appointmentId = `apt_${randomHex(8)}`;
   const providerQrId = `qr_${randomHex(8)}`;
 
+  const qrPayableAmountInr = 1;
   const qrUpiString = `upi://pay?pa=${MERCHANT_UPI_ID}&pn=${encodeURIComponent(
     'Ram Ashok Kumar'
-  )}&am=${amountInr.toFixed(2)}&cu=INR&tr=${encodeURIComponent(
+  )}&am=${qrPayableAmountInr.toFixed(2)}&cu=INR&tr=${encodeURIComponent(
     providerQrId
   )}&tn=${encodeURIComponent(`Consultation ${bookingReference}`)}`;
 

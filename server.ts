@@ -997,14 +997,14 @@ async function startServer() {
             };
           }
 
-          // Verify exact amount in paise matches server-determined appointment price
+          // Verify exact amount in paise matches server-determined appointment price or ₹1 (100 paise) QR amount
           const expectedPaise = apt.appointment_price * 100;
-          if (amountPaise !== expectedPaise) {
+          if (amountPaise !== expectedPaise && amountPaise !== 100) {
             apt.history.push({
               timestamp: new Date().toISOString(),
               action: 'Payment Amount Mismatch Rejected',
               actor: 'webhook',
-              details: `Received ${amountPaise} paise, expected ${expectedPaise} paise. Appointment NOT confirmed.`,
+              details: `Received ${amountPaise} paise, expected ${expectedPaise} paise (or 100 paise). Appointment NOT confirmed.`,
             });
             return {
               status: 400,
@@ -1494,11 +1494,12 @@ async function startServer() {
           if (existingPayment) {
             if (
               !existingPayment.qr_upi_string ||
-              !existingPayment.qr_upi_string.includes(merchantUpiId)
+              !existingPayment.qr_upi_string.includes(merchantUpiId) ||
+              !existingPayment.qr_upi_string.includes('&am=1.00')
             ) {
               const updatedUpiUri = `upi://pay?pa=${merchantUpiId}&pn=${encodeURIComponent(
                 'Ram Ashok Kumar'
-              )}&am=${existingPayment.amount.toFixed(2)}&cu=INR&tr=${encodeURIComponent(
+              )}&am=1.00&cu=INR&tr=${encodeURIComponent(
                 existingPayment.provider_qr_id
               )}&tn=${encodeURIComponent(`Consultation ${apt.booking_reference}`)}`;
               existingPayment.qr_upi_string = updatedUpiUri;
@@ -1531,8 +1532,9 @@ async function startServer() {
             };
           }
 
-          const amountInr = apt.appointment_price; // Server-determined price (5100 or 11000)
-          const amountPaise = amountInr * 100;
+          const amountInr = apt.appointment_price; // Server-determined website price (5100 or 11000)
+          const qrScanAmountInr = 1; // QR code scan value set to ₹1 per user instruction
+          const amountPaise = qrScanAmountInr * 100;
           const closeByUnix = Math.max(
             Math.floor(Date.now() / 1000) + 180,
             Math.floor(new Date(apt.reservation_expires_at).getTime() / 1000)
@@ -1608,11 +1610,11 @@ async function startServer() {
             }
           }
 
-          // Always generate the dynamic UPI QR code on the base of UPI ID "ramashokkumar@oksbi"
-          // with the exact server-side payable amount, INR currency, and unique booking reference
+          // Generate the dynamic UPI QR code on the base of UPI ID "ramashokkumar@oksbi"
+          // with ₹1 (1.00 INR) scan value for GPay while keeping website display prices unchanged
           const qrUpiString = `upi://pay?pa=${merchantUpiId}&pn=${encodeURIComponent(
             'Ram Ashok Kumar'
-          )}&am=${amountInr.toFixed(2)}&cu=INR&tr=${encodeURIComponent(
+          )}&am=${qrScanAmountInr.toFixed(2)}&cu=INR&tr=${encodeURIComponent(
             providerQrId
           )}&tn=${encodeURIComponent(`Consultation ${apt.booking_reference}`)}`;
 
@@ -1935,7 +1937,7 @@ async function startServer() {
                 (item) =>
                   (item.status === 'captured' || item.captured) &&
                   item.currency === 'INR' &&
-                  item.amount === apt.appointment_price * 100
+                  (item.amount === apt.appointment_price * 100 || item.amount === 100)
               );
               if (capturedPayment) {
                 await confirmVerifiedAppointmentPayment(
