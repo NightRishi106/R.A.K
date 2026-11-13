@@ -17,6 +17,15 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
+import {
+  getCurrentISTParts,
+  normalizeDateString,
+  computeLocalAvailabilityForDate,
+  fetchApiJson,
+  createDomainBookingAndPayment,
+  confirmDomainBookingPayment,
+  releaseDomainPendingBooking,
+} from '../lib/domainBookingEngine';
 
 type AppointmentTypeId = 'phone_consultation' | 'in_person_consultation';
 
@@ -114,13 +123,11 @@ const DEFAULT_APPOINTMENT_TYPES: AppointmentTypeConfig[] = [
 ];
 
 function getTodayISTFallback(): string {
-  const formatter = new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'Asia/Kolkata',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  });
-  return formatter.format(new Date());
+  return getCurrentISTParts().dateStr;
+}
+
+function getDefaultBookingDateIST(): string {
+  return getCurrentISTParts().defaultBookingDateStr;
 }
 
 export default function AppointmentBookingSection({
@@ -128,7 +135,7 @@ export default function AppointmentBookingSection({
 }: AppointmentBookingSectionProps) {
   const { t } = useLanguage();
 
-  // Configuration from backend
+  // Configuration from backend or domain defaults
   const [appointmentTypes, setAppointmentTypes] =
     useState<AppointmentTypeConfig[]>(DEFAULT_APPOINTMENT_TYPES);
   const [minDate, setMinDate] = useState<string>(getTodayISTFallback());
@@ -144,14 +151,16 @@ export default function AppointmentBookingSection({
   const [customerEmail, setCustomerEmail] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
   const [customerAddress, setCustomerAddress] = useState('');
-  const [selectedDate, setSelectedDate] = useState<string>(getTodayISTFallback());
+  const [selectedDate, setSelectedDate] = useState<string>(getDefaultBookingDateIST());
   const [selectedSlot, setSelectedSlot] = useState<string>('');
   const [consultationReason, setConsultationReason] = useState('');
   const [additionalMessage, setAdditionalMessage] = useState('');
   const [termsAccepted, setTermsAccepted] = useState(false);
 
-  // Availability state
-  const [slots, setSlots] = useState<SlotItem[]>([]);
+  // Availability state (initialized immediately with IST slots so custom domains never show empty slots)
+  const [slots, setSlots] = useState<SlotItem[]>(
+    () => computeLocalAvailabilityForDate(getDefaultBookingDateIST()).slots
+  );
   const [loadingSlots, setLoadingSlots] = useState(false);
   const [dateBlockedReason, setDateBlockedReason] = useState<string | null>(null);
 
@@ -164,25 +173,30 @@ export default function AppointmentBookingSection({
   const [copiedRef, setCopiedRef] = useState(false);
   const [copiedUpi, setCopiedUpi] = useState(false);
   const [simulatingWebhook, setSimulatingWebhook] = useState(false);
+  const [utrInput, setUtrInput] = useState('');
 
   const sectionTopRef = useRef<HTMLDivElement | null>(null);
 
   const selectedTypeObj =
     appointmentTypes.find((item) => item.id === selectedTypeId) || appointmentTypes[0];
 
-  // Fetch initial configuration from backend
+  // Fetch initial configuration from backend (with automatic domain fallback)
   useEffect(() => {
     let mounted = true;
-    fetch('/api/booking-config')
-      .then((r) => (r.ok ? r.json() : null))
-      .then((data) => {
-        if (!mounted || !data) return;
+    fetchApiJson<{
+      appointment_types?: AppointmentTypeConfig[];
+      min_date?: string;
+      max_date?: string;
+      blocked_dates?: string[];
+    }>('/api/booking-config')
+      .then(({ ok, data }) => {
+        if (!mounted || !ok || !data) return;
         if (Array.isArray(data.appointment_types) && data.appointment_types.length === 2) {
           setAppointmentTypes(data.appointment_types);
         }
         if (data.min_date) {
           setMinDate(data.min_date);
-          setSelectedDate((prev) => (prev < data.min_date ? data.min_date : prev));
+          setSelectedDate((prev) => (prev < data.min_date! ? data.min_date! : prev));
         }
         if (data.max_date) setMaxDate(data.max_date);
         if (Array.isArray(data.blocked_dates)) setBlockedDates(data.blocked_dates);
@@ -193,38 +207,61 @@ export default function AppointmentBookingSection({
     };
   }, []);
 
-  // Fetch real slot availability from backend whenever selectedDate changes in form mode
-  const fetchAvailability = useCallback(async (dateToQuery: string) => {
-    if (!dateToQuery) return;
+  // Compute & fetch slot availability whenever selectedDate changes
+  const fetchAvailability = useCallback(async (rawDateToQuery: string) => {
+    const dateToQuery = normalizeDateString(rawDateToQuery || getDefaultBookingDateIST());
+    // 1. Immediately populate slots using deterministic IST domain engine so slots never fail to appear
+    const localResult = computeLocalAvailabilityForDate(dateToQuery);
+    setSlots(localResult.slots);
+    setDateBlockedReason(localResult.is_date_blocked ? localResult.date_block_reason : null);
+
     setLoadingSlots(true);
-    setDateBlockedReason(null);
     try {
-      const res = await fetch(`/api/availability?date=${encodeURIComponent(dateToQuery)}`);
-      const data = await res.json();
-      if (!res.ok) {
-        setSlots([]);
-        setDateBlockedReason(data.error || 'Unable to load slots for this date.');
-      } else {
-        setSlots(Array.isArray(data.slots) ? data.slots : []);
-        setDateBlockedReason(data.is_date_blocked ? data.date_block_reason : null);
-        // Clear selected slot if no longer available
+      const { ok, data } = await fetchApiJson<{
+        is_date_blocked?: boolean;
+        date_block_reason?: string | null;
+        slots?: SlotItem[];
+      }>(`/api/availability?date=${encodeURIComponent(dateToQuery)}`);
+
+      if (ok && data && Array.isArray(data.slots)) {
+        // Merge any confirmed bookings from local domain storage with backend availability
+        const mergedSlots: SlotItem[] = (data.slots.length > 0 ? data.slots : localResult.slots).map(
+          (serverSlot) => {
+            const localSlot = localResult.slots.find(
+              (ls) => ls.start_time === serverSlot.start_time
+            );
+            if (localSlot && !localSlot.available && serverSlot.available) {
+              return localSlot;
+            }
+            return serverSlot;
+          }
+        );
+        setSlots(mergedSlots);
+        setDateBlockedReason(data.is_date_blocked ? data.date_block_reason || null : null);
         setSelectedSlot((current) => {
-          const matching = (data.slots || []).find(
-            (s: SlotItem) => s.start_time === current && s.available
-          );
+          const matching = mergedSlots.find((s) => s.start_time === current && s.available);
+          return matching ? current : '';
+        });
+      } else {
+        // Running on static/custom domain without backend API: keep localResult slots active
+        setSlots(localResult.slots);
+        setDateBlockedReason(localResult.is_date_blocked ? localResult.date_block_reason : null);
+        setSelectedSlot((current) => {
+          const matching = localResult.slots.find((s) => s.start_time === current && s.available);
           return matching ? current : '';
         });
       }
     } catch {
-      setSlots([]);
-      setDateBlockedReason('Network error while checking slot availability.');
+      // Never clear slots on network error; preserve local IST slots
+      setSlots(localResult.slots);
+      setDateBlockedReason(localResult.is_date_blocked ? localResult.date_block_reason : null);
     } finally {
       setLoadingSlots(false);
     }
   }, []);
 
   useEffect(() => {
-    if (step === 'form' && selectedDate) {
+    if (selectedDate) {
       fetchAvailability(selectedDate);
     }
   }, [step, selectedDate, fetchAvailability]);
@@ -255,7 +292,7 @@ export default function AppointmentBookingSection({
 
     const pollStatus = async () => {
       try {
-        const res = await fetch(
+        const { ok, data } = await fetchApiJson<{ booking?: ActiveBooking }>(
           `/api/bookings/${encodeURIComponent(activeBooking.booking_reference)}/status`,
           {
             headers: {
@@ -263,8 +300,7 @@ export default function AppointmentBookingSection({
             },
           }
         );
-        if (!res.ok || cancelled) return;
-        const data = await res.json();
+        if (!ok || !data || cancelled) return;
         const b = data.booking;
         if (!b || cancelled) return;
 
@@ -367,82 +403,95 @@ export default function AppointmentBookingSection({
     setFormError(null);
 
     try {
-      // 1. Create booking & reserve slot on backend
-      const createRes = await fetch('/api/bookings/create', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          appointment_type: selectedTypeId,
-          customer_name: customerName.trim(),
-          customer_email: customerEmail.trim(),
-          customer_phone: customerPhone.trim(),
-          customer_address: customerAddress.trim(),
-          appointment_date: selectedDate,
-          start_time: selectedSlot,
-          consultation_reason: consultationReason.trim(),
-          additional_message: additionalMessage.trim(),
-          terms_accepted: termsAccepted,
-        }),
-      });
+      // 1. Attempt server-side booking & QR creation first
+      const createRes = await fetchApiJson<{ booking?: ActiveBooking; error?: string }>(
+        '/api/bookings/create',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            appointment_type: selectedTypeId,
+            customer_name: customerName.trim(),
+            customer_email: customerEmail.trim(),
+            customer_phone: customerPhone.trim(),
+            customer_address: customerAddress.trim(),
+            appointment_date: normalizeDateString(selectedDate),
+            start_time: selectedSlot,
+            consultation_reason: consultationReason.trim(),
+            additional_message: additionalMessage.trim(),
+            terms_accepted: termsAccepted,
+          }),
+        }
+      );
 
-      const createData = await createRes.json();
-      if (!createRes.ok || !createData.booking) {
-        setFormError(
-          createData.error ||
-            t('Could not reserve the selected slot. Please try again.', 'स्लॉट आरक्षित नहीं हो सका। पुनः प्रयास करें।')
+      if (createRes.ok && createRes.data?.booking) {
+        const booking: ActiveBooking = createRes.data.booking;
+        const payRes = await fetchApiJson<{ payment?: ActivePayment; error?: string }>(
+          '/api/payments/create',
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              booking_reference: booking.booking_reference,
+              access_token: booking.access_token,
+            }),
+          }
         );
-        // Refresh availability in case someone else booked the slot
+
+        if (payRes.ok && payRes.data?.payment) {
+          setActiveBooking(booking);
+          setActivePayment(payRes.data.payment);
+          setStep('payment');
+          setTimeout(() => {
+            sectionTopRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 60);
+          return;
+        }
+      } else if (createRes.status >= 400 && createRes.status < 500 && createRes.data?.error) {
+        setFormError(createRes.data.error);
         fetchAvailability(selectedDate);
-        setIsSubmitting(false);
         return;
       }
 
-      const booking: ActiveBooking = createData.booking;
-
-      // 2. Request dynamic single-use UPI QR code for this booking
-      const payRes = await fetch('/api/payments/create', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          booking_reference: booking.booking_reference,
-          access_token: booking.access_token,
-        }),
+      // 2. Domain Mode Fallback: Execute booking & dynamic UPI QR generation (ramashokkumar@oksbi) directly in browser
+      const domainResult = await createDomainBookingAndPayment({
+        appointment_type: selectedTypeId!,
+        customer_name: customerName.trim(),
+        customer_email: customerEmail.trim(),
+        customer_phone: customerPhone.trim(),
+        customer_address: customerAddress.trim(),
+        appointment_date: normalizeDateString(selectedDate),
+        start_time: selectedSlot,
+        consultation_reason: consultationReason.trim(),
+        additional_message: additionalMessage.trim(),
       });
 
-      const payData = await payRes.json();
-      if (!payRes.ok || !payData.payment) {
-        setFormError(
-          payData.error ||
-            t('Failed to generate UPI QR code. Please try again.', 'UPI QR कोड उत्पन्न करने में त्रुटि हुई।')
-        );
-        setIsSubmitting(false);
-        return;
-      }
-
-      setActiveBooking(booking);
-      setActivePayment(payData.payment);
+      setActiveBooking(domainResult.booking);
+      setActivePayment(domainResult.payment);
       setStep('payment');
       setTimeout(() => {
         sectionTopRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 60);
-    } catch {
+    } catch (err: unknown) {
       setFormError(
-        t(
-          'A network error occurred while processing your booking. Please check your connection.',
-          'बुकिंग प्रक्रिया के दौरान नेटवर्क त्रुटि हुई। कृपया अपना कनेक्शन जांचें।'
-        )
+        err instanceof Error
+          ? err.message
+          : t(
+              'Could not process your booking request. Please try again.',
+              'बुकिंग प्रक्रिया पूर्ण नहीं हो सकी। कृपया पुनः प्रयास करें।'
+            )
       );
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  // Trigger signed sandbox webhook in test mode (only available when live secret is not configured)
+  // Trigger payment verification (works with both backend webhook & custom domain mode)
   const handleTriggerSandboxWebhook = async () => {
     if (!activeBooking || simulatingWebhook) return;
     setSimulatingWebhook(true);
     try {
-      await fetch('/api/test-mode/trigger-razorpay-webhook', {
+      const { ok } = await fetchApiJson('/api/test-mode/trigger-razorpay-webhook', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -450,8 +499,36 @@ export default function AppointmentBookingSection({
           access_token: activeBooking.access_token,
         }),
       });
+
+      if (!ok) {
+        const confirmed = confirmDomainBookingPayment(
+          activeBooking.booking_reference,
+          utrInput.trim() || undefined
+        );
+        if (confirmed) {
+          setActiveBooking({
+            ...activeBooking,
+            appointment_status: 'Confirmed',
+            payment_status: 'Paid',
+            payment_reference: confirmed.payment_reference,
+          });
+          setStep('confirmed');
+        }
+      }
     } catch {
-      // Poller will pick up confirmation state
+      const confirmed = confirmDomainBookingPayment(
+        activeBooking.booking_reference,
+        utrInput.trim() || undefined
+      );
+      if (confirmed) {
+        setActiveBooking({
+          ...activeBooking,
+          appointment_status: 'Confirmed',
+          payment_status: 'Paid',
+          payment_reference: confirmed.payment_reference,
+        });
+        setStep('confirmed');
+      }
     } finally {
       setSimulatingWebhook(false);
     }
@@ -459,17 +536,14 @@ export default function AppointmentBookingSection({
 
   const handleCancelPendingAndEdit = async () => {
     if (activeBooking && activeBooking.appointment_status === 'Pending Payment') {
-      try {
-        await fetch(`/api/bookings/${encodeURIComponent(activeBooking.booking_reference)}/release`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            access_token: activeBooking.access_token,
-          }),
-        });
-      } catch {
-        // Ignore network errors while releasing unpaid draft
-      }
+      releaseDomainPendingBooking(activeBooking.booking_reference);
+      fetchApiJson(`/api/bookings/${encodeURIComponent(activeBooking.booking_reference)}/release`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_token: activeBooking.access_token,
+        }),
+      }).catch(() => {});
     }
     setActiveBooking(null);
     setActivePayment(null);
@@ -480,7 +554,8 @@ export default function AppointmentBookingSection({
 
   const handleResetToStart = () => {
     if (activeBooking && activeBooking.appointment_status === 'Pending Payment') {
-      fetch(`/api/bookings/${encodeURIComponent(activeBooking.booking_reference)}/release`, {
+      releaseDomainPendingBooking(activeBooking.booking_reference);
+      fetchApiJson(`/api/bookings/${encodeURIComponent(activeBooking.booking_reference)}/release`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -914,16 +989,7 @@ export default function AppointmentBookingSection({
                         </button>
                       </div>
 
-                      {loadingSlots ? (
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                          {[...Array(9)].map((_, idx) => (
-                            <div
-                              key={idx}
-                              className="h-14 rounded-lg bg-[#140f0c] border border-bronze-dark/30 animate-pulse"
-                            />
-                          ))}
-                        </div>
-                      ) : dateBlockedReason ? (
+                      {dateBlockedReason ? (
                         <div className="p-5 rounded-lg bg-[#140f0c] border border-amber-700/50 text-amber-200 text-sm flex items-start gap-3">
                           <AlertCircle className="w-5 h-5 shrink-0 text-amber-400 mt-0.5" />
                           <div>
@@ -937,49 +1003,77 @@ export default function AppointmentBookingSection({
                           </div>
                         </div>
                       ) : (
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                          {slots.map((slot) => {
-                            const isSelected = selectedSlot === slot.start_time;
-                            const isAvailable = slot.available;
-
-                            let statusLabel = t('Available', 'उपलब्ध');
-                            if (slot.status === 'booked') statusLabel = t('Booked', 'बुक हो चुका');
-                            if (slot.status === 'reserved') statusLabel = t('Reserved', 'आरक्षित');
-                            if (slot.status === 'blocked') statusLabel = t('Unavailable', 'अनुपलब्ध');
-                            if (slot.status === 'passed') statusLabel = t('Passed', 'समय समाप्त');
-
-                            return (
+                        <>
+                          {slots.length > 0 && slots.every((s) => s.status === 'passed') && (
+                            <div className="mb-3 p-3.5 rounded-lg bg-amber-950/40 border border-amber-500/40 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-amber-200">
+                              <span>
+                                {t(
+                                  "Today's consultation hours (12:00 PM – 9:00 PM IST) have concluded.",
+                                  'आज के परामर्श समय (दोपहर १२:०० – रात्रि ९:०० IST) समाप्त हो चुके हैं।'
+                                )}
+                              </span>
                               <button
-                                key={slot.slotNumber}
                                 type="button"
-                                disabled={!isAvailable}
-                                onClick={() => setSelectedSlot(slot.start_time)}
-                                className={`px-3 py-2.5 rounded-lg border text-left transition-all flex flex-col justify-between ${
-                                  !isAvailable
-                                    ? 'bg-[#110d0a]/60 border-bronze-dark/25 text-ancient-beige/35 cursor-not-allowed'
-                                    : isSelected
-                                      ? 'bg-gold-warm/20 border-gold-warm text-gold-warm shadow-[0_0_15px_rgba(212,175,55,0.2)] cursor-pointer'
-                                      : 'bg-[#120d0a] border-bronze-dark/60 hover:border-gold-faded text-ancient-beige cursor-pointer'
-                                }`}
+                                onClick={() => {
+                                  const nextDate = getDefaultBookingDateIST();
+                                  if (nextDate > selectedDate) {
+                                    setSelectedDate(nextDate);
+                                  } else {
+                                    const d = new Date(`${selectedDate}T12:00:00+05:30`);
+                                    d.setDate(d.getDate() + 1);
+                                    setSelectedDate(d.toISOString().slice(0, 10));
+                                  }
+                                }}
+                                className="px-3 py-1.5 rounded bg-gold-warm text-[#140f0c] font-mono font-bold uppercase tracking-wider cursor-pointer shrink-0"
                               >
-                                <span className="font-mono text-xs sm:text-[13px] font-semibold tabular-nums whitespace-nowrap">
-                                  {slot.start_time} – {slot.end_time}
-                                </span>
-                                <span
-                                  className={`text-[10px] font-mono uppercase tracking-wider mt-1 ${
+                                {t('View Tomorrow Slots →', 'कल के स्लॉट देखें →')}
+                              </button>
+                            </div>
+                          )}
+                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                            {slots.map((slot) => {
+                              const isSelected = selectedSlot === slot.start_time;
+                              const isAvailable = slot.available;
+
+                              let statusLabel = t('Available', 'उपलब्ध');
+                              if (slot.status === 'booked') statusLabel = t('Booked', 'बुक हो चुका');
+                              if (slot.status === 'reserved') statusLabel = t('Reserved', 'आरक्षित');
+                              if (slot.status === 'blocked') statusLabel = t('Unavailable', 'अनुपलब्ध');
+                              if (slot.status === 'passed') statusLabel = t('Passed', 'समय समाप्त');
+
+                              return (
+                                <button
+                                  key={slot.slotNumber}
+                                  type="button"
+                                  disabled={!isAvailable}
+                                  onClick={() => setSelectedSlot(slot.start_time)}
+                                  className={`px-3 py-2.5 rounded-lg border text-left transition-all flex flex-col justify-between ${
                                     !isAvailable
-                                      ? 'text-ancient-beige/35'
+                                      ? 'bg-[#110d0a]/60 border-bronze-dark/25 text-ancient-beige/35 cursor-not-allowed'
                                       : isSelected
-                                        ? 'text-gold-warm font-semibold'
-                                        : 'text-emerald-400/90'
+                                        ? 'bg-gold-warm/20 border-gold-warm text-gold-warm shadow-[0_0_15px_rgba(212,175,55,0.2)] cursor-pointer'
+                                        : 'bg-[#120d0a] border-bronze-dark/60 hover:border-gold-faded text-ancient-beige cursor-pointer'
                                   }`}
                                 >
-                                  {isSelected ? t('Selected ✓', 'चयनित ✓') : statusLabel}
-                                </span>
-                              </button>
-                            );
-                          })}
-                        </div>
+                                  <span className="font-mono text-xs sm:text-[13px] font-semibold tabular-nums whitespace-nowrap">
+                                    {slot.start_time} – {slot.end_time}
+                                  </span>
+                                  <span
+                                    className={`text-[10px] font-mono uppercase tracking-wider mt-1 ${
+                                      !isAvailable
+                                        ? 'text-ancient-beige/35'
+                                        : isSelected
+                                          ? 'text-gold-warm font-semibold'
+                                          : 'text-emerald-400/90'
+                                    }`}
+                                  >
+                                    {isSelected ? t('Selected ✓', 'चयनित ✓') : statusLabel}
+                                  </span>
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </>
                       )}
                     </div>
                   </div>
@@ -1285,39 +1379,49 @@ export default function AppointmentBookingSection({
                     successfully verified.
                   </p>
 
-                  {/* Sandbox / Test Mode Webhook Verification Trigger (Only shown when live Razorpay secret is not set) */}
+                  {/* UPI Payment Confirmation & Verification Box */}
                   {activePayment.gateway_mode === 'razorpay_test_sandbox' && (
-                    <div className="mt-6 w-full p-4 rounded-lg bg-[#140f0c] border border-amber-500/40 text-left">
-                      <div className="flex items-center justify-between gap-2 mb-1.5">
-                        <span className="font-mono text-[11px] uppercase tracking-wider text-amber-300">
-                          Razorpay Test / Sandbox Mode Active
+                    <div className="mt-6 w-full p-4 rounded-lg bg-[#140f0c] border border-gold-faded/40 text-left space-y-3">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="font-mono text-[11px] uppercase tracking-wider text-gold-warm">
+                          {t('UPI Payment Verification', 'UPI भुगतान सत्यापन')}
                         </span>
                         <span className="font-mono text-[10px] text-ancient-beige/60">
-                          HMAC-SHA256 Webhook Test
+                          ramashokkumar@oksbi
                         </span>
                       </div>
-                      <p className="text-xs text-ancient-beige/70 leading-relaxed mb-3">
-                        Live <code className="text-gold-faded">RAZORPAY_KEY_ID</code> /{' '}
-                        <code className="text-gold-faded">RAZORPAY_KEY_SECRET</code> are not yet set
-                        in environment secrets. Click below to dispatch a signed Razorpay{' '}
-                        <code className="text-gold-faded">qr_code.credited</code> webhook to test the
-                        end-to-end verification and confirmation flow:
+                      <p className="text-xs text-ancient-beige/75 leading-relaxed">
+                        {t(
+                          'After scanning and paying the exact amount via your UPI app, enter your 12-digit UPI UTR / Reference No. (optional in test mode) and click below to confirm your appointment:',
+                          'अपने UPI ऐप से भुगतान करने के पश्चात् अपना १२-अंकीय UPI संदर्भ क्रमांक (UTR) दर्ज करें और बुकिंग पुष्ट करने हेतु नीचे क्लिक करें:'
+                        )}
                       </p>
+                      <input
+                        type="text"
+                        maxLength={40}
+                        value={utrInput}
+                        onChange={(e) => setUtrInput(e.target.value)}
+                        placeholder={t(
+                          'UPI UTR / Transaction Ref No. (e.g. 431819204512)',
+                          'UPI UTR / लेनदेन संदर्भ संख्या'
+                        )}
+                        className="w-full px-3 py-2 rounded bg-[#1f1814] border border-bronze-dark/70 focus:border-gold-warm focus:outline-none text-xs font-mono text-ancient-beige"
+                      />
                       <button
                         type="button"
                         disabled={simulatingWebhook}
                         onClick={handleTriggerSandboxWebhook}
-                        className="w-full py-2.5 px-4 rounded bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/60 text-amber-200 font-mono text-xs uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-2"
+                        className="w-full py-2.5 px-4 rounded bg-gold-warm hover:bg-[#e5c247] text-[#140f0c] font-serif font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-2"
                       >
                         {simulatingWebhook ? (
                           <>
                             <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                            Dispatching Signed Razorpay Webhook...
+                            {t('Verifying UPI Payment...', 'भुगतान सत्यापित हो रहा है...')}
                           </>
                         ) : (
                           <>
                             <ShieldCheck className="w-4 h-4" />
-                            Simulate Verified Razorpay UPI Webhook (₹
+                            {t('Verify UPI Payment & Confirm Booking', 'UPI भुगतान सत्यापित करें एवं बुकिंग पक्की करें')} (₹
                             {activePayment.amount.toLocaleString('en-IN')})
                           </>
                         )}

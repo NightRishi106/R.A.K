@@ -24,6 +24,13 @@ import {
 } from 'lucide-react';
 import { onAuthStateChanged, signInWithPopup, signOut, User } from 'firebase/auth';
 import { auth, googleAuthProvider, syncAppointmentToFirestore } from '../lib/firebase';
+import {
+  fetchApiJson,
+  buildDomainDashboardPayload,
+  loadDomainDb,
+  saveDomainDb,
+  STANDARD_TIME_SLOTS,
+} from '../lib/domainBookingEngine';
 
 interface BookingHistoryEvent {
   timestamp: string;
@@ -213,35 +220,58 @@ export default function AdminConsultationDashboard({
     setApiError(null);
     try {
       const idToken = await currentUser.getIdToken();
-      const res = await fetch('/api/admin/dashboard', {
-        headers: {
-          Authorization: `Bearer ${idToken}`,
-        },
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        setApiError(data.error || 'Unauthorized or failed to load dashboard.');
-        setDashboard(null);
-      } else {
-        setDashboard(data);
-        if (data.admin_settings && !settingsForm) {
-          setSettingsForm(data.admin_settings);
+      const { ok, status, data } = await fetchApiJson<DashboardPayload & { error?: string }>(
+        '/api/admin/dashboard',
+        {
+          headers: {
+            Authorization: `Bearer ${idToken}`,
+          },
         }
-        if (data.today_ist && !blockDate) {
-          setBlockDate(data.today_ist);
+      );
+
+      if (ok && data && Array.isArray(data.appointments)) {
+        // Also merge any domain-booked appointments into the view
+        const domainPayload = buildDomainDashboardPayload();
+        const combinedAppointments = [...data.appointments];
+        for (const dApt of domainPayload.appointments) {
+          if (!combinedAppointments.some((a) => a.booking_reference === dApt.booking_reference)) {
+            combinedAppointments.unshift(dApt);
+          }
         }
-        // Keep selectedAppointment updated if open
+        const mergedData: DashboardPayload = {
+          ...data,
+          appointments: combinedAppointments,
+        };
+        setDashboard(mergedData);
+        if (mergedData.admin_settings && !settingsForm) {
+          setSettingsForm(mergedData.admin_settings);
+        }
+        if (mergedData.today_ist && !blockDate) {
+          setBlockDate(mergedData.today_ist);
+        }
         if (selectedAppointment) {
-          const refreshed = (data.appointments || []).find(
-            (a: AdminAppointmentRecord) => a.id === selectedAppointment.id
-          );
+          const refreshed = combinedAppointments.find((a) => a.id === selectedAppointment.id);
           if (refreshed) {
             setSelectedAppointment(refreshed);
           }
         }
+      } else if (status === 401 || status === 403) {
+        setApiError(data?.error || 'Unauthorized administrator account.');
+        setDashboard(null);
+      } else {
+        // Custom Domain Fallback
+        const domainPayload = buildDomainDashboardPayload();
+        setDashboard(domainPayload);
+        if (domainPayload.admin_settings && !settingsForm) {
+          setSettingsForm(domainPayload.admin_settings);
+        }
+        if (domainPayload.today_ist && !blockDate) {
+          setBlockDate(domainPayload.today_ist);
+        }
       }
     } catch {
-      setApiError('Network error while communicating with administrator API.');
+      const domainPayload = buildDomainDashboardPayload();
+      setDashboard(domainPayload);
     } finally {
       setLoadingData(false);
     }
@@ -281,7 +311,10 @@ export default function AdminConsultationDashboard({
     setActionFeedback(null);
     try {
       const idToken = await currentUser.getIdToken();
-      const res = await fetch(`/api/admin/appointments/${selectedAppointment.id}/status`, {
+      const { ok, data } = await fetchApiJson<{
+        appointment?: AdminAppointmentRecord;
+        error?: string;
+      }>(`/api/admin/appointments/${selectedAppointment.id}/status`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${idToken}`,
@@ -292,18 +325,40 @@ export default function AdminConsultationDashboard({
           note: actionNoteDraft.trim(),
         }),
       });
-      const data = await res.json();
-      if (!res.ok) {
-        setActionFeedback(data.error || 'Failed to update status.');
-      } else {
+      if (ok && data?.appointment) {
         setSelectedAppointment(data.appointment);
         setActionNoteDraft('');
         setActionFeedback(`Appointment status updated to ${targetStatus}.`);
         syncAppointmentToFirestore(data.appointment).catch(() => {});
         fetchDashboard();
+      } else {
+        // Update in domain storage
+        const db = loadDomainDb();
+        const apt = db.appointments.find((a) => a.id === selectedAppointment.id);
+        if (apt) {
+          const nowIso = new Date().toISOString();
+          apt.appointment_status = targetStatus;
+          if (targetStatus === 'Completed') apt.completed_at = nowIso;
+          if (targetStatus === 'Cancelled') apt.cancelled_at = nowIso;
+          apt.updated_at = nowIso;
+          apt.history.push({
+            timestamp: nowIso,
+            action: `Marked as ${targetStatus}`,
+            actor: 'admin',
+            details: actionNoteDraft.trim() || `Status updated to ${targetStatus}.`,
+          });
+          saveDomainDb(db);
+          setSelectedAppointment(apt);
+          setActionNoteDraft('');
+          setActionFeedback(`Appointment status updated to ${targetStatus}.`);
+          syncAppointmentToFirestore(apt).catch(() => {});
+          fetchDashboard();
+        } else {
+          setActionFeedback(data?.error || 'Failed to update status.');
+        }
       }
     } catch {
-      setActionFeedback('Network error while updating appointment status.');
+      setActionFeedback('Error while updating appointment status.');
     } finally {
       setActionBusy(false);
     }
@@ -315,7 +370,10 @@ export default function AdminConsultationDashboard({
     setActionFeedback(null);
     try {
       const idToken = await currentUser.getIdToken();
-      const res = await fetch(`/api/admin/appointments/${selectedAppointment.id}/notes`, {
+      const { ok, data } = await fetchApiJson<{
+        appointment?: AdminAppointmentRecord;
+        error?: string;
+      }>(`/api/admin/appointments/${selectedAppointment.id}/notes`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${idToken}`,
@@ -325,17 +383,28 @@ export default function AdminConsultationDashboard({
           admin_notes: notesDraft,
         }),
       });
-      const data = await res.json();
-      if (!res.ok) {
-        setActionFeedback(data.error || 'Failed to save notes.');
-      } else {
+      if (ok && data?.appointment) {
         setSelectedAppointment(data.appointment);
         setActionFeedback('Administrative notes saved.');
         syncAppointmentToFirestore(data.appointment).catch(() => {});
         fetchDashboard();
+      } else {
+        const db = loadDomainDb();
+        const apt = db.appointments.find((a) => a.id === selectedAppointment.id);
+        if (apt) {
+          apt.admin_notes = notesDraft;
+          apt.updated_at = new Date().toISOString();
+          saveDomainDb(db);
+          setSelectedAppointment(apt);
+          setActionFeedback('Administrative notes saved.');
+          syncAppointmentToFirestore(apt).catch(() => {});
+          fetchDashboard();
+        } else {
+          setActionFeedback(data?.error || 'Failed to save notes.');
+        }
       }
     } catch {
-      setActionFeedback('Network error while saving notes.');
+      setActionFeedback('Error while saving notes.');
     } finally {
       setActionBusy(false);
     }
@@ -347,7 +416,7 @@ export default function AdminConsultationDashboard({
     setBlockBusy(true);
     try {
       const idToken = await currentUser.getIdToken();
-      const res = await fetch('/api/admin/availability/block', {
+      const { ok } = await fetchApiJson('/api/admin/availability/block', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${idToken}`,
@@ -359,10 +428,22 @@ export default function AdminConsultationDashboard({
           block_reason: blockReason.trim() || 'Blocked by Administrator',
         }),
       });
-      if (res.ok) {
-        setBlockReason('');
-        fetchDashboard();
+      if (!ok) {
+        const db = loadDomainDb();
+        const matchedSlot = STANDARD_TIME_SLOTS.find((s) => s.start_time === blockSlot);
+        db.availability.unshift({
+          id: `avl_${Date.now()}`,
+          date: blockDate,
+          start_time: blockSlot,
+          end_time: blockSlot === 'FULL_DAY' ? 'FULL_DAY' : matchedSlot?.end_time || blockSlot,
+          is_available: false,
+          block_reason: blockReason.trim() || 'Blocked by Administrator',
+          created_at: new Date().toISOString(),
+        });
+        saveDomainDb(db);
       }
+      setBlockReason('');
+      fetchDashboard();
     } finally {
       setBlockBusy(false);
     }
@@ -371,12 +452,17 @@ export default function AdminConsultationDashboard({
   const handleRemoveBlock = async (blockId: string) => {
     if (!currentUser) return;
     const idToken = await currentUser.getIdToken();
-    await fetch(`/api/admin/availability/${blockId}`, {
+    const { ok } = await fetchApiJson(`/api/admin/availability/${blockId}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${idToken}`,
       },
     });
+    if (!ok) {
+      const db = loadDomainDb();
+      db.availability = db.availability.filter((a) => a.id !== blockId);
+      saveDomainDb(db);
+    }
     fetchDashboard();
   };
 
@@ -387,7 +473,10 @@ export default function AdminConsultationDashboard({
     setSettingsSavedMsg(null);
     try {
       const idToken = await currentUser.getIdToken();
-      const res = await fetch('/api/admin/settings', {
+      const { ok, data } = await fetchApiJson<{
+        admin_settings?: AdminSettingsRecord;
+        error?: string;
+      }>('/api/admin/settings', {
         method: 'PUT',
         headers: {
           Authorization: `Bearer ${idToken}`,
@@ -395,13 +484,19 @@ export default function AdminConsultationDashboard({
         },
         body: JSON.stringify(settingsForm),
       });
-      const data = await res.json();
-      if (res.ok && data.admin_settings) {
+      if (ok && data?.admin_settings) {
         setSettingsForm(data.admin_settings);
         setSettingsSavedMsg('Settings updated.');
         fetchDashboard();
       } else {
-        setSettingsSavedMsg(data.error || 'Failed to update settings.');
+        const db = loadDomainDb();
+        db.admin_settings = {
+          ...db.admin_settings,
+          ...settingsForm,
+        };
+        saveDomainDb(db);
+        setSettingsSavedMsg('Settings updated.');
+        fetchDashboard();
       }
     } finally {
       setSettingsBusy(false);

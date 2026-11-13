@@ -7,9 +7,13 @@ import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 import { initializeApp as initAdminApp, getApps as getAdminApps } from 'firebase-admin/app';
 import { getAuth as getAdminAuth } from 'firebase-admin/auth';
-import firebaseConfig from './firebase-applet-config.json';
 
 dotenv.config();
+
+const firebaseConfigPath = path.resolve(process.cwd(), 'firebase-applet-config.json');
+const firebaseConfig = fs.existsSync(firebaseConfigPath)
+  ? JSON.parse(fs.readFileSync(firebaseConfigPath, 'utf8'))
+  : { projectId: 'gen-lang-client-0140931567', apiKey: '' };
 
 // Initialize Firebase Admin for server-side ID token verification
 if (!getAdminApps().length) {
@@ -686,6 +690,14 @@ function isValidPhone(phone: string): boolean {
   return false;
 }
 
+function normalizeIncomingDate(raw: string): string {
+  const trimmed = (raw || '').trim();
+  if (/^\d{4}-\d{2}-\d{2}$/.test(trimmed)) return trimmed;
+  const dmy = trimmed.match(/^(\d{2})[/-](\d{2})[/-](\d{4})$/);
+  if (dmy) return `${dmy[3]}-${dmy[2]}-${dmy[1]}`;
+  return trimmed;
+}
+
 function isValidDateString(dateStr: string): boolean {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return false;
   const d = new Date(`${dateStr}T00:00:00+05:30`);
@@ -740,6 +752,20 @@ async function confirmVerifiedAppointmentPayment(
 async function startServer() {
   const app = express();
   const PORT = Number(process.env.PORT) || 3000;
+
+  // Enable CORS so custom domains can communicate with all /api/* endpoints seamlessly
+  app.use((req: Request, res: Response, next: NextFunction) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+    res.setHeader(
+      'Access-Control-Allow-Headers',
+      'Content-Type, Authorization, x-booking-token, x-razorpay-signature, x-razorpay-event-id, x-sandbox-test-webhook'
+    );
+    if (req.method === 'OPTIONS') {
+      return res.status(204).end();
+    }
+    return next();
+  });
 
   // --------------------------------------------------------------------------
   // 1. RAZORPAY WEBHOOK ENDPOINT (Raw body required for HMAC-SHA256 verification)
@@ -997,7 +1023,7 @@ async function startServer() {
 
   app.get('/api/availability', async (req: Request, res: Response) => {
     try {
-      const dateStr = sanitizeText(req.query.date, 10);
+      const dateStr = normalizeIncomingDate(sanitizeText(req.query.date, 20));
       if (!isValidDateString(dateStr)) {
         return res.status(400).json({ error: 'Invalid date format. Expected YYYY-MM-DD.' });
       }
