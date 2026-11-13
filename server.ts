@@ -1995,8 +1995,76 @@ async function startServer() {
   });
 
   // --------------------------------------------------------------------------
-  // 8. EXPIRE & RELEASE PENDING BOOKINGS ENDPOINTS
+  // 8. EXPIRE & RELEASE PENDING BOOKINGS + WHATSAPP DUAL CARD DISPATCH
   // --------------------------------------------------------------------------
+  app.post('/api/whatsapp/dispatch-cards', async (req: Request, res: Response) => {
+    try {
+      const bookingRef = sanitizeText(req.body?.booking_reference, 40);
+      const senderPhoneRaw = sanitizeText(req.body?.customer_phone || req.body?.sender_whatsapp, 30);
+      const adminMessage = sanitizeText(req.body?.admin_message, 4000);
+      const customerMessage = sanitizeText(req.body?.customer_message, 4000);
+
+      const ramWhatsApp = '919150990786';
+      const senderDigits = senderPhoneRaw.replace(/\D/g, '');
+      const senderWhatsApp =
+        senderDigits.length === 10
+          ? `91${senderDigits}`
+          : senderDigits.length === 11 && senderDigits.startsWith('0')
+            ? `91${senderDigits.slice(1)}`
+            : senderDigits;
+
+      const waAccessToken = process.env.WHATSAPP_ACCESS_TOKEN;
+      const waPhoneNumberId = process.env.WHATSAPP_PHONE_NUMBER_ID;
+
+      if (waAccessToken && waPhoneNumberId && adminMessage && customerMessage) {
+        const sendWa = async (to: string, body: string) => {
+          if (!to) return;
+          await fetch(`https://graph.facebook.com/v20.0/${waPhoneNumberId}/messages`, {
+            method: 'POST',
+            headers: {
+              Authorization: `Bearer ${waAccessToken}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              messaging_product: 'whatsapp',
+              to,
+              type: 'text',
+              text: { body },
+            }),
+          });
+        };
+
+        await Promise.allSettled([
+          sendWa(ramWhatsApp, adminMessage),
+          sendWa(senderWhatsApp, customerMessage),
+        ]);
+      }
+
+      if (bookingRef) {
+        await withBookingLock((db) => {
+          const apt = db.appointments.find((a) => a.booking_reference === bookingRef);
+          if (apt) {
+            apt.history.push({
+              timestamp: new Date().toISOString(),
+              action: 'WhatsApp Payment Done Cards Dispatched',
+              actor: 'system',
+              details: `Payment Done Card & Full Information prepared/dispatched to Ram Ashok Kumar (+91 91509 90786) and Sender WhatsApp (${senderPhoneRaw}).`,
+            });
+          }
+        });
+      }
+
+      return res.json({
+        dispatched: true,
+        ram_whatsapp: '+91 91509 90786',
+        sender_whatsapp: senderPhoneRaw,
+      });
+    } catch (err) {
+      console.error('Error dispatching WhatsApp cards:', err);
+      return res.status(500).json({ error: 'Unable to dispatch WhatsApp cards.' });
+    }
+  });
+
   app.post('/api/bookings/expire-pending', async (_req: Request, res: Response) => {
     try {
       const expiredCount = await withBookingLock((db) => expirePendingBookingsSync(db));

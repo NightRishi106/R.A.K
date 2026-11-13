@@ -36,6 +36,8 @@ import {
   buildRamWhatsAppCardUrl,
   buildCustomerWhatsAppCardUrl,
   generatePaymentCardDataUrl,
+  triggerDualWhatsAppDispatch,
+  RAM_ASHOK_KUMAR_DISPLAY_PHONE,
   type WhatsAppCardPayload,
 } from '../lib/whatsappCardGenerator';
 import {
@@ -639,8 +641,16 @@ export default function AppointmentBookingSection({
         upi_id: activePayment?.upi_id || 'ramashokkumar@oksbi',
         consultation_reason: activeBooking.consultation_reason || consultationReason.trim(),
         additional_message: activeBooking.additional_message || additionalMessage.trim(),
+        terms_version: activeBooking.terms_version || BOOKING_TERMS_VERSION,
+        terms_accepted_at: activeBooking.terms_accepted_at,
       }
     : null;
+
+  useEffect(() => {
+    if (step === 'confirmed' && whatsappCardPayload) {
+      triggerDualWhatsAppDispatch(whatsappCardPayload).catch(() => {});
+    }
+  }, [step, activeBooking?.booking_reference]);
 
   const paymentCardImageUrl =
     step === 'confirmed' && whatsappCardPayload
@@ -984,6 +994,12 @@ export default function AppointmentBookingSection({
                         placeholder="+91 98765 43210"
                         className="w-full px-4 py-3 rounded-lg bg-[#120d0a] border border-bronze-dark/70 focus:border-gold-warm focus:outline-none text-ancient-beige text-sm tabular-nums"
                       />
+                      <p className="mt-1.5 text-[11px] font-mono text-emerald-400/85">
+                        {t(
+                          '✓ Payment Done Card & full details will be sent to this WhatsApp number & Ram Ashok Kumar (+91 91509 90786).',
+                          '✓ भुगतान कार्ड और पूर्ण विवरण इस व्हाट्सएप नंबर तथा राम अशोक कुमार (+91 91509 90786) पर भेजा जाएगा।'
+                        )}
+                      </p>
                     </div>
 
                     <div>
@@ -1639,19 +1655,29 @@ export default function AppointmentBookingSection({
 
                   {/* Visual Payment Done Card Preview & WhatsApp Dispatch Actions */}
                   <div className="pt-4 border-t border-gold-faded/30 space-y-4">
-                    <div className="text-center">
-                      <p className="font-mono text-xs uppercase tracking-wider text-gold-warm mb-1">
+                    <div className="p-3.5 rounded-lg bg-emerald-950/35 border border-emerald-500/40 text-xs sm:text-sm text-emerald-200 space-y-1.5">
+                      <p className="font-serif font-bold text-emerald-300 text-sm sm:text-base">
                         {t(
-                          'WhatsApp Payment Done Card — Send & Save on Both WhatsApp Numbers',
-                          'व्हाट्सएप भुगतान कार्ड — दोनों व्हाट्सएप नंबरों पर भेजें और सुरक्षित करें'
+                          'WhatsApp Payment Done Card — Prepared for Both Recipients:',
+                          'व्हाट्सएप भुगतान कार्ड — दोनों प्राप्तकर्ताओं हेतु तैयार:'
                         )}
                       </p>
-                      <p className="text-xs text-ancient-beige/70">
-                        {t(
-                          'Send the complete verified booking & payment card directly to Ram Ashok Kumar (+91 91509 90786) and to your own WhatsApp below:',
-                          'संपूर्ण सत्यापित बुकिंग एवं भुगतान कार्ड सीधे राम अशोक कुमार (+91 91509 90786) और अपने व्हाट्सएप पर भेजें:'
-                        )}
-                      </p>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 font-mono text-xs pt-1">
+                        <div className="p-2.5 rounded bg-[#120d0a]/90 border border-emerald-500/30">
+                          <span className="block text-[10px] uppercase text-ancient-beige/60">
+                            1. Ram Ashok Kumar WhatsApp
+                          </span>
+                          <strong className="text-gold-warm">{RAM_ASHOK_KUMAR_DISPLAY_PHONE}</strong>
+                        </div>
+                        <div className="p-2.5 rounded bg-[#120d0a]/90 border border-emerald-500/30">
+                          <span className="block text-[10px] uppercase text-ancient-beige/60">
+                            2. Sender WhatsApp (Contact Details)
+                          </span>
+                          <strong className="text-emerald-300">
+                            {whatsappCardPayload.customer_phone}
+                          </strong>
+                        </div>
+                      </div>
                     </div>
 
                     {paymentCardImageUrl && (
@@ -1674,8 +1700,8 @@ export default function AppointmentBookingSection({
                         <MessageCircle className="w-4 h-4 shrink-0" />
                         <span>
                           {t(
-                            'Send Card to Ram Ashok Kumar WhatsApp',
-                            'राम अशोक कुमार के व्हाट्सएप पर कार्ड भेजें'
+                            `Send Card to Ram Ashok Kumar (${RAM_ASHOK_KUMAR_DISPLAY_PHONE})`,
+                            `राम अशोक कुमार (${RAM_ASHOK_KUMAR_DISPLAY_PHONE}) को कार्ड भेजें`
                           )}
                         </span>
                       </a>
@@ -1689,8 +1715,8 @@ export default function AppointmentBookingSection({
                         <MessageCircle className="w-4 h-4 shrink-0" />
                         <span>
                           {t(
-                            'Receive Card on Your WhatsApp',
-                            'अपने व्हाट्सएप पर कार्ड प्राप्त करें'
+                            `Send Card to Sender (${whatsappCardPayload.customer_phone})`,
+                            `प्रषक के व्हाट्सएप (${whatsappCardPayload.customer_phone}) पर कार्ड भेजें`
                           )}
                         </span>
                       </a>
